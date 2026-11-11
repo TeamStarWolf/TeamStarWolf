@@ -17,7 +17,7 @@ Advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 38 min (8,816 words at 230 words a minute)
+About 38 min (8,830 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -257,9 +257,9 @@ Several features exist only on the USEM side: SSVC enrichment, Armis Early Warni
 
 | Source | VR (hosts) | CC (configuration) | CVR (containers) | Elsewhere |
 |---|---|---|---|---|
-| **Tenable Vulnerability Management** (formerly Tenable.io) | Assets; Plugin; Fixed → Open Vulnerabilities; Scan Credential; Template; Scan Metadata; rescan | Fixed Compliance Results → Open Compliance Results; Compliance Results Backfill (v6.1.3 and later) | — | Tenable WAS → Application VR |
-| **Tenable Security Center** (Tenable.sc) | Open/Fixed Assets; Plugin; Fixed → Open Vulnerabilities; Scan Credential; Backfill; rescan; MID Server | Not documented | — | — |
-| **Tenable Cloud Security** (Tenable.cs) | Open → Fixed Cloud Host Vulnerabilities | Not documented | Cloud Container Assets → Open → Fixed Cloud Container Vulnerabilities | — |
+| **Tenable Vulnerability Management** (formerly Tenable.io) | Assets; Plugin; Fixed → Open Vulnerabilities; Scan Credential; Template; Scan Metadata; rescan | Fixed Compliance Results → Open Compliance Results; Compliance Results Backfill (v6.1.3 and later) | n/a | Tenable WAS → Application VR |
+| **Tenable Security Center** (Tenable.sc) | Open/Fixed Assets; Plugin; Fixed → Open Vulnerabilities; Scan Credential; Backfill; rescan; MID Server | Not documented | n/a | n/a |
+| **Tenable Cloud Security** (Tenable.cs) | Open → Fixed Cloud Host Vulnerabilities | Not documented | Cloud Container Assets → Open → Fixed Cloud Container Vulnerabilities | n/a |
 | **Wiz** | Host Vulnerability (VMs, serverless); Asset (optional) | Test Results; Host Test Results; Issues | Grouped Vulnerability → Deployment Context → Container Vulnerability | SCA, Secrets, Application List → AVR; AI posture → AI Security |
 
 Sources: [TVM integrations](https://github.com/ServiceNow/ServiceNowDocs/blob/brazil/markdown/security-management/vulnerability-response/tenable-io-integrations-list.md); [Tenable.sc integrations](https://github.com/ServiceNow/ServiceNowDocs/blob/brazil/markdown/security-management/vulnerability-response/tenable-sc-integrations-list.md); [Tenable.cs integrations](https://github.com/ServiceNow/ServiceNowDocs/blob/brazil/markdown/security-management/vulnerability-response/tenable-cs-integrations-list.md); [Tenable WAS](https://github.com/ServiceNow/ServiceNowDocs/blob/brazil/markdown/security-management/application-vulnerability-response/tenable-was-integration.md); [Wiz integrations by target app](https://github.com/ServiceNow/ServiceNowDocs/blob/brazil/markdown/security-management/vulnerability-response/vr-wiz-exploring-host-cf.md); [Wiz container chain](https://github.com/ServiceNow/ServiceNowDocs/blob/brazil/markdown/security-management/vulnerability-response/wiz-container-runtime-exposure-cvr.md); Wiz AI posture.
@@ -362,7 +362,7 @@ Two gaps matter. **The docs never map Wiz host status to VI state.** REJECTED la
 | Discovered item `source_id` | Asset `id` (UUID) | `vulnerableAsset.id` (asset integration: `id`) |
 | Host identifiers | First `ipv4s`, `fqdns`, `netbios_names`, `mac_addresses` | `vulnerableAsset.name` → `dns`; `ipAddresses[0]` → `ip_address` |
 | Cloud context | Cloud metadata fields (v18+) | `region`, `providerUniqueId`, `cloudPlatform`, `subscriptionExternalId`, `nativeType` |
-| Internet exposure | — | `isAccessibleFromInternet` → `cmdb_ci_internet_facing` (Asset) |
+| Internet exposure | n/a | `isAccessibleFromInternet` → `cmdb_ci_internet_facing` (Asset) |
 | TPE ID | Plugin `id` → `TEN-<id>` | `name` → `sn_vul_entry.id` |
 | Severity | `risk_factor` → `source_severity`; `severity_id` → VI `priority` | `vendorSeverity` → `source_severity` |
 | Vendor risk | `vpr.score` (v2 preferred) → `source_risk_score` + rating | `score` → `v3_base_score` (no Wiz risk score) |
@@ -492,8 +492,8 @@ CMDB alignment runs through `cmdb_ci_docker_image`. The AWS Service Graph Connec
 | Package | Software name, version, type, paths | `detailedName`, `version`, `locationPath` |
 | Vendor risk / severity | `VprScore` → `source_risk_score`; `VprSeverity` → `source_severity` | Vendor severity → finding source severity |
 | Status | `u_resolved` → finding status and CVIT state | `status` → finding `is_ignored` |
-| Runtime / base layer | — | `validate_at_runtime`; `layerMetadata.isBaseLayer` → finding `is_base_image` |
-| Fix | — | `fixed_version` → finding `fix_status` |
+| Runtime / base layer | n/a | `validate_at_runtime`; `layerMetadata.isBaseLayer` → finding `is_base_image` |
+| Fix | n/a | `fixed_version` → finding `fix_status` |
 
 Sources: [Tenable transform reference](https://github.com/ServiceNow/ServiceNowDocs/blob/brazil/markdown/security-management/vulnerability-response/tenable-data-transformref.md); [Wiz field mappings](https://github.com/ServiceNow/ServiceNowDocs/blob/brazil/markdown/security-management/vulnerability-response/wiz-vul-resp-integration-view-findings.md). Because CVR 30.3.2 deprecated the CVIT-level IsBaseImage flag as "image-specific data" ([Store release notes: CVR](https://www.servicenow.com/docs/r/store-release-notes/store-secops-rn-vr-cc-containers.html)), triage of base-image versus application-layer findings should filter on findings or layers, not CVITs.
 

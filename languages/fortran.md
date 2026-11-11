@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,098 words at 230 words a minute)
+About 6 min (1,436 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -176,6 +176,29 @@ Fortran's aliasing rules (arguments are assumed not to overlap unless declared o
 - Uninitialized variables hold arbitrary values; initialize before use rather than relying on zeroing.
 - Mixed precision: a literal like `1.0` is default real, so assigning it to a double-precision variable loses precision; use kind-qualified literals (`1.0_dp`).
 - Fixed-form versus free-form source rules differ (column positions, continuation); keep a file in one form.
+
+## Security relevance
+
+Fortran reaches security practitioners as the language of long-lived scientific and high-performance codebases, where the concern is memory safety in software that reads external data files and interoperates with C. This section is the threat-facing context; the defensive patterns that counter each class are in the Secure coding section that follows.
+
+### Where it appears
+
+- Scientific and high-performance computing. Climate and weather models, computational fluid dynamics, and physics and chemistry simulations are written in Fortran and routinely parse large input and configuration files, which is where untrusted data enters otherwise numerical code.
+- Numerical libraries. Dense linear algebra and transform libraries such as [LAPACK](https://www.netlib.org/lapack/), BLAS, and [FFTW](https://www.fftw.org/) are linked into larger systems, often across a C interoperability boundary, so a memory bug in Fortran code can surface in a program written in another language.
+- Legacy codebases. Decades-old Fortran stays in production because of its optimizing compilers, so the software being audited is often large and long-maintained. Fortran has little offensive-tooling presence.
+
+### Dominant weakness classes
+
+Fortran is memory-unsafe in the C sense (manual array and fixed-length character handling with no bounds checking unless a compiler flag is set), so the memory-corruption classes apply:
+
+- Buffer overflow and out-of-bounds access. Writing past an array or a fixed-length `character` variable corrupts memory, mapping to [CWE-787](https://cwe.mitre.org/data/definitions/787.html), and reading past it to [CWE-125](https://cwe.mitre.org/data/definitions/125.html).
+- Operating-system command injection. The `execute_command_line` intrinsic and the common `system` extension run a shell command, so a command assembled from untrusted input maps to [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Integer overflow. Fixed-width integers wrap or trap depending on compiler settings, so unchecked arithmetic can overflow, which relates to [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Input validation on parsing. List-directed and formatted reads of attacker-controlled files can misbehave on malformed input, which maps to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+
+### Why it matters
+
+Reading Fortran lets an analyst audit array indexing and file-parsing routines in numerical software for memory errors and for commands built from input, including code reached through a C interoperability layer. Compiler diagnostics such as gfortran's `-Wall -Wextra -fcheck=all` and [fortran-linter](https://github.com/cphyc/fortran-linter) are the main static checks, as the Secure coding section details.
 
 ## Secure coding
 

@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,253 words at 230 words a minute)
+About 7 min (1,607 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -176,6 +176,29 @@ The practical implication is to profile on the target you actually ship, since t
 - Overusing macros, which can make build errors cryptic and debugging hard.
 - Confusing Haxe's `enum` (algebraic data type) with a C-style enumeration; it is more capable and matched with `switch`.
 - Relying on `Dynamic` to bypass the type system, which discards the safety that is Haxe's main benefit.
+
+## Security relevance
+
+Haxe reaches practitioners mainly through the platforms it compiles to rather than as a language with its own offensive tooling: the same source becomes JavaScript, C++, C#, Java, Python, Lua, or PHP, and the generated output is what defenders and reverse engineers assess. This section is the threat-facing context; the defensive patterns that counter each class are in the Secure coding section that follows.
+
+### Where it appears
+
+- Games and clients. Frameworks such as [Heaps](https://heaps.io/), [OpenFL](https://www.openfl.org/), and [Kha](https://github.com/Kode/Kha) ship Haxe to web, desktop, mobile, and consoles. Save files and network messages from other players are untrusted input, and logic that trusts the client can be bypassed.
+- Web and server builds. The JavaScript and PHP targets place Haxe behind web front ends and back ends, where the output inherits that platform's attack surface. See [Web Application Pentesting](/WEB_APPLICATION_PENTESTING.md) and the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Build-time macros. Haxe macros run arbitrary code during compilation, so the build itself is a place code executes and a third-party macro library is a supply-chain concern.
+
+### Dominant weakness classes
+
+Haxe is memory-safe on its usual targets (garbage-collected, following the host runtime), so the memory-corruption classes that dominate C and C++ belong to whatever native code a target emits rather than to Haxe source. The weaknesses that remain track the target platform and input handling:
+
+- Cross-site scripting on web builds when untrusted data is written into the DOM. This is [CWE-79](https://cwe.mitre.org/data/definitions/79.html).
+- Command and path injection on server or native builds that use `sys` APIs. These are [CWE-78](https://cwe.mitre.org/data/definitions/78.html) and [CWE-22](https://cwe.mitre.org/data/definitions/22.html).
+- Insecure deserialization of Haxe's native serialization format, which can reconstruct typed objects from untrusted data. This is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- Hardcoded secrets compiled into a client build, which are recoverable from the shipped artifact. This is [CWE-798](https://cwe.mitre.org/data/definitions/798.html).
+
+### Why it matters
+
+Reading Haxe lets a practitioner audit cross-platform logic once rather than per target, and confirm that client-side checks (multiplayer actions, save handling) are re-validated on a server. There is no widely adopted dedicated Haxe security linter, so review leans on the strict type system, the compiler's warnings, and the target platform's own analyzers run against the generated output, as the Secure coding section describes.
 
 ## Secure coding
 

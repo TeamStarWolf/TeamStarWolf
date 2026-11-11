@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 11 min (2,540 words at 230 words a minute)
+About 11 min (2,537 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -77,7 +77,7 @@ No review recorded yet
 **Key integrations.** Microsoft Sentinel and any SIEM (Splunk, QRadar, Chronicle) via diagnostic log streaming to Event Hub / Log Analytics; Microsoft Intune (device compliance signal for Conditional Access) and Microsoft Defender XDR / Defender for Cloud Apps (risk signal, session control); ServiceNow and other ITSM/ticketing for access requests, access package fulfillment, and lifecycle workflows; Thousands of SaaS apps via SAML/OIDC app gallery (Salesforce, ServiceNow, AWS, GCP, Workday, SAP, etc.); Cross-cloud federation to AWS IAM Identity Center and Google Cloud via SAML/OIDC; On-prem AD via Entra Connect; SCIM provisioning to downstream apps; Partner MFA/identity tools and FIDO2 security keys; works alongside Cisco Duo as an external MFA or as a federated IdP in some topologies.
 
 **Differentiators**
-- Default identity plane for the entire Microsoft 365 / Azure estate — unmatched reach and native signal depth for organizations already on Microsoft
+- Default identity plane for the entire Microsoft 365 / Azure estate: unmatched reach and native signal depth for organizations already on Microsoft
 - Rich ML-driven risk engine (Identity Protection) trained on Microsoft's trillions of daily signals, feeding risk directly into Conditional Access
 - Tight native loop between identity (Entra), device (Intune), and threat (Defender XDR) for a unified Zero Trust posture
 - Continuous Access Evaluation for near-real-time token revocation rather than waiting for token expiry
@@ -85,19 +85,19 @@ No review recorded yet
 
 **Limitations & considerations**
 - Licensing complexity: key controls (risk-based CA, PIM, full access reviews) are gated behind P2/E5 or add-ons; easy to under-license and lose protections
-- PIM is time-bound elevation, not full PAM — no credential vaulting, session recording/isolation, or secrets management; not a replacement for CyberArk for infrastructure/privileged-session control
+- PIM is time-bound elevation, not full PAM: no credential vaulting, session recording/isolation, or secrets management; not a replacement for CyberArk for infrastructure/privileged-session control
 - Strongest when the estate is Microsoft-centric; governing non-Microsoft and multi-cloud identities well often needs add-ons or third-party IGA
-- Conditional Access policy sprawl is a real operational risk — misconfiguration can lock out admins or create gaps; requires disciplined change control, report-only mode, and break-glass accounts
+- Conditional Access policy sprawl is a real operational risk: misconfiguration can lock out admins or create gaps; requires disciplined change control, report-only mode, and break-glass accounts
 - Identity Protection risk detections can lag or generate false positives; tuning and E5 licensing needed for full fidelity
 - Global Secure Access (SSE) is comparatively young versus incumbent SSE/ZTNA vendors
 
 ## Vulnerability-mitigation role
 
-Acts as an identity-layer compensating / virtual-patching control during the exposure window. When a critical CVE hits an internet-facing or SaaS app, Conditional Access can immediately require phishing-resistant MFA, require a compliant/managed device, restrict to named locations, block legacy authentication protocols, or block the app outright for all or high-risk users, cutting off the exploitation path for identity- and access-dependent vulnerabilities (credential theft, token replay, session hijack, auth bypass) without touching the vulnerable code. Identity Protection auto-remediates compromised credentials (force password reset, block sign-in) that attackers would leverage post-exploit. PIM shrinks the standing-privilege blast radius so that even if a workstation or app is compromised, few accounts hold exploitable persistent admin rights. Continuous access evaluation (CAE) revokes tokens near-real-time when risk changes. It does not patch the CVE but materially reduces exploitability and blast radius until the vendor patch lands.
+Acts as an identity-layer compensating / virtual-patching control during the exposure window. When a critical CVE hits an internet-facing or SaaS app, Conditional Access can immediately require phishing-resistant MFA, require a compliant/managed device, restrict to named locations, block legacy authentication protocols, or block the app outright for all or high-risk users, cutting off the exploitation path for identity- and access-dependent vulnerabilities (credential theft, token replay, session hijack, auth bypass) without touching the vulnerable code. Identity Protection auto-remediates compromised credentials (force password reset, block sign-in) that attackers would use post-exploit. PIM shrinks the standing-privilege blast radius so that even if a workstation or app is compromised, few accounts hold exploitable persistent admin rights. Continuous access evaluation (CAE) revokes tokens near-real-time when risk changes. It does not patch the CVE but materially reduces exploitability and blast radius until the vendor patch lands.
 
 **VM lifecycle:** Prioritize · Mitigate · Monitor/Detect · Validate
 
-**Framework mapping:** NIST CSF 2.0: PR (Protect) — PR.AA Identity Management, Authentication, and Access Control (primary); DE (Detect) — DE.CM continuous monitoring via Identity Protection; RS (Respond) — automated remediation; GV (Govern) — access governance; CIS Controls v8: 5 (Account Management), 6 (Access Control Management — esp. 6.3/6.4 MFA, 6.5 unique admin), 4 (Secure Configuration), 8 (Audit Log Management), 12 (Network — via Global Secure Access); MITRE ATT&CK mitigations: M1032 Multi-factor Authentication, M1036 Account Use Policies, M1018 User Account Management, M1026 Privileged Account Management, M1047 Audit, M1017 User Training (adjacent)
+**Framework mapping:** NIST CSF 2.0: PR (Protect), PR.AA Identity Management, Authentication, and Access Control (primary); DE (Detect): DE.CM continuous monitoring via Identity Protection; RS (Respond): automated remediation; GV (Govern): access governance; CIS Controls v8: 5 (Account Management), 6 (Access Control Management: esp. 6.3/6.4 MFA, 6.5 unique admin), 4 (Secure Configuration), 8 (Audit Log Management), 12 (Network, via Global Secure Access); MITRE ATT&CK mitigations: M1032 Multi-factor Authentication, M1036 Account Use Policies, M1018 User Account Management, M1026 Privileged Account Management, M1047 Audit, M1017 User Training (adjacent)
 
 **In a critical-CVE scenario.** Hour 0-24: identify affected app(s) in Entra enterprise apps; create (report-only then enforced) Conditional Access policies to require phishing-resistant MFA and a compliant device for the exposed app, and block legacy auth. For a high-severity identity-exploitable flaw, scope a block or session-limit policy to all users or to Identity Protection high-risk users. Raise PIM so no standing admin access is active; require approval+MFA on activation. Hour 24-72: review Entra sign-in and audit logs (and Sentinel) for anomalous sign-ins, token anomalies, and risky users tied to the CVE; force credential reset / sign-in block on compromised accounts via Identity Protection; tighten named-location and device filters. For a cloud workload, constrain the relevant workload identity / managed identity with Conditional Access for workload identities and rotate associated secrets. Validate via report-only insights and sign-in telemetry; keep policies until the patched version is deployed and confirmed.
 
@@ -115,15 +115,15 @@ Acts as an identity-layer compensating / virtual-patching control during the exp
 **Control-presence check (present & configured?).** Confirm the control exists and is correctly configured via Microsoft Graph rather than any on-device key (Entra is a cloud IdP). Conditional Access: GET https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies (PowerShell: Get-MgIdentityConditionalAccessPolicy; perm Policy.Read.All) and assert state == 'enabled' (NOT 'enabledForReportingButNotEnforced' = report-only, NOT 'disabled'), that conditions match the intended users/apps, and grantControls.builtInControls contains 'mfa' or grantControls.authenticationStrength is set, or 'block'. MFA method config: GET /policies/authenticationMethodsPolicy and .../authenticationMethodConfigurations/{id} (e.g. fido2, microsoftAuthenticator) with state=='enabled'. User registration posture: GET /reports/authenticationMethods/userRegistrationDetails (Get-MgReportAuthenticationMethodUserRegistrationDetail) → isMfaRegistered / isMfaCapable. Catch config drift in AuditLogs OperationName 'Update Conditional Access policy' / 'Add conditional access policy'.
 
 **Validation signals (actually working?)**
-- SigninLogs.ConditionalAccessStatus with values success / failure / notApplied, combined with AuthenticationRequirement == 'multiFactorAuthentication' and AuthenticationDetails showing MFA was satisfied — proves a policy fired AND how it resolved.
-- Per-policy result inside the ConditionalAccessPolicies (a.k.a. AppliedConditionalAccessPolicies) dynamic array: each object's result == 'success' | 'failure' | 'notApplied' | 'notEnabled' | 'reportOnlySuccess/Failure/NotApplied', with enforcedGrantControls (e.g. 'Mfa','Block'). result=='notApplied'/'notEnabled' means the policy did NOT act — distinguishes configured-but-idle from actually enforcing.
+- SigninLogs.ConditionalAccessStatus with values success / failure / notApplied, combined with AuthenticationRequirement == 'multiFactorAuthentication' and AuthenticationDetails showing MFA was satisfied: proves a policy fired AND how it resolved.
+- Per-policy result inside the ConditionalAccessPolicies (a.k.a. AppliedConditionalAccessPolicies) dynamic array: each object's result == 'success' | 'failure' | 'notApplied' | 'notEnabled' | 'reportOnlySuccess/Failure/NotApplied', with enforcedGrantControls (e.g. 'Mfa','Block'). result=='notApplied'/'notEnabled' means the policy did NOT act: distinguishes configured-but-idle from actually enforcing.
 - ResultType codes that PROVE an enforcement action blocked or stepped up a sign-in (not just that a policy exists): 53003 (access blocked by Conditional Access), 50074 (strong auth required), 50076/50079 (MFA required / proof-up required), 530031 (blocked by a CA/security-defaults policy), 50158 (external security challenge not satisfied).
 - Identity Protection: AADUserRiskEvents RiskEventType/RiskLevel/RiskState and risk-based CA outcomes; RiskState transition atRisk → remediated (user did MFA/password reset) proves the remediation control actually ran, not merely that risk was detected.
 
 **Key events / fields / tables / APIs**
 - Tables: SigninLogs, AADNonInteractiveUserSignInLogs, AuditLogs, AADRiskyUsers, AADUserRiskEvents.
 - SigninLogs fields: ConditionalAccessStatus; ConditionalAccessPolicies / AppliedConditionalAccessPolicies (dynamic array of {id, displayName, result, enforcedGrantControls, enforcedSessionControls}); AuthenticationRequirement; AuthenticationDetails; MfaDetail; ResultType; ResultDescription; Status; RiskLevelDuringSignIn; RiskState; ClientAppUsed; IPAddress; UserPrincipalName; AppDisplayName.
-- AuditLogs fields: OperationName (e.g. 'Update Conditional Access policy'), Category ('Policy'), ActivityDisplayName 'User registered security info' (LoggedByService 'Azure MFA', per a community-observed record — verify in-tenant), InitiatedBy, TargetResources[].modifiedProperties (oldValue/newValue JSON).
+- AuditLogs fields: OperationName (e.g. 'Update Conditional Access policy'), Category ('Policy'), ActivityDisplayName 'User registered security info' (LoggedByService 'Azure MFA', per a community-observed record; verify in-tenant), InitiatedBy, TargetResources[].modifiedProperties (oldValue/newValue JSON).
 - AADUserRiskEvents fields: RiskEventType, RiskLevel (low/medium/high/none), RiskState (atRisk/confirmedCompromised/remediated/dismissed), RiskDetail, Source, UserPrincipalName, CorrelationId.
 - Graph endpoints for the same data: /auditLogs/signIns, /auditLogs/directoryAudits, /identityProtection/riskDetections, /identityProtection/riskyUsers, /identity/conditionalAccess/policies, /policies/authenticationMethodsPolicy, /reports/authenticationMethods/userRegistrationDetails.
 - ResultType reference values: 0 success, 50074/50076/50079 MFA, 53003 blocked-by-CA, 530031 blocked, 50158 external challenge.
@@ -162,9 +162,9 @@ AuditLogs
 
 **Logging gotchas**
 - Entra portal retains sign-in/audit logs ~30 days and Identity Protection risk data 30 days (P1) / 90 days (P2); only data exported via Diagnostic Settings persists longer. Enable retention before you need it.
-- Report-only policies (state 'enabledForReportingButNotEnforced') log appliedConditionalAccessPolicies with result 'reportOnly*' and DO NOT block — presence of a policy object or an applied entry is NOT proof of enforcement.
+- Report-only policies (state 'enabledForReportingButNotEnforced') log appliedConditionalAccessPolicies with result 'reportOnly*' and DO NOT block: presence of a policy object or an applied entry is NOT proof of enforcement.
 - Non-interactive and service-principal sign-ins live in SEPARATE, high-volume tables (AADNonInteractiveUserSignInLogs, AADServicePrincipalSignInLogs) that must be enabled explicitly; token-theft/replay on service principals is missed if only SigninLogs is collected.
-- Column naming drifts: AppliedConditionalAccessPolicies vs ConditionalAccessPolicies differs across ingestion paths — use column_ifexists(); and KQL '==' is case-sensitive, so match the documented casing 'Update Conditional Access policy' or use =~/in~.
+- Column naming drifts: AppliedConditionalAccessPolicies vs ConditionalAccessPolicies differs across ingestion paths: use column_ifexists(); and KQL '==' is case-sensitive, so match the documented casing 'Update Conditional Access policy' or use =~/in~.
 - Legacy/basic auth (ClientAppUsed == 'Other clients') bypasses most grant controls unless a policy explicitly blocks legacy auth; those sign-ins can show MFA 'notApplied' while still succeeding.
 
 ## Documentation & repositories
@@ -215,7 +215,7 @@ Azure AD was renamed Microsoft Entra ID (effective 15 July 2023); naming is stab
 
 - [Identity & Access Management (IAM) Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)
 - [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md)
-- [Zero Trust Reference: Comprehensive Cybersecurity Guide](/ZERO_TRUST_REFERENCE.md)
+- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
 - [Active Directory Security Reference](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md)
 - [Cisco Duo](/tools/cisco-duo.md)
 - [CyberArk](/tools/cyberark.md)

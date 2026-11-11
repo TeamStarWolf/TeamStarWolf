@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,125 words at 230 words a minute)
+About 6 min (1,483 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -172,6 +172,29 @@ Query performance depends on the execution plan, inspected with `SET SHOWPLAN` o
 - Three-valued logic: `NOT IN (subquery)` returns no rows when the subquery yields a `NULL`; use `NOT EXISTS` instead.
 - Error handling without `SET XACT_ABORT ON` can leave a transaction partly applied after some errors; set it and use explicit transactions.
 - Implicit conversions in join and filter predicates can silently prevent index use; match types explicitly.
+
+## Security relevance
+
+T-SQL reaches security practitioners as the language of Microsoft SQL Server and Azure SQL back ends, where stored procedures and dynamic SQL are reviewed for injection and where the engine's surface is a target for privilege escalation and operating-system access. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context. See the [Database Security Reference](/DATABASE_SECURITY_REFERENCE.md).
+
+### Where it appears
+
+- Server-side logic. Stored procedures, triggers, and functions run inside SQL Server and Azure SQL, so application logic and the SQL it builds from input live in T-SQL. See [Web Application Pentesting](/WEB_APPLICATION_PENTESTING.md).
+- Post-exploitation surface. SQL Server is a frequent target because features such as `xp_cmdshell` can run operating-system commands, and a compromised database account can enable lateral movement. See the [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md).
+- Enterprise deployments. On-premises SQL Server and Azure SQL back a large share of enterprise applications, which makes their stored logic a common assessment target.
+
+### Dominant weakness classes
+
+T-SQL is evaluated by the database engine, which manages its own memory, so the memory-corruption classes of systems languages do not apply. The weaknesses are about injection, privilege, and dangerous surface:
+
+- SQL injection. Concatenating untrusted input into a query, especially into dynamic SQL run with `EXEC(@sql)`, lets an attacker change the query's meaning. This is [CWE-89](https://cwe.mitre.org/data/definitions/89.html), countered by `sp_executesql` with typed parameters.
+- Operating-system command injection. `xp_cmdshell` runs operating-system commands and, enabled and fed untrusted input, gives an attacker a path out of the database. This is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Excessive privilege. Application accounts with broad rights, or procedures that lend elevated privileges through ownership chaining and `EXECUTE AS`, widen the impact of any flaw. This relates to [CWE-269](https://cwe.mitre.org/data/definitions/269.html).
+- Information exposure. Returning raw `ERROR_MESSAGE()` text to end users reveals schema and query structure. This relates to [CWE-209](https://cwe.mitre.org/data/definitions/209.html).
+
+### Why it matters
+
+Reading T-SQL lets an analyst spot dynamic SQL built by concatenation, check whether `xp_cmdshell` and similar surface is disabled, and judge whether procedures and accounts follow least privilege. The SQL code analysis rules in [SQL Server Data Tools](https://learn.microsoft.com/sql/ssdt/) and third-party analyzers flag concatenated dynamic SQL and other risk patterns, as the Secure coding section details. See the [Database Security Reference](/DATABASE_SECURITY_REFERENCE.md).
 
 ## Secure coding
 

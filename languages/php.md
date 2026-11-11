@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (1,014 words at 230 words a minute)
+About 6 min (1,407 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -180,6 +180,31 @@ PHP's classic model is shared-nothing: each request starts with a clean state, r
 - Loose comparison (`==`) and type juggling have historically produced unexpected results; prefer `===` and explicit casts.
 - Array functions vary in argument order (`array_map` versus `array_filter`), a legacy inconsistency to check against the manual.
 - Mixing HTML output and logic in one file invites injection bugs; keep templates separate and escape on output.
+
+## Security relevance
+
+PHP reaches security practitioners more than almost any other language because it runs so much of the public web: content-management systems, custom applications, and the APIs behind them. That reach makes PHP applications a dominant web-assessment target, and PHP is also the classic language of web shells left behind after a server compromise. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Web applications. WordPress, Drupal, and applications built on Laravel and Symfony are routine assessment targets, and their conventions shape both the attack surface and the defenses. See [Web Application Pentesting](/WEB_APPLICATION_PENTESTING.md) and the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Web shells. A small PHP file that executes attacker input is the standard post-exploitation foothold on a compromised web server, as seen in the [PHP web shell activity of October 2026](/case-studies/PHP2SHELL_OCTOBER_2026.md).
+- APIs and command-line scripts. PHP back ends serve APIs and run scheduled scripts, extending the same risks beyond the browser-facing path.
+
+### Dominant weakness classes
+
+PHP is memory-safe: it is garbage-collected with reference counting and a cycle collector, so memory-corruption classes do not apply. The weaknesses are the web-application classes, heavily targeted because of PHP's deployment base.
+
+- Cross-site scripting. Echoing untrusted input into HTML without escaping is [CWE-79](https://cwe.mitre.org/data/definitions/79.html).
+- SQL injection. Concatenating variables into SQL instead of using prepared statements is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Code and command injection. Passing untrusted input to `eval`, `system`, `exec`, `shell_exec`, or backticks is [CWE-94](https://cwe.mitre.org/data/definitions/94.html) and [CWE-78](https://cwe.mitre.org/data/definitions/78.html), the mechanism behind many PHP web shells.
+- Insecure deserialization. `unserialize` on untrusted data can instantiate arbitrary objects and reach code execution through gadget chains, which is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- File inclusion. Building an `include` or `require` path from user input leads to local and remote file inclusion, a form of path traversal, which is [CWE-22](https://cwe.mitre.org/data/definitions/22.html).
+- Dependency supply chain. Composer packages from Packagist run inside the application, so unpinned or unreviewed packages are a risk. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading PHP lets an analyst audit a web application for the classes above, understand what a discovered web shell can do, and trace how request data reaches a sink such as a query, the shell, or `unserialize`. [PHPStan](https://phpstan.org/) and [Psalm](https://psalm.dev/) statically analyze PHP for the type and null errors that lead to these flaws, and `composer audit` checks dependencies against advisory databases, as the Secure coding section details.
 
 ## Secure coding
 

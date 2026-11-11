@@ -151,6 +151,17 @@ jobs:
           python scripts/build_attack_atlases.py --self-test
           python scripts/build_attack_atlases.py --check
 
+      # operating-systems/ (one page per system and the README index) is written by
+      # build_os_pages.py from data/os/os-catalog.jsonl. The support dates in the catalog come
+      # from the endoflife.date API and are re-read by hand with --refresh-eol, so CI needs no
+      # network. Fails on a malformed row, system fields that differ between the versions of
+      # one system, a hardening or case-study link to a page that does not exist, an em dash,
+      # and a stale, missing or orphan page.
+      - name: Operating-system pages match data/os/os-catalog.jsonl
+        run: |
+          python scripts/build_os_pages.py --self-test
+          python scripts/build_os_pages.py --check
+
   repo-hygiene:
     name: Tracked junk, text encoding, revoked ATT&CK IDs, voice in hand-written pages, theme contrast
     # junk: nothing build/editor/OS-generated is tracked (all of it would be published).
@@ -161,11 +172,13 @@ jobs:
     # revoked: hand-written pages may not cite a revoked/deprecated ATT&CK ID (per
     #   data/attack/superseded_by.jsonl) more often than scripts/baselines/revoked_ids.json
     #   records; the baseline holds the pre-existing citations and may only shrink.
-    # voice: hand-written pages follow docs/VOICE.md (no em-dashes, emoji, sentence-ending
+    # voice: hand-written pages follow docs/VOICE.md (no emoji, sentence-ending
     #   exclamation marks, marketing words or hand-typed headline counts) beyond what
     #   scripts/baselines/voice.json records. That baseline only shrinks: --update-baseline
     #   refuses a rise, and on a pull request the step below also fails when any rule's
-    #   baselined total is higher than on the base branch.
+    #   baselined total is higher than on the base branch. Em dashes (U+2014) and agent
+    #   process notes have no baseline: one in any tracked text file (em dash) or any
+    #   Markdown page (note) fails, upstream names and descriptions in data/ JSONL excepted.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,293 words at 230 words a minute)
+About 7 min (1,632 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -156,6 +156,28 @@ AWK has no concurrency model: it is a single-threaded, single-pass stream proces
 - String-versus-number coercion: a value can compare as a string or a number depending on how it was produced, so `"10" < "9"` (string) differs from `10 < 9` (number); force a type with `+0` or concatenation when it matters.
 - Uninitialized variables are silently empty or zero, so a typo in a variable name does not error, it just reads as blank.
 - Implementation differences: programs that rely on `gawk` extensions (such as `gensub`, networking, or `PROCINFO`) do not run under the original `awk` or `mawk`.
+
+## Security relevance
+
+AWK reaches practitioners as a text-processing stage in Unix pipelines: it is common in log analysis and incident response, and it appears in administrative and build scripts whose handling of untrusted fields can introduce injection. The defensive patterns are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Log and data processing. Analysts use AWK to extract and aggregate fields from logs during triage and detection engineering, and it pairs with `grep` and `sed` in the same pipelines. See the [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md).
+- Administrative and pipeline scripts. AWK stages inside shell scripts process data from logs, files, and network sources, so a stage that shells out on an untrusted field becomes an injection point.
+- Living-off-the-land use. Because `awk` is present on essentially every Unix-like host and needs no installation, it appears in post-exploitation one-liners alongside the shell. See the [Red Team Reference](/RED_TEAM_REFERENCE.md).
+
+### Dominant weakness classes
+
+AWK is interpreter-managed and memory-safe, so the memory-corruption classes do not apply; its risks come from reaching the shell and from treating untrusted text as code.
+
+- Operating-system command injection. `system(cmd)`, `print | "command"`, and `"command" | getline` run a shell command, so building that command from an untrusted field allows [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Code injection through program text. Assembling an AWK program from untrusted input and passing it to `awk` executes that input as logic, which maps to [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Input validation. Fields from logs or network data are untrusted until checked, so using a field as a file name or in a constructed command without validation maps to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+
+### Why it matters
+
+Reading an AWK stage tells an analyst whether a pipeline shells out on data it does not control and whether its program text is fixed or built from input, which are the two questions that decide if the stage is safe. The `gawk --lint` option flags some unsafe and nonportable constructs, and the practical control is to keep program text fixed and avoid `system` and command pipes built from input, as the Secure coding section details.
 
 ## Secure coding
 

@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,151 words at 230 words a minute)
+About 6 min (1,487 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -181,6 +181,29 @@ Laziness has a performance cost when unevaluated thunks accumulate (a space leak
 - Partial functions: `head`, `tail`, and `fromJust` throw on empty or `Nothing` inputs; prefer pattern matching or safe variants.
 - `String` is a linked list of characters and is slow for large text; use `Data.Text` instead.
 - Confusing `IO` with evaluation: binding an `IO` action in `do` runs it, but building the action value does not; order of effects follows the binds, not textual position.
+
+## Security relevance
+
+Haskell reaches security practitioners as the language of compilers, static-analysis tools, and high-assurance back ends, where the concern is auditing where untrusted data enters a pure program and reviewing the escape hatches that bypass the type system. This section is the threat-facing context; the defensive patterns that counter each class are in the Secure coding section that follows.
+
+### Where it appears
+
+- Compilers and program analysis. Parsers, compilers, and static analyzers, software that is itself security-relevant, are often written in Haskell; the [Elm](/languages/elm.md) compiler is one example.
+- Back-end and financial services. Haskell is used for back ends and financial systems where correctness matters, including typed web APIs built with servant, which are assessment targets.
+- Research and high-assurance code. The language appears in work that leans on strong types for reliability. It has little dedicated offensive tooling, so its security interest is defensive review.
+
+### Dominant weakness classes
+
+Haskell is memory-safe (garbage-collected), so the memory-corruption classes do not apply except where foreign imports, `unsafePerformIO`, or `unsafeCoerce` bypass the compiler's guarantees. The risks that remain concern external data and the language's own escape hatches:
+
+- Improper input validation. The type system checks the shape of parsed data but not its content, so external input must still be validated and bounded, which maps to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Unsafe deserialization. A `Read` instance or a generic binary decoder applied to attacker-controlled bytes can construct unexpected values, which relates to [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- Resource exhaustion from laziness. An unbounded lazy structure or a growing thunk chain built from untrusted input can exhaust memory, which maps to [CWE-400](https://cwe.mitre.org/data/definitions/400.html).
+- Escaping the type system. `unsafePerformIO`, `unsafeCoerce`, and the foreign function interface sidestep the guarantees the compiler otherwise provides and warrant focused review.
+
+### Why it matters
+
+Reading Haskell lets an analyst confirm where effects and unchecked external data enter an otherwise pure program and review the unsafe escape hatches that could undermine its guarantees. [HLint](https://github.com/ndmitchell/hlint) flags suspect patterns and [Stan](https://github.com/kowainik/stan) reports anti-patterns and partiality, and treating warnings as errors with `-Wall` surfaces non-exhaustive matches, as the Secure coding section details.
 
 ## Secure coding
 

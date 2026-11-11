@@ -536,8 +536,8 @@ aws cloudtrail delete-trail --name MyTrail
 aws s3 rm s3://cloudtrail-bucket/AWSLogs/ --recursive
 
 # Minimize API footprint: use read-only APIs (many not logged by default)
-aws iam get-role --role-name Target       # Management event — logged
-aws s3api get-object --bucket b --key k  # Data event — only logged if enabled
+aws iam get-role --role-name Target       # Management event: logged
+aws s3api get-object --bucket b --key k  # Data event, only logged if enabled
 
 # Operate via console (some actions may have different log formats)
 # Use legitimate services that generate less scrutiny
@@ -1228,7 +1228,7 @@ gcloud projects add-iam-policy-binding my-project \
 # Impersonate SA (requires iam.serviceAccounts.actAs + target role)
 gcloud storage ls --impersonate-service-account=my-sa@my-project.iam.gserviceaccount.com
 
-# Create key (avoid when possible — use WIF instead)
+# Create key (avoid when possible: use WIF instead)
 gcloud iam service-accounts keys create key.json \
   --iam-account my-sa@my-project.iam.gserviceaccount.com
 
@@ -1863,7 +1863,7 @@ Azure OIDC:
     client-id: ${{ secrets.AZURE_CLIENT_ID }}
     tenant-id: ${{ secrets.AZURE_TENANT_ID }}
     subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-# No client secret required — uses federated identity credential
+# No client secret required: uses federated identity credential
 ```
 
 ---
@@ -1942,7 +1942,7 @@ parliament --file policy.json
 
 iamlive (generate least-privilege from actual usage):
 ```bash
-# Run alongside AWS CLI — captures API calls and generates minimum policy
+# Run alongside AWS CLI: captures API calls and generates minimum policy
 iamlive --set-ini  # Configure AWS CLI proxy
 aws s3 ls         # Your AWS operations
 # iamlive outputs the minimum IAM policy for operations performed
@@ -2132,7 +2132,7 @@ GCP Cloud SQL Auth Proxy:
 ```bash
 # Download and run proxy
 ./cloud-sql-proxy my-project:us-central1:my-instance --port 5432 &
-# Connect to 127.0.0.1:5432 — proxy handles IAM auth and TLS
+# Connect to 127.0.0.1:5432: proxy handles IAM auth and TLS
 # Auth: Cloud SQL Client role (cloudsql.instances.connect)
 ```
 
@@ -2476,7 +2476,7 @@ aws ecr put-image-scanning-configuration \
   --repository-name my-repo \
   --image-scanning-configuration scanOnPush=true
 
-# Enhanced scanning (Inspector v2 — continuous CVE monitoring)
+# Enhanced scanning (Inspector v2: continuous CVE monitoring)
 aws ecr put-registry-scanning-configuration \
   --scan-type ENHANCED \
   --rules '[{"repositoryFilters":[{"filter":"*","filterType":"WILDCARD"}],"scanFrequency":"CONTINUOUS_SCAN"}]'
@@ -2505,7 +2505,7 @@ cosign sign --key cosign.key gcr.io/my-project/my-image:tag
 # Verify signature
 cosign verify --key cosign.pub gcr.io/my-project/my-image:tag
 
-# Keyless signing (GitHub Actions — uses OIDC)
+# Keyless signing (GitHub Actions: uses OIDC)
 cosign sign --identity-token=$(cat /tmp/oidc-token) gcr.io/my-project/my-image:tag
 ```
 

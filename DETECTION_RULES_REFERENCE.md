@@ -110,7 +110,7 @@ Sigma is a vendor-agnostic, open-source SIEM rule format that allows security an
 
 ```yaml
 title: <Human-readable rule name>
-id: <UUID v4 — unique identifier>
+id: <UUID v4, unique identifier>
 status: stable          # stable | test | experimental | deprecated
 description: >
   <What the rule detects and why it matters>
@@ -764,7 +764,7 @@ dns.query;          content:"malware.example.com";
 # Cobalt Strike malleable profile URI pattern
 pcre:"/\/[a-z]{4,8}\/[A-Za-z0-9]{10,20}\.(gif|png|ico|css)/";
 
-# DNS tunneling — long encoded subdomain
+# DNS tunneling: long encoded subdomain
 pcre:"/[A-Za-z0-9+\/]{40,}\.[a-z]{2,6}$/";
 
 # HTTP C2 with random query parameters
@@ -861,10 +861,10 @@ alert http any any -> $HOME_NET any (
 ### Tuning and Suppression
 
 ```bash
-# threshold.conf — suppress by rule ID and source IP range
+# threshold.conf: suppress by rule ID and source IP range
 suppress gen_id 1, sig_id 9001001, track by_src, ip 192.168.1.0/24
 
-# Event filter — reduce alert volume without disabling rule
+# Event filter: reduce alert volume without disabling rule
 event_filter gen_id 1, sig_id 9001002, type limit, track by_src, count 1, seconds 300
 
 # Update rules with suricata-update
@@ -1155,7 +1155,7 @@ Detections higher on the pyramid are harder for attackers to evade and more dura
 
 ```
          /\
-        /  \        TTPs (Behavior — highest value, most durable)
+        /  \        TTPs (Behavior: highest value, most durable)
        /----\
       /      \      Network/Host Artifacts
      /--------\
@@ -1163,7 +1163,7 @@ Detections higher on the pyramid are harder for attackers to evade and more dura
    /------------\
   /              \  IP Addresses
  /----------------\
-/                  \ File Hashes (trivial to change — lowest value)
+/                  \ File Hashes (trivial to change: lowest value)
 ```
 
 Focus detection investment on TTP-based behavioral rules rather than hash or IP block lists.
@@ -1230,9 +1230,9 @@ Maintain a changelog alongside rules:
 
 ```
 2024-06-01  Promoted powershell_encoded_cmd.yml to stable after 0 FP in 30 days
-2024-05-15  Added filter block to schtasks_persistence.yml — excluded SCCM paths
+2024-05-15  Added filter block to schtasks_persistence.yml: excluded SCCM paths
 2024-05-01  New rule: lsass_dump_via_procdump.yml (T1003.001)
-2024-04-15  Deprecated old_rule.yml — superseded by improved_rule.yml
+2024-04-15  Deprecated old_rule.yml: superseded by improved_rule.yml
 ```
 
 ---
@@ -1246,7 +1246,7 @@ Maintain a changelog alongside rules:
 title: Suspicious Office Child Process
 id: 438025f9-5856-4663-83f7-52f878a70a50
 status: stable
-description: Detects suspicious child processes spawned by Office applications — common phishing attachment execution pattern
+description: Detects suspicious child processes spawned by Office applications, common phishing attachment execution pattern
 author: TeamStarWolf
 date: 2024/01/01
 logsource:
@@ -1282,7 +1282,7 @@ tags:
 title: Suspicious PowerShell Encoded Command
 id: ca2092a1-c273-4878-9b4b-a3f2a4f0a6b7
 status: stable
-description: Detects PowerShell with encoded commands — common for obfuscated malware and post-exploitation
+description: Detects PowerShell with encoded commands, common for obfuscated malware and post-exploitation
 author: TeamStarWolf
 logsource:
     category: process_creation
@@ -1314,7 +1314,7 @@ tags:
 title: Scheduled Task Created via Schtasks
 id: 92a65ab3-4078-4d5b-89eb-4e01f2a28bab
 status: stable
-description: Detects creation of scheduled tasks via schtasks.exe — common persistence mechanism
+description: Detects creation of scheduled tasks via schtasks.exe, common persistence mechanism
 author: TeamStarWolf
 logsource:
     category: process_creation
@@ -1341,7 +1341,7 @@ tags:
 title: Windows Event Log Cleared
 id: a62b31e2-d8d6-4b29-bf50-e4b4edb9c45a
 status: stable
-description: Detects clearing of Windows event logs — strong indicator of attacker covering tracks
+description: Detects clearing of Windows event logs, strong indicator of attacker covering tracks
 author: TeamStarWolf
 logsource:
     product: windows
@@ -1366,7 +1366,7 @@ tags:
 title: LSASS Memory Access by Non-System Process
 id: 32d0d3e2-e58d-4d41-a703-4b59b8d18901
 status: stable
-description: Detects non-system processes accessing LSASS memory — credential dumping indicator
+description: Detects non-system processes accessing LSASS memory, credential dumping indicator
 author: TeamStarWolf
 logsource:
     category: process_access
@@ -1398,7 +1398,7 @@ tags:
 title: Remote Service Installation via Admin Shares
 id: 4e0a78ef-7d53-4f4e-b1b2-8d9f5e62a1bc
 status: stable
-description: Detects use of PsExec-style remote service installation — lateral movement indicator
+description: Detects use of PsExec-style remote service installation, lateral movement indicator
 author: TeamStarWolf
 logsource:
     product: windows
@@ -1456,10 +1456,10 @@ DeviceProcessEvents
 ### Detect Kerberoasting Activity
 ```kql
 // Kerberoasting: TGS ticket requests for SPNs with RC4 encryption
-// Event 4769 — Kerberos Service Ticket Operations
+// Event 4769: Kerberos Service Ticket Operations
 SecurityEvent
 | where EventID == 4769
-| where TicketEncryptionType == "0x17"  // RC4 (weak — targeted by Kerberoasting)
+| where TicketEncryptionType == "0x17"  // RC4 (weak: targeted by Kerberoasting)
 | where ServiceName !endswith "$"        // Exclude machine accounts
 | where ServiceName !startswith "krbtgt" // Exclude krbtgt
 | summarize

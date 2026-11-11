@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,347 words at 230 words a minute)
+About 7 min (1,707 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -167,6 +167,29 @@ For concurrency, GDScript offers coroutines through `await`, which suspends unti
 - Hardcoded node paths that break when a scene is restructured; use exported paths or unique names.
 - Heavy work in `_process` every frame, including allocations, causing stutter.
 - Assuming thread safety: touching the scene tree from a background thread leads to crashes or corruption; marshal back to the main thread.
+
+## Security relevance
+
+GDScript reaches security practitioners as the scripting language of Godot games and tools, where the concerns are those of client-side game code and of any content a game loads from an untrusted source. This section is the threat-facing context; the defensive patterns that counter each class are in the Secure coding section that follows.
+
+### Where it appears
+
+- Client-side game and tool logic. GDScript runs inside the Godot engine with the game's privileges, so it ships to players and to anyone who can extract the exported binary, and mods and editor tools run with the same access.
+- Loaded content and mods. `load` and `preload` and resource packs can reference scripts and scenes, so opening a downloaded project, mod, or save file from an untrusted source can run code the author did not write.
+- Multiplayer. In networked games, remote procedure calls and state carry data from untrusted peers. GDScript has little use outside the Godot ecosystem and no offensive-tooling presence of note.
+
+### Dominant weakness classes
+
+GDScript is memory-safe (reference counting for `RefCounted` objects, with the engine owning the node tree), so the memory-corruption classes do not apply. The risks follow from untrusted content and misplaced trust in the client:
+
+- Loading code without an integrity check. A project, resource pack, or mod from an untrusted source can bring in executable scripts and scenes, which maps to [CWE-494](https://cwe.mitre.org/data/definitions/494.html).
+- Insecure deserialization of save data. Restoring a save that can instantiate arbitrary objects or scripts lets a crafted file run code, which is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- Hardcoded secrets. API keys or server credentials embedded in a shipped game are extractable from the exported binary, which maps to [CWE-798](https://cwe.mitre.org/data/definitions/798.html).
+- Trusting client input in multiplayer. Peer-supplied remote calls, positions, and scores are untrusted and must be validated and authorized server-side, which relates to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+
+### Why it matters
+
+Reading GDScript lets an analyst check what a project's `load` and `preload` calls pull in, how save data is restored, whether secrets are embedded in the client, and whether a multiplayer server trusts client-reported state. [gdtoolkit](https://github.com/Scony/godot-gdscript-toolkit) provides `gdlint` for code issues, and third-party assets and plugins warrant review because they run with the game's privileges, as the Secure coding section details.
 
 ## Secure coding
 

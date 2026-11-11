@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,210 words at 230 words a minute)
+About 7 min (1,516 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -162,6 +162,30 @@ kdb+ is built for throughput on large datasets: columnar storage, operations tha
 - Type discipline in vectors: a list with mixed types is a general list, not a typed vector, which changes performance and some operations; keep columns homogeneous.
 - Symbols versus strings: interned symbols and character strings behave differently in comparison and grouping; pick the right one for the data.
 - Memory: holding references to large intermediate results keeps them alive under reference counting; let them go out of scope to reclaim memory.
+
+## Security relevance
+
+K and Q are the languages of the kdb+ database, which is frequently exposed to network clients, so their security relevance centers on access control and injection on running q processes. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Financial market-data systems. kdb+ processes store and query tick data in banks and trading firms, and a q process is both a database and a programming environment, often reachable by network clients.
+- IPC endpoints. Feed handlers, tickerplants, and real-time and historical database processes communicate over the kdb+ IPC protocol, and those endpoints are the main attack surface.
+- K and Q have no notable offensive tooling written in them; their security interest is the deployed database services and the message handlers that front them.
+
+### Dominant weakness classes
+
+K and Q are memory-safe (reference counting), so memory corruption is not the main concern; access control and injection on exposed processes are:
+
+- Unrestricted remote evaluation over IPC, where a q process evaluates arbitrary client messages unless its handlers (`.z.pg`, `.z.ps`) constrain them. This is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Code injection through the `value` and `eval` verbs applied to untrusted input. This is also [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Operating-system command injection through the `system` command and the `\` escape. This is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- qSQL injection when a query is built by concatenating untrusted text into a string passed to `value`. This is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Missing authentication on an exposed process. This is [CWE-306](https://cwe.mitre.org/data/definitions/306.html).
+
+### Why it matters
+
+Auditing a kdb+ deployment means checking the `.z.pg` and `.z.ps` message handlers, user access control, and TLS on every exposed process, along with each use of `value`, `eval`, and `system`. KX documents the access-control and TLS configuration, but there is no widely adopted dedicated q security linter, so this review is done by hand, as the Secure coding section describes.
 
 ## Secure coding
 

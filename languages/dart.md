@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (989 words at 230 words a minute)
+About 6 min (1,275 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -178,6 +178,29 @@ The development workflow uses a just-in-time compiler with hot reload, and relea
 - Long synchronous work on the main isolate blocks the event loop and, in Flutter, freezes the user interface; offload it to another isolate.
 - Forgetting to `await` a `Future` lets work run unordered and swallows errors.
 - In Flutter, rebuilding large widget subtrees unnecessarily hurts performance; keep state local and use `const` widgets.
+
+## Security relevance
+
+Dart reaches security practitioners mainly as the language of Flutter mobile and web applications that defenders assess, and secondarily as a back-end and command-line language. Offensive tooling written in it is uncommon. The defensive patterns that counter each class are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Flutter mobile apps. Dart is the application language for cross-platform mobile apps, so a mobile assessment of a [Flutter](https://flutter.dev/) app means reading Dart, including how it stores secrets and validates certificates. See the [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md).
+- Web and back-end code. Dart compiles to JavaScript and WebAssembly for the web and runs server-side code, which broadens the surface an analyst reads. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Little offensive presence. Dart is not a common tool-building language, so the interest is reading and auditing Dart applications.
+
+### Dominant weakness classes
+
+Dart is memory-safe: it is garbage-collected and soundly typed with null safety, so the memory-corruption classes do not apply. The weaknesses are the mobile, web, and input-handling classes:
+
+- Insecure data storage on mobile. Keeping secrets in shared preferences or plain files instead of platform secure storage is [CWE-312](https://cwe.mitre.org/data/definitions/312.html).
+- Improper certificate validation. Overriding `badCertificateCallback` to accept all certificates is [CWE-295](https://cwe.mitre.org/data/definitions/295.html).
+- Cross-site scripting. Inserting untrusted data into the DOM in Dart web output without escaping is [CWE-79](https://cwe.mitre.org/data/definitions/79.html).
+- SQL injection. String interpolation into a query rather than bound values in database packages is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+
+### Why it matters
+
+Reading Dart lets an analyst audit a Flutter app for insecure storage, weak certificate handling, and injection in any back-end code. The built-in `dart analyze` with the [lints](https://pub.dev/packages/lints) rule set flags risky patterns, and `dart pub outdated` surfaces dependency updates, as the Secure coding section details.
 
 ## Secure coding
 

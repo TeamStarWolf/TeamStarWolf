@@ -1110,8 +1110,8 @@ Microsoft Purview Information Protection Label Configuration:
   },
   "markings": {
     "header": "HIGHLY CONFIDENTIAL - FINANCE",
-    "footer": "Company Confidential — Do Not Distribute",
-    "watermark": "CONFIDENTIAL — {UserName} — {CurrentDate}"
+    "footer": "Company Confidential; Do Not Distribute",
+    "watermark": "CONFIDENTIAL, {UserName}, {CurrentDate}"
   }
 }
 ```

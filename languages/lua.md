@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (1,027 words at 230 words a minute)
+About 6 min (1,335 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -173,6 +173,29 @@ The reference interpreter is fast for a scripting language and compiles source t
 - Indexing a table with a key that does not exist returns `nil` rather than raising an error, so typos surface later.
 - `nil` and `false` are the only falsy values; `0` and `""` are truthy, unlike in C.
 - String pattern matching uses Lua patterns, not POSIX or PCRE regular expressions, so expressions do not translate directly.
+
+## Security relevance
+
+Lua reaches practitioners as the scripting layer embedded in larger systems and as the language of several security tools' scripts, which makes the reach of an untrusted or embedded script the central question. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Security tooling scripts. The [Nmap](https://nmap.org/) Scripting Engine (NSE) writes its scanning and detection scripts in Lua, [Wireshark](https://www.wireshark.org/) supports Lua dissectors, and Suricata can run Lua rules, so reading or writing these means reading Lua. See the [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md).
+- Embedded in applications. Lua scripts the [Redis](https://redis.io/) data store, the Nginx web server through [OpenResty](https://openresty.org/), games, and network devices, and an exposed scripting interface is attack surface.
+- Untrusted mods and plugins. Game and application extension points run user-supplied Lua inside the host process.
+
+### Dominant weakness classes
+
+Lua is memory-safe (garbage-collected), so memory corruption lives on the host and C side rather than in Lua scripts. The weaknesses center on giving an untrusted script too much reach:
+
+- Unsafe dynamic loading through `load` and `loadstring`, which turn text into executed code. This is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Operating-system command injection through `os.execute` and `io.popen`. This is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Resource exhaustion from untrusted scripts that loop or allocate without bound. This is [CWE-400](https://cwe.mitre.org/data/definitions/400.html).
+- Loading precompiled bytecode from an untrusted source, which is not verified and can subvert the interpreter, described in the Secure coding section that follows.
+
+### Why it matters
+
+Reading Lua lets a practitioner understand what an NSE script or an embedded game or application script actually does, and judge whether a host sandbox adequately restricts `os`, `io`, and `load`. [luacheck](https://github.com/lunarmodules/luacheck) catches undefined globals and shadowing but is a correctness linter rather than a security one, so hosts typically build a vetted environment table and review the `os`, `io`, and `load` paths by hand, as the Secure coding section describes.
 
 ## Secure coding
 

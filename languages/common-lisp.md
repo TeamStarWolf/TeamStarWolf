@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,093 words at 230 words a minute)
+About 6 min (1,428 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -163,6 +163,29 @@ SBCL compiles to native code and, with type declarations and optimization settin
 - Dynamic (special) variables declared with `defvar` or `defparameter` have dynamic extent; rebinding them with `let` affects called code, which surprises those expecting lexical scope.
 - `nil` is both the empty list and false, so a function that can legitimately return an empty list needs care to distinguish "no result" from "empty result".
 - Macro hygiene is manual: capture of variable names is possible, so generate fresh symbols with `gensym` for macro-introduced bindings.
+
+## Security relevance
+
+Common Lisp reaches security practitioners as the implementation language of long-lived symbolic and research systems that defenders audit, and as the source of a specific set of dynamic-evaluation and input-handling weaknesses. Offensive tooling written in it is uncommon. The defensive patterns that counter each class are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Symbolic and production systems. Common Lisp is used for optimization, scheduling, theorem proving, research code, and long-running services, so reading these systems means reading macros, CLOS, and the reader.
+- The Lisp reader as an input path. `read` and `load` on external data are a notable risk because the reader can evaluate code and reconstruct arbitrary objects, so any place that reads untrusted text is worth attention.
+- Limited offensive presence. Common Lisp is not a common red-team tool language, so the security interest is auditing existing code and its evaluation surface.
+
+### Dominant weakness classes
+
+Common Lisp is memory-safe: it is garbage-collected and dynamically typed with run-time checks, so the memory-corruption classes do not apply. The weaknesses are about dynamic evaluation and untrusted input:
+
+- Read-time code execution. `read` with `*read-eval*` non-nil evaluates `#.` forms, so reading attacker-controlled input can run arbitrary code. This is [CWE-94](https://cwe.mitre.org/data/definitions/94.html), and reconstructing arbitrary objects is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- Dynamic evaluation. `eval` and `compile` on forms built from untrusted input are a code-injection vector, which maps to [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Improper input validation. Dynamic typing means external data is unchecked until the program checks its structure and ranges, which maps to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Resource exhaustion. Recursion or allocation sized by untrusted input can exhaust the heap or control stack, which maps to [CWE-400](https://cwe.mitre.org/data/definitions/400.html).
+
+### Why it matters
+
+Reading Common Lisp lets an analyst find where the reader or `eval` touches external data and where recursion and allocation are sized by untrusted input. [SBCL](https://www.sbcl.org/) performs static type inference and emits type and style warnings that catch many errors at compile time, and [sblint](https://github.com/cxxxr/sblint) wraps those diagnostics for batch and editor use, as the Secure coding section details.
 
 ## Secure coding
 

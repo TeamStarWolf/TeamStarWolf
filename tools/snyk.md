@@ -165,25 +165,25 @@ _API & developer docs_
 
 _GitHub (official)_
 - [Snyk GitHub organization (~240 repos)](https://github.com/snyk)
-- [snyk/cli — Snyk CLI (TypeScript, ~5.7k stars)](https://github.com/snyk/cli)
-- [snyk/actions — official GitHub Actions for CI scanning](https://github.com/snyk/actions)
-- [snyk/snyk-to-html — export CLI reports to HTML](https://github.com/snyk/snyk-to-html)
-- [snyk/vscode-extension & snyk/snyk-intellij-plugin — IDE plugins](https://github.com/snyk/vscode-extension)
-- [snyk/driftctl — IaC drift detection](https://github.com/snyk/driftctl)
+- [snyk/cli: Snyk CLI (TypeScript, ~5.7k stars)](https://github.com/snyk/cli)
+- [snyk/actions: official GitHub Actions for CI scanning](https://github.com/snyk/actions)
+- [snyk/snyk-to-html: export CLI reports to HTML](https://github.com/snyk/snyk-to-html)
+- [snyk/vscode-extension & snyk/snyk-intellij-plugin: IDE plugins](https://github.com/snyk/vscode-extension)
+- [snyk/driftctl: IaC drift detection](https://github.com/snyk/driftctl)
 
 _Community / integration / detection repos_
 - [snyk-labs GitHub organization (community/example tooling)](https://github.com/snyk-labs)
-- [snyk-apps-demo — starter for building a Snyk App](https://github.com/snyk/snyk-apps-demo)
-- [snyk-api-import — bulk import/onboard projects via API](https://github.com/snyk/snyk-api-import)
+- [snyk-apps-demo: starter for building a Snyk App](https://github.com/snyk/snyk-apps-demo)
+- [snyk-api-import: bulk import/onboard projects via API](https://github.com/snyk/snyk-api-import)
 - [snyk-labs/nodejs-goof & other 'goof' vulnerable demo apps](https://github.com/snyk-labs/nodejs-goof)
 
 _Learning & reference_
-- [Snyk Learn — free interactive secure-coding lessons (NIST NICE aligned)](https://learn.snyk.io)
+- [Snyk Learn: free interactive secure-coding lessons (NIST NICE aligned)](https://learn.snyk.io)
 - [Snyk blog](https://snyk.io/blog/)
 - [Snyk Vulnerability Database](https://security.snyk.io)
-- [Snyk Tutorials & product training —  (learning series within docs)](https://docs.snyk.io)
+- [Snyk Tutorials & product training: (learning series within docs)](https://docs.snyk.io)
 
-> Note: Snyk REST API is OpenAPI + JSON:API and requires a date-based ?version= query parameter on every request; the older V1 API is being sunset in favor of REST. API availability can depend on plan tier (historically Business/Enterprise, with some token access on lower tiers) — check the current plans page. Core open-source tooling (CLI, actions, IDE plugins, driftctl, snyk-ls language server) lives under github.com/snyk; demos/experiments under github.com/snyk-labs.
+> Note: Snyk REST API is OpenAPI + JSON:API and requires a date-based ?version= query parameter on every request; the older V1 API is being sunset in favor of REST. API availability can depend on plan tier (historically Business/Enterprise, with some token access on lower tiers): check the current plans page. Core open-source tooling (CLI, actions, IDE plugins, driftctl, snyk-ls language server) lives under github.com/snyk; demos/experiments under github.com/snyk-labs.
 
 ## Current state (2025-26)
 

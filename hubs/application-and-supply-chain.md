@@ -54,5 +54,9 @@ Time and difficulty are quoted in full from each guide's header table.
 
 - [Web application pentesting](/WEB_APPLICATION_PENTESTING.md)
 - [CAPEC attack patterns](/mitre/capec/README.md)
+- [Log4Shell: a case study](/case-studies/LOG4SHELL.md)
+- [Ghostcat (CVE-2020-1938): a lab case study](/case-studies/GHOSTCAT_CVE_2020_1938.md)
+- [npm supply-chain attacks: a case study](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md)
+- [Hugging Face supply chain: a case study](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md)
 
 <!-- hub:end -->

@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,151 words at 230 words a minute)
+About 7 min (1,502 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -170,6 +170,29 @@ Performance varies widely by implementation. Chez Scheme compiles to native code
 - Portability gaps: code that relies on one implementation's extensions will not run on another; stay within R7RS and declared SRFIs for portable programs.
 - First-class continuations captured with `call/cc` are general but can produce control flow that is hard to follow; use them deliberately and document the intent.
 - `eq?`, `eqv?`, and `equal?` test identity, equivalence, and structural equality respectively; choosing the wrong one causes subtle bugs.
+
+## Security relevance
+
+Scheme reaches security practitioners less as a tool-building language than as an embedded extension and scripting language inside larger applications, and as a teaching and research vehicle. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Embedded extension language. Guile is the GNU project's extension language and is embedded in applications to script their behavior, so untrusted or user-supplied Scheme that an application evaluates becomes part of that application's trust boundary.
+- Scripting and small tools. Implementations such as [Chicken](https://www.call-cc.org/) compile Scheme to native executables used for small tools and build steps, where the program processes external input.
+- Teaching and language research. Scheme is a common vehicle for courses and for prototyping interpreters and analyzers, so the security-relevant code is often a parser or evaluator under study rather than a production service.
+
+### Dominant weakness classes
+
+Scheme is memory-safe: it is garbage-collected and does not expose manual memory management, so buffer overflows and use-after-free do not arise from Scheme code itself. The weaknesses that remain concern dynamic evaluation and unchecked input:
+
+- Code injection through evaluation. Applying `eval` to data derived from untrusted input executes arbitrary code; parse external data with a reader for the expected format instead. This is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Unsafe reading. Using the Scheme reader on attacker-controlled text can build unexpected structures and, in implementations with reader extensions, trigger evaluation. This relates to [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- Improper input validation. Dynamic typing leaves external data unchecked until the program checks it, so structure and ranges must be validated at the boundary. This is [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Uncontrolled resource consumption. Non-tail recursion or allocation sized by untrusted input can exhaust memory, even though proper tail calls bound tail recursion. This is [CWE-400](https://cwe.mitre.org/data/definitions/400.html).
+
+### Why it matters
+
+Reading Scheme lets a practitioner audit the extension scripts an application evaluates and find where external data reaches `eval` or the reader. Static analysis is implementation-specific: compilers such as [Chez Scheme](https://cisco.github.io/ChezScheme/) emit warnings for unbound references and arity errors, and Scheme code running under Racket can use DrRacket's Check Syntax, as the Secure coding section notes.
 
 ## Secure coding
 

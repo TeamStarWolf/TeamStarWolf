@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (942 words at 230 words a minute)
+About 5 min (1,263 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -186,6 +186,30 @@ The Common Language Runtime compiles intermediate language to native code with a
 - Reference and value equality differ: `class` compares references by default, `record` and `struct` compare values.
 - Disposable objects not released with `using` leak unmanaged resources until finalization.
 - Capturing a loop variable in a closure captured the variable, not its value, in older C# versions; current versions changed `foreach` semantics, but the pattern still confuses readers.
+
+## Security relevance
+
+C# reaches security practitioners as a dominant enterprise and web back-end language that defenders assess, as the language of Windows and cross-platform services and Unity games, and as the source of a recognizable set of injection and deserialization weaknesses. A large share of modern Windows offensive tooling is also written in C#. The defensive patterns that counter each class are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Web and enterprise back ends. [ASP.NET Core](https://learn.microsoft.com/aspnet/core/) and [Entity Framework Core](https://learn.microsoft.com/ef/core/) applications are frequent assessment targets. See [Web Application Pentesting](/WEB_APPLICATION_PENTESTING.md) and the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Windows offensive tooling. Much modern Windows post-exploitation and red-team tooling is written in C# and run through the .NET runtime, so reading C# is part of understanding that tradecraft. See the [Red Team Reference](/RED_TEAM_REFERENCE.md).
+- Desktop, cloud, and game code. Windows desktop applications, cloud services, and Unity games broaden the attack surface an analyst reads.
+
+### Dominant weakness classes
+
+C# is memory-safe: it is garbage-collected on the managed heap and statically typed, so the memory-corruption classes do not apply to ordinary managed code. The weaknesses are about trust, input handling, and application logic:
+
+- Insecure deserialization. `BinaryFormatter` reconstructs arbitrary object graphs and is obsolete and unsafe, which is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- SQL injection. Concatenating untrusted input into SQL rather than using parameterized commands or Entity Framework Core is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- XML external entities. An `XmlReader` that resolves external entities on untrusted XML is [CWE-611](https://cwe.mitre.org/data/definitions/611.html).
+- Cross-site scripting. `Html.Raw` on untrusted data bypasses Razor's automatic encoding, which is [CWE-79](https://cwe.mitre.org/data/definitions/79.html).
+- Command injection. Passing a single shell string instead of `ProcessStartInfo.ArgumentList` is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+
+### Why it matters
+
+Reading C# lets an analyst audit an ASP.NET Core codebase for the classes above and understand what a .NET post-exploitation tool does against a target. The built-in Roslyn security analyzers and [Security Code Scan](https://security-code-scan.github.io/) flag these patterns statically, and `dotnet list package --vulnerable` checks dependencies, as the Secure coding section details.
 
 ## Secure coding
 

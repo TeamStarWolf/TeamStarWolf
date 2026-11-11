@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,243 words at 230 words a minute)
+About 7 min (1,531 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -172,6 +172,29 @@ Large configurations are kept manageable by splitting them into modules and sepa
 - Committing the state file, which records real infrastructure and often secrets, into version control in plain text.
 - Interpolating untrusted values into resource names or commands without validation.
 - Drift between declared configuration and manually changed infrastructure, which a plan reveals but cannot prevent.
+
+## Security relevance
+
+HCL is read and evaluated by a tool rather than compiled to a running program, so its security relevance is about the infrastructure, privileges, and secrets the resulting configuration grants. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Infrastructure as code. [Terraform](https://developer.hashicorp.com/terraform) and [OpenTofu](https://opentofu.org/) describe cloud and on-premises resources in HCL, so auditing the configuration is auditing which ports are open, which identities are granted, and where data lives. See the [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md).
+- Provisioning and secrets. Packer, Nomad, Consul, and Vault take HCL configuration, and Terraform state records resource attributes, some of them secret.
+- Pipelines and shared modules. A plan runs with real credentials, and a module or provider executes with those same credentials, which makes third-party modules a supply-chain concern. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+HCL is evaluated to a configuration, not compiled to a managed-memory program, so memory-corruption classes do not apply. The weaknesses center on credentials, privilege, and the state the configuration produces:
+
+- Hardcoded credentials written into HCL, which end up in version control and in state. This is [CWE-798](https://cwe.mitre.org/data/definitions/798.html).
+- Excess privilege from broad security-group rules and wildcard IAM policies. This is [CWE-284](https://cwe.mitre.org/data/definitions/284.html).
+- Sensitive information exposure through state files stored in plain text. This is [CWE-200](https://cwe.mitre.org/data/definitions/200.html).
+- Untrusted modules and providers that run with your credentials and can exfiltrate them, described further in the Supply Chain Security Reference above.
+
+### Why it matters
+
+Reading HCL tells a practitioner what an environment will actually expose before anything is deployed: open ingress, over-broad permissions, and secrets committed to source. [tfsec](https://github.com/aquasecurity/tfsec) and [Checkov](https://www.checkov.io/) scan configurations for insecure defaults and exposed secrets and [TFLint](https://github.com/terraform-linters/tflint) lints them, as the Secure coding section details.
 
 ## Secure coding
 

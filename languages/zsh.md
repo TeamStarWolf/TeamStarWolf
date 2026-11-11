@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,038 words at 230 words a minute)
+About 6 min (1,397 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -165,6 +165,29 @@ Concurrency uses the standard shell model: background jobs with `&`, `wait`, and
 - Options inherited from the user's environment can change globbing and matching; set them explicitly in scripts with `emulate -L zsh`.
 - Extended globbing is off by default, so patterns that work in one shell may be literal in another.
 - Interactive-only configuration placed in the wrong startup file either does not run or runs in non-interactive scripts unexpectedly.
+
+## Security relevance
+
+Zsh reaches security work the way the other Unix shells do: as a scripting and automation language whose main risks are command injection and trust in what it is told to run, and as an interactive environment that attackers use for persistence. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- System administration and automation. Zsh scripts drive administration tasks, deployment, and continuous-integration steps, where they assemble commands and handle external input.
+- Interactive shells and dotfiles. As the default login shell on macOS, Zsh runs its startup files and plugins on every session, so a modified `.zshrc` or a hostile plugin is a persistence and initial-execution mechanism. See the [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md).
+- Operator and red-team use. The shell is where both administrators and intruders work on a host, so reading and writing Zsh is part of understanding a target environment. See the [Red Team Reference](/RED_TEAM_REFERENCE.md).
+
+### Dominant weakness classes
+
+Zsh is an untyped command interpreter with no memory model of its own, so the memory-corruption classes do not apply; the weaknesses are injection and trust in what gets executed or sourced:
+
+- OS command injection. Assembling a command from untrusted input, or passing it through `eval`, runs attacker-controlled programs, which is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Code injection through dynamic evaluation. `eval` and sourcing an untrusted file run arbitrary code, which is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Expansion and glob surprises. Array expansions, command substitutions, and glob qualifiers can match or expand to more than intended, so unquoted or unconstrained values become a validation gap, which relates to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Startup-file and plugin integrity. A writable `.zshrc` or a plugin pulled from an untrusted source runs on every shell start, a supply-chain exposure covered in the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading Zsh lets a defender audit scripts and startup files for injectable command construction and for persistence planted in configuration, and lets an operator understand the shell environment of a host under assessment. The main tool is [ShellCheck](https://www.shellcheck.net/), which flags unsafe `eval` and quoting problems in the shell-compatible parts of a script and can run in continuous integration alongside manual review of Zsh-specific constructs.
 
 ## Secure coding
 

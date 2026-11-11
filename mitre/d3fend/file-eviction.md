@@ -129,6 +129,16 @@ _D3FEND also maps T0853, T1053.004, deprecated in ATT&CK with no successor; not 
 - [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
 - [All D3FEND countermeasures](/mitre/d3fend/README.md)
 
+<!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Library references
+
+Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
+
+- [Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation](/case-studies/EXCHANGE_MARAUDER_2021.md)
+
+<!-- library-refs:end -->
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

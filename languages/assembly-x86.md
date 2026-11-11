@@ -29,7 +29,7 @@ Intermediate to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,094 words at 230 words a minute)
+About 6 min (1,420 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -149,6 +149,29 @@ Hand-written assembly can exploit instructions a compiler may not emit, such as 
 - Confusing Intel and AT&T operand order when moving between assemblers.
 - Sign-extension versus zero-extension when widening a value (`movsx` versus `movzx`).
 - Forgetting that writing a 32-bit sub-register (`eax`) zeroes the upper 32 bits of the 64-bit register.
+
+## Security relevance
+
+x86-64 assembly is a core language of security work: it is what analysts read when reverse engineering desktop and server binaries and what exploit developers write and study on the architecture that runs most workstations, servers, and virtual machines. The defensive patterns and mitigations are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Reverse engineering and malware analysis. Disassembling an x86-64 binary yields assembly that an analyst reads to understand closed-source software and malware. See the [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md) and the [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md).
+- Exploit development. Shellcode, return-oriented-programming chains, and the memory-corruption primitives behind many desktop and server compromises are expressed and understood at the instruction level. See the [Exploit Development Reference](/EXPLOIT_DEVELOPMENT_REFERENCE.md).
+- Kernels, drivers, and boot code. Operating-system kernels, device drivers, and firmware on x86-64 are audited and attacked as native code, and worms such as the one documented in the [Stuxnet case study](/case-studies/STUXNET.md) combined Windows exploitation with low-level code.
+
+### Dominant weakness classes
+
+x86-64 assembly is untyped and unchecked, so it is memory-unsafe by nature and the memory-corruption classes apply directly; at this level they are exploitation primitives rather than abstract bugs.
+
+- Out-of-bounds and stack overflows. An unchecked store past a buffer can overwrite a return address and redirect execution, which is [CWE-787](https://cwe.mitre.org/data/definitions/787.html) and the stack-based variant [CWE-121](https://cwe.mitre.org/data/definitions/121.html).
+- Integer overflow in address and size math. Offsets computed without checks produce out-of-bounds access, which is [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Use-after-free in the surrounding program. A freed pointer reused as a function or object pointer becomes a control-flow primitive, which is [CWE-416](https://cwe.mitre.org/data/definitions/416.html).
+- Control-flow hijacking. Indirect jumps and calls through attacker-influenced pointers enable code reuse, which stack canaries, non-executable memory, and control-flow-integrity features are designed to limit.
+
+### Why it matters
+
+Reading x86-64 assembly lets an analyst confirm what a binary actually does without source, develop or evaluate an exploit, and triage malware. [Ghidra](https://ghidra-sre.org/) and radare2 disassemble and decompile, and debuggers such as [GDB](https://www.sourceware.org/gdb/) step through execution, as the Secure coding section notes.
 
 ## Secure coding
 

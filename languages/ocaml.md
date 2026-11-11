@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,079 words at 230 words a minute)
+About 6 min (1,457 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -168,6 +168,29 @@ Native-compiled OCaml performs close to other systems languages for many workloa
 - Floating-point operators are distinct (`+.`, `*.`) from integer operators (`+`, `*`); mixing them is a type error, which is a feature that surprises newcomers.
 - The default `Stdlib` is minimal, so teams often adopt `Base` or `Core`, and mixing conventions across modules causes friction.
 - Exceptions are untracked by the type system; a function can raise without its signature saying so, so document and handle them deliberately.
+
+## Security relevance
+
+OCaml reaches security practitioners in an unusual way: it is a language that security and verification tooling is itself written in, as well as the back end for some high-value services. Its strong static types and garbage collection make ordinary OCaml memory-safe, so review centers on input handling, serialization, and the few constructs that escape the type system. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Program-analysis and verification tools. Static analyzers and proof assistants such as Infer, Frama-C, and Coq are written in OCaml, so auditing or extending that tooling means reading OCaml. See the [Fuzzing and Vulnerability Research](/FUZZING_VULNERABILITY_RESEARCH.md) reference.
+- Blockchain and financial infrastructure. The Tezos protocol and trading systems at firms such as Jane Street are built in OCaml, placing it in high-consequence code paths. See the [Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md).
+- Compilers and network services. Language front ends, MirageOS unikernels, and web services written in OCaml are ordinary review targets.
+
+### Dominant weakness classes
+
+OCaml is memory-safe: generational garbage collection and strong static types remove the memory-corruption classes from normal code. The remaining weaknesses are about external input, serialization, resource limits, and the constructs that bypass the type system.
+
+- Unsafe deserialization. The `Marshal` module reconstructs arbitrary in-memory values without validation, so feeding it attacker-controlled bytes can corrupt state or crash the process, which is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- Improper input validation. Types describe parsed shape, not the validity of external content, so decoded request and file data still need checking, which is [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Resource exhaustion. Unbounded recursion or allocation driven by untrusted input can exhaust the stack or heap, which is [CWE-400](https://cwe.mitre.org/data/definitions/400.html).
+- Escaping type safety. `Obj.magic` and unchecked C bindings defeat the type system and can reintroduce the memory-corruption errors the language otherwise prevents, so they are the parts of a codebase that warrant the closest review.
+
+### Why it matters
+
+Reading OCaml lets a reviewer audit the analysis and verification tools many teams depend on, confirm that a service does not unmarshal untrusted data, and find the `Obj.magic` and C-binding sites that need isolation. The compiler's exhaustiveness checking is itself a static-analysis safeguard when warnings are treated as errors, and [Semgrep](https://semgrep.dev/) ships rules that match OCaml source, as the Secure coding section details.
 
 ## Secure coding
 

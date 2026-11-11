@@ -205,7 +205,7 @@ Note what is *not* compliant on its own: a strong password, MFA on the appliance
      x  (no route)   ▼                       ▼
         ┌─────────────────────────────────────────────────┐
         │        OUT-OF-BAND MANAGEMENT NETWORK           │
-        │  dedicated VLAN/VRF or physical net — no route  │
+        │  dedicated VLAN/VRF or physical net: no route   │
         │  to/from the internet or the general user LAN   │
         │                                                 │
         │   jump host (PAW) ── MFA ── PEP/bastion         │

@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (897 words at 230 words a minute)
+About 5 min (1,208 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -171,6 +171,29 @@ F# runs on the Common Language Runtime with the same just-in-time and ahead-of-t
 - Non-tail-recursive functions over large inputs overflow the stack; use accumulators or library folds.
 - Eagerly evaluating a large `seq` with `List.ofSeq` can exhaust memory; keep it lazy when possible.
 - Interop with C# null-returning APIs reintroduces null, which F# otherwise avoids; wrap boundaries in `Option`.
+
+## Security relevance
+
+F# reaches security practitioners as a .NET language: its applications share the runtime, base class library, and therefore the attack surface of [C#](/languages/csharp.md) and [Visual Basic .NET](/languages/visual-basic-net.md). This section is the threat-facing context; the defensive patterns that counter each class are in the Secure coding section that follows.
+
+### Where it appears
+
+- .NET back-end services. F# is used for back ends, data analysis, and financial and scientific modeling that run on the Common Language Runtime, so an F# service is assessed with the same methods and tooling as any other .NET application.
+- Shared .NET attack surface. Because F# calls the .NET base class library directly, the deserialization, XML, and data-access weaknesses that affect C# apply equally to F#.
+- Front-end and cross-platform code. Through [Fable](https://fable.io/), F# compiles to JavaScript, which moves part of an application into the browser. F# has little dedicated offensive tooling.
+
+### Dominant weakness classes
+
+F# is memory-safe (garbage-collected on the .NET managed heap), so the memory-corruption classes do not apply. Immutability and `Option` instead of null also remove a class of errors in pure F# code. What remains are the standard .NET application weaknesses, usually reached through the base class library:
+
+- Insecure deserialization. The obsolete `BinaryFormatter` reconstructs arbitrary objects from untrusted data, which is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- SQL injection. Building SQL by string interpolation rather than parameterized commands maps to [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- XML external entities. .NET XML readers with DTD processing enabled are exposed to [CWE-611](https://cwe.mitre.org/data/definitions/611.html).
+- Command injection. Passing a shell string rather than an argument list to a process maps to [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+
+### Why it matters
+
+Reading F# lets an analyst review .NET services for these classes, with particular attention to the C# interop boundary, where null-returning APIs and untyped data re-enter code that F# would otherwise keep safe. Roslyn-based .NET security analyzers run in the build and `dotnet list package --vulnerable` reports known-vulnerable dependencies, as the Secure coding section details.
 
 ## Secure coding
 

@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (857 words at 230 words a minute)
+About 5 min (1,202 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -164,6 +164,29 @@ Ada compiles to native code and performs comparably to C for equivalent work; ru
 - Overly tight numeric subtypes raising `Constraint_Error` on valid edge data.
 - Confusing a type with its subtypes, or mixing distinct numeric types that need explicit conversion.
 - Task termination and exception propagation across tasks behaving differently than expected.
+
+## Security relevance
+
+Ada reaches security practitioners mostly as the implementation language of safety-critical and high-assurance systems that must be assessed, certified, or reverse engineered, rather than as a language for offensive tooling. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- High-assurance and embedded systems. Ada is the implementation language for avionics, rail signaling, spacecraft, and defense systems, so it appears as a target of assessment and certification rather than as attacker tooling. Compiled Ada binaries are read during [reverse engineering](/REVERSE_ENGINEERING_REFERENCE.md) like any other native code. See the [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md).
+- Formal verification. The SPARK subset and `gnatprove` prove the absence of run-time errors in critical modules, which is a defensive assurance activity more than an audit of existing weaknesses.
+- Foreign interfaces. Ada code that binds to C libraries or drivers forms a boundary where the language's checks stop, and where many real defects concentrate.
+
+### Dominant weakness classes
+
+Ada is memory-safe by default: array, range, and arithmetic checks run at run time and raise `Constraint_Error` rather than corrupting memory, so the memory-corruption classes apply only where that safety is turned off or bypassed.
+
+- Suppressed checks and out-of-bounds access. Compiling with `pragma Suppress` or a global check-off switch removes bounds and overflow checking, reintroducing [CWE-787](https://cwe.mitre.org/data/definitions/787.html).
+- Manual deallocation. `Ada.Unchecked_Deallocation` and access types can create dangling pointers and use-after-free, which is [CWE-416](https://cwe.mitre.org/data/definitions/416.html).
+- Integer overflow. Arithmetic overflow raises `Constraint_Error` only while checks are enabled; disabling them for untrusted arithmetic allows [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Interfacing boundary. Data crossing to and from C bypasses Ada's checks entirely, so unvalidated input and process launches at that boundary carry the usual native and [CWE-78](https://cwe.mitre.org/data/definitions/78.html) risks.
+
+### Why it matters
+
+Auditing Ada centers on where its default safety is removed: searching for suppressed checks, uses of the `Unchecked_` features, and every C interface, since those are the points where an Ada program can behave like unchecked native code. On the assurance side, [SPARK](https://www.adacore.com/about-spark) and `gnatprove` prove properties statically, and GNAT warnings flag questionable constructs, as the Secure coding section details.
 
 ## Secure coding
 

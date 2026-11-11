@@ -17,7 +17,7 @@ Beginner to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 7 min (1,672 words at 230 words a minute)
+About 7 min (1,671 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -276,7 +276,7 @@ HTB Pro Labs are full enterprise network simulations, not individual machines. T
 A multi-machine network pentest simulating a small enterprise environment. Covers: initial external foothold, internal pivoting, Active Directory basics, credential reuse, and report writing. Widely recommended as OSCP preparation; the attack surface and methodology closely match the exam format. Best starting point for Pro Labs.
 
 ### Offshore (Intermediate-Advanced)
-External penetration test of a large enterprise Active Directory environment with multiple forests, domain trusts, and segmented networks. Requires solid BloodHound usage, trust relationship abuse, and multi-hop pivoting. One of the most comprehensive AD labs available.
+External penetration test of a large enterprise Active Directory environment with multiple forests, domain trusts, and segmented networks. Requires solid BloodHound usage, trust relationship abuse, and multi-hop pivoting. One of the largest AD labs available.
 
 ### RastaLabs (Advanced)
 A hardened Active Directory environment with modern defensive controls: AMSI bypass requirements, EDR evasion, constrained language mode, and application whitelisting. Mirrors real enterprise environments that have invested in security tooling. Requires EDR bypass skills before machines can be compromised.

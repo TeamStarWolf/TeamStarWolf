@@ -2,7 +2,7 @@
 
 *Microsoft · Cloud-delivered EDR/EPP with integrated risk-based Vulnerability Management (part of Microsoft Defender XDR)*
 
-Microsoft Defender for Endpoint (MDE) is a cloud-delivered endpoint protection and EDR platform that combines next-gen antimalware, attack surface reduction, endpoint detection and response, automated investigation and response, and threat/vulnerability management on a single agent built into Windows. Microsoft Defender Vulnerability Management (MDVM) is the integrated, agentless-from-the-endpoint, continuously-assessing vulnerability capability — core features ship inside MDE Plan 2, with premium features sold as an add-on or standalone. It solves endpoint protection and vulnerability visibility natively for Windows-centric and Microsoft 365 estates without a separate scan agent. It feeds the broader Defender XDR and Microsoft Sentinel ecosystem.
+Microsoft Defender for Endpoint (MDE) is a cloud-delivered endpoint protection and EDR platform that combines next-gen antimalware, attack surface reduction, endpoint detection and response, automated investigation and response, and threat/vulnerability management on a single agent built into Windows. Microsoft Defender Vulnerability Management (MDVM) is the integrated, agentless-from-the-endpoint, continuously-assessing vulnerability capability: core features ship inside MDE Plan 2, with premium features sold as an add-on or standalone. It solves endpoint protection and vulnerability visibility natively for Windows-centric and Microsoft 365 estates without a separate scan agent. It feeds the broader Defender XDR and Microsoft Sentinel ecosystem.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -68,21 +68,21 @@ No review recorded yet
 - Microsoft Security Copilot integration for AI-assisted investigation, summarization and remediation guidance
 - Mobile Threat Defense (Android/iOS), macOS and Linux server support
 
-**Architecture & deployment.** Cloud-native SaaS backend with a built-in sensor. On Windows 10/11 and Windows Server the EDR sensor is native to the OS (no separate install); other platforms (macOS, Linux, Android, iOS) use a deployed agent. Onboarding is via Microsoft Intune (service-to-service connector, the recommended path), Group Policy, Configuration Manager, local script (<=10 devices), or VDI scripts. Telemetry flows to the customer's Defender tenant in the Microsoft cloud; management is through the Microsoft Defender portal (security.microsoft.com). MDVM assessment runs off the same endpoint sensor — no separate scan agent or scan schedule — with optional authenticated network scans for unmanaged/network devices.
+**Architecture & deployment.** Cloud-native SaaS backend with a built-in sensor. On Windows 10/11 and Windows Server the EDR sensor is native to the OS (no separate install); other platforms (macOS, Linux, Android, iOS) use a deployed agent. Onboarding is via Microsoft Intune (service-to-service connector, the recommended path), Group Policy, Configuration Manager, local script (<=10 devices), or VDI scripts. Telemetry flows to the customer's Defender tenant in the Microsoft cloud; management is through the Microsoft Defender portal (security.microsoft.com). MDVM assessment runs off the same endpoint sensor (no separate scan agent or scan schedule) with optional authenticated network scans for unmanaged/network devices.
 
 **Editions & licensing.** Per-user/per-device subscription. MDE Plan 1 (prevention: AV, ASR, device-based conditional access; included in Microsoft 365 E3). MDE Plan 2 (adds EDR, AIR, and CORE Defender Vulnerability Management; included in Microsoft 365 E5). Microsoft Defender Vulnerability Management Add-on extends Plan 2 with the premium features. Defender Vulnerability Management Standalone is available for customers without Plan 2 (e.g. E3/P1). Defender for Endpoint for Servers / server add-on SKU covers server workloads (often paired with Defender for Cloud / per-server-hour billing for cloud workloads). Defender for Business targets SMB (<=300 seats).
 
 **Key integrations.** Microsoft Defender XDR (native correlation across identity, email, cloud apps, cloud); Microsoft Sentinel (SIEM/SOAR); Microsoft Intune (onboarding, compliance, and remediation task hand-off; device risk gates Conditional Access via Entra ID); Microsoft Defender for Cloud (cloud workload / server vulnerability assessment); Microsoft Security Copilot; ServiceNow and third-party ITSM via APIs/connectors; Entra ID Conditional Access; Open APIs / streaming API for third-party SIEM.
 
 **Differentiators**
-- Agentless-to-the-endpoint vulnerability management — MDVM reuses the EDR sensor already present and native in Windows, so there is no separate scan agent, scan window or credentialed-scan infrastructure for managed devices
-- Deep native integration across the Microsoft stack (Intune for remediation, Entra for risk-based access, Sentinel for SIEM, Defender XDR for correlation) — exposure data and response are one fabric
-- Built into Windows and bundled in M365 E5 — enormous install base and low friction/marginal cost for Microsoft-licensed shops
+- Agentless-to-the-endpoint vulnerability management: MDVM reuses the EDR sensor already present and native in Windows, so there is no separate scan agent, scan window or credentialed-scan infrastructure for managed devices
+- Deep native integration across the Microsoft stack (Intune for remediation, Entra for risk-based access, Sentinel for SIEM, Defender XDR for correlation): exposure data and response are one fabric
+- Built into Windows and bundled in M365 E5: enormous install base and low friction/marginal cost for Microsoft-licensed shops
 - Threat-informed prioritization tying CVEs to active exploitation and Microsoft's threat intelligence, plus one-click remediation requests to Intune
 
 **Limitations & considerations**
 - Best value and completeness assume a Microsoft-centric estate; licensing (E3 vs E5 vs add-on vs standalone vs server SKUs) is genuinely confusing and easy to under/over-buy
-- Vulnerability depth is primarily endpoint-OS and installed-software centric — weaker for network devices (authenticated/network scan is newer and narrower), appliances, OT/IoT, and deep web-app/DAST coverage than dedicated Tenable/Qualys/Rapid7
+- Vulnerability depth is primarily endpoint-OS and installed-software centric: weaker for network devices (authenticated/network scan is newer and narrower), appliances, OT/IoT, and deep web-app/DAST coverage than dedicated Tenable/Qualys/Rapid7
 - Non-Windows and server coverage can require additional SKUs (Defender for Servers / Defender for Cloud), adding cost and complexity
 - Heavy reliance on the Microsoft cloud and portal; multi-vendor / non-Microsoft shops get less value and face integration overhead
 - Premium MDVM features gated behind the add-on; the 'core' set in P2 is deliberately limited
@@ -101,23 +101,23 @@ MDE/MDVM mitigates in the pre-patch window chiefly through configuration-based c
 
 **Log sources**
 - Cloud: Microsoft Defender XDR Advanced Hunting (Kusto/KQL). TVM/MDVM tables: DeviceTvmSecureConfigurationAssessment (+ ...KB), DeviceTvmSoftwareInventory, DeviceTvmSoftwareVulnerabilities, DeviceTvmInfoGathering, DeviceTvmBrowserExtensions, etc. Behaviour tables: DeviceEvents, DeviceProcessEvents, DeviceInfo.
-- On-device Windows Event Logs: Microsoft-Windows-Windows Defender/Operational (AV + ASR + Controlled Folder Access + Network Protection events); onboarding script logs to the Application log under source 'WDATPOnboarding'. (Some sources list certain ASR IDs under the Security channel — see gotchas.)
-- APIs: Defender for Endpoint API (api.securitycenter.microsoft.com) and the newer Microsoft Graph security endpoints — machines, machineSecureConfigurationAssessments, vulnerabilities, recommendations; Advanced Hunting API via Graph POST /security/runHuntingQuery.
+- On-device Windows Event Logs: Microsoft-Windows-Windows Defender/Operational (AV + ASR + Controlled Folder Access + Network Protection events); onboarding script logs to the Application log under source 'WDATPOnboarding'. (Some sources list certain ASR IDs under the Security channel: see gotchas.)
+- APIs: Defender for Endpoint API (api.securitycenter.microsoft.com) and the newer Microsoft Graph security endpoints: machines, machineSecureConfigurationAssessments, vulnerabilities, recommendations; Advanced Hunting API via Graph POST /security/runHuntingQuery.
 - Collection into SIEM: Defender XDR -> Microsoft Sentinel connector (lands the same table names in Log Analytics, ASIM-normalizable); or Event Log via AMA -> Sentinel; or the Defender streaming/SIEM API -> Azure Event Hub/Storage (JSON). Splunk via the Microsoft 365 Defender add-on; Windows events as XmlWinEventLog.
 
 **Telemetry format / transport.** KQL tables (Advanced Hunting and the mirrored Sentinel/Log Analytics tables); Windows Event Log (EVTX/XML); JSON over the Graph/streaming API to Event Hub; ASIM in Sentinel, Splunk CIM (Malware/Endpoint, Change, Vulnerabilities) via the add-on.
 
-**Control-presence check (present & configured?).** Onboarded (sensor present): registry HKLM\SOFTWARE\Microsoft\Windows Advanced Threat Protection\Status, REG_DWORD OnboardingState = 1 (onboarded; treat anything else as not-onboarded but confirm 0/2 meanings in current docs — sources conflict on 2=in-progress vs not). SENSE service running: 'sc query sense' (binary MsSense.exe, startup Automatic only when onboarded). PowerShell: Get-MpComputerStatus (OnboardingState, AMServiceEnabled, RealTimeProtectionEnabled=true, AMRunningMode=Normal — Passive/EDR-block means AV is not actively remediating). AV policy path HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection. ASR configured on device: Get-MpPreference -> AttackSurfaceReductionRules_Ids + AttackSurfaceReductionRules_Actions (0=Disabled, 1=Block, 2=Audit, 6=Warn); registry HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules (GUID=value; local/MDM path drops 'Policies\'). Controlled Folder Access: Get-MpPreference EnableControlledFolderAccess. Cloud-side config attestation: DeviceTvmSecureConfigurationAssessment per ConfigurationId (IsApplicable/IsCompliant), or the machineSecureConfigurationAssessments API.
+**Control-presence check (present & configured?).** Onboarded (sensor present): registry HKLM\SOFTWARE\Microsoft\Windows Advanced Threat Protection\Status, REG_DWORD OnboardingState = 1 (onboarded; treat anything else as not-onboarded but confirm 0/2 meanings in current docs: sources conflict on 2=in-progress vs not). SENSE service running: 'sc query sense' (binary MsSense.exe, startup Automatic only when onboarded). PowerShell: Get-MpComputerStatus (OnboardingState, AMServiceEnabled, RealTimeProtectionEnabled=true, AMRunningMode=Normal; a Passive or EDR-block mode means AV is not actively remediating). AV policy path HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection. ASR configured on device: Get-MpPreference -> AttackSurfaceReductionRules_Ids + AttackSurfaceReductionRules_Actions (0=Disabled, 1=Block, 2=Audit, 6=Warn); registry HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules (GUID=value; local/MDM path drops 'Policies\'). Controlled Folder Access: Get-MpPreference EnableControlledFolderAccess. Cloud-side config attestation: DeviceTvmSecureConfigurationAssessment per ConfigurationId (IsApplicable/IsCompliant), or the machineSecureConfigurationAssessments API.
 
 **Validation signals (actually working?)**
 - ASR actually BLOCKED (not just configured/audited): Windows Defender/Operational Event ID 1121 = rule blocked an operation; 1122 = audit-only (observed, NOT blocked); 1129 = user overrode a Warn-mode block; 5007 = ASR config changed. The 1121 vs 1122 split is the configured-vs-effective line. In Advanced Hunting: DeviceEvents | where ActionType startswith "Asr". Microsoft's [ASR rules reference](https://learn.microsoft.com/en-us/defender-endpoint/attack-surface-reduction-rules-reference) lists an Audited and a Blocked action type for each rule (for example AsrLsassCredentialTheftAudited and AsrLsassCredentialTheftBlocked). The rule GUID is in AdditionalFields.
-- Controlled Folder Access / Network Protection block events exist in the same Operational log (CFA commonly cited as 1123 block / 1124 audit — VERIFY the exact IDs against current Microsoft docs before alerting).
+- Controlled Folder Access / Network Protection block events exist in the same Operational log (CFA commonly cited as 1123 block / 1124 audit; VERIFY the exact IDs against current Microsoft docs before alerting).
 - Secure config effective: DeviceTvmSecureConfigurationAssessment | where ConfigurationId == '<the setting that mitigates the CVE>' and IsApplicable == true and IsCompliant == true.
 - Vulnerability remediated: the CveId no longer appears for the DeviceId in DeviceTvmSoftwareVulnerabilities and DeviceTvmSoftwareInventory shows the fixed version (reachability removed).
 
 **Key events / fields / tables / APIs**
 - Tables/columns: DeviceTvmSecureConfigurationAssessment(ConfigurationId, IsApplicable, IsCompliant, ConfigurationCategory, ConfigurationImpact, Context) + DeviceTvmSecureConfigurationAssessmentKB(ConfigurationDescription); DeviceTvmSoftwareVulnerabilities(CveId, SoftwareName, SoftwareVersion, RecommendedSecurityUpdate, VulnerabilitySeverityLevel); DeviceTvmSoftwareInventory; DeviceTvmInfoGathering; DeviceEvents(ActionType, AdditionalFields); DeviceInfo(OnboardingStatus, OSPlatform).
-- Windows Defender/Operational Event IDs: 1121 ASR block, 1122 ASR audit, 1129 Warn override, 5007 config change. (1125/1126 are reported inconsistently across Splunk/Wazuh content, some under the Security channel — verify.) Onboarding: Application log 'WDATPOnboarding' event 15 (SENSE failed to start), event 35 (onboarding value not written to registry).
+- Windows Defender/Operational Event IDs: 1121 ASR block, 1122 ASR audit, 1129 Warn override, 5007 config change. (1125/1126 are reported inconsistently across Splunk/Wazuh content, some under the Security channel: verify.) Onboarding: Application log 'WDATPOnboarding' event 15 (SENSE failed to start), event 35 (onboarding value not written to registry).
 - Registry: ...\Windows Advanced Threat Protection\Status\OnboardingState; ...\Windows Defender Exploit Guard\ASR\Rules.
 - PowerShell: Get-MpComputerStatus, Get-MpPreference, Add-MpPreference (Tamper Protection silently blocks changes made this way).
 - APIs: Graph POST /security/runHuntingQuery; api.securitycenter.microsoft.com /api/machines, /machineSecureConfigurationAssessments, /vulnerabilities, /recommendations.
@@ -162,12 +162,12 @@ DeviceTvmSoftwareVulnerabilities
 **How it mitigates (mechanism).** MDVM attests/scores the device's secure configuration and missing patches (config enforcement + reachability removal); MDE's ASR, Controlled Folder Access, Network Protection and AV perform inline blocking of the exploit behaviour in the kernel/minifilter. The observable proof is IsCompliant==true for the mitigating ConfigurationId, the CveId leaving DeviceTvmSoftwareVulnerabilities after patch, and a 1121 / Asr...Blocked event when an attempt is stopped.
 
 **Logging gotchas**
-- Audit vs Block: 1122 / 'Asr...Audited' prove the rule SAW the behaviour but did NOT stop it — counting audit events as 'mitigated' is the classic false pass. Only 1121 / 'Asr...Blocked' is enforcement.
-- Advanced Hunting ASR events are throttled to unique processes per hour (first occurrence timestamp) — AH counts understate raw block volume; use the on-device Operational log for true counts.
+- Audit vs Block: 1122 / 'Asr...Audited' prove the rule SAW the behaviour but did NOT stop it: counting audit events as 'mitigated' is the classic false pass. Only 1121 / 'Asr...Blocked' is enforcement.
+- Advanced Hunting ASR events are throttled to unique processes per hour (first occurrence timestamp): AH counts understate raw block volume; use the on-device Operational log for true counts.
 - Registry OnboardingState and the portal can disagree (registry 0 while portal still shows onboarded); corroborate with DeviceInfo/API before declaring a device offboarded.
-- AMRunningMode = Passive/EDR-Block means MDE is reporting but Microsoft AV is NOT the active remediator — 'onboarded' is not the same as 'actively blocking'.
+- AMRunningMode = Passive/EDR-Block means MDE is reporting but Microsoft AV is NOT the active remediator: 'onboarded' is not the same as 'actively blocking'.
 - Tamper Protection silently blocks Add-MpPreference changes, so a config push can appear applied yet never take; verify with Get-MpPreference, not the deployment tool's success code.
-- TVM tables carry prerelease notices and several ActionType/CFA event IDs are reported inconsistently in third-party content — verify exact strings/IDs against the Defender portal schema reference and current Microsoft docs before building detections.
+- TVM tables carry prerelease notices and several ActionType/CFA event IDs are reported inconsistently in third-party content; verify exact strings/IDs against the Defender portal schema reference and current Microsoft docs before building detections.
 
 ## Documentation & repositories
 
@@ -183,8 +183,8 @@ _API & developer docs_
 
 _GitHub (official)_
 - [Microsoft GitHub organization](https://github.com/microsoft)
-- [mdatp-xplat — official cross-platform (Linux/macOS) Defender deployment & config samples](https://github.com/microsoft/mdatp-xplat)
-- [mdatp-devicecontrol — official device-control policy samples](https://github.com/microsoft/mdatp-devicecontrol)
+- [mdatp-xplat: official cross-platform (Linux/macOS) Defender deployment & config samples](https://github.com/microsoft/mdatp-xplat)
+- [mdatp-devicecontrol: official device-control policy samples](https://github.com/microsoft/mdatp-devicecontrol)
 
 _Community / integration / detection repos_
 - [Microsoft 365 Defender Hunting Queries (KQL, archived but widely referenced)](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries)
@@ -207,7 +207,7 @@ VERIFIED 2025-2026: Current product family is Microsoft Defender for Endpoint Pl
 - [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md)
 - [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
 - [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md)
-- [Zero Trust Reference: Comprehensive Cybersecurity Guide](/ZERO_TRUST_REFERENCE.md)
+- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
 - [CrowdStrike Falcon](/tools/crowdstrike-falcon.md)
 - [Microsoft Defender for Cloud](/tools/microsoft-defender-for-cloud.md)
 - [Vendor Tool Pages](/tools/README.md)

@@ -225,15 +225,15 @@ Use AWS Free Tier + CloudGoat + Prowler:
 1. Create free AWS account
 2. Deploy [CloudGoat](https://github.com/RhinoSecurityLabs/cloudgoat) vulnerable scenarios
 3. Run [Prowler](https://github.com/prowler-cloud/prowler) to identify misconfigurations
-4. Practice with [flaws.cloud](http://flaws.cloud) — no AWS account needed
+4. Practice with [flaws.cloud](http://flaws.cloud): no AWS account needed
 
 ---
 
 ## Related Resources
-- [Career Paths & Cert Roadmap](CAREER_PATHS.md) — skill progression by career track
-- [Enterprise Security Pipeline](SECURITY_PIPELINE.md) — vendor and control mapping by stage
-- [ATT&CK Navigator](navigator/) — technique coverage visualization
-- [Starred Repositories](STARRED_REPOS.md) — curated tool and project repos
+- [Career Paths & Cert Roadmap](CAREER_PATHS.md): skill progression by career track
+- [Enterprise Security Pipeline](SECURITY_PIPELINE.md): vendor and control mapping by stage
+- [ATT&CK Navigator](navigator/): technique coverage visualization
+- [Starred Repositories](STARRED_REPOS.md): curated tool and project repos
 
 ---
 

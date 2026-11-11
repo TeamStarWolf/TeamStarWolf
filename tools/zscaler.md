@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 12 min (2,661 words at 230 words a minute)
+About 12 min (2,658 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -173,7 +173,7 @@ _Official documentation & manuals_
 - [Zero Trust Exchange platform overview](https://www.zscaler.com/platform/zero-trust-exchange)
 
 _API & developer docs_
-- [ZIA API — Getting Started (OAuth 2.0 / legacy key)](https://help.zscaler.com/zia/api-getting-started)
+- [ZIA API: Getting Started (OAuth 2.0 / legacy key)](https://help.zscaler.com/zia/api-getting-started)
 - [Understanding OneAPI Authentication (ZIdentity OAuth2)](https://help.zscaler.com/unified/understanding-oneapi-authentication)
 - [ZPA API reference](https://help.zscaler.com/zpa/api-reference)
 - [Zscaler Python SDK docs (OneAPI client)](https://zscaler-sdk-python.readthedocs.io/)
@@ -210,7 +210,7 @@ Core platform remains the Zero Trust Exchange with ZIA, ZPA, and ZDX. Confirmed 
 
 ## Related pages
 
-- [Zero Trust Reference: Comprehensive Cybersecurity Guide](/ZERO_TRUST_REFERENCE.md)
+- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
 - [Network Security Architecture Reference](/NETWORK_SECURITY_ARCHITECTURE.md)
 - [Cloud Network Security Reference](/CLOUD_NETWORK_SECURITY.md)
 - [Enterprise Security Controls Reference](/ENTERPRISE_SECURITY_CONTROLS.md)

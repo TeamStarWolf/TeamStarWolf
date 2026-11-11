@@ -80,8 +80,8 @@ Frame 1: 74 bytes on wire
   Capture Length: 74 bytes
 
 Ethernet II
-  Destination: 00:50:56:c0:00:08  (VMware)          ← gateway MAC — verify for ARP spoofing
-  Source:      00:0c:29:ab:cd:ef  (VMware)          ← source MAC — track against DHCP leases
+  Destination: 00:50:56:c0:00:08  (VMware)          ← gateway MAC; verify for ARP spoofing
+  Source:      00:0c:29:ab:cd:ef  (VMware)          ← source MAC; track against DHCP leases
   Type: IPv4 (0x0800)
 
 Internet Protocol Version 4
@@ -432,33 +432,33 @@ tcpdump 'not port 22 and not port 53'
 # TCP flags byte: offset 13 in TCP header
 # Bit positions: CWR=128, ECE=64, URG=32, ACK=16, PSH=8, RST=4, SYN=2, FIN=1
 
-# SYN only (no ACK) — new connections / scan detection
+# SYN only (no ACK): new connections / scan detection
 tcpdump 'tcp[tcpflags] == tcp-syn'
 tcpdump 'tcp[13] == 0x02'
 
-# SYN-ACK — server responses to SYN
+# SYN-ACK: server responses to SYN
 tcpdump 'tcp[tcpflags] & (tcp-syn|tcp-ack) == (tcp-syn|tcp-ack)'
 tcpdump 'tcp[13] == 0x12'
 
-# RST — connection resets
+# RST: connection resets
 tcpdump 'tcp[tcpflags] & tcp-rst != 0'
 
-# FIN — connection teardown
+# FIN: connection teardown
 tcpdump 'tcp[tcpflags] & tcp-fin != 0'
 
-# NULL scan — no flags set (Nmap -sN)
+# NULL scan: no flags set (Nmap -sN)
 tcpdump 'tcp[tcpflags] == 0'
 tcpdump 'tcp[13] == 0x00'
 
-# Xmas scan — FIN+PSH+URG (Nmap -sX)
+# Xmas scan: FIN+PSH+URG (Nmap -sX)
 tcpdump 'tcp[tcpflags] == (tcp-fin|tcp-psh|tcp-urg)'
 tcpdump 'tcp[13] == 0x29'
 
-# ACK scan — ACK only (Nmap -sA for firewall mapping)
+# ACK scan: ACK only (Nmap -sA for firewall mapping)
 tcpdump 'tcp[tcpflags] == tcp-ack'
 tcpdump 'tcp[13] == 0x10'
 
-# PSH+ACK — data being pushed (normal HTTP, etc.)
+# PSH+ACK: data being pushed (normal HTTP, etc.)
 tcpdump 'tcp[tcpflags] & (tcp-psh|tcp-ack) == (tcp-psh|tcp-ack)'
 ```
 
@@ -683,7 +683,7 @@ zq 'where conn_state == "S0" or conn_state == "REJ" | count() by id.orig_h | sor
 # ── DNS Query Frequency (DGA or tunneling) ───────────────────────────────────
 zq 'count() by query | sort -r count | head 20' dns.log
 
-# ── Long DNS Labels (Tunneling — base32/base64 encoded data) ─────────────────
+# ── Long DNS Labels (Tunneling: base32/base64 encoded data) ──────────────────
 zq 'where len(query) > 50 | sort -r len(query)' dns.log
 
 # ── High-entropy Subdomains (DGA) ────────────────────────────────────────────

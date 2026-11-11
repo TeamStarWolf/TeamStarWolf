@@ -55,7 +55,7 @@ No review recorded yet
 
 ## Why this exists
 
-Kali is the de-facto baseline reference distribution for offensive security. When a working catalogue claims "comprehensive coverage" of practitioner tooling, the honest test is: *how does it line up against the tools a Kali user already has on disk?*
+Kali is the de-facto baseline reference distribution for offensive security. When a working catalogue claims full coverage of practitioner tooling, the honest test is: *how does it line up against the tools a Kali user already has on disk?*
 
 This document answers that. It is not a recommendation to star every Kali tool; many are distro packages, GUI shells, or unmaintained forks with no useful upstream. It identifies the tools that (a) have a maintained upstream GitHub repository and (b) are not yet in the curated Stars Lists, so the gap can be closed deliberately rather than by reflex.
 

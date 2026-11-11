@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 11 min (2,424 words at 230 words a minute)
+About 11 min (2,421 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -165,7 +165,7 @@ ips stat ; enabled_blades ; cp_log_export status
 
 _Official documentation & manuals_
 - [Check Point Support Center (home for all product docs, SK articles, downloads)](https://support.checkpoint.com)
-- [Check Point Support Center — documentation, admin guides and SK articles](https://support.checkpoint.com/)
+- [Check Point Support Center: documentation, admin guides and SK articles](https://support.checkpoint.com/)
 - [Check Point Portal (formerly Infinity Portal) Administration Guide](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/Infinity-Portal-Admin-Guide/Content/Topics-Infinity-Portal/Introduction-to-CP-Portal.htm)
 - [Quantum product page / resources](https://www.checkpoint.com/quantum/)
 - [Check Point Infinity Platform overview](https://www.checkpoint.com/infinity/)
@@ -207,7 +207,7 @@ CEO Nadav Zafrir (ex-Unit 8200/Team8) took over in December 2024; founder Gil Sh
 - [Network Security Architecture Reference](/NETWORK_SECURITY_ARCHITECTURE.md)
 - [Network Defense Reference Library](/NETWORK_DEFENSE_REFERENCE.md)
 - [Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md)
-- [Zero Trust Reference: Comprehensive Cybersecurity Guide](/ZERO_TRUST_REFERENCE.md)
+- [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
 - [Zscaler Zero Trust Exchange](/tools/zscaler.md)
 - [Vendor Tool Pages](/tools/README.md)
 - [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)

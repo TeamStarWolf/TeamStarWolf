@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (1,022 words at 230 words a minute)
+About 6 min (1,376 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -167,6 +167,30 @@ For hot numeric code, the `Inline::C` module or an XS extension drops down to C.
 - List versus scalar context can surprise: a function called where a scalar is expected may return a count rather than a list.
 - Numeric comparison uses `==` and `<`, while string comparison uses `eq` and `lt`; mixing them compares the wrong way.
 - Regular expressions are easy to write and easy to make slow; watch for catastrophic backtracking on untrusted input.
+
+## Security relevance
+
+Perl reaches security practitioners as a language of system administration and glue code, as the implementation language of some long-running security tools, and as the back end of legacy web applications. Its strength at text processing put it into many older scanners and automation scripts, and its CGI heritage left web code that is still assessed today. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Security and administration tooling. The [Nikto](https://github.com/sullo/nikto) web-server scanner is written in Perl, and much system-administration automation and log processing is Perl, so reading a tool or script often means reading Perl. See the [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md).
+- Legacy web back ends. Older CGI and `mod_perl` applications remain in service and are frequent assessment targets. See the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Text and data processing. Report generation, bioinformatics pipelines, and one-off data munging keep Perl in paths that handle untrusted input.
+
+### Dominant weakness classes
+
+Perl is memory-safe: it is garbage-collected through reference counting, so memory-corruption classes do not apply. The weaknesses are about injection, deserialization, and resource use.
+
+- Command and code injection. `eval` on untrusted strings, backticks, a single-string `system`, and a piped `open` reach the shell or interpreter, which are [CWE-78](https://cwe.mitre.org/data/definitions/78.html) and [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Insecure deserialization. `Storable::thaw` on untrusted data, and `eval` of serialized structures, can reconstruct arbitrary state, which is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- SQL injection. Interpolating variables into SQL instead of using `DBI` placeholders is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Regular-expression denial of service. A pattern that backtracks catastrophically on crafted input can consume unbounded CPU, which is [CWE-400](https://cwe.mitre.org/data/definitions/400.html).
+- Dependency supply chain. CPAN modules run with the program's privileges, so unpinned or unreviewed distributions are a risk. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading Perl lets an analyst understand what a tool such as Nikto actually sends, audit administration scripts for shell and SQL injection, and find unsafe deserialization in long-lived services. [Perl::Critic](https://metacpan.org/pod/Perl::Critic) flags unsafe constructs through policy modules, and taint mode (`perl -T`) refuses to use untrusted data in system-affecting operations until it is explicitly cleared, as the Secure coding section details.
 
 ## Secure coding
 

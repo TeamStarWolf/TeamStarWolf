@@ -156,17 +156,17 @@ _Official documentation & manuals_
 - [Invicti Support / Help Center](https://www.invicti.com/support)
 
 _API & developer docs_
-- [Invicti Platform API — getting started](https://docs.invicti.com/ip/category/platform-api)
+- [Invicti Platform API: getting started](https://docs.invicti.com/ip/category/platform-api)
 - [Get your Invicti Platform API key](https://docs.invicti.com/ip/s1-get-your-api-key)
 - [Access API documentation (Swagger UI from user settings)](https://docs.invicti.com/ip/access-api-documentation)
-- [Acunetix API usage articles —  (examples; no formal standalone REST reference published)](https://www.acunetix.com/blog/)
+- [Acunetix API usage articles: (examples; no formal standalone REST reference published)](https://www.acunetix.com/blog/)
 
 _GitHub (official)_
 - [Invicti Security GitHub organization](https://github.com/Invicti-Security)
-- [brainstorm — LLM-assisted web fuzzing (ffuf wrapper)](https://github.com/Invicti-Security/brainstorm)
-- [netsparker-custom-security-checks — custom checks for Netsparker/Invicti](https://github.com/Invicti-Security/netsparker-custom-security-checks)
-- [netsparker-cloud-scan-plugin — Jenkins plugin to trigger Enterprise scans](https://github.com/Invicti-Security/netsparker-cloud-scan-plugin)
-- [invicti-platform-onprem-tools — on-prem deployment tooling](https://github.com/Invicti-Security/invicti-platform-onprem-tools)
+- [brainstorm: LLM-assisted web fuzzing (ffuf wrapper)](https://github.com/Invicti-Security/brainstorm)
+- [netsparker-custom-security-checks: custom checks for Netsparker/Invicti](https://github.com/Invicti-Security/netsparker-custom-security-checks)
+- [netsparker-cloud-scan-plugin: Jenkins plugin to trigger Enterprise scans](https://github.com/Invicti-Security/netsparker-cloud-scan-plugin)
+- [invicti-platform-onprem-tools: on-prem deployment tooling](https://github.com/Invicti-Security/invicti-platform-onprem-tools)
 
 _Community / integration / detection repos_
 - Acunetix/Invicti CI integrations are mostly first-party (Jenkins, Azure DevOps, GitHub) under the Invicti-Security org; few notable independent community repos exist for this commercial DAST.

@@ -800,7 +800,7 @@ This lab uses Llama Guard through Ollama because it needs no extra framework. [N
 
 - Llama Guard is a classifier and makes mistakes in both directions. Its model card reports false positive rates that vary by language and warns that it may be vulnerable to adversarial or prompt injection attacks. Use it as one layer, not the only one.
 - Its 13 hazard categories (S1 to S13) follow the MLCommons taxonomy. They may not match your own policy, and they are not designed to recognize your organization's own sensitive data, such as internal hostnames or project names. Add your own checks for data you must protect.
-- A guardrail does not fix excessive agency. An agent with powerful tools still needs least privilege and human approval for risky actions.
+- A guardrail does not fix excessive agency. An agent with high-privilege tools still needs least privilege and human approval for risky actions.
 - Fail closed, as this code does, for anything high risk. A guard that silently passes traffic when it is down is not a control.
 - Logging blocked requests with full user text creates sensitive logs. Decide what you log and for how long.
 - Llama Guard 3 1B is released under the Llama 3.2 Community License. Check the terms before production use.

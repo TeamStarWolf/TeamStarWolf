@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,422 words at 230 words a minute)
+About 8 min (1,763 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -162,6 +162,29 @@ Some engines exploit the set-oriented, order-independent semantics to paralleliz
 - Dialect assumptions: syntax, typing, negation, and arithmetic differ between engines, so a program written for one (Soufflé) will not run unchanged on another (Datomic).
 - Recursion cost: a recursive rule over a large or dense relation can materialize very large intermediate relations; watch relation sizes and add constraints.
 - Confusing Datalog with Prolog: Prolog's order-sensitive, top-down evaluation and function symbols do not carry over, and relying on them produces wrong expectations.
+
+## Security relevance
+
+Datalog reaches security practitioners from two directions: as the engine of static program analysis and security tooling, and as the policy language of access-control and authorization systems that must be audited. Offensive tooling written in it is uncommon. The defensive patterns that counter each class are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Static analysis tooling. [Soufflé](https://souffle-lang.github.io/) compiles Datalog to parallel C++ and is used for points-to, taint, and security analyses, so reading those analyses means reading Datalog rules.
+- Access-control and authorization policy. Datalog expresses network and access-control policy and powers query layers such as [Datomic](https://www.datomic.com/), so a policy auditor reads the rules that decide access.
+- Generated queries. Applications that build Datalog rules or queries from input, like applications that build SQL, expose an injection surface.
+
+### Dominant weakness classes
+
+Datalog has no memory model of its own: evaluation is managed by the engine, so the memory-corruption classes do not apply. The weaknesses are about generated programs, policy correctness, and evaluation cost:
+
+- Datalog injection. Concatenating untrusted input into a rule or query lets an attacker add or alter clauses and change what the program returns or decides. This is the Datalog case of query injection, [CWE-943](https://cwe.mitre.org/data/definitions/943.html).
+- Authorization errors. When Datalog expresses access-control policy, a crafted input that changes a derived relation can grant or deny access incorrectly, which maps to [CWE-862](https://cwe.mitre.org/data/definitions/862.html).
+- Resource exhaustion. A query or added rule that triggers large recursive derivations can exhaust memory and time, which is [CWE-770](https://cwe.mitre.org/data/definitions/770.html).
+- Trusting derived facts. If base facts come from untrusted sources, every derived relation inherits that trust problem, so input relations must be validated and scoped before loading.
+
+### Why it matters
+
+Reading Datalog lets an analyst follow what a static analysis actually computes and confirm that an authorization policy grants only what it should. Engines that offer a type checker, as Soufflé does, reject malformed rules before evaluation, and query APIs that bind values as terms rather than assembling program text are the main control, as the Secure coding section details.
 
 ## Secure coding
 

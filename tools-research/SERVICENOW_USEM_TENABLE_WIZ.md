@@ -17,7 +17,7 @@ Advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 47 min (10,791 words at 230 words a minute)
+About 47 min (10,821 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -153,7 +153,7 @@ The new USEM tables fall into five groups. The deprecation map from old tables t
 | Administration for SEM | `sn_sec_wf_assign_rule`, `sn_sec_wf_classification_group/_rule`, `sn_sec_wf_ttr_rule`, `sn_sec_wf_m2m_ttr_status`, `sn_sec_wf_rollup_config` | `sn_vul_assignment_rule`, `sn_vulc_assignment_rule`, `sn_vul_ttr_rule`, `sn_vulc_ttr_rule`, `sn_vul_rollup`, `sn_vulc_risk_score_rollup`, `sn_vul_classification_*` |
 | Exception Management for USEM | `sn_sec_exception_rule`, `sn_sec_exception_change_approval`, `sn_sec_exception_config`, `sn_sec_exception_policy_reason_mapping`, `sn_sec_exception_questionnaire_config` | `sn_vul_auto_exception_rule`, `sn_vulc_auto_exception_rule`, `sn_vul_change_approval`, `sn_vulc_state_change_approval` |
 | Remediation for Attack Surface Mgmt | `sn_sec_rem_task_rule` | Per-app task rules |
-| SEM dashboards | `sn_sec_sem_dashboard`, `sn_sec_sem_m2m_widget_dashboard`, `sn_sec_sem_widget_grouping` | — |
+| SEM dashboards | `sn_sec_sem_dashboard`, `sn_sec_sem_m2m_widget_dashboard`, `sn_sec_sem_widget_grouping` | n/a |
 
 Two further moves happen outside the `sn_sec_*` tables. Compensating controls move to `sn_vul_cmn_m2m_entry_compensating_control`, and the container auto-close configuration moves to `sn_vul_cmn_auto_close_rule`. No dedicated exception-record table exists beyond the rule and Change Approval tables. My reading is that individual deferrals live as Change Approval records plus finding state, but the narrative docs do not confirm it.
 
@@ -321,7 +321,7 @@ The official security docs publish **no Foundation/Advanced/Prime feature matrix
 | Tenable for ITSM | Tenable | Findings → custom `x_tsirm` tables → Incidents | Current; for teams without VR ([same](https://docs.tenable.com/integrations/ServiceNow/Content/PDF/Tenable_and_ServiceNow_Integration_Guide.pdf)) |
 | Tenable Exposure Management ServiceNow Connector | Tenable | **ServiceNow CMDB → Tenable**, assets only, daily | Current; not FedRAMP Moderate ([Tenable docs](https://docs.tenable.com/exposure-management/Content/connectors/servicenow-connector.htm)) |
 | Tenable EM "Create ServiceNow Ticket" / Hexa AI | Tenable | Findings → incidents; sync within ~10 minutes | Ratio-based Tenable One or Tenable One Advanced only ([Tenable docs](https://docs.tenable.com/exposure-management/Content/inventory/create-snow-ticket.htm)) |
-| Tenable-built VR app (TVM/TSC) | Tenable | — | **End of support April 14, 2023** ([Tenable docs](https://docs.tenable.com/snow/Content/Welcome.htm)) |
+| Tenable-built VR app (TVM/TSC) | Tenable | n/a | **End of support April 14, 2023** ([Tenable docs](https://docs.tenable.com/snow/Content/Welcome.htm)) |
 | Tenable.ot / OT Security for VR | Tenable | OT findings → VITs | **End of support Dec 31, 2025**, no replacement ([Tenable EOL notice](https://docs.tenable.com/pdfs/EOL/tenableot-VR-ServiceNow-EOL.pdf)) |
 
 ServiceNow launched its own Tenable app on November 19, 2020, alongside Tenable's ([Tenable blog](https://www.tenable.com/blog/tenable-and-servicenow-extending-vulnerability-response-options-through-strategic-partner)). Migration from the Tenable-built app is governed by KB0960667. The official app is "developed by ServiceNow engineering" and "available with a separate subscription from the ServiceNow Store." It requires VR 12.1 or later, IntegrationHub, and the Setup Assistant "Tenable (Tenable Platform)" tile. Its roles are `sn_vul_tenable.configure_integration` and `sn_vul_tenable.read_integration` ([official docs](https://github.com/ServiceNow/ServiceNowDocs/blob/brazil/markdown/security-management/vulnerability-response/tenable-setup-checklist.md)).
@@ -457,16 +457,16 @@ Three details matter operationally. First, the **Issues integration's THREAT_DET
 | `lastDetectedAt` / `firstDetectedAt` | `sn_vul_detection.last_found` / `first_found` | Yes (date fields) |
 | `status` | `source_status`, `is_ignored`, `status` | Yes |
 | `vendorSeverity` | `source_severity` | Yes |
-| `name` (vulnerability ID, usually a CVE) | `sn_vul_entry.id` | — |
+| `name` (vulnerability ID, usually a CVE) | `sn_vul_entry.id` | n/a |
 | `score` | TPE `v3_base_score` | Yes |
 | `hasExploit` | `exploit` | Yes, feeds the Default Risk Rule |
 | `hasCisaKevExploit` | `cisa_exists` | Yes |
-| `fixedVersion` | detection `fixed_version` | — |
+| `fixedVersion` | detection `fixed_version` | n/a |
 | `vulnerableAsset.providerUniqueId` | Discovered Item `resource_id` | Identity |
 | `isAccessibleFromInternet` | Discovered Item `cmdb_ci_internet_facing` | Only if it propagates to the matched CI (undocumented) |
 | `isOpenToAllInternet`, `hasAdminPrivileges`, `hasHighPrivileges`, `hasSensitiveData`, `hasAccessToSensitiveData`, `relatedIssueAnalytics` | Discovered Item `source_data` (raw JSON) | Only via custom scripted criteria |
 | `layerMetadata.isBaseLayer`, `validate_at_runtime`, `fixed_version` (containers) | `is_base_image`, `validate_at_runtime`, `fix_status` | Container findings only |
-| Wiz risk / priority score | **Not mapped** | — |
+| Wiz risk / priority score | **Not mapped** | n/a |
 
 Source: [official field mapping](https://github.com/ServiceNow/ServiceNowDocs/blob/brazil/markdown/security-management/vulnerability-response/wiz-vul-resp-integration-view-findings.md).
 
@@ -663,23 +663,23 @@ The pattern inside USEM is telling. Armis already powers Early Warning (pre-KEV 
 |---|---|---|---|
 | Brazil force-upgrades VR < v30 to USEM | Not stated; CVR notes still say install < v30 if not upgrading | Community upgrade guidance | **Unverified officially** |
 | Australia Patch 3m/4m auto-upgrade | Not in repo | Community FAQ | Community-only |
-| Migration is irreversible | "Rollback is not possible" | — | Confirmed |
-| Brazil dates | EA 2026-09-24; GA "scheduled" Nov 5 (accessibility page) | — | Confirmed as schedule |
+| Migration is irreversible | "Rollback is not possible" | n/a | Confirmed |
+| Brazil dates | EA 2026-09-24; GA "scheduled" Nov 5 (accessibility page) | n/a | Confirmed as schedule |
 | Unified exposure table | None; shared `sn_sec_*` rule/calculator/exception tables | "Unified exposure records" (Community) | Corrected |
-| `sn_vul_vulnerability` | Host Remediation Tasks table | — | Confirmed |
-| Default risk factors | Severity, exploit, criticality, external exposure, EPSS; KEV triggers recalculation only | — | Confirmed; weights unpublished |
+| `sn_vul_vulnerability` | Host Remediation Tasks table | n/a | Confirmed |
+| Default risk factors | Severity, exploit, criticality, external exposure, EPSS; KEV triggers recalculation only | n/a | Confirmed; weights unpublished |
 | 80/5/15 rollup | Worked example only | Treated as default | Downgraded to example |
 | Tenable Risk Rule 70/15/15 | Official, inactive by default | Community tutorial | Confirmed |
 | Tenable app "v30.x" | Docs table lists v3.13.1/4.1/5.0.1 (stale); Store release notes list 30.x (USEM) and 6.x (classic) tracks | Community FAQ | Confirmed by release notes |
-| Tenable default severities | Critical + High only | — | Confirmed |
-| ACR/AES mapped | Not mapped | — | Confirmed absent |
-| Tenable UUID used | `source_id` used for CI lookup | — | Confirmed |
+| Tenable default severities | Critical + High only | n/a | Confirmed |
+| ACR/AES mapped | Not mapped | n/a | Confirmed absent |
+| Tenable UUID used | `source_id` used for CI lookup | n/a | Confirmed |
 | Tenable WAS | WAS → AVR integration documented | 2023–24 Community: none | Corrected |
-| Tenable.io rescan | Documented (not on agents) | — | Confirmed |
+| Tenable.io rescan | Documented (not on agents) | n/a | Confirmed |
 | GenAI cross-scanner dedup | Otto skill page exists, threshold ships empty; not mentioned on any Tenable or Wiz page | Community FAQ: Now Assist entitlement | Exists; Tenable/Wiz behavior undocumented |
-| Wiz Asset integration required | Optional, off since 32.1/4.1 (same page contradicts) | — | Confirmed with caveat |
+| Wiz Asset integration required | Optional, off since 32.1/4.1 (same page contradicts) | n/a | Confirmed with caveat |
 | "Manage Exceptions in ServiceNow" scope | AVR tab only | Release notes described generally | Narrowed |
-| Cloud Exposure View uses Wiz | Yes; requires CC + Wiz app | — | Confirmed |
+| Cloud Exposure View uses Wiz | Yes; requires CC + Wiz app | n/a | Confirmed |
 | Wiz `last_found` stale loop | `last_found` = `lastDetectedAt`; no reconcile job documented | Community thread | Community-reported, consistent with docs |
 | VCM in Advanced, VSM in Prime | Each a separate subscription; no tier matrix | Community packaging guide | Unverified |
 | Vulnerability Resolution AI Specialist | Absent | Aug 2026 press release | Roadmap |

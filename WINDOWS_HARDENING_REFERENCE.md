@@ -134,7 +134,7 @@ User mode:
   lsass.exe  (LSA server, token creation, audit dispatch)
     ├── msv1_0.dll    (NTLM authentication package)
     ├── kerberos.dll  (Kerberos v5)
-    ├── wdigest.dll   (HTTP Digest — disable with UseLogonCredential=0)
+    ├── wdigest.dll   (HTTP Digest: disable with UseLogonCredential=0)
     └── SSP/AP chain (TSSSP, LiveSSP, CloudAP)
 
 Kernel mode:
@@ -175,10 +175,10 @@ Credential Guard moves NTLM hashes and Kerberos TGTs into VSM (Virtual Secure Mo
 
 Architecture:
 ```
-VTL1 (Isolated User Mode — Secure World):
+VTL1 (Isolated User Mode: Secure World):
   LsaIso.exe  ──  stores NT hashes, Kerberos keys, DPAPI keys
 
-VTL0 (Normal World — Kernel + User):
+VTL0 (Normal World: Kernel + User):
   lsass.exe  ──  communicates via RPC to LsaIso.exe
                ──  only receives derived credentials, never raw secrets
 ```
@@ -453,7 +453,7 @@ Audit Settings:
 HKLM\SYSTEM\CurrentControlSet\Control\Lsa
   AuditBaseObjects           = 1
   FullPrivilegeAuditing      = 1 (BINARY: 01)
-  CrashOnAuditFail           = 0  ; keep 0 — CrashOnAuditFail=1 is DoS risk
+  CrashOnAuditFail           = 0  ; keep 0: CrashOnAuditFail=1 is DoS risk
 ```
 
 Remote Desktop:
@@ -724,7 +724,7 @@ Install-Module -Name PSYaml -Force
 # Merge all modules into single config
 .\Merge-SysmonXml.ps1 -AsString | Out-File sysmonconfig.xml
 
-# Selective merge — only include specific event types
+# Selective merge, only include specific event types
 .\Merge-SysmonXml.ps1 -IncludeList @(
     ".\1_process_creation\",
     ".\3_network_connection_initiated\",
@@ -745,11 +745,11 @@ Module directory structure:
 sysmon-modular/
 ├── 1_process_creation/       # EID 1 filters
 ├── 3_network_connection_*/   # EID 3 filters
-├── 7_image_load/             # EID 7 — high volume, selective
-├── 8_create_remote_thread/   # EID 8 — injection detection
-├── 10_process_access/        # EID 10 — LSASS access detection
-├── 11_file_create/           # EID 11 — file monitoring
-├── 12_14_registry_event/     # EID 12-14 — registry monitoring
+├── 7_image_load/             # EID 7: high volume, selective
+├── 8_create_remote_thread/   # EID 8: injection detection
+├── 10_process_access/        # EID 10: LSASS access detection
+├── 11_file_create/           # EID 11: file monitoring
+├── 12_14_registry_event/     # EID 12-14: registry monitoring
 └── merge.ps1                 # merge script
 ```
 
@@ -782,7 +782,7 @@ Alerts on creation of Alternate Data Streams, common malware persistence techniq
 ### 4.6 Updating Sysmon Config Without Service Restart
 
 ```powershell
-# Update config — does not drop events or restart service
+# Update config: does not drop events or restart service
 & "C:\Tools\Sysmon64.exe" -c "C:\Tools\sysmonconfig-new.xml"
 
 # Automate via scheduled task
@@ -827,7 +827,7 @@ Scalability: Single collector can handle ~100,000 source endpoints (Microsoft gu
 ### 5.2 Collector Configuration
 
 ```powershell
-# On collector server — configure and start WEC service
+# On collector server: configure and start WEC service
 winrm quickconfig -force
 wecutil qc -quiet
 
@@ -915,7 +915,7 @@ New-NetFirewallRule -Name "WEF-WinRM-Out" -DisplayName "WEF WinRM Outbound" `
     -RemoteAddress "10.0.0.50"  # collector IP
     -Action Allow -Profile Domain
 
-# On collector — allow inbound from all sources
+# On collector: allow inbound from all sources
 New-NetFirewallRule -Name "WEF-WinRM-In" -DisplayName "WEF WinRM Inbound" `
     -Direction Inbound -Protocol TCP -LocalPort 5985 `
     -Action Allow -Profile Domain
@@ -936,8 +936,8 @@ $ExecutionContext.SessionState.LanguageMode
 # Returns: FullLanguage, ConstrainedLanguage, RestrictedLanguage, NoLanguage
 
 # CLM is enforced by:
-# 1. WDAC policy (most reliable — enforced by kernel)
-# 2. AppLocker (user-mode only — bypassable by kernel exploits)
+# 1. WDAC policy (most reliable: enforced by kernel)
+# 2. AppLocker (user-mode only: bypassable by kernel exploits)
 # 3. JEA endpoint (session-level restriction)
 
 # Test if CLM is effective
@@ -1169,7 +1169,7 @@ $asrRules = @(
     "B2B3F03D-6A65-4F7B-A9C7-1C7EF74A9BA4"
 )
 
-# Set all to Block (2) — use Audit (1) initially in production
+# Set all to Block (2): use Audit (1) initially in production
 Set-MpPreference -AttackSurfaceReductionRules_Ids $asrRules `
     -AttackSurfaceReductionRules_Actions (@(2) * $asrRules.Count)
 
@@ -1236,12 +1236,12 @@ Get-Service -Name "sense"  # Windows Defender Advanced Threat Protection Service
 Advanced Hunting KQL (Common Attacks):
 
 ```kql
-// Credential Dumping — LSASS Access
+// Credential Dumping: LSASS Access
 DeviceEvents
 | where ActionType == "LsassMemoryDump"
 | project Timestamp, DeviceName, InitiatingProcessFileName, InitiatingProcessCommandLine
 
-// Lateral Movement — Pass the Hash indicators
+// Lateral Movement: Pass the Hash indicators
 DeviceLogonEvents
 | where LogonType == "Network" and IsLocalAdmin == true
 | where AccountDomain != DeviceName  // remote logon
@@ -1260,7 +1260,7 @@ DeviceEvents
 | where InitiatingProcessFileName !in~ ("taskschd.dll","svchost.exe")
 | project Timestamp, DeviceName, InitiatingProcessCommandLine, AdditionalFields
 
-// Ransomware — mass file extension changes
+// Ransomware: mass file extension changes
 DeviceFileEvents
 | where ActionType == "FileRenamed"
 | summarize renames=count(), extensions=make_set(FileName) by DeviceName, bin(Timestamp, 1m)
@@ -1519,7 +1519,7 @@ Set-NetFirewallProfile -Profile Domain,Private,Public -Enabled True
 Set-NetFirewallProfile -Profile Domain,Private -DefaultInboundAction Block `
     -DefaultOutboundAction Allow -NotifyOnListen True
 
-# Public profile — also block outbound from non-browser apps
+# Public profile, also block outbound from non-browser apps
 Set-NetFirewallProfile -Profile Public -DefaultInboundAction Block `
     -DefaultOutboundAction Block
 

@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (1,035 words at 230 words a minute)
+About 6 min (1,328 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -169,6 +169,29 @@ The MATLAB interpreter includes a just-in-time compiler that speeds scalar loops
 - Growing arrays in a loop reallocates memory each iteration; preallocate instead.
 - Floating-point default: numeric literals are doubles, so integer-looking code still carries rounding; compare with a tolerance, not `==`.
 - Function and variable name collisions: a variable can shadow a built-in function of the same name until it is cleared.
+
+## Security relevance
+
+MATLAB runs in engineering and scientific automation that ingests external data files and sometimes shells out, so its security relevance is the data-ingestion and execute paths rather than offensive tooling. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows.
+
+### Where it appears
+
+- Engineering and scientific computing. Signal and image processing, control systems, and simulation code read external data files and measurement data, which is the usual source of untrusted input.
+- Automation and interfacing. MATLAB in automated pipelines calls out to the shell and to C, Java, and Python, so it reaches the host and the native code it wraps.
+- MATLAB has no notable offensive or defensive tooling written in it; its security interest is in the ingestion and execute paths below.
+
+### Dominant weakness classes
+
+MATLAB is memory-safe (reference counting with copy-on-write arrays), so memory corruption lives in the MEX and C code it calls rather than in MATLAB itself. The main risks are injection and untrusted data:
+
+- Code injection through `eval`, `evalin`, `feval`, and `str2func` on untrusted strings. This is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Operating-system command injection through `system`, `dos`, `unix`, and the `!` shell escape. This is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Insecure deserialization when loading a `.mat` file, which can restore objects whose constructors run on load. This is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- SQL injection through the Database Toolbox when values are concatenated into a query. This is [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+
+### Why it matters
+
+Auditing MATLAB concentrates on the `eval`-family and shell sinks and on validating the shape and range of data loaded from `.mat` and other files before computing on it. The built-in Code Analyzer (`checkcode`) performs static analysis and flags some unsafe `eval` uses, though it is a general-purpose analyzer rather than a security-specific one, as the Secure coding section describes.
 
 ## Secure coding
 

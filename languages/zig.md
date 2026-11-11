@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (911 words at 230 words a minute)
+About 6 min (1,284 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -171,6 +171,29 @@ Zig compiles to native code through an LLVM back end (with a self-hosted back en
 - Allocator lifetime mistakes: freeing with a different allocator than the one that allocated.
 - Assuming async features exist in your version when they may have been removed or reworked.
 - Undefined behavior from out-of-bounds access in release modes that omit safety checks.
+
+## Security relevance
+
+Zig reaches security work as a manual-memory systems language in the same space as C and Rust, so a reviewer treats it as capable of the classic systems bugs, moderated by safety checks that are present in some build modes and absent in others. This section is the threat-facing context; the defensive patterns are in the Secure coding section that follows. The language is pre-1.0, so confirm behavior against the version in use.
+
+### Where it appears
+
+- Systems and embedded code. Zig is used for low-level systems and embedded targets that parse untrusted input and manage their own memory, the setting where memory-safety bugs become exploitable. See the [Exploit Development Reference](/EXPLOIT_DEVELOPMENT_REFERENCE.md).
+- C and C++ toolchain. The Zig compiler doubles as a C and C++ cross-compiler, so Zig appears in build pipelines even for projects not written in it, which makes the toolchain itself part of the supply chain.
+- Native binaries under analysis. Zig compiles to ordinary native code through an LLVM back end, so its output is reverse-engineered with the same tools as other compiled systems languages. See the [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md).
+
+### Dominant weakness classes
+
+Zig is memory-unsafe in the sense that the programmer manages allocation, but it bounds-checks and traps on overflow in debug and safe-release builds; the memory-corruption classes apply, and most sharply in the fast release mode that omits those checks:
+
+- Out-of-bounds access. Slices carry a length and are checked in safe modes, but an index can still write past a buffer where checks are off, which is [CWE-787](https://cwe.mitre.org/data/definitions/787.html).
+- Use-after-free and double-free. Mixing allocators or freeing on the wrong path leaves dangling memory, which is [CWE-416](https://cwe.mitre.org/data/definitions/416.html).
+- Integer overflow. Arithmetic traps in safe modes, but wrapping operators and unsafe builds let an overflow through, which is [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- OS command injection. Building child-process arguments as a shell string rather than an argument list is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+
+### Why it matters
+
+Auditing Zig means checking allocator lifetimes, `defer` and `errdefer` on the error path, and above all which build mode ships, because `ReleaseFast` omits the run-time checks that catch these bugs during development. The language has no established third-party static analyzer yet, so assurance comes from building in `ReleaseSafe`, using the standard library's testing allocator to catch leaks, and the compiler's own safety checks.
 
 ## Secure coding
 

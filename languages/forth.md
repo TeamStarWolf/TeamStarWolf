@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,088 words at 230 words a minute)
+About 6 min (1,445 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -145,6 +145,29 @@ Forth compiles to compact threaded code or, in optimizing systems, to native cod
 - Uncommented stack effects making words hard to reuse or verify.
 - Direct memory stores (`!`) to wrong addresses, which silently corrupt memory.
 - Portability gaps: assuming a cell size or a nonstandard word that another system lacks.
+
+## Security relevance
+
+Forth reaches security practitioners as a low-level language found in firmware, bootloaders, and embedded devices, which are reverse-engineering and exploitation targets rather than a source of offensive tooling. This section is the threat-facing context; the defensive patterns that counter each class are in the Secure coding section that follows.
+
+### Where it appears
+
+- Firmware and bootloaders. Open Firmware (used on SPARC and PowerPC systems) is built on Forth, and boot and initialization code on various platforms is written in it, so firmware analysts encounter Forth when reversing a boot chain. See the [Reverse Engineering Reference](/REVERSE_ENGINEERING_REFERENCE.md) and the [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md).
+- Embedded systems and instrument control. Forth fits microcontrollers with very little memory and is used for device and instrument control, where a memory bug is a direct path to a device compromise. See the [Exploit Development Reference](/EXPLOIT_DEVELOPMENT_REFERENCE.md).
+- Interactive and extensible systems. Because the interpreter and compiler are themselves Forth words, a Forth prompt exposed on a device is also a control surface.
+
+### Dominant weakness classes
+
+Forth is memory-unsafe (it uses manual, direct memory access through explicit fetch and store with no bounds checking) and typeless, so the memory-corruption classes apply in full and nothing catches them automatically:
+
+- Out-of-bounds read and write. The fetch and store words (`@`, `!`, `C@`, `C!`) access arbitrary addresses, so a wrong address or an unchecked index reads or corrupts memory. These map to [CWE-125](https://cwe.mitre.org/data/definitions/125.html) and [CWE-787](https://cwe.mitre.org/data/definitions/787.html).
+- Buffer overflow. Copying external data into a fixed buffer without a length check overflows it, which relates to [CWE-120](https://cwe.mitre.org/data/definitions/120.html).
+- Integer and cell overflow. Arithmetic wraps silently at the cell size, so unchecked values can overflow, which maps to [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Input validation. Data read from devices or input streams is unchecked until the program validates it, which maps to [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+
+### Why it matters
+
+Reading Forth lets an analyst follow firmware or bootloader logic and spot memory stores to attacker-influenced addresses, the kind of flaw that turns a parsing bug into device code execution. There is no widely used static analyzer for Forth, so review relies on small, well-factored words with documented stack effects and careful inspection of every memory access, as the Secure coding section details.
 
 ## Secure coding
 

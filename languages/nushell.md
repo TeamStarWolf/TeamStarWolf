@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,171 words at 230 words a minute)
+About 7 min (1,530 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -169,6 +169,29 @@ For concurrency, the `par-each` filter runs a closure over pipeline rows in para
 - Not POSIX: Bash and `sh` syntax do not work, and external commands that expect text pipelines may need explicit conversion to and from structured data.
 - Immutability surprises: a `let` binding cannot be reassigned; use `mut` when you intend to change a value, and remember pipeline data is replaced, not mutated.
 - External command quoting: when calling non-Nushell programs, arguments are passed as structured values, so interpolating untrusted text still needs care (see Secure coding).
+
+## Security relevance
+
+Nushell reaches a practitioner as an interactive shell and an automation language, so its security interest is the same as other shells: the scripts people write to drive systems and process data. Its structured, typed pipeline removes some of the text-parsing hazards of POSIX shells, but it still runs external programs and can evaluate code, so injection and trust remain the main concerns. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Automation and glue scripts. Nushell runs cross-platform automation and continuous-integration steps, so its scripts hold the commands and credentials those jobs use.
+- Data wrangling for analysts. Nushell parses JSON, CSV, and similar formats directly into tables, which suits triage of logs and the output of other security tools.
+- Interactive administration. As a login shell it executes configuration and plugin code with the user's privileges on each session.
+
+### Dominant weakness classes
+
+Nushell is memory-safe: it runs on the Rust runtime and pipeline values are immutable, so memory-corruption classes do not apply. The risks are injection, dynamic evaluation, and trusting external input and plugins.
+
+- Operating-system command injection. Building an external command from untrusted input, rather than passing the input as distinct arguments, lets an attacker run chosen commands, which is [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Dynamic code evaluation. Constructing Nushell source from untrusted input and sourcing it executes arbitrary code, which is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Improper input validation. `open` and the `from` converters turn file and network content into structured values that are still untrusted, so acting on fields such as paths or URLs without checking them is [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Configuration and plugin integrity. `config.nu`, `env.nu`, and plugin binaries run with your privileges, so an unreviewed plugin is a supply-chain risk. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading Nushell lets a reviewer check how a script reaches external programs, whether any untrusted text is interpolated into a command, and which plugins a session loads. Nushell has no dedicated security linter comparable to ShellCheck, so the practical controls are the parser's static checks and keeping untrusted input out of command construction, as the Secure coding section details.
 
 ## Secure coding
 

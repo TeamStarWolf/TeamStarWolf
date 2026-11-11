@@ -29,7 +29,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,176 words at 230 words a minute)
+About 7 min (1,503 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -176,6 +176,29 @@ SAS processes a DATA step one observation at a time, streaming from disk, so lar
 - Missing values sort as the smallest numeric value and propagate through arithmetic; account for them in comparisons and sums.
 - Macro versus DATA step timing: the macro language substitutes text before the step runs, so macro and data-step logic execute at different phases, a frequent source of confusion.
 - Automatic conversion between character and numeric raises notes rather than errors and can hide data problems; convert explicitly with `input` and `put`.
+
+## Security relevance
+
+SAS reaches security practitioners as a data and analytics language in regulated industries: it is read where production programs call the host operating system, query databases, and generate code through macros, rather than as any offensive tooling. The defensive patterns that counter each weakness below are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Regulated analytics. Clinical-trial reporting, regulatory submissions, and banking and insurance analytics run in SAS, so auditing these pipelines means reading DATA steps, procedures, and macros.
+- Host and database reach. Programs that use the `X` command, `CALL SYSTEM`, or `%SYSEXEC` touch the host, and `PROC SQL` and pass-through SQL reach databases, which widens the attack surface. See the [Database Security Reference](/DATABASE_SECURITY_REFERENCE.md).
+- Code generation. The macro language substitutes text to generate SAS before it runs, so untrusted input resolved as macro code becomes executed code.
+
+### Dominant weakness classes
+
+SAS is memory-safe: its storage is managed by the system and programs do not manipulate raw memory, so memory-corruption classes do not apply. The risks come from host access, databases, and macro code generation:
+
+- Operating-system command injection. The `X` command, `CALL SYSTEM`, `SYSTASK`, and `%SYSEXEC` run host commands, controlled by the `XCMD` option; commands built from untrusted input are [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- SQL injection. `PROC SQL` and pass-through SQL assembled by concatenating macro-variable values are [CWE-89](https://cwe.mitre.org/data/definitions/89.html).
+- Macro code injection. Resolving untrusted text as macro code runs generated SAS, which is [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Hardcoded credentials. Database passwords embedded in plaintext in programs are [CWE-798](https://cwe.mitre.org/data/definitions/798.html); SAS authentication domains and `PROC PWENCODE` exist to avoid this.
+
+### Why it matters
+
+Reading SAS lets a reviewer find host-command calls that should be disabled with `NOXCMD`, SQL and macro code assembled from untrusted values, and passwords embedded in programs. Dedicated static analysis is thin: SAS logs flag unsafe conversions and the SASjs linter checks some patterns, so manual review of host access, SQL, and macro generation remains the main control, as the Secure coding section details.
 
 ## Secure coding
 

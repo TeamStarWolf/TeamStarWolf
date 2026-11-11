@@ -1,5 +1,5 @@
 {
-  "name": "Stage 1 — Governance, Risk & Compliance",
+  "name": "Stage 1: Governance, Risk & Compliance",
   "versions": {
     "attack": "20",
     "navigator": "4.9",
@@ -175,7 +175,7 @@
   "metadata": [
     {
       "name": "stage",
-      "value": "Stage 1 — Governance, Risk & Compliance"
+      "value": "Stage 1: Governance, Risk & Compliance"
     },
     {
       "name": "nist_families",
@@ -183,7 +183,7 @@
     },
     {
       "name": "source",
-      "value": "TeamStarWolf — https://github.com/TeamStarWolf/TeamStarWolf"
+      "value": "TeamStarWolf: https://github.com/TeamStarWolf/TeamStarWolf"
     },
     {
       "name": "attack_version",

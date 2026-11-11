@@ -398,7 +398,7 @@ studies:
     actors: []
     tags: ["Cuckoo's Egg", "Clifford Stoll", "Lawrence Berkeley Laboratory", "Hannover hackers", "KGB", "MILNET", "honeypot", "CERT/CC"]
     pdf: "Cuckoos_Egg_1986_Case_Study.pdf"
-    pptx: null
+    pptx: "Cuckoos_Egg_1986_Case_Study.pptx"
     events:
       - {"date": "1986-05", "label": "At least five diskettes handed over in East Berlin from May to November 1986 (DER SPIEGEL, Reported)"}
       - {"date": "1986-08", "label": "LBL's accounting program fails to balance: a new account with no billing address"}
@@ -569,7 +569,7 @@ studies:
     actors: ["G0071", "G0092", "G0117", "G0138", "G1015", "G1024", "G1032", "G1036", "G1040", "G1050", "G1051", "G1053"]
     tags: ["hospitals", "ransomware", "healthcare", "HIPAA", "watchlist", "medical devices"]
     pdf: "Healthcare_Threat_Watchlist_Case_Study.pdf"
-    pptx: null
+    pptx: "Healthcare_Threat_Watchlist_Case_Study.pptx"
     events:
       - {"date": "2023-05-27", "label": "CL0P begins exploiting the MOVEit Transfer flaw CVE-2023-34362"}
       - {"date": "2023-12-19", "label": "ALPHV Blackcat advisory; its February 2024 update records an administrator urging affiliates to target hospitals"}

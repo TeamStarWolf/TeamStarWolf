@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 69 min (15,788 words at 230 words a minute)
+About 69 min (15,821 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -491,7 +491,7 @@ Each row carries a basis. **Source** means an opened advisory or vendor report p
 | [T1489](/mitre/techniques/T1489.md) | Service Stop | Impact | AA21-265A | Source | [58] |
 | [T1561](/mitre/techniques/T1561.md) | Disk Wipe | Impact | AA21-291A (backup wiping) | Source | [60] |
 
-Two ids printed in 2021 sources are left out: T1532 (an Enterprise id printed in AA21-200A that the library's v20.0 Enterprise data does not carry; the id now names a Mobile technique), and T1053.004 Launchd (AA21-048A) is deprecated in `superseded_by.jsonl` (Confirmed [19][31][134]). The live ATT&CK page for REvil lists the ICS technique T1701 Command and Scripting Interpreter, created 25 September 2026, which the library's data does not yet carry; it is a library gap and is not mapped here (Confirmed [98][115]). The HAFNIUM group page (version 3.0) merges the 2021 Exchange reporting with later Silk Typhoon reporting, so the rows above keep only what Microsoft's 2 March 2021 report supports (Confirmed [111][1]; Inferred for the filter).
+Two ids printed in 2021 sources are left out: T1532 (an Enterprise id printed in AA21-200A that the library's v20.0 Enterprise data does not carry; the id now names a Mobile technique), and T1053.004 Launchd (AA21-048A) is deprecated in `superseded_by.jsonl` (Confirmed [19][31][134]). The live ATT&CK page for REvil lists the ICS sub-technique T1701.001 Command and Scripting Interpreter: PowerShell (T1701 was created 25 September 2026). The library's v20.0 ICS data carries T1701 and its sub-techniques but has no ICS software-to-technique rows, so REvil's ICS link is not in the library data. It is not mapped here because no 2021 REvil event in this record reached an industrial process (Confirmed [98][115][134]; Inferred for the exclusion). The HAFNIUM group page (version 3.0) merges the 2021 Exchange reporting with later Silk Typhoon reporting, so the rows above keep only what Microsoft's 2 March 2021 report supports (Confirmed [111][1]; Inferred for the filter).
 
 ### ATT&CK for ICS techniques
 

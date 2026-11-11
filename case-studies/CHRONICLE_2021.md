@@ -97,7 +97,7 @@ Evidence grade: the events, attributions, directives and sanctions are **Confirm
 
 ## Scope and method
 
-This study covers intrusions, exploited vulnerabilities, and the government response in calendar year 2021. It draws on CISA and FBI advisories and directives, the UK NCSC, Ireland's NCSC, Treasury and White House releases, court-backed action by Microsoft's Digital Crimes Unit, the victims' own statements and testimony (Colonial Pipeline, JBS, Kaseya, T-Mobile, Codecov, HashiCorp, Twitch, Meta), the vendors that observed the activity (Microsoft, Mandiant, ESET, Proofpoint, Google TAG, Cisco Talos, Red Canary, Wiz, Unit 42, UpGuard, Citizen Lab, Amnesty Tech, DIVD), the CVE, NVD, MSRC and KEV records, and the live MITRE ATT&CK pages and the library's own data files. Every source was opened on 3 November 2026. Quotations are kept to a few words.
+This study covers intrusions, exploited vulnerabilities, and the government response in calendar year 2021. It draws on CISA and FBI advisories and directives, the UK NCSC, Ireland's NCSC, Treasury and White House releases, court-backed action by Microsoft's Digital Crimes Unit, the victims' own statements and testimony (Colonial Pipeline, JBS, Kaseya, T-Mobile, Codecov, HashiCorp, Twitch, Meta), the vendors that observed the activity (Microsoft, Mandiant, ESET, Proofpoint, Google TAG, Cisco Talos, Red Canary, Wiz, Unit 42, UpGuard, Citizen Lab, Amnesty Tech, DIVD), the CVE, NVD, MSRC and KEV records, and the live MITRE ATT&CK pages and the library's own data files. Every source was opened on 3 November 2026; the MSRC and CISA ProxyShell records [66][67] were opened again on 10 November 2026. Quotations are kept to a few words.
 
 | Grade | Meaning |
 |---|---|
@@ -154,7 +154,7 @@ One row per dated event or report. Grades and sources are given on each row; lat
 | 2021-04-26 | AA21-116A describes SVR tradecraft, including WELLMESS against COVID-19 vaccine research | SVR (APT29) | Confirmed [11] |
 | 2021-04-29 | ATT&CK v9 released; Mandiant details UNC2447's FIVEHANDS ransomware | MITRE; UNC2447 | Confirmed [131][76] |
 | 2021-05-07 | Colonial Pipeline finds a ransom note before 5:00 AM and shuts the pipeline by 6:10 AM | DarkSide (per the FBI) | Confirmed [45][44] |
-| 2021-05-11 | AA21-131A on DarkSide; MSRC publishes CVE-2021-31207; per CISA the May update already fixed all three ProxyShell flaws | DarkSide affiliates | Confirmed [46][66] |
+| 2021-05-11 | AA21-131A on DarkSide; MSRC publishes CVE-2021-31207; MSRC later records the other two ProxyShell flaws as fixed by the April 2021 updates, and per CISA the May update remediates all three | DarkSide affiliates | Confirmed [46][66][67] |
 | 2021-05-12 | Executive Order 14028 signed; Colonial begins restart that evening | US federal government; Colonial | Confirmed [36][45] |
 | 2021-05-13 to 05-14 | Ireland's Department of Health and the HSE hit; most HSE systems shut | Human-operated Conti | Confirmed [47] |
 | May 2021 | Access to a US municipal government web server via Fortinet | Iranian government-sponsored APT | Confirmed [25] |
@@ -318,7 +318,7 @@ The five-country advisory AA22-117A, published in April 2022, ranked Log4Shell f
 
 SonicWall SMA 100 CVE-2021-20038 was published on 8 December 2021 and added to KEV on 28 January 2022; no 2021 exploitation is in the record (Confirmed [41]).
 
-**ProxyShell.** The researcher ZDI credits as orangetw reported CVE-2021-34473 to Microsoft through Pwn2Own on 6 April, and ZDI published it on 19 July (Confirmed [65]). MSRC released CVE-2021-31207 on 11 May and the other two on 13 July, while CISA says the May update fixed all three; the gap between the fix and the CVE publication is inferred from those dates (Inferred [66]). CISA warned on 21 August that malicious actors were actively exploiting the chain; the alert does not name LockFile (Confirmed [67]).
+**ProxyShell.** The researcher ZDI credits as orangetw reported CVE-2021-34473 to Microsoft through Pwn2Own on 6 April, and ZDI published it on 19 July (Confirmed [65]). MSRC released CVE-2021-31207 on 11 May and CVE-2021-34473 and -34523 on 13 July, recording that those two had been addressed by the April 2021 updates but left out of the April release (Confirmed [66]); CISA's 21 August alert says the May 2021 update remediates all three (Confirmed [67]). The gap between the fix and the CVE publication is inferred from those dates (Inferred [66][67]). The same alert warned that malicious actors were actively exploiting the chain; it does not name LockFile (Confirmed [67]).
 
 **PrintNightmare.** MSRC released CVE-2021-1675 on 8 June as not exploited (Confirmed [68]). On 30 June CERT/CC published VU#383432: public exploit code by Zhiniang Peng and Xuefeng Li, the June update did not protect against it, and the workarounds were to disable the Spooler or set RestrictDriverInstallationToAdministrators (Confirmed [69]). Public proof-of-concept code exists (Demonstrated [69]). MSRC published CVE-2021-34527 on 1 July as exploited and publicly disclosed, CVSS 8.8, updating it on 6 and 7 July (Confirmed [70]). ED 21-04 required agencies to disable the Spooler on domain controllers by 14 July, apply the July updates by 20 July and report by 21 July (Confirmed [71]).
 
@@ -692,8 +692,8 @@ All sources were opened on 3 November 2026. "Primary" means the organization tha
 | 63 | MSRC, CVE-2021-26855 record | [api.msrc.microsoft.com](https://api.msrc.microsoft.com/sug/v2.0/en-US/vulnerability/CVE-2021-26855) | 2026-11-03 | Confirmed |
 | 64 | ESET WeLiveSecurity, "Exchange servers under siege from at least 10 APT groups", 10 Mar 2021 | [welivesecurity.com](https://www.welivesecurity.com/2021/03/10/exchange-servers-under-siege-10-apt-groups/) | 2026-11-03 | Confirmed |
 | 65 | Zero Day Initiative, ZDI-21-821 | [zerodayinitiative.com](https://www.zerodayinitiative.com/advisories/ZDI-21-821/) | 2026-11-03 | Confirmed |
-| 66 | MSRC, CVE-2021-34473 record (with CVE-2021-31207 and -34523) | [api.msrc.microsoft.com](https://api.msrc.microsoft.com/sug/v2.0/en-US/vulnerability/CVE-2021-34473) | 2026-11-03 | Confirmed |
-| 67 | CISA alert, "Urgent: Protect Against Active Exploitation of ProxyShell Vulnerabilities", 21 Aug 2021 | [cisa.gov](https://www.cisa.gov/news-events/alerts/2021/08/21/urgent-protect-against-active-exploitation-proxyshell-vulnerabilities) | 2026-11-03 | Confirmed |
+| 66 | MSRC, CVE-2021-34473 record (with CVE-2021-31207 and -34523) | [api.msrc.microsoft.com](https://api.msrc.microsoft.com/sug/v2.0/en-US/vulnerability/CVE-2021-34473) | 2026-11-10 | Confirmed |
+| 67 | CISA alert, "Urgent: Protect Against Active Exploitation of ProxyShell Vulnerabilities", 21 Aug 2021 | [cisa.gov](https://www.cisa.gov/news-events/alerts/2021/08/21/urgent-protect-against-active-exploitation-proxyshell-vulnerabilities) | 2026-11-10 | Confirmed |
 | 68 | MSRC, CVE-2021-1675 record | [api.msrc.microsoft.com](https://api.msrc.microsoft.com/sug/v2.0/en-US/vulnerability/CVE-2021-1675) | 2026-11-03 | Confirmed |
 | 69 | CERT/CC, VU#383432 Microsoft Windows Print Spooler allows for RCE via AddPrinterDriverEx(), 30 Jun 2021 | [kb.cert.org](https://kb.cert.org/vuls/id/383432) | 2026-11-03 | Confirmed (PoC Demonstrated) |
 | 70 | MSRC, CVE-2021-34527 record | [api.msrc.microsoft.com](https://api.msrc.microsoft.com/sug/v2.0/en-US/vulnerability/CVE-2021-34527) | 2026-11-03 | Confirmed |

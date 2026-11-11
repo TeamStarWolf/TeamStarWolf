@@ -146,6 +146,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 21 August 2021: CISA urgent alert on active ProxyShell exploitation
   - 3 November 2021: KEV launches with the seven ProxyLogon and ProxyShell CVEs
   - 3 July 2025: Xu Zewei arrested in Milan
+- [The Year 2021 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2021.md). Period record, January to December 2021. Sectors: cross-sector, energy, healthcare, government, technology. CVEs: CVE-2017-16238, CVE-2018-13379, CVE-2019-5591, CVE-2019-19781, CVE-2020-1472, CVE-2020-12812 and 25 more. ATT&CK groups: G0004 Ke3chang, G0016 APT29, G0032 Lazarus Group, G0049 OilRig, G0059 Magic Hound, G0065 Leviathan and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2021_Case_Study.pdf).
+  - 27 January 2021: Emotet's infrastructure taken over by eight countries' authorities
+  - 5 February 2021: Someone in a US water utility's SCADA system raises sodium hydroxide; staff reverse it
+  - 2 March 2021: Microsoft ships Exchange fixes and attributes exploitation to HAFNIUM
+  - 15 April 2021: The White House names the SVR for SolarWinds; Treasury sanctions six Russian technology companies
+  - 19 April 2021: Mandiant reveals the Pulse Connect Secure zero-day CVE-2021-22893
+  - 7 May 2021: Colonial Pipeline finds a ransom note and shuts the pipeline
+  - 12 May 2021: Executive Order 14028 signed
+  - 13 May 2021: Ireland's Department of Health and the HSE hit by Conti, 13 to 14 May
+  - 2 July 2021: Kaseya shuts its SaaS and tells on-premises customers to shut VSA down
+  - 19 July 2021: The US, EU, UK and NATO attribute the Exchange zero-days to the MSS; AA21-200A on APT40
+  - 3 November 2021: BOD 22-01 creates the Known Exploited Vulnerabilities catalog
+  - 10 December 2021: Log4Shell published and added to KEV the same day
 
 ### 2020 <!-- {docsify-ignore} -->
 

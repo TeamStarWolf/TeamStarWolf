@@ -499,7 +499,10 @@ CATALOG = [
        "[Sandworm case study](/case-studies/SANDWORM_OPERATIONS.md)"),
       ("case-studies/threat-actors-iran-ics.json", "Iran-Attributed Threat Actors (ICS)",
        "The 24 ATT&CK for ICS techniques ATT&CK v20.0 links to CyberAv3ngers (G1027), OilRig (G0049) and APT33 (G0064), from the "
-       "[Iran-attributed threat actors case study](/case-studies/THREAT_ACTORS_IRAN.md)")]),
+       "[Iran-attributed threat actors case study](/case-studies/THREAT_ACTORS_IRAN.md)"),
+      ("case-studies/chronicle-2021-ics.json", "The Year 2021 in Intrusions (ICS)",
+       "The 3 ATT&CK for ICS techniques bound to the February 2021 water facility SCADA incident in CISA AA21-042A, from the "
+       "[2021 chronicle case study](/case-studies/CHRONICLE_2021.md)")]),
 ]
 
 

@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (730 words at 230 words a minute)
+About 4 min (962 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -180,6 +180,28 @@ hashcat --session audit1 --restore
 | `-w` | Workload profile |
 | `--force` | Ignore device warnings (use sparingly) |
 | `--runtime` | Abort after N seconds |
+
+## Security relevance
+
+This section is the threat-facing view of hashcat and where it sits in an engagement; authorized use only is assumed. The storage defenses and the precursor telemetry are in the "Detection and defense" section that follows.
+
+### Where it appears
+
+- Post-exploitation. After hashes are captured from a SAM hive, `ntds.dit`, `/etc/shadow`, a NetNTLMv2 exchange, or a WPA handshake, hashcat recovers the plaintext offline and off-target.
+- Lateral movement. A cracked service or domain account becomes working credentials for the next host in scope.
+- Policy audit. Running it against a controlled hash set measures whether a password policy resists real offline attack rather than assuming it does.
+
+### Dominant weakness classes
+
+hashcat is an offline compute tool, so the weakness is in how passwords are stored and chosen, not in memory safety.
+
+- Use of a password hash with insufficient computational effort ([CWE-916](https://cwe.mitre.org/data/definitions/916.html)), fast or unsuitable hashing.
+- Use of a one-way hash without a salt ([CWE-759](https://cwe.mitre.org/data/definitions/759.html)).
+- Weak password requirements ([CWE-521](https://cwe.mitre.org/data/definitions/521.html)) that leave candidates inside a wordlist or small keyspace.
+
+### Why it matters
+
+Recovering plaintext from a stolen hash set converts a single file read into usable credentials, and the crack rate is a direct measurement of how much a password policy and hashing choice actually resist attack. That number, not a checkbox, is what tells an organization whether its stored secrets would survive a breach. See [the cryptography reference](/CRYPTOGRAPHY_REFERENCE.md) for salting and work-factor guidance.
 
 ## Detection and defense
 

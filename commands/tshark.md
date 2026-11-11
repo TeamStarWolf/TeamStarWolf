@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (736 words at 230 words a minute)
+About 4 min (966 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -169,6 +169,29 @@ tshark -i eth0 -w ir.pcapng -b duration:3600 -b files:24 -f "not port 22"
 | `-x` | Hex and ASCII dump of each packet |
 | `-V` | Verbose, full protocol tree per packet |
 | `-s` | Snap length, bytes captured per packet |
+
+## Security relevance
+
+This section is the threat-facing view of tshark and where it sits in an engagement; authorized use only is assumed. The capture-access controls and the data-handling rules are in the "Detection and defense" section that follows.
+
+### Where it appears
+
+- Passive reconnaissance. On a segment an operator already reaches, tshark reads traffic to harvest cleartext credentials, session tokens, and message bodies without touching the target.
+- Collection. Scoped captures during an authorized network test record exactly what crosses the wire for later field extraction.
+- Incident response. Analysts read captures to reconstruct command-and-control, exfiltration, and the timeline of an intrusion.
+- Protocol review. Field extraction and statistics expose where a service still speaks plaintext when it should not.
+
+### Dominant weakness classes
+
+tshark observes traffic rather than running code against a host, so the weaknesses it reveals are in data protection in transit, not memory safety.
+
+- Cleartext transmission of sensitive information ([CWE-319](https://cwe.mitre.org/data/definitions/319.html)), the core finding for HTTP, FTP, and Telnet.
+- Unprotected transport of credentials ([CWE-523](https://cwe.mitre.org/data/definitions/523.html)).
+- Exposure of sensitive information to an unauthorized actor ([CWE-200](https://cwe.mitre.org/data/definitions/200.html)) to anyone on the same path.
+
+### Why it matters
+
+Reading traffic off the wire shows precisely what a passive adversary sharing the segment can collect, which turns an abstract argument for encryption into a concrete list of exposed credentials and data. The same view lets a defender confirm that services have moved to protected transports. See [network protocols security](/NETWORK_PROTOCOLS_SECURITY.md).
 
 ## Detection and defense
 

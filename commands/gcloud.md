@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 2 min (529 words at 230 words a minute)
+About 4 min (814 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -187,6 +187,30 @@ gcloud logging read \
 | `--zone` / `--region` | Set location for the command |
 | `--flatten` | Expand a repeated field into one row each |
 | `--verbosity` | Set log detail (`debug`, `info`, `error`) |
+
+## Security relevance
+
+This section is the threat-facing view of `gcloud`: how an attacker uses it against a project and what Cloud Audit Logs capture when they do. Authorized administration and the safe-use guidance are in the "Security notes" section that follows.
+
+### Where it appears
+
+- Enumeration with stolen credentials. A leaked service-account key or an exfiltrated `gcloud auth print-access-token` lets an attacker run `projects list`, `compute instances list`, `projects get-iam-policy`, and `storage ls` to map resources and IAM bindings.
+- Privilege escalation and pivoting. Attackers abuse `--impersonate-service-account`, actAs permissions, or over-broad roles to assume a more privileged service account and move across projects in the organization.
+- Exfiltration. `gcloud storage cp` and `gsutil` pull buckets out, and metadata-server tokens on a compromised instance feed the same commands.
+- Telemetry. Cloud Audit Logs (Admin Activity and Data Access) record `SetIamPolicy`, service-account key creation, impersonation, and bulk object reads. Defenders alert on these and on tokens used from an unfamiliar source.
+
+### Dominant weakness classes
+
+`gcloud` is a userspace client, so the risks are credential theft and excess authority rather than memory corruption.
+
+- Use of hard-coded credentials ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)) in service-account key files committed to source or CI.
+- Insufficiently protected credentials ([CWE-522](https://cwe.mitre.org/data/definitions/522.html)) in key files and cached tokens on a host.
+- Improper privilege management ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)) through roles like `roles/owner` or `roles/editor` and actAs-based impersonation chains.
+- Incorrect permission assignment for a critical resource ([CWE-732](https://cwe.mitre.org/data/definitions/732.html)), the public Cloud Storage bucket case.
+
+### Why it matters
+
+Spotting `gcloud` in telemetry tells a defender whether they are seeing a deploy pipeline or an attacker enumerating and impersonating across a project with a stolen key, and gives an auditor the exact bindings and keys to remove first. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for account-hardening and detection guidance.
 
 ## Security notes
 

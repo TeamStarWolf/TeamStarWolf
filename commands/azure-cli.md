@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 2 min (521 words at 230 words a minute)
+About 4 min (820 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -187,6 +187,30 @@ pw=$(az keyvault secret show --vault-name kv-app --name db-password --query valu
 | `--auth-mode login` | Use your identity for data-plane storage calls |
 | `--only-show-errors` | Suppress warnings in scripted runs |
 | `--verbose` / `--debug` | Increase logging detail |
+
+## Security relevance
+
+This section is the threat-facing view of the Azure CLI: how an attacker drives `az` against a tenant and what the control plane logs when they do. Authorized administration and the safe-use guidance are in the "Security notes" section that follows.
+
+### Where it appears
+
+- Enumeration with stolen tokens. A leaked service-principal secret or a cached token lets an attacker `az login` and run `az account list`, `az ad sp list`, `az role assignment list`, and `az resource list` to map subscriptions, identities, and RBAC without alerting a user.
+- Privilege escalation and pivoting. Over-broad role assignments let an attacker add themselves to a higher-privileged role, create a new service-principal secret, or move between subscriptions in the same tenant.
+- Exfiltration. `az storage blob download` and `az keyvault secret show` pull data and stored credentials out over the trusted management path.
+- Telemetry. Azure activity logs and Microsoft Entra sign-in logs record each control-plane call and token use. Defenders watch for `Microsoft.Authorization/roleAssignments/write`, new service-principal credentials, Key Vault secret-read spikes, and sign-ins from unexpected locations.
+
+### Dominant weakness classes
+
+`az` is a userspace client, so the risks are credential theft and excess authority rather than memory corruption.
+
+- Use of hard-coded credentials ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)) in service-principal secrets committed to source or CI.
+- Insufficiently protected credentials ([CWE-522](https://cwe.mitre.org/data/definitions/522.html)) in cached tokens and profile files on a compromised host.
+- Improper privilege management ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)) through roles like Owner or Contributor assigned too broadly.
+- Improper access control ([CWE-284](https://cwe.mitre.org/data/definitions/284.html)) on storage and Key Vault exposed to an over-scoped identity.
+
+### Why it matters
+
+Knowing how `az` is abused lets a defender separate routine automation from an attacker walking a tenant with a stolen secret, and lets an auditor find the Owner bindings and public storage that make that walk easy. See [the cloud security reference](/CLOUD_SECURITY_REFERENCE.md) for account-hardening and detection guidance.
 
 ## Security notes
 

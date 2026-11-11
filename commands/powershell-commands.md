@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (610 words at 230 words a minute)
+About 4 min (885 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -195,6 +195,30 @@ Enter-PSSession -ComputerName dc01 -Credential (Get-Credential)
 | `-NoTypeInformation` | `Export-Csv` | Drop the `#TYPE` header line |
 | `-UseBasicParsing` | `Invoke-WebRequest` | Skip the legacy DOM parser |
 | `-WhatIf`, `-Confirm` | state-changing cmdlets | Preview or prompt before acting |
+
+## Security relevance
+
+This section is the threat-facing view of PowerShell: how an operator abuses the shell on a host and what a defender sees. The safe-use and configuration guidance is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Post-exploitation. PowerShell is among the most abused shells after access, because a download cradle built from `Invoke-WebRequest` or `Net.WebClient` runs code in memory with nothing written to disk, and `-EncodedCommand` base64 hides intent from casual review.
+- Discovery. `Get-LocalGroupMember`, `Get-Process`, and `Get-WinEvent`, plus CIM and WMI queries, enumerate accounts, processes, and the domain quickly.
+- Lateral movement. `Enter-PSSession` and `Invoke-Command` run commands on other hosts over WinRM. The language constructs behind these patterns are on the PowerShell language page (/languages/powershell.md).
+- Telemetry. Script block logging (Event ID 4104), module logging, transcription, and AMSI capture the decoded script even when `-EncodedCommand` is used, so defenders decode long base64 blobs and hunt obfuscation during triage.
+
+### Dominant weakness classes
+
+PowerShell is a managed .NET shell, so the risks are injection, trust, and secret exposure rather than memory corruption.
+
+- Code injection through `Invoke-Expression` on untrusted input ([CWE-94](https://cwe.mitre.org/data/definitions/94.html)).
+- Inclusion of functionality from an untrusted control sphere ([CWE-829](https://cwe.mitre.org/data/definitions/829.html)) via a remote download cradle.
+- Use of hardcoded credentials ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)) left in scripts or command history.
+- Execution with unnecessary privileges ([CWE-250](https://cwe.mitre.org/data/definitions/250.html)) when a session runs with more rights than the task needs.
+
+### Why it matters
+
+Recognizing the download-cradle and encoded-command patterns, and turning on script block logging, is the difference between seeing an intrusion and missing it; for authors, keeping input out of `Invoke-Expression` and secrets out of scripts closes the main self-inflicted holes. See [the Windows hardening reference](/WINDOWS_HARDENING_REFERENCE.md) for application control and logging controls.
 
 ## Security notes
 

@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 2 min (515 words at 230 words a minute)
+About 3 min (771 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -152,6 +152,28 @@ for the escalation path.
 CommonMark reference implementations, `cmark` and `markdown-it`, parse Markdown predictably. `marked` and Python-Markdown are widely used renderers.
 
 Linters such as `markdownlint` enforce style and catch malformed structure. Formatters such as Prettier normalize spacing and list markers. Sanitizers such as DOMPurify and `sanitize-html` clean the rendered output.
+
+## Security relevance
+
+This section is the threat-facing view of Markdown: why rendered Markdown is an injection surface and where it is attacked. The sanitization steps that defend against these are in the "Security considerations" section that follows.
+
+### Where it appears
+
+- User content on the web. Comments, issues, pull requests, wikis, and chat accept Markdown from anyone and render it to HTML in another user's browser, which is the classic stored cross-site scripting path.
+- Documentation pipelines. Static site generators and README renderers turn repository Markdown into pages, so a poisoned source file can ship script to every reader.
+- Note and messaging apps. Markdown previews render untrusted snippets, pulling the same risk into desktop and mobile clients.
+
+### Dominant weakness classes
+
+Markdown is text that compiles to HTML, so the risks are injection and trust in the rendered output, not memory corruption. The frame here is the attacker side.
+
+- Cross-site scripting ([CWE-79](https://cwe.mitre.org/data/definitions/79.html)) through raw HTML that most renderers pass through unchanged, so a `<script>` tag or inline event handler in the source reaches the DOM.
+- Improper neutralization of script in an attribute ([CWE-80](https://cwe.mitre.org/data/definitions/80.html)) through a `[text](javascript:...)` link or an image source carrying the same scheme.
+- Interface deception, where link text that differs from its target lures a user to an attacker origin or leaks referrer data.
+
+### Why it matters
+
+Recognizing a Markdown field tells a tester to try a raw `<img onerror=...>` payload and a `javascript:` link, because many renderers are unsafe by default and a sanitizer is often bolted on afterward. See [the web application security reference](/WEB_APPLICATION_SECURITY_REFERENCE.md) for the surrounding method.
 
 ## Security considerations
 

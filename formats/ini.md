@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (656 words at 230 words a minute)
+About 4 min (930 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -144,6 +144,28 @@ With `configparser`, keys in `[DEFAULT]` apply to every other section unless ove
 - Git reads its own INI-like config through `git config`, with its own rules for sections and subsections.
 
 Choose a parser first, then write to that parser's dialect. Do not assume a file written for one tool will load unchanged in another.
+
+## Security relevance
+
+This section is the threat-facing view of INI: why the absence of a formal grammar is a security property and where that is abused. The parser-selection and validation controls that defend against these are in the "Security considerations" section that follows.
+
+### Where it appears
+
+- Application and service config. INI files drive preferences, service settings, and tool configuration that a process reads with elevated trust at startup.
+- Attacker-influenced config. Uploaded profiles, multi-tenant settings, and files written from user input let an attacker shape values a parser later interprets.
+- Mixed toolchains. A file written for one parser is often read by another, so behavior one stage relied on may not hold in the next.
+
+### Dominant weakness classes
+
+INI is text config with no single standard, so the risks are parser ambiguity and injection rather than memory corruption. Its offensive story is modest and depends mostly on how the surrounding application trusts the parsed values. The defensive steps for each are in the section below.
+
+- Improper validation of syntactic correctness ([CWE-1286](https://cwe.mitre.org/data/definitions/1286.html)), where case handling, comment characters, quoting, and duplicate keys differ between dialects.
+- Interpretation conflict ([CWE-436](https://cwe.mitre.org/data/definitions/436.html)), where a validator and a consumer parse the same file differently, so a check passes but the effective config differs.
+- Improper input validation ([CWE-20](https://cwe.mitre.org/data/definitions/20.html)) when a newline, bracket, or interpolation token in a value breaks out of its key or triggers substitution.
+
+### Why it matters
+
+Recognizing INI config in a multi-parser pipeline tells an auditor to test for interpretation differences and duplicate-key overrides, where the file a validator approves is not the one the application acts on. See [the secure coding reference](/SECURE_CODING_REFERENCE.md) for the input-validation method that applies here.
 
 ## Security considerations
 

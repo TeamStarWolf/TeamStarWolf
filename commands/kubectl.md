@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 2 min (562 words at 230 words a minute)
+About 4 min (876 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -159,6 +159,30 @@ kubectl auth can-i '*' '*'
 | `-f`, `--filename` | Operate on a manifest file or directory |
 | `--context` | Override the current context for one command |
 | `--previous` | Logs from a container's prior instance |
+
+## Security relevance
+
+This section is the threat-facing view of `kubectl`: how an attacker turns API access into cluster control, and what the audit log records when they do. The RBAC and hardening guidance is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Enumeration with a stolen kubeconfig or token. A leaked `~/.kube/config` or a pod's mounted service-account token lets an attacker run `kubectl auth can-i --list`, `get secrets -A`, and `get pods -A` to map permissions and harvest Secrets.
+- Privilege escalation. Attackers abuse broad RBAC, `create` on pods, or a privileged service account to schedule a pod that mounts the host filesystem or runs privileged, escaping to the node and from there toward the control plane.
+- Lateral movement and tunneling. `kubectl exec` lands a shell inside a running workload, and `kubectl port-forward` bypasses NetworkPolicies to reach cluster-internal services from outside.
+- Telemetry. The Kubernetes audit log records each API call: `create` on `pods/exec` and `pods/portforward`, `get` and `list` on `secrets`, and verb `*` on resource `*`. Defenders alert on these and on calls from an unexpected user agent or IP.
+
+### Dominant weakness classes
+
+The API server mediates everything through RBAC, so the dominant risks are excess authority and weak secret handling, not memory corruption.
+
+- Improper privilege management ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)) through over-broad Roles, ClusterRoles, and `cluster-admin` bindings.
+- Cleartext storage of sensitive information ([CWE-312](https://cwe.mitre.org/data/definitions/312.html)) in base64-encoded Secrets in etcd.
+- Execution with unnecessary privileges ([CWE-250](https://cwe.mitre.org/data/definitions/250.html)) from privileged pods and host-namespace shares.
+- Improper access control ([CWE-284](https://cwe.mitre.org/data/definitions/284.html)) where `exec` and `port-forward` reach past network boundaries.
+
+### Why it matters
+
+Reading an RBAC grant the way an attacker would, and watching the subresources above, is what separates a cluster where one stolen token stays contained from one where it becomes full control. Auditors run `kubectl auth can-i` and review Secret access for the same reason. See [the Kubernetes security reference](/KUBERNETES_SECURITY_REFERENCE.md) and [the container security reference](/CONTAINER_SECURITY_REFERENCE.md) for RBAC and runtime hardening.
 
 ## Security notes
 

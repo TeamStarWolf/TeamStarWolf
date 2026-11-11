@@ -17,7 +17,7 @@ Beginner
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (920 words at 230 words a minute)
+About 5 min (1,211 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -213,6 +213,29 @@ p               paste it
 | `:set hlsearch` | Highlight search matches |
 | `:set paste` | Disable auto-indent for pasting |
 | `:syntax on` | Enable syntax highlighting |
+
+## Security relevance
+
+This section is the threat-facing view of Vim: how it appears in offensive work and in defender telemetry. The safe-use guidance for your own sessions is in the "Security notes" section that follows.
+
+### Where it appears
+
+- Restricted-shell and sudo breakout. When a locked-down account or a sudo rule permits `vim` (or `vi`, `view`, `rvim`), an attacker runs `:!sh`, `:shell`, or `:py` to spawn an unrestricted shell, a classic GTFOBins jailbreak. If Vim was launched as root through sudo, that shell inherits root.
+- File read and write outside scope. Even read-only or editor-only access lets `:r` and `:w` touch files the operator never meant to expose, reading a shadow file or appending to an `authorized_keys`.
+- Config and modeline abuse. A planted `~/.vimrc`, a dropped plugin, or a crafted file modeline runs commands when a victim simply opens a file.
+- Telemetry. Defenders see a shell or interpreter parented by `vim`, Vim invoked under sudo, and edits to sensitive paths in process and `auditd` `execve` records.
+
+### Dominant weakness classes
+
+The editor itself is userspace, so the dominant risk is its use as a path to code execution and privilege escalation rather than memory corruption in Vim.
+
+- Improper privilege management ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)) when a sudo or suid editor spawns a shell that keeps the elevated rights.
+- Execution with unnecessary privileges ([CWE-250](https://cwe.mitre.org/data/definitions/250.html)) from editing a file as root instead of using a dropped-privilege path.
+- Improper control of generation of code ([CWE-94](https://cwe.mitre.org/data/definitions/94.html)) through modeline and untrusted config evaluation.
+
+### Why it matters
+
+An interactive editor on a sudo allowlist is a full privilege-escalation path, and naming it is a standard finding in a Linux review; defenders in turn hunt for shells whose parent process is an editor. See [the Linux hardening reference](/LINUX_HARDENING_REFERENCE.md) for least-privilege and sudo guidance.
 
 ## Security notes
 

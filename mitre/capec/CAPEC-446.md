@@ -38,6 +38,7 @@ An adversary conducts supply chain attacks by the inclusion of insecure third-pa
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [North Korea-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_NORTH_KOREA.md)
 
 <!-- library-refs:end -->
 

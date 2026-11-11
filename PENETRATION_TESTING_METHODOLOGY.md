@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 10 min (2,365 words at 230 words a minute)
+About 11 min (2,421 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -1477,6 +1477,15 @@ Prioritization Matrix:
 | kube-hunter | K8s | Kubernetes security assessment | `pip install kube-hunter` |
 | openvas | Vuln Mgmt | Open-source vulnerability scanner | `apt install openvas` |
 | nessus | Vuln Mgmt | Commercial vulnerability scanner | Download from tenable.com |
+
+### Command cheat sheets
+
+Community-curated references that map a goal to the exact command for a given environment:
+
+- WADComs (`wadcoms.github.io`): offensive tools and commands for Windows and Active Directory.
+- GTFOBins (`gtfobins.github.io`): Unix binaries abused to bypass local security restrictions.
+- LOLBAS (`lolbas-project.github.io`): living-off-the-land binaries and scripts on Windows.
+- LOLDrivers (`loldrivers.io`): known vulnerable and malicious drivers for bring-your-own-vulnerable-driver attacks.
 
 ---
 

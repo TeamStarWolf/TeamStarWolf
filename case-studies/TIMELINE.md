@@ -30,7 +30,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 2 November 2026: Still no reported in-the-wild exploitation; not in CISA KEV
 - [Thirty Days of Exposure Checks: Version and Configuration Evidence from the Lab](/case-studies/EXPOSURE_CHECKS_2026_11.md). Attack surface, October to November 2026. Sectors: technology. CVEs: CVE-2015-3306, CVE-2015-5477, CVE-2016-3081, CVE-2020-1938, CVE-2021-3199, CVE-2023-22894 and 16 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Exposure_Checks_2026_11_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Exposure_Checks_2026_11_Case_Study.pptx).
   - 4 October 2026: CISA lists NetScaler CVE-2026-88779, the window's first KEV addition; NVD publishes the AhsayCBS pair
-  - 7 October 2026: Huntress reports exploitation of the AhsayCBS chain from 23:20 UTC (Reported)
+  - 7 October 2026: Huntress observes exploitation of the AhsayCBS chain from 23:20 UTC (Reported)
   - 8 October 2026: CISA lists five CVEs from 2015 to 2023 in one day, among them ONLYOFFICE CVE-2021-3199, each due in three days
   - 12 October 2026: Ahsay says its earlier AhsayCBS patches, 10.3.4.0 and 9.15.2.59, did not fully fix either CVE
   - 13 October 2026: Microsoft releases Windows Shell CVE-2026-96951 as exploited; CISA lists it the same day

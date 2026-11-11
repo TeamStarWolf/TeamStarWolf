@@ -523,7 +523,7 @@ studies:
     pptx: "Exposure_Checks_2026_11_Case_Study.pptx"
     events:
       - {"date": "2026-10-04", "label": "CISA lists NetScaler CVE-2026-88779, the window's first KEV addition; NVD publishes the AhsayCBS pair"}
-      - {"date": "2026-10-07", "label": "Huntress reports exploitation of the AhsayCBS chain from 23:20 UTC (Reported)"}
+      - {"date": "2026-10-07", "label": "Huntress observes exploitation of the AhsayCBS chain from 23:20 UTC (Reported)"}
       - {"date": "2026-10-08", "label": "CISA lists five CVEs from 2015 to 2023 in one day, among them ONLYOFFICE CVE-2021-3199, each due in three days"}
       - {"date": "2026-10-12", "label": "Ahsay says its earlier AhsayCBS patches, 10.3.4.0 and 9.15.2.59, did not fully fix either CVE"}
       - {"date": "2026-10-13", "label": "Microsoft releases Windows Shell CVE-2026-96951 as exploited; CISA lists it the same day"}

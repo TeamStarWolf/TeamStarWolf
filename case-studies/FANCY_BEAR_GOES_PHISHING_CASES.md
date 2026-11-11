@@ -1,6 +1,6 @@
 # Five Hacks and Why They Worked: The Cases in Fancy Bear Goes Phishing
 
-*A TeamStarWolf case study. Published 3 November 2026; every source checked as of that date.*
+*A TeamStarWolf case study. Published 3 November 2026; sources checked 3 to 11 November 2026.*
 
 [All case studies](/case-studies/README.md) · Related: [Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md), [Russia-attributed threat actors](/case-studies/THREAT_ACTORS_RUSSIA.md), [Sandworm operations](/case-studies/SANDWORM_OPERATIONS.md), [SolarWinds and SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md)
 
@@ -19,7 +19,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 55 min (12,626 words at 230 words a minute)
+About 55 min (12,665 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -125,7 +125,7 @@ This is the study's own reading of the record, graded **Inferred** as a judgment
 
 ## Scope and method
 
-The study covers the five cases the book is built on [1] [3]. For each it reads the primary record: court opinions, indictments, informations and plea agreements; government releases and advisories; the contemporaneous technical analyses; and the peer-reviewed measurement paper on Mirai. Press and reviews are used where no primary was opened, and are graded down. Every source was opened on 3 November 2026; the date is recorded in the Sources table. Several primaries could not be opened and are named as such where they matter: the book's own text, the Cornell Commission report, the GAO report's scanned PDF, the DOJ releases for the 2018 indictment and the 2017 and 2018 Mirai proceedings, and a tweet by OVH's founder.
+The study covers the five cases the book is built on [1] [3]. For each it reads the primary record: court opinions, indictments, informations and plea agreements; government releases and advisories; the contemporaneous technical analyses; and the peer-reviewed measurement paper on Mirai. Press and reviews are used where no primary was opened, and are graded down. Every source was opened on 3 November 2026 except [17] and [77], opened on 11 November 2026; each date is recorded in the Sources table. Several primaries could not be opened and are named as such where they matter: the book's own text, the Cornell Commission report, the GAO report's scanned PDF, the DOJ releases for the 2018 indictment and the 2017 and 2018 Mirai proceedings, and a tweet by OVH's founder.
 
 Evidence grades follow the library's case-study method:
 
@@ -184,7 +184,7 @@ The Cornell Commission report was presented to the Provost on 6 February 1989 [1
 
 ### 1.7 The trial
 
-The Cornell Chronicle described Morris as the first person tried under the 1986 law; the FBI calls him the first person convicted under it [23] [15] (**Confirmed**). Judge Howard G. Munson announced the sentence on 4 May 1990 [77] (**Confirmed**). The judgment, dated 16 May 1990, set three years probation, 400 hours of community service, a $10,050 fine and the costs of supervision [7] (**Confirmed**). The Chronicle of 10 May 1990 gave the fine as $10,000 [77]; the court figure governs [7]. The Second Circuit affirmed on 7 March 1991. It held that the intent requirement applies to the access, not to the resulting damage, and that Morris used sendmail and finger without authorization because he used neither for its intended function [7] (**Confirmed**).
+The Cornell Chronicle described Morris as the first person tried under the 1986 law [23] (**Reported**). The FBI calls him the first person convicted under it [15] (**Confirmed**). The Cornell Chronicle reported that Judge Howard G. Munson announced the sentence on 4 May 1990 [77] (**Reported**). The judgment, dated 16 May 1990, set three years probation, 400 hours of community service, a $10,050 fine and the costs of supervision [7] (**Confirmed**). The Chronicle of 10 May 1990 gave the fine as $10,000 [77]; the court figure governs [7]. The Second Circuit affirmed on 7 March 1991. It held that the intent requirement applies to the access, not to the resulting damage, and that Morris used sendmail and finger without authorization because he used neither for its intended function [7] (**Confirmed**).
 
 ### 1.8 How big was it?
 
@@ -597,7 +597,7 @@ The study's layer is [`navigator/library-layers/fancy-bear-goes-phishing.json`](
 | 20 | SEI, CERT Division page | https://www.sei.cmu.edu/about/divisions/cert/ | 3 Nov 2026 | Confirmed |
 | 21 | SEI, 1988 CERT advisories | https://www.sei.cmu.edu/library/1988-cert-advisories/ | 3 Nov 2026 | Confirmed |
 | 22 | Cornell Chronicle (eCommons), on the Cornell Commission findings, 6 Apr 1989 | https://ecommons.cornell.edu/handle/1813/25312 | 3 Nov 2026 | Reported |
-| 23 | Cornell Chronicle (eCommons), on the trial, 1990 | https://ecommons.cornell.edu/handle/1813/25342 | 3 Nov 2026 | Confirmed |
+| 23 | Cornell Chronicle (eCommons), on the trial, 1990 | https://ecommons.cornell.edu/handle/1813/25342 | 3 Nov 2026 | Reported |
 | 24 | GAO, IMTEC-89-57, product page | https://www.gao.gov/products/imtec-89-57 | 3 Nov 2026 | Confirmed |
 | 25 | Library, NOTABLE_INCIDENTS.md | https://github.com/TeamStarWolf/TeamStarWolf/blob/main/NOTABLE_INCIDENTS.md | 3 Nov 2026 | Inferred |
 | 26 | Library, mitre/techniques tree | https://github.com/TeamStarWolf/TeamStarWolf/tree/main/mitre/techniques | 3 Nov 2026 | Inferred |
@@ -650,7 +650,7 @@ The study's layer is [`navigator/library-layers/fancy-bear-goes-phishing.json`](
 | 74 | Brian Krebs, "Mirai Botnet Authors Avoid Jail Time", Sep 2018 | https://krebsonsecurity.com/2018/09/mirai-botnet-authors-avoid-jail-time/ | 3 Nov 2026 | Reported |
 | 75 | MITRE ATT&CK, T1584.005 Botnet | https://attack.mitre.org/techniques/T1584/005/ | 3 Nov 2026 | Confirmed |
 | 76 | MITRE CWE, CWE-1392 Use of Default Credentials | https://cwe.mitre.org/data/definitions/1392.html | 3 Nov 2026 | Confirmed |
-| 77 | Cornell Chronicle (eCommons), Vol. 21 No. 32, 10 May 1990, on the sentencing | https://ecommons.cornell.edu/handle/1813/25356 | 11 Nov 2026 | Confirmed |
+| 77 | Cornell Chronicle (eCommons), Vol. 21 No. 32, 10 May 1990, on the sentencing | https://ecommons.cornell.edu/handle/1813/25356 | 11 Nov 2026 | Reported |
 
 Not opened, and not cited as opened: the book's own text; the Cornell Commission report (cited through [22]); the full GAO PDF; the DOJ releases for the July 2018 indictment, the December 2017 pleas and the September 2018 sentencing; the judgments in the Alaska and New Jersey cases; OVH's founder's tweet.
 
@@ -676,6 +676,6 @@ Not opened, and not cited as opened: the book's own text; the Cornell Commission
 - MITRE campaigns (APT29, not the DNC): [C0023 Operation Ghost](/mitre/campaigns/C0023.md), [C0024 SolarWinds Compromise](/mitre/campaigns/C0024.md) (see the [SolarWinds and SUNBURST study](/case-studies/SOLARWINDS_SUNBURST.md))
 - MITRE techniques: [T1598.003](/mitre/techniques/T1598-003.md), [T1566.002](/mitre/techniques/T1566-002.md), [T1078](/mitre/techniques/T1078.md), [T1078.001](/mitre/techniques/T1078-001.md), [T1199](/mitre/techniques/T1199.md), [T1056.001](/mitre/techniques/T1056-001.md), [T1685.005](/mitre/techniques/T1685-005.md), [T1210](/mitre/techniques/T1210.md), [T1110.001](/mitre/techniques/T1110-001.md), [T1110.002](/mitre/techniques/T1110-002.md), [T1584.005](/mitre/techniques/T1584-005.md), [T1498.001](/mitre/techniques/T1498-001.md), [T1027.014](/mitre/techniques/T1027-014.md), and every row in the MITRE mappings Part
 - [CWE Reference](/CWE_REFERENCE.md), [CAPEC Reference](/CAPEC_REFERENCE.md), [D3FEND Reference](/D3FEND_REFERENCE.md)
-- Other case studies: [Russia-Attributed Threat Actors](/case-studies/THREAT_ACTORS_RUSSIA.md) (Units 26165 and 74455 and APT29 beyond 2016), [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md) (Unit 74455), [SolarWinds and SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md) (APT29's C0024); and [APT41: the public record](/case-studies/APT41_PUBLIC_RECORD.md), [Stuxnet](/case-studies/STUXNET.md) and [Log4Shell](/case-studies/LOG4SHELL.md), for later state and criminal operations that used the same credential, phishing and exploitation techniques
+- Other case studies: [Russia-Attributed Threat Actors](/case-studies/THREAT_ACTORS_RUSSIA.md) (Units 26165 and 74455 and APT29 beyond 2016), [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md) (Unit 74455), [SolarWinds and SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md) (APT29's C0024), [Cyber Operations as Statecraft: The Cases in The Hacker and the State](/case-studies/HACKER_AND_THE_STATE_CASES.md) (the 2016 US election among the state operations of 2006 to 2018); and [APT41: the public record](/case-studies/APT41_PUBLIC_RECORD.md), [Stuxnet](/case-studies/STUXNET.md) and [Log4Shell](/case-studies/LOG4SHELL.md), for later state and criminal operations that used the same credential, phishing and exploitation techniques
 - [Navigator layers](/navigator/index.md)
 - [All case studies](/case-studies/README.md)

@@ -279,6 +279,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2012 <!-- {docsify-ignore} -->
 
+- [Cyber Operations as Statecraft: The Cases in The Hacker and the State](/case-studies/HACKER_AND_THE_STATE_CASES.md). Period record, 2006 to December 2020 (core: 2012 to 2018). Sectors: government, media, energy, finance, telecommunications, healthcare, cross-sector. CVEs: CVE-2017-0143, CVE-2017-0144, CVE-2017-0148. ATT&CK groups: G0006 APT1, G0007 APT28, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0082 APT38. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Hacker_And_The_State_Cases_Case_Study.pdf).
+  - 2006: APT1's observed compromises begin, per Mandiant
+  - July 2012: First known adversarial access to the US Office of Personnel Management (OPM)
+  - August 2012: Shamoon wipes systems at a Saudi energy company (30,000 or more, per Unit 42)
+  - February 2013: Mandiant publishes APT1 and assesses it as PLA Unit 61398
+  - 1 May 2014: Five PLA Unit 61398 officers indicted for economic espionage (announced 19 May)
+  - 24 November 2014: The Sony Pictures wiper attack and the "Hacked By #GOP" screen
+  - 19 December 2014: The FBI attributes the Sony attack to North Korea; US-CERT publishes TA14-353A
+  - February 2016: Bangladesh Bank loses about $81 million through fraudulent SWIFT messages
+  - March 2016: March to June 2016: GRU phishing, implants and theft at the Clinton campaign, the DCCC and the DNC
+  - 3 April 2017: 3 April to 3 May 2017: GRU spearphishing of the French presidential campaign
+  - 19 December 2017: The US and five partner governments attribute WannaCry to North Korea
+  - 13 July 2018: Twelve GRU officers indicted over the 2016 election hacking
 - [APT41: The Public Record, 2012 to 2026](/case-studies/APT41_PUBLIC_RECORD.md). Threat actor, 2012 to 2026. Sectors: technology, government, healthcare, telecommunications, education. CVEs: CVE-2012-0158, CVE-2015-1641, CVE-2017-0199, CVE-2017-11882, CVE-2019-1652, CVE-2019-1653 and 12 more. ATT&CK groups: G0096 APT41. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/APT41_Public_Record_2012_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/APT41_Public_Record_2012_2026_Case_Study.pptx).
   - 2012: FireEye traces APT41 activity to 2012, when members targeted the video game industry
   - July 2017: NetSarang's nssock2.dll backdoored in five software packages
@@ -324,6 +337,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2009 <!-- {docsify-ignore} -->
 
+- [The Zero-Day Trade and Its Fallout: The Events in This Is How They Tell Me the World Ends](/case-studies/ZERO_DAY_MARKET_EVENTS.md). Period record, 1996 to May 2026 (core: 2009 to 2021). Sectors: technology, government, healthcare, media, cross-sector. CVEs: CVE-2008-4250, CVE-2010-0249, CVE-2010-2568, CVE-2012-6422, CVE-2014-0160, CVE-2014-6324 and 24 more. ATT&CK groups: G0066 Elderwood, G0020 Equation, G0022 APT3, G0032 Lazarus Group, G0034 Sandworm Team, G0038 Stealth Falcon. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Zero_Day_Market_Events_Case_Study.pdf).
+  - December 2009: Google detects a targeted attack from China on its corporate infrastructure (Operation Aurora)
+  - 12 January 2010: Google discloses the intrusion and says it will stop censoring Google.cn
+  - 15 July 2014: Google announces Project Zero
+  - 5 July 2015: Hacking Team breach becomes public; Flash CVE-2015-5119 and CVE-2015-5122 made public
+  - 13 August 2016: The Shadow Brokers appear, claiming Equation Group files
+  - 24 August 2016: Citizen Lab and Lookout publish Trident and Pegasus; Apple ships iOS 9.3.5 the next day
+  - 14 March 2017: Microsoft publishes MS17-010
+  - 14 April 2017: The Shadow Brokers release the Windows archive (15 April in the FBI affidavit)
+  - 12 May 2017: WannaCry Version 2 spreads with the SMB worm; the kill-switch domain is registered
+  - 27 June 2017: NotPetya arrives through the M.E.Doc updater
+  - 13 September 2021: Citizen Lab reports FORCEDENTRY; Apple ships iOS 14.8
+  - 4 November 2021: NSO Group, Candiru, Positive Technologies and a Singapore firm added to the Entity List
 - [North Korea-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_NORTH_KOREA.md). Threat actor, 2009 to October 2026. Sectors: finance, government, defense, healthcare, technology, energy, media, education. CVEs: CVE-2017-4946, CVE-2021-20038, CVE-2021-43226, CVE-2021-44228, CVE-2021-45837, CVE-2022-24990 and 3 more. ATT&CK groups: G0032 Lazarus Group, G0067 APT37, G0082 APT38, G0094 Kimsuky, G0138 Andariel, G1036 Moonstone Sleet and 2 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_North_Korea_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_North_Korea_Case_Study.pptx).
   - November 2014: Destructive attack on Sony Pictures Entertainment; the FBI names the North Korean government on 19 December 2014
   - February 2016: Bangladesh Bank SWIFT heist, $81 million (Treasury, 2018)
@@ -404,10 +430,10 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 1988 <!-- {docsify-ignore} -->
 
-- [Five Hacks and Why They Worked: The Cases in Fancy Bear Goes Phishing](/case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md). Period record, November 1988 to September 2018. Sectors: education, government, telecommunications, technology. CVEs: CVE-1999-0095. ATT&CK groups: G0007 APT28, G0016 APT29. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Fancy_Bear_Goes_Phishing_Cases_Case_Study.pdf).
+- [Five Hacks and Why They Worked: The Cases in Fancy Bear Goes Phishing](/case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md). Period record, November 1988 to September 2018. Sectors: education, government, telecommunications, technology. CVEs: CVE-1999-0095. ATT&CK groups: G0007 APT28, G0016 APT29. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Fancy_Bear_Goes_Phishing_Cases_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Fancy_Bear_Goes_Phishing_Cases_Case_Study.pptx).
   - 2 November 1988: The Morris worm is released from an MIT computer at about 8:30 p.m. and spreads through sendmail, fingerd, trusted hosts and guessed passwords
   - March 1989: The Dark Avenger releases his first virus from Sofia, begun in September 1988
-  - 4 May 1990: Morris sentenced to three years probation, 400 hours of community service and a $10,050 fine
+  - 16 May 1990: The judgment against Morris sets three years probation, 400 hours of community service and a $10,050 fine
   - 1992: The Dark Avenger's Mutation Engine (MtE) lets any virus mutate through one subroutine
   - 8 September 2005: A Massachusetts juvenile is sentenced to 11 months for intrusions into an ISP, a telephone provider and an identity-data company
   - 19 March 2016: GRU Unit 26165 phishes the Clinton campaign chairman with a spoofed Google notice; over 50,000 emails taken
@@ -433,6 +459,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 30 September 1989: Stoll posts the details of his book The Cuckoo's Egg (Doubleday, 1989)
   - 15 February 1990: Court in Celle gives Carl, Hess and Brzezinski suspended sentences (Reported)
   - July 1991: RFC 1244 frames "Protect and Proceed" against "Pursue and Prosecute" and cites both Stoll works
+
+### 1984 <!-- {docsify-ignore} -->
+
+- [Cybercrime and Hacktivism in Four Books: Kingpin, Fatal System Error, We Are Anonymous, The Hacker Crackdown](/case-studies/CYBERCRIME_FOUR_BOOKS.md). Period record, 1984 to May 2014. Sectors: finance, telecommunications, government, technology, media, retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cybercrime_Four_Books_Case_Study.pdf).
+  - 15 January 1990: AT&T long-distance crash from its own 4ESS software update, at first suspected to be hackers
+  - 1 March 1990: Secret Service searches Steve Jackson Games and seizes the Illuminati BBS
+  - 7 May 1990: Operation Sundevil, 7 to 8 May 1990: about 27 warrants, 150 agents, 13 cities
+  - 23 July 1990: Neidorf trial, 23 to 27 July 1990: the prosecution moves to dismiss and a mistrial is declared (Reported)
+  - 31 October 1994: Fifth Circuit affirms Steve Jackson Games: seizing stored unread e-mail is not an intercept
+  - 28 October 2004: Shadowcrew indictment and Operation Firewall's 28 arrests announced
+  - October 2006: Russian court sentences three bookmaker DDoS extortionists to eight years each (Reported)
+  - 12 February 2010: Max Butler sentenced to 13 years and $27.5 million restitution
+  - February 2011: HBGary Federal breach: SQL injection, cracked and reused passwords, hijacked mail
+  - 7 June 2011: FBI approaches Monsegur, who agrees to cooperate that night (about this date)
+  - 15 November 2013: Jeremy Hammond sentenced to 10 years for computer hacking conspiracy
+  - 27 May 2014: Monsegur sentenced to time served
 
 <!-- case-study-timeline:list-end (the timeline replaces the list above on the site) -->
 

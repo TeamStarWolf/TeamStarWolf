@@ -412,6 +412,30 @@ studies:
       - {"date": "1989-09-30", "label": "Stoll posts the details of his book The Cuckoo's Egg (Doubleday, 1989)"}
       - {"date": "1990-02-15", "label": "Court in Celle gives Carl, Hess and Brzezinski suspended sentences (Reported)"}
       - {"date": "1991-07", "label": "RFC 1244 frames \"Protect and Proceed\" against \"Pursue and Prosecute\" and cites both Stoll works"}
+  case-studies/CYBERCRIME_FOUR_BOOKS.md:
+    kind: "era"
+    title: "Cybercrime and Hacktivism in Four Books: Kingpin, Fatal System Error, We Are Anonymous, The Hacker Crackdown"
+    start: "1984"
+    end: "2014-05"
+    sectors: ["finance", "telecommunications", "government", "technology", "media", "retail"]
+    cves: []
+    actors: []
+    tags: ["Kingpin", "Fatal System Error", "We Are Anonymous", "The Hacker Crackdown", "Shadowcrew", "CardersMarket", "Max Butler", "DDoS extortion", "Russian Business Network", "Anonymous", "LulzSec", "HBGary Federal", "Operation Sundevil", "Steve Jackson Games", "EFF"]
+    pdf: "Cybercrime_Four_Books_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "1990-01-15", "label": "AT&T long-distance crash from its own 4ESS software update, at first suspected to be hackers"}
+      - {"date": "1990-03-01", "label": "Secret Service searches Steve Jackson Games and seizes the Illuminati BBS"}
+      - {"date": "1990-05-07", "label": "Operation Sundevil, 7 to 8 May 1990: about 27 warrants, 150 agents, 13 cities"}
+      - {"date": "1990-07-23", "label": "Neidorf trial, 23 to 27 July 1990: the prosecution moves to dismiss and a mistrial is declared (Reported)"}
+      - {"date": "1994-10-31", "label": "Fifth Circuit affirms Steve Jackson Games: seizing stored unread e-mail is not an intercept"}
+      - {"date": "2004-10-28", "label": "Shadowcrew indictment and Operation Firewall's 28 arrests announced"}
+      - {"date": "2006-10", "label": "Russian court sentences three bookmaker DDoS extortionists to eight years each (Reported)"}
+      - {"date": "2010-02-12", "label": "Max Butler sentenced to 13 years and $27.5 million restitution"}
+      - {"date": "2011-02", "label": "HBGary Federal breach: SQL injection, cracked and reused passwords, hijacked mail"}
+      - {"date": "2011-06-07", "label": "FBI approaches Monsegur, who agrees to cooperate that night (about this date)"}
+      - {"date": "2013-11-15", "label": "Jeremy Hammond sentenced to 10 years for computer hacking conspiracy"}
+      - {"date": "2014-05-27", "label": "Monsegur sentenced to time served"}
   case-studies/EMUDHRA_CA_COMPROMISE_2026.md:
     kind: "incident"
     title: "The eMudhra Certificate Authority Key Compromise: A 2026 Case Study"
@@ -496,11 +520,11 @@ studies:
     actors: ["G0007", "G0016"]
     tags: ["Morris worm", "Dark Avenger", "DNC", "Fancy Bear", "Mirai", "default credentials", "book"]
     pdf: "Fancy_Bear_Goes_Phishing_Cases_Case_Study.pdf"
-    pptx: null
+    pptx: "Fancy_Bear_Goes_Phishing_Cases_Case_Study.pptx"
     events:
       - {"date": "1988-11-02", "label": "The Morris worm is released from an MIT computer at about 8:30 p.m. and spreads through sendmail, fingerd, trusted hosts and guessed passwords"}
       - {"date": "1989-03", "label": "The Dark Avenger releases his first virus from Sofia, begun in September 1988"}
-      - {"date": "1990-05-04", "label": "Morris sentenced to three years probation, 400 hours of community service and a $10,050 fine"}
+      - {"date": "1990-05-16", "label": "The judgment against Morris sets three years probation, 400 hours of community service and a $10,050 fine"}
       - {"date": "1992", "label": "The Dark Avenger's Mutation Engine (MtE) lets any virus mutate through one subroutine"}
       - {"date": "2005-09-08", "label": "A Massachusetts juvenile is sentenced to 11 months for intrusions into an ISP, a telephone provider and an identity-data company"}
       - {"date": "2016-03-19", "label": "GRU Unit 26165 phishes the Clinton campaign chairman with a spoofed Google notice; over 50,000 emails taken"}
@@ -531,6 +555,32 @@ studies:
       - {"date": "2022-03-03", "label": "CISA adds CVE-2020-1938 to KEV in a batch of 95 entries"}
       - {"date": "2026-10", "label": "DShield still records about 950 to 6,200 port 8009 events a day"}
       - {"date": "2026-11-03", "label": "KEV still lists the CVE; the TeamStarWolf lab run"}
+  case-studies/HACKER_AND_THE_STATE_CASES.md:
+    kind: "era"
+    title: "Cyber Operations as Statecraft: The Cases in The Hacker and the State"
+    start: "2006"
+    end: "2020-12"
+    core_start: "2012"
+    core_end: "2018"
+    sectors: ["government", "media", "energy", "finance", "telecommunications", "healthcare", "cross-sector"]
+    cves: ["CVE-2017-0143", "CVE-2017-0144", "CVE-2017-0148"]
+    actors: ["G0006", "G0007", "G0016", "G0032", "G0034", "G0082"]
+    tags: ["The Hacker and the State", "OPM", "APT1", "Sony Pictures", "Shamoon", "DNC", "Bangladesh Bank", "WannaCry", "book"]
+    pdf: "Hacker_And_The_State_Cases_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2006", "label": "APT1's observed compromises begin, per Mandiant"}
+      - {"date": "2012-07", "label": "First known adversarial access to the US Office of Personnel Management (OPM)"}
+      - {"date": "2012-08", "label": "Shamoon wipes systems at a Saudi energy company (30,000 or more, per Unit 42)"}
+      - {"date": "2013-02", "label": "Mandiant publishes APT1 and assesses it as PLA Unit 61398"}
+      - {"date": "2014-05-01", "label": "Five PLA Unit 61398 officers indicted for economic espionage (announced 19 May)"}
+      - {"date": "2014-11-24", "label": "The Sony Pictures wiper attack and the \"Hacked By #GOP\" screen"}
+      - {"date": "2014-12-19", "label": "The FBI attributes the Sony attack to North Korea; US-CERT publishes TA14-353A"}
+      - {"date": "2016-02", "label": "Bangladesh Bank loses about $81 million through fraudulent SWIFT messages"}
+      - {"date": "2016-03", "label": "March to June 2016: GRU phishing, implants and theft at the Clinton campaign, the DCCC and the DNC"}
+      - {"date": "2017-04-03", "label": "3 April to 3 May 2017: GRU spearphishing of the French presidential campaign"}
+      - {"date": "2017-12-19", "label": "The US and five partner governments attribute WannaCry to North Korea"}
+      - {"date": "2018-07-13", "label": "Twelve GRU officers indicted over the 2016 election hacking"}
   case-studies/HEALTHCARE_THREAT_WATCHLIST.md:
     kind: "era"
     title: "Healthcare Threat Actor Watchlist, 2023 to 2026: Who Hits Hospitals, How They Get In, and What the Record Says"
@@ -1395,3 +1445,65 @@ studies:
       - {"date": "2024-02-24", "label": "XZ Utils 5.6.0 tarball, carrying the backdoor, released"}
       - {"date": "2024-03-09", "label": "5.6.1 tarball released"}
       - {"date": "2024-03-29", "label": "Andres Freund discloses the backdoor; distributions pull the versions; CISA issues an alert"}
+  case-studies/ZERO_DAY_MARKET_EVENTS.md:
+    kind: "era"
+    title: "The Zero-Day Trade and Its Fallout: The Events in This Is How They Tell Me the World Ends"
+    start: "1996"
+    end: "2026-05"
+    core_start: "2009"
+    core_end: "2021"
+    sectors: ["technology", "government", "healthcare", "media", "cross-sector"]
+    cves:
+      - "CVE-2008-4250"
+      - "CVE-2010-0249"
+      - "CVE-2010-2568"
+      - "CVE-2012-6422"
+      - "CVE-2014-0160"
+      - "CVE-2014-6324"
+      - "CVE-2015-2387"
+      - "CVE-2015-5119"
+      - "CVE-2015-5122"
+      - "CVE-2015-5123"
+      - "CVE-2016-4655"
+      - "CVE-2016-4656"
+      - "CVE-2016-4657"
+      - "CVE-2016-6366"
+      - "CVE-2016-6367"
+      - "CVE-2016-6909"
+      - "CVE-2017-0143"
+      - "CVE-2017-0144"
+      - "CVE-2017-0145"
+      - "CVE-2017-0146"
+      - "CVE-2017-0147"
+      - "CVE-2017-0148"
+      - "CVE-2017-7269"
+      - "CVE-2017-8461"
+      - "CVE-2019-0703"
+      - "CVE-2019-3568"
+      - "CVE-2021-30860"
+      - "CVE-2021-31010"
+      - "CVE-2021-31979"
+      - "CVE-2021-33771"
+    actors:
+      - "G0066"
+      - "G0020"
+      - "G0022"
+      - "G0032"
+      - "G0034"
+      - "G0038"
+    tags: ["zero-day market", "Shadow Brokers", "EternalBlue", "WannaCry", "Pegasus", "Hacking Team", "spyware"]
+    pdf: "Zero_Day_Market_Events_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2009-12", "label": "Google detects a targeted attack from China on its corporate infrastructure (Operation Aurora)"}
+      - {"date": "2010-01-12", "label": "Google discloses the intrusion and says it will stop censoring Google.cn"}
+      - {"date": "2014-07-15", "label": "Google announces Project Zero"}
+      - {"date": "2015-07-05", "label": "Hacking Team breach becomes public; Flash CVE-2015-5119 and CVE-2015-5122 made public"}
+      - {"date": "2016-08-13", "label": "The Shadow Brokers appear, claiming Equation Group files"}
+      - {"date": "2016-08-24", "label": "Citizen Lab and Lookout publish Trident and Pegasus; Apple ships iOS 9.3.5 the next day"}
+      - {"date": "2017-03-14", "label": "Microsoft publishes MS17-010"}
+      - {"date": "2017-04-14", "label": "The Shadow Brokers release the Windows archive (15 April in the FBI affidavit)"}
+      - {"date": "2017-05-12", "label": "WannaCry Version 2 spreads with the SMB worm; the kill-switch domain is registered"}
+      - {"date": "2017-06-27", "label": "NotPetya arrives through the M.E.Doc updater"}
+      - {"date": "2021-09-13", "label": "Citizen Lab reports FORCEDENTRY; Apple ships iOS 14.8"}
+      - {"date": "2021-11-04", "label": "NSO Group, Candiru, Positive Technologies and a Singapore firm added to the Entity List"}

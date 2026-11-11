@@ -186,6 +186,24 @@
     "blurb": "Techniques from Stoll's 1988 account of the LBL intrusion: default and guessed accounts, cracked password files, the movemail privilege escalation, dormant accounts and the multi-hop path from West Germany. A curated retrospective layer for the Cuckoo's Egg case study."
   },
   {
+    "file": "zero-day-market-events.json",
+    "name": "TeamStarWolf - The Zero-Day Trade and Its Fallout",
+    "description": "Curated case-study layer, not an official MITRE mapping. The 75 ATT&CK Enterprise techniques that the verified record in case-studies/ZERO_DAY_MARKET_EVENTS.md supports for Operation Aurora (Elderwood, Hydraq), the Equation group, the Hacking Team leak, WannaCry, NotPetya, Bad Rabbit, Shamoon and the 2019 Baltimore RobbinHood attack, from the ATT&CK software and group pages the study opened and data/attack/. Each comment names the event and the study's source numbers. Scores: 100 an ATT&CK page ties the technique to an event in the study, 75 an ATT&CK software or group record related to the event but not dated to it, 40 an Inferred mapping.",
+    "blurb": "Techniques behind the zero-day trade's fallout: Operation Aurora's drive-by and spearphishing entry, the Equation and Hacking Team firmware persistence, and the SMB worm spread, credential theft and encryption of WannaCry and NotPetya. A curated layer for the zero-day market case study; its ICS companion sits in the ICS case-study layers."
+  },
+  {
+    "file": "cybercrime-four-books.json",
+    "name": "TeamStarWolf - Cybercrime and Hacktivism in Four Books Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Retrospective ATT&CK v20.0 mapping of the events in four books (Kingpin, Fatal System Error, We Are Anonymous, The Hacker Crackdown), 1987 to 2012, rebuilt from DOJ, Secret Service and FBI releases, court records and the press. No ATT&CK group, software or campaign object covers these actors. Each comment names source numbers from case-studies/CYBERCRIME_FOUR_BOOKS.md. Scores: 100 is behavior a primary document records with a direct fit, 75 is behavior only a book or news report records, 40 is an analogy or weak fit.",
+    "blurb": "Techniques from the carding markets, DDoS extortion gangs, Anonymous and LulzSec, and the 1990 crackdown: phishing and point-of-sale sniffing, botnet floods, SQL injection, cracked and reused passwords, defacement and financial theft. A curated retrospective layer for the four-books cybercrime case study."
+  },
+  {
+    "file": "hacker-and-the-state-cases.json",
+    "name": "TeamStarWolf - Cyber Operations as Statecraft: The Hacker and the State Cases",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK v20.0 mapping of the state operations of 2006 to 2018 examined in case-studies/HACKER_AND_THE_STATE_CASES.md: OPM, APT1, Belgacom and Regin, Sony Pictures, Shamoon, the 2016 US election, Bangladesh Bank, WannaCry and the 2017 French campaign. Revoked T1070.001 is shown under its v20.0 successor T1685.005 per data/attack/superseded_by.jsonl. Each technique is shown under all its tactics. Scores: 100 a government, court or vendor primary describes the behavior; 60 ATT&CK records it for the group or software but not for the dated event; 40 Reported only (journalism); 30 an Inferred mapping.",
+    "blurb": "Techniques from the government, court and vendor record of the state operations of 2006 to 2018: OPM, APT1, Regin, Sony Pictures, Shamoon, the 2016 US election, Bangladesh Bank, WannaCry and the 2017 French campaign. A curated layer for the Hacker and the State case study."
+  },
+  {
     "file": "fancy-bear-goes-phishing.json",
     "name": "TeamStarWolf - Fancy Bear Goes Phishing Cases",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified record supports for the five cases in Fancy Bear Goes Phishing: the Morris worm (1988), the Dark Avenger viruses (1989 to 1992), the 2005 phone case, the DNC intrusions by APT28 and APT29 (2015 to 2016) and Mirai (2016). Each comment names the case and source numbers from case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md. Scores: 100 is a technique the opened record or ATT&CK states for the DNC actors, 50 is a mapping that needs an interpretive step, including every row for the four cases ATT&CK does not cover.",

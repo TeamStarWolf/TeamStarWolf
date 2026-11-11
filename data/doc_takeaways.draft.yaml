@@ -29,7 +29,7 @@ pages:
     items:
       - {"text": "In indirect prompt injection through MCP, an attacker plants instructions in content the AI later reads through a tool.", "from": "#_2-mcp-security-threat-model", "quote": "An attacker embeds malicious LLM instructions inside content that the AI will later read via MCP tools."}
       - {"text": "Tool descriptions are natural language the model reads to choose and use a tool, which makes them a place to hide instructions.", "from": "#_2-mcp-security-threat-model", "quote": "MCP tool descriptions are natural language text that the LLM reads to decide which tool to use and how."}
-      - {"text": "MCP servers on HTTP+SSE often listen on localhost ports, which exposes them to DNS rebinding.", "from": "#_2-mcp-security-threat-model", "quote": "MCP servers using HTTP+SSE transport often listen on localhost ports"}
+      - {"text": "MCP servers on Streamable HTTP often listen on localhost ports, which exposes them to DNS rebinding.", "from": "#_2-mcp-security-threat-model", "quote": "MCP servers using the Streamable HTTP transport (or the deprecated HTTP+SSE transport it replaced) often listen on localhost ports"}
       - {"text": "Validate every MCP tool input against a strict JSON Schema before execution.", "from": "#_3-mcp-security-hardening", "quote": "All MCP tool inputs must be validated against strict JSON Schemas before execution."}
   SUPPLY_CHAIN_SECURITY_REFERENCE.md:
     batch: 1
@@ -103,7 +103,7 @@ pages:
   INCIDENT_RESPONSE_REFERENCE.md:
     batch: 1
     items:
-      - {"text": "NIST SP 800-61 Revision 2 defines four incident response phases, and Revision 3 (April 2025) supersedes it; the six-step PICERL model comes from SANS.", "from": "#_1-ir-frameworks-amp-preparation", "quote": "(SP 800-61 Revision 2) defines the authoritative lifecycle for federal and private-sector incident response as four phases"}
+      - {"text": "NIST SP 800-61 Revision 3 (April 2025) is the current NIST incident response guidance; the four-phase lifecycle comes from Revision 2, which it replaced, and the six-step PICERL model comes from SANS.", "from": "#_1-ir-frameworks-amp-preparation", "quote": "The four phases below are the Rev. 2 lifecycle that Rev. 3 replaced"}
       - {"text": "Complete a set triage checklist within the first five minutes of an alert or report.", "from": "#_2-detection-amp-initial-triage", "quote": "Upon receiving an alert or report, complete the following within the first 5 minutes:"}
       - {"text": "During ransomware recovery, restore in dependency order and never reconnect compromised systems to clean networks.", "from": "#_3-ransomware-response", "quote": "Recover in dependency order; never reconnect compromised systems to clean networks:"}
       - {"text": "File a law enforcement complaint for ransomware incidents whether or not you pay.", "from": "#_3-ransomware-response", "quote": "File a complaint for ransomware incidents regardless of whether you pay"}
@@ -451,7 +451,7 @@ pages:
       - {"text": "Each OWASP Top 10 category comes with a vulnerable code sample, a secure rewrite, and the tooling that detects the flaw.", "from": "#secure-coding-reference", "quote": "each OWASP Top 10 category comes with a vulnerable code sample, a secure rewrite, and the tooling that detects the flaw."}
       - {"text": "Validate input against an allow-list: define exactly what is permitted and reject everything else.", "from": "#input-validation-amp-output-encoding", "quote": "Allow-list over deny-list: Define exactly what is permitted; reject everything else."}
       - {"text": "Output encoding must match the context where the data is rendered.", "from": "#input-validation-amp-output-encoding", "quote": "Output encoding must match the context where data is rendered:"}
-      - {"text": "For PBKDF2-HMAC-SHA256 password hashing the page gives at least 600,000 iterations, per NIST 2023 guidance.", "from": "#authentication-amp-session-management", "quote": "PBKDF2-HMAC-SHA256 (NIST SP 800-132, ≥600,000 iterations per NIST 2023):"}
+      - {"text": "For PBKDF2-HMAC-SHA256 password hashing the page gives at least 600,000 iterations, per the OWASP Password Storage Cheat Sheet.", "from": "#authentication-amp-session-management", "quote": "≥600,000 iterations per the OWASP Password Storage Cheat Sheet"}
   THREAT_MODELING_REFERENCE.md:
     batch: 4
     items:

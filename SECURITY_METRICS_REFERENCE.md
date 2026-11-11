@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 38 min (8,822 words at 230 words a minute)
+About 38 min (8,838 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -42,7 +42,7 @@ You are building or overhauling a metrics program, you are preparing a CISO/boar
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-09-29, Windows 10 end-of-support row, one Entra ID rename and the ATT&CK version in the footer updated ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+2026-11-04, IBM 2024 benchmark figures corrected to the published report; CIS Controls v8.1 in the footer ([#175](https://github.com/TeamStarWolf/TeamStarWolf/pull/175))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
@@ -196,7 +196,7 @@ MTTD = SUM(detection_timestamp - attack_start_timestamp) / incident_count
 
 Where `attack_start_timestamp` is approximated from forensic artifacts (first malicious log entry, initial beacon timestamp, earliest lateral movement event) and `detection_timestamp` is when the alert or analyst flagged the event as a confirmed security incident.
 
-IBM Cost of a Data Breach 2024 Benchmark: Organizations take an average of 194 days to identify a breach. The cost differential is stark: breaches contained within 200 days cost an average of $3.93M; those taking longer cost $4.82M, a $890,000 penalty for slow detection.
+IBM Cost of a Data Breach 2024 Benchmark: the average time to identify and contain a breach fell to 258 days, from 277 days the year before, while the global average cost of a breach reached $4.88M. Organizations that used security AI and automation extensively detected and contained an incident 98 days faster, on average, than organizations that did not ([IBM announcement](https://newsroom.ibm.com/2024-07-30-ibm-report-escalating-data-breach-disruption-pushes-costs-to-new-highs)).
 
 MTTD Breakdown by Attack Type:
 
@@ -1356,4 +1356,4 @@ Year 4+: Optimize and Innovate
 
 ---
 
-*Reference compiled for security program management. Benchmarks from IBM Cost of a Data Breach 2024, Verizon DBIR 2024, CIS Controls v8, MITRE ATT&CK v20.0, FAIR Institute, and CISA advisories. Targets are aspirational; adjust based on organization size, industry, and risk appetite.*
+*Reference compiled for security program management. Benchmarks from IBM Cost of a Data Breach 2024, Verizon DBIR 2024, CIS Controls v8.1, MITRE ATT&CK v20.0, FAIR Institute, and CISA advisories. Targets are aspirational; adjust based on organization size, industry, and risk appetite.*

@@ -11,7 +11,7 @@ Part of the [domain hubs](/hubs/README.md). 9 reference documents in this domain
 | Reference | What it covers | Reading time |
 |---|---|---|
 | [AI Security Reference](/AI_SECURITY_REFERENCE.md) | OWASP LLM Top 10, prompt injection attacks, adversarial ML, LLM deployment security, guardrails, and AI in security operations | 14 min |
-| [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md) | AI/ML threat models, MCP protocol security, LLM prompt injection, supply chain risks, agentic security, model evaluation | 48 min |
+| [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md) | AI/ML threat models, MCP protocol security, LLM prompt injection, supply chain risks, agentic security, model evaluation | 49 min |
 | [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md) | Model registries & artifact provenance, unsafe model deserialization, RAG/training-data poisoning, vector stores, ML pipeline supply chain, GPU/inference hardening | 14 min |
 | [AI Architecture Reference](/AI_ARCHITECTURE_REFERENCE.md) | Designing AI, ML and LLM systems end to end: data pipelines, training and inference planes, model serving, RAG, agents and MCP, MLOps and LLMOps | 19 min |
 | [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md) | AI-powered offensive security tools, CVE exploitation automation, MITRE ATT&CK mapping, defensive frameworks | 37 min |

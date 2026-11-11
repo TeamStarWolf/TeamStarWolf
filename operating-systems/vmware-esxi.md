@@ -38,6 +38,10 @@ Fixes ship as ESXi updates and patches named by release and build, for example E
 
 No identify command is listed: the Broadcom ESXi command reference was not reachable at the address tried (HTTP 404) when this page was built.
 
+## Security relevance
+
+VMware ESXi is the data-center hypervisor and a prime ransomware target, because encrypting virtual machines through the hypervisor takes down many systems at once. The exposed surface is the management interface and pre-authentication flaws in the host services, and a foothold reaches every guest. Enable lockdown mode, keep management isolated, and patch urgently; the hardening references below cover the baseline.
+
 ## Hardening
 
 - [Hypervisor Security Reference](/HYPERVISOR_SECURITY_REFERENCE.md)

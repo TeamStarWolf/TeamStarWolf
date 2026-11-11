@@ -50,6 +50,10 @@ pkg upgrade
 
 From the vendor documentation cited at the foot of this page; not run on a host for this page.
 
+## Security relevance
+
+FreeBSD runs servers, storage systems, and network appliances, and its pf firewall and jails appear in many security products, so it is met both as a host and as the base of an appliance. The foothold surface is the familiar one of SSH, privilege escalation, and kernel issues, with jails as a containment boundary that can be misconfigured. It is a smaller target set than Linux, which shifts attention to the appliances built on it.
+
 ## Hardening
 
 - [Security Operating Systems and Distributions](/SECURITY_OPERATING_SYSTEMS_REFERENCE.md)

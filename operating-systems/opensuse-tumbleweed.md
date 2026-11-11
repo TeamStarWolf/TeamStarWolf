@@ -48,6 +48,10 @@ The `ID` and `VERSION_ID` fields of `/etc/os-release` (the [os-release format](h
 |---|---|---|
 | Rolling | `ID=opensuse-tumbleweed`, `VERSION_ID=<snapshot date>` | Not checked on a running system |
 
+## Security relevance
+
+openSUSE Tumbleweed is the rolling SUSE release, so it carries the newest kernel and packages with current mitigations and newly introduced bugs alike. As a host it presents the familiar Linux foothold surface of SSH, sudo, SUID, and kernel escalation, with the zypper supply chain and AppArmor on top. The rolling model means patch currency is continuous rather than release-bound.
+
 ## Hardening
 
 - [Linux Hardening Reference Library](/LINUX_HARDENING_REFERENCE.md)

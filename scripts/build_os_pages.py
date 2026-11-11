@@ -68,11 +68,11 @@ FIELDS = ("id", "os", "family", "name", "summary", "version", "codename", "relea
           "shell", "patch_notes", "advisories", "advisory_notes", "identify", "identify_basis",
           "os_release",
           "os_release_checked", "eol", "hardening", "case_studies", "vocab_id", "licence",
-          "sources", "reviewed_at")
+          "sources", "reviewed_at", "security_relevance")
 # Fields that describe the system, not one version: identical on every row of an `os`.
 OS_FIELDS = ("family", "name", "summary", "package_manager", "patch_commands", "shell", "patch_notes",
              "advisories", "advisory_notes", "identify", "identify_basis", "hardening", "case_studies",
-             "vocab_id", "licence")
+             "vocab_id", "licence", "security_relevance")
 RELEASE_MODELS = ("point", "rolling", "channel")
 EOL_SOURCES = ("endoflife.date", "vendor", "rolling", "unknown")
 # shell -> (code fence language or None, identify heading, first identify column)
@@ -170,7 +170,8 @@ def validate(rows: list[dict], exists=lambda rel: True) -> list[str]:
             continue
         if r["family"] not in FAMILIES:
             errs.append(f"{where}: family must be one of {list(FAMILIES)}")
-        for f in ("name", "summary", "version", "base", "package_manager", "update_channel", "licence"):
+        for f in ("name", "summary", "version", "base", "package_manager", "update_channel", "licence",
+                  "security_relevance"):
             if not isinstance(r[f], str) or not r[f].strip():
                 errs.append(f"{where}: {f} must be a non-empty string")
         for f in ("codename", "kernel", "patch_notes", "advisory_notes", "os_release_checked"):
@@ -448,6 +449,9 @@ def render_page(rs: list[dict]) -> str:
                        + cell(r["os_release_checked"] or "Not checked on a running system") + " |")
         out.append("")
 
+    # security relevance
+    out += ["## Security relevance", "", r0["security_relevance"], ""]
+
     # hardening
     out += ["## Hardening", ""]
     out += ["- " + md_link(h["label"], h["path"]) for h in r0["hardening"]]
@@ -656,7 +660,8 @@ def _planted() -> dict:
             "os_release": {"ID": "acme", "VERSION_ID": "1"}, "os_release_checked": None, "eol": eol,
             "hardening": [{"label": "Linux Hardening Reference", "path": "/LINUX_HARDENING_REFERENCE.md"}],
             "case_studies": [], "vocab_id": "product:acme-linux", "licence": "Planted.",
-            "sources": [{"title": "Acme docs", "url": "https://acme.example/docs"}], "reviewed_at": "2026-01-10"}
+            "sources": [{"title": "Acme docs", "url": "https://acme.example/docs"}], "reviewed_at": "2026-01-10",
+            "security_relevance": "A planted test blurb on how the system is attacked and defended."}
 
 
 def self_test() -> int:
@@ -764,7 +769,8 @@ def self_test() -> int:
     page = pages[OUT + "/acme.md"]
     expect("page carries the markers", page.startswith(START + "\n") and page.rstrip().endswith(END))
     for h in ("## Versions and support", "## Where its advisories live", "## How it patches",
-              "## Identify it from a terminal", "## Hardening", "## On the Intelligence Hub"):
+              "## Identify it from a terminal", "## Security relevance", "## Hardening",
+              "## On the Intelligence Hub"):
         expect("page has " + h, ("\n" + h + "\n") in page)
     expect("each table has a row per version", page.count("\n| 1 |") == 3 and page.count("\n| 2 |") == 3)
     expect("links are root-relative", all(t.startswith("/") or t.startswith("https://")

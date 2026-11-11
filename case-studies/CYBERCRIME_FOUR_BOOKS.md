@@ -1,6 +1,6 @@
 # Cybercrime and Hacktivism in Four Books: Kingpin, Fatal System Error, We Are Anonymous, The Hacker Crackdown
 
-*A TeamStarWolf case study. Published 3 November 2026; every source checked as of that date.*
+*A TeamStarWolf case study. Published 3 November 2026; sources checked on that date, with source 25 reopened and the library data in source 54 rechecked on 11 November 2026.*
 
 [All case studies](/case-studies/README.md) · Related: [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md), [Threat Actors](/THREAT_ACTORS.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Malware Families](/MALWARE_FAMILIES.md), [CVE Reference](/CVE_REFERENCE.md) · Related studies: [The Cuckoo's Egg Intrusion, 1986](/case-studies/CUCKOOS_EGG_1986.md), [The Zero-Day Trade and Its Fallout](/case-studies/ZERO_DAY_MARKET_EVENTS.md), [Russia-Attributed Threat Actors](/case-studies/THREAT_ACTORS_RUSSIA.md)
 
@@ -103,7 +103,7 @@ Evidence grade: the indictments, pleas, sentences, court findings and incident r
 
 This study covers the events at the centre of four books on the library's [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md). It follows the library's [case study method](/case-studies/README.md): primary sources first, an evidence grade on every claim, numbers as the source states them, and hype kept apart from evidence. The book text was consulted only for *The Hacker Crackdown*, which its author released as a free electronic text [41]. For *Kingpin*, Poulsen's December 2008 Wired feature on Butler, the reporting that preceded the book, stands in for book-only claims [7]; for *Fatal System Error*, the publisher's description and two reviews do [12][13][16]; for *We Are Anonymous*, every claim in this study rests on the court record or contemporary press, not on the book.
 
-Every source in the Sources table was opened on 3 November 2026. Some primaries were read as faithful reprints: AT&T's incident report as reprinted in RISKS Digest 9.63, the Atlanta sentencing memorandum and the Operation Sundevil press release as reprinted in Computer Underground Digest, the Steve Jackson Games opinions as reproduced on the company's own site, and the Monsegur sentencing memorandum as a PDF hosted by SecurityWeek. They are graded Confirmed with that caveat noted.
+Every source in the Sources table was opened on 3 November 2026; source 25 was reopened and the library data in source 54 rechecked on 11 November 2026. Some primaries were read as faithful reprints: AT&T's incident report as reprinted in RISKS Digest 9.63, the Atlanta sentencing memorandum and the Operation Sundevil press release as reprinted in Computer Underground Digest, the Steve Jackson Games opinions as reproduced on the company's own site, and the Monsegur sentencing memorandum as a PDF hosted by SecurityWeek. They are graded Confirmed with that caveat noted.
 
 | Grade | Meaning in this study |
 |---|---|
@@ -196,7 +196,7 @@ Two US records from the same years show DDoS sold as a commercial service at hom
 
 ### Shadowcrew, in brief
 
-Menn's subject is the origin of the underground economy, and Shadowcrew is part of that story. The Justice Department's 28 October 2004 release describes a 62-count indictment of 19 people, about 4,000 members, 21 US arrests, at least 1.7 million stolen card numbers and over $4 million in losses after a year-long Secret Service undercover case (Confirmed [1]). Part 1 of this study is the home for Shadowcrew and Operation Firewall, and tells that story in full.
+Menn's subject is the origin of the underground economy, and Shadowcrew is part of that story. The Justice Department's 28 October 2004 release describes a 62-count indictment of 19 people, about 4,000 members, 21 US arrests, at least 1.7 million stolen card numbers and over $4 million in losses after a year-long Secret Service undercover case (Confirmed [1]). [Part 1 of this study](#shadowcrew-and-operation-firewall) is the home for Shadowcrew and Operation Firewall, and tells that story in full.
 
 ## Part 3: We Are Anonymous (Anonymous, LulzSec and AntiSec, 2010 to 2012)
 
@@ -257,8 +257,8 @@ On 6 March 2012 the Southern District of New York unsealed charges against Ryan 
 
 | Defendant | Court and date | Outcome | Grade and source |
 |---|---|---|---|
-| Ryan Cleary | Southwark Crown Court, 16 May 2013 | 32 months; he supplied a botnet of about 100,000 machines | Reported [35] |
-| Ryan Ackroyd | Southwark Crown Court, 16 May 2013 | 30 months | Reported [35] |
+| Ryan Cleary | Southwark Crown Court, 16 May 2013 | 32 months (Confirmed [25]); he supplied a botnet of about 100,000 machines (Reported [35]) | Confirmed [25]; Reported [35] |
+| Ryan Ackroyd | Southwark Crown Court, 16 May 2013 | 30 months | Confirmed [25]; Reported [35] |
 | Jake Davis | Southwark Crown Court, 16 May 2013 | 24 months in a young offenders' institution | Confirmed [25]; Reported [35] |
 | Mustafa Al-Bassam | Southwark Crown Court, 16 May 2013 | 20 months suspended, 300 hours of community service | Confirmed [25]; Reported [35] |
 | Darren Martyn | Ireland | Pleaded guilty; probation and a fine | Confirmed [25] |
@@ -519,7 +519,7 @@ The study's techniques are saved as an ATT&CK Navigator layer, [navigator/librar
 
 ## Sources
 
-All sources were opened on 3 November 2026. "Confirmed" marks a primary document, or a faithful reprint of one, as used here; "Reported" marks a book, review or news report. Sources 5, 17, 27, 36 and 37 refuse automated link checkers, so their addresses are given as plain text.
+All sources were opened on 3 November 2026; source 25 was reopened and the library data in source 54 rechecked on 11 November 2026. "Confirmed" marks a primary document, or a faithful reprint of one, as used here; "Reported" marks a book, review or news report. Sources 5, 17, 27, 36 and 37 refuse automated link checkers, so their addresses are given as plain text.
 
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|
@@ -547,7 +547,7 @@ All sources were opened on 3 November 2026. "Confirmed" marks a primary document
 | 22 | The Register, NHTCU and the Russian extortion arrests, 21 Jul 2004 | [theregister.com/2004/07/21/cyber_shakedown_taken_down/](https://www.theregister.com/2004/07/21/cyber_shakedown_taken_down/) | 2026-11-03 | Reported |
 | 23 | The Next Web, how DDoS attacks became a frontline tool | [thenextweb.com/news/how-ddos-attacks-became-the-frontline-tool-of-cyber-war](https://thenextweb.com/news/how-ddos-attacks-became-the-frontline-tool-of-cyber-war) | 2026-11-03 | Reported |
 | 24 | USAO S.D.N.Y., six hackers charged, 6 Mar 2012 | [justice.gov/archive/usao/nys/pressreleases/March12/ackroyd.html](https://www.justice.gov/archive/usao/nys/pressreleases/March12/ackroyd.html) | 2026-11-03 | Confirmed |
-| 25 | Government sentencing memorandum, *US v. Monsegur*, 11 Cr. 666 (LAP), S.D.N.Y., filed May 2014 (PDF hosted by SecurityWeek) | [securityweek.com/sites/default/files/features/monsegur-029-030.pdf](https://www.securityweek.com/sites/default/files/features/monsegur-029-030.pdf) | 2026-11-03 | Confirmed |
+| 25 | Government sentencing memorandum, *US v. Monsegur*, 11 Cr. 666 (LAP), S.D.N.Y., filed May 2014 (PDF hosted by SecurityWeek) | [securityweek.com/sites/default/files/features/monsegur-029-030.pdf](https://www.securityweek.com/sites/default/files/features/monsegur-029-030.pdf) | 2026-11-03; 2026-11-11 | Confirmed |
 | 26 | The Register, FBI arrests over Anonymous attacks, 19 Jul 2011 | [theregister.com/2011/07/19/anonymous_hacking_arrests/](https://www.theregister.com/2011/07/19/anonymous_hacking_arrests/) | 2026-11-03 | Reported |
 | 27 | phys.org, guilty pleas in the PayPal attack case, Dec 2013 | `https://phys.org/news/2013-12-guilty-paypal-servers.html` | 2026-11-03 | Reported |
 | 28 | CBS News, 13 indicted over Operation Payback, Oct 2013 | [cbsnews.com/news/13-members-of-hacking-group-anonymous-indicted-over-operation-payback/](https://www.cbsnews.com/news/13-members-of-hacking-group-anonymous-indicted-over-operation-payback/) | 2026-11-03 | Reported |
@@ -576,7 +576,7 @@ All sources were opened on 3 November 2026. "Confirmed" marks a primary document
 | 51 | MITRE ATT&CK, T1498.001 Direct Network Flood (checked, left out of the mapping) and the other live-checked technique pages in Part 7 | [attack.mitre.org/techniques/T1498/001/](https://attack.mitre.org/techniques/T1498/001/) | 2026-11-03 | Confirmed (ids) |
 | 52 | MITRE CAPEC, CAPEC-66 SQL Injection (with CAPEC-125, CWE-89 and CWE-916) | [capec.mitre.org/data/definitions/66.html](https://capec.mitre.org/data/definitions/66.html) | 2026-11-03 | Confirmed (ids) |
 | 53 | TeamStarWolf library, generated technique pages | [github.com/TeamStarWolf/TeamStarWolf/tree/main/mitre/techniques](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/mitre/techniques) | 2026-11-03 | Confirmed (library data) |
-| 54 | TeamStarWolf library data at main `e85b5594`: `data/attack/technique_profiles.jsonl`, `data/attack/d3fend_countermeasures.jsonl`, `data/weaknesses/cwe.jsonl`, the `mitre/` pages and [CYBERSECURITY_BOOK_LIST.md](/CYBERSECURITY_BOOK_LIST.md) | [github.com/TeamStarWolf/TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf) | 2026-11-03 | Confirmed (library data) |
+| 54 | TeamStarWolf library data at main `e85b5594` (3 Nov 2026) and `cb085a91` (11 Nov 2026): `data/attack/technique_profiles.jsonl`, `data/attack/d3fend_countermeasures.jsonl`, `data/weaknesses/cwe.jsonl`, the `mitre/` pages and [CYBERSECURITY_BOOK_LIST.md](/CYBERSECURITY_BOOK_LIST.md) | [github.com/TeamStarWolf/TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf) | 2026-11-03; 2026-11-11 | Confirmed (library data) |
 
 *© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*
 

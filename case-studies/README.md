@@ -2,6 +2,8 @@
 
 Evidence-graded studies of how the threat landscape is changing, written from primary sources: threat reports from AI providers and security vendors, government advisories, and the disclosures of the organizations that were hit. Each study is dated, because both the threats and the sources change.
 
+Browse the timeline: [Case study timeline](/case-studies/TIMELINE.md) puts every study on one timeline with its dated key events, filterable by year, kind, sector, CVE and ATT&CK group.
+
 ## Studies
 
 | Study | Period | What it covers | Sources | Download |
@@ -43,6 +45,7 @@ Every study follows the same rules.
 3. **Hype and evidence are kept apart.** Each study says which threats are overstated and which are understated, and why.
 4. **Numbers are reported as the source states them.** A study notes when a figure is a floor, an estimate, or a vendor's own count.
 5. **Figures are checked against their sources.** Every figure in a study is checked against the source it cites.
+6. **Every study is on the timeline.** Every new study adds its entry to [data/case_studies.yaml](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/case_studies.yaml) (kind, period, sectors, CVEs, ATT&CK groups and up to 12 dated events from its own timeline) and reruns `scripts/build_case_study_timeline.py`; the check in CI fails otherwise.
 
 | Grade | Meaning |
 |---|---|

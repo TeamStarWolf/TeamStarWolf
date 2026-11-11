@@ -41,6 +41,7 @@ Monitoring the failures of system counters and timers.
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [GitLab, CVE-2026-97229: Lab-Verified Exposure and Fix](/case-studies/GITLAB_CVE_2026_97229.md)
 - [Node.js, CVE-2026-111497: Version Check and Fix in the Lab](/case-studies/NODEJS_CVE_2026_111497.md)
 
 <!-- library-refs:end -->

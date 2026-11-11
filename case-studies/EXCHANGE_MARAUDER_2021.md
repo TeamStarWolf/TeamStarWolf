@@ -635,7 +635,15 @@ All sources were opened on 3 November 2026. "Primary" means the organization tha
 | 79 | MITRE ATT&CK v20, T1087.003 Email Account | [attack.mitre.org/techniques/T1087/003/](https://attack.mitre.org/techniques/T1087/003/) | 2026-11-03 | Confirmed |
 | 80 | TeamStarWolf library data: `data/attack/` (technique profiles, campaigns, software, superseded_by, technique_to_d3fend, d3fend_countermeasures), `data/weaknesses/`, the `mitre/` tree and `mitre/groups/G0125.md` | [github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack) | 2026-11-03 | Confirmed |
 
-MITRE ATT&CK, CWE, CAPEC and D3FEND content is used under the terms recorded in [THIRD_PARTY_NOTICES.md](/THIRD_PARTY_NOTICES.md).
+*© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*
+
+*© The MITRE Corporation. Includes material from the Common Weakness Enumeration (CWE™), used under the CWE Terms of Use. https://cwe.mitre.org/*
+
+*© The MITRE Corporation. Includes material from the Common Attack Pattern Enumeration and Classification (CAPEC™), used under the CAPEC Terms of Use. https://capec.mitre.org/*
+
+*© The MITRE Corporation. Includes material from MITRE D3FEND™, used under the D3FEND Terms of Use. https://d3fend.mitre.org/*
+
+*The terms for every MITRE dataset used here are recorded in [THIRD_PARTY_NOTICES.md](/THIRD_PARTY_NOTICES.md).*
 
 ## Related references
 

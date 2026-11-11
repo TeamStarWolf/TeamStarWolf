@@ -43,6 +43,7 @@ Time and difficulty are quoted in full from each guide's header table.
 ## See also
 
 - [ATT&CK threat groups](/mitre/groups/README.md)
+- [China-attributed threat actors: a case study](/case-studies/THREAT_ACTORS_CHINA.md)
 - [ATT&CK software](/mitre/software/README.md)
 - [ATT&CK campaigns](/mitre/campaigns/README.md)
 - [SolarWinds and SUNBURST: a 2019 to 2021 case study](/case-studies/SOLARWINDS_SUNBURST.md)

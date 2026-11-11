@@ -123,6 +123,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md)
 - [Ghostcat, CVE-2020-1938: The Tomcat AJP File Read in the Lab](/case-studies/GHOSTCAT_CVE_2020_1938.md)
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
+- [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md)
 
 <!-- library-refs:end -->
 

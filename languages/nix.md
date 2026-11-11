@@ -119,6 +119,29 @@ Garbage collection reclaims store paths that nothing references; roots (such as 
 - Overusing `with`, which brings names into scope opaquely and makes expressions hard to read and shadow-prone.
 - Large evaluations running out of memory; splitting work and reusing evaluation caches helps.
 
+## Security relevance
+
+Nix reaches security practitioners as infrastructure-as-code: expressions that decide what software is built, what it is built from, and how a system is configured. Because a Nix expression pins inputs by hash and builds in isolation, it is both a supply-chain assurance mechanism and, when misused, a place where secrets and over-broad configuration leak. The defensive patterns that counter each weakness are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Reproducible builds and provenance. Content-addressed, hash-pinned derivations make a build a function of its declared inputs, which is a defense against tampered dependencies of the kind seen in the [XZ Utils backdoor](/case-studies/XZ_UTILS_BACKDOOR_2024.md). See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+- Declarative system configuration. NixOS modules set services, users, ports, and privilege, so a Nix expression is effectively a host-hardening surface. See the [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md).
+- Development and continuous-integration environments. `nix develop` and flakes define the toolchain that build and test jobs run, so the expression governs what executes in those pipelines.
+
+### Dominant weakness classes
+
+Nix is memory-safe: the evaluator is garbage-collected and expressions have no manual memory, so memory-corruption classes do not apply. The risks are about secrets, trust, and configuration.
+
+- Secrets in the store. The Nix store is world-readable, so anything built into a derivation lands there in plain text for every local user, which is [CWE-798](https://cwe.mitre.org/data/definitions/798.html).
+- Over-permissive configuration. A NixOS module that opens ports or grants broad sudo rules gives real access, which is [CWE-284](https://cwe.mitre.org/data/definitions/284.html).
+- Input provenance. A derivation builds whatever its inputs point to, so an unpinned or compromised source silently changes what runs; this is a supply-chain exposure with no single clean CWE, covered in the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+- Binary cache trust. Substituting prebuilt outputs trusts the cache's signing keys, so an untrusted substituter can supply attacker-chosen binaries.
+
+### Why it matters
+
+Reading Nix lets a reviewer see exactly what a build pulls in, whether any secret is baked into a derivation and therefore into the store, and what a NixOS configuration actually exposes. The [statix](https://github.com/nerdypepper/statix) linter flags anti-patterns in expressions, and pinned inputs with reviewed updates are the main supply-chain control, as the Secure coding section details.
+
 ## Secure coding
 
 Nix improves reproducibility, which helps supply-chain assurance, but configuration and secret handling still need care:

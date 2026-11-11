@@ -128,6 +128,30 @@ TypeScript adds no run-time cost: the types are erased and the emitted JavaScrip
 - Types do not exist at run time, so you cannot check them with `instanceof` on an interface; validate untrusted input with a runtime schema library.
 - Compiler strictness settings matter: a project without `strictNullChecks` lets `undefined` flow where a value is expected.
 
+## Security relevance
+
+TypeScript reaches security practitioners through the same paths as JavaScript, because it compiles to JavaScript and the types are erased before anything runs. This section is the threat-facing context; the defensive patterns that counter each weakness are in the Secure coding section that follows.
+
+### Where it appears
+
+- Web front ends and back ends. [React](https://react.dev/), [Angular](https://angular.dev/), and [Vue](https://vuejs.org/) front ends and [Node.js](https://nodejs.org/) back ends built on [NestJS](https://nestjs.com/) or Express are frequent assessment targets, and the type annotations help a reviewer follow data from an input to a sink. See [Web Application Pentesting](/WEB_APPLICATION_PENTESTING.md) and the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Security tooling and automation. A large share of scanners, cloud SDKs, and continuous-integration tooling in the Node.js ecosystem is written in TypeScript, so reading or extending that tooling means reading TypeScript.
+- Desktop and edge code. Electron desktop applications and edge or serverless functions ship compiled TypeScript, which widens the attack surface from the browser to the host and the network.
+
+### Dominant weakness classes
+
+TypeScript inherits the host JavaScript engine's garbage collector, so it is memory-safe and the memory-corruption classes that dominate C and C++ do not apply. The weaknesses are about input handling, injection, and the fact that types do not exist at run time:
+
+- Cross-site scripting. The same DOM sinks as JavaScript apply; a typed string assigned to `innerHTML` is still dangerous, which is [CWE-79](https://cwe.mitre.org/data/definitions/79.html).
+- Run-time validation gap. Types are erased at compile time, so request bodies, query parameters, and parsed JSON are not checked by the type system, and treating a value as a declared shape without validating it is [CWE-20](https://cwe.mitre.org/data/definitions/20.html).
+- Prototype pollution. Typed object merges do not stop `__proto__` manipulation of untrusted keys, which is [CWE-1321](https://cwe.mitre.org/data/definitions/1321.html).
+- Code and command injection. `eval`, `new Function`, and `child_process` with a shell string remain unsafe regardless of type annotations, mapping to [CWE-94](https://cwe.mitre.org/data/definitions/94.html) and [CWE-78](https://cwe.mitre.org/data/definitions/78.html).
+- Dependency supply chain. Packages install from the same npm registry as JavaScript, so malicious and typosquatted packages reach a build the same way. See the [npm supply-chain attacks case study](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md) and the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading TypeScript lets an analyst trace untrusted input through a Node.js back end or into a browser DOM, find the type assertions (`value as Type`) that place an unchecked shape where the code assumes a safe one, and confirm whether a project runs with `strict` checking at all. The main audit tool is [typescript-eslint](https://typescript-eslint.io/), which adds type-aware rules including bans on `any` and unsafe assertions, with [semgrep](https://semgrep.dev/) for broader pattern scanning.
+
 ## Secure coding
 
 TypeScript inherits every JavaScript risk, because it compiles to JavaScript, and types do not enforce security at run time:

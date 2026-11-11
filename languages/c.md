@@ -137,6 +137,29 @@ Compiled C maps closely to the hardware, so it is often the baseline against whi
 - Integer overflow and signed/unsigned confusion in size calculations.
 - Relying on undefined behavior that an optimizing compiler may exploit in surprising ways.
 
+## Security relevance
+
+C is the most consequential language for memory-safety vulnerability research: it implements the operating systems, drivers, firmware, and libraries where a large share of exploited memory-corruption flaws live, and reading it underpins vulnerability research, exploit development, and patch analysis. The defensive patterns are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Systems and network code. Kernels, device drivers, embedded firmware, language runtimes, and network daemons are written in C, so their flaws are reached and studied as C. The [Linux TCP use-after-free case study](/case-studies/LINUX_TCP_UAF_2026.md) and the [MPTCP attack surface case study](/case-studies/MPTCP_ATTACK_SURFACE_2026.md) are kernel C examples. See the [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md).
+- Vulnerability research and exploit development. Memory-corruption bugs in C are the raw material of exploitation, and C targets are a primary focus of fuzzing. See the [Exploit Development Reference](/EXPLOIT_DEVELOPMENT_REFERENCE.md) and [Fuzzing and Vulnerability Research](/FUZZING_VULNERABILITY_RESEARCH.md).
+- Security-critical libraries and their supply chain. Widely deployed C libraries such as OpenSSL sit on the critical path, and the [XZ Utils backdoor case study](/case-studies/XZ_UTILS_BACKDOOR_2024.md) shows a compression library compromised through its build. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Dominant weakness classes
+
+C uses manual memory management and performs no run-time bounds or overflow checks, so it is memory-unsafe and the memory-corruption classes are its defining risks.
+
+- Out-of-bounds writes. Writing past an array bound can corrupt adjacent memory or a return address, which is [CWE-787](https://cwe.mitre.org/data/definitions/787.html) and, for the buffer-copy case, [CWE-120](https://cwe.mitre.org/data/definitions/120.html).
+- Use-after-free and double free. Reusing or freeing a pointer after release corrupts the allocator state and is a common exploitation primitive, which is [CWE-416](https://cwe.mitre.org/data/definitions/416.html) and [CWE-415](https://cwe.mitre.org/data/definitions/415.html).
+- Integer overflow in size math. Overflow in a size or offset calculation leads to undersized allocations and out-of-bounds access, which is [CWE-190](https://cwe.mitre.org/data/definitions/190.html).
+- Format string flaws. Passing untrusted data as a `printf` format string allows reads and writes of memory, which is [CWE-134](https://cwe.mitre.org/data/definitions/134.html).
+
+### Why it matters
+
+Reading C is where much vulnerability research begins: it lets a researcher find the memory-corruption bug, understand the primitive it provides, and assess a patch. The compiler sanitizers (AddressSanitizer and UndefinedBehaviorSanitizer), [Valgrind](https://valgrind.org/), the [Clang Static Analyzer](https://clang-analyzer.llvm.org/), and [Cppcheck](https://cppcheck.sourceforge.io/) find and confirm these flaws, and fuzzers exercise C code to surface them, as the Secure coding section details.
+
 ## Secure coding
 
 Language-specific risks and the safe patterns that address them:

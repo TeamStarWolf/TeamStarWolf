@@ -133,6 +133,30 @@ CRuby runs bytecode on the YARV virtual machine and, like several dynamic interp
 - Truthiness is simple but strict: only `nil` and `false` are falsy, so `0` and `""` are truthy.
 - Reopening core classes (monkey patching) can collide with gems that patch the same method.
 
+## Security relevance
+
+Ruby reaches security practitioners in three ways: as the implementation language of widely used offensive tooling, as a common web and infrastructure back end that defenders assess, and as the source of a recognizable set of weakness classes. The defensive patterns that counter each class are in the Secure coding section that follows; this section is the threat-facing context.
+
+### Where it appears
+
+- Offensive frameworks. The [Metasploit Framework](https://www.metasploit.com/), the most widely used exploitation platform, is written in Ruby, as is the [WPScan](https://wpscan.com/) WordPress scanner. Exploit modules, payloads, and auxiliary scanners are Ruby classes, so reading or extending a module means reading Ruby. See the [Penetration Testing Methodology](/PENETRATION_TESTING_METHODOLOGY.md) and the [Red Team Reference](/RED_TEAM_REFERENCE.md).
+- Web applications. [Ruby on Rails](https://rubyonrails.org/) and [Sinatra](https://sinatrarb.com/) back ends are frequent assessment targets, and Rails conventions shape both the attack surface and the available defenses. See [Web Application Pentesting](/WEB_APPLICATION_PENTESTING.md) and the [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md).
+- Infrastructure and build systems. Configuration-management and provisioning tools including [Chef](https://www.chef.io/), Puppet, and [Vagrant](https://developer.hashicorp.com/vagrant) express their definitions in Ruby, and the `Gemfile` and `Rakefile` that drive many builds run arbitrary Ruby, so provisioning logic, build steps, and the secrets they handle are all Ruby.
+
+### Dominant weakness classes
+
+The garbage-collected runtime removes the memory-corruption bugs (buffer overflow, use-after-free) that dominate C and C++. The weaknesses that remain are about trust, input handling, and application logic:
+
+- Insecure deserialization. `Marshal.load` and unrestricted `YAML.load` on attacker-controlled data can instantiate arbitrary objects and reach code execution through gadget chains, the same pattern as Java and PHP object injection. Several historic Rails remote-code-execution advisories trace to YAML parsing of request data. This is [CWE-502](https://cwe.mitre.org/data/definitions/502.html).
+- Mass assignment. Binding request parameters directly onto model attributes lets an attacker set fields the form never exposed, the class of flaw behind the 2012 public disclosure against GitHub; Rails answers it with strong parameters. This maps to [CWE-915](https://cwe.mitre.org/data/definitions/915.html).
+- Command and code injection. Ruby makes shelling out easy through backticks, `system`, `exec`, and `%x{}`, while `eval`, `send`, and `constantize` turn strings into executed code or dynamic method calls. Untrusted input reaches a shell or the interpreter whenever an argument array or an allowlist is not used. These are [CWE-78](https://cwe.mitre.org/data/definitions/78.html) and [CWE-94](https://cwe.mitre.org/data/definitions/94.html).
+- Server-side template and markup injection. Unescaped interpolation in ERB or Slim templates reintroduces cross-site scripting, and `raw`, `html_safe`, or string concatenation into markup bypasses the escaping Rails applies by default. This is [CWE-79](https://cwe.mitre.org/data/definitions/79.html).
+- Dependency supply chain. Malicious or typosquatted gems on RubyGems reach a build the same way compromised npm and PyPI packages do, and a `Gemfile` can pull code straight from a git URL. See the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md).
+
+### Why it matters
+
+Reading Ruby lets an analyst confirm what a Metasploit module actually does against a target rather than trust its label, review a Rails codebase for the weakness classes above, and audit a `Rakefile`, `Gemfile`, or provisioning script for exposed credentials and code pulled from untrusted sources. On the defensive side, [Brakeman](https://brakemanscanner.org/) statically analyzes Rails applications for these patterns and [bundler-audit](https://github.com/rubysec/bundler-audit) checks gems against advisory databases, as the Secure coding section details.
+
 ## Secure coding
 
 Language-specific risks and the safe patterns that address them:

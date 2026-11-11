@@ -37,6 +37,18 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 October 2026: Chrome Root Store removes the emSign ECC Root CA G3
   - October 2026: Apple, Go (CVE-2026-111943), Okta and Auth0, and downstream bundles follow; trust-store updates coordinated under Red Hat RHSB-2026-012
   - November 2026: Root programs distrust the fallback emSign Root CA G1 (Chrome and Firefox after 16 November, Apple 30 November); eMudhra winds down all publicly trusted TLS
+- [Node.js, CVE-2026-111497: Version Check and Fix in the Lab](/case-studies/NODEJS_CVE_2026_111497.md). Vulnerability, February to November 2026. Sectors: technology. CVEs: CVE-2026-111497, CVE-2026-105481, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Nodejs_CVE_2026_111497_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Nodejs_CVE_2026_111497_Case_Study.pptx).
+  - 27 February 2026: Brotli fix commit 0ed4268 lands on the default branch with no release
+  - 14 October 2026: Node.js pre-announces a security release for 21 October
+  - 16 October 2026: Google reserves CVE-2026-111497
+  - 21 October 2026: Node.js v22.23.4, v24.22.1 and v26.12.1 and Brotli 1.0.10, 1.1.1 and 1.2.1 released
+  - 22 October 2026: CVE and NVD records and GHSA-9v8h-qqgm-4m35 published; Imperva's Node2Shell write-up
+  - 23 October 2026: Debian DLA-4855-1; CISA's SSVC entry records exploitation as active
+  - 25 October 2026: .NET advisory with fixed runtimes; ELLIO's first report
+  - 26 October 2026: ELLIO reports a 23 MB Brotli body aimed at Node 24.22.0
+  - 27 October 2026: CISA adds the CVE to KEV as Google Brotli Unchecked Return Value Vulnerability
+  - 4 November 2026: TeamStarWolf lab run: 24.22.0 flagged, 24.22.1 not, both report Brotli 1.2.0
+  - 10 November 2026: KEV due date
 
 ### 2025 <!-- {docsify-ignore} -->
 

@@ -214,5 +214,11 @@
     "name": "TeamStarWolf - Kevin Mitnick Intrusions Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified record of Kevin Mitnick's intrusions and the two Mitnick and Simon books supports: the 1999 DOJ plea record, Mitnick's 2000 Senate testimony, Shimomura's January 1995 technical account of the Christmas Day 1994 intrusion, DOJ records for two Art of Intrusion stories, and CISA AA23-320A and HHS HC3 for the modern help desk comparison. Revoked ids map through data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/MITNICK_INTRUSIONS.md. Scores rank the record, not the mapping: 100 is conduct Mitnick admitted in the plea or described in testimony, 75 is the 1994 intrusion whose attacker the primary record does not name, 50 is an Art of Intrusion story with a DOJ record, 25 is the modern comparison only. Except where AA23-320A or HC3 cite an id, the mappings are this study's reading.",
     "blurb": "Techniques from Kevin Mitnick's admitted conduct, the Christmas Day 1994 intrusion, two Art of Intrusion stories with a DOJ record, and the modern help desk vishing they foreshadow. A curated layer for the Mitnick case study."
+  },
+  {
+    "file": "nodejs-cve-2026-111497.json",
+    "name": "TeamStarWolf - Node.js CVE-2026-111497 (Brotli Decoder) Case Study",
+    "description": "Enterprise ATT&CK v20.0 techniques bound in the Node.js CVE-2026-111497 (Brotli decoder) case study. ATT&CK has no procedure that names this CVE; each entry is the study's binding of the record's attack paths to the technique definition. Score 100: the CVE record and the lab run both support the binding. Score 75: the record supports it without a lab demonstration. Comments carry the study's source numbers. This is not an official MITRE mapping.",
+    "blurb": "Techniques bound to the Brotli decoder flaw in Node.js: server-side exploitation of Express routes that decode br bodies, client-side decoding, and denial of service. A curated layer for the Node.js CVE-2026-111497 lab case study."
   }
 ]

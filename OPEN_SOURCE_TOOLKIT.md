@@ -19,7 +19,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Length</th><td>
 
-Lookup page: 3,270 words, 93% in tables; look entries up from Start at or the search (about 14 min end to end at 230 words a minute)
+Lookup page: 3,279 words, 93% in tables; look entries up from Start at or the search (about 14 min end to end at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -322,7 +322,7 @@ No review recorded yet
 | Tool | Repo / Link | Purpose |
 |------|-------------|---------|
 | Binwalk | [github.com/ReFirmLabs/binwalk](https://github.com/ReFirmLabs/binwalk) | Firmware extraction, analysis, and embedded file-system identification |
-| Firmwalker | [github.com/craigz28/firmwalker](https://github.com/craigz28/firmwalker) | Script to search extracted firmware for sensitive files and strings |
+| Firmwalker | github.com/craigz28/firmwalker | Script to search extracted firmware for sensitive files and strings |
 | OpenOCD | [openocd.org](https://openocd.org/) | Open On-Chip Debugger supporting JTAG/SWD for embedded targets |
 | Flashrom | [github.com/flashrom/flashrom](https://github.com/flashrom/flashrom) | Identify, read, write, verify, and erase flash chips |
 | Bus Pirate firmware | [github.com/BusPirate/Bus_Pirate](https://github.com/BusPirate/Bus_Pirate) | Firmware for the Bus Pirate hardware hacking multi-tool |
@@ -364,7 +364,7 @@ No review recorded yet
 | Tool | Repo / Link | Purpose |
 |------|-------------|---------|
 | Tor Browser | [torproject.org](https://www.torproject.org/) | Browser bundle routing traffic through the Tor anonymity network |
-| Tails OS | [tails.boum.org](https://tails.boum.org/) | Amnesic live OS routing all traffic through Tor with no local persistence |
+| Tails OS | [tails.net](https://tails.net/) | Amnesic live OS routing all traffic through Tor with no local persistence |
 | Whonix | [whonix.org](https://www.whonix.org/) | VM-based Tor workstation and gateway for strong anonymity |
 | ProxyChains-ng | [github.com/rofl0r/proxychains-ng](https://github.com/rofl0r/proxychains-ng) | Force any TCP connection through SOCKS4/5 or HTTP proxies |
 | OnionShare | [github.com/onionshare/onionshare](https://github.com/onionshare/onionshare) | Securely share files, host sites, and chat over Tor onion services |
@@ -427,7 +427,7 @@ No review recorded yet
 | PicoCTF | [picoctf.org](https://picoctf.org/) | Carnegie Mellon's beginner-friendly CTF competition platform |
 | pwn.college | [pwn.college](https://pwn.college/) | ASU's free in-browser binary exploitation and systems security dojo |
 | PortSwigger Web Academy | [portswigger.net/web-security](https://portswigger.net/web-security) | Free, hands-on labs for every OWASP/web vulnerability category |
-| SANS Cyber Aces | [cyberaces.org](https://www.cyberaces.org/) | Free foundational cybersecurity courses from SANS |
+| SANS Cyber Aces | [sans.org/cyberaces](https://www.sans.org/cyberaces) | Free foundational cybersecurity courses from SANS; SANS retired the program on June 1, 2023 |
 
 ### CTF & Cheat Sheet Resources
 

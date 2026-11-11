@@ -77,7 +77,7 @@ No review recorded yet
 | MITRE ATT&CK | https://attack.mitre.org/techniques/T1566/ | Phishing technique mapping, sub-techniques, detection guidance |
 | Social-Engineer.org | https://www.social-engineer.org/ | SE frameworks, resources, and community knowledge |
 | DEF CON SE Village | https://web.archive.org/web/20210308161518/https://www.sevillage.org/ | Live SE competitions and talks |
-| KnowBe4 Free Tools | https://www.knowbe4.com/free-phishing-security-test | Free phishing susceptibility test |
+| KnowBe4 Free Tools | https://www.knowbe4.com/free-cybersecurity-tools/attack-simulation-test | Free phishing susceptibility test |
 | Cofense Phishing Defense Center | https://cofense.com/knowledge-center/ | Phishing trend reports and analysis |
 | SANS Cyber Aces | https://www.sans.org/cyberaces/ | Foundational security awareness content |
 

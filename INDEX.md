@@ -131,7 +131,7 @@
 | [IT Domains and Specializations](IT_DOMAINS_REFERENCE.md) | A map of 100 IT domains across 15 categories, each pointing to where this library covers it, as an orientation aid for labs, research, and learning paths |
 | [Kali Linux Tool Coverage](research/KALI_TOOL_COVERAGE.md) | Coverage analysis comparing the Kali Linux tool catalog against the curated Stars Lists and the starred GitHub repositories index |
 | [Kubernetes Security Reference](KUBERNETES_SECURITY_REFERENCE.md) | K8s RBAC attacks, container escape, Pod Security Standards, NetworkPolicy, secrets management, Falco, kube-bench |
-| [LimeWire](https://github.com/TeamStarWolf/LimeWire) | Python desktop audio studio: download, analysis, editing, stem separation, and batch processing |
+| LimeWire | Python desktop audio studio: download, analysis, editing, stem separation, and batch processing |
 | [Linux Hardening Reference](LINUX_HARDENING_REFERENCE.md) | Linux system hardening, CIS Benchmarks, SELinux, auditd, firewall configuration, compliance |
 | [LOTL Detection Reference](LOTL_DETECTION_REFERENCE.md) | LOLBAS/GTFOBins/LOOBins/LOLDrivers/LOLRMM/LOTS as defensive inventories, CISA/NSA joint LOTL guidance, per-platform telemetry (4688, auditd, ESF), detection patterns, WDAC/AppLocker/fapolicyd, Volt Typhoon case study |
 | [macOS Security Reference](MACOS_SECURITY_REFERENCE.md) | SIP, Gatekeeper/notarization, XProtect, TCC, FileVault, Endpoint Security framework telemetry, unified log, NIST mSCP/CIS baselines, MDM, ATT&CK macOS coverage |
@@ -163,7 +163,7 @@
 | [Penetration Testing Methodology](PENETRATION_TESTING_METHODOLOGY.md) | Scoping, recon, exploitation, post-exploitation, web, cloud, reporting, and MITRE ATT&CK mapping |
 | [Pentest Checklists](PENTEST_CHECKLISTS.md) | Step-by-step checklists for external, internal, AD, web app, cloud, and post-exploitation testing |
 | [Physical Security Reference](PHYSICAL_SECURITY_REFERENCE.md) | Lock picking, RFID badge cloning (Proxmark3/Flipper Zero), physical pentesting, drop boxes, CCTV assessment, NIST PE controls |
-| [PokeNav](https://github.com/TeamStarWolf/PokeNav) | Offline-first Pokemon encyclopedia with game-aware browsing and trainer archives |
+| PokeNav | Offline-first Pokemon encyclopedia with game-aware browsing and trainer archives |
 | [Post-Quantum Migration Reference](POST_QUANTUM_MIGRATION_REFERENCE.md) | Harvest-now-decrypt-later risk, FIPS 203/204/205, NIST IR 8547 timelines, CNSA 2.0, CBOM discovery, crypto-agility, hybrid TLS/SSH deployment, PKI impact, program governance |
 | [Privacy Engineering Reference](PRIVACY_ENGINEERING_REFERENCE.md) | GDPR/CCPA/HIPAA, Privacy by Design, anonymization/pseudonymization, consent management, DPIA, field-level encryption |
 | [Privilege Escalation Reference](PRIVESC_REFERENCE.md) | Linux and Windows privilege escalation techniques with ATT&CK mappings and automated tools |

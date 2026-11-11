@@ -511,7 +511,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [HavocFramework/Havoc](https://github.com/HavocFramework/Havoc)
 - [chvancooten/NimPlant](https://github.com/chvancooten/NimPlant)
 - [its-a-feature/Mythic](https://github.com/its-a-feature/Mythic)
-- [mdsecactivebreach/SharpShooter](https://github.com/mdsecactivebreach/SharpShooter)
+- mdsecactivebreach/SharpShooter
 - [mhaskar/Octopus](https://github.com/mhaskar/Octopus)
 - [n1nj4sec/pupy](https://github.com/n1nj4sec/pupy)
 - [rapid7/metasploit-framework](https://github.com/rapid7/metasploit-framework)

@@ -4,7 +4,7 @@
 
 > Running a security program: governance, risk, compliance, architecture and controls, vulnerability and exposure management, careers, and reading lists.
 
-Part of the [domain hubs](/hubs/README.md). 39 reference documents in this domain; reading time is the page's words at 230 words a minute.
+Part of the [domain hubs](/hubs/README.md). 40 reference documents in this domain; reading time is the page's words at 230 words a minute.
 
 ## Governance, risk, and compliance
 
@@ -33,6 +33,7 @@ Part of the [domain hubs](/hubs/README.md). 39 reference documents in this domai
 
 | Reference | What it covers | Reading time |
 |---|---|---|
+| [Why Vulnerabilities Happen](/WHY_VULNERABILITIES_HAPPEN.md) | Most vulnerabilities are not unique. | 8 min |
 | [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md) | CVSS v3.1/v4.0 scoring, EPSS prioritization, CISA KEV, scanning tools, patch management, and program KPIs | 13 min |
 | [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md) | SSVC decision models (CERT/CC trees, CISA Track/Track*/Attend/Act), KEV semantics and BOD 26-04 timelines, EPSS probability vs percentile, Vulnrichment, CSAF/VEX/OpenVEX, CTID KEV->ATT&CK mappings, SLA policy design | 23 min |
 | [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.md) | How enterprise scanners (Tenable, Qualys, Rapid7, Wiz, Defender VM, CrowdStrike, Snyk, Invicti, Nessus) are deployed, their finding and severity taxonomies, a cross-scanner catalog of finding types, and where findings land in ServiceNow Vulnerability Response | 8 min |

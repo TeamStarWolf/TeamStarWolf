@@ -497,6 +497,13 @@ pages:
     start_at: "[The five stages](#the-five-stages) for the loop itself, [A 90-day starting plan](#a-90-day-starting-plan) to run a first cycle, [Free and open tooling by stage](#free-and-open-tooling-by-stage) to start without procurement"
     learning_path: []
     reviewed: null
+  WHY_VULNERABILITIES_HAPPEN.md:
+    audience: "Vulnerability and exposure-management practitioners, red and blue teams, and anyone orienting across the library"
+    level: "Intermediate"
+    read_when: "You want the root causes behind recurring vulnerabilities across the network, host, operating-system, and enterprise layers, you are organizing exposure discovery by weakness class rather than by single CVE, or you need the map that ties the library's offensive and defensive references together"
+    start_at: "[The eight root causes](#the-eight-root-causes), [Commonalities by layer](#commonalities-by-layer) for the attack-beside-defense tables, [Working the map through CTEM](#working-the-map-through-ctem) to put it to use"
+    learning_path: []
+    reviewed: null
   CTF_METHODOLOGY.md:
     audience: "CTF players and practitioners sharpening offensive and forensic skills"
     level: "Beginner to intermediate"

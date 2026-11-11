@@ -579,6 +579,29 @@ studies:
       - {"date": "2022-03-03", "label": "CISA adds CVE-2020-1938 to KEV in a batch of 95 entries"}
       - {"date": "2026-10", "label": "DShield still records about 950 to 6,200 port 8009 events a day"}
       - {"date": "2026-11-03", "label": "KEV still lists the CVE; the TeamStarWolf lab run"}
+  case-studies/GITLAB_CVE_2026_97229.md:
+    kind: "vulnerability"
+    title: "GitLab, CVE-2026-97229: Lab-Verified Exposure and Fix"
+    start: "2026-09"
+    end: "2026-11"
+    sectors: ["technology"]
+    cves: ["CVE-2026-97229", "CVE-2026-93577", "CVE-2026-110264", "CVE-2026-89078"]
+    actors: []
+    tags: ["GitLab", "Ruby", "Onigmo", "regular expression", "integer overflow", "CI/CD", "lab"]
+    pdf: "GitLab_CVE_2026_97229_Case_Study.pdf"
+    pptx: "GitLab_CVE_2026_97229_Case_Study.pptx"
+    events:
+      - {"date": "2026-09-23", "label": "GitLab 19.4.1, 19.3.3 and 19.2.7 fix the authenticated CVE-2026-93577 (CVSS 9.9), an incomplete fix"}
+      - {"date": "2026-09-25", "label": "Ruby PR #19020 merged upstream, fixing the compiled-pattern size overflow in Onigmo"}
+      - {"date": "2026-10-12", "label": "GitLab 19.4.2, 19.3.5 and 19.2.8 critical patch release fixes CVE-2026-97229 (CVSS 10.0)"}
+      - {"date": "2026-10-13", "label": "CVE published; CISA's SSVC entry rates exploitation active, automatable, technical impact total"}
+      - {"date": "2026-10-14", "label": "Metasploit PR #22017 opened, tested against gitlab-ce 19.4.1"}
+      - {"date": "2026-10-20", "label": "GitLab's six detection rules for exploitation attempts dated"}
+      - {"date": "2026-10-21", "label": "GitLab 19.5.1 and 19.4.3 fix CVE-2026-110264, another regexp compiler overflow at CVSS 10.0"}
+      - {"date": "2026-10-23", "label": "Ruby security post ties both GitLab overflow CVEs to PR #19020 and recommends 4.0.9, 3.4.12 or 3.3.13"}
+      - {"date": "2026-10-29", "label": "CISA adds CVE-2026-97229 to KEV with forensic triage required, due 1 November"}
+      - {"date": "2026-10-30", "label": "Metasploit module merged; press reports exploitation attempts against self-managed instances"}
+      - {"date": "2026-11-04", "label": "TeamStarWolf lab run: 19.4.1 and 19.4.2 differ in GitLab version, not in ruby -v"}
   case-studies/HACKER_AND_THE_STATE_CASES.md:
     kind: "era"
     title: "Cyber Operations as Statecraft: The Cases in The Hacker and the State"

@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 45 min (10,325 words at 230 words a minute)
+About 46 min (10,521 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -433,7 +433,7 @@ Seven checks in the same run have a home study or a short story of their own. Ea
 
 - **ProFTPD, CVE-2015-3306.** The vulnerable and patched builds both report `Version: 1.3.6rc1 (git)` and both list `mod_copy.c`, so neither the banner nor `proftpd -V` can separate them. Only behavior could: the patched build answered unauthenticated `SITE CPFR` with 530 and left no marker file (**Demonstrated**, 03-exposure.txt and 04-mitigation.txt) [43]. Home study: [ProFTPD mod_copy, CVE-2015-3306](/case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md).
 - **Node.js, CVE-2026-111497.** Node v24.22.0 and v24.22.1 both report Brotli `1.2.0`, so the bundled library's version does not separate them; the Node version does. The lab host itself showed node v24.21.0, `libbrotli1` 1.2.0-4+b1, PyPI Brotli 1.2.0 and .NET 6.0.8 (**Demonstrated**, 03-exposure.txt) [43]. Home study: [Node.js, CVE-2026-111497](/case-studies/NODEJS_CVE_2026_111497.md).
-- **GitLab, CVE-2026-97229.** `version-manifest.txt` read `gitlab-ce 19.4.1` and `19.4.2`, but both bundle `ruby 3.3.12 (2026-07-16 revision 0581089df9)`. The embedded Ruby string cannot tell fixed from vulnerable; the GitLab version can (**Demonstrated**, 04-mitigation.txt) [43]. Home study: the separate GitLab CVE-2026-97229 lab study.
+- **GitLab, CVE-2026-97229.** `version-manifest.txt` read `gitlab-ce 19.4.1` and `19.4.2`, but both bundle `ruby 3.3.12 (2026-07-16 revision 0581089df9)`. The embedded Ruby string cannot tell fixed from vulnerable; the GitLab version can (**Demonstrated**, 04-mitigation.txt) [43]. Home study: [GitLab, CVE-2026-97229](/case-studies/GITLAB_CVE_2026_97229.md).
 
 ![Terminal output on the lab host: a loop reads the first line of /opt/gitlab/version-manifest.txt in gl-vuln and gl-fixed and prints gl-vuln 19.4.1 < 19.4.2 (upgrade required) and gl-fixed 19.4.2 >= 19.4.2 (patched release); and the embedded ruby in both containers prints the same RUBY_DESCRIPTION, ruby 3.3.12 (2026-07-16 revision 0581089df9) [x86_64-linux]](/case-studies/assets/exposure-checks-2026-11/CVE-2026-97229/04-mitigation.png)
 

@@ -246,6 +246,12 @@
     "blurb": "Techniques from the Plex2Shell record, from the unauthenticated chain on exposed Plex Media Servers to the owner-token theft, the unsigned library load and the miners and proxyware on compromised servers. A curated layer for the Plex Media Server lab case study."
   },
   {
+    "file": "gitlab-cve-2026-97229.json",
+    "name": "TeamStarWolf - GitLab CVE-2026-97229 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified CVE-2026-97229 record supports: GitLab's patch release and the ATT&CK tags on its six published detections, the CVE, NVD and CISA KEV records, and the public Metasploit pull request's stated prerequisites. The TeamStarWolf lab run of 4 November 2026 checked versions only. Each comment names source numbers from case-studies/GITLAB_CVE_2026_97229.md. Scores: 100 is bound by GitLab's description or detection tags, 50 is Reported or Inferred and labelled in the comment.",
+    "blurb": "Techniques from the GitLab CVE-2026-97229 record, from code execution on an internet-facing server to the worker crashes and scanning GitLab's detections tag. A curated layer for the GitLab case study."
+  },
+  {
     "file": "exposure-checks-2026-11.json",
     "name": "TeamStarWolf - Thirty Days of Exposure Checks (KEV, October to November 2026) Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the Thirty Days of Exposure Checks case study. No opened source names an ATT&CK technique for these CVEs, so every binding is the study's own mapping, labelled in its comment. Scores: 100 is a Confirmed record plus a lab-shown vulnerable version, 75 is a Confirmed record without a lab demonstration, 50 is a Reported source or the study's inference. Each comment names source numbers from case-studies/EXPOSURE_CHECKS_2026_11.md.",

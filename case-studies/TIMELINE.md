@@ -50,6 +50,18 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 October 2026: Chrome Root Store removes the emSign ECC Root CA G3
   - October 2026: Apple, Go (CVE-2026-111943), Okta and Auth0, and downstream bundles follow; trust-store updates coordinated under Red Hat RHSB-2026-012
   - November 2026: Root programs distrust the fallback emSign Root CA G1 (Chrome and Firefox after 16 November, Apple 30 November); eMudhra winds down all publicly trusted TLS
+- [GitLab, CVE-2026-97229: Lab-Verified Exposure and Fix](/case-studies/GITLAB_CVE_2026_97229.md). Vulnerability, September to November 2026. Sectors: technology. CVEs: CVE-2026-97229, CVE-2026-93577, CVE-2026-110264, CVE-2026-89078. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/GitLab_CVE_2026_97229_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/GitLab_CVE_2026_97229_Case_Study.pptx).
+  - 23 September 2026: GitLab 19.4.1, 19.3.3 and 19.2.7 fix the authenticated CVE-2026-93577 (CVSS 9.9), an incomplete fix
+  - 25 September 2026: Ruby PR #19020 merged upstream, fixing the compiled-pattern size overflow in Onigmo
+  - 12 October 2026: GitLab 19.4.2, 19.3.5 and 19.2.8 critical patch release fixes CVE-2026-97229 (CVSS 10.0)
+  - 13 October 2026: CVE published; CISA's SSVC entry rates exploitation active, automatable, technical impact total
+  - 14 October 2026: Metasploit PR #22017 opened, tested against gitlab-ce 19.4.1
+  - 20 October 2026: GitLab's six detection rules for exploitation attempts dated
+  - 21 October 2026: GitLab 19.5.1 and 19.4.3 fix CVE-2026-110264, another regexp compiler overflow at CVSS 10.0
+  - 23 October 2026: Ruby security post ties both GitLab overflow CVEs to PR #19020 and recommends 4.0.9, 3.4.12 or 3.3.13
+  - 29 October 2026: CISA adds CVE-2026-97229 to KEV with forensic triage required, due 1 November
+  - 30 October 2026: Metasploit module merged; press reports exploitation attempts against self-managed instances
+  - 4 November 2026: TeamStarWolf lab run: 19.4.1 and 19.4.2 differ in GitLab version, not in ruby -v
 - [Collabora Built-in CODE Server (richdocumentscode), CVE-2026-110447: Lab-Verified Exposure and Fix](/case-studies/NEXTCLOUD_RICHDOCUMENTS_CVE_2026_110447.md). Vulnerability, August to November 2026. Sectors: technology. CVEs: CVE-2026-110447, CVE-2025-66208, CVE-2026-67400. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Nextcloud_Richdocuments_CVE_2026_110447_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Nextcloud_Richdocuments_CVE_2026_110447_Case_Study.pptx).
   - 20 August 2026: Fix commit 6cc8dae authored, titled as a tidy-up of the coolwsd launch command
   - 31 August 2026: richdocumentscode 26.4.302 released, still vulnerable

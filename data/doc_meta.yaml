@@ -2413,6 +2413,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 3: what the lab showed](#part-3-what-the-lab-showed), [Part 4: find and fix it on real hosts](#part-4-find-and-fix-it-on-real-hosts)"
     pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [CWE Reference](/CWE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)"
     reviewed: null
+  case-studies/GITLAB_CVE_2026_97229.md:
+    audience: "Vulnerability management leads, GitLab administrators, DevSecOps and platform engineers, and incident responders"
+    level: "Intermediate"
+    read_when: "You run self-managed GitLab, you need the facts of CVE-2026-97229 and its sibling regular expression CVEs, or you want to find, fix and hunt for it on your own hosts"
+    start_at: "[Executive summary](#executive-summary), [Part 4: What the lab showed](#part-4-what-the-lab-showed), [Part 5: How to find and fix it on real hosts](#part-5-how-to-find-and-fix-it-on-real-hosts)"
+    pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [DevSecOps](/DEVSECOPS_REFERENCE.md), [Log4Shell](/case-studies/LOG4SHELL.md)"
+    reviewed: null
   case-studies/HACKER_AND_THE_STATE_CASES.md:
     audience: "Threat intelligence analysts, security leaders, policy readers and anyone who has read The Hacker and the State and wants the primary record behind its cases"
     level: "Intermediate"

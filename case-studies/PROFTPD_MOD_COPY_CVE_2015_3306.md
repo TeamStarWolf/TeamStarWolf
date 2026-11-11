@@ -213,7 +213,7 @@ The fixed container still has mod_copy compiled in, and its configuration has no
 
 ### Cleanup
 
-Both containers and both images were removed, `docker ps -a --filter name=cve-2015-3306` returned no rows, and the working directory `/tmp/lab/CVE-2015-3306/` was deleted (**Demonstrated** [36], `05-cleanup.txt`). A separate container from the Ghostcat lab run was still up at that moment, which the listing shows.
+Both containers and both images were removed, `docker ps -a --filter name=cve-2015-3306` returned no rows, and the working directory `/tmp/lab/CVE-2015-3306/` was deleted (**Demonstrated** [36], `05-cleanup.txt`). A separate container from the Ghostcat lab run ([the Ghostcat case study](/case-studies/GHOSTCAT_CVE_2020_1938.md)) was still up at that moment, which the listing shows.
 
 ![Terminal output on the lab host: docker rm and docker rmi removing both ProFTPD containers and images, docker ps and docker images filtered for the lab showing empty tables, a full docker ps listing only a separate vulhub/tomcat:9.0.30 container from the Ghostcat run, and removal of the lab working directory](assets/proftpd-mod-copy/05-cleanup.png)
 
@@ -436,6 +436,7 @@ All sources were opened on 4 November 2026. Exploit code was recorded and not qu
 - [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
 - [CWE Reference](/CWE_REFERENCE.md), [CAPEC Reference](/CAPEC_REFERENCE.md), [D3FEND Reference](/D3FEND_REFERENCE.md)
 - [The Cl0p MOVEit case study](/case-studies/CL0P_FILE_TRANSFER_2023.md), another file-transfer service exploited at scale, and [the Log4Shell case study](/case-studies/LOG4SHELL.md)
+- [The Ghostcat case study](/case-studies/GHOSTCAT_CVE_2020_1938.md), the lab run whose container appears in the cleanup listing above
 - ATT&CK technique pages: [T1190](/mitre/techniques/T1190.md), [T1005](/mitre/techniques/T1005.md), [T1505.003](/mitre/techniques/T1505-003.md), [T1595.002](/mitre/techniques/T1595-002.md)
 - CAPEC pages: [CAPEC-650](/mitre/capec/CAPEC-650.md), [CAPEC-563](/mitre/capec/CAPEC-563.md)
 - [Navigator layers](/navigator/index.md), including this study's layer, [proftpd-mod-copy-cve-2015-3306.json on GitHub](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/proftpd-mod-copy-cve-2015-3306.json)

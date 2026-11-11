@@ -344,7 +344,7 @@ studies:
       - "G1023"
     tags: ["ProxyLogon", "ransomware", "edge devices", "KEV catalog"]
     pdf: "Chronicle_2021_Case_Study.pdf"
-    pptx: null
+    pptx: "Chronicle_2021_Case_Study.pptx"
     events:
       - {"date": "2021-01-27", "label": "Emotet's infrastructure taken over by eight countries' authorities"}
       - {"date": "2021-02-05", "label": "Someone in a US water utility's SCADA system raises sodium hydroxide; staff reverse it"}
@@ -1152,7 +1152,7 @@ studies:
       - "G1052"
     tags: ["North Korea", "DPRK", "Lazarus Group", "RGB", "TraderTraitor", "IT workers", "cryptocurrency theft", "Maui ransomware"]
     pdf: "Threat_Actors_North_Korea_Case_Study.pdf"
-    pptx: null
+    pptx: "Threat_Actors_North_Korea_Case_Study.pptx"
     events:
       - {"date": "2014-11", "label": "Destructive attack on Sony Pictures Entertainment; the FBI names the North Korean government on 19 December 2014"}
       - {"date": "2016-02", "label": "Bangladesh Bank SWIFT heist, $81 million (Treasury, 2018)"}

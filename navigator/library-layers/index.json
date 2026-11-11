@@ -118,5 +118,11 @@
     "name": "TeamStarWolf - Exchange Server Mass Exploitation 2021 (Operation Exchange Marauder) Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified record of the 2021 Exchange Server mass exploitation supports: ProxyLogon and HAFNIUM-era intrusions (Microsoft, Volexity, Mandiant, Rapid7, ATT&CK G0125), follow-on actors on the same bugs (ESET, Microsoft, Talos, Red Canary, ATT&CK G0131), and the ProxyShell era (CISA AA21-321A and later ATT&CK group rows). Ids reported under earlier ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/EXCHANGE_MARAUDER_2021.md. Scores: 100 ties the technique to ProxyLogon exploitation or HAFNIUM-era intrusions, 75 is follow-on actors on the same bugs or the ProxyShell era, 40 is an Inferred or demonstration-only mapping.",
     "blurb": "Techniques from the 2021 Exchange Server mass exploitation, from the ProxyLogon chain and HAFNIUM's mailbox theft to the ransomware, miners and ProxyShell actors that followed. A curated layer for the Exchange Marauder case study."
+  },
+  {
+    "file": "chronicle-2019.json",
+    "name": "TeamStarWolf - The Year 2019 in Intrusions",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2019 record supports: state operations (Sandworm in Georgia, APT28, APT29 Operation Ghost, Turla, GALLIUM, Sea Turtle, Lazarus Group, Iranian actors, the TRITON actor), big game hunting ransomware and BEC, the year's edge-device and RDP vulnerabilities, ShadowHammer and Capital One. Ids reported under pre-v7 ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/CHRONICLE_2019.md. Scores: 100 where the library's ATT&CK data records the technique for an object in the study, 70 where an opened primary describes the behavior and the study chose the id, 40 where the behavior is only Reported or the id choice is Inferred.",
+    "blurb": "Techniques from the 2019 record, from edge-device exploitation and big game hunting ransomware to DNS hijacking, supply-chain compromise and cloud data theft. A curated layer for the 2019 chronicle case study."
   }
 ]

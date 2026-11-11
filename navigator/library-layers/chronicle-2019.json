@@ -1,0 +1,896 @@
+{
+  "name": "TeamStarWolf - The Year 2019 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2019 record supports: state operations (Sandworm in Georgia, APT28, APT29 Operation Ghost, Turla, GALLIUM, Sea Turtle, Lazarus Group, Iranian actors, the TRITON actor), big game hunting ransomware and BEC, the year's edge-device and RDP vulnerabilities, ShadowHammer and Capital One. Ids reported under pre-v7 ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/CHRONICLE_2019.md. Scores: 100 where the library's ATT&CK data records the technique for an object in the study, 70 where an opened primary describes the behavior and the study chose the id, 40 where the behavior is only Reported or the id choice is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Reported only, or the id choice is Inferred",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "70: an opened primary describes the behavior; id chosen by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: the library's ATT&CK data records the technique for an object in the study",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2019.md (sources opened 3 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "82"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "102"
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each technique is shown under all its tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "Case study",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/CHRONICLE_2019"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1590.001",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Sandworm reconnaissance of the Parliament of Georgia domain before 2019-10-28. Basis: ATT&CK (G0034, dated to Georgia). Sources [119] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 70,
+      "comment": "Capital One defendant's self-built scanner for misconfigured cloud firewalls (2019-08-28). Basis: Primary. Sources [92] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1589",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Phosphorus researched personal data and phone numbers (2019-10-04). Basis: Primary; ATT&CK (G0059). Sources [21] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1598.003",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Phosphorus fake security alerts leading to credential forms (2019-03-27). Basis: Primary; ATT&CK (G0059). Sources [20] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Phosphorus lookalike domains, 99 seized (announced 2019-03-27). Basis: Primary; ATT&CK (G0059). Sources [20] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1584",
+      "tactic": "resource-development",
+      "score": 40,
+      "comment": "Turla's takeover of OilRig command infrastructure (2019-06-20, 2019-10-21). Basis: Inferred. Sources [9] [7] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1584.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Sea Turtle (2019-04-17); ED 19-01 (2019-01-22). Basis: ATT&CK (G1041). Sources [25] [118] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1588.004",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Valid certificates for hijacked names (ED 19-01, Sea Turtle). Basis: ATT&CK (G1041). Sources [118] [25] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1608.003",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Sea Turtle (2019-04-17). Basis: ATT&CK (G1041). Sources [25] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Sodinokibi via WebLogic (2019-04-17); Sea Turtle known CVEs; GALLIUM via WildFly/JBoss (2019-12-12); APT VPN exploitation (2019-10-02); Sandworm Exim (from 2019-08); Confluence (from 2019-04); BlueKeep mass exploitation (from 2019-10-23); Capital One firewall (2019-03-22). Basis: Primary; ATT&CK (G0034, G1041, G0093). Sources [38] [25] [15] [76] [82] [85] [64] [91] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "VPN access with stolen credentials (NCSC, 2019-10-02); RDP access for ransomware (FBI, 2019-10-02); Wocao legitimate VPN access (2019-12-19); APT10 Citrix with stolen credentials (2019-02-06). Basis: Primary; ATT&CK (C0014); Reported (APT10). Sources [76] [52] [16] [13] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "VPN access with stolen credentials (NCSC, 2019-10-02); RDP access for ransomware (FBI, 2019-10-02); Wocao legitimate VPN access (2019-12-19); APT10 Citrix with stolen credentials (2019-02-06). Basis: Primary; ATT&CK (C0014); Reported (APT10). Sources [76] [52] [16] [13] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Credentials read from VPNs and reused (NCSC; AA20-107A); CrowdStrike's 2019 technique prose. Basis: Primary; ATT&CK (C0014). Sources [76] [75] [116] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Credentials read from VPNs and reused (NCSC; AA20-107A); CrowdStrike's 2019 technique prose. Basis: Primary; ATT&CK (C0014). Sources [76] [75] [116] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Credentials read from VPNs and reused (NCSC; AA20-107A); CrowdStrike's 2019 technique prose. Basis: Primary; ATT&CK (C0014). Sources [76] [75] [116] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Credentials read from VPNs and reused (NCSC; AA20-107A); CrowdStrike's 2019 technique prose. Basis: Primary; ATT&CK (C0014). Sources [76] [75] [116] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "STRONTIUM IoT devices with default passwords (2019-04). Basis: Primary. Sources [3] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "STRONTIUM IoT devices with default passwords (2019-04). Basis: Primary. Sources [3] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "STRONTIUM IoT devices with default passwords (2019-04). Basis: Primary. Sources [3] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "STRONTIUM IoT devices with default passwords (2019-04). Basis: Primary. Sources [3] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Capital One WAF-Role credentials (2019-03-22). Basis: Primary. Sources [91] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Capital One WAF-Role credentials (2019-03-22). Basis: Primary. Sources [91] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Capital One WAF-Role credentials (2019-03-22). Basis: Primary. Sources [91] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Capital One WAF-Role credentials (2019-03-22). Basis: Primary. Sources [91] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Iranian spear phishing enabling wipers (CISA, 2019-06-22); Sea Turtle. Basis: Primary. Sources [18] [25] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Ransomware by email with a malicious file (FBI, 2019-10-02); Emotet Word attachments (2019-09-16). Basis: Primary; ATT&CK (S0367, S0266, S0496). Sources [52] [41] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "FBI ransomware PSA (2019-10-02); Phosphorus spear phishing (2019-03-27). Basis: Primary; ATT&CK (G0059). Sources [52] [20] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "MSP remote tools used against customers of at least three MSPs (FBI, 2019-10-02); Sea Turtle via third-party DNS providers; Texas via an MSP (2019-08-16); APT10's aim at Visma's clients. Basis: Primary; ATT&CK (G1041); Reported (Texas, APT10). Sources [52] [25] [47] [13] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ASUS Live Update (disclosed 2019-03-25); SolarWinds Orion test modifications (2019-10). Basis: Primary; ATT&CK (C0024). Sources [11] [12] [123] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "CrowdStrike 2019 list; Ryuk with PowerShell Empire; Sodinokibi downloads; Waterbug registry-stored PowerShell. Basis: Primary. Sources [116] [32] [38] [9] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 40,
+      "comment": "CrowdStrike's \"Command-Line Interface\" (2019 list). Basis: Inferred (sub-technique choice). Sources [116] [115] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Elfin WinRAR CVE-2018-20250 (2019-02). Basis: Primary; ATT&CK (G0064). Sources [19] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Emotet infected Word attachments (2019-09-16). Basis: Primary; ATT&CK (S0367). Sources [41] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Ryuk pushed with PsExec (2019-01-10); GALLIUM PsExec (2019-12-12). Basis: Primary. Sources [32] [15] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Ryuk toolkit (AA20-302A); Soft Cell. Basis: Primary; Reported (Soft Cell). Sources [44] [14] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Ryuk toolkit; Pulse follow-on persistence. Basis: Primary. Sources [44] [75] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Ryuk toolkit; Pulse follow-on persistence. Basis: Primary. Sources [44] [75] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Ryuk toolkit; Pulse follow-on persistence. Basis: Primary. Sources [44] [75] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1053.003",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "NOTROBIN on Citrix CVE-2019-19781 victims (by 2020-01-12). Basis: Primary. Sources [70] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1053.003",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "NOTROBIN on Citrix CVE-2019-19781 victims (by 2020-01-12). Basis: Primary. Sources [70] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1053.003",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "NOTROBIN on Citrix CVE-2019-19781 victims (by 2020-01-12). Basis: Primary. Sources [70] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "CrowdStrike 2019 list; earlier Ryuk builds. Basis: Primary. Sources [116] [32] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "CrowdStrike 2019 list; earlier Ryuk builds. Basis: Primary. Sources [116] [32] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Ryuk toolkit (AA20-302A). Basis: Primary. Sources [44] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Ryuk toolkit (AA20-302A). Basis: Primary. Sources [44] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "GALLIUM China Chopper and BlackMould (2019-12-12); TRITON actor OWA web shells (2019-04-10); Turla ASPX web shell scanning (2019-10-21); ZeroCleare ASPX web shells. Basis: Primary; ATT&CK (G0093); Reported (ZeroCleare). Sources [15] [30] [7] [22] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "APT10 Trochilus by DLL side-loading (reported under `T1574.002`). Basis: Reported. Sources [13] [115] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "execution",
+      "score": 40,
+      "comment": "APT10 Trochilus by DLL side-loading (reported under `T1574.002`). Basis: Reported. Sources [13] [115] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1014",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Kerberods rootkit on Confluence victims (2019-05-07). Basis: Primary. Sources [85] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "CrowdStrike: the biggest rise of 2019. Basis: Primary. Sources [116] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "TRITON actor tools named like Microsoft updates and a Schneider Electric application (2019-04-10); APT10 renamed WinRAR and cURL. Basis: Primary; Reported (APT10). Sources [30] [13] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "CrowdStrike 2019 list. Basis: Primary. Sources [116] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "CrowdStrike 2019 list. Basis: Primary. Sources [116] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1564.001",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "CrowdStrike 2019 list. Basis: Primary. Sources [116] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1070.006",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "TRITON actor (2019-04-10). Basis: Primary. Sources [30] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "Waterbug Base64 PowerShell stored in the registry (2019-06-20). Basis: Inferred. Sources [9] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1480",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "ShadowHammer MAC-hash gating (2019-04-23); APT41 follow-on malware gated on system identifiers (2019-08-07). Basis: Primary. Sources [11] [10] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1684.001",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "Fraudulent payment directions at Toyota Boshoku (2019-08-14); BEC (2019-09-10). Basis: Inferred. Sources [45] [49] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-impairment",
+      "score": 70,
+      "comment": "Two ASUSTeK certificates (2019-04-23); APT41 stolen certificates (2019-08-07). Basis: Primary. Sources [11] [10] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "CrowdStrike \"Disabling Security Tools\" (2019 list); security-tool removal in the Ryuk toolkit. Basis: Primary; ATT&CK (S0372, S0400, S0446, S0496, S0449, S0576, S0266). Sources [116] [44] [40] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1003",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "CrowdStrike 2019 list; Mimikatz in Waterbug, GALLIUM, Elfin, TRITON actor and Ryuk records. Basis: Primary. Sources [116] [9] [15] [19] [30] [44] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1555",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Elfin LaZagne (2019-03-27). Basis: Primary; ATT&CK (G0064). Sources [19] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "RDP brute force (FBI, 2019-10-02). Basis: Primary. Sources [52] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Iranian actors (CISA, 2019-06-22); ZeroCleare summer 2019 spray. Basis: Primary; ATT&CK (G0064); Reported (ZeroCleare). Sources [18] [22] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1110.004",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Iranian actors (CISA, 2019-06-22). Basis: Primary. Sources [18] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1111",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Wocao abuse of 2FA soft tokens (2019-12-19). Basis: Primary; ATT&CK (C0014). Sources [16] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Redirected and intercepted traffic (ED 19-01, 2019-01-22). Basis: ATT&CK (G1041). Sources [118] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Redirected and intercepted traffic (ED 19-01, 2019-01-22). Basis: ATT&CK (G1041). Sources [118] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1552.005",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Capital One (2019-03-22); ATT&CK's procedure cites a news article. Basis: Reported. Sources [95] [121] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "STRONTIUM ran tcpdump on compromised devices (2019-04); MESSAGETAP (home: APT41 study). Basis: Primary. Sources [3] [124] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "STRONTIUM ran tcpdump on compromised devices (2019-04); MESSAGETAP (home: APT41 study). Basis: Primary. Sources [3] [124] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1087",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "CrowdStrike 2019 list. Basis: Primary. Sources [116] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1033",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "CrowdStrike 2019 list. Basis: Primary. Sources [116] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1069",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "STRONTIUM enumerated administrative groups (2019-04). Basis: Primary. Sources [3] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "GALLIUM NBTscan (2019-12-12). Basis: Primary. Sources [15] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "ShadowHammer read adapter MAC addresses (2019-04-23). Basis: Primary. Sources [11] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1619",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "Capital One bucket listing (2019-03-22). Basis: Primary. Sources [91] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "Ryuk RDP lateral movement (2019-01-10; AA20-302A). Basis: Primary. Sources [32] [44] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1021.004",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "Kerberods spreading over SSH (2019-05-07). Basis: Primary. Sources [85] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Capital One sync (2019-03-22). Basis: Primary. Sources [91] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1560.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "GALLIUM WinRAR (2019-12-12). Basis: Primary; ATT&CK (G0093). Sources [15] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1102.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "PolyglotDuke C2 addresses from Twitter, Reddit and Imgur (2019-10-17). Basis: ATT&CK (S0518). Sources [4] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1102.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "RegDuke over Dropbox (2019-10-17). Basis: ATT&CK (C0023). Sources [4] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1001.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "PolyglotDuke image steganography (2019-10-17). Basis: ATT&CK (C0023). Sources [4] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1001.003",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "HOPLIGHT fake TLS handshakes (2019-04-10). Basis: Primary. Sources [26] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "HOPLIGHT proxies; ELECTRICFISH proxy authentication; GALLIUM HTRAN. Basis: Primary; ATT&CK (S0376). Sources [26] [27] [15] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Capital One bucket listing from TOR (2019-03-22); NOTROBIN from a Tor exit node; Pulse follow-on over Tor. Basis: Primary. Sources [91] [70] [75] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "ELECTRICFISH (2019-05-09); TRITON actor encrypted SSH tunnels with PLINK (2019-04-10). Basis: Primary. Sources [27] [30] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Waterbug and Sodinokibi certutil downloads; ShadowHammer payload fetch. Basis: Primary. Sources [9] [38] [11] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1071.004",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "TrickBot anchor_dns (early 2019). Basis: Primary. Sources [44] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "LogMeIn and TeamViewer after Pulse exploitation. Basis: Primary. Sources [75] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1567.002",
+      "tactic": "exfiltration",
+      "score": 70,
+      "comment": "Waterbug to Box over WebDAV (2019-06-20); APT10 to the Dropbox API. Basis: Primary; Reported (APT10). Sources [9] [13] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Norsk Hydro (2019-03-19); Ryuk, REvil, Maze, LockerGoga, MegaCortex, RobbinHood, BitPaymer. Basis: Primary; ATT&CK (S0372, S0446, S0496, S0449, S0576, S0400, S0570). Sources [35] [40] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Ryuk and Sodinokibi vssadmin shadow-copy deletion. Basis: Primary; ATT&CK (S0446, S0496, S0449, S0576, S0400, S0570). Sources [32] [38] [40] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Ryuk kill.bat (2019-01-10). Basis: Primary; ATT&CK (S0446, S0496, S0449, S0576, S0400). Sources [32] [44] [40] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1531",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "LockerGoga (Hydro, per NSM). Basis: ATT&CK (S0372, S0576). Sources [124] [40] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1491.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Georgia, about 15,000 websites (2019-10-28). Basis: ATT&CK (G0034, dated to Georgia). Sources [119] [1] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Georgia, disruption after a hosting provider compromise (2019-10-28). Basis: ATT&CK (G0034, dated to Georgia). Sources [119] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "Iranian destructive wipers (CISA, 2019-06-22). Basis: Inferred. Sources [18] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1561.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ZeroCleare (2019-12-05); Dustman (2019-12-29). Basis: ATT&CK (S1151); Reported (Dustman). Sources [23] [22] [24] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1496.001",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "BlueKeep coin miner (2019-11); Confluence XMRig (2019-05-07); Capital One defendant's mining (2019-08-28); DPRK cryptocurrency mining (2019-08-30). Basis: Primary. Sources [64] [85] [92] [28] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "DPRK theft (2019-08-30, 2019-09-13); Dridex theft (2019-12-05); BEC losses (2019-09-10). Basis: Primary. Sources [28] [29] [5] [49] in case-studies/CHRONICLE_2019.md.",
+      "enabled": true,
+      "showSubtechniques": false
+    }
+  ]
+}

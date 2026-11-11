@@ -24,6 +24,7 @@ Adversary creates duplicates of legitimate websites. When users visit a counterf
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [Other State-Linked Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_OTHER_STATES.md)
 
 <!-- library-refs:end -->
 

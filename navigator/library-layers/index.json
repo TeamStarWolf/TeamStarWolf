@@ -156,6 +156,12 @@
     "blurb": "The tradecraft ATT&CK records for the toolsets most often linked to the United States in the public record (Equation, Regin, Duqu, Flame, Stuxnet and Green Lambert), heavy on stealth, firmware and signed-driver persistence and removable-media spread. A curated layer for the United States case study; ATT&CK itself names no sponsor."
   },
   {
+    "file": "threat-actors-iran.json",
+    "name": "TeamStarWolf - Iran-Attributed Threat Actors Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. The 260 Enterprise techniques that ATT&CK v20.0 links to the 19 Iran-attributed Enterprise groups in case-studies/THREAT_ACTORS_IRAN.md, plus those named in eight joint advisories (AA20-259A, AA21-321A, AA22-055A, AA22-257A, AA22-320A, AA23-335A, AA24-241A, AA24-290A). Score is the number of those groups plus the number of those advisories that name the technique (1 to 18): a count of public reporting, not prevalence or severity. Revoked advisory ids are shown under their v20 successors from data/attack/superseded_by.jsonl. Comments name the groups and the study's source numbers.",
+    "blurb": "The tradecraft of the Iran-attributed groups and the joint advisories on them, led by public-tool use, PowerShell, credential dumping, scheduled tasks and the exploitation of internet-facing appliances. A curated layer for the Iran case study; its ICS companion sits in the ICS case-study layers."
+  },
+  {
     "file": "healthcare-threat-watchlist-2023-2026.json",
     "name": "TeamStarWolf - Healthcare Threat Actor Watchlist 2023-2026",
     "description": "Enterprise techniques named in the eleven US joint advisories (2022 to 2026) that name the Healthcare and Public Health sector as a victim or carry HHS as an author or co-sealer: ALPHV Blackcat, Black Basta, Rhysida, RansomHub, Interlock, Andariel, Maui, Medusa, Akira, LockBit and Pioneer Kitten. Revoked advisory ids are mapped to their ATT&CK v20 successors through data/attack/superseded_by.jsonl; Mobile ids and the Maui advisory's T1059.008 tag are left out. Tactics are taken from data/attack/technique_profiles.jsonl. Score = number of advisories naming the technique (1 to 8). Each comment names source numbers from the Sources table of case-studies/HEALTHCARE_THREAT_WATCHLIST.md. Not an official MITRE mapping.",

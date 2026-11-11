@@ -280,6 +280,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2011 <!-- {docsify-ignore} -->
 
+- [Iran-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_IRAN.md). Threat actor, 2011 to October 2026. Sectors: government, finance, energy, healthcare, education, defense, telecommunications, technology. CVEs: CVE-2017-11882, CVE-2018-13379, CVE-2019-0604, CVE-2019-5591, CVE-2019-11510, CVE-2019-11539 and 19 more. ATT&CK groups: G0003 Cleaver, G0043 Group5, G0049 OilRig, G0052 CopyKittens, G0059 Magic Hound, G0064 APT33 and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_Iran_Case_Study.pdf).
+  - 2011: Coordinated DDoS attacks on the US financial sector begin (2011 to 2013), later charged against ITSecTeam and Mersad staff
+  - 2012: Shamoon wiper first used, by a group calling itself Cutting Sword of Justice
+  - 23 March 2018: Nine Mabna Institute members announced as indicted; Treasury sanctions the Institute the same day
+  - 15 September 2020: AA20-259A: an Iran-based actor exploits Pulse Secure, Citrix and F5 flaws
+  - June 2021: A Fortigate appliance is exploited to reach the environmental control networks of a US children's hospital
+  - 15 July 2022: Destructive attack on the Government of Albania begins; HomeLand Justice claims it on 18 July
+  - 9 September 2022: Treasury designates MOIS and Minister Esmail Khatib over the Albania attack
+  - 22 November 2023: At least 75 Unitronics PLC and HMI devices compromised to January 2024, 34 of them in US water and wastewater
+  - 28 August 2024: AA24-241A on Pioneer Kitten's access brokering for ransomware affiliates
+  - March 2026: Tampering with internet-exposed Rockwell, Schneider Electric and Siemens PLCs begins (AA26-097A)
+  - 11 March 2026: Stryker reports a global disruption to its Microsoft environment; Handala claims a wiper attack
+  - 18 August 2026: Superseding indictment of 17 Mabna Institute members for intrusions for the IRGC since 2013
 - [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md). Threat actor, 2011 to April 2024. Sectors: energy, government, media, telecommunications, transport. CVEs: CVE-2013-3906, CVE-2014-0751, CVE-2014-4114, CVE-2015-5374, CVE-2017-0144, CVE-2017-0145 and 1 more. ATT&CK groups: G0034 Sandworm Team, G0035 Dragonfly.
   - 14 October 2014: MS14-060 patched; CVE-2014-4114 had been exploited in a Sandworm campaign
   - 23 December 2015: First Ukrainian blackout: three distribution companies, about 225,000 customers

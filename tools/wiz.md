@@ -100,7 +100,7 @@ Wiz is the discover-assess-prioritize powerhouse: it continuously (snapshot-base
 ## Validation & telemetry
 
 **Log sources**
-- Authoritative source: Wiz GraphQL API at https://api.<DC>.app.wiz.io/graphql (DC = us1|us2|eu1|eu2), OAuth2 client-credentials from a service account (scope read:issues etc.).
+- Authoritative source: Wiz GraphQL API at `https://api.<DC>.app.wiz.io/graphql` (DC = us1|us2|eu1|eu2), OAuth2 client-credentials from a service account (scope read:issues etc.).
 - Issues (issuesV2 query): correlated risks, each tied to a sourceRule union: concrete types Control, CloudConfigurationRule, CloudEventRule.
 - Vulnerability findings (vulnerabilityFindings): per-CVE results from agentless disk scanning / the Wiz sensor.
 - Cloud configuration findings (cloudConfigurationFindings): result PASS|FAIL|ERROR|NOT_ASSESSED.

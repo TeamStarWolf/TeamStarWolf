@@ -21,7 +21,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 32 min (7,412 words at 230 words a minute)
+About 32 min (7,413 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -98,7 +98,7 @@ Every fact in this page traces to these documents and community catalogs. (Full 
 | [LOOBins](https://www.loobins.io/) | The macOS counterpart |
 | [LOLDrivers](https://www.loldrivers.io/) | Windows drivers abused to undermine security controls |
 | [LOLRMM](https://lolrmm.io/) | Remote monitoring and management (RMM) products observed in incidents |
-| [LOTS Project](https://lots-project.com/) | Legitimate websites and services abused for phishing, C2, exfiltration, and payload staging |
+| LOTS Project | Legitimate websites and services abused for phishing, C2, exfiltration, and payload staging |
 
 The joint guidance itself points to the LOLBAS, GTFOBins, LOOBins, and LOLDrivers catalogs as the reference inventories. Use them defensively: each entry is a candidate for an application-control decision, a usage baseline, and an alert on out-of-baseline use, not a list to memorize mechanics from. The next section covers each catalog as a program input.
 
@@ -115,7 +115,7 @@ Six community projects between them inventory the trusted-software surface LOTL 
 | [LOOBins](https://www.loobins.io/) | macOS built-in binaries | 62 binaries, 183 use cases (site-stated) | Entries categorized into ATT&CK tactics | GPL-3.0 | JSON export; PyLOOBins SDK/CLI on PyPI |
 | [LOLDrivers](https://www.loldrivers.io/) | Windows drivers: the BYOVD surface | 697 drivers (574 vulnerable, 123 malicious), ~2,400 samples (site-stated) | None observed on the site: entries carry hashes and detections instead | Apache-2.0 | YAML per driver; JSON/CSV API; Sigma, YARA, Sysmon, ClamAV content; App Control blocklist policy |
 | [LOLRMM](https://lolrmm.io/) | RMM products abusable as ready-made remote access | 341 tools in the project's JSON API | None observed: entries carry artifacts (executables, domains) and Sigma references instead | Apache-2.0 | YAML per tool; JSON/CSV API; Sigma rules |
-| [LOTS Project](https://lots-project.com/) | Legitimate websites usable for phishing, C2, exfiltration, download | 175 sites (counted from the page) | No | None published | None published (HTML only) |
+| LOTS Project | Legitimate websites usable for phishing, C2, exfiltration, download | 175 sites (counted from the page) | No | None published | None published (HTML only) |
 
 ### LOLBAS, the Windows inventory
 
@@ -139,7 +139,7 @@ The [LOLBAS Project](https://lolbas-project.github.io/) documents Windows "Livin
 
 ### LOTS, living off trusted sites
 
-The [LOTS Project](https://lots-project.com/) (maintained by mrd0x) extends the same idea to the network: 175 legitimate, high-reputation websites and services that public reporting shows being abused for phishing, command and control, exfiltration, and payload download, tagged by those four categories. It is the weakest catalog as a machine input (no license, no feed, no ATT&CK mapping) and the one where naive consumption does the most damage: you cannot blocklist it wholesale, because it is substantially a list of the internet's most business-critical domains. Its correct use is as a review list for egress analytics: which of these services do we actually use, from which hosts, by which processes, so that a server or service account initiating first-ever traffic to one of them becomes an investigable event (the network-egress pattern below).
+The LOTS Project (maintained by mrd0x) extends the same idea to the network: 175 legitimate, high-reputation websites and services that public reporting shows being abused for phishing, command and control, exfiltration, and payload download, tagged by those four categories. It is the weakest catalog as a machine input (no license, no feed, no ATT&CK mapping) and the one where naive consumption does the most damage: you cannot blocklist it wholesale, because it is substantially a list of the internet's most business-critical domains. Its correct use is as a review list for egress analytics: which of these services do we actually use, from which hosts, by which processes, so that a server or service account initiating first-ever traffic to one of them becomes an investigable event (the network-egress pattern below).
 
 ### Consuming a catalog as a program input
 
@@ -466,7 +466,7 @@ In this library: [Purple Team](PURPLE_TEAM_REFERENCE.md), [Security Metrics](SEC
 - LOOBins: <https://www.loobins.io/>, [GitHub](https://github.com/infosecB/LOOBins) (GPL-3.0)
 - LOLDrivers: <https://www.loldrivers.io/>, [GitHub](https://github.com/magicsword-io/LOLDrivers) (Apache-2.0)
 - LOLRMM: <https://lolrmm.io/>, [GitHub](https://github.com/magicsword-io/LOLRMM) (Apache-2.0)
-- LOTS Project: <https://lots-project.com/>
+- LOTS Project: lots-project.com
 - Microsoft: Command-line process auditing: <https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing>
 - Microsoft: about_Logging_Windows (PowerShell 4103/4104): <https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_logging_windows>
 - Microsoft: Sysmon (Sysinternals): <https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon>

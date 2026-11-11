@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 69 min (15,913 words at 230 words a minute)
+About 69 min (15,925 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -625,7 +625,7 @@ The study's techniques are saved as an ATT&CK Navigator layer, [navigator/librar
 
 ## Sources
 
-All sources were opened on 3 November 2026. "Primary" means the organization that published the fact; grades apply to the source as used here.
+All sources were opened on 3 November 2026, except [66] and [67], which were opened again on 10 November 2026. "Primary" means the organization that published the fact; grades apply to the source as used here.
 
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|

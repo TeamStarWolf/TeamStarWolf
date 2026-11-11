@@ -291,6 +291,73 @@ studies:
       - {"date": "2020-10-15", "label": "A grand jury indicts six GRU Unit 74455 officers"}
       - {"date": "2020-10-28", "label": "AA20-302A warns of ransomware against US hospitals"}
       - {"date": "2020-12-08", "label": "FireEye discloses the theft of its Red Team tools"}
+  case-studies/CHRONICLE_2021.md:
+    kind: "era"
+    title: "The Year 2021 in Intrusions: A Dated Record"
+    start: "2021-01"
+    end: "2021-12"
+    sectors: ["cross-sector", "energy", "healthcare", "government", "technology"]
+    cves:
+      - "CVE-2017-16238"
+      - "CVE-2018-13379"
+      - "CVE-2019-5591"
+      - "CVE-2019-19781"
+      - "CVE-2020-1472"
+      - "CVE-2020-12812"
+      - "CVE-2021-1675"
+      - "CVE-2021-20016"
+      - "CVE-2021-20038"
+      - "CVE-2021-22893"
+      - "CVE-2021-26084"
+      - "CVE-2021-26855"
+      - "CVE-2021-26857"
+      - "CVE-2021-26858"
+      - "CVE-2021-27065"
+      - "CVE-2021-27101"
+      - "CVE-2021-27102"
+      - "CVE-2021-30116"
+      - "CVE-2021-30120"
+      - "CVE-2021-30860"
+      - "CVE-2021-31207"
+      - "CVE-2021-34473"
+      - "CVE-2021-34527"
+      - "CVE-2021-35211"
+      - "CVE-2021-38647"
+      - "CVE-2021-40444"
+      - "CVE-2021-40539"
+      - "CVE-2021-41773"
+      - "CVE-2021-42013"
+      - "CVE-2021-44228"
+      - "CVE-2021-45046"
+    actors:
+      - "G0004"
+      - "G0016"
+      - "G0032"
+      - "G0049"
+      - "G0059"
+      - "G0065"
+      - "G0096"
+      - "G0115"
+      - "G0125"
+      - "G0128"
+      - "G1012"
+      - "G1023"
+    tags: ["ProxyLogon", "ransomware", "edge devices", "KEV catalog"]
+    pdf: "Chronicle_2021_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2021-01-27", "label": "Emotet's infrastructure taken over by eight countries' authorities"}
+      - {"date": "2021-02-05", "label": "Someone in a US water utility's SCADA system raises sodium hydroxide; staff reverse it"}
+      - {"date": "2021-03-02", "label": "Microsoft ships Exchange fixes and attributes exploitation to HAFNIUM"}
+      - {"date": "2021-04-15", "label": "The White House names the SVR for SolarWinds; Treasury sanctions six Russian technology companies"}
+      - {"date": "2021-04-19", "label": "Mandiant reveals the Pulse Connect Secure zero-day CVE-2021-22893"}
+      - {"date": "2021-05-07", "label": "Colonial Pipeline finds a ransom note and shuts the pipeline"}
+      - {"date": "2021-05-12", "label": "Executive Order 14028 signed"}
+      - {"date": "2021-05-13", "label": "Ireland's Department of Health and the HSE hit by Conti, 13 to 14 May"}
+      - {"date": "2021-07-02", "label": "Kaseya shuts its SaaS and tells on-premises customers to shut VSA down"}
+      - {"date": "2021-07-19", "label": "The US, EU, UK and NATO attribute the Exchange zero-days to the MSS; AA21-200A on APT40"}
+      - {"date": "2021-11-03", "label": "BOD 22-01 creates the Known Exploited Vulnerabilities catalog"}
+      - {"date": "2021-12-10", "label": "Log4Shell published and added to KEV the same day"}
   case-studies/CL0P_FILE_TRANSFER_2023.md:
     kind: "campaign"
     title: "The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study"

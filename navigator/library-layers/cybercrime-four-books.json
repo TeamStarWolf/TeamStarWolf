@@ -1,0 +1,248 @@
+{
+  "name": "TeamStarWolf - Cybercrime and Hacktivism in Four Books Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. Retrospective ATT&CK v20.0 mapping of the events in four books (Kingpin, Fatal System Error, We Are Anonymous, The Hacker Crackdown), 1987 to 2012, rebuilt from DOJ, Secret Service and FBI releases, court records and the press. No ATT&CK group, software or campaign object covers these actors. Each comment names source numbers from case-studies/CYBERCRIME_FOUR_BOOKS.md. Scores: 100 is behavior a primary document records with a direct fit, 75 is behavior only a book or news report records, 40 is an analogy or weak fit.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Mantovani admits phishing and spamming for card data, plea of 17 Nov 2005 (Confirmed) [3]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 75,
+      "comment": "Capital One lure e-mail, about 125 of 500 employees clicked, 29 Sep 2006 (Reported, Poulsen) [7]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Hidden payload on the Capital One lure; browser exploits in the publisher's description of Kingpin (Reported; weak fit) [7][11]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "PBS vulnerability, May 2011 (Confirmed); HBGary CMS SQL injection, Feb 2011; Sony Pictures SQL injection claim, 2 Jun 2011; rival carding forums, Aug 2006 (Reported) [25][29][31][7][4]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Stolen BellSouth logins 1987 to 1989, Tribune credentials 2011 and hijacked Internet Feds accounts (Confirmed); HBGary password reuse, Feb 2011 (Reported) [42][25][37][29][7]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Stolen BellSouth logins 1987 to 1989, Tribune credentials 2011 and hijacked Internet Feds accounts (Confirmed); HBGary password reuse, Feb 2011 (Reported) [42][25][37][29][7]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Stolen BellSouth logins 1987 to 1989, Tribune credentials 2011 and hijacked Internet Feds accounts (Confirmed); HBGary password reuse, Feb 2011 (Reported) [42][25][37][29][7]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Stolen BellSouth logins 1987 to 1989, Tribune credentials 2011 and hijacked Internet Feds accounts (Confirmed); HBGary password reuse, Feb 2011 (Reported) [42][25][37][29][7]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "ssh on support.hbgary.com with a reused password, Feb 2011 (Reported); dial-in access to BellSouth via Telenet, 1989 (Confirmed, analogy) [29][42]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 75,
+      "comment": "ssh on support.hbgary.com with a reused password, Feb 2011 (Reported); dial-in access to BellSouth via Telenet, 1989 (Confirmed, analogy) [29][42]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1598",
+      "tactic": "reconnaissance",
+      "score": 75,
+      "comment": "rootkit.com administrator persuaded to confirm the root password, Feb 2011 (Reported) [29]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1584.005",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Agobot botnet, Oct 2003, indictment 2 Oct 2008 (Confirmed); bookmaker botnets 2003 to 2004 and Cleary's botnet, 2011 (Reported) [20][21][35]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1110.002",
+      "tactic": "credential-access",
+      "score": 75,
+      "comment": "HBGary hashes cracked with rainbow tables, Feb 2011 (Reported); password hacking programs seized in Atlanta, Jul 1989 (Confirmed, analogy) [29][42]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 75,
+      "comment": "Sniffers on point-of-sale terminals, 2005 to 2007 (Reported, Poulsen) [7]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 75,
+      "comment": "Sniffers on point-of-sale terminals, 2005 to 2007 (Reported, Poulsen) [7]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 75,
+      "comment": "Privilege escalation flaw on support.hbgary.com, Feb 2011 (Reported) [29]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 40,
+      "comment": "Calls looped through carriers and Telenet, often via Georgia Tech, Jul 1989 (Confirmed; analogy) [42]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 75,
+      "comment": "HBGary mailboxes via the Google Apps administrator account, Feb 2011 (Reported); a Garda officer's personal e-mail, Jan 2012 (Confirmed, weak fit) [29][24][37]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "The E911 file copied from BellSouth's AIMSX system, Sep 1988 (Confirmed; analogy) [42]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1213",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "The E911 file from BellSouth's centralized automation system, Sep 1988 (Confirmed; analogy) [42]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 75,
+      "comment": "Rival forum databases wiped, Aug 2006; HBGary backups and research data purged, Feb 2011 (Reported) [7][29]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1491.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "PBS website defaced, May 2011, and Internet Feds defacements (Confirmed); HBGary site defaced, Feb 2011 (Reported) [25][37][29]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "PayPal, Visa and MasterCard DDoS, Dec 2010, and Operation Cyberslam, 2003 to 2004 (Confirmed); bookmaker extortion, 2003 to 2004 (Reported) [36][24][19][14][21]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Butler's card sales 2005 to 2007 and Stratfor cards used for over $700,000 in charges, Dec 2011 (Confirmed); bookmaker extortion (Reported) [5][24][14]. Source numbers refer to the Sources table of case-studies/CYBERCRIME_FOUR_BOOKS.md.",
+      "enabled": true
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: analogy or weak fit",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "75: recorded only by a book or news report",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: recorded by a primary document, direct fit",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CYBERCRIME_FOUR_BOOKS.md (sources opened 3 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "19"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "24"
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every tactic applies."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "Cybercrime and Hacktivism in Four Books: Kingpin, Fatal System Error, We Are Anonymous, The Hacker Crackdown",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CYBERCRIME_FOUR_BOOKS.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

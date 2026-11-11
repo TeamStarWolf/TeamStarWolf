@@ -257,7 +257,8 @@
       "pages": ["/commands/networking-commands.md", "/commands/nmap.md", "/commands/tshark.md", "/commands/ssh.md", "/platforms/fortinet.md", "/platforms/palo-alto-networks.md", "/platforms/check-point.md", "/platforms/cisco-ise.md", "/platforms/zscaler.md", "/platforms/cloudflare.md"],
       "see_also": [
         ["Network defense", "/NETWORK_DEFENSE_REFERENCE.md"],
-        ["Network forensics", "/NETWORK_FORENSICS_REFERENCE.md"]
+        ["Network forensics", "/NETWORK_FORENSICS_REFERENCE.md"],
+        ["ProFTPD mod_copy (CVE-2015-3306): a lab case study", "/case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md"]
       ]
     },
     {

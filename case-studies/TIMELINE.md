@@ -106,6 +106,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 14 June 2023: Cl0p begins naming victims on its leak site with payment deadlines
   - August 2024: The running tally reaches about 2,773 organizations and 95.8 million individuals
   - 2024: Cleo Harmony, VLTrader and LexiCom exploited, late 2024
+- [Healthcare Threat Actor Watchlist, 2023 to 2026: Who Hits Hospitals, How They Get In, and What the Record Says](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md). Period record, January 2023 to November 2026. Sectors: healthcare. CVEs: CVE-2012-1823, CVE-2017-12617, CVE-2018-13379, CVE-2019-0708, CVE-2019-11043, CVE-2019-19781 and 22 more. ATT&CK groups: G0071 Orangeworm, G0092 TA505, G0117 Fox Kitten, G0138 Andariel, G1015 Scattered Spider, G1024 Akira and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Healthcare_Threat_Watchlist_Case_Study.pdf).
+  - 27 May 2023: CL0P begins exploiting the MOVEit Transfer flaw CVE-2023-34362
+  - 19 December 2023: ALPHV Blackcat advisory; its February 2024 update records an administrator urging affiliates to target hospitals
+  - February 2024: Change Healthcare: the largest HHS breach entry on record, 192,700,000 people
+  - 7 May 2024: The NCA names LockBitSupp as Dmitry Khoroshev; LockBit attacks targeted over 100 hospitals and healthcare companies
+  - 7 May 2024: Ascension: files copied, then activity from a ransomware attack detected on 8 May; HHS records 5,466,931 people
+  - 3 June 2024: Synnovis ransomware disrupts London pathology services; stolen data published on 20 June
+  - 25 July 2024: Andariel advisory: the RGB 3rd Bureau funds espionage through ransomware against US healthcare
+  - 28 August 2024: Pioneer Kitten advisory: an Iran-associated group partners with ransomware affiliates; healthcare facilities among victims
+  - 21 October 2024: Conduent, a business associate, accessed from 21 October 2024 to 13 January 2025; HHS records 62,224,658 people
+  - 30 January 2025: CISA finds an embedded backdoor in Contec CMS8000 patient-monitor firmware; FDA safety communication
+  - 9 April 2025: Kettering Health: activity from 9 April and a system-wide outage from 20 May 2025; Kettering names Interlock
+  - 17 May 2026: DentaQuest data accessed 17 to 20 May and later posted online; HHS records 15,000,000 people, the largest 2026 entry
 
 ### 2021 <!-- {docsify-ignore} -->
 

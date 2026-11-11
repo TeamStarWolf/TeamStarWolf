@@ -1,0 +1,990 @@
+{
+  "name": "TeamStarWolf - Healthcare Threat Actor Watchlist 2023-2026",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Enterprise techniques named in the eleven US joint advisories (2022 to 2026) that name the Healthcare and Public Health sector as a victim or carry HHS as an author or co-sealer: ALPHV Blackcat, Black Basta, Rhysida, RansomHub, Interlock, Andariel, Maui, Medusa, Akira, LockBit and Pioneer Kitten. Revoked advisory ids are mapped to their ATT&CK v20 successors through data/attack/superseded_by.jsonl; Mobile ids and the Maui advisory's T1059.008 tag are left out. Tactics are taken from data/attack/technique_profiles.jsonl. Score = number of advisories naming the technique (1 to 8). Each comment names source numbers from the Sources table of case-studies/HEALTHCARE_THREAT_WATCHLIST.md. Not an official MITRE mapping.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 1,
+    "maxValue": 8
+  },
+  "legendItems": [
+    {
+      "label": "1: named in one healthcare-relevant advisory",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "4: named in four",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "8: named in eight (T1486 Data Encrypted for Impact)",
+      "color": "#7c3aed"
+    }
+  ],
+  "techniques": [
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 8,
+      "comment": "Data Encrypted for Impact. Named in 8 of the 11 healthcare-relevant joint advisories. Sources: [14] AA24-131A Black Basta; [15] AA24-242A RansomHub; [16] AA25-071A Medusa; [17] AA25-203A Interlock; [18] AA23-319A Rhysida; [19] AA23-165A LockBit; [20] AA24-109A Akira; [23] AA22-187A Maui in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 7,
+      "comment": "PowerShell. Named in 7 of the 11 healthcare-relevant joint advisories. Sources: [14] AA24-131A Black Basta; [15] AA24-242A RansomHub; [16] AA25-071A Medusa; [17] AA25-203A Interlock; [18] AA23-319A Rhysida; [20] AA24-109A Akira; [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 7,
+      "comment": "Exploit Public-Facing Application. Named in 7 of the 11 healthcare-relevant joint advisories. Sources: [14] AA24-131A Black Basta; [15] AA24-242A RansomHub; [16] AA25-071A Medusa; [19] AA23-165A LockBit; [20] AA24-109A Akira; [24] AA24-207A Andariel; [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 7,
+      "comment": "Remote Access Tools. Named in 7 of the 11 healthcare-relevant joint advisories. Sources: [15] AA24-242A RansomHub; [16] AA25-071A Medusa; [17] AA25-203A Interlock; [18] AA23-319A Rhysida; [19] AA23-165A LockBit; [20] AA24-109A Akira; [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 6,
+      "comment": "Remote Desktop Protocol. Named in 6 of the 11 healthcare-relevant joint advisories. Sources: [15] AA24-242A RansomHub; [16] AA25-071A Medusa; [17] AA25-203A Interlock; [18] AA23-319A Rhysida; [19] AA23-165A LockBit; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 6,
+      "comment": "Disable or Modify Tools. Named in 6 of the 11 healthcare-relevant joint advisories. Sources: [14] AA24-131A Black Basta; [15] AA24-242A RansomHub; [16] AA25-071A Medusa; [19] AA23-165A LockBit; [20] AA24-109A Akira; [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md. Some advisories cite the revoked id T1562.001."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 5,
+      "comment": "Valid Accounts. Named in 5 of the 11 healthcare-relevant joint advisories. Sources: [14] AA24-131A Black Basta; [17] AA25-203A Interlock; [18] AA23-319A Rhysida; [19] AA23-165A LockBit; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 5,
+      "comment": "Valid Accounts. Named in 5 of the 11 healthcare-relevant joint advisories. Sources: [14] AA24-131A Black Basta; [17] AA25-203A Interlock; [18] AA23-319A Rhysida; [19] AA23-165A LockBit; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 5,
+      "comment": "Valid Accounts. Named in 5 of the 11 healthcare-relevant joint advisories. Sources: [14] AA24-131A Black Basta; [17] AA25-203A Interlock; [18] AA23-319A Rhysida; [19] AA23-165A LockBit; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 5,
+      "comment": "Valid Accounts. Named in 5 of the 11 healthcare-relevant joint advisories. Sources: [14] AA24-131A Black Basta; [17] AA25-203A Interlock; [18] AA23-319A Rhysida; [19] AA23-165A LockBit; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 5,
+      "comment": "Inhibit System Recovery. Named in 5 of the 11 healthcare-relevant joint advisories. Sources: [14] AA24-131A Black Basta; [15] AA24-242A RansomHub; [16] AA25-071A Medusa; [19] AA23-165A LockBit; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 5,
+      "comment": "Financial Theft. Named in 5 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa; [17] AA25-203A Interlock; [18] AA23-319A Rhysida; [20] AA24-109A Akira; [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1003",
+      "tactic": "credential-access",
+      "score": 4,
+      "comment": "OS Credential Dumping. Named in 4 of the 11 healthcare-relevant joint advisories. Sources: [15] AA24-242A RansomHub; [19] AA23-165A LockBit; [20] AA24-109A Akira; [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 4,
+      "comment": "System Network Configuration Discovery. Named in 4 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa; [17] AA25-203A Interlock; [18] AA23-319A Rhysida; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 4,
+      "comment": "Obfuscated Files or Information. Named in 4 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa; [19] AA23-165A LockBit; [20] AA24-109A Akira; [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 4,
+      "comment": "Network Service Discovery. Named in 4 of the 11 healthcare-relevant joint advisories. Sources: [15] AA24-242A RansomHub; [16] AA25-071A Medusa; [19] AA23-165A LockBit; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1048",
+      "tactic": "exfiltration",
+      "score": 4,
+      "comment": "Exfiltration Over Alternative Protocol. Named in 4 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock; [19] AA23-165A LockBit; [20] AA24-109A Akira; [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 4,
+      "comment": "Windows Command Shell. Named in 4 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa; [18] AA23-319A Rhysida; [19] AA23-165A LockBit; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 4,
+      "comment": "System Information Discovery. Named in 4 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa; [17] AA25-203A Interlock; [19] AA23-165A LockBit; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1482",
+      "tactic": "discovery",
+      "score": 4,
+      "comment": "Domain Trust Discovery. Named in 4 of the 11 healthcare-relevant joint advisories. Sources: [18] AA23-319A Rhysida; [19] AA23-165A LockBit; [20] AA24-109A Akira; [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 4,
+      "comment": "Phishing. Named in 4 of the 11 healthcare-relevant joint advisories. Sources: [14] AA24-131A Black Basta; [15] AA24-242A RansomHub; [16] AA25-071A Medusa; [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1567.002",
+      "tactic": "exfiltration",
+      "score": 4,
+      "comment": "Exfiltration to Cloud Storage. Named in 4 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa; [17] AA25-203A Interlock; [19] AA23-165A LockBit; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 4,
+      "comment": "Protocol Tunneling. Named in 4 of the 11 healthcare-relevant joint advisories. Sources: [19] AA23-165A LockBit; [20] AA24-109A Akira; [24] AA24-207A Andariel; [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 3,
+      "comment": "LSASS Memory. Named in 3 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa; [19] AA23-165A LockBit; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 3,
+      "comment": "Remote System Discovery. Named in 3 of the 11 healthcare-relevant joint advisories. Sources: [15] AA24-242A RansomHub; [18] AA23-319A Rhysida; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1033",
+      "tactic": "discovery",
+      "score": 3,
+      "comment": "System Owner/User Discovery. Named in 3 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa; [17] AA25-203A Interlock; [18] AA23-319A Rhysida in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 3,
+      "comment": "Masquerading. Named in 3 of the 11 healthcare-relevant joint advisories. Sources: [14] AA24-131A Black Basta; [15] AA24-242A RansomHub; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 3,
+      "comment": "Exploitation for Privilege Escalation. Named in 3 of the 11 healthcare-relevant joint advisories. Sources: [14] AA24-131A Black Basta; [15] AA24-242A RansomHub; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1069.002",
+      "tactic": "discovery",
+      "score": 3,
+      "comment": "Domain Groups. Named in 3 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa; [18] AA23-319A Rhysida; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 3,
+      "comment": "File Deletion. Named in 3 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock; [18] AA23-319A Rhysida; [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "Account Manipulation. Named in 3 of the 11 healthcare-relevant joint advisories. Sources: [15] AA24-242A RansomHub; [20] AA24-109A Akira; [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 3,
+      "comment": "Account Manipulation. Named in 3 of the 11 healthcare-relevant joint advisories. Sources: [15] AA24-242A RansomHub; [20] AA24-109A Akira; [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 3,
+      "comment": "Ingress Tool Transfer. Named in 3 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa; [17] AA25-203A Interlock; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "External Remote Services. Named in 3 of the 11 healthcare-relevant joint advisories. Sources: [19] AA23-165A LockBit; [20] AA24-109A Akira; [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 3,
+      "comment": "External Remote Services. Named in 3 of the 11 healthcare-relevant joint advisories. Sources: [19] AA23-165A LockBit; [20] AA24-109A Akira; [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1555.003",
+      "tactic": "credential-access",
+      "score": 3,
+      "comment": "Credentials from Web Browsers. Named in 3 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock; [19] AA23-165A LockBit; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 3,
+      "comment": "Service Execution. Named in 3 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa; [19] AA23-165A LockBit; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1003.003",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "NTDS. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [18] AA23-319A Rhysida; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1021",
+      "tactic": "lateral-movement",
+      "score": 2,
+      "comment": "Remote Services. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [20] AA24-109A Akira; [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 2,
+      "comment": "SMB/Windows Admin Shares. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [19] AA23-165A LockBit; [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1021.004",
+      "tactic": "lateral-movement",
+      "score": 2,
+      "comment": "SSH. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [18] AA23-319A Rhysida; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 2,
+      "comment": "Windows Management Instrumentation. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [15] AA24-242A RansomHub; [16] AA25-071A Medusa in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1056",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "Input Capture. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock; [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1056",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "Input Capture. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock; [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1069.001",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "Local Groups. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [18] AA23-319A Rhysida; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "stealth",
+      "score": 2,
+      "comment": "Indicator Removal. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [15] AA24-242A RansomHub; [16] AA25-071A Medusa in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 2,
+      "comment": "Web Protocols. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa; [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "execution",
+      "score": 2,
+      "comment": "Software Deployment Tools. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa; [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "lateral-movement",
+      "score": 2,
+      "comment": "Software Deployment Tools. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa; [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "stealth",
+      "score": 2,
+      "comment": "Domain Accounts. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock; [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "Domain Accounts. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock; [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "Domain Accounts. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock; [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "initial-access",
+      "score": 2,
+      "comment": "Domain Accounts. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock; [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "File and Directory Discovery. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa; [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1087.002",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "Domain Account. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [18] AA23-319A Rhysida; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 2,
+      "comment": "Proxy. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [20] AA24-109A Akira; [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "Brute Force. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [19] AA23-165A LockBit; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "Password Spraying. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [15] AA24-242A RansomHub; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "Create Account. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [15] AA24-242A RansomHub; [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1136.002",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "Domain Account. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 2,
+      "comment": "Drive-by Compromise. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock; [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1484.001",
+      "tactic": "defense-impairment",
+      "score": 2,
+      "comment": "Group Policy Modification. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa; [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1484.001",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "Group Policy Modification. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa; [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 2,
+      "comment": "Service Stop. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa; [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "Data from Cloud Storage. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock; [18] AA23-319A Rhysida in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1537",
+      "tactic": "exfiltration",
+      "score": 2,
+      "comment": "Transfer Data to Cloud Account. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [15] AA24-242A RansomHub; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1555",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "Credentials from Password Stores. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [13] AA23-353A ALPHV Blackcat; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1558",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "Steal or Forge Kerberos Tickets. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [13] AA23-353A ALPHV Blackcat; [16] AA25-071A Medusa in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1560.001",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "Archive via Utility. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [19] AA23-165A LockBit; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 2,
+      "comment": "Spearphishing Attachment. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [14] AA24-131A Black Basta; [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1567",
+      "tactic": "exfiltration",
+      "score": 2,
+      "comment": "Exfiltration Over Web Service. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [19] AA23-165A LockBit; [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1596",
+      "tactic": "reconnaissance",
+      "score": 2,
+      "comment": "Search Open Technical Databases. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [24] AA24-207A Andariel; [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1685.005",
+      "tactic": "defense-impairment",
+      "score": 2,
+      "comment": "Clear Windows Event Logs. Named in 2 of the 11 healthcare-relevant joint advisories. Sources: [18] AA23-319A Rhysida; [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md. Some advisories cite the revoked id T1070.001."
+    },
+    {
+      "techniqueID": "T1003.002",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "Security Account Manager. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1006",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Direct Volume Access. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1007",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "System Service Discovery. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1012",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Query Registry. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1027.002",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Software Packing. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1027.013",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Encrypted/Encoded File. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1027.015",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Compression. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Match Legitimate Resource Name or Location. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1039",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "Data from Network Shared Drive. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "Network Sniffing. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Network Sniffing. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1048.002",
+      "tactic": "exfiltration",
+      "score": 1,
+      "comment": "Exfiltration Over Asymmetric Encrypted Non-C2 Protocol. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [15] AA24-242A RansomHub in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1048.003",
+      "tactic": "exfiltration",
+      "score": 1,
+      "comment": "Exfiltration Over Unencrypted Non-C2 Protocol. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [15] AA24-242A RansomHub in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1049",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "System Network Connections Discovery. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "Scheduled Task/Job. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Scheduled Task/Job. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Scheduled Task/Job. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1055.002",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Portable Executable Injection. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [18] AA23-319A Rhysida in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1055.002",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Portable Executable Injection. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [18] AA23-319A Rhysida in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "Keylogging. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "Keylogging. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Process Discovery. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "Command and Scripting Interpreter. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1059.005",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "Visual Basic. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1059.009",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "Cloud API. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [18] AA23-319A Rhysida in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1070.003",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Clear Command History. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1071",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Application Layer Protocol. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1071.002",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "File Transfer Protocols. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Local Accounts. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Local Accounts. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Local Accounts. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "initial-access",
+      "score": 1,
+      "comment": "Local Accounts. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1087",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Account Discovery. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Multi-hop Proxy. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1095",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Non-Application Layer Protocol. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 1,
+      "comment": "Modify Registry. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [18] AA23-319A Rhysida in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Modify Registry. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [18] AA23-319A Rhysida in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Network Share Discovery. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1136.001",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Local Account. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1204",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "User Execution. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [14] AA24-131A Black Basta in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1204.004",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "Malicious Copy and Paste. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 1,
+      "comment": "Exploitation of Remote Services. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [15] AA24-242A RansomHub in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1218.011",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Rundll32. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1218.014",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "MMC. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1222.001",
+      "tactic": "defense-impairment",
+      "score": 1,
+      "comment": "Windows Permissions. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1480.001",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Environmental Keying. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 1,
+      "comment": "Data Destruction. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1491.001",
+      "tactic": "impact",
+      "score": 1,
+      "comment": "Internal Defacement. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1505",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Server Software Component. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Web Shell. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1529",
+      "tactic": "impact",
+      "score": 1,
+      "comment": "System Shutdown/Reboot. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1547",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Boot or Logon Autostart Execution. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1547",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Boot or Logon Autostart Execution. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Registry Run Keys / Startup Folder. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Registry Run Keys / Startup Folder. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1548",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Abuse Elevation Control Mechanism. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "lateral-movement",
+      "score": 1,
+      "comment": "Pass the Hash. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1555.004",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "Windows Credential Manager. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "Adversary-in-the-Middle. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [13] AA23-353A ALPHV Blackcat in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "Adversary-in-the-Middle. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [13] AA23-353A ALPHV Blackcat in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1558.003",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "Kerberoasting. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [17] AA25-203A Interlock in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1560",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "Archive Collected Data. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1564.003",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Hidden Window. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [18] AA23-319A Rhysida in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1564.012",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "File/Path Exclusions. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 1,
+      "comment": "Spearphishing Link. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1566.004",
+      "tactic": "initial-access",
+      "score": 1,
+      "comment": "Spearphishing Voice. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [14] AA24-131A Black Basta in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1573.002",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Asymmetric Cryptography. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1586",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "Compromise Accounts. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [13] AA23-353A ALPHV Blackcat in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1587",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "Develop Capabilities. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [18] AA23-319A Rhysida in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1587.001",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "Malware. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1587.004",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "Exploits. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1588.005",
+      "tactic": "resource-development",
+      "score": 1,
+      "comment": "Exploits. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [15] AA24-242A RansomHub in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1591",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "Gather Victim Org Information. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1592",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "Gather Victim Host Information. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1595",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "Active Scanning. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [24] AA24-207A Andariel in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1598",
+      "tactic": "reconnaissance",
+      "score": 1,
+      "comment": "Phishing for Information. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [13] AA23-353A ALPHV Blackcat in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1614.001",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "System Language Discovery. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [19] AA23-165A LockBit in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1675",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "ESXi Administration Command. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [16] AA25-071A Medusa in case-studies/HEALTHCARE_THREAT_WATCHLIST.md."
+    },
+    {
+      "techniqueID": "T1686",
+      "tactic": "defense-impairment",
+      "score": 1,
+      "comment": "Disable or Modify System Firewall. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [20] AA24-109A Akira in case-studies/HEALTHCARE_THREAT_WATCHLIST.md. Some advisories cite the revoked id T1562.004."
+    },
+    {
+      "techniqueID": "T1689",
+      "tactic": "defense-impairment",
+      "score": 1,
+      "comment": "Downgrade Attack. Named in 1 of the 11 healthcare-relevant joint advisories. Sources: [25] AA24-241A Pioneer Kitten in case-studies/HEALTHCARE_THREAT_WATCHLIST.md. Some advisories cite the revoked id T1562.010."
+    }
+  ],
+  "metadata": [
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in its technique profile"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "130"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "153"
+    },
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/HEALTHCARE_THREAT_WATCHLIST.md (sources opened 3 November 2026)"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "Healthcare Threat Actor Watchlist, 2023 to 2026",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/HEALTHCARE_THREAT_WATCHLIST.md"
+    }
+  ]
+}

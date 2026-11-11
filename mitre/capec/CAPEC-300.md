@@ -44,6 +44,7 @@ An adversary uses a combination of techniques to determine the state of the port
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [Healthcare Threat Actor Watchlist, 2023 to 2026: Who Hits Hospitals, How They Get In, and What the Record Says](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md)
 
 <!-- library-refs:end -->
 

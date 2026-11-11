@@ -483,6 +483,58 @@ studies:
       - {"date": "2022-03-03", "label": "CISA adds CVE-2020-1938 to KEV in a batch of 95 entries"}
       - {"date": "2026-10", "label": "DShield still records about 950 to 6,200 port 8009 events a day"}
       - {"date": "2026-11-03", "label": "KEV still lists the CVE; the TeamStarWolf lab run"}
+  case-studies/HEALTHCARE_THREAT_WATCHLIST.md:
+    kind: "era"
+    title: "Healthcare Threat Actor Watchlist, 2023 to 2026: Who Hits Hospitals, How They Get In, and What the Record Says"
+    start: "2023-01"
+    end: "2026-11"
+    sectors: ["healthcare"]
+    cves:
+      - "CVE-2012-1823"
+      - "CVE-2017-12617"
+      - "CVE-2018-13379"
+      - "CVE-2019-0708"
+      - "CVE-2019-11043"
+      - "CVE-2019-19781"
+      - "CVE-2020-1472"
+      - "CVE-2020-3259"
+      - "CVE-2021-34473"
+      - "CVE-2021-44228"
+      - "CVE-2022-1388"
+      - "CVE-2023-0669"
+      - "CVE-2023-3519"
+      - "CVE-2023-20269"
+      - "CVE-2023-27997"
+      - "CVE-2023-34362"
+      - "CVE-2023-46604"
+      - "CVE-2023-48788"
+      - "CVE-2024-1709"
+      - "CVE-2024-3400"
+      - "CVE-2024-21887"
+      - "CVE-2024-24919"
+      - "CVE-2024-37085"
+      - "CVE-2024-40766"
+      - "CVE-2025-0626"
+      - "CVE-2025-0683"
+      - "CVE-2025-10035"
+      - "CVE-2026-1731"
+    actors: ["G0071", "G0092", "G0117", "G0138", "G1015", "G1024", "G1032", "G1036", "G1040", "G1050", "G1051", "G1053"]
+    tags: ["hospitals", "ransomware", "healthcare", "HIPAA", "watchlist", "medical devices"]
+    pdf: "Healthcare_Threat_Watchlist_Case_Study.pdf"
+    pptx: null
+    events:
+      - {"date": "2023-05-27", "label": "CL0P begins exploiting the MOVEit Transfer flaw CVE-2023-34362"}
+      - {"date": "2023-12-19", "label": "ALPHV Blackcat advisory; its February 2024 update records an administrator urging affiliates to target hospitals"}
+      - {"date": "2024-02", "label": "Change Healthcare: the largest HHS breach entry on record, 192,700,000 people"}
+      - {"date": "2024-05-07", "label": "The NCA names LockBitSupp as Dmitry Khoroshev; LockBit attacks targeted over 100 hospitals and healthcare companies"}
+      - {"date": "2024-05-07", "label": "Ascension: files copied, then activity from a ransomware attack detected on 8 May; HHS records 5,466,931 people"}
+      - {"date": "2024-06-03", "label": "Synnovis ransomware disrupts London pathology services; stolen data published on 20 June"}
+      - {"date": "2024-07-25", "label": "Andariel advisory: the RGB 3rd Bureau funds espionage through ransomware against US healthcare"}
+      - {"date": "2024-08-28", "label": "Pioneer Kitten advisory: an Iran-associated group partners with ransomware affiliates; healthcare facilities among victims"}
+      - {"date": "2024-10-21", "label": "Conduent, a business associate, accessed from 21 October 2024 to 13 January 2025; HHS records 62,224,658 people"}
+      - {"date": "2025-01-30", "label": "CISA finds an embedded backdoor in Contec CMS8000 patient-monitor firmware; FDA safety communication"}
+      - {"date": "2025-04-09", "label": "Kettering Health: activity from 9 April and a system-wide outage from 20 May 2025; Kettering names Interlock"}
+      - {"date": "2026-05-17", "label": "DentaQuest data accessed 17 to 20 May and later posted online; HHS records 15,000,000 people, the largest 2026 entry"}
   case-studies/HUGGING_FACE_SUPPLY_CHAIN.md:
     kind: "reference"
     title: "Hugging Face as an AI Supply-Chain Attack Surface: A 2021 to 2026 Case Study"

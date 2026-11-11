@@ -1,0 +1,750 @@
+{
+  "name": "TeamStarWolf - United States-Attributed Threat Actors Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping and not an attribution claim: ATT&CK attributes none of these objects to any country. The 85 Enterprise techniques ATT&CK v20.0 records for the six objects discussed in case-studies/THREAT_ACTORS_UNITED_STATES.md (G0020 Equation, S0019 Regin, S0038 Duqu, S0143 Flame, S0603 Stuxnet, S0690 Green Lambert), from data/attack/group_to_technique.jsonl and software_to_technique.jsonl, plus one technique (T1195) inferred by the study from the interdiction reporting. Score is the number of the six objects the technique is recorded for (1 to 3); 0 marks the study's inference. Comments name the objects and the study's source numbers.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#fff3e0",
+      "#a5d6a7",
+      "#1b5e20"
+    ],
+    "minValue": 0,
+    "maxValue": 3
+  },
+  "legendItems": [
+    {
+      "label": "0: inferred by the study only",
+      "color": "#fff3e0"
+    },
+    {
+      "label": "1: recorded for one object",
+      "color": "#a5d6a7"
+    },
+    {
+      "label": "2: recorded for two objects",
+      "color": "#77ae7a"
+    },
+    {
+      "label": "3: recorded for three objects",
+      "color": "#1b5e20"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "data/attack/group_to_technique.jsonl; data/attack/software_to_technique.jsonl; data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "86"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "113"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "techniques": [
+    {
+      "techniqueID": "T1001.002",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Steganography. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0038 Duqu). Sources [4] (ATT&CK S0038, citing Symantec, Nov 2011; Kaspersky, Jun 2015)."
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "Data from Local System. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0690 Green Lambert). Sources [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1008",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Fallback Channels. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1010",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Application Window Discovery. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0038 Duqu). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015)."
+    },
+    {
+      "techniqueID": "T1011.001",
+      "tactic": "exfiltration",
+      "score": 1,
+      "comment": "Exfiltration Over Bluetooth. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0143 Flame). Sources [3] [18] (Kaspersky, Symantec and CrySyS, May 2012)."
+    },
+    {
+      "techniqueID": "T1012",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Query Registry. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1014",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Rootkit. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 3,
+      "comment": "System Network Configuration Discovery. Recorded by ATT&CK v20.0 for 3 of the study's 6 objects (S0038 Duqu, S0603 Stuxnet, S0690 Green Lambert). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011); [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1021",
+      "tactic": "lateral-movement",
+      "score": 1,
+      "comment": "Remote Services. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 3,
+      "comment": "SMB/Windows Admin Shares. Recorded by ATT&CK v20.0 for 3 of the study's 6 objects (S0019 Regin, S0038 Duqu, S0603 Stuxnet). Sources [5] [22] (Kaspersky Regin, 24 Nov 2014); [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Obfuscated Files or Information. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0690 Green Lambert). Sources [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1027.013",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Encrypted/Encoded File. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1036.001",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Invalid Code Signature. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0019 Regin). Sources [5] [22] (Kaspersky Regin, 24 Nov 2014)."
+    },
+    {
+      "techniqueID": "T1036.004",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Masquerade Task or Service. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0690 Green Lambert). Sources [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Match Legitimate Resource Name or Location. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0690 Green Lambert). Sources [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1036.010",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Masquerade Account Name. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0143 Flame). Sources [3] [18] (Kaspersky, Symantec and CrySyS, May 2012)."
+    },
+    {
+      "techniqueID": "T1037.004",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "RC Scripts. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0690 Green Lambert). Sources [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1037.004",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "RC Scripts. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0690 Green Lambert). Sources [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "Network Sniffing. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0019 Regin). Sources [5] [22] (Kaspersky Regin, 24 Nov 2014)."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Network Sniffing. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0019 Regin). Sources [5] [22] (Kaspersky Regin, 24 Nov 2014)."
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 1,
+      "comment": "Exfiltration Over C2 Channel. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "Windows Management Instrumentation. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1049",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "System Network Connections Discovery. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0038 Duqu). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015)."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 2,
+      "comment": "Scheduled Task. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0038 Duqu, S0603 Stuxnet). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "Scheduled Task. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0038 Duqu, S0603 Stuxnet). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "Scheduled Task. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0038 Duqu, S0603 Stuxnet). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "stealth",
+      "score": 2,
+      "comment": "Dynamic-link Library Injection. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0038 Duqu, S0603 Stuxnet). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "Dynamic-link Library Injection. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0038 Duqu, S0603 Stuxnet). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1055.012",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Process Hollowing. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0038 Duqu). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015)."
+    },
+    {
+      "techniqueID": "T1055.012",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Process Hollowing. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0038 Duqu). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015)."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "Keylogging. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0019 Regin, S0038 Duqu). Sources [5] [22] (Kaspersky Regin, 24 Nov 2014); [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015)."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 2,
+      "comment": "Keylogging. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0019 Regin, S0038 Duqu). Sources [5] [22] (Kaspersky Regin, 24 Nov 2014); [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015)."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Process Discovery. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0038 Duqu). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015)."
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "Unix Shell. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0690 Green Lambert). Sources [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Exploitation for Privilege Escalation. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Indicator Removal. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 2,
+      "comment": "File Deletion. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0603 Stuxnet, S0690 Green Lambert). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011); [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1070.006",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Timestomp. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1071",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Application Layer Protocol. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0038 Duqu). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015)."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 2,
+      "comment": "Web Protocols. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0019 Regin, S0603 Stuxnet). Sources [5] [22] (Kaspersky Regin, 24 Nov 2014); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1071.002",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "File Transfer Protocols. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0019 Regin). Sources [5] [22] (Kaspersky Regin, 24 Nov 2014)."
+    },
+    {
+      "techniqueID": "T1071.004",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "DNS. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0690 Green Lambert). Sources [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1074.001",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "Local Data Staging. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0038 Duqu). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015)."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Valid Accounts. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0038 Duqu). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015)."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Valid Accounts. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0038 Duqu). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015)."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Valid Accounts. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0038 Duqu). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015)."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 1,
+      "comment": "Valid Accounts. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0038 Duqu). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015)."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Default Accounts. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Default Accounts. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Default Accounts. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 1,
+      "comment": "Default Accounts. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Domain Accounts. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Domain Accounts. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Domain Accounts. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "initial-access",
+      "score": 1,
+      "comment": "Domain Accounts. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1080",
+      "tactic": "lateral-movement",
+      "score": 1,
+      "comment": "Taint Shared Content. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "System Information Discovery. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0603 Stuxnet, S0690 Green Lambert). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011); [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "File and Directory Discovery. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1087.001",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "Local Account. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0038 Duqu, S0603 Stuxnet). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1087.002",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Domain Account. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Proxy. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0690 Green Lambert). Sources [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1090.001",
+      "tactic": "command-and-control",
+      "score": 2,
+      "comment": "Internal Proxy. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0038 Duqu, S0603 Stuxnet). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1090.002",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "External Proxy. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0019 Regin). Sources [5] [22] (Kaspersky Regin, 24 Nov 2014)."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "lateral-movement",
+      "score": 2,
+      "comment": "Replication Through Removable Media. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0143 Flame, S0603 Stuxnet). Sources [3] [18] (Kaspersky, Symantec and CrySyS, May 2012); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "initial-access",
+      "score": 2,
+      "comment": "Replication Through Removable Media. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0143 Flame, S0603 Stuxnet). Sources [3] [18] (Kaspersky, Symantec and CrySyS, May 2012); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1095",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Non-Application Layer Protocol. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0019 Regin). Sources [5] [22] (Kaspersky Regin, 24 Nov 2014)."
+    },
+    {
+      "techniqueID": "T1106",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "Native API. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 2,
+      "comment": "Modify Registry. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0019 Regin, S0603 Stuxnet). Sources [5] [22] (Kaspersky Regin, 24 Nov 2014); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "Modify Registry. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0019 Regin, S0603 Stuxnet). Sources [5] [22] (Kaspersky Regin, 24 Nov 2014); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "Screen Capture. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0143 Flame). Sources [3] [18] (Kaspersky, Symantec and CrySyS, May 2012)."
+    },
+    {
+      "techniqueID": "T1120",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "Peripheral Device Discovery. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (G0020 Equation, S0603 Stuxnet). Sources [1] [16] (Kaspersky Equation Q&A, Feb 2015); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1123",
+      "tactic": "collection",
+      "score": 1,
+      "comment": "Audio Capture. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0143 Flame). Sources [3] [18] (Kaspersky, Symantec and CrySyS, May 2012)."
+    },
+    {
+      "techniqueID": "T1124",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "System Time Discovery. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0603 Stuxnet, S0690 Green Lambert). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011); [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1129",
+      "tactic": "execution",
+      "score": 1,
+      "comment": "Shared Modules. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1132.001",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Standard Encoding. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Access Token Manipulation. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0038 Duqu). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015)."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Access Token Manipulation. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0038 Duqu). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015)."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Token Impersonation/Theft. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Token Impersonation/Theft. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 1,
+      "comment": "Network Share Discovery. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1136.001",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Local Account. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0143 Flame). Sources [3] [18] (Kaspersky, Symantec and CrySyS, May 2012)."
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "stealth",
+      "score": 2,
+      "comment": "Deobfuscate/Decode Files or Information. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0603 Stuxnet, S0690 Green Lambert). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011); [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 2,
+      "comment": "Exploitation of Remote Services. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0143 Flame, S0603 Stuxnet). Sources [3] [18] (Kaspersky, Symantec and CrySyS, May 2012); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1218.007",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Msiexec. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0038 Duqu). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015)."
+    },
+    {
+      "techniqueID": "T1218.011",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Rundll32. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0143 Flame). Sources [3] [18] (Kaspersky, Symantec and CrySyS, May 2012)."
+    },
+    {
+      "techniqueID": "T1480",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Execution Guardrails. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1480.001",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Environmental Keying. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (G0020 Equation). Sources [1] [16] (Kaspersky Equation Q&A, Feb 2015)."
+    },
+    {
+      "techniqueID": "T1505.001",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "SQL Stored Procedures. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1518.001",
+      "tactic": "discovery",
+      "score": 2,
+      "comment": "Security Software Discovery. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0143 Flame, S0603 Stuxnet). Sources [3] [18] (Kaspersky, Symantec and CrySyS, May 2012); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1542.002",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "Component Firmware. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (G0020 Equation). Sources [1] [16] (Kaspersky Equation Q&A, Feb 2015)."
+    },
+    {
+      "techniqueID": "T1542.002",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Component Firmware. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (G0020 Equation). Sources [1] [16] (Kaspersky Equation Q&A, Feb 2015)."
+    },
+    {
+      "techniqueID": "T1543.001",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Launch Agent. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0690 Green Lambert). Sources [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1543.001",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Launch Agent. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0690 Green Lambert). Sources [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 2,
+      "comment": "Windows Service. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0038 Duqu, S0603 Stuxnet). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 2,
+      "comment": "Windows Service. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0038 Duqu, S0603 Stuxnet). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1543.004",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Launch Daemon. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0690 Green Lambert). Sources [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1543.004",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Launch Daemon. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0690 Green Lambert). Sources [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1546.004",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Unix Shell Configuration Modification. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0690 Green Lambert). Sources [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1546.004",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Unix Shell Configuration Modification. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0690 Green Lambert). Sources [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1547.002",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Authentication Package. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0143 Flame). Sources [3] [18] (Kaspersky, Symantec and CrySyS, May 2012)."
+    },
+    {
+      "techniqueID": "T1547.002",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Authentication Package. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0143 Flame). Sources [3] [18] (Kaspersky, Symantec and CrySyS, May 2012)."
+    },
+    {
+      "techniqueID": "T1547.015",
+      "tactic": "persistence",
+      "score": 1,
+      "comment": "Login Items. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0690 Green Lambert). Sources [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1547.015",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "comment": "Login Items. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0690 Green Lambert). Sources [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-impairment",
+      "score": 1,
+      "comment": "Code Signing. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1555.001",
+      "tactic": "credential-access",
+      "score": 1,
+      "comment": "Keychain. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0690 Green Lambert). Sources [6] [25] (Kaspersky Lamberts, Apr 2017; Sandvik, 2021)."
+    },
+    {
+      "techniqueID": "T1560.003",
+      "tactic": "collection",
+      "score": 2,
+      "comment": "Archive via Custom Method. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0038 Duqu, S0603 Stuxnet). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1564.004",
+      "tactic": "stealth",
+      "score": 1,
+      "comment": "NTFS File Attributes. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0019 Regin). Sources [5] [22] (Kaspersky Regin, 24 Nov 2014)."
+    },
+    {
+      "techniqueID": "T1564.005",
+      "tactic": "stealth",
+      "score": 2,
+      "comment": "Hidden File System. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (G0020 Equation, S0019 Regin). Sources [1] [16] (Kaspersky Equation Q&A, Feb 2015); [5] [22] (Kaspersky Regin, 24 Nov 2014)."
+    },
+    {
+      "techniqueID": "T1570",
+      "tactic": "lateral-movement",
+      "score": 1,
+      "comment": "Lateral Tool Transfer. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 1,
+      "comment": "Protocol Tunneling. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0038 Duqu). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015)."
+    },
+    {
+      "techniqueID": "T1573.001",
+      "tactic": "command-and-control",
+      "score": 2,
+      "comment": "Symmetric Cryptography. Recorded by ATT&CK v20.0 for 2 of the study's 6 objects (S0038 Duqu, S0603 Stuxnet). Sources [4] [19] [20] (Symantec, Nov 2011; Kaspersky Duqu 2.0, Jun 2015); [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 1,
+      "comment": "Disable or Modify Tools. Recorded by ATT&CK v20.0 for 1 of the study's 6 objects (S0603 Stuxnet). Sources [2] (Symantec W32.Stuxnet Dossier v1.4, Feb 2011)."
+    },
+    {
+      "techniqueID": "T1195",
+      "tactic": "initial-access",
+      "score": 0,
+      "comment": "Supply Chain Compromise. Inferred by this study, not recorded by ATT&CK for any of the six objects: Kaspersky describes a trojanized conference CD-ROM substituted in the mail (interdiction) [16], and Der Spiegel describes leaked TAO documents on intercepting shipments to implant devices [47]."
+    }
+  ],
+  "links": [
+    {
+      "label": "United States-Attributed Threat Actors: The Public Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/THREAT_ACTORS_UNITED_STATES.md"
+    }
+  ]
+}

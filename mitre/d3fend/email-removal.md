@@ -36,6 +36,7 @@ The email removal technique deletes email files from system storage.
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [North Korea-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_NORTH_KOREA.md)
 - [Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation](/case-studies/EXCHANGE_MARAUDER_2021.md)
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)
 

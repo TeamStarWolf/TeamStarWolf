@@ -119,6 +119,7 @@ Detection of an unauthorized remote live terminal console session by examining n
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md)
 - [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md)
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)
 

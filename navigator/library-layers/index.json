@@ -244,5 +244,11 @@
     "name": "TeamStarWolf - Plex Media Server Plex2Shell Chain (CVE-2026-96652, -96654, -96655, -96656) Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified Plex2Shell record supports: the CVE and NVD records, CISA's KEV entries, Plex's security update, the researcher's write-up and an independent honeypot report. The TeamStarWolf lab run of 4 November 2026 checked versions, baselines and the fix only and ran no exploit step. Each comment names source numbers from case-studies/PLEX_MEDIA_SERVER_2026_CVES.md. Scores: 100 is a binding a primary source supports for these CVEs; 60 rests on a single press report. No severity, prevalence or coverage is measured.",
     "blurb": "Techniques from the Plex2Shell record, from the unauthenticated chain on exposed Plex Media Servers to the owner-token theft, the unsigned library load and the miners and proxyware on compromised servers. A curated layer for the Plex Media Server lab case study."
+  },
+  {
+    "file": "gitlab-cve-2026-97229.json",
+    "name": "TeamStarWolf - GitLab CVE-2026-97229 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified CVE-2026-97229 record supports: GitLab's patch release and the ATT&CK tags on its six published detections, the CVE, NVD and CISA KEV records, and the public Metasploit pull request's stated prerequisites. The TeamStarWolf lab run of 4 November 2026 checked versions only. Each comment names source numbers from case-studies/GITLAB_CVE_2026_97229.md. Scores: 100 is bound by GitLab's description or detection tags, 50 is Reported or Inferred and labelled in the comment.",
+    "blurb": "Techniques from the GitLab CVE-2026-97229 record, from code execution on an internet-facing server to the worker crashes and scanning GitLab's detections tag. A curated layer for the GitLab case study."
   }
 ]

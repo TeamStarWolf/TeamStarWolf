@@ -137,6 +137,7 @@ EXPORT_NAMES = {
     "PHP_8_4_27_CVES": "PHP_8_4_27_CVEs",
     "NEXTCLOUD_RICHDOCUMENTS_CVE_2026_110447": "Nextcloud_Richdocuments_CVE_2026_110447",
     "PLEX_MEDIA_SERVER_2026_CVES": "Plex_Media_Server_2026_CVEs",
+    "GITLAB_CVE_2026_97229": "GitLab_CVE_2026_97229",
     "EXCHANGE_MARAUDER_2021": "Exchange_Marauder_2021",
     "THREAT_ACTORS_CHINA": "Threat_Actors_China",
 }

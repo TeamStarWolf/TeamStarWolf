@@ -2469,6 +2469,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 4: the actors behind the headlines](#part-4-the-actors-behind-the-headlines), [Part 8: the defender view](#part-8-the-defender-view)"
     pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
     reviewed: null
+  case-studies/THREAT_ACTORS_OTHER_STATES.md:
+    audience: "Threat intelligence analysts, threat hunters, vulnerability management teams and security teams supporting travelers, journalists or civil society"
+    level: "Intermediate"
+    read_when: "You need a sourced account of the state-linked groups outside the five largest programs, how firmly each is attributed, what tradecraft and exploited vulnerabilities the record shows, or the defender lessons from DNS hijacking and network-path injection"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the inventory, and how firmly each group is attributed](#part-1-the-inventory-and-how-firmly-each-group-is-attributed), [Part 13: the defender view](#part-13-the-defender-view)"
+    pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
+    reviewed: null
   case-studies/THREAT_ACTORS_RUSSIA.md:
     audience: "Threat intelligence analysts, threat hunters, defenders of critical infrastructure and healthcare security teams"
     level: "Intermediate"

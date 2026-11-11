@@ -54,5 +54,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [Sandworm: the operations in the public record](/case-studies/SANDWORM_OPERATIONS.md)
 - [Russia-attributed threat actors: a case study](/case-studies/THREAT_ACTORS_RUSSIA.md)
 - [Other state-linked threat actors: a case study](/case-studies/THREAT_ACTORS_OTHER_STATES.md)
+- [United States-attributed threat actors: a case study](/case-studies/THREAT_ACTORS_UNITED_STATES.md)
 
 <!-- hub:end -->

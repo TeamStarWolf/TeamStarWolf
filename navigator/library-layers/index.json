@@ -138,6 +138,12 @@
     "blurb": "Sandworm's Windows and edge-device tradecraft from the 2015 blackout through NotPetya, Olympic Destroyer, VPNFilter, Cyclops Blink and the 2022 attacks. A curated layer for the Sandworm case study; the ICS techniques are in a separate ics-attack layer."
   },
   {
+    "file": "threat-actors-russia.json",
+    "name": "TeamStarWolf - Russia-Attributed Threat Actors Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified public record on Russia-attributed threat actors supports: the techniques ATT&CK v20.0 records for nine Russia-attributed groups (APT28, APT29, Sandworm Team, Turla, Dragonfly, Gamaredon Group, Ember Bear, Star Blizzard, TEMP.Veles) and their eight attributed campaigns, the technique ids named in joint government advisories AA20-296A, AA22-011A, AA23-129A, AA23-341A, AA23-347A, AA24-057A, AA24-249A and AA25-141A, and two techniques inferred by the study. Ids reported under earlier ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Campaign C0063 is left out because ATT&CK associates it with no group. Each comment names source numbers from case-studies/THREAT_ACTORS_RUSSIA.md. Scores: 100 is named in a government advisory, 60 is recorded by ATT&CK for one of the groups or campaigns but not named in a verified advisory, 30 is inferred by the study.",
+    "blurb": "Techniques from the public record on Russia-attributed threat actors: what ATT&CK records for nine groups tied to the GRU, SVR, FSB and TsNIIKhM and their campaigns, plus the ids named in eight joint government advisories. A curated layer for the Russia case study."
+  },
+  {
     "file": "chronicle-2021.json",
     "name": "TeamStarWolf - The Year 2021 in Intrusions",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2021 record supports: CISA advisories AA21-110A, AA21-131A, AA21-148A, AA21-200A, AA21-259A, AA21-265A, AA21-291A and AA21-321A, Ireland NCSC's HSE alert, Mandiant's Pulse Connect Secure mapping, and behavior described by Microsoft, Kaseya, Codecov and others. Each comment names source numbers from case-studies/CHRONICLE_2021.md. Scores: 100 the source prints the id, 70 the source describes the behavior and the study assigns the id, 40 the behavior is Inferred.",

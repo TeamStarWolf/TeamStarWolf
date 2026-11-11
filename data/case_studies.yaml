@@ -943,6 +943,30 @@ studies:
       - {"date": "2026-10-20", "label": "PHP2Shell disclosed and patched (20 to 21 October); eMudhra intermediates distrusted"}
       - {"date": "2026-10-22", "label": "Exploit attempts climb from tens of thousands to millions"}
       - {"date": "2026-10-29", "label": "Binance drained of about $6.3 billion; a trojanized Claude Code Cursor extension published"}
+  case-studies/PHP_8_4_27_CVES.md:
+    kind: "vulnerability"
+    title: "PHP 8.4.27, CVE-2026-109618 and CVE-2026-109619: Two Fixes Verified in the Lab"
+    start: "2026-07"
+    end: "2026-11"
+    sectors: ["technology"]
+    cves: ["CVE-2015-3306", "CVE-2020-1938", "CVE-2021-44228", "CVE-2026-48356", "CVE-2026-98432", "CVE-2026-109618", "CVE-2026-109619", "CVE-2026-111497", "CVE-2026-115560"]
+    actors: []
+    tags: ["PHP", "php2shell", "mod_php", "PHP-FPM", "Docker", "upload progress", "lab"]
+    pdf: "PHP_8_4_27_CVEs_Case_Study.pdf"
+    pptx: "PHP_8_4_27_CVEs_Case_Study.pptx"
+    events:
+      - {"date": "2026-07-30", "label": "Calif begins its audit of PHP"}
+      - {"date": "2026-08-11", "label": "Calif reports unconditional remote code execution to PHP"}
+      - {"date": "2026-08-24", "label": "Wiz reports to PHP"}
+      - {"date": "2026-10-12", "label": "The PHP CNA reserves CVE-2026-109618 and CVE-2026-109619"}
+      - {"date": "2026-10-17", "label": "Amazon sees a php2shell attempt against its MadPot sensors (Reported)"}
+      - {"date": "2026-10-20", "label": "The CVE ids leak with a wrong 10.0 score; the release moves forward a day"}
+      - {"date": "2026-10-21", "label": "PHP 8.2.35, 8.3.36, 8.4.27 and 8.5.12 released; advisories, CVE records and the CISA alert published"}
+      - {"date": "2026-10-23", "label": "php.net advisory for follow-on CVE-2026-115560; CISA adds a SIGMA rule"}
+      - {"date": "2026-10-26", "label": "CISA adds both CVEs to KEV, due 29 October; php.net Windows rebuilds"}
+      - {"date": "2026-10-31", "label": "The fixed php:8.4.27-apache Docker tag is last pushed"}
+      - {"date": "2026-11-02", "label": "NVD last modifies both records"}
+      - {"date": "2026-11-04", "label": "TeamStarWolf lab run: 8.4.26 and 8.4.27 told apart; both interim workarounds take effect"}
   case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md:
     kind: "vulnerability"
     title: "ProFTPD mod_copy, CVE-2015-3306: Unauthenticated File Copy in the Lab"

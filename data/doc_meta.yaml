@@ -2490,6 +2490,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: PHP2Shell (CVE-2026-109618, CVE-2026-109619)](#part-1-php2shell-cve-2026-109618-cve-2026-109619), [Part 4: the vulnerability-management lens](#part-4-the-vulnerability-management-lens)"
     pairs_with: "[The eMudhra Certificate Authority Key Compromise: A 2026 Case Study](/case-studies/EMUDHRA_CA_COMPROMISE_2026.md), [The XZ Utils Backdoor: A 2024 Supply-Chain Case Study](/case-studies/XZ_UTILS_BACKDOOR_2024.md), [AI Threats: A 2026 Case Study](/case-studies/AI_THREATS_2026.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)"
     reviewed: null
+  case-studies/PHP_8_4_27_CVES.md:
+    audience: "Vulnerability management leads, web platform and hosting engineers, PHP administrators and security engineers"
+    level: "Intermediate"
+    read_when: "You need the facts of the two PHP flaws fixed in 8.4.27 (php2shell), you run PHP behind Apache, FPM or in containers, or you want to find, fix and verify them on your own hosts"
+    start_at: "[Executive summary](#executive-summary), [Part 3: what the lab showed](#part-3-what-the-lab-showed), [Part 4: finding and fixing it on real hosts](#part-4-finding-and-fixing-it-on-real-hosts)"
+    pairs_with: "[PHP2Shell and the October 2026 Attack Wave: A Case Study](/case-studies/PHP2SHELL_OCTOBER_2026.md), [CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [PHP](/languages/php.md)"
+    reviewed: null
   case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md:
     audience: "Vulnerability management leads, Linux administrators and security engineers who run FTP services"
     level: "Intermediate"

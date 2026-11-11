@@ -132,6 +132,12 @@
     "blurb": "Techniques from the public record on China-attributed threat actors: the ids named in six joint government advisories on APT40, Volt Typhoon, Salt Typhoon and PRC network-device exploitation, which include all 30 techniques ATT&CK records most often across 46 China-attributed groups. A curated layer for the China case study."
   },
   {
+    "file": "sandworm-operations.json",
+    "name": "TeamStarWolf - Sandworm operations Enterprise",
+    "description": "Curated case-study layer, not an official MITRE mapping. The 78 Enterprise techniques bound to dated Sandworm Team (G0034) events in case-studies/SANDWORM_OPERATIONS.md, 2014 to 2022, each with a comment naming the event and the study's source numbers. Scores indicate membership only.",
+    "blurb": "Sandworm's Windows and edge-device tradecraft from the 2015 blackout through NotPetya, Olympic Destroyer, VPNFilter, Cyclops Blink and the 2022 attacks. A curated layer for the Sandworm case study; the ICS techniques are in a separate ics-attack layer."
+  },
+  {
     "file": "chronicle-2021.json",
     "name": "TeamStarWolf - The Year 2021 in Intrusions",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2021 record supports: CISA advisories AA21-110A, AA21-131A, AA21-148A, AA21-200A, AA21-259A, AA21-265A, AA21-291A and AA21-321A, Ireland NCSC's HSE alert, Mandiant's Pulse Connect Secure mapping, and behavior described by Microsoft, Kaseya, Codecov and others. Each comment names source numbers from case-studies/CHRONICLE_2021.md. Scores: 100 the source prints the id, 70 the source describes the behavior and the study assigns the id, 40 the behavior is Inferred.",

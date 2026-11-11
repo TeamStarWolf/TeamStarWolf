@@ -494,6 +494,9 @@ CATALOG = [
       ("case-studies/chronicle-2020-ics.json", "The Year 2020 in Intrusions (ICS)",
        "The 9 ATT&CK for ICS techniques that NSA and CISA advisory AA20-205A maps for operational technology, from the "
        "[2020 chronicle case study](/case-studies/CHRONICLE_2020.md)"),
+      ("case-studies/sandworm-operations-ics.json", "Sandworm Operations (ICS)",
+       "The 49 ATT&CK for ICS techniques bound to dated Sandworm Team (G0034) events from the 2015, 2016 and 2022 Ukrainian grid attacks, NotPetya, Bad Rabbit and VPNFilter, from the "
+       "[Sandworm case study](/case-studies/SANDWORM_OPERATIONS.md)"),
       ("case-studies/chronicle-2021-ics.json", "The Year 2021 in Intrusions (ICS)",
        "The 3 ATT&CK for ICS techniques bound to the February 2021 water facility SCADA incident in CISA AA21-042A, from the "
        "[2021 chronicle case study](/case-studies/CHRONICLE_2021.md)")]),

@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 30 min (6,990 words at 230 words a minute)
+About 30 min (6,992 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -95,7 +95,7 @@ Evidence grade: the flaw, the affected and fixed versions, the KEV listing, the 
 
 1. **Patch to the 2026-jul build for your line.** Move to the latest security patch release for your line, then apply the matching APSB26-73 isolated patch from Adobe's KB article KA-37421 and confirm it with the Commerce Version Tool shipped in the ZIP. On Adobe Commerce on cloud infrastructure, check `vendor/bin/magento-patches -n status` instead and do not apply the patch twice (Confirmed [7]). The KEV due date is 10 November 2026 (Confirmed [5]).
 2. **Treat 2.4.9 as affected.** Sansec says 2.4.9 GA contains the fix, but Adobe, the CVE record and NVD all list 2.4.9 as affected and Adobe ships a 2.4.9-2026-jul patch. Follow Adobe (Reported [10]; Confirmed [1][3][4]).
-3. **Confirm the web tier refuses to run code from media folders.** On nginx, the `/media/custom_options/` deny must sit ahead of any PHP location block; on Apache, the folder's `.htaccess` must deny access and disable PHP (Reported [10]; upstream rules Confirmed [14]). This blocks execution only, so it bridges to the patch and does not replace it.
+3. **Confirm the web tier refuses to run code from media folders.** On nginx, the `/media/custom_options/` deny must sit ahead of any PHP location block (Confirmed [10][14]); on Apache, the folder's `.htaccess` must deny access and disable PHP (Reported [10]). This blocks execution only, so it bridges to the patch and does not replace it.
 4. **Hunt before you close the ticket.** Any file other than `.htaccess` under `pub/media/custom_options/` or `pub/media/customer_address/`, any `accesson.php`, and the strings `fpCode`, `se_referrer` or `localStorage.getItem` in CMS blocks or pages are strong indicators of compromise (Confirmed [10][12]). If you find them, review `admin_user` and rotate database, admin and API credentials (Confirmed [12]).
 5. **Filter the API call if you cannot patch this week.** Sansec says only a WAF rule on the guest-cart item calls stops the upload itself (Confirmed [10]). Default access logs do not record request bodies, so detecting `file_info` in those calls needs WAF or reverse-proxy body logging (Inferred [24]).
 
@@ -304,7 +304,7 @@ SELECT page_id, identifier, update_time FROM cms_page
  WHERE content LIKE '%fpCode%' OR content LIKE '%se_referrer%' OR content LIKE '%localStorage.getItem%';
 ```
 
-Sansec treats any non-`.htaccess` file in `pub/media/custom_options/` and any `accesson.php` as a strong indicator of compromise (Reported [10]), and its October report adds `pub/media/customer_address/`, the three CMS markers, and a review of the `admin_user` table (Confirmed [12]). The lab ran the custom-options find, the `accesson.php` sweep and the two queries: the find listed the lab's own marker file, and the other two came back empty (Demonstrated [27]).
+Sansec treats any non-`.htaccess` file in `pub/media/custom_options/` and any `accesson.php` as a strong indicator of compromise (Confirmed [10]), and its October report adds `pub/media/customer_address/`, the three CMS markers, and a review of the `admin_user` table (Confirmed [12]). The lab ran the custom-options find, the `accesson.php` sweep and the two queries: the find listed the lab's own marker file, and the other two came back empty (Demonstrated [27]).
 
 ### Apply the fix
 
@@ -323,7 +323,7 @@ Sansec treats any non-`.htaccess` file in `pub/media/custom_options/` and any `a
 ### If you cannot patch yet
 
 - **Stop the upload at the edge.** A WAF rule on the guest-cart item `POST` and `PUT` calls is the only control Sansec says stops the upload itself (Confirmed [10]). Sansec reports that Akamai added WAF protection on 27 March 2026 (Reported [10]).
-- **Stop execution on the server.** Keep the nginx deny for the custom options path ahead of any PHP location block, and confirm the Apache `.htaccess` disables PHP and denies access (Reported [10]).
+- **Stop execution on the server.** Keep the nginx deny for the custom options path ahead of any PHP location block (Confirmed [10][14]), and confirm the Apache `.htaccess` disables PHP and denies access (Reported [10]).
 - **Neither replaces the patch.** Both leave the vulnerable code in place, and the directory deny leaves the write itself untouched (Confirmed [10]).
 
 ### If you find a compromise

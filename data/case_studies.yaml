@@ -990,6 +990,30 @@ studies:
       - {"date": "2026-10-31", "label": "The fixed php:8.4.27-apache Docker tag is last pushed"}
       - {"date": "2026-11-02", "label": "NVD last modifies both records"}
       - {"date": "2026-11-04", "label": "TeamStarWolf lab run: 8.4.26 and 8.4.27 told apart; both interim workarounds take effect"}
+  case-studies/PLEX_MEDIA_SERVER_2026_CVES.md:
+    kind: "vulnerability"
+    title: "Plex Media Server, CVE-2026-96652, CVE-2026-96654, CVE-2026-96655 and CVE-2026-96656: The Plex2Shell Chain in the Lab"
+    start: "2026-07"
+    end: "2026-11"
+    sectors: ["technology", "media"]
+    cves: ["CVE-2026-96651", "CVE-2026-96652", "CVE-2026-96654", "CVE-2026-96655", "CVE-2026-96656", "CVE-2026-98432"]
+    actors: []
+    tags: ["Plex", "Plex Media Server", "Plex2Shell", "SSRF", "cryptominer", "proxyware", "Docker", "lab"]
+    pdf: "Plex_Media_Server_2026_CVEs_Case_Study.pdf"
+    pptx: "Plex_Media_Server_2026_CVEs_Case_Study.pptx"
+    events:
+      - {"date": "2026-07-14", "label": "1.43.3.10828 general release, the last vulnerable 1.43.3 build; its notes list no security fixes"}
+      - {"date": "2026-07-27", "label": "Zach Main reports the chain to Plex"}
+      - {"date": "2026-08-03", "label": "1.43.3.10861 Beta; the CISA advisory gives this as each CVE's release date"}
+      - {"date": "2026-08-04", "label": "1.43.3.10861 general release and Docker tag; Plex acknowledges the report"}
+      - {"date": "2026-09-01", "label": "Plex announces the security update and asks owners for \"1.43.3 or newer\""}
+      - {"date": "2026-09-23", "label": "CISA as CNA publishes the four CVEs and advisory VA-26-266-01"}
+      - {"date": "2026-10-16", "label": "The researcher's Plex2Shell write-up goes public"}
+      - {"date": "2026-10-17", "label": "A honeypot operator sees the first in-the-wild exploitation"}
+      - {"date": "2026-10-19", "label": "Plex reports active, wide exploitation with miners and proxy software"}
+      - {"date": "2026-10-20", "label": "CISA adds all four CVEs to KEV, each marked as chainable with the other three"}
+      - {"date": "2026-11-03", "label": "KEV due date for CVE-2026-96652 and CVE-2026-96655"}
+      - {"date": "2026-11-04", "label": "TeamStarWolf lab run: 1.43.2.10687 and 1.43.3.10828 told from 1.43.3.10861; no exploit step run"}
   case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md:
     kind: "vulnerability"
     title: "ProFTPD mod_copy, CVE-2015-3306: Unauthenticated File Copy in the Lab"

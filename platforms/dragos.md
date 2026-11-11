@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (750 words at 230 words a minute)
+About 4 min (1,017 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -93,6 +93,24 @@ Dragos forwards detections and asset data to a `SIEM` such as Splunk, so operati
 Asset and vulnerability data can feed a vulnerability-management program for unified reporting. Detections can drive a security orchestration tool for notification, while keeping response actions human-gated in the control environment.
 
 Data flows outward as detections, asset records, and vulnerability findings. Inbound change is limited to configuration and intelligence updates. Keep connected accounts scoped to the data each integration consumes.
+
+## Adversary perspective
+
+Dragos monitors operational-technology networks passively, so the adversary angle is evading its detection and the fragility of the control systems it watches, not the platform as a route to code execution. The defensive steps are in the "Hardening and secure use" section that follows.
+
+### Evasion and detection gaps
+
+- Blending with normal operations: detection maps to known industrial threat behaviors and a baseline, so an attacker using valid control commands within expected patterns, or acting slowly, can stay below the threshold.
+- Blind spots in passive collection: a passive sensor sees only traffic on a monitored tap or span. Activity on an unmonitored segment, a serial or point-to-point link, or hands-on access to a controller leaves no record to detect.
+- Starving or spoofing the view (ATT&CK T1685, Disable or Modify Tools): a foothold that disrupts the tap feeding a sensor, or injects traffic, degrades the inventory and detections so they no longer reflect the real state.
+
+### Residual risk and own exposure
+
+Passive monitoring does not patch or harden the controllers it watches; those devices tolerate little active probing and often wait for a maintenance window to be fixed, so known weaknesses persist. The platform and its sensors hold broad visibility and credentials (leaked keys map to [CWE-798](https://cwe.mitre.org/data/definitions/798.html)), so the management interface belongs off the general network and in the monitoring scope.
+
+### Why it matters
+
+Treat loss of sensor visibility as an event in its own right, keep detection content current, and remember the tool reports exposure it cannot remove. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for prioritizing fragile assets and [the incident response reference](/INCIDENT_RESPONSE_REFERENCE.md) for control-environment response.
 
 ## Hardening and secure use
 

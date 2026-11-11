@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (908 words at 230 words a minute)
+About 5 min (1,202 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -86,6 +86,24 @@ Operations run in the Microsoft Defender portal: incidents and alerts, device in
 As part of Defender XDR, endpoint signals correlate with identity, email, and cloud signals in the same portal. Microsoft Sentinel is the native SIEM target; the Defender connector streams alerts and raw events into Sentinel for correlation and retention. The platform also exposes APIs for alerts, vulnerability data, and device actions.
 
 Vulnerability findings and security recommendations flow into Intune for remediation, and can be exported by API into a vulnerability management workflow or a ticketing system such as ServiceNow. Alerts and incidents can be forwarded to non-Microsoft SIEM and SOAR products through the API and the streaming connector.
+
+## Adversary perspective
+
+Because Defender for Endpoint is the primary detection control on the host, adversaries treat it as something to blind or disable, and its portal and API are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and tampering
+
+- Impairing the sensor (ATT&CK T1685, Disable or Modify Tools): with local administrator rights an attacker tries to disable real-time protection, stop the sensor, or exclude a path so activity goes unseen. Tamper protection and enforce-mode attack surface reduction rules are the countermeasures.
+- Running below or around the sensor: bring-your-own-vulnerable-driver (BYOVD) and user-mode unhooking aim to act outside sensor visibility, and a broad exclusion becomes a safe harbor to run from.
+- Portal and API abuse: a hijacked portal session or a registered application with broad permission and a stolen secret lets an attacker change policy, run device actions, or pull telemetry across the tenant, which turns the control into a foothold ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)). Certificate credentials over shared secrets reduce this risk.
+
+### Residual risk and own exposure
+
+The sensor runs with high privilege on every device, so a flaw in it or in the cloud service is high-impact, and endpoint sensors across the industry have carried privilege-escalation and bypass issues. The sensor build, the management channel, and the API integrations belong in the patch and monitoring scope, and no sensor catches every technique on its own.
+
+### Why it matters
+
+Treating the endpoint control as infallible is the mistake. A mature program monitors the control's own health, including tamper events, disabled rules, and onboarding gaps, as a detection signal, and keeps devices current. See [the red team reference](/RED_TEAM_REFERENCE.md) for the evasion techniques and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

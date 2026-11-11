@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 9 min (2,141 words at 230 words a minute)
+About 11 min (2,447 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -96,6 +96,24 @@ Acts as a virtual-patching / compensating control at the network edge: when a cr
 **Framework mapping:** NIST CSF 2.0: PROTECT (PR.PS, PR.IR), DETECT (DE.CM), RESPOND (RS.MI); IDENTIFY (ID.AM) via API discovery; CIS Controls v8: 13.10 (application-layer filtering/WAF), 7 (continuous vulnerability management - compensating control), 16 (application software security), 8 (audit log management); MITRE ATT&CK mitigations: M1050 Exploit Protection, M1037 Filter Network Traffic, M1031 Network Intrusion Prevention, M1036 Account Use Policies (bot/credential-stuffing controls)
 
 **In a critical-CVE scenario.** First 24-72h on a critical internet-facing CVE: (1) Confirm which properties/paths are exposed; (2) enable the Akamai-published Rapid Rule for the CVE or author a custom WAF rule targeting the exploit pattern, deployed first in alert/log-only mode; (3) validate attack traffic is blocked while legitimate flows pass, then switch to deny and push network-wide; (4) raise rate controls/client-reputation blocking and watch the AI dashboard and SIEM feed for exploitation attempts; (5) for the cloud workload, front it with AAP or Hybrid so the same virtual patch applies; keep the rule as a tracked temporary control until the code/library is patched and verified.
+
+## Adversary perspective
+
+App & API Protector sits inline in front of the application, so adversaries treat it as an obstacle to route around rather than a wall, and it has blind spots by design. It is also an internet-facing edge control, which makes it a target in its own right. The detection and tuning guidance is in the "Validation & telemetry" section that follows.
+
+### Evasion and bypass
+
+- Signature and normalization gaps: attackers encode, case-vary, chunk, or pad a request so it no longer matches a managed or custom rule while still reaching the origin (ATT&CK T1685, Disable or Modify Tools). Body-inspection size limits can let a large payload pass uninspected.
+- Direct-to-origin: if the origin accepts traffic from anywhere rather than only from Akamai edge IPs with the shared-secret origin-authentication header, an attacker who discovers the origin address reaches the application and skips the edge entirely.
+- Logic flaws the rules never see: negative-security rules do not catch application-specific broken access control or authentication bypass ([CWE-284](https://cwe.mitre.org/data/definitions/284.html)), and bot and rate controls can be paced or distributed to stay under thresholds.
+
+### Residual risk and own exposure
+
+AAP is a compensating control, not a fix: the underlying flaw remains and an attacker who finds an unfiltered variant still reaches it, so each rule added for a specific flaw is a temporary measure pending the real patch. Internet-facing edge and WAAP platforms are among the most-targeted assets, with a history of pre-authentication flaws exploited in the wild, so the configuration, origin-lockdown secret, and management access belong in the patch and monitoring scope.
+
+### Why it matters
+
+Knowing what the edge cannot see, namely oversized bodies, direct-to-origin paths, and logic flaws, tells a tester where to push and a defender what not to rely on. See [web application pentesting](/WEB_APPLICATION_PENTESTING.md) for the bypass method and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for treating virtual patches as temporary.
 
 ## Validation & telemetry
 

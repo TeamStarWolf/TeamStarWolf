@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,077 words at 230 words a minute)
+About 6 min (1,333 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -94,6 +94,25 @@ ISE integrates with directory and identity sources to authenticate users and wit
 ISE forwards logs to SIEM platforms, which supports detection and investigation. A SIEM or SOAR workflow can in turn drive an Adaptive Network Control action through the integration, so a detection can trigger a quarantine.
 
 The data flow during an incident runs both ways: ISE publishes who and what is on the network, and it accepts an instruction to change a session for a device of concern.
+
+## Adversary perspective
+
+ISE is the access-layer policy decision point, so adversaries work to slip past admission or to neutralize its quarantine, and the ISE nodes themselves are a high-value target. The steps to lock it down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- MAC Authentication Bypass spoofing (ATT&CK T1556): because MAB trusts a hardware address, an attacker spoofs the MAC of an admitted printer or IoT device to inherit its access. Tightly scoped MAB authorization limits the gain.
+- Rogue device behind an authenticated port: a hub or a device placed behind an already-authenticated endpoint can ride its session where port security does not re-check.
+- Quarantine evasion: a Change of Authorization or Adaptive Network Control action that applies on wired but not wireless, or the reverse, lets a device reconnect on the uncovered medium.
+- Admin and credential abuse ([CWE-798](https://cwe.mitre.org/data/definitions/798.html), [CWE-269](https://cwe.mitre.org/data/definitions/269.html)): stolen identity-source or integration credentials, or a hijacked admin session, let an attacker rewrite policy and admit themselves.
+
+### Residual risk and own exposure
+
+ISE decides admission but does not inspect what an admitted device then does, and a fail-open design admits everything when a node is unreachable. Network access and management appliances have carried pre-authentication flaws, so the ISE nodes belong in the patch and monitoring scope like any internet-adjacent management surface.
+
+### Why it matters
+
+A tester tries MAB spoofing, tests quarantine on both media, and checks fail-state behavior; a defender monitors authentication logs and alerts on policy changes. See [the network protocols security reference](/NETWORK_PROTOCOLS_SECURITY.md) and [the red team reference](/RED_TEAM_REFERENCE.md).
 
 ## Hardening and secure use
 

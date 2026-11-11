@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (1,012 words at 230 words a minute)
+About 5 min (1,258 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -96,6 +96,24 @@ Detection data flows outward to other tools. Proofpoint integrates with SIEM pla
 The platform also integrates with SOAR tools. A response workflow can act on a Proofpoint verdict: enriching an incident, pulling a message from mailboxes, or triggering further containment. This connects email events to the broader response process.
 
 Outcomes feed back into reporting and training. Click data and threat verdicts inform which users and which campaigns need attention, and they can shape the simulated phishing program.
+
+## Adversary perspective
+
+Proofpoint is the control on the delivery path, so attackers craft messages to pass its filters and sandboxes and abuse trusted routes, and its console with mail-removal and release functions is itself a target. The defensive steps are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Defeating dynamic inspection: attackers delay weaponization so a rewritten URL resolves clean at click time, use sandbox-evasion and environment checks so an attachment behaves differently when detonated, and rely on credential-harvest pages that host no malware.
+- Trusted-sender and allow-list abuse: permit rules, trusted relays, and compromised partner accounts let mail skip scrutiny, so attackers target those gaps rather than the engines directly.
+- Look-alike domains and impersonation: display-name spoofing and registered look-alike domains support business email compromise that carries no payload for a signature to catch.
+
+### Residual risk and own exposure
+
+Filtering lowers volume but does not remove the need for endpoint and identity controls, and a well-crafted targeted message can still reach a user. The platform can pull mail from mailboxes and release quarantined messages, and holds integration credentials, so the console and its API are consequential and belong in the monitoring and review scope (leaked keys map to [CWE-798](https://cwe.mitre.org/data/definitions/798.html)).
+
+### Why it matters
+
+Guard the removal and release functions, review quarantine and allow-list trends, and treat the gateway as one layer among endpoint and identity defenses. See [the incident response reference](/INCIDENT_RESPONSE_REFERENCE.md) for scoping a phishing campaign and [the red team reference](/RED_TEAM_REFERENCE.md) for phishing technique.
 
 ## Hardening and secure use
 

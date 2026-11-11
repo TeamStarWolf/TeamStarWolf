@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (820 words at 230 words a minute)
+About 5 min (1,128 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -77,6 +77,25 @@ Deployment is connecting the platform to the data sources and controls through A
 ## Integrations and data flow
 
 Zafran integrates with the surrounding stack, and its Cortex XSOAR content pack is a clear example of the data flow. The XSOAR integration connects to the Zafran API with a server URL and an API key, and it provides commands to export recommended mitigations (with an optional ZQL filter) and to push mitigation status back to Zafran, carrying a state and optional external ticket identifier and URL. That pattern, pull the prioritized mitigations into the workflow engine and write the result back, is how the platform fits a security-operations pipeline alongside [Cortex XSOAR](/platforms/cortex-xsoar.md), ticketing, and a SIEM.
+
+## Adversary perspective
+
+Because Zafran connects to and reads the configuration of many other security controls and holds a ranked map of what is exploitable, adversaries treat it as both a reconnaissance prize and a place to steer mitigation away. The steps to lock the deployment down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Stealing connector credentials (ATT&CK T1078, Valid Accounts): the platform holds an API key and read credentials for every data source and control it connects to, so a stolen key reaches that whole set ([CWE-798](https://cwe.mitre.org/data/definitions/798.html)).
+- Reading the exposure model: the ranked list of what is reachable and uncovered is a precise map of where to attack and which controls are absent, which is direct reconnaissance.
+- Suppressing or rejecting mitigations (ATT&CK T1685, Disable or Modify Tools): console access lets an attacker reject or stall mitigations so a real exposure stays open while the queue still looks managed.
+- Trusting the model too far: an attacker who knows a control is credited as mitigating an exposure can target the gap the model assumes is closed.
+
+### Residual risk and own exposure
+
+Zafran reasons from the findings and control configuration it is given, so it inherits the blind spots of its sources and can misjudge coverage when a control is misconfigured in a way its connector does not see. Its read access across the control stack is privileged, so the connectors belong in the patch and monitoring scope like any other software.
+
+### Why it matters
+
+A tester targets the connector credentials and the exposure model rather than the assets the model ranks. A defender monitors connector use, mitigation rejections, and changes to control-efficacy assumptions as signals in their own right. See [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope and [the red team reference](/RED_TEAM_REFERENCE.md) for the credential and evasion techniques.
 
 ## Hardening and secure use
 

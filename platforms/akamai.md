@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 3 min (618 words at 230 words a minute)
+About 4 min (918 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -75,6 +75,26 @@ Deployment is onboarding properties and assigning a security policy, then tuning
 ## Integrations and data flow
 
 Security events stream to a SIEM through the Akamai SIEM connector, so edge detections and blocks land alongside the rest of the telemetry. The firewall also integrates with the vulnerability workflow as the place an emergency virtual-patch rule is written for an internet-facing CVE.
+
+## Adversary perspective
+
+Akamai is a network-plane control in the request path, so adversaries work to slip past its firewall or make it irrelevant, and the edge configuration and management API are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Signature and normalization gaps: an encoded or fragmented payload, or a parsing difference between the edge and the origin, can read as benign to the managed rules yet execute at the application ([CWE-693](https://cwe.mitre.org/data/definitions/693.html)).
+- Reaching the origin directly: if the origin accepts traffic from anywhere, an attacker who learns its address connects straight to it and the firewall, rate controls, and Prolexic never see the request.
+- Body and size limits: inspection can skip or truncate very large bodies, so an attack in an oversized request passes.
+- Logic and bot abuse: credential stuffing, scraping, and business-logic flaws look like valid traffic no signature matches.
+- Disabling the control (ATT&CK T1685, Disable or Modify Tools): a stolen management credential can move a rule from deny back to alert or weaken a policy.
+
+### Residual risk and own exposure
+
+Internet-facing edge and delivery platforms are among the most-targeted assets, and this product class has a history of pre-authentication flaws exploited in the wild. The firewall also only sees traffic routed through it and only blocks what its rules express, so an alert-mode rule is not a control. The edge configuration and its API credentials belong in the patch and monitoring scope.
+
+### Why it matters
+
+For a tester, the edge is a filter to characterize and route around, not a wall. For a defender, it must be paired with a locked origin, rules confirmed in deny, and monitoring of configuration changes. See [the red team reference](/RED_TEAM_REFERENCE.md) and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md).
 
 ## Hardening and secure use
 

@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,037 words at 230 words a minute)
+About 6 min (1,361 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -109,6 +109,24 @@ DataHawk provides backup-anomaly and threat detection. It studies change rates, 
 Data classification adds impact context. Knowing which sensitive data a compromised system held informs notification, prioritization, and recovery order.
 
 Recovery testing turns the verification step into evidence. Scheduled restores and documented results confirm that the surviving copies recover cleanly.
+
+## Adversary perspective
+
+Because Cohesity holds the recovery capability and copies of sensitive data, ransomware actors treat it as something to neutralize before they detonate, and the Helios control plane, the clusters, and the admin identities over them are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Destroying recovery before impact (ATT&CK T1490, Inhibit System Recovery): with backup admin access an attacker tries to delete snapshots, expire protection, or lower retention before encrypting production. Immutable snapshots that cannot be altered in place, plus an isolated or archived copy, are the counters.
+- Abusing the backup identity (ATT&CK T1078, Valid Accounts): a compromised Cohesity administrator, or a reused production domain admin account, can change policy or attempt to erase retained copies, which is why separate identities and role separation matter ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Blinding or outrunning detection: an attacker who pre-stages encryption slowly can try to stay under DataHawk anomaly thresholds, so the analytics are a signal rather than a guarantee.
+
+### Residual risk and own exposure
+
+Cohesity cannot prevent a compromise and cannot recover workloads that were never protected or that were restored from an infected point. The platform stores credentials for many systems and classifies sensitive data, and backup software across the industry has been a notable exploitation target, so its control plane belongs in the patch and monitoring scope and its own compromise is a breach in its own right.
+
+### Why it matters
+
+A tester probes whether snapshots can be deleted or retention weakened with the access at hand, and whether an isolated copy is truly out of reach. A defender alarms on mass snapshot deletion, retention changes, and policy edits as incidents in their own right, and treats DataHawk findings as an early warning. See [the ransomware defense reference](/RANSOMWARE_DEFENSE_REFERENCE.md) for how immutable and isolated copies fit, and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 

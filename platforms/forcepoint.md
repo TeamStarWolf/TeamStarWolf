@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (1,008 words at 230 words a minute)
+About 6 min (1,291 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -115,6 +115,26 @@ Forcepoint integrates with identity providers through `SAML` and `SCIM` so that 
 Incidents and logs flow to a SIEM for correlation. Data loss prevention events are valuable to a security operations team because they show attempts to move sensitive data, which can indicate both mistakes and deliberate exfiltration. Correlating these events with identity and endpoint data helps judge intent and scope.
 
 APIs support configuration and reporting, which allows policy and incident data to be managed alongside other tooling.
+
+## Adversary perspective
+
+Forcepoint enforces web and cloud access and watches for sensitive data leaving, so adversaries work to move data by a channel it does not see and to route around its inspection. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+
+### Evasion and bypass
+
+- Channel and steering bypass: data moved over a channel that is not steered or inspected, or from an endpoint where the agent is absent or disabled, escapes data loss prevention (ATT&CK T1685, Disable or Modify Tools).
+- Defeating classifiers: encrypting, encoding, renaming, or splitting content can prevent classifiers and fingerprints from matching, so sensitive data passes as something else.
+- SSL-inspection exclusions: traffic excluded from decryption is not examined, and an attacker favors those destinations for exfiltration.
+- Monitor mode and permissive defaults: a policy left in monitor mode records exposure without blocking it.
+- NGFW edge exposure: where the next-generation firewall is deployed, an internet-facing boundary device is a target like any edge appliance.
+
+### Residual risk and own exposure
+
+Data loss prevention catches known patterns on inspected channels, so novel encodings and unmonitored paths remain the real residual risk, and the admin tenant holds sensitive classifiers and incident data. Where appliances are deployed, they are tracked assets with their own patch state. Admin access, API credentials, and agent enforcement belong in the monitoring scope ([CWE-312](https://cwe.mitre.org/data/definitions/312.html)).
+
+### Why it matters
+
+For a tester, an uninspected channel and a classifier that a simple transform defeats are the first things to look for. For a defender, covering every channel, keeping exclusions small, and switching tuned rules from monitor to block are what make the control real. See [the red team reference](/RED_TEAM_REFERENCE.md) and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md).
 
 ## Hardening and secure use
 

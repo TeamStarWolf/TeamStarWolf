@@ -940,6 +940,16 @@ All sources were opened on 3 November 2026. "Primary" means the organization tha
 | 100 | CISA, Known Exploited Vulnerabilities catalog, JSON feed (version 2026.11.03) | [cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 2026-11-03 | Confirmed |
 | 101 | TeamStarWolf library, ATT&CK v20.0 technique data with tactics and CAPEC mappings (`technique_profiles.jsonl`) | [github.com/TeamStarWolf/TeamStarWolf/.../data/attack/technique_profiles.jsonl](https://github.com/TeamStarWolf/TeamStarWolf/blob/e85b5594301fe061043fe92040135252c97b695d/data/attack/technique_profiles.jsonl) | 2026-11-03 | Confirmed |
 
+*© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*
+
+*© The MITRE Corporation. Includes material from the Common Weakness Enumeration (CWE™), used under the CWE Terms of Use. https://cwe.mitre.org/*
+
+*© The MITRE Corporation. Includes material from the Common Attack Pattern Enumeration and Classification (CAPEC™), used under the CAPEC Terms of Use. https://capec.mitre.org/*
+
+*© The MITRE Corporation. Includes material from MITRE D3FEND™, used under the D3FEND Terms of Use. https://d3fend.mitre.org/*
+
+*The terms for every MITRE dataset used here are recorded in [THIRD_PARTY_NOTICES.md](/THIRD_PARTY_NOTICES.md).*
+
 ## Related references
 
 - [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [CVE Reference](/CVE_REFERENCE.md)

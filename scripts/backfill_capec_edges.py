@@ -4,7 +4,7 @@
 data/weaknesses/capec.jsonl is the source of truth for the CAPEC<->ATT&CK
 relationship: each CAPEC pattern lists the techniques it maps to in
 `attack_techniques`. data/attack/technique_profiles.jsonl advertises a `capec`
-field per technique but ships it empty in every row (a generator omission —
+field per technique but ships it empty in every row (a generator omission;
 audit / Library Enhancement Roadmap Tier 1.5). This script inverts the CAPEC
 mapping (technique_id -> sorted CAPEC ids) and writes it into each profile.
 

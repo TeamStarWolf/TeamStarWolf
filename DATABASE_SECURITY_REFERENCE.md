@@ -165,7 +165,7 @@ Key management is the hard part. Store the master/wrapping keys in a KMS or HSM,
 In transit: enforce TLS for all client, admin, and replication connections; require modern TLS (1.2+/1.3), validate certificates on the client, and reject non-TLS connections rather than merely offering TLS. Example (PostgreSQL `pg_hba.conf`): use `hostssl` (not `host`) for remote records and set `ssl = on`.
 
 ```conf
-# pg_hba.conf — require TLS + strong auth for remote clients, no plaintext
+# pg_hba.conf: require TLS + strong auth for remote clients, no plaintext
 hostssl  appdb  app_svc  10.0.0.0/24  scram-sha-256
 # (omit any 'host ... trust' or 0.0.0.0/0 lines entirely)
 ```

@@ -4,7 +4,7 @@
     "navigator": "4.9",
     "layer": "4.5"
   },
-  "name": "SIEM Coverage — Splunk ES, Microsoft Sentinel, Elastic Security",
+  "name": "SIEM Coverage: Splunk ES, Microsoft Sentinel, Elastic Security",
   "description": "ATT&CK technique coverage provided by Splunk Enterprise Security, Microsoft Sentinel, and Elastic Security SIEM through log correlation, behavioral detection rules, and UEBA analytics.",
   "domain": "enterprise-attack",
   "techniques": [
@@ -95,7 +95,7 @@
     {
       "techniqueID": "T1003.001",
       "score": 3,
-      "comment": "LSASS memory access detection — Mimikatz signatures",
+      "comment": "LSASS memory access detection: Mimikatz signatures",
       "color": ""
     },
     {
@@ -185,7 +185,7 @@
     {
       "techniqueID": "T1486",
       "score": 3,
-      "comment": "Ransomware behavioral detection — mass file encryption patterns",
+      "comment": "Ransomware behavioral detection: mass file encryption patterns",
       "color": ""
     },
     {

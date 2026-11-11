@@ -446,7 +446,7 @@ ubertooth-rx
 # Pipe to Wireshark for live analysis
 ubertooth-btle -f -p | wireshark -k -i -
 
-# Kismet integration — add Ubertooth as Bluetooth source
+# Kismet integration: add Ubertooth as Bluetooth source
 # In kismet.conf:
 # source=ubertooth-0:name=ubertooth
 

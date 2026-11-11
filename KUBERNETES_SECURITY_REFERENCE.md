@@ -196,7 +196,7 @@ metadata:
 rules:
   - apiGroups: [""]
     resources: ["configmaps"]
-    resourceNames: ["app-config"]   # Specific resource name — not all configmaps
+    resourceNames: ["app-config"]   # Specific resource name, not all configmaps
     verbs: ["get"]
 
 ---
@@ -218,18 +218,18 @@ roleRef:
 ### RBAC Audit Tools
 
 ```bash
-# rakkess — access matrix for any user/SA
+# rakkess: access matrix for any user/SA
 kubectl krew install rakkess
 kubectl rakkess --as system:serviceaccount:default:my-sa
 
-# rbac-police — evaluate RBAC policies against rule sets
+# rbac-police: evaluate RBAC policies against rule sets
 rbac-police eval -f rules/
 
-# rbac-view — visualize RBAC in browser
+# rbac-view: visualize RBAC in browser
 kubectl krew install rbac-view
 kubectl rbac-view
 
-# KubiScan — scan RBAC for risky permissions
+# KubiScan: scan RBAC for risky permissions
 python3 KubiScan.py -rs  # Scan for risky subjects
 python3 KubiScan.py -rr  # Scan for risky roles
 ```
@@ -243,7 +243,7 @@ python3 KubiScan.py -rr  # Scan for risky roles
 If a container runs with `securityContext.privileged: true`, it has near-full access to the host:
 
 ```bash
-# Inside privileged container — mount host filesystem
+# Inside privileged container: mount host filesystem
 ls /dev/          # Shows all host devices (sda, sdb, etc.)
 mount /dev/sda1 /mnt/
 chroot /mnt/ /bin/bash   # Full host root shell
@@ -297,7 +297,7 @@ cat /tmp/output                       # Running as host root
 ### Token-Based Lateral Movement
 
 ```bash
-# From compromised pod — read mounted service account token
+# From compromised pod: read mounted service account token
 cat /var/run/secrets/kubernetes.io/serviceaccount/token
 export TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
 export CACERT=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
@@ -355,7 +355,7 @@ kube-hunter --remote 10.0.0.1
 # In-cluster scan (deploy as a Pod)
 kube-hunter --pod
 
-# Passive scan only (no exploitation — safe for production)
+# Passive scan only (no exploitation: safe for production)
 kube-hunter --remote 10.0.0.1 --passive
 
 # JSON output
@@ -502,7 +502,7 @@ spec:
 ### Dry-Run Mode (Test Before Enforcing)
 
 ```bash
-# Simulate enforcement — shows violations without blocking
+# Simulate enforcement: shows violations without blocking
 kubectl label namespace staging   pod-security.kubernetes.io/enforce=restricted   --dry-run=server
 
 # Use warn mode first to discover violations
@@ -644,7 +644,7 @@ kubectl get secret db-creds -o yaml
 # Decode
 kubectl get secret db-creds -o jsonpath='{.data.password}' | base64 -d
 
-# Read raw etcd value (base64 — demonstrates NO encryption by default)
+# Read raw etcd value (base64: demonstrates NO encryption by default)
 etcdctl get /registry/secrets/default/db-creds
 ```
 
@@ -877,7 +877,7 @@ deny[msg] {
   input.kind == "Deployment"
   container := input.spec.template.spec.containers[_]
   endswith(container.image, ":latest")
-  msg := sprintf("Image '%v' uses :latest tag — pin to specific digest", [container.image])
+  msg := sprintf("Image '%v' uses :latest tag: pin to specific digest", [container.image])
 }
 
 deny[msg] {
@@ -1003,14 +1003,14 @@ NETWORKING
 [ ] Control plane isolated from workload network
 [ ] Sensitive services not exposed via NodePort or external LoadBalancer
 [ ] Service mesh with mTLS (Istio or Linkerd) for pod-to-pod encryption
-[ ] Egress traffic restricted — deny unexpected outbound connections
-[ ] CNI plugin supports NetworkPolicy (Calico, Cilium — not Flannel alone)
+[ ] Egress traffic restricted: deny unexpected outbound connections
+[ ] CNI plugin supports NetworkPolicy (Calico, Cilium, not Flannel alone)
 
 IMAGES
 [ ] All images scanned for vulnerabilities before deployment (Trivy in CI)
 [ ] Only signed images allowed (Cosign + Kyverno or Gatekeeper policy)
 [ ] Base images are minimal (distroless or Alpine-based)
-[ ] No :latest tags — pin to specific digest (image@sha256:...)
+[ ] No :latest tags: pin to specific digest (image@sha256:...)
 [ ] Images rebuilt on base image CVE patches (automated pipeline)
 [ ] SBOMs generated and attested for all images (Syft + Cosign attest)
 
@@ -1019,12 +1019,12 @@ RBAC
 [ ] No workload has cluster-admin binding
 [ ] Dedicated service accounts per workload
 [ ] default SA has no permissions and automount disabled
-[ ] Regular RBAC audit (rakkess, rbac-police) — quarterly minimum
+[ ] Regular RBAC audit (rakkess, rbac-police): quarterly minimum
 [ ] Impersonate permission restricted to ops tooling only
 
 SECRETS
 [ ] Secrets encryption at rest enabled in etcd
-[ ] No secrets in environment variables — use secretKeyRef or volume mounts
+[ ] No secrets in environment variables: use secretKeyRef or volume mounts
 [ ] External Secrets Operator or Vault for secret lifecycle management
 [ ] RBAC restricts who can read/list secrets (least privilege)
 [ ] No secrets committed to Git (detect with trufflehog, gitleaks)
@@ -1033,7 +1033,7 @@ SECRETS
 MONITORING & DETECTION
 [ ] Falco deployed with eBPF driver for runtime threat detection
 [ ] Kubernetes API server audit logs forwarded to SIEM
-[ ] CIS benchmark (kube-bench) results reviewed — critical findings remediated
+[ ] CIS benchmark (kube-bench) results reviewed: critical findings remediated
 [ ] kube-hunter run in passive mode quarterly for self-assessment
 [ ] Alerting on: privilege escalation, exec in pods, secret access, new ClusterRoleBindings
 [ ] Container image drift detection (Falco or Prisma Cloud)
@@ -1073,7 +1073,7 @@ kubectl get secret test-secret -o yaml
 # List all service accounts with mounted tokens
 kubectl get pods --all-namespaces -o json |   jq '.items[] | select(.spec.automountServiceAccountToken!=false) | "\(.metadata.namespace)/\(.metadata.name)"'
 
-# Audit images — find :latest tags
+# Audit images: find :latest tags
 kubectl get pods --all-namespaces -o json |   jq -r '.items[].spec.containers[].image' | grep ':latest'
 
 # List namespaces without Pod Security Standards

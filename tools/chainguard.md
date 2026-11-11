@@ -50,17 +50,17 @@ Chainguard is a preventive/remediation control that attacks the vulnerability li
 **Log sources**
 - Supply-chain hardening: the 'telemetry' is cryptographic metadata attached to the image in the OCI registry (cgr.dev/chainguard public, cgr.dev/<ORG> for org images), not a running-agent log stream.
 - Signed in-toto attestations per build: (1) SPDX SBOM (predicate https://spdx.dev/Document), (2) SLSA provenance (predicate https://slsa.dev/provenance/v1) describing the build environment, (3) apko build-config (direct deps, users, entrypoint).
-- Signatures: keyless Sigstore — Fulcio cert tied to the GitHub Actions OIDC identity of Chainguard's release workflow, logged in the Rekor transparency log.
-- Validation/collection points: CI (cosign verify / verify-attestation), admission time (Sigstore policy-controller, Kyverno, or Chainguard/enforce policy), and the registry/scanner pipeline. Operational logs of these checks live in CI run logs, the Kubernetes admission controller / kube-audit log, and Rekor — not in Chainguard itself.
+- Signatures: keyless Sigstore: Fulcio cert tied to the GitHub Actions OIDC identity of Chainguard's release workflow, logged in the Rekor transparency log.
+- Validation/collection points: CI (cosign verify / verify-attestation), admission time (Sigstore policy-controller, Kyverno, or Chainguard/enforce policy), and the registry/scanner pipeline. Operational logs of these checks live in CI run logs, the Kubernetes admission controller / kube-audit log, and Rekor, not in Chainguard itself.
 - VERIFIED: three attestation types (SLSA provenance v1, apko config, SPDX SBOM); cosign download/verify-attestation flow; keyless verify reporting Rekor-entry + cert-chain validation; retrieval guide current to July 2025.
 
 **Telemetry format / transport.** in-toto attestation statements in a Sigstore DSSE envelope (JSON; SBOM payload base64 inside), predicate types SPDX / SLSA provenance / apko config. Transport: OCI registry referrers/attachments (cosign download sbom / download attestation). Verification evidence: cosign CLI JSON output, Kubernetes admission-review JSON, Rekor transparency-log entries.
 
-**Control-presence check (present & configured?).** Presence is proven by a successful cosign verification pinned to Chainguard's build identity, not by the attestation merely existing. Signature: `cosign verify cgr.dev/chainguard/<image> --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity-regexp='https://github.com/chainguard-images/images.*release.*'`. Attestation by type: `cosign verify-attestation --type https://slsa.dev/provenance/v1 ...` and `--type https://spdx.dev/Document ...` — a pass reports predicate validates, Rekor entry exists (checked offline), cert chains to trusted CA. SBOM retrieval: `cosign download sbom cgr.dev/chainguard/<image>`. Cluster-side: query the ClusterImagePolicy / Kyverno policy object to confirm a rule requires these attestations for the target namespace.
+**Control-presence check (present & configured?).** Presence is proven by a successful cosign verification pinned to Chainguard's build identity, not by the attestation merely existing. Signature: `cosign verify cgr.dev/chainguard/<image> --certificate-oidc-issuer=https://token.actions.githubusercontent.com --certificate-identity-regexp='https://github.com/chainguard-images/images.*release.*'`. Attestation by type: `cosign verify-attestation --type https://slsa.dev/provenance/v1 ...` and `--type https://spdx.dev/Document ...`: a pass reports predicate validates, Rekor entry exists (checked offline), cert chains to trusted CA. SBOM retrieval: `cosign download sbom cgr.dev/chainguard/<image>`. Cluster-side: query the ClusterImagePolicy / Kyverno policy object to confirm a rule requires these attestations for the target namespace.
 
 **Validation signals (actually working?)**
 - CONFIGURED: a ClusterImagePolicy/Kyverno/enforce policy requires the Chainguard signature+attestations for the namespace, AND standalone cosign verify-attestation passes on the image.
-- EFFECTIVE: an admission-time DENY in the K8s API-server audit log / admission-controller log showing a non-conforming image (unsigned, wrong identity, failing attestation) was rejected at deploy — the active block that proves enforcement.
+- EFFECTIVE: an admission-time DENY in the K8s API-server audit log / admission-controller log showing a non-conforming image (unsigned, wrong identity, failing attestation) was rejected at deploy: the active block that proves enforcement.
 - EFFECTIVE (secondary): the image's vuln-scan (Grype/Trivy against the SBOM) showing zero/known-fixed CVEs, proving the hardened-image mitigation is realized.
 - Distinguish: a passing cosign verify proves the provenance control is PRESENT; an admission audit entry 'denied the request: no matching signatures/attestations' proves the policy actively BLOCKED a bad image.
 
@@ -69,7 +69,7 @@ Chainguard is a preventive/remediation control that attacks the vulnerability li
 - Attestation: predicateType (https://slsa.dev/provenance/v1 | https://spdx.dev/Document), predicate.buildDefinition / predicate.runDetails (SLSA builder.id, invocation), SPDX packages[].name/versionInfo/externalRefs (CPE/PURL -> CVE).
 - Kubernetes admission audit: objectRef.resource=pods, responseStatus.code (403 on deny), message ('failed policy: <name>: no matching attestations'); policy-controller/Kyverno emit a Warning/Blocked event with the image digest.
 - Pin by digest (@sha256:) not tag for a deterministic claim.
-- NOTE: the exact certificate-identity string differs across Chainguard docs (chainguard-images/images vs images-private) — confirm the current value before pinning it in an enforcing policy.
+- NOTE: the exact certificate-identity string differs across Chainguard docs (chainguard-images/images vs images-private): confirm the current value before pinning it in an enforcing policy.
 
 **Example queries**
 
@@ -101,11 +101,11 @@ AzureDiagnostics
 **How it mitigates (mechanism).** Mitigation is upstream (minimal, frequently-rebuilt distroless images carry far less vulnerable surface) made verifiable by signed provenance: the SLSA/SPDX attestations let an admission controller cryptographically require that only images built by Chainguard's pipeline run, so the observable block (an admission DENY on a missing/invalid attestation) is the inline enforcement point and the SBOM lets a scanner confirm the reduced CVE surface.
 
 **Logging gotchas**
-- cosign verify succeeding only proves authenticity/provenance — it says nothing about current CVE status; you still must scan the SBOM, and SBOM freshness lags a rebuild.
-- No Chainguard-side log proves the image was deployed or blocked — enforcement evidence lives entirely in YOUR admission controller + K8s audit log, which must be enabled and shipped (kube-audit is off by default on many clusters).
+- cosign verify succeeding only proves authenticity/provenance: it says nothing about current CVE status; you still must scan the SBOM, and SBOM freshness lags a rebuild.
+- No Chainguard-side log proves the image was deployed or blocked: enforcement evidence lives entirely in YOUR admission controller + K8s audit log, which must be enabled and shipped (kube-audit is off by default on many clusters).
 - Verifying a floating tag instead of a digest lets content drift; always pin @sha256:.
 - The certificate-identity value has changed across docs/repos (images vs images-private), so an over-tight policy can reject legitimate images after a pipeline change.
-- Keyless verification depends on reaching Fulcio/Rekor roots (or a staged trust bundle) — air-gapped verification needs the bundle staged.
+- Keyless verification depends on reaching Fulcio/Rekor roots (or a staged trust bundle): air-gapped verification needs the bundle staged.
 - Attestations are per-build/per-platform, so a multi-arch index requires verifying each platform's manifest.
 
 ## Documentation & repositories
@@ -140,7 +140,7 @@ _Learning & reference_
 - [Chainguard Unchained blog](https://www.chainguard.dev/unchained)
 - [Chainguard developer resources hub](https://edu.chainguard.dev/developer-resources/)
 
-> Note: Supply-chain focused: minimal, distroless, 0-known-CVE hardened container images plus signing/provenance tooling. Note the two GitHub orgs — chainguard-dev (tools: apko, melange, chainctl, images-autodocs) and chainguard-images (image build configs). Images are distroless by default with a `-dev` variant (shell/package manager) for build stages. Free Starter tier is built on Wolfi; other images on Chainguard OS. Full catalog and private-registry (cgr.dev) pulls require an org account. All GitHub/edu URLs here were surfaced or corroborated in search; the Terraform cosign provider path follows Chainguard's standard registry namespace.
+> Note: Supply-chain focused: minimal, distroless, 0-known-CVE hardened container images plus signing/provenance tooling. Note the two GitHub orgs: chainguard-dev (tools: apko, melange, chainctl, images-autodocs) and chainguard-images (image build configs). Images are distroless by default with a `-dev` variant (shell/package manager) for build stages. Free Starter tier is built on Wolfi; other images on Chainguard OS. Full catalog and private-registry (cgr.dev) pulls require an org account. All GitHub/edu URLs here were surfaced or corroborated in search; the Terraform cosign provider path follows Chainguard's standard registry namespace.
 
 ## Current state (2025-26)
 

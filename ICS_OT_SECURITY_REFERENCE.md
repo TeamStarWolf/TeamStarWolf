@@ -548,7 +548,7 @@ MITRE ATT&CK for ICS is the definitive framework for mapping adversary behaviors
 Passive monitoring should always be the first choice. Active scanning can crash PLCs, corrupt process states, or trigger safety shutdowns.
 
 ```bash
-# Wireshark/tshark — passive protocol identification
+# Wireshark/tshark: passive protocol identification
 tshark -i eth0 -f "port 502 or port 102 or port 44818 or port 2404 or port 20000" \
   -T fields -e ip.src -e ip.dst -e tcp.port -e frame.protocols
 
@@ -556,7 +556,7 @@ tshark -i eth0 -f "port 502 or port 102 or port 44818 or port 2404 or port 20000
 # /opt/zeek/share/zeek/base/protocols/ contains modbus, dnp3, s7comm parsers
 zeek -C -i eth0 /path/to/ics-protocol-scripts/
 
-# Nmap with ICS scripts (USE CAUTIOUSLY — can crash controllers)
+# Nmap with ICS scripts (USE CAUTIOUSLY: can crash controllers)
 nmap -sV --script modbus-discover -p 502 192.168.1.0/24
 nmap --script s7-info -p 102 192.168.1.0/24
 nmap --script enip-info -p 44818 192.168.1.0/24
@@ -599,27 +599,27 @@ from pymodbus.exceptions import ConnectionException
 client = ModbusTcpClient('192.168.1.100', port=502)
 
 if client.connect():
-    # Read coils (discrete outputs) — FC01
+    # Read coils (discrete outputs): FC01
     coils = client.read_coils(0, 10, unit=1)
     print(f"Coils: {coils.bits}")
 
-    # Read discrete inputs — FC02
+    # Read discrete inputs: FC02
     inputs = client.read_discrete_inputs(0, 10, unit=1)
 
-    # Read holding registers — FC03 (most common)
+    # Read holding registers: FC03 (most common)
     registers = client.read_holding_registers(0, 10, unit=1)
     print(f"Registers: {registers.registers}")
 
-    # Read input registers — FC04
+    # Read input registers: FC04
     input_regs = client.read_input_registers(0, 10, unit=1)
 
-    # !! DANGEROUS — Write single register (FC06) — setpoint modification
+    # !! DANGEROUS: Write single register (FC06): setpoint modification
     # result = client.write_register(100, 9999, unit=1)
 
-    # !! DANGEROUS — Write multiple registers (FC16)
+    # !! DANGEROUS: Write multiple registers (FC16)
     # result = client.write_registers(100, [1000, 2000, 3000], unit=1)
 
-    # !! DANGEROUS — Write single coil (FC05) — toggle discrete output
+    # !! DANGEROUS: Write single coil (FC05): toggle discrete output
     # result = client.write_coil(0, True, unit=1)
 
     client.close()
@@ -973,7 +973,7 @@ OT detection differs fundamentally from IT because:
 Baseline deviation detection:
 ```
 Normal: Modbus Read (FC03) from HMI to PLC every 500ms
-Alert: Modbus Write (FC06) from any source — should be extremely rare
+Alert: Modbus Write (FC06) from any source; should be extremely rare
 Alert: Any Modbus traffic outside scheduled maintenance window from EWS
 Alert: Unknown source IP communicating on port 502
 ```

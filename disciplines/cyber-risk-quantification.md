@@ -307,12 +307,12 @@ import numpy as np
 np.random.seed(42)
 n_simulations = 100_000
 
-# Loss Event Frequency — PERT distribution (min, likely, max)
+# Loss Event Frequency: PERT distribution (min, likely, max)
 tef = np.random.triangular(0.5, 2, 5, n_simulations)      # threat event frequency per year
 vulnerability = np.random.triangular(0.1, 0.35, 0.6, n_simulations)
 lef = tef * vulnerability
 
-# Loss Magnitude — log-normal (realistic for financial losses)
+# Loss Magnitude: log-normal (realistic for financial losses)
 primary_loss = np.random.lognormal(mean=13.5, sigma=1.0, size=n_simulations)  # ~$730K median
 secondary_loss = np.random.lognormal(mean=12.5, sigma=0.8, size=n_simulations) # ~$270K median
 total_loss = primary_loss + secondary_loss

@@ -2,6 +2,55 @@
 
 systemd is the init system and service manager on most mainstream Linux distributions. `systemctl` controls units, and `journalctl` reads the logs systemd collects. This page covers service control, unit files, timers, and the hardening directives that limit what a service can do. It targets administrators and security engineers managing Linux hosts.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Linux administrators and engineers who manage services and other units with systemd
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 3 min (650 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the systemd and systemctl commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Linux Command Reference](/commands/linux-commands.md), [Networking Command Reference](/commands/networking-commands.md), [SSH Command Reference](/commands/ssh.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 systemd is PID 1 on Debian, Ubuntu, RHEL, Fedora, SUSE, Arch, and their derivatives. It starts and supervises services, sockets, mounts, timers, and other units. `systemctl` talks to the system manager, or to a per-user manager with `--user`. Most state-changing commands need root, usually through `sudo`.

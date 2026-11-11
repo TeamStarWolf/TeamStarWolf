@@ -6,6 +6,55 @@
 |---|---|---|---|
 | Half a day for a pilot; 2-4 weeks to full production | Intermediate | Domain Admin (or Intune Endpoint Security Manager) rights, a pilot OU or device group, GPMC/RSAT | A deployed baseline, enforced ASR rules, Sysmon + 4688 telemetry, LAPS, a compliance scan report, and an exception register |
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Sysadmins and security engineers who own Windows endpoints
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (2,130 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are applying a security baseline to Windows 11 or Windows Server through GPO or Intune, you need ASR rules, Sysmon and LAPS rolled out safely, or you want a scanner report that proves the result
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Before you start](#before-you-start), [Step 1: Pick your baseline standard](#step-1-pick-your-baseline-standard), [Step 8: Verify with a scanner and document exceptions](#step-8-verify-with-a-scanner-and-document-exceptions)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Windows Hardening](/WINDOWS_HARDENING.md), [Windows Hardening GPO Reference](/WINDOWS_HARDENING_GPO.md), [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md), [Enterprise Security Controls](/ENTERPRISE_SECURITY_CONTROLS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Before you start
 
 - [ ] Read the library's three Windows hardening references: this guide operationalizes them: [WINDOWS_HARDENING.md](/WINDOWS_HARDENING.md), [WINDOWS_HARDENING_GPO.md](/WINDOWS_HARDENING_GPO.md), [WINDOWS_HARDENING_REFERENCE.md](/WINDOWS_HARDENING_REFERENCE.md)

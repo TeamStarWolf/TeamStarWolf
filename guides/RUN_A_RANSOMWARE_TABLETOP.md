@@ -6,6 +6,55 @@
 |---|---|---|---|
 | ~12 weeks part-time planning, one ~4-hour session, after-action closes ~8 weeks later | Intermediate: no tooling to install; facilitation and follow-through discipline are the hard parts | The free CISA CTEP package, your current IR/DR/BC plans, an executive sponsor, a facilitator, a room with A/V | A customized situation manual, a facilitated tabletop, and an HSEEP-style After-Action Report / Improvement Plan (AAR/IP) with owners and dates |
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security leads, continuity planners and IT managers asked to exercise the ransomware plan
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,409 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You have been asked to exercise the ransomware plan, you want to run a CISA CTEP-based tabletop without a consultant, or you need to turn its findings into a corrective-action plan
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Before you start](#before-you-start), [Step 2: Download the CTEP package and pick your scenario](#step-2-download-the-ctep-package-and-pick-your-scenario), [Step 7: Turn findings into a corrective-action plan](#step-7-turn-findings-into-a-corrective-action-plan)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md), [Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md), [IR Playbooks](/IR_PLAYBOOKS.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Before you start
 
 - [ ] Read the Testing tiers section of [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md): where a tabletop sits on the exercise ladder and what it can and cannot prove.

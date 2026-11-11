@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · Related: [Supply Chain Security](/SUPPLY_CHAIN_SECURITY.md), [Threat Actors](/THREAT_ACTORS.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Identity Security](/IDENTITY_SECURITY_REFERENCE.md), [Cloud Attacks](/CLOUD_ATTACK_REFERENCE.md), [XZ Utils Backdoor 2024](/case-studies/XZ_UTILS_BACKDOOR_2024.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Threat intelligence analysts, supply chain security engineers and identity and incident response teams
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 52 min (11,950 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the facts of the SolarWinds Orion compromise and the SUNBURST backdoor, you are assessing build-system and vendor-update risk, or you want the attribution and the defender view in one place
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 6: the defender view](#part-6-the-defender-view)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Threat Actors](/THREAT_ACTORS.md), [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 For most of 2020, thousands of IT teams installed a routine, digitally signed update to SolarWinds Orion, the network monitoring platform that sits on some of the most trusted servers in an enterprise. The update carried a backdoor. Nobody at SolarWinds had written it into the source code: a small implant on the company's build server, later named SUNSPOT, watched for the compiler to start, swapped one source file for a trojanized copy for the length of the build, and put the original back (Confirmed [7][9]). The resulting DLL was signed by SolarWinds' own certificate and shipped through SolarWinds' own update channel (Confirmed [6]). Fewer than 18,000 customers may have installed an affected version (Confirmed [14]); the attackers then picked a small fraction of them for hands-on follow-up, which the White House later put at nine federal agencies and about 100 private companies (Confirmed [53]).

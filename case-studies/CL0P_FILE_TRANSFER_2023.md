@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · Related: [Edge Device Security](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Supply Chain Security](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Ransomware Defense](/RANSOMWARE_DEFENSE_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, incident responders and owners of managed file transfer systems
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 14 min (3,307 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You want to understand the Cl0p MOVEit campaign and the file-transfer extortion pattern behind it, you run managed file transfer software on the internet edge, or you need the lessons for treating that software as its own asset class
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [Part 2: the MOVEit zero-day](#part-2-the-moveit-zero-day), [Part 4: managed file transfer as an asset class](#part-4-managed-file-transfer-as-an-asset-class)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 Over the US Memorial Day weekend of 2023, the Cl0p extortion group exploited a zero-day flaw in Progress MOVEit Transfer, a managed file transfer product used by thousands of organizations to move sensitive data between parties. The flaw, CVE-2023-34362, was a SQL injection weakness that let an unauthenticated attacker reach the application database and drop a web shell that stole files wholesale. Cl0p did not encrypt anything. It copied the data, listed victims on its leak site, and demanded payment to keep the files unpublished. By August 2024 the running tally reached roughly 2,773 organizations and about 95.8 million individuals, and it is best read as a floor, because many of the organizations hit were service providers whose own customers became downstream victims.

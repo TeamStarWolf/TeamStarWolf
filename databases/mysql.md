@@ -2,6 +2,55 @@
 
 MySQL is an open-source relational database widely used behind web applications and content systems. MariaDB is a community fork started by the original MySQL authors after the Oracle acquisition, and it stays largely wire-compatible and SQL-compatible. Both store data in tables managed by pluggable storage engines, with InnoDB as the transactional default. This page covers both, noting where they diverge.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Database administrators, developers and security engineers who run, query or assess MySQL and MariaDB
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 3 min (717 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are modeling data or writing queries for MySQL and MariaDB, you are administering or hardening a deployment, or you want a worked example to start from
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Data model and architecture](#data-model-and-architecture), [Security and hardening](#security-and-hardening), [A worked example](#a-worked-example)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[SQL](/languages/sql.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [PostgreSQL](/databases/postgresql.md), [Oracle Database](/databases/oracle.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 MySQL powers the classic LAMP stack and backs platforms such as WordPress, Drupal, and many commerce systems. It runs on Linux, Windows, and macOS, and has managed forms on Amazon RDS and Aurora, Azure, and Google Cloud SQL. MariaDB ships as the default in several Linux distributions and offers its own clustering and storage engine options. Applications often target the shared subset so they can run on either.

@@ -4,6 +4,55 @@
 
 Azure does not ship one security product. The native stack is a set of services that share Entra ID, Azure Resource Manager, and Log Analytics. [Microsoft Defender for Cloud](/tools/microsoft-defender-for-cloud.md) is the CNAPP (CSPM, workload plans, attack paths, and the integrated vulnerability scanner). [Microsoft Entra ID](/tools/entra-id.md) is the identity plane. This page is the rest of the control plane those two sit in, and how the pieces map onto vulnerability management and CTEM. Product names and SKUs move. Confirm the current name on the linked Microsoft Learn page before you buy or automate.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the cloud security engineers who run Azure Native Security
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 7 min (1,573 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Azure Native Security can do to mitigate a vulnerability before the fix lands, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation and telemetry](#validation-and-telemetry), [Documentation and repositories](#documentation-and-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Microsoft Defender for Cloud](/tools/microsoft-defender-for-cloud.md), [Microsoft Entra ID](/tools/entra-id.md), [CTEM Reference](/CTEM_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities and architecture
 
 **What each service is for**

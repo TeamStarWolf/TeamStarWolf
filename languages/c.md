@@ -14,6 +14,55 @@ C is a statically typed, compiled, imperative language created by Dennis Ritchie
 
 Related: [C++](/languages/cpp.md), [Rust](/languages/rust.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain C code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,265 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing C code (typical uses: operating systems, embedded firmware, drivers, runtimes, tooling), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[C++](/languages/cpp.md), [Rust](/languages/rust.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 C grew out of Ken Thompson's B language and was used to rewrite the Unix kernel, which tied the language to systems programming from the start. The 1978 book *The C Programming Language* by Brian Kernighan and Dennis Ritchie documented the early dialect, often called K&R C. The language was first standardized as ANSI C89, adopted by ISO as C90, and revised several times since: C99 added variable-length arrays, `//` comments, and fixed-width integer types; C11 added atomics, threads, and `_Generic`; C17 was a bug-fix release; and C23 added `nullptr`, `constexpr`, and `_BitInt`.

@@ -2,6 +2,55 @@
 
 > By the end of this guide you will have a data flow diagram, a ranked STRIDE threat list, mitigations mapped to each finding, an honest ATT&CK coverage layer, and backlog items your team can actually ship. This is for developers, security champions, and security engineers running their first (or first *rigorous*) threat model on a real application (no prior threat modeling experience required).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers, security champions and security engineers running their first threat model
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,440 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are threat modeling an application for the first time, you need a data flow diagram and a ranked STRIDE threat list, or you want findings your team can ship as backlog items
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[At a glance](#at-a-glance), [Step 3: Draw the DFD with trust boundaries](#step-3-draw-the-dfd-with-trust-boundaries), [Step 4: Enumerate threats element by element with STRIDE](#step-4-enumerate-threats-element-by-element-with-stride)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Threat Modeling Reference](/THREAT_MODELING_REFERENCE.md), [D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md), [ATT&CK Mitigations Reference](/ATTACK_MITIGATIONS_REFERENCE.md), [Security Architecture Reference](/SECURITY_ARCHITECTURE_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## At a glance
 
 | Time | Difficulty | You need | You'll produce |

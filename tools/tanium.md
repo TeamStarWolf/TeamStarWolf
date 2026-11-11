@@ -4,6 +4,55 @@
 
 Tanium is a single-agent platform that unifies IT operations and security operations, giving real-time visibility and control over every managed endpoint at enterprise scale. Its linear-chain peer-to-peer architecture lets a central server query and act on hundreds of thousands of endpoints in seconds, which is the basis for its vulnerability, patch and compliance capabilities. Tanium's current positioning is Autonomous Endpoint Management (AEM), evolving the earlier Converged Endpoint Management (XEM) brand toward AI-driven, recommendation-and-automation-led operations. It solves the fragmentation and stale-data problem of running separate discovery, patch, vuln-scan, compliance and EDR tools.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the endpoint management and security operations teams who run Tanium
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,198 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Tanium can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md), [Enterprise Security Controls](/ENTERPRISE_SECURITY_CONTROLS.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Windows Hardening GPO Reference](/WINDOWS_HARDENING_GPO.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**

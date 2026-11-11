@@ -10,6 +10,55 @@ Ordinary MFA (SMS one-time codes, authenticator push, TOTP) is now routinely def
 
 Why now: [CISA](https://www.cisa.gov/MFA) names FIDO/WebAuthn and PKI the only widely available phishing-resistant methods; the July 2025 [Scattered Spider advisory (AA23-320A)](https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-320a) puts phishing-resistant MFA plus help-desk hardening at the top of its mitigations; Microsoft's mandatory-MFA enforcement reached Azure resource management in [Phase 2 (from October 1, 2025)](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mandatory-multifactor-authentication); and Microsoft is making passkeys the [default authentication method in Entra ID from September 2026](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-sms-voice-retirement). This is the highest-return identity control available in 2026.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Identity engineers, Microsoft Entra and M365 administrators and the security lead who owns MFA
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate to advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 16 min (3,592 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are moving from phishable MFA to FIDO2 keys, passkeys, Windows Hello for Business or certificate-based auth, you need Conditional Access policies that enforce it, or you are protecting break-glass and recovery paths
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Before you start](#before-you-start), [Step 2: Choose your phishing-resistant methods](#step-2-choose-your-phishing-resistant-methods), [Step 5: Build the Conditional Access policies](#step-5-build-the-conditional-access-policies)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Identity & Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Password Security Reference](/PASSWORD_SECURITY_REFERENCE.md), [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Before you start
 
 - [ ] Read the identity references this guide sequences: the MFA bypass techniques and Entra vendor controls in the [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), the FIDO2/WebAuthn deep dive and Conditional Access structure in the [Identity & Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), and the AAL3 / phishing-resistance definitions in the [Password Security Reference](/PASSWORD_SECURITY_REFERENCE.md). This guide assumes their vocabulary (AiTM, AAL3, verifier-impersonation resistance, authentication strength).

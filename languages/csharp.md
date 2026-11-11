@@ -14,6 +14,55 @@ C# is a statically typed, object-oriented language created by Microsoft and firs
 
 Related: [F#](/languages/fsharp.md), [Visual Basic .NET](/languages/visual-basic-net.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain C# code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,263 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing C# code (typical uses: web back ends, desktop apps, game development, cloud services), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[F#](/languages/fsharp.md), [Visual Basic .NET](/languages/visual-basic-net.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Microsoft introduced C# in 2000 alongside the .NET Framework, with Anders Hejlsberg as lead architect. The language is standardized as [ECMA-334](https://ecma-international.org/publications-and-standards/standards/ecma-334/) and ISO/IEC 23270. The platform shifted from the Windows-only .NET Framework to the open-source, cross-platform .NET Core, which merged into a unified [.NET](https://dotnet.microsoft.com/) line (.NET 5 and later) that releases yearly, with even-numbered releases designated long-term support.

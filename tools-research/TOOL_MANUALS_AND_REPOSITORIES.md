@@ -6,6 +6,55 @@ Back to [Tools Research](/tools-research/README.md)
 
 This directory covers **ServiceNow**, **Armis** and the **MITRE threat-informed defense ecosystem**. For Tenable, Wiz, Snyk, Invicti, Zafran and Splunk, see [Security Tool Documentation](/SECURITY_TOOL_DOCUMENTATION.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management and security engineering teams who run a CTEM stack
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 7,128 words, 79% in tables; look entries up from Start at or the search (about 31 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the official manual, API reference, release notes or repository for ServiceNow, Armis or the MITRE threat-informed defense tools, or you want to know which old links have moved or died
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[How to use this page](#how-to-use-this-page), [ServiceNow](#servicenow), [Dead or moved links to avoid](#dead-or-moved-links-to-avoid)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Tools Research](/tools-research/README.md), [Security Tool Documentation & Repositories](/SECURITY_TOOL_DOCUMENTATION.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## How to use this page
 
 Each table gives a resource, what it is for, and the result of the 2026-10-08 check. The Status column uses these values:

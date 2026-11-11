@@ -2,11 +2,54 @@
 
 > In one minute: 46 AI tools and model platforms that practitioners and builders use in 2026, grouped by what they do. Each row links the tool's official documentation and repository and a one-page manual in this library: what the tool is for, how to start, its key concepts, and its security risks. Versions and facts were checked against official sources on 8 October 2026; AI tooling changes fast, so confirm the current release before relying on a detail.
 
-| | |
-|---|---|
-| Read this when | choosing an AI tool or model platform, reviewing one a team wants to adopt, or looking for the official docs, repository and security notes for a tool in one place |
-| Start at | the group that matches the job, then open the tool's manual |
-| Pairs with | [AI Tooling overview](/ai-tooling/README.md), [AI and LLM Learning Path](/ai-tooling/AI_LEARNING_PATH.md), [AI Labs](/ai-tooling/AI_LABS.md), [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md) |
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Practitioners, builders and reviewers who choose or assess AI tools and model platforms
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Length</th><td>
+
+Lookup page: 1,510 words, 87% in tables; look entries up from Start at or the search (about 7 min end to end at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are choosing an AI tool or model platform, you are reviewing one a team wants to adopt, or you need the official docs, repository and security notes for a tool in one place
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Model platforms and hubs](#model-platforms-and-hubs), [Agent and app frameworks](#agent-and-app-frameworks), [AI red teaming and model scanning](#ai-red-teaming-and-model-scanning)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[AI Tooling overview](/ai-tooling/README.md), [AI and LLM Learning Path](/ai-tooling/AI_LEARNING_PATH.md), [AI Labs](/ai-tooling/AI_LABS.md), [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
 
 Tools are listed for reference, not endorsed. Licenses are summarized; read each project's license before use.
 

@@ -2,6 +2,55 @@
 
 Writeups and lessons learned from building, reviewing, and hardening projects in public. The goal is to document what changed, what it surfaced, and what may be useful to other people doing similar work.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Builders and maintainers who harden and run projects in public
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,040 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You want the lessons from hardening and maintaining a real project in public, or you are about to do similar work and want to know what it surfaced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Index](#index), [1. Hardening LimeWire v4](#_1-hardening-limewire-v4), [2. Bulk-bookkeeping the GitHub Stars API](#_2-bulk-bookkeeping-the-github-stars-api)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Curated GitHub Stars Lists](/research/CURATED_STARS_LISTS.md), [Starred Repositories](/STARRED_REPOS.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## How To Use This File
 
 - Start with the index if you want the shortest route to a topic.

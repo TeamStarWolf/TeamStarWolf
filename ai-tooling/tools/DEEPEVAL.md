@@ -11,6 +11,55 @@
 | Repository | [confident-ai/deepeval](https://github.com/confident-ai/deepeval) |
 | Checked | 8 Oct 2026, v4.2.8 (PyPI `deepeval`, published 2 Oct 2026) |
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers, researchers and security teams who use or review DeepEval (evaluation)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 2 min (552 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are trying DeepEval for the first time, you need its key concepts and official documentation in one place, or you are reviewing its security risks before a team adopts it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Quick start](#quick-start), [Key concepts](#key-concepts), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[AI Tools and LLMs Index](/ai-tooling/AI_TOOLS_INDEX.md), [AI and LLM Learning Path](/ai-tooling/AI_LEARNING_PATH.md), [AI Labs](/ai-tooling/AI_LABS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is for
 
 - Writing pass/fail tests for LLM output that run with `deepeval test run`, the same way Pytest collects tests.

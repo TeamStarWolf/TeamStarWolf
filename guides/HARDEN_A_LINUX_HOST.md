@@ -6,6 +6,55 @@
 |---|---|---|---|
 | About 2 hours for one host | Intermediate | Root on a Debian-family Linux host, a snapshot or backup, and a console that does not depend on SSH | An audit record, a sysctl drop-in, an nftables ruleset, an after-state record, and a tested rollback plan |
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Administrators, homelab builders and security engineers who look after their own Linux servers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 20 min (4,493 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You want to audit a Linux host and apply a reversible hardening subset, you need to verify each change took effect, or you want to know how to roll each one back
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Step 1: Audit the host (read-only)](#step-1-audit-the-host-read-only), [Step 8: Verify, then know how to roll back](#step-8-verify-then-know-how-to-roll-back), [Checklist](#checklist)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md), [Linux Hardening](/LINUX_HARDENING.md), [The CVE-2026-98432 Linux Kernel Flaw and an AI-Written Exploit: A 2026 Case Study](/case-studies/LINUX_TCP_UAF_2026.md), [The Multipath TCP Attack Surface: A 2026 Case Study](/case-studies/MPTCP_ATTACK_SURFACE_2026.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Why this guide
 
 In October 2026 the kernel project fixed CVE-2026-98432, an unauthenticated remote use-after-free in IPv4 TCP connection setup, and researchers reported that a Multipath TCP listener turns it into remote code execution. The library's case study on [CVE-2026-98432](/case-studies/LINUX_TCP_UAF_2026.md) explains the bug and the patch gap, and the [Multipath TCP attack surface](/case-studies/MPTCP_ATTACK_SURFACE_2026.md) study explains why an idle kernel feature is surface worth removing. Both end at the same three moves: patch and reboot, turn off Multipath TCP where nothing uses it, and drop inbound IPv4 TCP that carries IP options as a bridge until the patch lands. This guide does those three moves on a real host and adds the baseline around them that a host needs anyway.

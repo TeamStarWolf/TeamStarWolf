@@ -4,6 +4,55 @@
 
 [Download the PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/AI_Threats_2026_Case_Study.pdf) · [Download the slides (PowerPoint, 16 slides)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/AI_Threats_2026_Case_Study.pptx) · [All case studies](/case-studies/README.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security leaders, threat intelligence analysts and defenders sizing up AI-enabled attacks
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 31 min (7,185 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need an evidence-graded account of how attackers used AI through 2026, you are planning defenses against AI-orchestrated intrusions, deepfakes or agent hijacking, or you want the remediation steps by platform
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [Defensive playbook](#defensive-playbook), [Remediation and mitigation by platform and technology](#remediation-and-mitigation-by-platform-and-technology)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[AI Security Reference](/AI_SECURITY_REFERENCE.md), [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md), [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md), [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 As of October 2026, AI has not created new kinds of attack. It has made existing attacks faster, cheaper and harder to spot, and it has turned AI agents themselves into a privileged attack surface. The decisive change of the past 15 months is autonomy: agents now run most of an intrusion while people approve a few decisions.

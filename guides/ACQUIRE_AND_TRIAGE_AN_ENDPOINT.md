@@ -8,6 +8,55 @@
 
 This guide is the procedure behind the library's [Digital Forensics Reference](/DIGITAL_FORENSICS_REFERENCE.md); it operationalizes that reference's order-of-volatility, artifact-location, and evidence-handling sections and assumes their vocabulary (chain of custody, write blocker, hash verification, super-timeline). Forensics and incident response overlap in DFIR but optimize for different things: IR races to contain, forensics preserves evidence and defensibility. When both are true at once, this collection order lets you do the second without blocking the first. The broader response lifecycle this feeds sits in the [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md) and the [IR Playbooks](/IR_PLAYBOOKS.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+DFIR analysts, SOC responders and sysadmins pulled into an investigation
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 13 min (2,938 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You suspect a Windows or Linux host is compromised and need forensically sound memory and disk images, you must keep a chain of custody that holds up, or you need to triage the artifacts into a findings report
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Before you start](#before-you-start), [Step 1: Establish scope, authorization, and the chain of custody](#step-1-establish-scope-authorization-and-the-chain-of-custody), [What good looks like](#what-good-looks-like)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Digital Forensics Reference](/DIGITAL_FORENSICS_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [IR Playbooks](/IR_PLAYBOOKS.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Before you start
 
 - [ ] Written authorization and defined scope. Who authorized the investigation, which hosts and accounts are in scope, and what the objective is. If this is potentially criminal or falls under a regulatory/breach regime, engage legal counsel and (where appropriate) law enforcement *before* acquisition, and route the work under privilege; the counsel-first pattern from [Respond to a Ransomware Incident](/guides/RESPOND_TO_RANSOMWARE.md) applies here too.

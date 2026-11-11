@@ -2,6 +2,55 @@
 
 The AWS CLI (`aws`) is a unified command-line tool for Amazon Web Services. It wraps the service APIs, so almost any action you can take in the console has a command. This page covers identity, storage, compute, IAM, logging, and secrets, plus the output controls that make results scriptable. Commands target AWS CLI v2.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Cloud engineers, administrators and security teams who work in AWS from a terminal
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 2 min (553 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the AWS CLI commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Azure CLI Reference](/commands/azure-cli.md), [Google Cloud CLI (gcloud) Reference](/commands/gcloud.md), [jq Command Reference](/commands/jq.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 The CLI is a Python-based program distributed as a standalone installer for Linux, macOS, and Windows. Calls authenticate with credentials from a profile, an environment variable, an IAM role, or AWS IAM Identity Center (SSO). Every command follows the shape `aws <service> <operation> [parameters]`. Output defaults to JSON, which pairs well with `jq` or the built-in `--query` filter.

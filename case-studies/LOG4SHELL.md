@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · Related: [CVE Reference](/CVE_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [Vulnerability Prioritization](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Supply Chain Security](/SUPPLY_CHAIN_SECURITY.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, Java developers and incident responders
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 58 min (13,439 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the facts of Log4Shell and the exploitation that followed it, you are still finding Log4j in your estate, or you want the vulnerability-management and defender lessons from it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [Part 4: the vulnerability-management view](#part-4-the-vulnerability-management-view), [Part 5: the defender view](#part-5-the-defender-view)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 Apache Log4j 2 is the logging library inside a large share of the world's Java software, usually several dependencies deep and often without the owner knowing it is there. In December 2021 the Log4j project disclosed that a feature added in 2013, the JNDI lookup, let anyone who could get a string into a log line make the server reach out to a directory service they controlled and load code from it. The trigger needed no account and no user interaction, and the string could arrive in a browser's User-Agent header, a chat message in a game, an email header, or any other field an application happened to log. The flaw carries the maximum CVSS score of 10.0, CISA added it to the Known Exploited Vulnerabilities catalog on the day the CVE was published, and within weeks it was in use by cryptominer botnets, ransomware crews, initial access brokers, and state-linked groups from China, Iran and North Korea.

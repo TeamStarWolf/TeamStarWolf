@@ -2,6 +2,55 @@
 
 > By the end of this guide you will have one new log source flowing into your SIEM or data lake, justified by a named ATT&CK data component, normalized to your schema, quality-gated, health-monitored, registered in your source inventory, and proven by a detection that actually fired. This is for the SOC engineer, detection engineer, or sysadmin who has been handed "get the logs in" and wants to do it once, correctly, instead of three times badly.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+SOC engineers, detection engineers and sysadmins asked to get a new log source in
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,204 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You have been asked to bring a new log source into your SIEM or data lake, you want it normalized, quality-gated and monitored, or you need to prove a detection fires on it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[At a glance](#at-a-glance), [Step 1: Define the detection use case first](#step-1-define-the-detection-use-case-first), [Step 8: Prove a detection fires end to end](#step-8-prove-a-detection-fires-end-to-end)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Security Data Engineering Reference](/SECURITY_DATA_ENGINEERING_REFERENCE.md), [ATT&CK Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md), [ATT&CK Detection Strategies](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## At a glance
 
 | Time | Difficulty | You need | You'll produce |

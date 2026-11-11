@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · Related: [Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [CVE Reference](/CVE_REFERENCE.md) · Home studies for events summarized here: [SolarWinds and SUNBURST, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md), [APT41: the public record](/case-studies/APT41_PUBLIC_RECORD.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Threat intelligence analysts, security leaders and defenders who want the history behind current threats
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 72 min (16,655 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You want a dated record of the major intrusions of 2020, you need the state operations, ransomware and mass exploitation of that year side by side, or you want the defender lessons that still apply
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 7: the defender view](#part-7-the-defender-view)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md), [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 In March 2020 much of the workforce moved to remote work; AA20-133A ties the year's VPN exploitation and Office 365 misconfiguration to that shift [90]. Remote access that had been a convenience became the only way in, and VPN concentrators, Citrix gateways and load balancers that had sat unpatched since 2019 became a common front door: AA21-209A says four of the most targeted 2020 flaws affected remote work, VPN or cloud technology [84]. The year's intrusion record follows that shift closely. Governments spent the first half of 2020 warning that state and criminal actors were using COVID-19 lures and exposed remote-access gear; by the summer, the same actors were spraying passwords at vaccine researchers and chaining old VPN bugs with a brand-new domain controller flaw, Zerologon. Ransomware crews stole data before they encrypted it and published it when victims refused to pay, then, in October, turned on US hospitals during the pandemic [68]. In December, a security vendor disclosed its own breach on 8 December, and five days later disclosed that a state-sponsored actor, inside SolarWinds' network since at least September 2019, had injected a backdoor into Orion builds from February 2020; fewer than 18,000 customers were believed to have installed the tainted updates [36][37][103][104].

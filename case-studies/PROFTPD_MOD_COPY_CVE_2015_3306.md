@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · Related: [CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [The Cl0p MOVEit case study](/case-studies/CL0P_FILE_TRANSFER_2023.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, Linux administrators and security engineers who run FTP services
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 34 min (7,730 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the facts of the ProFTPD mod_copy flaw CVE-2015-3306, you still run ProFTPD on a reachable host, or you want to find and fix it on your own hosts
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [Part 4: what the lab showed](#part-4-what-the-lab-showed), [Part 5: how to find and fix it on real hosts](#part-5-how-to-find-and-fix-it-on-real-hosts)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[CVE Reference](/CVE_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [CWE Reference](/CWE_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 ProFTPD is a long-lived open-source FTP server packaged by Debian, Ubuntu, Fedora and SUSE, among others. Its optional mod_copy module adds two SITE commands, CPFR ("copy from") and CPTO ("copy to"), that copy a file from one path on the server to another. In April 2015 a researcher, Vadim Melihow, found that the module answered both commands before the client had logged in. Anyone who could reach the FTP port could copy any file the daemon could read to any place the daemon could write, with no account at all. The project fixed it on 7 April 2015, the day Bug 4169 was filed, shipped the fix in ProFTPD 1.3.5a on 27 May 2015, and the flaw became CVE-2015-3306.

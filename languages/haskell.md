@@ -14,6 +14,55 @@ Haskell is a statically typed, purely functional, lazily evaluated language firs
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [OCaml](/languages/ocaml.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain Haskell code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,487 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing Haskell code (typical uses: compilers, static analysis, financial systems, backend services, research), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[OCaml](/languages/ocaml.md), [Standard ML](/languages/standard-ml.md), [Elixir](/languages/elixir.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Haskell began as a committee effort in the late 1980s to unify several competing non-strict functional languages into a single standard. The first report appeared in 1990; later revisions led to Haskell 98 and then [Haskell 2010](https://www.haskell.org/onlinereport/haskell2010/), the current language report. In practice the language that people write is GHC Haskell, which adds many extensions beyond the report through `LANGUAGE` pragmas.

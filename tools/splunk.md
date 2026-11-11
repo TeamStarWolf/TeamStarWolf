@@ -4,6 +4,55 @@
 
 Splunk Enterprise Security (ES) is an analytics-driven SIEM built on the Splunk data platform: it ingests logs, metrics and events at scale, normalizes them to the Common Information Model (CIM), and runs correlation searches, risk-based alerting and ML to detect and investigate threats. Splunk SOAR (formerly Phantom) adds playbook-driven orchestration, automation and case management. Together they solve the SOC's core problem: turning high-volume, heterogeneous machine data into prioritized, investigable findings and then automating the response. As of ES 8.x the analyst experience (the former Mission Control) and SOAR automation are converged into a single investigation surface.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the SOC analysts and detection engineers who run Splunk Enterprise Security
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 13 min (3,082 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Splunk Enterprise Security can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[SIEM Reference](/SIEM_REFERENCE.md), [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [SOAR Automation Reference](/SOAR_AUTOMATION_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**

@@ -4,6 +4,55 @@
 
 CrowdStrike Falcon is a cloud-native platform delivered through a single lightweight agent that spans endpoint protection (NGAV), EDR/XDR, identity protection, cloud security and IT/exposure management. Falcon Exposure Management (FEM) is its unified exposure/vulnerability offering, built on the long-standing Falcon Spotlight scanless vulnerability-management engine plus Falcon Surface (external attack surface management), Falcon Discover (asset/account/app discovery) and, since 2025, AI-powered Network Vulnerability Assessment. It solves real-time, agent-based vulnerability and exposure visibility with no scan windows, correlated against CrowdStrike's threat intelligence and the same telemetry that powers its EDR. FEM positions vulnerability data inside a prioritized, exploitation-aware exposure view rather than a flat CVE list.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the endpoint security engineers and SOC analysts who run CrowdStrike Falcon
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,374 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what CrowdStrike Falcon can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md), [Enterprise Security Controls](/ENTERPRISE_SECURITY_CONTROLS.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**

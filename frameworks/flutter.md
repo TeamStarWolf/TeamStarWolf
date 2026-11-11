@@ -2,6 +2,55 @@
 
 Flutter is an open-source UI toolkit from Google for building apps from a single `dart` codebase. It targets iOS, Android, web, Windows, macOS, and Linux. Flutter draws its own widgets instead of wrapping native controls, which gives consistent rendering across platforms. Teams use it for one codebase, fast iteration through hot reload, and close-to-native performance.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who build with Flutter, and the reviewers and application security engineers who assess what they build
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (933 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are building or reviewing a Flutter application, you need its security model and common vulnerabilities before a code review, or you want to see how its architecture and ecosystem fit together
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture](#architecture), [Security model and common vulnerabilities](#security-model-and-common-vulnerabilities), [Common pitfalls](#common-pitfalls)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Dart](/languages/dart.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [React Native](/frameworks/react-native.md), [SwiftUI](/frameworks/swiftui.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 Flutter launched in 2017 and reached a stable 1.0 release in late 2018. It uses `dart`, a typed language that compiles ahead of time to native machine code for release builds. Early versions rendered through the Skia engine; newer versions use Impeller for lower-latency shaders.

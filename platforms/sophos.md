@@ -2,6 +2,55 @@
 
 Sophos is an endpoint protection and managed detection vendor whose products are managed from the Sophos Central cloud console. Its endpoint line, Intercept X, combines deep-learning malware prevention, anti-ransomware, and exploit prevention. Sophos XDR extends detection across endpoint, server, firewall, and email, while Sophos MDR offers a managed detection and response service run by Sophos analysts.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Endpoint security engineers and SOC analysts who run, tune or assess Sophos
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,080 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Sophos for endpoint protection, detection and response, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [SentinelOne Singularity](/platforms/sentinelone.md), [Trend Vision One (Trend Micro)](/platforms/trend-micro.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Sophos belongs to the endpoint protection (EPP), endpoint detection and response (EDR), and extended detection and response (XDR) categories. It also spans network and email security, so a single vendor can cover several control layers. The common management plane is Sophos Central, a cloud console that holds policy, alerts, and reporting for every product a tenant licenses.

@@ -2,6 +2,55 @@
 
 Check Point is a network and cloud security vendor. Its gateways enforce access policy, inspect traffic, and apply threat prevention across data center, perimeter, and cloud boundaries. This page describes the product line as generally available in 2026. The licence tier an organization holds decides which capabilities are in force.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Network security engineers who run, tune or assess Check Point
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,103 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Check Point for network firewalling and threat prevention, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Fortinet](/platforms/fortinet.md), [Citrix NetScaler](/platforms/citrix-netscaler.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Check Point sells security enforcement points and the management plane that controls them. The core enforcement product is the Quantum line of security gateways, which act as firewalls, intrusion prevention sensors, and threat prevention inspection points. Harmony covers endpoint and email protection. CloudGuard extends enforcement and posture checking into public cloud accounts and workloads.

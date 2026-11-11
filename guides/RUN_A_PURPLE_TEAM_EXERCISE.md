@@ -2,6 +2,55 @@
 
 > By the end of this guide you will have run a controlled, five-technique detection-validation exercise, scored each result as detected, logged-only, or missed, and turned every miss into a tracked detection backlog item. This is for detection engineers, SOC analysts, and security leads who have a working SIEM and EDR and want to prove, not assume, what their controls actually catch.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Detection engineers, SOC analysts and security leads with a working SIEM and EDR
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (2,159 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You want to prove which techniques your controls actually catch, you are planning a controlled detection-validation exercise, or you need to turn every miss into a detection backlog item
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[At a glance](#at-a-glance), [Step 1: Pick five techniques you believe you detect](#step-1-pick-five-techniques-you-believe-you-detect), [Step 7: Turn every miss into a detection backlog item](#step-7-turn-every-miss-into-a-detection-backlog-item)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Purple Team Reference](/PURPLE_TEAM_REFERENCE.md), [Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md), [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md), [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## At a glance
 
 | Time | Difficulty | You need | You'll produce |

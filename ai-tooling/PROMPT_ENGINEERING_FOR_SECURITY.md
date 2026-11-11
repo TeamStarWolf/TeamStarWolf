@@ -2,6 +2,55 @@
 
 A short prompt usually gets a short, shallow answer. For security work, where the output feeds a report, a triage decision, or a remediation plan, the quality of the prompt decides the quality of the result. This page gives an eight-pillar framework for writing prompts that return accurate, structured, decision-useful output, with security examples and the cautions that matter when a security team puts data in front of a language model. The eight-pillar framing is adapted, with credit, from the MIT-licensed [Prompt-Improver---Zafran](https://github.com/domeger/Prompt-Improver---Zafran) project by domeger; the writing and the security guidance here are this library's own.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security analysts and engineers who use a language model for reports, triage decisions or remediation plans
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 3 min (783 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing a prompt whose answer will feed a report, a triage decision or a remediation plan, you want a worked security example of a structured prompt, or you need the cautions that apply when a model handles security data
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[The eight pillars of an effective prompt](#the-eight-pillars-of-an-effective-prompt), [A worked example](#a-worked-example), [Security cautions when using a language model](#security-cautions-when-using-a-language-model)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[AI Tools and LLMs Index](/ai-tooling/AI_TOOLS_INDEX.md), [AI and LLM Learning Path](/ai-tooling/AI_LEARNING_PATH.md), [AI Labs](/ai-tooling/AI_LABS.md), [AI Security Reference](/AI_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Why prompt quality matters for security
 
 A language model answers the prompt it is given, not the question in your head. "Show assets missing SentinelOne" returns a list; the same intent written as a prompt that names the scope, the data fields, the risk framing, and the output format returns a report an analyst can act on. The difference is not the model, it is the prompt. The pillars below are a checklist for turning a one-line request into that fuller prompt.

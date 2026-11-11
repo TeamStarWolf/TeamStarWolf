@@ -8,6 +8,55 @@
 
 ScubaGear is CISA's free assessment tool for Microsoft 365. It queries your tenant's settings through Microsoft's APIs, evaluates them against the [SCuBA Secure Configuration Baselines](https://github.com/cisagov/ScubaGear/tree/main/PowerShell/ScubaGear/baselines) using Open Policy Agent, and emits a scored report. It reads configuration; it changes nothing. Under [BOD 25-01](https://www.cisa.gov/news-events/directives/bod-25-01-implementing-secure-practices-cloud-services) these baselines are mandatory for U.S. federal civilian agencies; for everyone else they are the best free answer to "is my tenant configured sanely?" The doctrinal context (why tenant misconfiguration is the dominant SaaS exposure class) lives in this library's [SaaS Security Reference](/SAAS_SECURITY_REFERENCE.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Microsoft 365 administrators and security engineers with read-level admin access to a tenant
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (2,121 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You want to score a Microsoft 365 tenant against the CISA SCuBA baselines, you need to read a ScubaGear report like an assessor, or you are planning fixes that will not lock anyone out
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Before you start](#before-you-start), [Step 1: Understand what ScubaGear measures](#step-1-understand-what-scubagear-measures), [Step 5: Read the report like an assessor](#step-5-read-the-report-like-an-assessor)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[SaaS Security Reference](/SAAS_SECURITY_REFERENCE.md), [Identity & Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [CTEM Reference](/CTEM_REFERENCE.md), [SIEM Reference](/SIEM_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Before you start
 
 - [ ] A Windows machine with PowerShell 5.1. ScubaGear requires PowerShell 5, which only ships on Windows ([dependencies doc](https://cisagov.github.io/ScubaGear/docs/prerequisites/dependencies.html)).

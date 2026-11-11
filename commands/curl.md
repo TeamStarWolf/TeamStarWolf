@@ -2,6 +2,55 @@
 
 `curl` transfers data to and from a server over HTTP, HTTPS, FTP, and many other protocols. It is the default tool for testing APIs, scripting downloads, and debugging requests from the command line. This page covers the request, output, authentication, and TLS options you reach for daily. Examples assume HTTP or HTTPS, the most common case.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers, administrators and testers who send HTTP and other URL requests from a terminal
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 2 min (526 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the curl commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [jq Command Reference](/commands/jq.md), [SSH Command Reference](/commands/ssh.md), [Networking Command Reference](/commands/networking-commands.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 `curl` is a command-line client built on the libcurl library. It ships on Linux, macOS, and recent Windows, and builds on most other systems. It reads a URL, sends a request, and writes the response to standard output unless told otherwise. It does not run JavaScript or render pages; it moves bytes.

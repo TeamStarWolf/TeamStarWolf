@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · Related: [Healthcare Security](/HEALTHCARE_SECURITY_REFERENCE.md), [Ransomware Defense](/RANSOMWARE_DEFENSE_REFERENCE.md), [Identity Security](/IDENTITY_SECURITY_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [The Cl0p MOVEit Breach](/case-studies/CL0P_FILE_TRANSFER_2023.md), [Log4Shell](/case-studies/LOG4SHELL.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Healthcare security leaders, incident responders and identity and vulnerability management teams
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 56 min (12,935 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the facts of the 2024 Change Healthcare ransomware attack and its breach count, you run remote access portals that still lack multifactor authentication, or you want the vulnerability-management and defender lessons for healthcare
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 10: the vulnerability-management view](#part-10-the-vulnerability-management-view)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 In late February 2024, pharmacists across the United States found they could not run insurance claims, and practice managers found that the payments they lived on had stopped arriving. Military pharmacies fell back to manual checks and offline procedures (Confirmed [60]). Within three weeks, 94 percent of the hospitals the American Hospital Association surveyed reported a financial hit, and 74 percent reported an effect on direct patient care (Confirmed [55]). More than half of the respondents to an American Medical Association survey, most of them from practices of ten or fewer physicians, had paid practice expenses out of their own pockets (Confirmed [58]). The cause was a single company most patients had never heard of: Change Healthcare, a claims and payments clearinghouse owned by UnitedHealth Group (UHG), whose systems had been encrypted by ransomware on the morning of 21 February (Confirmed [14][17]).

@@ -2,6 +2,55 @@
 
 Object-oriented programming (OOP) organizes a program as a set of objects that hold data and the procedures that act on it, and that interact by calling one another. It is an imperative paradigm: objects carry mutable state and methods change it in order. The set of features that define OOP is debated, so whether a language is object-oriented, and how fully, is a matter of degree rather than a yes or no.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers and students learning object-oriented programming, and reviewers who assess code written in that style
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 5 min (1,213 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning object-oriented programming or deciding whether it fits a problem, you want the languages and tools that support it, or you need its secure-coding considerations before a review
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core idea](#core-idea), [Strengths and trade-offs](#strengths-and-trade-offs), [Secure-coding considerations](#secure-coding-considerations)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Imperative Programming](/paradigms/imperative.md), [Generic Programming](/paradigms/generic.md), [Functional Programming](/paradigms/functional.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Core idea
 
 The unit of structure is the object: a bundle of state (fields) and behavior (methods) that presents an interface and hides its internals. A program is modeled as objects that send each other messages, so the design question becomes which objects exist, what each is responsible for, and how they collaborate. This groups related data and code together and lets calling code depend on what an object does rather than how it does it.

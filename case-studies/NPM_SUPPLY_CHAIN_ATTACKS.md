@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · Related: [Supply Chain Security](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [DevSecOps](/DEVSECOPS_REFERENCE.md), [JavaScript](/languages/javascript.md), [The XZ Utils Backdoor](/case-studies/XZ_UTILS_BACKDOOR_2024.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+JavaScript developers, supply chain security engineers and platform teams that install npm packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 53 min (12,089 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the record of npm supply-chain attacks from 2018 to 2026, you want to check whether a compromised package version reached your builds, or you are tightening how your teams install and publish packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [Part 3: How attackers got publish access](#part-3-how-attackers-got-publish-access), [Part 7: The defender view](#part-7-the-defender-view)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [DevSecOps Reference](/DEVSECOPS_REFERENCE.md), [Package Managers](/PACKAGE_MANAGERS_REFERENCE.md), [Hugging Face as an AI Supply-Chain Attack Surface: A 2021 to 2026 Case Study](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 npm is where the JavaScript community shares its work. A few maintainers, many of them volunteers, publish small packages that millions of projects pull in by name, often several levels deep, on developer laptops and build servers that also hold cloud keys and publishing tokens. That arrangement is what makes the ecosystem fast, and it is why a single stolen login or a single poisoned release reaches so far. This study follows eight years of that record: the 2018 event-stream handover, the 2021 account takeovers, the maintainer sabotage of 2022, state-linked fake packages and fake recruiters, the 2025 phishing wave against maintainers of the most-downloaded packages, the Shai-Hulud worms of 2025 and 2026, and the compromises of axios, TanStack and keyv in 2026. It then sets out what the registry and the package managers changed in response, and what a defender can run today to check, clean and harden a Node estate.

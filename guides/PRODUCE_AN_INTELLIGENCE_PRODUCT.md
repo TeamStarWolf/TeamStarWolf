@@ -8,6 +8,55 @@
 
 This guide operationalizes the intelligence cycle (Planning & Direction, Collection, Processing, Analysis, Dissemination, Feedback) described in the library's [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md). That reference is the doctrinal base: the cycle, STIX/TAXII, IOC enrichment, attribution methodology, and program metrics all live there in depth. The [threat-intelligence discipline path](/disciplines/threat-intelligence.md) is the learning track behind the tradecraft. This guide is the missing middle: the repeatable procedure that turns a question into a product and a product into deployed defense. It does not replace those documents; it sequences them for one turn of the loop.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+CTI analysts, SOC leads and detection engineers who can reach their own telemetry and feeds
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 16 min (3,629 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You have a stakeholder's question to take through the intelligence cycle, you need to write a BLUF-first, TLP-marked product, or you want to hand its indicators and behaviors to detection engineering
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Before you start](#before-you-start), [Step 1: Set the intelligence requirement (Planning & Direction)](#step-1-set-the-intelligence-requirement-planning-amp-direction), [Step 6: Operationalize: hand off to detection engineering](#step-6-operationalize-hand-off-to-detection-engineering)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md), [Threat Intelligence](/disciplines/threat-intelligence.md), [Threat Group Profiles](/THREAT_GROUP_PROFILES.md), [Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Before you start
 
 - [ ] A named stakeholder and a real decision. Intelligence exists to inform a decision someone is about to make. If you cannot name the person and the choice, you are collecting, not producing; stop and find the consumer first.

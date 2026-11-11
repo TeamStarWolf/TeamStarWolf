@@ -2,6 +2,55 @@
 
 Chainguard builds secure-by-default container images and a hardened Linux base that carry few or no known vulnerabilities, which cuts the container remediation load before a scanner ever runs. Instead of hardening a general-purpose base image after the fact, it ships minimal images rebuilt continuously from source, each signed and shipped with a bill of materials. It is described at a product level as generally available in 2026; the exact image catalog and tiers depend on the subscription.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Platform, DevOps and vulnerability management engineers who run, tune or assess Chainguard
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 3 min (590 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are evaluating or running Chainguard for hardened container images, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Architecture and how it works](#architecture-and-how-it-works), [Hardening and secure use](#hardening-and-secure-use), [Where it fits in the program](#where-it-fits-in-the-program)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md), [Application Security Testing](/APPSEC_TESTING_REFERENCE.md), [Package Managers](/PACKAGE_MANAGERS_REFERENCE.md), [Docker Command Reference](/commands/docker.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it fits
 
 Most container vulnerabilities come from the base image and the packages it drags in. Chainguard's answer is to start from Wolfi, a minimal Linux build system designed for containers, and to produce distroless images that contain only what the application needs. Fewer packages means fewer CVEs, so the finding queue from image scanning shrinks. This is a shift-left supply-chain control that sits in front of [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md) and the software-composition work in [Application Security Testing](/APPSEC_TESTING_REFERENCE.md).

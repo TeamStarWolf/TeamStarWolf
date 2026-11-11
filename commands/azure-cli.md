@@ -2,6 +2,55 @@
 
 The Azure CLI (`az`) is the command-line tool for Microsoft Azure. It manages resource groups, virtual machines, storage, identity, networking, and secrets through a consistent verb-based syntax. This page covers sign-in, subscription selection, the common resource commands, and the output filtering that makes results scriptable. Commands follow the `az <group> <subgroup> <action>` shape.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Cloud engineers, administrators and security teams who work in Azure from a terminal
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 2 min (521 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the Azure CLI commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [AWS CLI Reference](/commands/aws-cli.md), [Google Cloud CLI (gcloud) Reference](/commands/gcloud.md), [jq Command Reference](/commands/jq.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 The CLI is a Python program available for Linux, macOS, and Windows, and preinstalled in Azure Cloud Shell. It authenticates through `az login`, which opens a browser or accepts a device code, a service principal, or a managed identity on an Azure host. One install can hold access to several subscriptions and tenants; you pick the active one with `az account set`. Output defaults to JSON and supports JMESPath filtering with `--query`.

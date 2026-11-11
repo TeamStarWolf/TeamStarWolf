@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · Related: [Supply Chain Security](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Supply chain security engineers, Linux administrators and open-source maintainers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 8 min (1,940 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the facts of the XZ Utils backdoor and the maintainer takeover behind it, you are checking whether your systems were affected, or you want the detection and remediation steps by platform
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [The social-engineering campaign](#the-social-engineering-campaign), [Remediation by platform](#remediation-by-platform)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Package Managers](/PACKAGE_MANAGERS_REFERENCE.md), [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 In March 2024 a backdoor was found in XZ Utils, the compression project whose `liblzma` library ships on almost every Linux system. An attacker operating as a trusted maintainer spent more than two years earning commit and release authority, then hid a backdoor in the release tarballs of versions 5.6.0 and 5.6.1. On the distributions that link `liblzma` into OpenSSH through systemd, the backdoor hooked the SSH authentication path so that anyone holding the attacker's private key could run commands as root before authenticating. It was caught by one engineer who noticed that SSH logins had become about half a second slower, not by any systematic control. The lesson is that source-level review is not enough when the malicious code is injected at build time, and that critical infrastructure maintained by a single volunteer is a supply-chain single point of failure.

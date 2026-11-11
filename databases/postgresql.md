@@ -2,6 +2,55 @@
 
 PostgreSQL is an open-source relational database management system that follows the SQL standard closely and adds an extensible type system. It stores data in tables organized by schemas and databases, and it uses Multiversion Concurrency Control (MVCC) so readers and writers rarely block each other. It is used for transactional applications, analytics, geospatial workloads through PostGIS, and as a general backend store. The project has a long release history and strong ACID guarantees.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Database administrators, developers and security engineers who run, query or assess PostgreSQL
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 3 min (767 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are modeling data or writing queries for PostgreSQL, you are administering or hardening a deployment, or you want a worked example to start from
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Data model and architecture](#data-model-and-architecture), [Security and hardening](#security-and-hardening), [A worked example](#a-worked-example)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[SQL](/languages/sql.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [MySQL and MariaDB](/databases/mysql.md), [Oracle Database](/databases/oracle.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it is used
 
 PostgreSQL began at UC Berkeley and is now maintained by a global development group. It runs on Linux, BSD, macOS, and Windows, and backs web applications, financial systems, and data warehouses. Managed versions exist on most cloud providers, including Amazon RDS and Aurora, Azure Database, and Google Cloud SQL. Developers choose it for JSON support, strong constraints, and its extension model.

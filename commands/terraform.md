@@ -2,6 +2,55 @@
 
 Terraform defines infrastructure as declarative configuration and provisions it through provider APIs. You describe the desired state in `.tf` files, and Terraform computes and applies the difference against recorded state. This page covers the core workflow, state handling, variables, and modules. Security notes focus on state secrets, credential handling, and change review.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Infrastructure, platform and cloud security engineers who manage infrastructure as code
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 3 min (608 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the Terraform commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [AWS CLI Reference](/commands/aws-cli.md), [kubectl Command Reference](/commands/kubectl.md), [Docker Command Reference](/commands/docker.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 Terraform runs as a single binary on a workstation or CI runner. It reads `.tf` files in the working directory, loads providers, and tracks what it created in a state file. The state file maps your configuration to real resource IDs. It can live locally as `terraform.tfstate` or in a remote backend such as S3, Azure Blob, or Terraform Cloud. A backend shared by a team usually adds state locking to prevent concurrent writes.

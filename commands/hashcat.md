@@ -2,6 +2,55 @@
 
 hashcat is a password-recovery tool that tests captured hashes against candidate passwords using GPU or CPU compute. Security teams use it for authorized password audits, recovery of their own locked data, and validating that a password policy resists offline cracking. Run it only on hashes you are authorized to test under a signed audit scope. This page covers hash modes, attack modes, tuning, and the defenses that make offline cracking impractical.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Penetration testers, auditors and responders who crack or audit password hashes with authorization
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 3 min (730 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the hashcat commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you are a defender who needs to spot it in use
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Detection and defense](#detection-and-defense)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Metasploit Framework Reference](/commands/metasploit.md), [Nmap Command Reference](/commands/nmap.md), [sqlmap Command Reference](/commands/sqlmap.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 hashcat runs on Linux, Windows, and macOS, and uses OpenCL or CUDA to drive GPUs. Input is a file of hashes in a format matching the selected hash mode. Candidate passwords come from wordlists, rules, or generated masks. Cracked results are written to a potfile and shown on demand. The tool does not touch the target system: it works offline against hashes already collected during an authorized engagement.

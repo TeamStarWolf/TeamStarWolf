@@ -8,6 +8,55 @@
 
 Cloud incidents have no host to seize: the evidence is API logs held by the provider, and much of it is short-lived or off by default. This guide is the response procedure; its evidence-acquisition backbone is the library's [Cloud, SaaS & Mobile Forensics Reference](/CLOUD_SAAS_MOBILE_FORENSICS_REFERENCE.md), the attacker techniques you are chasing are catalogued in [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md), and the controls you rebuild toward live in [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md). It plugs into the account-compromise, BEC, and data-exfiltration playbooks in [IR Playbooks](/IR_PLAYBOOKS.md). Because it changes containment state (rotating keys, revoking sessions, disabling identities), run it from a break-glass identity on a clean device, with legal engaged, and log every action with a UTC timestamp.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+SOC analysts, cloud engineers and incident responders handling a cloud identity alert
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Advanced
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 17 min (3,802 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You just got an alert that suggests a compromised AWS, Microsoft Entra or Google Cloud identity, you need to contain it and preserve the logs before they age out, or you are reconstructing what the attacker did
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Before you start](#before-you-start), [Step 2: Contain in the first hour](#step-2-contain-in-the-first-hour), [Step 3: Preserve and pull the right logs](#step-3-preserve-and-pull-the-right-logs)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Cloud, SaaS & Mobile Forensics](/CLOUD_SAAS_MOBILE_FORENSICS_REFERENCE.md), [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md), [IR Playbooks](/IR_PLAYBOOKS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Before you start
 
 - [ ] Read the AWS / Azure-M365 / Google sections and the incident quick-start checklist of the [Cloud, SaaS & Mobile Forensics Reference](/CLOUD_SAAS_MOBILE_FORENSICS_REFERENCE.md#incident-quick-start-checklist); this guide operationalizes them and assumes their vocabulary (control plane vs data plane, retention clock, OAuth consent grant).

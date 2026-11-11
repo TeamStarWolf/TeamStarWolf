@@ -4,6 +4,55 @@
 
 Microsoft Defender for Cloud is Microsoft's CNAPP: a unified platform combining Cloud Security Posture Management (CSPM) for misconfiguration/risk and Cloud Workload Protection (CWPP) for runtime threat protection across Azure, AWS, GCP, on-premises and hybrid estates. Azure Update Manager is the companion native patch-management service that assesses and deploys OS updates to Windows/Linux machines across Azure, on-prem and other clouds. Together they solve posture-plus-workload security and the remediation (patching) step for Microsoft-centric and multicloud environments.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, and the cloud security engineers who run Microsoft Defender for Cloud
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 9 min (2,083 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are working out what Microsoft Defender for Cloud can do in the first days of a critical CVE, you need its telemetry to show a mitigation is holding, or you need its official documentation and repositories
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Vulnerability-mitigation role](#vulnerability-mitigation-role), [Validation & telemetry](#validation-amp-telemetry), [Documentation & repositories](#documentation-amp-repositories)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Cloud Security Benchmark](/CLOUD_SECURITY_BENCHMARK.md), [CTEM Reference](/CTEM_REFERENCE.md), [Cloud Architecture Reference](/CLOUD_ARCHITECTURE_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Capabilities & architecture
 
 **Core capabilities**

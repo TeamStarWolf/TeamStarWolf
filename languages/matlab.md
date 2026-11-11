@@ -14,6 +14,55 @@ MATLAB (matrix laboratory) is a dynamically typed, garbage-collected numerical c
 
 Related: [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [GNU Octave](/languages/octave.md), [languages index](/languages/README.md).
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers who write or maintain MATLAB code, and the reviewers and security engineers who assess it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 6 min (1,328 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing or reviewing MATLAB code (typical uses: engineering, signal and image processing, control systems, simulation), you need its common pitfalls and secure-coding rules before a review, or you are choosing its toolchain, tests and packages
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Syntax tour](#syntax-tour), [Common pitfalls](#common-pitfalls), [Secure coding](#secure-coding)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [GNU Octave](/languages/octave.md), [Julia](/languages/julia.md), [Fortran](/languages/fortran.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Overview and history
 
 MATLAB began as a teaching tool written by Cleve Moler to give students access to the LINPACK and EISPACK matrix libraries without writing Fortran. Moler, Jack Little, and Steve Bangert rewrote it in C and founded MathWorks in 1984 to sell it commercially. The product has since grown an integrated development environment, a plotting system, a code generator, and a large set of paid add-on toolboxes for specific domains.

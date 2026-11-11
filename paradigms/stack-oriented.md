@@ -2,6 +2,55 @@
 
 Stack-oriented programming computes by pushing values onto an operand stack and popping them with operators, so most instructions take their arguments implicitly from the stack top. It is an imperative style at the machine level and a concatenative one at the language level, where writing two programs next to each other composes them. It matters because it underlies Forth, PostScript, and the bytecode stacks of the JVM and WebAssembly.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Developers and students learning stack-oriented and concatenative programming, and reviewers who assess code written in that style
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (904 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are learning stack-oriented and concatenative programming or deciding whether it fits a problem, you want the languages and tools that support it, or you need its secure-coding considerations before a review
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core idea](#core-idea), [Strengths and trade-offs](#strengths-and-trade-offs), [Secure-coding considerations](#secure-coding-considerations)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Imperative Programming](/paradigms/imperative.md), [Functional Programming](/paradigms/functional.md), [Procedural Programming](/paradigms/procedural.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Core idea
 
 A single operand stack holds the working values. Pushing a literal places it on top. Applying an operator removes its operands from the top and pushes the result. Because operands are already present when an operator runs, operators need no named parameters.

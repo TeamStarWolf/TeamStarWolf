@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · Related: [Edge Device Security](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Vulnerability Prioritization](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, incident responders and SharePoint administrators
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,540 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the facts of the ToolShell SharePoint exploitation, you run on-premises SharePoint Server, or you want to know why patching alone did not remove the attacker
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [Part 1: the vulnerability chain](#part-1-the-vulnerability-chain), [Part 2: why patching alone did not fix it](#part-2-why-patching-alone-did-not-fix-it)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [PHP2Shell and the October 2026 Attack Wave: A Case Study](/case-studies/PHP2SHELL_OCTOBER_2026.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 In July 2025 a chain of flaws in on-premises Microsoft SharePoint Server, known collectively as ToolShell, went from a conference demonstration to worldwide mass exploitation in a matter of days. The decisive move was not the remote code execution itself but what the attackers did next: they stole the SharePoint server's ASP.NET machine keys. With those keys an attacker can forge signed `__VIEWSTATE` payloads and regain code execution at will, which means a server that is merely patched is still compromised. More than 400 servers across roughly 148 organizations were hit, including the US National Nuclear Security Administration, and three China-linked actors (Linen Typhoon, Violet Typhoon, and Storm-2603) used the access for espionage and, in Storm-2603's case, to deploy Warlock and LockBit ransomware. The case is the clearest recent lesson that for a secret-stealing vulnerability, remediation is patch plus key rotation, not patch alone.

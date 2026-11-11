@@ -2,6 +2,55 @@
 
 > By the end of this guide you will have written a real Sigma rule for a high-prevalence ATT&CK technique, converted it to Splunk SPL and Microsoft KQL with sigma-cli, run it in audit mode against your own environment, and tuned it into a production detection with a documented noise baseline. This is for SOC analysts and aspiring detection engineers who have access to a SIEM and at least one Windows endpoint they administer, and who want to ship their first rule the way a detection engineering team would, not just paste a query from the internet.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+SOC analysts and aspiring detection engineers with SIEM access and a Windows endpoint they administer
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 10 min (2,297 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You are writing your first Sigma rule, you need to convert it to SPL and KQL and run it in audit mode, or you want to tune it into a production detection with a documented noise baseline
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[At a glance](#at-a-glance), [Step 4: Write the Sigma rule](#step-4-write-the-sigma-rule), [Step 7: Baseline the noise](#step-7-baseline-the-noise)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Detection Rules Reference](/DETECTION_RULES_REFERENCE.md), [ATT&CK Detection Strategies](/detections/strategies/README.md), [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md), [ATT&CK Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## At a glance
 
 | Time | Difficulty | You need | You'll produce |

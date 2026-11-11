@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · Related: [CVE Reference](/CVE_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Vulnerability Prioritization](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Vulnerability management leads, incident responders and Exchange Server administrators
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 51 min (11,823 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the facts of the 2021 Exchange Server mass exploitation and who took part in it, you run on-premises Exchange Server, or you want the vulnerability-management and defender lessons from it
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 5: the vulnerability-management view](#part-5-the-vulnerability-management-view)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Threat Actors](/THREAT_ACTORS.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 Organizations that ran their own mail in 2021 usually ran it on Microsoft Exchange Server, an internet-facing Windows application that could not simply be switched off. In the last weeks of 2020 a researcher at the firm DEVCORE found that a single unauthenticated HTTPS request to an Exchange server could be made to act with the server's own identity, and chained that bug to a file write that put code in the web root. DEVCORE called the chain ProxyLogon and reported it to Microsoft on 5 January 2021. Two days earlier, Volexity had already seen attackers using the same server-side request forgery to pull whole mailboxes off customer servers. When Microsoft shipped out-of-band fixes on 2 March 2021, Volexity published its account under the title "Operation Exchange Marauder", and Microsoft named the operators HAFNIUM. Within days the bugs were in use by more than ten espionage groups, then ransomware crews and coin miners; by July the US government spoke of tens of thousands of compromised computers and the UK of more than a quarter of a million affected servers.

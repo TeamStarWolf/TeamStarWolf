@@ -6,6 +6,55 @@
 |---|---|---|---|
 | ~90 days elapsed; 2-4 hours to first scan | Intermediate | A Linux host with Docker, admin/root credentials for scan targets, a ticketing system, an executive sponsor | Asset inventory, authenticated scanner, KEV-first SLA policy, SSVC decision records, owner-routed tickets, leadership metrics pack |
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Security engineers and team leads asked to stand up vulnerability management
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 11 min (2,463 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You have been asked to stand up vulnerability management, you need an asset inventory, an authenticated scanner and a KEV-first SLA policy, or you want a metrics pack for leadership
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Before you start](#before-you-start), [Step 1: Get an asset inventory you can defend](#step-1-get-an-asset-inventory-you-can-defend), [Step 4: Write a KEV-first SLA policy](#step-4-write-a-kev-first-sla-policy)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [CTEM Reference](/CTEM_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Before you start
 
 - [ ] Read the signal-precedence model: KEV, then EPSS, then your context, then CVSS, in the [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md). The whole program hangs off that ordering.

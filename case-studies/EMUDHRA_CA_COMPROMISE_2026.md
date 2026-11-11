@@ -4,6 +4,55 @@
 
 [All case studies](/case-studies/README.md) · Method reference: [Certificate Trust Incident Response](/CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md)
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+PKI owners, vulnerability management leads and security engineers who depend on the Web PKI
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 13 min (2,967 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the facts of the eMudhra intermediate CA key compromise, you are checking whether your clients still trust the affected certificates, or you want the remediation steps by platform
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Executive summary](#executive-summary), [The client-path exposure gap](#the-client-path-exposure-gap), [Remediation by platform and capability](#remediation-by-platform-and-capability)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Certificate Trust Incident Response](/CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md), [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## Executive summary
 
 In October 2026 a researcher showed that eight intermediate certificate authority private keys operated by eMudhra (its emSign brand) could be recovered from their public certificates. The keys were elliptic-curve keys that should have been chosen from a space of about 10^115 values; instead they were guessable in at most 256 tries, and one was effectively the number 4. Anyone could reconstruct the private keys and sign certificates that chained to a publicly trusted root. Browsers responded within hours to days, but the clients that software uses to make outbound connections (curl, Python, Node.js, Go, Git, container images) lagged, because they carry their own trust bundles and do not check revocation by default. That split, a fixed browser in front of an unfixed client, is the lesson for a vulnerability-management program.

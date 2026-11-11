@@ -2,6 +2,55 @@
 
 tmux is a terminal multiplexer. It lets one terminal hold many sessions, windows, and panes, and keeps them running after you disconnect. On remote servers it means a long job survives a dropped SSH connection, and you can reattach later from anywhere. This page covers the prefix key, the session and pane model, copy mode, scripting, and the config file.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Administrators, engineers and testers who keep terminal sessions running on servers
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 4 min (831 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the tmux commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you need the security notes that go with them
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Security notes](#security-notes)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Vim Command Reference](/commands/vim.md), [SSH Command Reference](/commands/ssh.md), [Linux Command Reference](/commands/linux-commands.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 tmux runs a background server that owns your sessions; the `tmux` client attaches to it. It is available on Linux and macOS through the standard package managers and is a common pick on servers where screen sessions must outlive a login. The server communicates with clients over a Unix domain socket, by default under a per-user directory such as `/tmp/tmux-<uid>/`.

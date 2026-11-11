@@ -2,6 +2,55 @@
 
 Nmap (Network Mapper) is an open-source tool for host discovery, port scanning, and service enumeration. Security teams use it to inventory assets, verify firewall rules, and map attack surface. This page is for authorized testing: scan only networks and hosts you own or have written permission to assess. Treat lab ranges and explicitly scoped engagements as the only valid targets.
 
+<!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Who this is for</th><td>
+
+Penetration testers, network engineers and defenders who scan networks they are authorized to scan
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Level</th><td>
+
+Beginner to intermediate
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Reading time</th><td>
+
+About 3 min (622 words at 230 words a minute)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Read this when</th><td>
+
+You need the Nmap commands for a task at hand, you want a common workflow to copy and adapt, you are looking up a flag or option worth knowing, or you are a defender who needs to spot it in use
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Start at</th><td>
+
+[Core commands](#core-commands), [Common workflows](#common-workflows), [Detection and defense](#detection-and-defense)
+
+</td></tr>
+</table>
+
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+
+<table class="tsw-meta-card">
+<tr><th scope="row" align="left" valign="top">Pairs with</th><td>
+
+[Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Networking Command Reference](/commands/networking-commands.md), [Metasploit Framework Reference](/commands/metasploit.md), [tshark Command Reference](/commands/tshark.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
+
+No review recorded yet
+
+</td></tr>
+</table>
+
+</details>
+
+<!-- meta:end -->
+
 ## What it is and where it runs
 
 Nmap sends crafted packets to target hosts and interprets the responses to report open ports, running services, and operating system hints. It runs on Linux, macOS, and Windows from the command line. Raw-packet scan types such as SYN scanning need root or administrator rights. The companion `ncat`, `nping`, and `ndiff` tools ship alongside it, and the Zenmap GUI wraps the same engine.

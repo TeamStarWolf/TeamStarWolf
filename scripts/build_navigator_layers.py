@@ -493,7 +493,10 @@ CATALOG = [
        "[Stuxnet case study](/case-studies/STUXNET.md)"),
       ("case-studies/chronicle-2020-ics.json", "The Year 2020 in Intrusions (ICS)",
        "The 9 ATT&CK for ICS techniques that NSA and CISA advisory AA20-205A maps for operational technology, from the "
-       "[2020 chronicle case study](/case-studies/CHRONICLE_2020.md)")]),
+       "[2020 chronicle case study](/case-studies/CHRONICLE_2020.md)"),
+      ("case-studies/chronicle-2021-ics.json", "The Year 2021 in Intrusions (ICS)",
+       "The 3 ATT&CK for ICS techniques bound to the February 2021 water facility SCADA incident in CISA AA21-042A, from the "
+       "[2021 chronicle case study](/case-studies/CHRONICLE_2021.md)")]),
 ]
 
 

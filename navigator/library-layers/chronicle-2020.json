@@ -1,0 +1,678 @@
+{
+  "name": "TeamStarWolf - The Year 2020 in Intrusions Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified 2020 intrusion record supports: CISA, FBI, NSA and NCSC advisories of 2020 (AA20-099A to AA20-352A), vendor reports, regulator findings and Red Canary's 2020 telemetry. Ids printed under earlier ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Scores: 100 the source prints the id, 75 the source describes the behavior and the mapping is the study's, 50 only a press account supports it, 40 an Inferred mapping.",
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: supported only by a press account",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "75: behavior described by the source, mapping by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: the source prints the technique id",
+      "color": "#7c3aed"
+    }
+  ],
+  "techniques": [
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 75,
+      "comment": "Acunetix scans of state election websites, 20 to 28 Sep 2020; APT29 vulnerability scanning before exploitation in 2020 (Described). [26][5]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1598",
+      "tactic": "reconnaissance",
+      "score": 75,
+      "comment": "Phosphorus spoofed conference invitations (28 Oct 2020); Zinc fake-recruiter credential theft (13 Nov 2020) (Described). [27][7]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1598.003",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "AR21-013A credential-harvesting links against cloud tenants (13 Jan 2021) (Listed). [121]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 75,
+      "comment": "Coronavirus-themed domains registered for phishing (AA20-099A, 8 Apr 2020) (Described). [41]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1584",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA20-352A lists it for the SolarWinds actor (17 Dec 2020); BLINDINGCAN C2 on compromised infrastructure (19 Aug 2020); SocGholish served from compromised sites (Jun 2020) (Listed). [40][30][53]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1585.001",
+      "tactic": "resource-development",
+      "score": 75,
+      "comment": "Fake LinkedIn HR profiles in Operation In(ter)ception (17 Jun 2020) (Described). [33]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1588.003",
+      "tactic": "resource-development",
+      "score": 75,
+      "comment": "Code-signing certificates stolen from two companies for the WIZVERA VeraPort attack (16 Nov 2020) (Described). [34]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA20-107A, AA20-283A and AA20-352A; Twitter employee credentials (15 Jul 2020); Marriott franchise employee logins (disclosed 31 Mar 2020) (Listed). [89][9][40][63][114]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA20-107A, AA20-283A and AA20-352A; Maze access through Citrix and RDP support accounts; single-factor VPN in the October hospital wave (Listed). [89][9][40][49][69]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA20-296A (22 Oct 2020); Kimsuky watering holes (AA20-301A); SocGholish fake updates on compromised news sites (Jun 2020) (Listed). [8][31][52][53]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA20-258A, AA20-259A, AA20-283A and AA20-296A; APT29 vaccine targeting (16 Jul 2020); Iranian election-site SQL injection and traversal (Sep to Oct 2020); APT41 global campaign (Jan to Mar 2020); Equifax entry (Reported) (Listed). [16][25][9][8][5][26][87][14]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1195.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA20-352A (17 Dec 2020) (Listed). [40]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA20-352A; tainted Orion updates released Mar to Jun 2020; SignSight trojanized VGCA installers (17 Dec 2020); WIZVERA VeraPort (16 Nov 2020) (Listed). [40][104][20][34]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "FASTCash 2.0 (AA20-239A, 26 Aug 2020); reseller Azure account abuse reported to CrowdStrike (15 Dec 2020); listed on C0024 (Listed). [29][107][129]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Kimsuky's most observed access (AA20-301A); FASTCash 2.0 (AA20-239A); Maze macro phishing; APT32 COVID-themed attachments (likely); Emotet thread hijacking with password-protected archives (AA20-280A) (Listed). [31][29][49][21][65]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA20-258A; AA20-301A; BazarLoader Google Docs link lures (AA20-302A, 28 Oct 2020) (Listed). [16][31][68]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1566.003",
+      "tactic": "initial-access",
+      "score": 75,
+      "comment": "LinkedIn job offers in Operation In(ter)ception (Sep to Dec 2019, published 17 Jun 2020) (Described). [33]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1566.004",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Phone spear phishing of Twitter employees (15 Jul 2020); the technique label is ours (Inferred). [62][63]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 75,
+      "comment": "Maze (WMIC); WastedLocker intrusions; the October hospital wave (Described). [49][53][68]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Red Canary's most prevalent technique of 2020 (24 percent of threats) (Listed). [134]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA20-259A; AA20-301A; WastedLocker intrusions (Jun 2020); lateral movement in the October hospital wave (Listed). [25][31][53][68]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Ryuk technique table in AA20-302A (28 Oct 2020) (Listed). [68]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA20-258A (14 Sep 2020) (Listed). [16]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1106",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Ryuk technique table in AA20-302A (Listed). [68]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1204.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA20-258A; BazarLoader link lures in AA20-302A (Listed). [16][68]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 75,
+      "comment": "SocGholish fake browser updates in WastedLocker intrusions (Jun 2020) (Described). [52]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1569",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Red Canary's ninth most prevalent technique of 2020 (Listed). [134]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA20-352A; Pay2Key spread by psexec within an hour (6 Nov 2020); PsExec in Maze and WastedLocker intrusions (Listed). [40][28][49][53]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Red Canary's fourth most prevalent technique of 2020 (Listed). [134]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA20-259A; scheduled tasks for KEGTAP, SINGLEMALT and WINEKEY loaders (28 Oct 2020) (Listed). [25][69]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "Blackbaud intruder used existing local administrator accounts (FTC, 2024, on the 2020 intrusion) (Described). [56]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "Blackbaud intruder created new administrator accounts (FTC, 2024) (Described). [56]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1197",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "BITS persistence for the Bazar loaders; APT41 BITSAdmin downloads (Mar 2020) (Described). [69][87]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA20-259A web shells (ChunkyTuna, Tiny, China Chopper); Iranian web shell uploads to election sites; AA20-301A (Listed). [25][26][31]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1542.001",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "MosaicRegressor dropped by rogue UEFI firmware (5 Oct 2020) (Described). [19]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1543",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Red Canary's third most prevalent technique of 2020 (Listed). [134]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA20-352A; APT41 service installation in the 2020 global campaign (Listed). [40][87]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Ryuk table in AA20-302A (label misprinted T1047.001); KEGTAP Startup folder LNK (Listed). [68][69]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1547.004",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "Winlogon Userinit persistence for the Bazar loaders (28 Oct 2020) (Described). [69]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Ryuk table in AA20-302A; Red Canary's sixth most prevalent technique of 2020 (Listed). [68][134]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "Netlogon CVE-2020-1472 used to escalate in AA20-283A; CISA did not list the id (Inferred). [9][79]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA20-283A: domain access after Netlogon CVE-2020-1472 (9 Oct 2020) (Listed). [9]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Ryuk table in AA20-302A (Listed). [68]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1548.002",
+      "tactic": "privilege-escalation",
+      "score": 75,
+      "comment": "WastedLocker UAC bypass through a winmm.dll hijack (23 Jun 2020) (Described). [52]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1014",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Drovorub kernel-module rootkit (13 Aug 2020) (Described). [4][46]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA20-352A; Red Canary's seventh most prevalent technique of 2020 (Listed). [40][134]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1027.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA20-352A (Listed). [40]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Red Canary's tenth most prevalent technique of 2020 (Listed). [134]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Ryuk table in AA20-302A (Listed). [68]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA20-352A; AA20-239A (Listed). [40][29]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1218",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Red Canary's second most prevalent technique of 2020 (19 percent) (Listed). [134]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1218.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA20-301A (Kimsuky) (Listed). [31]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1564.004",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "WastedLocker payload kept in an NTFS alternate data stream (Described). [52]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1684.001",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Callers posed as Twitter IT staff (NYDFS, 14 Oct 2020); T1656 Impersonation was revoked in v20.0 with successor T1684.001 (Described). [63][102]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "AA20-352A (Orion DLL signed with the SolarWinds certificate); WIZVERA stolen certificates; In(ter)ception signed malware (Listed). [40][34][33]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "AA20-302A lists T1562.001, revoked in v20.0 with successor T1685; WastedLocker disabled Microsoft Defender (Listed). [68][102][52]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1686",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "AA20-301A lists T1562.004, revoked in v20.0 with successor T1686 (Listed). [31][102]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA20-107A; AA20-301A; Red Canary's fifth most prevalent technique of 2020 (Listed). [89][31][134]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA20-258A; AA20-259A; Mimikatz and ProcDump in Maze, WastedLocker and the October hospital wave (Listed). [16][25][49][53][68]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1003.003",
+      "tactic": "credential-access",
+      "score": 75,
+      "comment": "ntds.dit export in the Bazar-to-Ryuk intrusions (28 Oct 2020) (Described). [69]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA20-301A (Kimsuky) (Listed). [31]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA20-296A; AR21-013A; Strontium brute force against campaigns (10 Sep 2020) and vaccine makers (13 Nov 2020) (Listed). [8][121][6][7]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1110.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA20-352A, printed there as T1101.001; the correction is Inferred (Listed). [40][102]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA20-352A (printed as T1101.003); Strontium password spray; AA20-126A spraying against healthcare (5 May 2020) (Listed). [40][6][7][42]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1110.004",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA20-258A (Listed). [16]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1558.003",
+      "tactic": "credential-access",
+      "score": 75,
+      "comment": "Kerberoasting in the Bazar-to-Ryuk intrusions (28 Oct 2020) (Described). [69]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1606.002",
+      "tactic": "credential-access",
+      "score": 75,
+      "comment": "Forged SAML tokens after on-premises compromise (13 and 17 Dec 2020); listed on C0024 (Described). [105][40][129]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1012",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA20-352A (Listed). [40]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Ryuk table in AA20-302A (Listed). [68]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA20-258A (Listed). [16]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA20-352A; Ryuk table in AA20-302A (Listed). [40][68]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA20-352A; Ryuk table in AA20-302A (Listed). [40][68]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1482",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "AdFind and BloodHound named in Maze intrusions; the mapping is ours (Inferred). [49]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1518",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA20-352A (Listed). [40]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1518.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA20-352A (Listed). [40]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1021",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA20-107A (Listed). [89]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA20-239A; Pay2Key access presumed over RDP; Maze; the October hospital wave (Listed). [29][28][49][68]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1021.006",
+      "tactic": "lateral-movement",
+      "score": 75,
+      "comment": "WinRM lateral movement in AA20-302A (Described). [68]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1550.004",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AR21-013A likely pass-the-cookie MFA bypass; listed on C0024 (Listed). [121][129]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1563.002",
+      "tactic": "lateral-movement",
+      "score": 75,
+      "comment": "Maze use of tscon (Described). [49]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1114",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA20-258A (Exchange CVE-2020-0688 used to collect email) (Listed). [16]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1114.003",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AR21-013A; AA20-301A (Listed). [121][31]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1560",
+      "tactic": "collection",
+      "score": 50,
+      "comment": "Equifax data archived and split before exfiltration (press account of the indictment) (Reported). [14]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1560.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA20-259A (7-Zip); Maze (7-Zip) (Listed). [25][49]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA20-352A (Listed). [40]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1071.004",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA20-352A; SUNBURST DNS C2 via avsvmcloud[.]com subdomains; Anchor_DNS tunnelling (AA20-302A) (Listed). [40][37][68]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA20-107A (Listed). [89]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1090.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA20-258A (Listed). [16]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA20-258A; Strontium through Tor and more than 1,000 rotating IPs; Equifax traffic through about 34 servers (Reported) (Listed). [16][6][14]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA20-352A; AA20-259A; Red Canary's eighth most prevalent technique of 2020 (Listed). [40][25][134]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1132.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA20-352A (Listed). [40]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA20-301A (Listed). [31]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1568.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA20-352A (Listed). [40]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA20-259A (FRP, Chisel, ngrok); Maze (ngrok) (Listed). [25][49]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1573.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA20-258A (Listed). [16]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1030",
+      "tactic": "exfiltration",
+      "score": 50,
+      "comment": "Equifax archives split into 600 MB segments (press account) (Reported). [14]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1567.002",
+      "tactic": "exfiltration",
+      "score": 75,
+      "comment": "Turla Crutch exfiltration to Dropbox (2 Dec 2020) (Described). [11]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA20-239A (FASTCash 2.0) (Listed). [29]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Ryuk table in AA20-302A; AA20-107A; Garmin systems encrypted 23 Jul 2020; Maze; WastedLocker; Pay2Key (Listed). [68][89][54][49][52][28]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Ryuk table in AA20-302A (Listed). [68]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Ryuk table and vssadmin shadow-copy deletion in AA20-302A; WastedLocker shadow-copy deletion (Listed). [68][52]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1561.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA20-239A (FASTCash 2.0) (Listed). [29]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1565.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA20-239A fraudulent transfers and ATM cash-outs (Listed). [29]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 75,
+      "comment": "Twitter bitcoin scam (over USD 118,000); Blackbaud paid 24 Bitcoin; Vastaamo patient extortion (Reported) (Described). [63][56][59][60]. Source numbers refer to the Sources table of case-studies/CHRONICLE_2020.md."
+    }
+  ],
+  "metadata": [
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ]
+}

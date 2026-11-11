@@ -106,5 +106,11 @@
     "name": "TeamStarWolf - ProFTPD mod_copy (CVE-2015-3306) Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the ProFTPD mod_copy (CVE-2015-3306) case study. No opened source names an ATT&CK technique for this CVE, so every binding is the study's own mapping, labelled in its comment. Scores: 100 is behavior the lab run of 4 November 2026 demonstrated, 75 is a documented exploitation path the lab did not demonstrate, 40 is actor context from joint advisory AA26-281A not tied to a ProFTPD intrusion. Each comment names source numbers from case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md.",
     "blurb": "Techniques from the ProFTPD mod_copy record: the unauthenticated file copy the lab demonstrated, the web-shell path it did not, and the scanning AA26-281A describes. A curated layer for the CVE-2015-3306 case study."
+  },
+  {
+    "file": "chronicle-2020.json",
+    "name": "TeamStarWolf - The Year 2020 in Intrusions Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified 2020 intrusion record supports: CISA, FBI, NSA and NCSC advisories of 2020 (AA20-099A to AA20-352A), vendor reports, regulator findings and Red Canary's 2020 telemetry. Ids printed under earlier ATT&CK versions are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Scores: 100 the source prints the id, 75 the source describes the behavior and the mapping is the study's, 50 only a press account supports it, 40 an Inferred mapping.",
+    "blurb": "Techniques from the 2020 record: edge-device exploitation, password spraying, the SolarWinds supply chain, and the Ryuk, Maze and WastedLocker ransomware intrusions. A curated layer for the 2020 chronicle case study; the ICS techniques from AA20-205A are in a separate ics-attack layer."
   }
 ]

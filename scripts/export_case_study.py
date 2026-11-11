@@ -132,6 +132,7 @@ EXPORT_NAMES = {
     "CHANGE_HEALTHCARE_2024": "Change_Healthcare_2024",
     "GHOSTCAT_CVE_2020_1938": "Ghostcat_CVE_2020_1938",
     "PROFTPD_MOD_COPY_CVE_2015_3306": "ProFTPD_mod_copy_CVE_2015_3306",
+    "NODEJS_CVE_2026_111497": "Nodejs_CVE_2026_111497",
     "EXCHANGE_MARAUDER_2021": "Exchange_Marauder_2021",
     "THREAT_ACTORS_CHINA": "Threat_Actors_China",
 }

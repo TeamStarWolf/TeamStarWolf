@@ -106,7 +106,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 14 June 2023: Cl0p begins naming victims on its leak site with payment deadlines
   - August 2024: The running tally reaches about 2,773 organizations and 95.8 million individuals
   - 2024: Cleo Harmony, VLTrader and LexiCom exploited, late 2024
-- [Healthcare Threat Actor Watchlist, 2023 to 2026: Who Hits Hospitals, How They Get In, and What the Record Says](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md). Period record, January 2023 to November 2026. Sectors: healthcare. CVEs: CVE-2012-1823, CVE-2017-12617, CVE-2018-13379, CVE-2019-0708, CVE-2019-11043, CVE-2019-19781 and 22 more. ATT&CK groups: G0071 Orangeworm, G0092 TA505, G0117 Fox Kitten, G0138 Andariel, G1015 Scattered Spider, G1024 Akira and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Healthcare_Threat_Watchlist_Case_Study.pdf).
+- [Healthcare Threat Actor Watchlist, 2023 to 2026: Who Hits Hospitals, How They Get In, and What the Record Says](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md). Period record, January 2023 to November 2026. Sectors: healthcare. CVEs: CVE-2012-1823, CVE-2017-12617, CVE-2018-13379, CVE-2019-0708, CVE-2019-11043, CVE-2019-19781 and 22 more. ATT&CK groups: G0071 Orangeworm, G0092 TA505, G0117 Fox Kitten, G0138 Andariel, G1015 Scattered Spider, G1024 Akira and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Healthcare_Threat_Watchlist_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Healthcare_Threat_Watchlist_Case_Study.pptx).
   - 27 May 2023: CL0P begins exploiting the MOVEit Transfer flaw CVE-2023-34362
   - 19 December 2023: ALPHV Blackcat advisory; its February 2024 update records an administrator urging affiliates to target hospitals
   - February 2024: Change Healthcare: the largest HHS breach entry on record, 192,700,000 people
@@ -417,7 +417,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 1986 <!-- {docsify-ignore} -->
 
-- [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md). Incident, August 1986 to February 1990. Sectors: government, defense, education. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cuckoos_Egg_1986_Case_Study.pdf).
+- [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md). Incident, August 1986 to February 1990. Sectors: government, defense, education. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cuckoos_Egg_1986_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Cuckoos_Egg_1986_Case_Study.pptx).
   - May 1986: At least five diskettes handed over in East Berlin from May to November 1986 (DER SPIEGEL, Reported)
   - August 1986: LBL's accounting program fails to balance: a new account with no billing address
   - 8 December 1986: US request for help reaches the Deutsche Bundespost (DER SPIEGEL, Reported)

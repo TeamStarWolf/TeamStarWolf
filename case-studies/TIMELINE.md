@@ -295,7 +295,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - March 2026: Tampering with internet-exposed Rockwell, Schneider Electric and Siemens PLCs begins (AA26-097A)
   - 11 March 2026: Stryker reports a global disruption to its Microsoft environment; Handala claims a wiper attack
   - 18 August 2026: Superseding indictment of 17 Mabna Institute members for intrusions for the IRGC since 2013
-- [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md). Threat actor, 2011 to April 2024. Sectors: energy, government, media, telecommunications, transport. CVEs: CVE-2013-3906, CVE-2014-0751, CVE-2014-4114, CVE-2015-5374, CVE-2017-0144, CVE-2017-0145 and 1 more. ATT&CK groups: G0034 Sandworm Team, G0035 Dragonfly.
+- [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md). Threat actor, 2011 to April 2024. Sectors: energy, government, media, telecommunications, transport. CVEs: CVE-2013-3906, CVE-2014-0751, CVE-2014-4114, CVE-2015-5374, CVE-2017-0144, CVE-2017-0145 and 1 more. ATT&CK groups: G0034 Sandworm Team, G0035 Dragonfly. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Sandworm_Operations_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Sandworm_Operations_Case_Study.pptx).
   - 14 October 2014: MS14-060 patched; CVE-2014-4114 had been exploited in a Sandworm campaign
   - 23 December 2015: First Ukrainian blackout: three distribution companies, about 225,000 customers
   - 17 December 2016: Industroyer attack on a Kyiv transmission substation; about one hour of disruption
@@ -327,7 +327,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2006 <!-- {docsify-ignore} -->
 
-- [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md). Threat actor, 2006 to October 2026. Sectors: government, healthcare, telecommunications, technology, defense. CVEs: CVE-2017-6862, CVE-2018-0171, CVE-2018-13382, CVE-2018-14847, CVE-2019-1652, CVE-2019-7192 and 44 more. ATT&CK groups: G0001 Axiom, G0002 Moafee, G0004 Ke3chang, G0005 APT12, G0006 APT1, G0009 Deep Panda and 41 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_China_Case_Study.pdf).
+- [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md). Threat actor, 2006 to October 2026. Sectors: government, healthcare, telecommunications, technology, defense. CVEs: CVE-2017-6862, CVE-2018-0171, CVE-2018-13382, CVE-2018-14847, CVE-2019-1652, CVE-2019-7192 and 44 more. ATT&CK groups: G0001 Axiom, G0002 Moafee, G0004 Ke3chang, G0005 APT12, G0006 APT1, G0009 Deep Panda and 41 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_China_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_China_Case_Study.pptx).
   - 12 January 2010: Google discloses a targeted attack from China that stole intellectual property
   - 19 February 2013: Mandiant's APT1 report ties APT1 to PLA Unit 61398
   - 19 May 2014: Indictment of five Unit 61398 officers, 31 counts

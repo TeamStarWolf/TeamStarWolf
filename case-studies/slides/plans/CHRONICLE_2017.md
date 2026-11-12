@@ -123,7 +123,7 @@ Notes: Mandiant findings Confirmed, assessment Reported [25]. C0030 and S1009 [8
 | CVE-2017-11882 | Office Equation Editor | Exploited: No | 2021-11-03 |
 | CVE-2017-8759 | .NET Framework | Exploited: Yes | 2021-11-03 |
 Caption: KEV began in November 2021; 86 CVE-2017 entries, 20 flagged for known ransomware use.
-Notes: MSRC [4][72][73][92]. NVD [7][75][76]. KEV catalog 2026.11.10 [5]. Project Zero lists CVE-2017-0199 and CVE-2017-0143 to 0147 as 2017 in-the-wild zero-days [74]. KRACK [35]; Cloudbleed [2].
+Notes: MSRC [4][72][73][92]. NVD [7][75][76]. KEV catalog 2026.11.10 [5]. Project Zero lists CVE-2017-0199 and CVE-2017-0143 to 0147 as 2017 in-the-wild zero-days [74]. KRACK [35][93]; Cloudbleed [2].
 
 ## PART 10 | 2017 was a year of naming and rule-making
 

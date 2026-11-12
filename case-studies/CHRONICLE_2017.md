@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 71 min (16,394 words at 230 words a minute)
+About 72 min (16,602 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -166,14 +166,14 @@ One row per event or report. The date is the event date where the source gives o
 | 2017-07-03 | The CCleaner compromise may have begun (Avast) | Supply chain | Confirmed | [30] |
 | 2017-07-05 | Talos publishes "The MeDoc Connection"; the AlphaBay administrator is arrested in Thailand | Supply chain, crime | Confirmed | [86][67] |
 | 2017-07-13 and 2017-07-17 | NetSarang's backdoored nssock2.dll compiled (13 July) and on NetSarang's site (17 July) in Xmanager, Xshell, Xftp and Xlpd | Supply chain | Confirmed | [28] |
-| 2017-07-14 | Mathy Vanhoef notifies vendors of KRACK, the WPA2 key-reinstallation flaw | Vulnerability | Confirmed | [35] |
+| 2017-07-14 | Mathy Vanhoef notifies vendors of KRACK, the WPA2 key-reinstallation flaw (around this date, by the researcher's account) | Vulnerability | Confirmed | [93] |
 | 2017-07-18 | Avast acquires Piriform, CCleaner's maker | Supply chain | Confirmed | [30] |
 | 2017-07-20 | DOJ announces the seizure of AlphaBay, alongside the Dutch-led Hansa Market action | Crime | Confirmed | [67] |
 | 2017-07-25 to 2017-07-26 | Alexander Vinnik arrested in Greece; a 21-count indictment of Vinnik and the BTC-e exchange announced | Crime | Confirmed | [68] |
 | 2017-07-29 to 2017-07-30 | Equifax discovers the intrusion and takes the dispute portal offline | Data breach | Confirmed | [10][13] |
 | 2017-08 | A Middle East petrochemical facility attacked with Triton, with tools built by TsNIIKhM (Treasury) | State, ICS | Confirmed | [50] |
 | 2017-08-15 | Kaspersky publishes ShadowPad (S0596) in NetSarang products; CCleaner 5.33 released with the backdoor | Supply chain | Confirmed | [28][29] |
-| 2017-08-28 | CERT/CC sends a broad notice on KRACK | Vulnerability | Confirmed | [35] |
+| 2017-08-28 | CERT/CC sends a broad notice on KRACK | Vulnerability | Confirmed | [93][35] |
 | 2017-09-06 | Symantec's Dragonfly report, as TA17-293A dates it | State, ICS | Confirmed | [34] |
 | 2017-09-07 | Equifax announces an incident affecting about 143 million US consumers | Data breach | Confirmed | [10][78] |
 | 2017-09-12 | CCleaner 5.34 released, ending the distribution of 5.33 | Supply chain | Confirmed | [29] |
@@ -187,7 +187,7 @@ One row per event or report. The date is the event date where the source gives o
 | 2017-10-20 | DHS and FBI TA17-293A on the energy-sector APT campaign | State, ICS | Confirmed | [34] |
 | 2017-10-24 | Bad Rabbit (S0606) outbreak through compromised websites serving a fake Flash Player update; the Kiev metro among victims; US-CERT calls it a suspected Petya variant | Destructive | Confirmed | [36][37] |
 | 2017-10-27 | The UK National Audit Office reports on WannaCry and the NHS | Government, health | Confirmed | [16] |
-| 2017-11-01 | KRACK presented at ACM CCS | Vulnerability | Confirmed | [35] |
+| 2017-11-01 | KRACK presented at ACM CCS | Vulnerability | Confirmed | [93] |
 | 2017-11-07 | Merck's 10-Q reports the cost of the 27 June network cyber-attack (the filing does not name NotPetya; the tie rests on the date, Inferred) | Destructive | Confirmed | [19] |
 | 2017-11-14 | TA17-318A (FALLCHILL, S0181) and TA17-318B (Volgmer): HIDDEN COBRA tooling; Microsoft patches CVE-2017-11882 | State, vulnerability | Confirmed | [46][47][92] |
 | 2017-11-15 | The US Vulnerabilities Equities Policy and Process charter is dated; NVD publishes CVE-2017-11882 (CWE-119) | Government, vulnerability | Confirmed | [84][75] |
@@ -196,7 +196,7 @@ One row per event or report. The date is the event date where the source gives o
 | 2017-11-27 | DOJ unseals charges against three Boyusec employees for intrusions at Moody's Analytics, Siemens and Trimble from 2011 to May 2017 (allegations) | State | Confirmed | [56] |
 | 2017-11-29 | The Andromeda (Gamarue) botnet is dismantled (Europol release, 4 December) | Crime | Confirmed | [70] |
 | 2017-12-07 | Mandiant reports APT34 exploiting CVE-2017-11882 less than a week after Microsoft's patch | State, vulnerability | Reported | [59] |
-| 2017-12-08 | Three defendants plead guilty in D. Alaska to creating the Mirai botnet (DOJ announcement, 13 December) | Crime | Confirmed | [69] |
+| 2017-12-08 | Three defendants plead guilty in D. Alaska to creating the Mirai botnet (DOJ announcement, 13 December; the informations and plea agreements are dated 5 December, see Discrepancies). Home study: [Five hacks and why they worked: the cases in Fancy Bear Goes Phishing](/case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md) | Crime | Confirmed | [69] |
 | 2017-12-12 | FY2018 NDAA section 1634 prohibits use of Kaspersky Lab products and services | Government | Confirmed | [82] |
 | 2017-12-14 | FireEye's Mandiant publishes TRITON | ICS | Confirmed | [25] |
 | 2017-12-19 | The United States attributes WannaCry to North Korea; the UK, Australia, Canada, New Zealand and Japan join | State | Confirmed | [41][44] |
@@ -359,7 +359,7 @@ TA17-293A records the actors browsing file servers for ICS and SCADA documents a
 | 2017-07-20 | AlphaBay seized alongside the Dutch-led Hansa Market action: more than 250,000 drug and chemical listings and more than 100,000 listings for IDs, access devices, malware and hacking tools; administrator arrested in Thailand on 5 July and died in custody on 12 July | Confirmed | [67] |
 | 2017-07-26 | BTC-e and Alexander Vinnik indicted (21 counts, N.D. Cal.): more than $4 billion in bitcoin received and funds from the Mt. Gox hack laundered (allegations) | Confirmed | [68] |
 | 2017-11-29 | Andromeda (Gamarue, ATT&CK S1074 ANDROMEDA) dismantled by the FBI, Luneburg police, EC3, J-CAT, Eurojust and private partners; Europol cites Microsoft for 80 associated malware families, more than 1 million machines a month detected or blocked, and about 2 million unique victim IPs from 223 countries in 48 hours of sinkholing | Confirmed (the Microsoft figures as Europol cites them) | [70] |
-| 2017-12-08 | Mirai creators plead guilty; two also plead to a clickfraud botnet of more than 100,000 devices (December 2016 to February 2017) | Confirmed | [69] |
+| 2017-12-08 | Mirai creators plead guilty; two also plead to a clickfraud botnet of more than 100,000 devices (December 2016 to February 2017). Home study: [Five hacks and why they worked: the cases in Fancy Bear Goes Phishing](/case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md) | Confirmed | [69] |
 | 2015-12 to 2018 | SamSam (S0370): a 34-month scheme from December 2015 with more than 200 victims, including hospitals and municipalities, more than $6 million collected and more than $30 million in losses (indictment unsealed 28 Nov 2018; 2017 victims are not dated in the release) | Confirmed (allegations) | [65] |
 
 The FBI's IC3 counted 301,580 complaints in 2017 with reported losses above $1.4 billion; ransomware drew 1,783 complaints with adjusted losses above $2.3 million, while business email compromise drew 15,690 with more than $675 million (Confirmed [71]). On the reported numbers, email fraud cost complainants far more than ransomware did in the year of WannaCry and NotPetya (Inferred [71]); the destructive outbreaks hit companies whose costs appear in their filings, not in IC3 complaints (Inferred [19][20][71]).
@@ -391,7 +391,7 @@ The two lists disagree in the way that matters. CVE-2017-0199, CVE-2017-11882 an
 
 ### Named bugs
 
-KRACK, the WPA2 key-reinstallation flaw, covers CVE-2017-13077 to 13082, 13084 and 13086 to 13088; Mathy Vanhoef notified vendors around 14 July, CERT/CC sent a broad notice on 28 August, published VU#228519 on 16 October, and the work was presented at ACM CCS on 1 November (Confirmed [35]). Cloudbleed is in Part 6 (Confirmed [2]).
+KRACK, the WPA2 key-reinstallation flaw, covers CVE-2017-13077 to 13082, 13084 and 13086 to 13088, and CERT/CC published VU#228519 on 16 October (Confirmed [35]); by the researcher's own account, Mathy Vanhoef notified the vendors he had tested around 14 July, CERT/CC sent a broad notification to vendors on 28 August, and the work was presented at ACM CCS on 1 November (Confirmed [93]). Cloudbleed is in Part 6 (Confirmed [2]).
 
 ### 2017 CVEs in KEV
 
@@ -705,6 +705,7 @@ This section is the study's reading of the record (Inferred).
 - **Release-day exploitation.** Microsoft marked CVE-2017-0199 and the MS17-010 CVEs "Exploited: No"; Project Zero lists CVE-2017-0199 and CVE-2017-0143 to 0147 as 2017 in-the-wild zero-days [72][73][74].
 - **Where the leaked tools came from.** That WannaCry used exploits stolen from the NSA is Microsoft's statement, and that Vault 7 came from the CIA is WikiLeaks' claim; no government record opened for this study states either [63][3].
 - **Merck and Nuance.** Merck's 10-Q describes a 27 June 2017 network cyber-attack and Nuance's 8-K a 27 June 2017 malware incident, and neither names NotPetya; both ties rest on the date and are Inferred [19][64][43].
+- **The Mirai plea date.** This study dates the guilty pleas to 8 December 2017 from the DOJ announcement of 13 December [69]; the [Fancy Bear Goes Phishing cases study](/case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md) dates the filing of the informations and plea agreements in the District of Alaska to 5 December 2017. A filing date and a plea date can differ; the DOJ release could not be reopened during this revision (justice.gov served an empty page and the Internet Archive refused the request), so which date the court record gives for the pleas was not checked.
 - **ATT&CK versions.** The live site showed content v20.1 on S1009 and S0366; the library and this study's names and tactics are v20.0 [90][85][26].
 
 ## Sources
@@ -805,6 +806,7 @@ All sources were opened on 11 November 2026. Grade is the source's evidence grad
 | 90 | MITRE ATT&CK, software S1009 Triton (site at content v20.1, modified 12 May 2026) | [attack.mitre.org](https://attack.mitre.org/software/S1009/) | 2026-11-11 | Confirmed |
 | 91 | CISA, ICSA-18-107-02, Schneider Electric Triconex Tricon (Update B), revised 18 Dec 2018 | [cisa.gov](https://www.cisa.gov/news-events/ics-advisories/icsa-18-107-02) | 2026-11-11 | Confirmed |
 | 92 | Microsoft MSRC, CVRF security update document 2017-Nov, November 2017 Security Updates, released 14 Nov 2017 (CVE-2017-11882: Exploited: No) | [api.msrc.microsoft.com](https://api.msrc.microsoft.com/cvrf/v3.0/cvrf/2017-Nov) | 2026-11-11 | Confirmed |
+| 93 | Mathy Vanhoef, Key Reinstallation Attacks: Breaking WPA2 by forcing nonce reuse, the researcher's disclosure account (vendor notification around 14 July 2017, CERT/CC broad notification 28 August 2017, ACM CCS presentation Wednesday 1 November 2017) | [krackattacks.com](https://www.krackattacks.com/) | 2026-11-11 | Confirmed |
 
 *© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*
 
@@ -822,7 +824,7 @@ All sources were opened on 11 November 2026. Grade is the source's evidence grad
 - [CWE Reference](/CWE_REFERENCE.md), [CAPEC Reference](/CAPEC_REFERENCE.md), [D3FEND Reference](/D3FEND_REFERENCE.md)
 - [Ransomware Defense](/RANSOMWARE_DEFENSE_REFERENCE.md), [ICS and OT Security](/ICS_OT_SECURITY_REFERENCE.md), [ICS ATT&CK Atlas](/ICS_ATTACK_ATLAS.md), [Supply Chain Security](/SUPPLY_CHAIN_SECURITY.md), [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md)
 - Home studies: [Sandworm](/case-studies/SANDWORM_OPERATIONS.md); [North Korea-attributed actors](/case-studies/THREAT_ACTORS_NORTH_KOREA.md); [United States-attributed actors](/case-studies/THREAT_ACTORS_UNITED_STATES.md); [Russia-attributed actors](/case-studies/THREAT_ACTORS_RUSSIA.md); [China-attributed actors](/case-studies/THREAT_ACTORS_CHINA.md); [Iran-attributed actors](/case-studies/THREAT_ACTORS_IRAN.md); [Other state-linked actors](/case-studies/THREAT_ACTORS_OTHER_STATES.md); [APT41: the public record](/case-studies/APT41_PUBLIC_RECORD.md)
-- Related studies: [SolarWinds and SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md); [npm supply-chain attacks](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md); [Stuxnet](/case-studies/STUXNET.md); [ICS attacks and advisories, 2024 to 2026](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md); [Log4Shell](/case-studies/LOG4SHELL.md); [Hugging Face supply chain](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md); [The zero-day trade and its fallout](/case-studies/ZERO_DAY_MARKET_EVENTS.md); [Cyber operations as statecraft: the cases in The Hacker and the State](/case-studies/HACKER_AND_THE_STATE_CASES.md)
+- Related studies: [SolarWinds and SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md); [npm supply-chain attacks](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md); [Stuxnet](/case-studies/STUXNET.md); [ICS attacks and advisories, 2024 to 2026](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md); [Log4Shell](/case-studies/LOG4SHELL.md); [Hugging Face supply chain](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md); [The zero-day trade and its fallout](/case-studies/ZERO_DAY_MARKET_EVENTS.md); [Cyber operations as statecraft: the cases in The Hacker and the State](/case-studies/HACKER_AND_THE_STATE_CASES.md); [Five hacks and why they worked: the cases in Fancy Bear Goes Phishing](/case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md)
 - Series: [2019](/case-studies/CHRONICLE_2019.md), [2020](/case-studies/CHRONICLE_2020.md), [2021](/case-studies/CHRONICLE_2021.md)
 - Groups: [G0032 Lazarus Group](/mitre/groups/G0032.md), [G0034 Sandworm Team](/mitre/groups/G0034.md), [G0035 Dragonfly](/mitre/groups/G0035.md), [G0045 menuPass](/mitre/groups/G0045.md), [G0088 TEMP.Veles](/mitre/groups/G0088.md), [G0022 APT3](/mitre/groups/G0022.md), [G0064 APT33](/mitre/groups/G0064.md), [G0049 OilRig](/mitre/groups/G0049.md), [G0050 APT32](/mitre/groups/G0050.md), [G0020 Equation](/mitre/groups/G0020.md)
 - Software: [S0366 WannaCry](/mitre/software/S0366.md), [S0368 NotPetya](/mitre/software/S0368.md), [S0606 Bad Rabbit](/mitre/software/S0606.md), [S0370 SamSam](/mitre/software/S0370.md), [S1074 ANDROMEDA](/mitre/software/S1074.md), [S0140 Shamoon](/mitre/software/S0140.md), [S0596 ShadowPad](/mitre/software/S0596.md), [S0181 FALLCHILL](/mitre/software/S0181.md), [S0180 Volgmer](/mitre/software/S0180.md), [S0013 PlugX](/mitre/software/S0013.md), [S0153 RedLeaves](/mitre/software/S0153.md), [S0002 Mimikatz](/mitre/software/S0002.md), [S0029 PsExec](/mitre/software/S0029.md), [S0604 Industroyer](/mitre/software/S0604.md)

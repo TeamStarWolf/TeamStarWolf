@@ -66,5 +66,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [Five hacks and why they worked: the cases in Fancy Bear Goes Phishing](/case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md)
 - [Kevin Mitnick, Ghost in the Wires and The Art of Intrusion: a case study](/case-studies/MITNICK_INTRUSIONS.md)
 - [The ransomware ecosystem, 2019 to 2026: a case study](/case-studies/RANSOMWARE_ECOSYSTEM.md)
+- [The Shadow Brokers and Vault 7, the NSA and CIA tool leaks of 2016 to 2017: a case study](/case-studies/NSA_CIA_TOOL_LEAKS.md)
 
 <!-- hub:end -->

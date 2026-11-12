@@ -391,6 +391,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 30 March 2026: axios: social engineering and a RAT on the lead maintainer's PC expose the npm credentials
   - 4 August 2026: keyv maintainer's GitHub account compromised; the CHAINDROP worm follows
 
+### 2016 <!-- {docsify-ignore} -->
+
+- [The Shadow Brokers and Vault 7: The NSA and CIA Tool Leaks, 2016 to 2017](/case-studies/NSA_CIA_TOOL_LEAKS.md). Incident, August 2016 to November 2017. Sectors: government, healthcare, technology, cross-sector. CVEs: CVE-2016-6366, CVE-2016-6367, CVE-2016-6909, CVE-2017-0005, CVE-2017-0143, CVE-2017-0144 and 10 more. ATT&CK groups: G0020 Equation, G0032 Lazarus Group, G0034 Sandworm Team, G0022 APT3, G0128 ZIRCONIUM, G1003 Ember Bear and 3 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/NSA_CIA_Tool_Leaks_2016_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/NSA_CIA_Tool_Leaks_2016_2017_Case_Study.pptx).
+  - 20 April 2016: A CIA developer restores revoked privileges, copies the CCI tool-development archives and deletes hundreds of log files
+  - 13 August 2016: The Shadow Brokers leak begins: a bitcoin auction of "Equation Group" files and a free sample archive
+  - 17 August 2016: Cisco publishes ASA advisories for CVE-2016-6366 and CVE-2016-6367 from the leaked firewall exploits
+  - 7 March 2017: WikiLeaks begins Vault 7 with "Year Zero", CIA Center for Cyber Intelligence material
+  - 14 March 2017: Microsoft publishes MS17-010, fixing six SMBv1 CVEs, a month before the Windows release
+  - 14 April 2017: The Shadow Brokers post "Lost in Translation" with Windows exploits; MSRC maps them to existing fixes the next day
+  - 12 May 2017: WannaCry spreads with the leaked SMBv1 exploit; at least 81 of 236 NHS trusts in England infected
+  - 27 June 2017: NotPetya begins in Ukraine through M.E.Doc, spreading by credential theft and two SMB exploits
+  - 17 October 2017: CIA WikiLeaks Task Force final report finds security on the development network "woefully lax"
+  - 9 November 2017: WikiLeaks begins Vault 8 with source code for the CIA Hive tool
+  - 13 July 2022: Joshua Schulte convicted on eight counts at retrial over the Vault 7 theft
+  - 1 February 2024: Schulte sentenced to 40 years
+
 ### 2015 <!-- {docsify-ignore} -->
 
 - [ProFTPD mod_copy, CVE-2015-3306: Unauthenticated File Copy in the Lab](/case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md). Vulnerability, April 2015 to November 2026. Sectors: technology. CVEs: CVE-2015-3306, CVE-2019-12815. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ProFTPD_mod_copy_CVE_2015_3306_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/ProFTPD_mod_copy_CVE_2015_3306_Case_Study.pptx).

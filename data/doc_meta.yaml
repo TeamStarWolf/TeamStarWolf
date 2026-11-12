@@ -2518,6 +2518,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 3: How attackers got publish access](#part-3-how-attackers-got-publish-access), [Part 7: The defender view](#part-7-the-defender-view)"
     pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [DevSecOps Reference](/DEVSECOPS_REFERENCE.md), [Package Managers](/PACKAGE_MANAGERS_REFERENCE.md), [Hugging Face as an AI Supply-Chain Attack Surface: A 2021 to 2026 Case Study](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md)"
     reviewed: null
+  case-studies/NSA_CIA_TOOL_LEAKS.md:
+    audience: "Threat intelligence analysts, vulnerability management leads, incident responders, insider-threat programs and anyone who still runs SMBv1 or end-of-support Windows"
+    level: "Intermediate"
+    read_when: "You need a graded account of the Shadow Brokers and Vault 7 leaks, what the court record and the CIA's own review show, how the leaked SMBv1 exploits became WannaCry and NotPetya, or what the leaks mean for patching, SMB exposure and privileged users on development networks"
+    start_at: "[Executive summary](#executive-summary), [Part 10: the vulnerability-management view](#part-10-the-vulnerability-management-view), [Part 11: the defender view](#part-11-the-defender-view)"
+    pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Insider Threat Reference](/INSIDER_THREAT_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md)"
+    reviewed: null
   case-studies/PHP2SHELL_OCTOBER_2026.md:
     audience: "Vulnerability management leads, incident responders and web platform owners"
     level: "Intermediate"

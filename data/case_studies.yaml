@@ -635,6 +635,86 @@ studies:
       - {"date": "2022-08-08", "label": "Treasury sanctions Tornado Cash"}
       - {"date": "2022-09-15", "label": "Uber breach through a contractor's account; the European Commission proposes the Cyber Resilience Act"}
       - {"date": "2022-10-10", "label": "Fortinet publishes CVE-2022-40684, aware of exploitation; Sandworm causes a power outage in Ukraine through SCADA software"}
+  case-studies/CHRONICLE_2023.md:
+    kind: "era"
+    title: "The Year 2023 in Intrusions: A Dated Record"
+    start: "2023-01"
+    end: "2023-12"
+    sectors: ["cross-sector", "government", "technology", "energy", "healthcare", "finance", "telecommunications", "education", "manufacturing", "defense", "transport"]
+    cves:
+      - "CVE-2017-6742"
+      - "CVE-2019-18935"
+      - "CVE-2020-1472"
+      - "CVE-2021-44228"
+      - "CVE-2022-31199"
+      - "CVE-2022-42475"
+      - "CVE-2022-47966"
+      - "CVE-2023-0669"
+      - "CVE-2023-2868"
+      - "CVE-2023-3519"
+      - "CVE-2023-4966"
+      - "CVE-2023-6448"
+      - "CVE-2023-20198"
+      - "CVE-2023-20273"
+      - "CVE-2023-20867"
+      - "CVE-2023-22515"
+      - "CVE-2023-22518"
+      - "CVE-2023-23397"
+      - "CVE-2023-24880"
+      - "CVE-2023-26360"
+      - "CVE-2023-27350"
+      - "CVE-2023-27997"
+      - "CVE-2023-28252"
+      - "CVE-2023-28771"
+      - "CVE-2023-29059"
+      - "CVE-2023-32434"
+      - "CVE-2023-32435"
+      - "CVE-2023-34362"
+      - "CVE-2023-35078"
+      - "CVE-2023-35081"
+      - "CVE-2023-38831"
+      - "CVE-2023-40044"
+      - "CVE-2023-41061"
+      - "CVE-2023-41064"
+      - "CVE-2023-42793"
+      - "CVE-2023-44487"
+      - "CVE-2023-46604"
+      - "CVE-2023-47246"
+      - "CVE-2023-49103"
+    actors:
+      - "G0007"
+      - "G0010"
+      - "G0016"
+      - "G0032"
+      - "G0034"
+      - "G0064"
+      - "G0082"
+      - "G0092"
+      - "G0094"
+      - "G0098"
+      - "G1015"
+      - "G1017"
+      - "G1024"
+      - "G1033"
+      - "G1040"
+      - "G1048"
+      - "G1049"
+    tags: ["edge devices", "file transfer", "MOVEit", "Storm-0558", "Citrix Bleed", "help-desk social engineering", "Volt Typhoon", "SEC disclosure rules"]
+    pdf: "Chronicle_2023_Case_Study.pdf"
+    pptx: "Chronicle_2023_Case_Study.pptx"
+    events:
+      - {"date": "2023-01-18", "label": "Zero-day CVE-2023-0669 used against GoAnywhere MFT from 18 to 30 January; Cl0p named for it in AA23-158A"}
+      - {"date": "2023-01-26", "label": "Hive infrastructure shut down by German, Dutch and US authorities with Europol; decryption tools given to victims"}
+      - {"date": "2023-03-14", "label": "Microsoft patches Outlook CVE-2023-23397, exploited against European government, transport, energy and military targets"}
+      - {"date": "2023-03-30", "label": "3CX warns that its Electron Windows app in Update 7 has a security issue; CISA alert the same day"}
+      - {"date": "2023-05-15", "label": "Storm-0558 begins accessing email with forged tokens"}
+      - {"date": "2023-05-24", "label": "AA23-144A and Microsoft's report on Volt Typhoon"}
+      - {"date": "2023-05-27", "label": "MOVEit Transfer CVE-2023-34362 first exploited; Progress announces 31 May; KEV 2 Jun"}
+      - {"date": "2023-07-26", "label": "SEC adopts cyber incident disclosure rules"}
+      - {"date": "2023-08-25", "label": "FBI and partners take over QakBot's infrastructure; HTTP/2 Rapid Reset attacks begin at Cloudflare"}
+      - {"date": "2023-09-12", "label": "MGM Resorts announces a cybersecurity issue (8-K, 5 Oct)"}
+      - {"date": "2023-10-10", "label": "NetScaler fixes CVE-2023-4966 (Citrix Bleed); KEV lists Rapid Reset CVE-2023-44487"}
+      - {"date": "2023-11-22", "label": "CyberAv3ngers access Unitronics PLCs at US water facilities, 22 Nov 2023 to Jan 2024; AA23-335A on 1 Dec"}
   case-studies/CHRONICLE_2024.md:
     kind: "era"
     title: "The Year 2024 in Intrusions: A Dated Record"

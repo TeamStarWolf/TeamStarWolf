@@ -2392,6 +2392,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the year at a glance](#part-1-the-year-at-a-glance), [Part 10: the defender view](#part-10-the-defender-view)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md), [The Year 2021 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2021.md)"
     reviewed: null
+  case-studies/CHRONICLE_2023.md:
+    audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
+    level: "Intermediate"
+    read_when: "You want a dated record of the major intrusions of 2023, you need the exploited edge appliances and file-transfer servers, the forged tokens and stolen sessions, the help-desk social engineering and the ransomware takedowns side by side, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the year at a glance](#part-1-the-year-at-a-glance), [Part 12: the defender view](#part-12-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study](/case-studies/CL0P_FILE_TRANSFER_2023.md), [The Year 2022 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2022.md)"
+    reviewed: null
   case-studies/CHRONICLE_2024.md:
     audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
     level: "Intermediate"

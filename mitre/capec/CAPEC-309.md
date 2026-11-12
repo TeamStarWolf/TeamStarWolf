@@ -42,6 +42,7 @@ Hand-written pages in this library that link to this page or to this object's en
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 - [Cyber Operations as Statecraft: The Cases in The Hacker and the State](/case-studies/HACKER_AND_THE_STATE_CASES.md)
+- [The Shadow Brokers and Vault 7: The NSA and CIA Tool Leaks, 2016 to 2017](/case-studies/NSA_CIA_TOOL_LEAKS.md)
 
 <!-- library-refs:end -->
 

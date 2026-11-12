@@ -59,7 +59,7 @@ Notes: Google [85][92]; NVD [86]; Microsoft [87][88]; Google rewards and Project
 - **Cisco published its EXTRABACON advisory** on 17 August; MSRC mapped the 2017 Windows tools to MS17-010.
 - **Buckeye used a DoublePulsar variant** from March 2016, per Symantec, a year before the release.
 Caption: No record opened charges anyone as the Shadow Brokers; the NSA origin rests on Microsoft's statement.
-Notes: Kaspersky [49][50]; Cisco [51][52]; MSRC triage [60]; Symantec on Buckeye [117]. KEV added CVE-2016-6366 and CVE-2016-6367 on 24 May 2022 [23]. Microsoft [67]; the US briefing [71]. The ATT&CK G0020 page does not mention the Shadow Brokers [114].
+Notes: Kaspersky [49][50]; Cisco [51][52]; MSRC triage [60]; Symantec on Buckeye [117]. KEV added CVE-2016-6366 and CVE-2016-6367 on 24 May 2022 [23]. Microsoft [67]; the US briefing [71]. The ATT&CK G0020 page does not mention the Shadow Brokers [114]. The leak events have their home in the Shadow Brokers and Vault 7 study.
 
 ## PART 6 | EternalBlue was patched in March, leaked in April, a worm in May
 

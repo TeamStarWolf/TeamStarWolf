@@ -1,0 +1,343 @@
+{
+  "name": "TeamStarWolf - NSA and CIA Tool Leaks 2016 to 2017",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Techniques around the 2016 to 2017 NSA and CIA tool leaks: the Equation group as ATT&CK records it, the WannaCry and NotPetya malware that reused the leaked SMBv1 exploits, the NotPetya supply-chain vector, and this study's inferred mapping of the Vault 7 insider theft and the Hive tool; not an official MITRE mapping. Sources: ATT&CK G0020, S0366, S0368, S0606 and T1210 as published in ATT&CK v20, CISA TA17-132A and TA17-181A, Microsoft's 2017 analyses, the SDNY court record, the CIA WikiLeaks Task Force report and WikiLeaks' Vault 8 page. Tactics are taken from data/attack/technique_profiles.jsonl. Scores: 100 an ATT&CK object maps the technique, 70 an advisory describes the behavior and the study assigns the id, 40 the mapping is Inferred. Each comment names source numbers from the Sources table of case-studies/NSA_CIA_TOOL_LEAKS.md.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1120",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Peripheral Device Discovery. Sources: [25][26] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1480.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Environmental Keying. Sources: [25] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1542.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Component Firmware. Sources: [25][1] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1542.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Component Firmware. Sources: [25][1] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1564.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Hidden File System. Sources: [25] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Exploitation of Remote Services. Sources: [26][20][27][23][76][74] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1570",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Lateral Tool Transfer. Sources: [26] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1563.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "RDP Hijacking. Sources: [26] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "SMB/Windows Admin Shares. Sources: [27][23] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "System Network Configuration Discovery. Sources: [26] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Remote System Discovery. Sources: [26][64] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "File and Directory Discovery. Sources: [26][27] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1518.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Security Software Discovery. Sources: [27] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Windows Management Instrumentation. Sources: [26][27][23][45] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Service Execution. Sources: [27][23] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Scheduled Task. Sources: [27][45] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Scheduled Task. Sources: [27][45] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Scheduled Task. Sources: [27][45] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Windows Service. Sources: [26] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Windows Service. Sources: [26] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Local Accounts. Sources: [27] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Local Accounts. Sources: [27] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Local Accounts. Sources: [27] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Local Accounts. Sources: [27] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "LSASS Memory. Sources: [27][23] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Masquerading. Sources: [27] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1218.011",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Rundll32. Sources: [27] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1564.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Hidden Files and Directories. Sources: [26] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1222.001",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Windows Permissions. Sources: [26] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1685.005",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Clear Windows Event Logs. Sources: [27][45] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Multi-hop Proxy. Sources: [26] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1573.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Asymmetric Cryptography. Sources: [26] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Data Encrypted for Impact. Sources: [26][20][27] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Service Stop. Sources: [26] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Inhibit System Recovery. Sources: [26] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1529",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "System Shutdown/Reboot. Sources: [27][45] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Compromise Software Supply Chain. Sources: [45][23] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "Valid Accounts. Sources: [39] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "Valid Accounts. Sources: [39] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "Valid Accounts. Sources: [39] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Valid Accounts. Sources: [39] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "Account Manipulation. Sources: [39] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "Account Manipulation. Sources: [39] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1213.001",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "Confluence. Sources: [42] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1213.003",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "Code Repositories. Sources: [42] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "Indicator Removal. Sources: [39] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 40,
+      "comment": "Web Protocols. Sources: [35] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 40,
+      "comment": "Proxy. Sources: [35] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    },
+    {
+      "techniqueID": "T1587.003",
+      "tactic": "resource-development",
+      "score": 40,
+      "comment": "Digital Certificates. Sources: [35] in case-studies/NSA_CIA_TOOL_LEAKS.md."
+    }
+  ],
+  "metadata": [
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in its technique profile"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "38"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "49"
+    },
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/NSA_CIA_TOOL_LEAKS.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Shadow Brokers and Vault 7: The NSA and CIA Tool Leaks, 2016 to 2017",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/NSA_CIA_TOOL_LEAKS.md"
+    }
+  ]
+}

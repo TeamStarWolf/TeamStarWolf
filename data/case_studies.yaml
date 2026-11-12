@@ -439,23 +439,29 @@ studies:
   case-studies/EMUDHRA_CA_COMPROMISE_2026.md:
     kind: "incident"
     title: "The eMudhra Certificate Authority Key Compromise: A 2026 Case Study"
-    start: "2026-10"
+    start: "2025-04"
     end: "2026-11"
+    core_start: "2026-10-17"
+    core_end: "2026-11-10"
     sectors: ["technology"]
-    cves: ["CVE-2026-114406", "CVE-2026-111943", "CVE-2026-91403", "CVE-2026-113812"]
+    cves: ["CVE-2026-111943", "CVE-2026-113470", "CVE-2026-114406", "CVE-2026-91403", "CVE-2026-113812"]
     actors: []
-    tags: ["Web PKI", "certificate authority", "key ceremony", "distrust"]
+    tags: ["Web PKI", "certificate authority", "key ceremony", "weak keys", "trust store", "distrust"]
     pdf: "eMudhra_CA_Compromise_2026_Case_Study.pdf"
     pptx: "eMudhra_CA_Compromise_2026_Case_Study.pptx"
     events:
-      - {"date": "2025-04-30", "label": "eMudhra key ceremony produces 24 intermediates; a test deviation generates the weak keys"}
-      - {"date": "2026-10-17", "label": "A researcher identifies the weak keys against CCADB and proves control"}
-      - {"date": "2026-10-18", "label": "eMudhra revokes all eight intermediates; Sectigo revokes the cross-certificates by 19 October"}
-      - {"date": "2026-10-20", "label": "Mozilla removes the root from NSS; Microsoft blocks the eight intermediates"}
-      - {"date": "2026-10-22", "label": "eMudhra announces it will exit the global SSL/TLS certificate business"}
-      - {"date": "2026-10-27", "label": "Chrome Root Store removes the emSign ECC Root CA G3"}
-      - {"date": "2026-10", "label": "Apple, Go (CVE-2026-111943), Okta and Auth0, and downstream bundles follow; trust-store updates coordinated under Red Hat RHSB-2026-012"}
-      - {"date": "2026-11", "label": "Root programs distrust the fallback emSign Root CA G1 (Chrome and Firefox after 16 November, Apple 30 November); eMudhra winds down all publicly trusted TLS"}
+      - {"date": "2025-04-30", "label": "Key ceremony produces 16 B and C series subordinate keys; a custom script re-creates weak ECDSA key objects"}
+      - {"date": "2025-05-29", "label": "Invalid CRL signatures on the six G3B and G3C TLS intermediates, 29 May to 6 June 2025 (Bug 1970728)"}
+      - {"date": "2026-10-17", "label": "Researcher reports the weak keys with signed proof; Chrome blocks them by CRLSet at 19:45 UTC, OneCRL by 22:59"}
+      - {"date": "2026-10-18", "label": "eMudhra revokes all eight intermediates, reason cACompromise"}
+      - {"date": "2026-10-19", "label": "Sectigo revokes the eight cross-certificates; Go 1.27.3 and 1.26.10 ship the crypto/x509 fix"}
+      - {"date": "2026-10-20", "label": "Mozilla orders emergency removal of emSign ECC Root CA - G3; forged certificates appear within hours"}
+      - {"date": "2026-10-21", "label": "Go publishes CVE-2026-111943; Red Hat RHSB-2026-012; CERT-In advisory CIAD-2026-0050; Cisco Talos advisory"}
+      - {"date": "2026-10-22", "label": "eMudhra's board decides to withdraw from the global SSL/TLS certificate business"}
+      - {"date": "2026-10-26", "label": "Microsoft out-of-band update removes seven certificates from the Windows trust list"}
+      - {"date": "2026-10-27", "label": "Chrome Root Store removal reaches devices; Chrome Root Program posts its review on the incident bug"}
+      - {"date": "2026-11-07", "label": "Eight RSA G2B and G2C intermediates from the same ceremony revoked, cessationOfOperation"}
+      - {"date": "2026-11-10", "label": "eMudhra posts its Full Incident Report to the Mozilla bug"}
   case-studies/EXCHANGE_MARAUDER_2021.md:
     kind: "campaign"
     title: "Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation"

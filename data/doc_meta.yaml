@@ -2343,6 +2343,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 3: the 2026 vulnerability record](#part-3-the-2026-vulnerability-record), [Part 8: the defender view](#part-8-the-defender-view)"
     pairs_with: "[Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md), [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [npm Supply-Chain Attacks](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md)"
     reviewed: null
+  case-studies/CHRONICLE_2016.md:
+    audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
+    level: "Intermediate"
+    read_when: "You want a dated record of the major intrusions of 2016, you need the election intrusions, the Bangladesh Bank theft, Mirai and the Kyiv grid attack side by side with their government record, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 8: the defender view](#part-8-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md), [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md)"
+    reviewed: null
   case-studies/CHRONICLE_2017.md:
     audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
     level: "Intermediate"

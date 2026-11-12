@@ -420,6 +420,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 14 December 2017: Mandiant publishes TRITON, used to reprogram Triconex safety controllers
   - 19 December 2017: The United States, with the UK, Australia, Canada, New Zealand and Japan, attributes WannaCry to North Korea
 
+### 2016 <!-- {docsify-ignore} -->
+
+- [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md). Period record, January to December 2016. Sectors: cross-sector, government, finance, energy, healthcare, technology, transport. CVEs: CVE-2015-5374, CVE-2016-0189, CVE-2016-0800, CVE-2016-1019, CVE-2016-2118, CVE-2016-3081 and 12 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0020 Equation, G0032 Lazarus Group, G0034 Sandworm Team and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2016_Case_Study.pptx).
+  - February 2016: An attacker in Bangladesh Bank's SWIFT system attempts $951 million in transfers; $81 million is not recovered
+  - 31 March 2016: TA16-091A: Locky in hospitals in the US, New Zealand and Germany; Samas into healthcare networks through web servers
+  - 12 April 2016: Stolen DCCC credentials used to enter the DCCC network, the DNC reached on 18 April (indictment allegation)
+  - 25 July 2016: No More Ransom launches
+  - 15 August 2016: Cisco is alerted to Shadow Brokers material claiming Equation Group exploits for PIX and ASA
+  - 24 August 2016: Citizen Lab publishes the Trident report; Apple ships iOS 9.3.5, 24 and 25 August
+  - 20 September 2016: A DDoS of about 620 Gbps hits KrebsOnSecurity; Akamai absorbs it
+  - 22 September 2016: Yahoo discloses the theft of data from at least 500 million accounts in late 2014
+  - 7 October 2016: DHS and ODNI joint statement on Russian-directed email compromises
+  - 17 November 2016: Shamoon 2's hardcoded wipe time against at least one Saudi organization
+  - 17 December 2016: Part of Kyiv without power for about one hour; ESET judges Industroyer's use highly probable
+  - 29 December 2016: Sanctions, expulsions and compound closures; DHS and FBI release JAR-16-20296A
+
 ### 2015 <!-- {docsify-ignore} -->
 
 - [ProFTPD mod_copy, CVE-2015-3306: Unauthenticated File Copy in the Lab](/case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md). Vulnerability, April 2015 to November 2026. Sectors: technology. CVEs: CVE-2015-3306, CVE-2019-12815. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ProFTPD_mod_copy_CVE_2015_3306_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/ProFTPD_mod_copy_CVE_2015_3306_Case_Study.pptx).

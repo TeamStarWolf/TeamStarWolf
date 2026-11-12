@@ -503,6 +503,9 @@ CATALOG = [
       ("case-studies/chronicle-2021-ics.json", "The Year 2021 in Intrusions (ICS)",
        "The 3 ATT&CK for ICS techniques bound to the February 2021 water facility SCADA incident in CISA AA21-042A, from the "
        "[2021 chronicle case study](/case-studies/CHRONICLE_2021.md)"),
+      ("case-studies/chronicle-2016-ics.json", "The Year 2016 in Intrusions (ICS)",
+       "The 22 ATT&CK for ICS techniques that campaign C0025 and Industroyer (S0604) list for the 17 December 2016 Kyiv grid attack, from the "
+       "[2016 chronicle case study](/case-studies/CHRONICLE_2016.md)"),
       ("case-studies/chronicle-2017-ics.json", "The Year 2017 in Intrusions (ICS)",
        "The 28 ATT&CK for ICS techniques bound to the 2017 Triton safety system attack (campaign C0030 and software S1009) and to WannaCry (S0366) and NotPetya (S0368), from the "
        "[2017 chronicle case study](/case-studies/CHRONICLE_2017.md)"),

@@ -162,6 +162,30 @@ studies:
       - {"date": "2026-09-08", "label": "Chrome 153 fixes three IWA and two Controlled Frame bugs, and exploited V8 bug CVE-2026-87491 with no link between them"}
       - {"date": "2026-11-03", "label": "Chrome 157 fixes CVE-2026-121172 and CVE-2026-121206, the last IWA-component CVEs of the record"}
       - {"date": "2026-11-10", "label": "CISA adds Chrome XML zero-day CVE-2026-125350 to KEV; the catalog holds no IWA or Controlled Frame entry"}
+  case-studies/CHRONICLE_2016.md:
+    kind: "era"
+    title: "The Year 2016 in Intrusions: A Dated Record"
+    start: "2016-01"
+    end: "2016-12"
+    sectors: ["cross-sector", "government", "finance", "energy", "healthcare", "technology", "transport"]
+    cves: ["CVE-2015-5374", "CVE-2016-0189", "CVE-2016-0800", "CVE-2016-1019", "CVE-2016-2118", "CVE-2016-3081", "CVE-2016-3714", "CVE-2016-4117", "CVE-2016-4655", "CVE-2016-4656", "CVE-2016-4657", "CVE-2016-5195", "CVE-2016-6277", "CVE-2016-6366", "CVE-2016-6367", "CVE-2016-7255", "CVE-2016-7855", "CVE-2016-9079"]
+    actors: ["G0007", "G0010", "G0016", "G0020", "G0032", "G0034", "G0040", "G0041", "G0055", "G0056", "G0082", "G0138"]
+    tags: ["election intrusions", "GRIZZLY STEPPE", "Bangladesh Bank", "Mirai", "Shamoon 2", "Industroyer", "Yahoo breach"]
+    pdf: "Chronicle_2016_Case_Study.pdf"
+    pptx: "Chronicle_2016_Case_Study.pptx"
+    events:
+      - {"date": "2016-02", "label": "An attacker in Bangladesh Bank's SWIFT system attempts $951 million in transfers; $81 million is not recovered"}
+      - {"date": "2016-03-31", "label": "TA16-091A: Locky in hospitals in the US, New Zealand and Germany; Samas into healthcare networks through web servers"}
+      - {"date": "2016-04-12", "label": "Stolen DCCC credentials used to enter the DCCC network, the DNC reached on 18 April (indictment allegation)"}
+      - {"date": "2016-07-25", "label": "No More Ransom launches"}
+      - {"date": "2016-08-15", "label": "Cisco is alerted to Shadow Brokers material claiming Equation Group exploits for PIX and ASA"}
+      - {"date": "2016-08-24", "label": "Citizen Lab publishes the Trident report; Apple ships iOS 9.3.5, 24 and 25 August"}
+      - {"date": "2016-09-20", "label": "A DDoS of about 620 Gbps hits KrebsOnSecurity; Akamai absorbs it"}
+      - {"date": "2016-09-22", "label": "Yahoo discloses the theft of data from at least 500 million accounts in late 2014"}
+      - {"date": "2016-10-07", "label": "DHS and ODNI joint statement on Russian-directed email compromises"}
+      - {"date": "2016-11-17", "label": "Shamoon 2's hardcoded wipe time against at least one Saudi organization"}
+      - {"date": "2016-12-17", "label": "Part of Kyiv without power for about one hour; ESET judges Industroyer's use highly probable"}
+      - {"date": "2016-12-29", "label": "Sanctions, expulsions and compound closures; DHS and FBI release JAR-16-20296A"}
   case-studies/CHRONICLE_2017.md:
     kind: "era"
     title: "The Year 2017 in Intrusions: A Dated Record"

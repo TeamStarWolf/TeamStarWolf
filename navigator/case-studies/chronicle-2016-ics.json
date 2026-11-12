@@ -1,0 +1,229 @@
+{
+  "name": "TeamStarWolf - The Year 2016 in Intrusions (ICS)",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "ics-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK for ICS techniques for the 17 December 2016 Kyiv grid attack: the operator tradecraft on campaign C0025 and the grid-impact techniques on Industroyer (S0604), with TA17-163A for the advisory description. Each comment names source numbers from case-studies/CHRONICLE_2016.md. Scores: 100 the ATT&CK object prints the id.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1701.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1701.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1701.004",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0867",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0849",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0886",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0886",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0859",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0859",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0800",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "S0604 Industroyer (basis: Listed). Sources [21] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0806",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "S0604; rapid breaker toggling described in TA17-163A (basis: Listed). Sources [21][19] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0809",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "S0604 (its wiper) (basis: Listed). Sources [21][19] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0813",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S0604 (basis: Listed). Sources [21] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0814",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "S0604, via CVE-2015-5374 against SIPROTEC relays; TA17-163A notes the relay needs a manual reset (basis: Listed). Sources [21][25][19] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0815",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S0604 (basis: Listed). Sources [21] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0816",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "S0604 (basis: Listed). Sources [21] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0827",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S0604 (basis: Listed). Sources [21] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0829",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S0604 (basis: Listed). Sources [21] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0831",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S0604 (opening breakers); direct commands to RTUs in TA17-163A (basis: Listed). Sources [21][19] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0832",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S0604 (basis: Listed). Sources [21] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0837",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S0604 (basis: Listed). Sources [21] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0846",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "S0604; network mapping over OPC in TA17-163A (basis: Listed). Sources [21][19] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0881",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "S0604 (basis: Listed). Sources [21] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T0888",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "S0604 (basis: Listed). Sources [21] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: the source or ATT&CK object prints the ATT&CK id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2016.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "22"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "24"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/ics/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/ics/technique_profiles.jsonl"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2016 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2016.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

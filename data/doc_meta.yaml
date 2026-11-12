@@ -2336,6 +2336,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 10: the vulnerability-management view](#part-10-the-vulnerability-management-view)"
     pairs_with: "[Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md)"
     reviewed: null
+  case-studies/CHROME_ISOLATED_WEB_APPS_2026.md:
+    audience: "Browser and endpoint security engineers, ChromeOS and Chrome Enterprise administrators, vulnerability management leads and detection engineers"
+    level: "Intermediate"
+    read_when: "You run managed ChromeOS or Chrome fleets, you need the facts behind a headline about an Isolated Web App flaw or exploit, or you want to decide which IWA policies to set and what to watch for on desktops"
+    start_at: "[Executive summary](#executive-summary), [Part 3: the 2026 vulnerability record](#part-3-the-2026-vulnerability-record), [Part 8: the defender view](#part-8-the-defender-view)"
+    pairs_with: "[Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md), [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [npm Supply-Chain Attacks](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md)"
+    reviewed: null
   case-studies/CHRONICLE_2019.md:
     audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
     level: "Intermediate"

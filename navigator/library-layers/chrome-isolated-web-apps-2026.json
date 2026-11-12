@@ -1,0 +1,205 @@
+{
+  "name": "TeamStarWolf - Chrome Isolated Web Apps (2026) Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Enterprise ATT&CK v20.0 techniques bound in the Chrome Isolated Web Apps 2026 case study. No IWA vulnerability has a recorded in-the-wild exploitation, so no entry records adversary use of IWAs. Score 50: demonstrated by researchers (SpecterOps, Praetorian) against Chromium's extension and IWA surface. Score 25: a capability the IWA CVE records describe, not observed. Score 10: context from adjacent records (non-IWA Chrome zero-days, the 2024 Chrome Web Store extension campaign) or a conference listing only. Browser Session Hijacking and Exploitation for Privilege Escalation are left out. Software: S0699 Mythic and S0154 Cobalt Strike as research tooling; group G0128 ZIRCONIUM appears only as context for a non-IWA campaign. Comments carry the study's source numbers. This is not an official MITRE mapping.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "50: demonstrated by researchers against the extension and IWA surface",
+      "color": "#15803d"
+    },
+    {
+      "label": "25: capability described by the IWA CVE records, not observed",
+      "color": "#4ade80"
+    },
+    {
+      "label": "10: context from adjacent records (not IWA) or a listing only",
+      "color": "#bbf7d0"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/CHROME_ISOLATED_WEB_APPS_2026.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "score_meaning",
+      "value": "50 = demonstrated by researchers; 25 = capability described by IWA CVE records, not observed; 10 = context from adjacent non-IWA records or a listing only. No technique carries a score for adversary use of IWAs, because none was observed; no severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "Chrome Isolated Web Apps: Vulnerabilities and Abuse in 2026",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/CHROME_ISOLATED_WEB_APPS_2026"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1176.001",
+      "tactic": "persistence",
+      "score": 50,
+      "enabled": true,
+      "comment": "SilentChrome-BOF and Ditto sideload a Chromium extension by editing profile state (SpecterOps, 2026-08-13); ChromeAlone sideloads extensions (Praetorian, 2025-08). Researchers; no adversary use observed. Mapping is the study's own. Sources: [68]; [72]; [80]. Source numbers refer to the Sources table of case-studies/CHROME_ISOLATED_WEB_APPS_2026.md."
+    },
+    {
+      "techniqueID": "T1176",
+      "tactic": "persistence",
+      "score": 50,
+      "enabled": true,
+      "comment": "An Isolated Web App installed by reconstructing it in a Chrome profile (SpecterOps, 2026-08-13) and Praetorian's BLOWTORCH IWA (2025-08). ATT&CK has no IWA sub-technique; the parent is the closest fit. Researchers only. Sources: [68]; [72]; [83]. Source numbers refer to the Sources table of case-studies/CHROME_ISOLATED_WEB_APPS_2026.md."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 50,
+      "enabled": true,
+      "comment": "The IWA opens outbound TCP with Direct Sockets as a SOCKS bridge (Ditto, 2026; BLOWTORCH, 2025). Researchers only. Sources: [68]; [70]; [72]. Source numbers refer to the Sources table of case-studies/CHROME_ISOLATED_WEB_APPS_2026.md."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 50,
+      "enabled": true,
+      "comment": "BLOWTORCH WebSocket bridge to its relay (2025); Ditto's local control WebSocket between extension and IWA (2026). Researchers only; mapping is the study's own. Sources: [72]; [68]. Source numbers refer to the Sources table of case-studies/CHROME_ISOLATED_WEB_APPS_2026.md."
+    },
+    {
+      "techniqueID": "T1564.003",
+      "tactic": "stealth",
+      "score": 50,
+      "enabled": true,
+      "comment": "IWA launched minimized or on a hidden alternate desktop (SpecterOps 2026-08-13, method from ChromeAlone). Researchers only. Sources: [68]. Source numbers refer to the Sources table of case-studies/CHROME_ISOLATED_WEB_APPS_2026.md."
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 50,
+      "enabled": true,
+      "comment": "Operator page imitating a Chromium updating page; extension reusing another extension's public key to keep its ID past ID-keyed allowlists (SpecterOps 2026-08-13). Researchers only. Sources: [68]. Source numbers refer to the Sources table of case-studies/CHROME_ISOLATED_WEB_APPS_2026.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 50,
+      "enabled": true,
+      "comment": "Per-user registry key registering the Native Messaging Host (SpecterOps 2026-08-13). Researchers only. Sources: [68]. Source numbers refer to the Sources table of case-studies/CHROME_ISOLATED_WEB_APPS_2026.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 50,
+      "enabled": true,
+      "comment": "Per-user registry key registering the Native Messaging Host (SpecterOps 2026-08-13). Researchers only. Sources: [68]. Source numbers refer to the Sources table of case-studies/CHROME_ISOLATED_WEB_APPS_2026.md."
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 10,
+      "enabled": true,
+      "comment": "ChromeAlone's DEF CON 33 abstract (2025-08-08) says it obfuscates with WebAssembly; conference listing only (Reported). Sources: [71]. Source numbers refer to the Sources table of case-studies/CHROME_ISOLATED_WEB_APPS_2026.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 25,
+      "enabled": true,
+      "comment": "Capability: IWA CVEs described as reached by a crafted HTML page or malicious file (CVE-2026-11102, 2026-06-04; CVE-2026-13886, 2026-06-30; CVE-2026-87468, 2026-09-08); no IWA exploitation observed. Observed in 2026 only for the eight non-IWA Chrome zero-days in KEV. Sources: [26]; [32]; [39]; [45]; [81]. Source numbers refer to the Sources table of case-studies/CHROME_ISOLATED_WEB_APPS_2026.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 25,
+      "enabled": true,
+      "comment": "Capability: the delivery path for crafted-page IWA bugs; not observed for IWAs. Context: UTA0565 typosquat sites with a hidden iframe delivered a non-IWA Chrome chain, 2026-09-03 to 09-04 (Volexity, Reported). Sources: [81]; [74]. Source numbers refer to the Sources table of case-studies/CHROME_ISOLATED_WEB_APPS_2026.md."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 10,
+      "enabled": true,
+      "comment": "Context, not IWA: UTA0560 and JungleBamboo phishing delivering the non-IWA Chrome and Windows chain, 2026-09-01 to 09-02 (Volexity, Reported). Sources: [73]. Source numbers refer to the Sources table of case-studies/CHROME_ISOLATED_WEB_APPS_2026.md."
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 10,
+      "enabled": true,
+      "comment": "Context, not IWA: UTA0565 typosquat sites, 2026-09 (Volexity, Reported); mapping is the study's own. Sources: [74]. Source numbers refer to the Sources table of case-studies/CHROME_ISOLATED_WEB_APPS_2026.md."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 10,
+      "enabled": true,
+      "comment": "Context, not IWA: phishing of Chrome Web Store developers from mid-November 2024 (Sekoia's own mapping, Reported). Sources: [78]. Source numbers refer to the Sources table of case-studies/CHROME_ISOLATED_WEB_APPS_2026.md."
+    },
+    {
+      "techniqueID": "T1586.003",
+      "tactic": "resource-development",
+      "score": 10,
+      "enabled": true,
+      "comment": "Context, not IWA: developer accounts used to authorize a malicious OAuth app with publish rights, 2024 (Sekoia's own mapping, Reported). Sources: [78]. Source numbers refer to the Sources table of case-studies/CHROME_ISOLATED_WEB_APPS_2026.md."
+    },
+    {
+      "techniqueID": "T1528",
+      "tactic": "credential-access",
+      "score": 10,
+      "enabled": true,
+      "comment": "Context, not IWA: the malicious OAuth app's publish rights, 2024 (Sekoia's own mapping, Reported). Sources: [78]. Source numbers refer to the Sources table of case-studies/CHROME_ISOLATED_WEB_APPS_2026.md."
+    },
+    {
+      "techniqueID": "T1550.001",
+      "tactic": "lateral-movement",
+      "score": 10,
+      "enabled": true,
+      "comment": "Context, not IWA: the token used to publish malicious extension updates, 2024 (Sekoia's own mapping, Reported). Sources: [78]. Source numbers refer to the Sources table of case-studies/CHROME_ISOLATED_WEB_APPS_2026.md."
+    },
+    {
+      "techniqueID": "T1539",
+      "tactic": "credential-access",
+      "score": 10,
+      "enabled": true,
+      "comment": "Context, not IWA: malicious extension updates harvested session cookies and tokens, 2024-12-12 to 12-30 (Sekoia's own mapping, Reported). Sources: [78]. Source numbers refer to the Sources table of case-studies/CHROME_ISOLATED_WEB_APPS_2026.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 10,
+      "enabled": true,
+      "comment": "Context, not IWA: malicious updates pushed to users of legitimate extensions, 2024-12 (Sekoia, Reported); mapping is the study's own, not Sekoia's list. Sources: [78]. Source numbers refer to the Sources table of case-studies/CHROME_ISOLATED_WEB_APPS_2026.md."
+    }
+  ]
+}

@@ -139,6 +139,7 @@ EXPORT_NAMES = {
     "PLEX_MEDIA_SERVER_2026_CVES": "Plex_Media_Server_2026_CVEs",
     "GITLAB_CVE_2026_97229": "GitLab_CVE_2026_97229",
     "SSHOLE_CVE_2026_123158": "SSHole_CVE_2026_123158",
+    "CHROME_ISOLATED_WEB_APPS_2026": "Chrome_Isolated_Web_Apps_2026",
     "RANSOMWARE_ECOSYSTEM": "Ransomware_Ecosystem_2019_2026",
     "EXCHANGE_MARAUDER_2021": "Exchange_Marauder_2021",
     "THREAT_ACTORS_CHINA": "Threat_Actors_China",

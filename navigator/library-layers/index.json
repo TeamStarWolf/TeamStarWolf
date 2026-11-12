@@ -268,5 +268,11 @@
     "name": "TeamStarWolf - The Ransomware Ecosystem, 2019 to 2026",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2019 to 2026 ransomware record supports: the joint #StopRansomware and other CISA advisories (AA20-302A, AA22-040A, AA22-187A, AA22-294A, AA23-320A, AA23-325A, AA23-352A, AA23-353A, AA24-131A, AA25-203A, AA26-222A, AA26-293A and others), victims' statements and testimony, and ATT&CK's own records. Each comment names source numbers from case-studies/RANSOMWARE_ECOSYSTEM.md. Scores: 100 the source prints the id, 70 the source describes the behavior and the study assigns the id.",
     "blurb": "Techniques from the 2019 to 2026 ransomware record, from VPNs without MFA, edge exploits and help-desk calls to RClone exfiltration, encryption and leak-site extortion. A curated layer for the ransomware ecosystem case study."
+  },
+  {
+    "file": "chrome-isolated-web-apps-2026.json",
+    "name": "TeamStarWolf - Chrome Isolated Web Apps (2026) Case Study",
+    "description": "Enterprise ATT&CK v20.0 techniques bound in the Chrome Isolated Web Apps 2026 case study. No IWA vulnerability has a recorded in-the-wild exploitation, so no entry records adversary use of IWAs. Score 50: demonstrated by researchers (SpecterOps, Praetorian) against Chromium's extension and IWA surface. Score 25: a capability the IWA CVE records describe, not observed. Score 10: context from adjacent records (non-IWA Chrome zero-days, the 2024 Chrome Web Store extension campaign) or a conference listing only. Browser Session Hijacking and Exploitation for Privilege Escalation are left out. Software: S0699 Mythic and S0154 Cobalt Strike as research tooling; group G0128 ZIRCONIUM appears only as context for a non-IWA campaign. Comments carry the study's source numbers. This is not an official MITRE mapping.",
+    "blurb": "Techniques bound to Chrome Isolated Web Apps in 2026: the extension and IWA persistence, SOCKS proxying and hiding that researchers demonstrated, the client-exploitation capability the IWA CVEs describe, and context rows from non-IWA Chrome zero-days and a 2024 extension campaign. No entry records adversary use of IWAs."
   }
 ]

@@ -43,6 +43,7 @@ Restricting system configuration modifications to a specific user or group of us
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [Chrome Isolated Web Apps: Vulnerabilities and Abuse in 2026](/case-studies/CHROME_ISOLATED_WEB_APPS_2026.md)
 - [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md)
 
 <!-- library-refs:end -->

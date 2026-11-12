@@ -52,6 +52,7 @@ An attacker obtains an authoritative or reputable signer's private signature key
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [The FireEye Mandiant Intrusion of 2020: The Public Record](/case-studies/MANDIANT_INTRUSION_2020.md)
 
 <!-- library-refs:end -->
 

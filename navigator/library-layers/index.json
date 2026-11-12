@@ -286,5 +286,11 @@
     "name": "TeamStarWolf - eMudhra Certificate Authority Key Compromise 2026 Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the eMudhra certificate authority key compromise case study. No advisory or root program names ATT&CK ids, so every binding is the study's own. Score 50: the action happened, by researchers and testers (key recovery, certificate forging). Score 25: a capability the primaries name that no one observed (adversary-in-the-middle, code signing). Score 10: a form-only fit. No technique carries a score for adversary use, because none was observed.",
     "blurb": "Techniques from the eMudhra record, from the weak intermediate keys anyone could recover and the certificates researchers forged with them to the interception and code-signing capability no one was seen using. A curated layer for the eMudhra case study."
+  },
+  {
+    "file": "mandiant-intrusion-2020.json",
+    "name": "TeamStarWolf - The FireEye Mandiant Intrusion of 2020",
+    "description": "Enterprise ATT&CK v20.0 techniques bound in the FireEye Mandiant intrusion of 2020 case study, not an official MITRE mapping. Sources: FireEye's 13 December 2020 SUNBURST technique list, CISA AA20-352A, the ATT&CK SolarWinds Compromise campaign (C0024), Mandiant's and Microsoft's December 2020 and January 2021 identity guidance, CISA AA21-008A and the 2024 SVR advisory AA24-057A. T1098.005 Device Registration for the second-phone alert that exposed the intrusion is the study's own mapping. Group G0016 APT29; campaign C0024. Tactics are taken from data/attack/technique_profiles.jsonl. Scores indicate membership only. Each comment names source numbers from the Sources table of case-studies/MANDIANT_INTRUSION_2020.md.",
+    "blurb": "Techniques from the FireEye intrusion and the campaign that delivered it, from the trojanized Orion update and the second-phone MFA alert to forged SAML tokens, added cloud credentials and the 2024 SVR identity tradecraft. A curated layer for the FireEye Mandiant intrusion case study."
   }
 ]

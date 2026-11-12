@@ -306,6 +306,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2020 <!-- {docsify-ignore} -->
 
+- [The FireEye Mandiant Intrusion of 2020: The Public Record](/case-studies/MANDIANT_INTRUSION_2020.md). Incident, 2019 to October 2024 (core: November 2020 to September 2022). Sectors: technology, government. CVEs: CVE-2018-8581, CVE-2018-13379, CVE-2019-9670, CVE-2019-11510, CVE-2019-19781, CVE-2020-4006 and 13 more. ATT&CK groups: G0016 APT29. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/FireEye_Mandiant_Intrusion_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/FireEye_Mandiant_Intrusion_2020_Case_Study.pptx).
+  - November 2020: FireEye's alert: an employee's account registered a second phone for two-factor codes
+  - 3 December 2020: FireEye's red_team_tool_countermeasures repository is created on GitHub, five days before disclosure
+  - 8 December 2020: Form 8-K and two blog posts disclose the attack and the Red Team tool theft; 311 rules and 16 CVEs published
+  - 12 December 2020: FireEye tells SolarWinds that Orion is compromised
+  - 13 December 2020: FireEye publishes the SUNBURST report (UNC2452); CISA issues Emergency Directive 21-01
+  - 30 December 2020: Final countermeasures table: 324 rules across 61 tool families
+  - 5 January 2021: FBI, CISA, ODNI and NSA call the actor likely Russian in origin
+  - 23 February 2021: Mandia testifies to the Senate Select Committee on Intelligence
+  - 15 April 2021: White House names the SVR with high confidence; Treasury sanctions; UK NCSC statement
+  - 4 October 2021: FireEye, Inc. becomes Mandiant, Inc.; the products business sale closes on 8 October
+  - 27 April 2022: Mandiant merges UNC2452 into APT29
+  - 12 September 2022: Google completes its acquisition of Mandiant
 - [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md). Campaign, January 2019 to 2021 (core: February to December 2020). Sectors: technology, government. CVEs: CVE-2018-13379, CVE-2019-9670, CVE-2019-11510, CVE-2019-19781, CVE-2020-0688, CVE-2020-1472 and 2 more. ATT&CK groups: G0010 Turla, G0016 APT29. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SolarWinds_SUNBURST_2019_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/SolarWinds_SUNBURST_2019_2021_Case_Study.pptx).
   - 4 September 2019: Threat actor accesses SolarWinds
   - 12 September 2019: Test code injection trial run, to 4 November 2019

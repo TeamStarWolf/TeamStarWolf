@@ -149,6 +149,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 October 2026: CISA adds the CVE to KEV as Google Brotli Unchecked Return Value Vulnerability
   - 4 November 2026: TeamStarWolf lab run: 24.22.0 flagged, 24.22.1 not, both report Brotli 1.2.0
   - 10 November 2026: KEV due date
+- [Chrome Isolated Web Apps: Vulnerabilities and Abuse in 2026](/case-studies/CHROME_ISOLATED_WEB_APPS_2026.md). Attack surface, August 2023 to November 2026 (core: January to November 2026). Sectors: technology. CVEs: CVE-2026-11102, CVE-2026-17743, CVE-2026-87435, CVE-2026-13886, CVE-2026-14042, CVE-2026-17780 and 16 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chrome_Isolated_Web_Apps_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chrome_Isolated_Web_Apps_2026_Case_Study.pptx).
+  - 8 August 2023: Google moves Chrome to weekly Stable security updates from Chrome 116 to shrink the n-day patch gap
+  - 8 October 2024: Google's post on IWA signing keys: the app ID derives from the key, and a compromised key is "a troublesome situation"
+  - 8 August 2025: Praetorian presents ChromeAlone at DEF CON 33; its BLOWTORCH IWA uses Direct Sockets as a SOCKS proxy
+  - 27 October 2025: blink-dev announces the Google allowlist for managed IWA installations from M143
+  - 10 February 2026: IsolatedWebAppUserInstallationEnabled added for ChromeOS 146, default true
+  - 7 April 2026: Google reports CVE-2026-11102 (key rotation bypass) and CVE-2026-13886 (mandatory CSP bypass)
+  - 2 June 2026: Chrome 149 fixes CVE-2026-11102, which NVD and CISA-ADP later score CVSS 8.8 while Chromium rates it Medium
+  - 29 July 2026: Chrome 151 fixes IWA bugs CVE-2026-17780 and CVE-2026-17909 and Controlled Frame bug CVE-2026-17743
+  - 13 August 2026: SpecterOps publishes Attack of The Extensions: SilentChrome-BOF and Ditto sideload an IWA as a SOCKS sidecar
+  - 8 September 2026: Chrome 153 fixes three IWA and two Controlled Frame bugs, and exploited V8 bug CVE-2026-87491 with no link between them
+  - 3 November 2026: Chrome 157 fixes CVE-2026-121172 and CVE-2026-121206, the last IWA-component CVEs of the record
+  - 10 November 2026: CISA adds Chrome XML zero-day CVE-2026-125350 to KEV; the catalog holds no IWA or Controlled Frame entry
 
 ### 2025 <!-- {docsify-ignore} -->
 

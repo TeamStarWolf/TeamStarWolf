@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 49 min (11,376 words at 230 words a minute)
+About 50 min (11,400 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -294,7 +294,7 @@ N-able's 13 August 2025 status post announced N-central 2025.3.1 with the fix fo
 
 In summer 2026 the pattern became an intrusion. N-able says its Adlumin MDR detected a threat actor on 31 July 2026 exploiting a previously unknown N-central vulnerability in a customer environment; the actor used the Take Control feature to reach managed devices and registered Cloudflare tunnel services for persistence; a limited number of customers were affected; Hotfix 1 (2 August) and Hotfix 2 (6 August) were applied to hosted environments; and customers who patched more than a few days late should treat their environment as potentially compromised (**Confirmed**, vendor account [36] [37]). The Hotfix 1 post gave partners indicators to check, including an unexpected executable in users' Documents folders, a registered Cloudflared service and inbound connections from listed addresses (**Confirmed** [35]). The Hacker News reports that the attackers gained N-central administrator access through CVE-2026-18577, used Take Control to connect to managed systems, and kept access through the tunnel after their N-central access was revoked (**Reported** [42]). KEV says CVE-2026-18577 is the result of an incomplete patch for CVE-2026-18556; both are authentication bypasses (CWE-288) (**Confirmed** [12]).
 
-September brought the third 2026 entry. N-central 2026.3 Hotfix 4 (build 2026.3.1.14, posted 6 September) fixed CVE-2026-86218, a critical pre-authentication RCE (CWE-96, CVSS v4.0 10.0) reported through N-able's disclosure program; the status post said N-able had no confirmation of exploitation in production (**Confirmed** [38]). N-able's own blog, updated the same day, said the flaw had been exploited in the wild, and by 9 September reported a handful of successful customer exploits (**Confirmed** [39]). Help Net Security reported the same split between the public advisory and an urgent customer notice calling it a zero-day seen in the wild (**Reported** [43]). Canada's Cyber Centre recorded N-able's statement that CVE-2026-86218 was exploited and open-source reporting that CVE-2026-86207 was exploited too (**Confirmed** [41]). CISA added CVE-2026-86218 to KEV on 8 September with a three-day due date (**Confirmed** [12]). All five N-central KEV entries show ransomware use "Unknown" (**Confirmed** [12]).
+September brought the third 2026 entry. N-central 2026.3 Hotfix 4 (build 2026.3.1.14, posted 6 September) fixed CVE-2026-86218, a critical pre-authentication RCE (CWE-96, CVSS v4.0 10.0) reported through N-able's disclosure program; the status post said N-able had no confirmation of exploitation in production (**Confirmed** [38] [12] [63]). N-able's own blog, updated the same day, said the flaw had been exploited in the wild, and by 9 September reported a handful of successful customer exploits (**Confirmed** [39]). Help Net Security reported the same split between the public advisory and an urgent customer notice calling it a zero-day seen in the wild (**Reported** [43]). Canada's Cyber Centre recorded N-able's statement that CVE-2026-86218 was exploited and open-source reporting that CVE-2026-86207 was exploited too (**Confirmed** [41]). CISA added CVE-2026-86218 to KEV on 8 September with a three-day due date (**Confirmed** [12]). All five N-central KEV entries show ransomware use "Unknown" (**Confirmed** [12]).
 
 Tenable says it is not known whether Able2Shell relates to any of the five earlier KEV CVEs (**Reported** [16]).
 
@@ -420,7 +420,7 @@ The parent [T1595](/mitre/techniques/T1595.md) is context only. Sub-technique T1
 | CWE-502 | Deserialization of Untrusted Data | CVE-2025-8875 | Confirmed | [61] |
 | CWE-20 | Improper Input Validation | CVE-2025-8876 (NVD adds CWE-78) | Confirmed | [62] |
 | CWE-288 | Authentication Bypass Using an Alternate Path or Channel | CVE-2026-18556, CVE-2026-18577, ScreenConnect CVE-2024-1709 | Confirmed | [12] |
-| CWE-96 | Improper Neutralization of Directives in Statically Saved Code | CVE-2026-86218 | Confirmed | [12] [38] |
+| CWE-96 | Improper Neutralization of Directives in Statically Saved Code | CVE-2026-86218 | Confirmed | [12] [38] [63] |
 | CWE-522 | Insufficiently Protected Credentials | Kaseya CVE-2021-30116 | Confirmed | [48] |
 | CWE-22 | Improper Limitation of a Pathname to a Restricted Directory | SimpleHelp CVE-2024-57727 | Confirmed | [52] |
 | [CAPEC-146](/mitre/capec/CAPEC-146.md) | XML Schema Poisoning | CVE-2026-125883 record | Confirmed | [4] |
@@ -537,6 +537,7 @@ All sources were opened on 11 November 2026. The Intelligence Hub feed was used 
 | 60 | CISA, Known Exploited Vulnerabilities Catalog (criteria for active exploitation) | [cisa.gov/known-exploited-vulnerabilities](https://www.cisa.gov/known-exploited-vulnerabilities) | 2026-11-11 | Confirmed |
 | 61 | NVD, CVE-2025-8875 (CNA weakness CWE-502; CNA CVSS v4.0 9.4) | [nvd.nist.gov/vuln/detail/CVE-2025-8875](https://nvd.nist.gov/vuln/detail/CVE-2025-8875) | 2026-11-11 | Confirmed |
 | 62 | NVD, CVE-2025-8876 (CNA weakness CWE-20, NVD weakness CWE-78; CNA CVSS v4.0 9.4) | [nvd.nist.gov/vuln/detail/CVE-2025-8876](https://nvd.nist.gov/vuln/detail/CVE-2025-8876) | 2026-11-11 | Confirmed |
+| 63 | CVE record CVE-2026-86218 (CNA weakness CWE-96; CNA CVSS v4.0 10.0) | [cve.org/CVERecord?id=CVE-2026-86218](https://www.cve.org/CVERecord?id=CVE-2026-86218); [cveawg.mitre.org/api/cve/CVE-2026-86218](https://cveawg.mitre.org/api/cve/CVE-2026-86218) | 2026-11-11 | Confirmed |
 
 *© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*
 

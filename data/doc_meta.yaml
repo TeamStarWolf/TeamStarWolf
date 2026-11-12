@@ -2406,6 +2406,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the year at a glance](#part-1-the-year-at-a-glance), [Part 12: the defender view](#part-12-the-defender-view)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [The Change Healthcare Attack of 2024](/case-studies/CHANGE_HEALTHCARE_2024.md), [The Year 2022 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2022.md)"
     reviewed: null
+  case-studies/CHRONICLE_2025.md:
+    audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
+    level: "Intermediate"
+    read_when: "You want a dated record of the major intrusions of 2025, you need the exploited edge appliances, SharePoint ToolShell, the stolen OAuth tokens and Salesforce data thefts, the build-pipeline and npm compromises, the Bybit theft and the emergency directives side by side, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the year at a glance](#part-1-the-year-at-a-glance), [Part 14: the defender view](#part-14-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [The SharePoint ToolShell Mass Exploitation: A 2025 Case Study](/case-studies/SHAREPOINT_TOOLSHELL_2025.md), [The Year 2024 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2024.md)"
+    reviewed: null
   case-studies/CL0P_FILE_TRANSFER_2023.md:
     audience: "Vulnerability management leads, incident responders and owners of managed file transfer systems"
     level: "Intermediate"

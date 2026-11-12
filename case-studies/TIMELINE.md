@@ -177,6 +177,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 19 July 2025: Microsoft ships out-of-band updates, 19 to 20 July
   - 20 July 2025: CISA adds CVE-2025-53770 to the KEV catalog
   - September 2025: Warlock's leak site lists roughly 60 victims
+- [The Year 2025 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2025.md). Period record, January to December 2025. Sectors: cross-sector, government, technology, telecommunications, finance, retail, manufacturing, energy, healthcare, transport, media. CVEs: CVE-2009-3960, CVE-2010-2861, CVE-2018-0171, CVE-2018-13379, CVE-2019-0604, CVE-2023-20198 and 53 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0027 Threat Group-3390, G0035 Dragonfly, G0125 HAFNIUM, G0128 ZIRCONIUM and 9 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2025_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2025_Case_Study.pptx).
+  - 14 January 2025: Fortinet: FortiOS and FortiProxy authentication bypass CVE-2024-55591 exploited in the wild; KEV the same day, with known ransomware use
+  - 21 February 2025: About US$1.5 billion in virtual assets stolen from Bybit; the FBI's PSA of 26 Feb attributes the theft to North Korea
+  - 11 March 2025: reviewdog/action-setup compromised (11 to 15 Mar), the likely enabler of the tj-actions/changed-files compromise that spilled CI secrets
+  - 21 May 2025: Lumma disrupted: Microsoft's civil action on about 2,300 domains and the DOJ seizure of its command structure; AA25-141B
+  - 7 July 2025: SharePoint ToolShell (7 to 23 Jul): exploitation from 7 Jul, MSRC guidance on CVE-2025-53770 on 19 Jul, Warlock ransomware from 18 Jul
+  - 8 August 2025: UNC6395 exports data from numerous Salesforce instances with stolen Salesloft Drift OAuth tokens (8 to 18 Aug); tokens revoked 20 Aug
+  - 27 August 2025: AA25-239A: PRC state-sponsored actors overlapping Salt Typhoon compromise telecom backbone routers and other networks worldwide
+  - September 2025: The self-replicating Shai-Hulud worm compromises over 500 npm packages; CISA's alert of 23 Sep
+  - 25 September 2025: Emergency Directive 25-03 on Cisco ASA and Firepower CVE-2025-20333 and CVE-2025-20362; Talos ties the activity to the ArcaneDoor actor
+  - 15 October 2025: F5 files its 8-K on a nation-state actor's long-term access to its BIG-IP development environment; Emergency Directive 26-01
+  - 25 October 2025: The UN Convention against Cybercrime opens for signature in Hanoi
+  - 13 November 2025: Anthropic discloses the AI-orchestrated espionage campaign it detected in mid-September; AA24-109A Akira updated
 
 ### 2024 <!-- {docsify-ignore} -->
 

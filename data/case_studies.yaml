@@ -795,6 +795,104 @@ studies:
       - {"date": "2024-07-19", "label": "A CrowdStrike content update crashes an estimated 8.5 million Windows devices; not a cyberattack"}
       - {"date": "2024-11-13", "label": "FBI and CISA: PRC-affiliated actors compromised multiple telecommunications companies"}
       - {"date": "2024-12-24", "label": "UN General Assembly adopts the Convention against Cybercrime"}
+  case-studies/CHRONICLE_2025.md:
+    kind: "era"
+    title: "The Year 2025 in Intrusions: A Dated Record"
+    start: "2025-01"
+    end: "2025-12"
+    sectors: ["cross-sector", "government", "technology", "telecommunications", "finance", "retail", "manufacturing", "energy", "healthcare", "transport", "media"]
+    cves:
+      - "CVE-2009-3960"
+      - "CVE-2010-2861"
+      - "CVE-2018-0171"
+      - "CVE-2018-13379"
+      - "CVE-2019-0604"
+      - "CVE-2023-20198"
+      - "CVE-2023-20273"
+      - "CVE-2023-23397"
+      - "CVE-2023-27532"
+      - "CVE-2023-38831"
+      - "CVE-2023-46805"
+      - "CVE-2024-3400"
+      - "CVE-2024-8190"
+      - "CVE-2024-8963"
+      - "CVE-2024-9379"
+      - "CVE-2024-9380"
+      - "CVE-2024-21887"
+      - "CVE-2024-36401"
+      - "CVE-2024-37085"
+      - "CVE-2024-40711"
+      - "CVE-2024-40766"
+      - "CVE-2024-55591"
+      - "CVE-2024-57727"
+      - "CVE-2025-0282"
+      - "CVE-2025-0283"
+      - "CVE-2025-2783"
+      - "CVE-2025-3928"
+      - "CVE-2025-5777"
+      - "CVE-2025-6543"
+      - "CVE-2025-7775"
+      - "CVE-2025-8088"
+      - "CVE-2025-8217"
+      - "CVE-2025-10035"
+      - "CVE-2025-20333"
+      - "CVE-2025-20362"
+      - "CVE-2025-20363"
+      - "CVE-2025-20393"
+      - "CVE-2025-21590"
+      - "CVE-2025-22457"
+      - "CVE-2025-24472"
+      - "CVE-2025-24813"
+      - "CVE-2025-29824"
+      - "CVE-2025-30066"
+      - "CVE-2025-30154"
+      - "CVE-2025-31161"
+      - "CVE-2025-31324"
+      - "CVE-2025-32433"
+      - "CVE-2025-42999"
+      - "CVE-2025-49704"
+      - "CVE-2025-49706"
+      - "CVE-2025-53770"
+      - "CVE-2025-53771"
+      - "CVE-2025-53786"
+      - "CVE-2025-55182"
+      - "CVE-2025-58034"
+      - "CVE-2025-59287"
+      - "CVE-2025-61882"
+      - "CVE-2025-61884"
+      - "CVE-2025-64446"
+    actors:
+      - "G0007"
+      - "G0010"
+      - "G0027"
+      - "G0035"
+      - "G0125"
+      - "G0128"
+      - "G1015"
+      - "G1024"
+      - "G1032"
+      - "G1040"
+      - "G1045"
+      - "G1048"
+      - "G1051"
+      - "G1053"
+      - "G1057"
+    tags: ["edge devices", "SharePoint ToolShell", "Salesforce", "OAuth tokens", "Shai-Hulud", "Bybit", "emergency directives", "KEV"]
+    pdf: "Chronicle_2025_Case_Study.pdf"
+    pptx: "Chronicle_2025_Case_Study.pptx"
+    events:
+      - {"date": "2025-01-14", "label": "Fortinet: FortiOS and FortiProxy authentication bypass CVE-2024-55591 exploited in the wild; KEV the same day, with known ransomware use"}
+      - {"date": "2025-02-21", "label": "About US$1.5 billion in virtual assets stolen from Bybit; the FBI's PSA of 26 Feb attributes the theft to North Korea"}
+      - {"date": "2025-03-11", "label": "reviewdog/action-setup compromised (11 to 15 Mar), the likely enabler of the tj-actions/changed-files compromise that spilled CI secrets"}
+      - {"date": "2025-05-21", "label": "Lumma disrupted: Microsoft's civil action on about 2,300 domains and the DOJ seizure of its command structure; AA25-141B"}
+      - {"date": "2025-07-07", "label": "SharePoint ToolShell (7 to 23 Jul): exploitation from 7 Jul, MSRC guidance on CVE-2025-53770 on 19 Jul, Warlock ransomware from 18 Jul"}
+      - {"date": "2025-08-08", "label": "UNC6395 exports data from numerous Salesforce instances with stolen Salesloft Drift OAuth tokens (8 to 18 Aug); tokens revoked 20 Aug"}
+      - {"date": "2025-08-27", "label": "AA25-239A: PRC state-sponsored actors overlapping Salt Typhoon compromise telecom backbone routers and other networks worldwide"}
+      - {"date": "2025-09", "label": "The self-replicating Shai-Hulud worm compromises over 500 npm packages; CISA's alert of 23 Sep"}
+      - {"date": "2025-09-25", "label": "Emergency Directive 25-03 on Cisco ASA and Firepower CVE-2025-20333 and CVE-2025-20362; Talos ties the activity to the ArcaneDoor actor"}
+      - {"date": "2025-10-15", "label": "F5 files its 8-K on a nation-state actor's long-term access to its BIG-IP development environment; Emergency Directive 26-01"}
+      - {"date": "2025-10-25", "label": "The UN Convention against Cybercrime opens for signature in Hanoi"}
+      - {"date": "2025-11-13", "label": "Anthropic discloses the AI-orchestrated espionage campaign it detected in mid-September; AA24-109A Akira updated"}
   case-studies/CL0P_FILE_TRANSFER_2023.md:
     kind: "campaign"
     title: "The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study"

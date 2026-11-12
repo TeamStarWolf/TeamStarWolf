@@ -186,6 +186,74 @@ studies:
       - {"date": "2016-11-17", "label": "Shamoon 2's hardcoded wipe time against at least one Saudi organization"}
       - {"date": "2016-12-17", "label": "Part of Kyiv without power for about one hour; ESET judges Industroyer's use highly probable"}
       - {"date": "2016-12-29", "label": "Sanctions, expulsions and compound closures; DHS and FBI release JAR-16-20296A"}
+  case-studies/CHRONICLE_2017.md:
+    kind: "era"
+    title: "The Year 2017 in Intrusions: A Dated Record"
+    start: "2017-01"
+    end: "2017-12"
+    sectors: ["cross-sector", "healthcare", "energy", "finance", "government", "technology"]
+    cves:
+      - "CVE-2017-0005"
+      - "CVE-2017-0101"
+      - "CVE-2017-0143"
+      - "CVE-2017-0144"
+      - "CVE-2017-0145"
+      - "CVE-2017-0146"
+      - "CVE-2017-0147"
+      - "CVE-2017-0148"
+      - "CVE-2017-0199"
+      - "CVE-2017-0210"
+      - "CVE-2017-0213"
+      - "CVE-2017-0261"
+      - "CVE-2017-1274"
+      - "CVE-2017-3881"
+      - "CVE-2017-5638"
+      - "CVE-2017-6884"
+      - "CVE-2017-7494"
+      - "CVE-2017-7921"
+      - "CVE-2017-8291"
+      - "CVE-2017-8464"
+      - "CVE-2017-8759"
+      - "CVE-2017-9822"
+      - "CVE-2017-10271"
+      - "CVE-2017-11292"
+      - "CVE-2017-11357"
+      - "CVE-2017-11826"
+      - "CVE-2017-11882"
+      - "CVE-2017-12149"
+      - "CVE-2017-12615"
+      - "CVE-2017-13077"
+      - "CVE-2017-18362"
+      - "CVE-2017-1000253"
+      - "CVE-2018-7522"
+      - "CVE-2018-8872"
+    actors:
+      - "G0020"
+      - "G0022"
+      - "G0032"
+      - "G0034"
+      - "G0035"
+      - "G0045"
+      - "G0049"
+      - "G0050"
+      - "G0064"
+      - "G0088"
+    tags: ["WannaCry", "NotPetya", "Equifax", "supply chain", "Triton"]
+    pdf: "Chronicle_2017_Case_Study.pdf"
+    pptx: "Chronicle_2017_Case_Study.pptx"
+    events:
+      - {"date": "2017-03-07", "label": "WikiLeaks publishes Vault 7 Part 1, \"Year Zero\", 8,761 documents it says came from the CIA"}
+      - {"date": "2017-03-14", "label": "Microsoft publishes MS17-010, fixing the SMBv1 flaws later used by WannaCry and NotPetya"}
+      - {"date": "2017-04-14", "label": "First backdoored M.E.Doc update goes out through the vendor's own update channel"}
+      - {"date": "2017-04-27", "label": "TA17-117A: intrusions at IT service providers reach customers in at least 12 countries"}
+      - {"date": "2017-05-12", "label": "WannaCry spreads through SMBv1 in over 150 countries; at least 81 NHS trusts in England disrupted"}
+      - {"date": "2017-05-13", "label": "Equifax intruders begin extracting data from the online dispute portal"}
+      - {"date": "2017-06-27", "label": "NotPetya surfaces through M.E.Doc and spreads worldwide"}
+      - {"date": "2017-08-15", "label": "Kaspersky publishes ShadowPad in NetSarang products; backdoored CCleaner 5.33 released"}
+      - {"date": "2017-09-07", "label": "Equifax announces an incident affecting about 143 million US consumers"}
+      - {"date": "2017-10-24", "label": "Bad Rabbit spreads through compromised websites serving a fake Flash Player update"}
+      - {"date": "2017-12-14", "label": "Mandiant publishes TRITON, used to reprogram Triconex safety controllers"}
+      - {"date": "2017-12-19", "label": "The United States, with the UK, Australia, Canada, New Zealand and Japan, attributes WannaCry to North Korea"}
   case-studies/CHRONICLE_2019.md:
     kind: "era"
     title: "The Year 2019 in Intrusions: A Dated Record"

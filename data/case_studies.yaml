@@ -926,6 +926,30 @@ studies:
     events:
       - {"date": "2020", "label": "Linux kernel 5.6 ships a mainline Multipath TCP implementation"}
       - {"date": "2026-11-03", "label": "Lab readings on a host running Kali 2026.2 with kernel 7.1.5"}
+  case-studies/NABLE_NCENTRAL_ABLE2SHELL_2026.md:
+    kind: "vulnerability"
+    title: "Able2Shell and the RMM Attack Surface: The N-able N-central Disclosure of November 2026"
+    start: "2026-11"
+    end: "2026-11"
+    sectors: ["technology", "cross-sector"]
+    cves: ["CVE-2026-125883", "CVE-2026-125881", "CVE-2026-125878", "CVE-2026-125879", "CVE-2026-125882", "CVE-2026-91000", "CVE-2026-125880", "CVE-2025-8875", "CVE-2025-8876", "CVE-2026-18577", "CVE-2026-18556", "CVE-2026-86218", "CVE-2026-86206", "CVE-2026-86207", "CVE-2021-30116", "CVE-2018-20753", "CVE-2017-18362", "CVE-2024-1709", "CVE-2024-1708", "CVE-2025-3935", "CVE-2026-84869", "CVE-2024-57726", "CVE-2024-57727", "CVE-2024-57728", "CVE-2026-48558"]
+    actors: []
+    tags: ["N-able", "N-central", "Able2Shell", "RMM", "MSP", "Kaseya", "ScreenConnect", "SimpleHelp", "KEV", "disclosure"]
+    pdf: "Nable_Ncentral_Able2Shell_2026_Case_Study.pdf"
+    pptx: "Nable_Ncentral_Able2Shell_2026_Case_Study.pptx"
+    events:
+      - {"date": "2021-07-02", "label": "Kaseya VSA incident: SaaS shut down and on-premises customers told to shut servers down; REvil ransomware reaches MSP customers"}
+      - {"date": "2024-02-22", "label": "CISA adds ScreenConnect CVE-2024-1709, an authentication bypass to an administrator account, to KEV"}
+      - {"date": "2025-06-12", "label": "CISA AA25-163A: ransomware actors use unpatched SimpleHelp RMM against a software provider's downstream customers"}
+      - {"date": "2025-08-13", "label": "N-central 2025.3.1 fixes CVE-2025-8875 and CVE-2025-8876; CISA adds both to KEV the same day"}
+      - {"date": "2026-07-31", "label": "N-able's MDR detects an actor exploiting an unknown N-central flaw; Take Control used to reach managed devices"}
+      - {"date": "2026-09-08", "label": "CISA adds N-central CVE-2026-86218, a pre-authentication RCE, to KEV with a three-day due date"}
+      - {"date": "2026-11-09", "label": "Researcher's commit publishes 33 alleged N-central findings with proof-of-concept scripts, no notice by his own account (04:14 UTC)"}
+      - {"date": "2026-11-09", "label": "N-able status incident 202584: hosted and on-premises N-central offline in three regions, Major Outage"}
+      - {"date": "2026-11-09", "label": "watchTowr reports honeypot exploitation attempts (Reported); Previdian's decoy logs 68 events from one address (Demonstrated)"}
+      - {"date": "2026-11-10", "label": "N-central 2026.4 Hotfix 2 (2026.4.1.26) posted; N-able publishes seven CVE records, two at CVSS v4.0 9.3"}
+      - {"date": "2026-11-11", "label": "All hosted N-central servers upgraded (status update, 01:04 dashboard time)"}
+      - {"date": "2026-11-11", "label": "N-able blog: unauthenticated paths fixed, more hotfixes to come, calls claims it ignored disclosure inaccurate"}
   case-studies/NEXTCLOUD_RICHDOCUMENTS_CVE_2026_110447.md:
     kind: "vulnerability"
     title: "Collabora Built-in CODE Server (richdocumentscode), CVE-2026-110447: Lab-Verified Exposure and Fix"

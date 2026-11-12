@@ -262,5 +262,11 @@
     "name": "TeamStarWolf - SSHole OpenSSH CVE-2026-123158 Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified SSHole record supports: the CVE record, the Alpine advisory and the CISA KEV entry for the initial-access path, and the post-exploitation behavior GreyNoise, SANS ISC, Previdian and the press reported. No advisory names ATT&CK ids, so every binding is the study's own. Each comment names source numbers from case-studies/SSHOLE_CVE_2026_123158.md. Scores: 75 is the initial-access path, 50 is Reported post-exploitation, 25 is an analogy labelled in the comment.",
     "blurb": "Techniques from the SSHole record, from the password-free login to an existing local account on musl builds without PAM to the authorized keys, new accounts, shadow-file reads and Python agent reported on sensors afterwards. A curated layer for the SSHole case study."
+  },
+  {
+    "file": "nable-ncentral-able2shell-2026.json",
+    "name": "TeamStarWolf - N-able N-central Able2Shell (November 2026) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified Able2Shell record supports: the N-able status page and CVE records for the November 2026 N-central disclosure, and the RMM landmarks that frame it (Kaseya VSA 2021, ScreenConnect 2024, SimpleHelp 2025 and the earlier N-central KEV entries). No advisory names ATT&CK ids, so every binding is the study's own. Each comment names source numbers from case-studies/NABLE_NCENTRAL_ABLE2SHELL_2026.md. Scores: 100 is bound to the Able2Shell record by a Confirmed primary, 50 is the researcher's claims and RMM-landmark context.",
+    "blurb": "Techniques from the Able2Shell record and the RMM attack surface, from scanning and exploitation of the exposed N-central server to the remote-control, tunnel and software-deployment abuse seen in the Kaseya, SimpleHelp and earlier N-central intrusions. A curated layer for the Able2Shell case study."
   }
 ]

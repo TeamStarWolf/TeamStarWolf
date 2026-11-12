@@ -23,6 +23,16 @@ Analyzing modifications to user session config files such as .bashrc or .bash_pr
 - [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
 - [All D3FEND countermeasures](/mitre/d3fend/README.md)
 
+<!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Library references
+
+Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
+
+- [SSHole: The OpenSSH Authentication Bypass of November 2026 (CVE-2026-123158)](/case-studies/SSHOLE_CVE_2026_123158.md)
+
+<!-- library-refs:end -->
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

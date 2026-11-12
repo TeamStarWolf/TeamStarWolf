@@ -1165,6 +1165,30 @@ studies:
       - {"date": "2021-05-12", "label": "Executive Order 14028 signed"}
       - {"date": "2023-10-30", "label": "SEC charges SolarWinds and its CISO"}
       - {"date": "2025-11-20", "label": "SEC case dismissed with prejudice by joint stipulation"}
+  case-studies/SSHOLE_CVE_2026_123158.md:
+    kind: "vulnerability"
+    title: "SSHole: The OpenSSH Authentication Bypass of November 2026 (CVE-2026-123158)"
+    start: "2026-11"
+    end: "2026-11"
+    sectors: ["technology"]
+    cves: ["CVE-2026-123158", "CVE-2016-6210", "CVE-2016-10009", "CVE-2019-5021", "CVE-2023-38408", "CVE-2024-6387", "CVE-2024-6409", "CVE-2006-5051", "CVE-2026-59997", "CVE-2026-59998", "CVE-2026-60000", "CVE-2026-98432"]
+    actors: []
+    tags: ["OpenSSH", "musl", "Alpine Linux", "authentication bypass", "sshd", "KEV", "embedded"]
+    pdf: "SSHole_CVE_2026_123158_Case_Study.pdf"
+    pptx: "SSHole_CVE_2026_123158_Case_Study.pptx"
+    events:
+      - {"date": "2016-08-01", "label": "OpenSSH 7.3 fixes CVE-2016-6210, the long-password timing flaw whose fake-salt handling the researcher and press trace SSHole to"}
+      - {"date": "2026-11-04", "label": "OpenSSH learns of the bypass; fix commit 4353fdc, \"avoid password authn bypass\", authored at 21:18 UTC"}
+      - {"date": "2026-11-05", "label": "OpenSSH 10.6p2 released with an urgent security release mail; oss-security and musl advisories posted"}
+      - {"date": "2026-11-05", "label": "Alpine advisory with fixed packages back to 3.16 and point releases 3.21.10, 3.22.8, 3.23.8 and 3.24.4"}
+      - {"date": "2026-11-05", "label": "MITRE CNA publishes CVE-2026-123158 at 8.1 High with CWE-394; NVD follows at 16:17 UTC"}
+      - {"date": "2026-11-05", "label": "Buildroot ships a security bump to 10.6p2; Gentoo, Void Linux and the OpenWrt packages feed move to 10.6p2"}
+      - {"date": "2026-11-06", "label": "OpenEmbedded-Core upgrades to 10.6p2; Ubuntu lists every release Not affected; Synology says no product is affected"}
+      - {"date": "2026-11-06", "label": "Help Net Security reports Previdian's root access on an Alpine honeypot (Reported)"}
+      - {"date": "2026-11-07", "label": "GreyNoise's first observed successful exploitation, an sshd-to-shell chain on one of its sensors (Reported)"}
+      - {"date": "2026-11-09", "label": "CISA adds the CVE to KEV based on evidence of active exploitation, due 12 November, forensic triage required"}
+      - {"date": "2026-11-11", "label": "GreyNoise counts 26 confirmed post-exploitation chains from 8 attacker addresses on its sensors (Reported)"}
+      - {"date": "2026-11-12", "label": "KEV due date"}
   case-studies/STUXNET.md:
     kind: "campaign"
     title: "Stuxnet: The Case Study"

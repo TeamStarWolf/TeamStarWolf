@@ -487,7 +487,7 @@ No ATT&CK group, software or campaign object exists for Melissa, ILOVEYOU, CIH, 
 | CWE-521 | Weak Password Requirements | Not on the NVD records; present in the library's data | Weak Administrator passwords in CA-2003-08 (Inferred binding) | [40][96] |
 | [CAPEC-100](/mitre/capec/CAPEC-100.md) | Overflow Buffers | No CAPEC id appears on the NVD records opened; the library's CWE-119 record lists CAPEC-100 among its related patterns | The buffer overflows behind Code Red, Slammer and Blaster (Inferred binding) | [39][96] |
 
-NVD's CVSS v2 base scores are 10.0 for CVE-2002-0649 and 7.5 for both CVE-2001-0500 and CVE-2003-0352 (Confirmed [39]). The library has no generated CWE pages; the [CWE Reference](/CWE_REFERENCE.md) and [CAPEC Reference](/CAPEC_REFERENCE.md) cover the classes.
+NVD's CVSS v2 base scores are 10.0 for CVE-2001-0500 and 7.5 for both CVE-2002-0649 and CVE-2003-0352 (Confirmed [39]). The library has no generated CWE pages; the [CWE Reference](/CWE_REFERENCE.md) and [CAPEC Reference](/CAPEC_REFERENCE.md) cover the classes.
 
 ### D3FEND countermeasures
 

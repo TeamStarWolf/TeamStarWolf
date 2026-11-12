@@ -44,6 +44,7 @@ Web session access mediation secures user sessions in web applications by employ
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [The FireEye Mandiant Intrusion of 2020: The Public Record](/case-studies/MANDIANT_INTRUSION_2020.md)
+- [The Year 2022 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2022.md)
 
 <!-- library-refs:end -->
 

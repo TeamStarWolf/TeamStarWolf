@@ -70,6 +70,7 @@ Time and difficulty are quoted in full from each guide's header table.
 - [The FireEye Mandiant intrusion of 2020: a case study](/case-studies/MANDIANT_INTRUSION_2020.md)
 - [The year 2017 in intrusions: a dated record](/case-studies/CHRONICLE_2017.md)
 - [The Shadow Brokers and Vault 7, the NSA and CIA tool leaks of 2016 to 2017: a case study](/case-studies/NSA_CIA_TOOL_LEAKS.md)
+- [The year 2022 in intrusions: a dated record](/case-studies/CHRONICLE_2022.md)
 - [The year 2018 in intrusions: a dated record](/case-studies/CHRONICLE_2018.md)
 
 <!-- hub:end -->

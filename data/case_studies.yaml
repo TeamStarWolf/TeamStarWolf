@@ -544,6 +544,97 @@ studies:
       - {"date": "2021-07-19", "label": "The US, EU, UK and NATO attribute the Exchange zero-days to the MSS; AA21-200A on APT40"}
       - {"date": "2021-11-03", "label": "BOD 22-01 creates the Known Exploited Vulnerabilities catalog"}
       - {"date": "2021-12-10", "label": "Log4Shell published and added to KEV the same day"}
+  case-studies/CHRONICLE_2022.md:
+    kind: "era"
+    title: "The Year 2022 in Intrusions: A Dated Record"
+    start: "2022-01"
+    end: "2022-12"
+    sectors: ["cross-sector", "government", "energy", "healthcare", "finance", "technology", "telecommunications", "defense", "education", "transport"]
+    cves:
+      - "CVE-2018-13379"
+      - "CVE-2019-0604"
+      - "CVE-2019-11510"
+      - "CVE-2020-0688"
+      - "CVE-2020-1472"
+      - "CVE-2020-12812"
+      - "CVE-2020-15368"
+      - "CVE-2021-21972"
+      - "CVE-2021-22205"
+      - "CVE-2021-26084"
+      - "CVE-2021-26855"
+      - "CVE-2021-31207"
+      - "CVE-2021-34473"
+      - "CVE-2021-34523"
+      - "CVE-2021-34527"
+      - "CVE-2021-40539"
+      - "CVE-2021-44207"
+      - "CVE-2021-44228"
+      - "CVE-2022-0609"
+      - "CVE-2022-0847"
+      - "CVE-2022-1040"
+      - "CVE-2022-1388"
+      - "CVE-2022-2294"
+      - "CVE-2022-3038"
+      - "CVE-2022-3602"
+      - "CVE-2022-3786"
+      - "CVE-2022-22954"
+      - "CVE-2022-22960"
+      - "CVE-2022-22965"
+      - "CVE-2022-22972"
+      - "CVE-2022-22973"
+      - "CVE-2022-24112"
+      - "CVE-2022-24521"
+      - "CVE-2022-24682"
+      - "CVE-2022-26134"
+      - "CVE-2022-27518"
+      - "CVE-2022-27924"
+      - "CVE-2022-27925"
+      - "CVE-2022-29464"
+      - "CVE-2022-30190"
+      - "CVE-2022-30333"
+      - "CVE-2022-37042"
+      - "CVE-2022-40684"
+      - "CVE-2022-41040"
+      - "CVE-2022-41080"
+      - "CVE-2022-41082"
+      - "CVE-2022-41328"
+      - "CVE-2022-41352"
+      - "CVE-2022-42475"
+      - "CVE-2022-47966"
+    actors:
+      - "G0007"
+      - "G0016"
+      - "G0032"
+      - "G0034"
+      - "G0035"
+      - "G0047"
+      - "G0049"
+      - "G0059"
+      - "G0069"
+      - "G0082"
+      - "G0088"
+      - "G0096"
+      - "G0102"
+      - "G1003"
+      - "G1004"
+      - "G1049"
+      - "G1055"
+    tags: ["war in Ukraine", "wipers", "LAPSUS$", "MFA fatigue", "bridge thefts", "edge devices", "CIRCIA"]
+    pdf: "Chronicle_2022_Case_Study.pdf"
+    pptx: "Chronicle_2022_Case_Study.pptx"
+    events:
+      - {"date": "2022-01-13", "label": "WhisperGate first appears on Ukrainian systems; Ukrainian government websites defaced"}
+      - {"date": "2022-02-23", "label": "HermeticWiper hits hundreds of computers in Ukrainian organizations; Cyclops Blink exposed as Sandworm's replacement for VPNFilter"}
+      - {"date": "2022-02-24", "label": "KA-SAT attack from about 03:02 UTC; modems drop off from about 04:15 UTC"}
+      - {"date": "2022-03-15", "label": "CIRCIA enacted as Division Y of the Consolidated Appropriations Act, 2022; AA22-074A published"}
+      - {"date": "2022-03-22", "label": "Microsoft profiles DEV-0537 (LAPSUS$); Okta's first estimate puts possible impact at 366 customers"}
+      - {"date": "2022-03-23", "label": "Almost $620 million stolen from a blockchain project linked to Axie Infinity (Ronin)"}
+      - {"date": "2022-04-08", "label": "Industroyer2 scheduled to run against high-voltage substations at 16:10 UTC, CaddyWiper at 16:20 UTC"}
+      - {"date": "2022-06-02", "label": "Atlassian discloses active exploitation of Confluence CVE-2022-26134; KEV lists it the same day"}
+      - {"date": "2022-07-15", "label": "Destructive attack on the Albanian government, claimed on 18 July as HomeLand Justice"}
+      - {"date": "2022-08-08", "label": "Treasury sanctions Tornado Cash"}
+      - {"date": "2022-09-15", "label": "Uber breach through a contractor's account; the European Commission proposes the Cyber Resilience Act"}
+      - {"date": "2022-10-10", "label": "Fortinet publishes CVE-2022-40684, aware of exploitation; Sandworm causes a power outage in Ukraine through SCADA software"}
   case-studies/CL0P_FILE_TRANSFER_2023.md:
     kind: "campaign"
     title: "The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study"

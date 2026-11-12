@@ -509,6 +509,9 @@ CATALOG = [
       ("case-studies/chronicle-2017-ics.json", "The Year 2017 in Intrusions (ICS)",
        "The 28 ATT&CK for ICS techniques bound to the 2017 Triton safety system attack (campaign C0030 and software S1009) and to WannaCry (S0366) and NotPetya (S0368), from the "
        "[2017 chronicle case study](/case-studies/CHRONICLE_2017.md)"),
+      ("case-studies/chronicle-2022-ics.json", "The Year 2022 in Intrusions (ICS)",
+       "The 17 ATT&CK for ICS techniques bound to CISA advisory AA22-103A on ICS attack tools, Mandiant's report on the October 2022 Sandworm attack on a Ukrainian power company and campaign C0034, from the "
+       "[2022 chronicle case study](/case-studies/CHRONICLE_2022.md)"),
       ("case-studies/chronicle-2018-ics.json", "The Year 2018 in Intrusions (ICS)",
        "The 4 ATT&CK for ICS techniques bound to VPNFilter's Modbus-monitoring plugin (S1010), the TA18-074A watering holes on ICS-related sites and Dragos's XENOTIME vendor-compromise reporting, from the "
        "[2018 chronicle case study](/case-studies/CHRONICLE_2018.md)"),

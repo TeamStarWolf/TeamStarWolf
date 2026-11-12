@@ -1,0 +1,462 @@
+{
+  "name": "TeamStarWolf - Major Cloud Security Incidents, 2011 to 2026",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified public record of cloud security incidents from 2011 to 2026 supports: the CISA and FBI advisories AA21-008A, AA23-320A and AA24-057A, the CSRB reviews, Microsoft's reports on DEV-0537, Storm-0558, Midnight Blizzard, Storm-3168 and Storm-0940, Mandiant and Google Threat Intelligence Group on UNC5537, UNC6040 and UNC6395, the Okta, CircleCI, Codecov, Uber and Capital One records, Wiz on Qubole, Todyl on stolen app secrets, and the ATT&CK objects the study binds. T1562.008 is revoked in v20.0 and is shown as its successor T1685.002 from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/CLOUD_SECURITY_INCIDENTS.md. Scores: 100 a source lists the id itself for a dated event, 75 a primary describes the behavior and the study assigns the id, 40 the only basis is Reported (T1552.005, Capital One) or detection context (T1685.002).",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1595",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Storm-0940, ConnectWise, Oct 2026 (basis: Listed). Sources [77] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1598.004",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATT&CK's C0059 description of UNC6040's vishing, 2024 to 2025 (basis: Listed (ATT&CK)). Sources [97][67] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Storm-3168, Sep 2026; Capital One, Mar 2019 (on the Reported SSRF basis) (basis: Listed (Storm-3168); Mapped (Capital One)). Sources [76][8][10] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1195",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Storm-0940, ConnectWise, Oct 2026 (basis: Listed). Sources [77] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 75,
+      "comment": "Codecov Bash Uploader, Jan to Apr 2021 (basis: Mapped). Sources [16] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA23-320A, Nov 2023; Okta support system, Sep to Oct 2023; Salesloft Drift, Aug 2025; Storm-0940, Oct 2026; Qubole roles and MSP app secrets, Oct to Nov 2026 (basis: Listed (AA23-320A, Storm-0940); Mapped (others)). Sources [40][37][68][77][80][82] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1566.004",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA23-320A help-desk impersonation, Nov 2023; UNC6040 vishing, 2025 (basis: Listed (AA23-320A); Mapped (UNC6040)). Sources [40][67] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA23-320A, Nov 2023 (basis: Listed). Sources [40] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA23-320A, Nov 2023 (basis: Listed). Sources [40] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA23-320A, Nov 2023 (basis: Listed). Sources [40] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA23-320A, Nov 2023 (basis: Listed). Sources [40] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA23-320A, Nov 2023 (basis: Listed). Sources [40] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA23-320A, Nov 2023 (basis: Listed). Sources [40] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA23-320A, Nov 2023 (basis: Listed). Sources [40] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA23-320A, Nov 2023 (basis: Listed). Sources [40] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Uber, 2016; Capital One, 2019; Okta, 2023; Midnight Blizzard, 2023 to 2024; UNC5537, 2024; Storm-3168, Sep 2026; Storm-0940, Oct 2026 (basis: Listed (Storm-3168, Storm-0940); Mapped (others)). Sources [3][8][37][42][53][76][77] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Uber, 2016; Capital One, 2019; Okta, 2023; Midnight Blizzard, 2023 to 2024; UNC5537, 2024; Storm-3168, Sep 2026; Storm-0940, Oct 2026 (basis: Listed (Storm-3168, Storm-0940); Mapped (others)). Sources [3][8][37][42][53][76][77] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Uber, 2016; Capital One, 2019; Okta, 2023; Midnight Blizzard, 2023 to 2024; UNC5537, 2024; Storm-3168, Sep 2026; Storm-0940, Oct 2026 (basis: Listed (Storm-3168, Storm-0940); Mapped (others)). Sources [3][8][37][42][53][76][77] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Uber, 2016; Capital One, 2019; Okta, 2023; Midnight Blizzard, 2023 to 2024; UNC5537, 2024; Storm-3168, Sep 2026; Storm-0940, Oct 2026 (basis: Listed (Storm-3168, Storm-0940); Mapped (others)). Sources [3][8][37][42][53][76][77] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA21-008A credentials added to service principals, Jan 2021; ATT&CK procedures for C0024 and C0027; Storm-0940, Oct 2026 (basis: Listed (ATT&CK, Storm-0940); Mapped (AA21-008A)). Sources [14][94][77] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA21-008A credentials added to service principals, Jan 2021; ATT&CK procedures for C0024 and C0027; Storm-0940, Oct 2026 (basis: Listed (ATT&CK, Storm-0940); Mapped (AA21-008A)). Sources [14][94][77] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1098.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "DEV-0537 new global admins, Mar 2022; Midnight Blizzard full_access_as_app grant, Jan 2024; Storm-0940, Oct 2026 (basis: Listed (Storm-0940); Mapped (others)). Sources [21][43][77] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1098.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "DEV-0537 new global admins, Mar 2022; Midnight Blizzard full_access_as_app grant, Jan 2024; Storm-0940, Oct 2026 (basis: Listed (Storm-0940); Mapped (others)). Sources [21][43][77] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1098.005",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "AA24-057A, the SVR registering its own devices, Feb 2024 (basis: Mapped). Sources [45] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1098.005",
+      "tactic": "privilege-escalation",
+      "score": 75,
+      "comment": "AA24-057A, the SVR registering its own devices, Feb 2024 (basis: Mapped). Sources [45] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1671",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "Midnight Blizzard malicious OAuth apps, Jan 2024 (basis: Mapped). Sources [43] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "AA23-320A own MFA tokens, Nov 2023; attacker-registered MFA methods, 2026 (basis: Listed (AA23-320A); Mapped (2026)). Sources [40][74] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA23-320A own MFA tokens, Nov 2023; attacker-registered MFA methods, 2026 (basis: Listed (AA23-320A); Mapped (2026)). Sources [40][74] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA23-320A own MFA tokens, Nov 2023; attacker-registered MFA methods, 2026 (basis: Listed (AA23-320A); Mapped (2026)). Sources [40][74] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1484.002",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "AA23-320A federated identity provider added, Nov 2023 (basis: Listed). Sources [40] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1484.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA23-320A federated identity provider added, Nov 2023 (basis: Listed). Sources [40] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1578.002",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "DEV-0537 VMs in victims' cloud, Mar 2022; AA23-320A, Nov 2023 (basis: Listed (AA23-320A); Mapped (DEV-0537)). Sources [21][40] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1685.002",
+      "tactic": "defense-impairment",
+      "score": 40,
+      "comment": "Detection context only: GuardDuty's finding for disabled trails; no incident here documents it (basis: Mapped (detection context)). Sources [93][97] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "Salesloft Drift query-job deletion, Aug 2025 (basis: Mapped). Sources [68] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 75,
+      "comment": "Midnight Blizzard, Nov 2023 to Feb 2024; AA24-057A, Feb 2024; Storm-0940 spray, Oct 2026 (basis: Mapped). Sources [42][46][45][77] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1110.004",
+      "tactic": "credential-access",
+      "score": 75,
+      "comment": "Dropbox, Jul 2012 (basis: Mapped). Sources [1][2] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1621",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "DEV-0537, Mar 2022; Uber, Sep 2022; AA23-320A, Nov 2023; AA24-057A, Feb 2024 (basis: Listed (AA23-320A); Mapped (others)). Sources [21][22][40][45] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1606",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Storm-0558 forged tokens, May to Jun 2023; AA23-320A, Nov 2023 (basis: Listed (AA23-320A); Mapped (Storm-0558; parent only, because the forged items are tokens, not SAML or cookies)). Sources [29][34][40] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1606.002",
+      "tactic": "credential-access",
+      "score": 75,
+      "comment": "AA21-008A forged SAML tokens after the SolarWinds compromise, Jan 2021 (basis: Mapped). Sources [14] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1528",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "CircleCI OAuth tokens, Dec 2022; AA24-057A token theft, Feb 2024; Salesloft Drift, Aug 2025; Storm-0940, Oct 2026 (basis: Listed (Storm-0940); Mapped (others)). Sources [27][45][68][77] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1539",
+      "tactic": "credential-access",
+      "score": 75,
+      "comment": "CircleCI SSO cookie, Dec 2022; Okta HAR session tokens, Sep to Oct 2023 (basis: Mapped). Sources [27][37] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1552",
+      "tactic": "credential-access",
+      "score": 75,
+      "comment": "Codecov, 2021; CircleCI, 2022; Midnight Blizzard secrets in mail, Mar 2024; Salesloft Drift secrets in exported data, Aug 2025 (basis: Mapped). Sources [16][27][46][68] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1552.001",
+      "tactic": "credential-access",
+      "score": 75,
+      "comment": "Uber key on a code-sharing site, 2016; Codecov, 2021; DEV-0537 repository secrets, Mar 2022 (basis: Mapped). Sources [3][16][21] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1552.005",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Capital One, Mar 2019 (Reported basis); the threat IMDSv2 addresses, Nov 2019; GuardDuty instance-credential findings (basis: Mapped). Sources [10][11][93] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1555.003",
+      "tactic": "credential-access",
+      "score": 75,
+      "comment": "Okta service-account credential saved in a personal browser profile, 2023 (Okta calls the exposure route only most likely) (basis: Mapped). Sources [37] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1555.006",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Storm-0940, Oct 2026; Qubole Secrets Manager reads, Oct 2026 (basis: Listed (Storm-0940); Mapped (Qubole)). Sources [77][80] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1087.004",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Storm-0940, Oct 2026 (basis: Listed). Sources [77] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1526",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Storm-3168, Sep 2026 (basis: Listed). Sources [76] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1538",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA23-320A, Nov 2023 (basis: Listed). Sources [40] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1580",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Storm-0940, Oct 2026 (basis: Listed). Sources [77] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1021.007",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA23-320A existing EC2 instances, Nov 2023 (basis: Listed). Sources [40] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1550.001",
+      "tactic": "lateral-movement",
+      "score": 75,
+      "comment": "Storm-0558 forged tokens, 2023; AA24-057A, Feb 2024; Salesloft Drift, Aug 2025; the CVE-2025-55241 Actor token risk, Jul 2025 (basis: Mapped). Sources [29][45][68][70] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1550.004",
+      "tactic": "lateral-movement",
+      "score": 75,
+      "comment": "DEV-0537 session token replay, Mar 2022; CircleCI, Dec 2022; Okta session hijacks, Oct 2023 (basis: Mapped). Sources [21][27][37] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 75,
+      "comment": "Storm-0558, May to Jun 2023; Midnight Blizzard over EWS, Nov 2023 to Jan 2024 (basis: Mapped). Sources [29][47][43] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1114.003",
+      "tactic": "collection",
+      "score": 75,
+      "comment": "DEV-0537 mail transport rule, Mar 2022 (basis: Mapped). Sources [21] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1213",
+      "tactic": "collection",
+      "score": 75,
+      "comment": "UNC5537 against Snowflake instances, 2024 (basis: Mapped). Sources [53] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1213.003",
+      "tactic": "collection",
+      "score": 75,
+      "comment": "DEV-0537 repository searches, Mar 2022 (basis: Mapped). Sources [21] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1213.004",
+      "tactic": "collection",
+      "score": 75,
+      "comment": "UNC6040 Salesforce theft, 2025; Salesloft Drift, Aug 2025 (basis: Mapped). Sources [67][68] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Uber, 2016; Capital One, 2019; AA23-320A, Nov 2023; bulk OneDrive download, 2026; Qubole S3 downloads, Oct 2026 (basis: Listed (AA23-320A); Mapped (others)). Sources [3][8][40][74][80] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1090.002",
+      "tactic": "command-and-control",
+      "score": 75,
+      "comment": "Midnight Blizzard residential proxies, Jan 2024; AA24-057A, Feb 2024 (basis: Mapped). Sources [43][45] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1567",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "AA23-320A Snowflake exfiltration, Nov 2023; UNC5537, 2024 (basis: Listed (AA23-320A); Mapped (UNC5537)). Sources [40][53] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "DEV-0537 and the CSRB's Lapsus$ record, 2021 to 2022; Storm-3168, Sep 2026 (basis: Listed (Storm-3168); Mapped (Lapsus$)). Sources [21][33][76] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Storm-3168 backup-lock targeting, Sep 2026 (basis: Listed). Sources [76] refer to the Sources table of case-studies/CLOUD_SECURITY_INCIDENTS.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#fbbf24",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Reported basis or detection context only",
+      "color": "#fbbf24"
+    },
+    {
+      "label": "75: behavior described by a primary, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: a source lists the id for a dated event",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CLOUD_SECURITY_INCIDENTS.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "48"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "63"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "Major Cloud Security Incidents: The Public Record, 2011 to 2026",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CLOUD_SECURITY_INCIDENTS.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

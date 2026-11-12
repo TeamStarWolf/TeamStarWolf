@@ -1750,6 +1750,32 @@ studies:
       - {"date": "2026-10-20", "label": "CISA adds all four CVEs to KEV, each marked as chainable with the other three"}
       - {"date": "2026-11-03", "label": "KEV due date for CVE-2026-96652 and CVE-2026-96655"}
       - {"date": "2026-11-04", "label": "TeamStarWolf lab run: 1.43.2.10687 and 1.43.3.10828 told from 1.43.3.10861; no exploit step run"}
+  case-studies/PRE_INTERNET_THREATS.md:
+    kind: "era"
+    title: "Before the Internet: Computer Threats, 1960 to 1990"
+    start: "1960-11"
+    end: "1993-03"
+    core_start: "1960"
+    core_end: "1990"
+    sectors: ["cross-sector", "government", "defense", "education", "telecommunications", "technology", "finance", "healthcare"]
+    cves: []
+    actors: []
+    tags: ["pre-internet", "phone phreaking", "Ware report", "Anderson report", "Multics", "Brain", "AIDS Trojan", "CHRISTMA EXEC", "Morris worm", "WANK", "CFAA", "Computer Misuse Act"]
+    pdf: "Pre_Internet_Threats_Case_Study.pdf"
+    pptx: "Pre_Internet_Threats_Case_Study.pptx"
+    events:
+      - {"date": "1960-11", "label": "Bell System Technical Journal publishes Breen and Dahlbom on in-band trunk signaling"}
+      - {"date": "1970-02-11", "label": "Ware report for the Defense Science Board: threat taxonomy, trap doors, insider infiltration"}
+      - {"date": "1972-10", "label": "Anderson report: penetration is easy, the Trojan horse defined, the reference monitor introduced"}
+      - {"date": "1976-04-27", "label": "GAO FGMSD-76-27: 69 federal cases, mostly by users with limited technical knowledge"}
+      - {"date": "1983-11-03", "label": "Fred Cohen's first experimental virus, conceived 3 Nov and demonstrated 10 Nov 1983"}
+      - {"date": "1984-10-12", "label": "Pub. L. 98-473 creates 18 U.S.C. 1030"}
+      - {"date": "1986-10-16", "label": "Pub. L. 99-474, the Computer Fraud and Abuse Act of 1986"}
+      - {"date": "1987-12-09", "label": "First known CHRISTMA EXEC infection, 9 to 14 Dec 1987 on BITNET and IBM's VNET"}
+      - {"date": "1988-11-02", "label": "Morris worm released from an MIT computer"}
+      - {"date": "1988-12", "label": "CERT/CC established by DARPA at the SEI; first advisory CA-1988-01"}
+      - {"date": "1989-12-08", "label": "AIDS Information disks posted from London, 8 to 12 Dec 1989"}
+      - {"date": "1990-06-29", "label": "UK Computer Misuse Act 1990 receives Royal Assent"}
   case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md:
     kind: "vulnerability"
     title: "ProFTPD mod_copy, CVE-2015-3306: Unauthenticated File Copy in the Lab"

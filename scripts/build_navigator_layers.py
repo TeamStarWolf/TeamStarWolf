@@ -512,6 +512,9 @@ CATALOG = [
       ("case-studies/chronicle-2022-ics.json", "The Year 2022 in Intrusions (ICS)",
        "The 17 ATT&CK for ICS techniques bound to CISA advisory AA22-103A on ICS attack tools, Mandiant's report on the October 2022 Sandworm attack on a Ukrainian power company and campaign C0034, from the "
        "[2022 chronicle case study](/case-studies/CHRONICLE_2022.md)"),
+      ("case-studies/chronicle-2018-ics.json", "The Year 2018 in Intrusions (ICS)",
+       "The 4 ATT&CK for ICS techniques bound to VPNFilter's Modbus-monitoring plugin (S1010), the TA18-074A watering holes on ICS-related sites and Dragos's XENOTIME vendor-compromise reporting, from the "
+       "[2018 chronicle case study](/case-studies/CHRONICLE_2018.md)"),
       ("case-studies/zero-day-market-events-ics.json", "The Zero-Day Trade and Its Fallout (ICS)",
        "The 5 ATT&CK for ICS techniques that the ATT&CK pages for WannaCry (S0366), NotPetya (S0368) and Bad Rabbit (S0606) list, from the "
        "[zero-day market case study](/case-studies/ZERO_DAY_MARKET_EVENTS.md)"),

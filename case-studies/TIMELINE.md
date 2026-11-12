@@ -249,6 +249,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 April 2025: Kettering Health: activity from 9 April and a system-wide outage from 20 May 2025; Kettering names Interlock
   - 17 May 2026: DentaQuest data accessed 17 to 20 May and later posted online; HHS records 15,000,000 people, the largest 2026 entry
 
+### 2022 <!-- {docsify-ignore} -->
+
+- [The Year 2022 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2022.md). Period record, January to December 2022. Sectors: cross-sector, government, energy, healthcare, finance, technology, telecommunications, defense, education, transport. CVEs: CVE-2018-13379, CVE-2019-0604, CVE-2019-11510, CVE-2020-0688, CVE-2020-1472, CVE-2020-12812 and 44 more. ATT&CK groups: G0007 APT28, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly, G0047 Gamaredon Group and 11 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2022_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2022_Case_Study.pptx).
+  - 13 January 2022: WhisperGate first appears on Ukrainian systems; Ukrainian government websites defaced
+  - 23 February 2022: HermeticWiper hits hundreds of computers in Ukrainian organizations; Cyclops Blink exposed as Sandworm's replacement for VPNFilter
+  - 24 February 2022: KA-SAT attack from about 03:02 UTC; modems drop off from about 04:15 UTC
+  - 15 March 2022: CIRCIA enacted as Division Y of the Consolidated Appropriations Act, 2022; AA22-074A published
+  - 22 March 2022: Microsoft profiles DEV-0537 (LAPSUS$); Okta's first estimate puts possible impact at 366 customers
+  - 23 March 2022: Almost $620 million stolen from a blockchain project linked to Axie Infinity (Ronin)
+  - 8 April 2022: Industroyer2 scheduled to run against high-voltage substations at 16:10 UTC, CaddyWiper at 16:20 UTC
+  - 2 June 2022: Atlassian discloses active exploitation of Confluence CVE-2022-26134; KEV lists it the same day
+  - 15 July 2022: Destructive attack on the Albanian government, claimed on 18 July as HomeLand Justice
+  - 8 August 2022: Treasury sanctions Tornado Cash
+  - 15 September 2022: Uber breach through a contractor's account; the European Commission proposes the Cyber Resilience Act
+  - 10 October 2022: Fortinet publishes CVE-2022-40684, aware of exploitation; Sandworm causes a power outage in Ukraine through SCADA software
+
 ### 2021 <!-- {docsify-ignore} -->
 
 - [Hugging Face as an AI Supply-Chain Attack Surface: A 2021 to 2026 Case Study](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md). Attack surface, December 2021 to November 2026. Sectors: technology. CVEs: CVE-2023-6730, CVE-2023-51449, CVE-2024-1561, CVE-2024-1728, CVE-2024-3568, CVE-2024-3660 and 43 more. ATT&CK groups: G0007 APT28. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Hugging_Face_Supply_Chain_2021_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Hugging_Face_Supply_Chain_2021_2026_Case_Study.pptx).

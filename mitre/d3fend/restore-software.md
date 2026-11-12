@@ -79,6 +79,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md)
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)
 - [The Year 2025 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2025.md)
+- [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)
 - [The Zero-Day Trade and Its Fallout: The Events in This Is How They Tell Me the World Ends](/case-studies/ZERO_DAY_MARKET_EVENTS.md)
 - [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md)
 

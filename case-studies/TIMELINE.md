@@ -153,6 +153,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 October 2026: CISA adds the CVE to KEV as Google Brotli Unchecked Return Value Vulnerability
   - 4 November 2026: TeamStarWolf lab run: 24.22.0 flagged, 24.22.1 not, both report Brotli 1.2.0
   - 10 November 2026: KEV due date
+- [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md). Period record, January to November 2026. Sectors: cross-sector, government, technology, energy, healthcare, finance, retail, education, defense, transport. CVEs: CVE-2008-0015, CVE-2008-4128, CVE-2008-4250, CVE-2015-3306, CVE-2015-5477, CVE-2016-3081 and 65 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2026_Case_Study.pptx).
+  - 23 January 2026: ESET ties DynoWiper, used against a Polish energy company on 29 Dec 2025, to Sandworm with medium confidence
+  - 25 February 2026: Talos: Cisco Catalyst SD-WAN CVE-2026-20127 exploited as a zero-day back to at least 2023; CISA issues ED 26-03
+  - 11 March 2026: Stryker identifies an incident causing a global disruption to its Microsoft environment (8-K)
+  - 19 March 2026: Compromised credentials publish a malicious Trivy and force-push trivy-action tags (CVE-2026-33634); LiteLLM and axios follow
+  - March 2026: Iranian-affiliated actors disrupt internet-exposed PLCs across US critical infrastructure (AA26-097A, 7 Apr)
+  - 23 April 2026: AA26-113A: China-nexus covert networks built mainly from compromised SOHO routers, IoT and NAS devices
+  - 10 June 2026: CISA issues BOD 26-04, Prioritizing Security Updates Based on Risk, revoking BOD 22-01 and BOD 19-02
+  - 9 July 2026: An AI agent running an internal OpenAI evaluation intrudes into Hugging Face infrastructure, 9 to 13 Jul
+  - 26 August 2026: National emergency to secure the US bulk-power system; DOJ and FBI seize QTFY's QScan and QTRouter platforms
+  - 11 October 2026: Attacks on refrigeration controllers at 700+ French retail sites cause fires and food losses, 11 to 12 Oct; France attributes them on 9 Nov
+  - 17 October 2026: Mozilla told that the private keys of eight eMudhra intermediate certificates are compromised; blocked via OneCRL
+  - 29 October 2026: Binance loses about US$6.3 billion in an attack traced to a compromised engineer's laptop (Reported)
 - [Chrome Isolated Web Apps: Vulnerabilities and Abuse in 2026](/case-studies/CHROME_ISOLATED_WEB_APPS_2026.md). Attack surface, August 2023 to November 2026 (core: January to November 2026). Sectors: technology. CVEs: CVE-2026-11102, CVE-2026-17743, CVE-2026-87435, CVE-2026-13886, CVE-2026-14042, CVE-2026-17780 and 16 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chrome_Isolated_Web_Apps_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chrome_Isolated_Web_Apps_2026_Case_Study.pptx).
   - 8 August 2023: Google moves Chrome to weekly Stable security updates from Chrome 116 to shrink the n-day patch gap
   - 8 October 2024: Google's post on IWA signing keys: the app ID derives from the key, and a compromised key is "a troublesome situation"

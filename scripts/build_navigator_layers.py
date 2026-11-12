@@ -521,6 +521,9 @@ CATALOG = [
       ("case-studies/chronicle-2025-ics.json", "The Year 2025 in Intrusions (ICS)",
        "The 3 ATT&CK for ICS techniques bound to CISA's AA25-343A on pro-Russia hacktivists reaching operational technology through minimally secured internet-facing VNC, from the "
        "[2025 chronicle case study](/case-studies/CHRONICLE_2025.md)"),
+      ("case-studies/chronicle-2026-ics.json", "The Year 2026 in Intrusions (ICS)",
+       "The 17 ATT&CK for ICS techniques bound to the 2026 PLC advisories AA26-097A and AA26-231A, CERT Polska's account of the Polish energy attack, CISA's water-sector alert and the French retail refrigeration attacks, from the "
+       "[2026 chronicle case study](/case-studies/CHRONICLE_2026.md)"),
       ("case-studies/zero-day-market-events-ics.json", "The Zero-Day Trade and Its Fallout (ICS)",
        "The 5 ATT&CK for ICS techniques that the ATT&CK pages for WannaCry (S0366), NotPetya (S0368) and Bad Rabbit (S0606) list, from the "
        "[zero-day market case study](/case-studies/ZERO_DAY_MARKET_EVENTS.md)"),

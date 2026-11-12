@@ -1,0 +1,978 @@
+{
+  "name": "TeamStarWolf - The Year 2026 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2026 record supports, from 1 January to 11 November 2026: the technique tables of the CISA and partner joint advisories of the year (AA26-097A, AA26-113A, AA26-194A, AA26-204A, AA26-222A, AA26-231A, AA26-237A, AA26-281A and AA26-293A), Microsoft's Storm-0940 and Storm-3168 reports, GTIG's PeopleSoft report, ESET's DynoWiper analysis, and the behaviors the year's vendor, victim and government records describe (Cisco SD-WAN, PAN-OS, Citrix, Ivanti, BeyondTrust, Trivy, LiteLLM, axios and the other supply-chain compromises). Each comment names source numbers from case-studies/CHRONICLE_2026.md. Scores: 100 an opened source prints the id, 70 the source describes the behavior and the study assigns the id, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1595",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Storm-0940 (Microsoft, 21 Oct) (basis: Source). Sources [120] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "AA26-281A (8 Oct); GTIG PeopleSoft report (Sep) (basis: Source). Sources [98][44] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1596.003",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "GTIG PeopleSoft report (basis: Source). Sources [44] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1596.005",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "GTIG PeopleSoft report; AA26-231A (19 Aug) (basis: Source). Sources [44][70] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1583.003",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA26-113A (23 Apr); AA26-194A (13 Jul) (basis: Source). Sources [29][60] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1584.004",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ESET's DynoWiper analysis (Poland, disclosed Jan) (basis: Source). Sources [3] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1584.005",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA26-113A (basis: Source). Sources [29] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1584.008",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA26-113A; AA26-194A (basis: Source). Sources [29][60] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1587.004",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA26-231A (basis: Source). Sources [70] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1588.003",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "Code-signing certificates stolen from DigiCert and used to sign malware (Apr, reported) (basis: Behavior). Sources [31] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1588.007",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA26-204A (23 Jul); AA26-231A (basis: Source). Sources [61][70] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA26-281A; APT29 watering holes (Sekoia, Aug to Sep) as Behavior (basis: Source; Behavior). Sources [98][152] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA26-194A, AA26-222A and AA26-293A tables; GTIG PeopleSoft report; Storm-3168; Fortinet (Jan), Cisco SD-WAN (Feb to May), PAN-OS (Jun), SharePoint (Jul), Citrix (Sep), Ivanti (Oct), BeyondTrust (Oct) and the Polish edge devices as Behavior (basis: Source; Behavior). Sources [60][68][113][44][90][6][9][10][46][59][91][104][106][1] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1195",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Storm-0940 and ConnectWise (Oct) (basis: Source). Sources [120] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1195.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Trivy (19 Mar), LiteLLM (24 Mar), axios (31 Mar), TanStack (11 May), Nx Console (May) and ChainDrop (Aug) (basis: Behavior). Sources [19][20][23][34][36][67] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "ConnectWise Cloud Backup (Oct), the Plerdy tracker (Aug to Sep) and LiteLLM 1.107.0 (21 Oct) (basis: Behavior). Sources [109][152][117] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Storm-0940; Klue integration credential (reported), Qubole trust roles and Amadeus system account as Behavior (basis: Source; Behavior). Sources [120][50][124][143] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA26-204A; AA26-237A (25 Aug) (basis: Source). Sources [61][73] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "CERT-UA#19542 lure document (Jan) (basis: Behavior). Sources [5] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "ESET's DynoWiper analysis (basis: Source). Sources [3] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ESET's DynoWiper analysis (basis: Source). Sources [3] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ESET's DynoWiper analysis (basis: Source). Sources [3] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA26-293A (see Discrepancies) (basis: Source). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA26-281A; AA26-293A; ESET's DynoWiper analysis (basis: Source). Sources [98][113][3] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA26-222A; AA26-293A; GTIG PeopleSoft report; ESET's DynoWiper analysis (basis: Source). Sources [68][113][44][3] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA26-281A; GTIG PeopleSoft report (basis: Source). Sources [98][44] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1059.006",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA26-281A (basis: Source). Sources [98] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1059.007",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA26-281A (basis: Source). Sources [98] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Handala's reported administrative access through Microsoft Intune (Unit 42, 12 Mar); CISA's endpoint-management alert (18 Mar) (basis: Behavior). Sources [15][16] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "Handala's reported administrative access through Microsoft Intune (Unit 42, 12 Mar); CISA's endpoint-management alert (18 Mar) (basis: Behavior). Sources [15][16] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1106",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA26-204A; the CVE-2026-21509 lure (CERT-UA) as Behavior (basis: Source; Behavior). Sources [61][5] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1204",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA26-237A (basis: Source). Sources [73] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "DigiCert support staff ran a screensaver file (Apr, reported) (basis: Behavior). Sources [31] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA26-293A (basis: Source). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA26-204A; AA26-222A; AA26-293A (basis: Source). Sources [61][68][113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA26-204A; AA26-222A; AA26-293A (basis: Source). Sources [61][68][113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Storm-0940 (basis: Source). Sources [120] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Storm-0940 (basis: Source). Sources [120] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1098.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Storm-0940 (basis: Source). Sources [120] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1098.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Storm-0940 (basis: Source). Sources [120] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA26-222A; AA26-281A; AA26-293A (20 Oct) (basis: Source). Sources [68][98][113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA26-222A; AA26-281A; AA26-293A (20 Oct) (basis: Source). Sources [68][98][113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA26-293A (basis: Source). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1136.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA26-237A (basis: Source). Sources [73] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "GTIG PeopleSoft report; SD-WAN web shells (Talos) and WHIPSHOT on NetScaler (GTIG, reported) as Behavior (basis: Source; Behavior). Sources [44][10][92] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1548.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA26-293A (basis: Source). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "GTIG PeopleSoft report (basis: Source). Sources [44] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1027.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA26-293A (basis: Source). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1027.017",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA26-204A (basis: Source). Sources [61] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1036.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA26-281A (basis: Source). Sources [98] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1070.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA26-293A (basis: Source). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA26-222A (10 Aug) (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA26-222A (10 Aug) (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA26-222A (10 Aug) (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA26-222A (10 Aug) (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Storm-0940; Storm-3168 (Microsoft, 25 Sep); Qubole IAM credentials (Wiz, Oct) as Behavior (basis: Source; Behavior). Sources [120][90][124] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Storm-0940; Storm-3168 (Microsoft, 25 Sep); Qubole IAM credentials (Wiz, Oct) as Behavior (basis: Source; Behavior). Sources [120][90][124] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Storm-0940; Storm-3168 (Microsoft, 25 Sep); Qubole IAM credentials (Wiz, Oct) as Behavior (basis: Source; Behavior). Sources [120][90][124] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Storm-0940; Storm-3168 (Microsoft, 25 Sep); Qubole IAM credentials (Wiz, Oct) as Behavior (basis: Source; Behavior). Sources [120][90][124] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA26-293A (basis: Source). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA26-293A (basis: Source). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1218",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA26-293A (basis: Source). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1542.003",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "The BlackX UEFI bootkit (Kaspersky, 22 Oct) (basis: Behavior). Sources [123] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1542.003",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "The BlackX UEFI bootkit (Kaspersky, 22 Oct) (basis: Behavior). Sources [123] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1574.014",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "STOCKSTAY (GTIG, 25 Jun) (basis: Source). Sources [54] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1574.014",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "STOCKSTAY (GTIG, 25 Jun) (basis: Source). Sources [54] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1622",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1622",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1678",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1679",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-impairment",
+      "score": 70,
+      "comment": "Stolen DigiCert certificates used to sign malware (reported); the Fox Tempest signing service (Microsoft, 19 May) (basis: Behavior). Sources [31][37] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "AA26-204A; AA26-222A (basis: Source). Sources [61][68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA26-204A; AA26-222A (basis: Source). Sources [61][68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA26-204A; AA26-222A (basis: Source). Sources [61][68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "AA26-222A; AA26-293A; EDR disablement including BYOVD (Talos IR Q3) as Behavior (basis: Source; Behavior). Sources [68][113][141] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA26-194A; AA26-222A (basis: Source). Sources [60][68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ESET's DynoWiper analysis (basis: Source). Sources [3] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1003.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1003.006",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA26-237A; AA26-281A (basis: Source). Sources [73][98] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA26-293A (basis: Source). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1110.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA26-281A (basis: Source). Sources [98] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA26-281A; Storm-0940's 10 to 14 Oct password spray as Behavior (basis: Source; Behavior). Sources [98][120] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1528",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Storm-0940; Klue OAuth tokens (reported) as Behavior (basis: Source; Behavior). Sources [120][50] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1539",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1552.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "GTIG PeopleSoft report (basis: Source). Sources [44] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1555",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1555.006",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Storm-0940 (basis: Source). Sources [120] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1649",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA26-237A (basis: Source). Sources [73] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1697",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "GTIG's Russian clusters abusing app passwords (20 Aug) (basis: Inferred). Sources [71] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "GTIG PeopleSoft report (basis: Source). Sources [44] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1049",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "GTIG PeopleSoft report; ESET's DynoWiper analysis (basis: Source). Sources [44][3] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA26-222A; ESET's DynoWiper analysis (basis: Source). Sources [68][3] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1087.002",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA26-237A (basis: Source). Sources [73] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1087.004",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Storm-0940 (basis: Source). Sources [120] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1124",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ESET's DynoWiper analysis (basis: Source). Sources [3] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1526",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA26-237A; Storm-3168 (basis: Source). Sources [73][90] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1580",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Storm-0940 (basis: Source). Sources [120] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1680",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "ESET's DynoWiper analysis (basis: Source). Sources [3] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1021",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA26-293A (basis: Source). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA26-222A; AA26-293A; RDP after PAN-OS access (Unit 42) as Behavior (basis: Source; Behavior). Sources [68][113][47] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA26-222A; AA26-293A; The Gentlemen's spread over admin shares (Microsoft) as Behavior (basis: Source; Behavior). Sources [68][113][38] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1021.006",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA26-293A (basis: Source). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1550.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA26-237A (basis: Source). Sources [73] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA26-222A; AA26-293A (basis: Source). Sources [68][113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1550.003",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1550.004",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA26-204A (basis: Source). Sources [61] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA26-237A (basis: Source). Sources [73] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA26-237A (basis: Source). Sources [73] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1074.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA26-281A (basis: Source). Sources [98] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1114",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA26-204A; AA26-281A (basis: Source). Sources [61][98] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1213.005",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA26-237A (basis: Source). Sources [73] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA26-222A; Qubole S3 data (Wiz) as Behavior (basis: Source; Behavior). Sources [68][124] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1560",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA26-222A (basis: Source). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1560.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA26-293A (basis: Source). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1560.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA26-293A (see Discrepancies) (basis: Source). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1560.003",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA26-281A (basis: Source). Sources [98] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1602.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA26-194A (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1602.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA26-194A (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1071",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA26-194A (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA26-194A; GTIG PeopleSoft report (basis: Source). Sources [60][44] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1090.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ESET's DynoWiper analysis (basis: Source). Sources [3] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA26-113A (basis: Source). Sources [29] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA26-222A; ESET's DynoWiper analysis; the axios dependency fetching multi-stage payloads (CISA) as Behavior (basis: Source; Behavior). Sources [68][3][23] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA26-097A (7 Apr); GTIG PeopleSoft report; RMM tools after PAN-OS access (Unit 42) as Behavior (basis: Source; Behavior). Sources [25][44][47] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA26-222A; the SLAPSHOT tunneler on NetScaler (GTIG, reported) as Behavior (basis: Source; Behavior). Sources [68][92] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1020",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "AA26-281A (basis: Source). Sources [98] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "AA26-097A (basis: Source). Sources [25] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1048",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "AA26-194A; AA26-222A; AA26-293A; GTIG PeopleSoft report (basis: Source). Sources [60][68][113][44] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1048.003",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "AA26-204A (basis: Source). Sources [61] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1567",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "AA26-222A; AA26-293A (basis: Source). Sources [68][113] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Storm-3168 (Microsoft's mapping); Beget's destroyed cloud data (reported) as Behavior (basis: Source; Behavior). Sources [90][147] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA26-222A; AA26-293A; Qilin after PAN-OS access (Arctic Wolf) and ransomware on outdated DSM (Synology) as Behavior (basis: Source; Behavior). Sources [68][113][46][142] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA26-222A; AA26-293A; Storm-3168 (basis: Source). Sources [68][113][90] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1529",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ESET's DynoWiper analysis (basis: Source). Sources [3] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1561.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ESET's DynoWiper analysis (basis: Source). Sources [3] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1565",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA26-097A (basis: Source). Sources [25] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA26-222A; the Binance, Bitget and Credit Mutuel Arkea thefts (reported) as Behavior (basis: Source; Behavior). Sources [68][135][89][158] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e2e8f0",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred, the study's reading of a source that lists no ids",
+      "color": "#e2e8f0"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: an opened source or ATT&CK object prints the id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2026.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "125"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "149"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2026 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2026.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

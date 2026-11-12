@@ -923,6 +923,30 @@ studies:
       - {"date": "2023-06-14", "label": "Cl0p begins naming victims on its leak site with payment deadlines"}
       - {"date": "2024-08", "label": "The running tally reaches about 2,773 organizations and 95.8 million individuals"}
       - {"date": "2024", "label": "Cleo Harmony, VLTrader and LexiCom exploited, late 2024"}
+  case-studies/CLOUD_SECURITY_INCIDENTS.md:
+    kind: "reference"
+    title: "Major Cloud Security Incidents: The Public Record, 2011 to 2026"
+    start: "2011"
+    end: "2026-11"
+    sectors: ["technology", "cross-sector", "finance", "government", "telecommunications"]
+    cves: ["CVE-2021-27101", "CVE-2021-27104", "CVE-2021-30116", "CVE-2023-34362", "CVE-2024-1709", "CVE-2025-8875", "CVE-2025-8876", "CVE-2025-55241", "CVE-2026-18556", "CVE-2026-18577", "CVE-2026-84869", "CVE-2026-86218"]
+    actors: ["G0016", "G1004", "G1015", "G1057", "G0092"]
+    tags: ["cloud", "SaaS", "shared responsibility", "identity", "OAuth", "MFA", "Storm-0558", "Snowflake", "Capital One", "CSRB", "MSP"]
+    pdf: "Cloud_Security_Incidents_Case_Study.pdf"
+    pptx: "Cloud_Security_Incidents_Case_Study.pptx"
+    events:
+      - {"date": "2012-07-31", "label": "Dropbox: passwords stolen from other websites used to sign in to a small number of accounts; optional two-factor authentication announced"}
+      - {"date": "2016-11", "label": "Uber: an access key an engineer posted on a code-sharing site opens files at a third-party cloud provider (disclosed November 2017)"}
+      - {"date": "2019-03-22", "label": "Capital One: an outside individual reaches data through a \"configuration vulnerability\" (22 to 23 March)"}
+      - {"date": "2020-08-06", "label": "OCC assesses an $80 million penalty against Capital One over its risk assessment before moving to the public cloud"}
+      - {"date": "2022-12-16", "label": "CircleCI: an engineer's SSO session cookie is stolen and customer secrets exfiltrated (16 December 2022 to 4 January 2023)"}
+      - {"date": "2023-05-15", "label": "Storm-0558 forges tokens with a Microsoft consumer signing key to read Exchange Online mail (15 May to 16 June)"}
+      - {"date": "2023-09-28", "label": "Okta's support-case system entered through a saved service-account credential; files of 134 customers accessed (to 17 October)"}
+      - {"date": "2024-03-20", "label": "CSRB review of the Summer 2023 Exchange Online intrusion: preventable, a cascade of security failures (released 2 April)"}
+      - {"date": "2024-05-22", "label": "Mandiant: UNC5537 uses infostealer credentials against Snowflake customer instances without MFA; about 165 organizations notified"}
+      - {"date": "2025-08-08", "label": "UNC6395 uses stolen Salesloft Drift OAuth tokens to export data from many Salesforce instances (8 to 18 August)"}
+      - {"date": "2026-10-15", "label": "Storm-0940 signs in to customer tenants as ConnectWise multi-tenant apps and tries more than 2,250 tenants"}
+      - {"date": "2026-11-01", "label": "Todyl: one operator signs in as victims' own Entra apps with stolen secrets and reaches 27 organizations (to 6 November)"}
   case-studies/CUCKOOS_EGG_1986.md:
     kind: "incident"
     title: "The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986"

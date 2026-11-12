@@ -602,6 +602,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 8 April 2022: Industroyer2 planned against high-voltage substations; CERT-UA says it was prevented
   - 10 October 2022: Third Ukrainian blackout, 10 to 12 October
   - 17 April 2024: Mandiant designates APT44
+- [Major Cloud Security Incidents: The Public Record, 2011 to 2026](/case-studies/CLOUD_SECURITY_INCIDENTS.md). Attack surface, 2011 to November 2026. Sectors: technology, cross-sector, finance, government, telecommunications. CVEs: CVE-2021-27101, CVE-2021-27104, CVE-2021-30116, CVE-2023-34362, CVE-2024-1709, CVE-2025-8875 and 6 more. ATT&CK groups: G0016 APT29, G1004 LAPSUS$, G1015 Scattered Spider, G1057 ShinyHunters, G0092 TA505. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cloud_Security_Incidents_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Cloud_Security_Incidents_Case_Study.pptx).
+  - 31 July 2012: Dropbox: passwords stolen from other websites used to sign in to a small number of accounts; optional two-factor authentication announced
+  - November 2016: Uber: an access key an engineer posted on a code-sharing site opens files at a third-party cloud provider (disclosed November 2017)
+  - 22 March 2019: Capital One: an outside individual reaches data through a "configuration vulnerability" (22 to 23 March)
+  - 6 August 2020: OCC assesses an $80 million penalty against Capital One over its risk assessment before moving to the public cloud
+  - 16 December 2022: CircleCI: an engineer's SSO session cookie is stolen and customer secrets exfiltrated (16 December 2022 to 4 January 2023)
+  - 15 May 2023: Storm-0558 forges tokens with a Microsoft consumer signing key to read Exchange Online mail (15 May to 16 June)
+  - 28 September 2023: Okta's support-case system entered through a saved service-account credential; files of 134 customers accessed (to 17 October)
+  - 20 March 2024: CSRB review of the Summer 2023 Exchange Online intrusion: preventable, a cascade of security failures (released 2 April)
+  - 22 May 2024: Mandiant: UNC5537 uses infostealer credentials against Snowflake customer instances without MFA; about 165 organizations notified
+  - 8 August 2025: UNC6395 uses stolen Salesloft Drift OAuth tokens to export data from many Salesforce instances (8 to 18 August)
+  - 15 October 2026: Storm-0940 signs in to customer tenants as ConnectWise multi-tenant apps and tries more than 2,250 tenants
+  - 1 November 2026: Todyl: one operator signs in as victims' own Entra apps with stolen secrets and reaches 27 organizations (to 6 November)
 
 ### 2009 <!-- {docsify-ignore} -->
 

@@ -85,6 +85,7 @@ Configuration inventory identifies and records the configuration of software and
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [Log4Shell (CVE-2021-44228): The Case Study](/case-studies/LOG4SHELL.md)
+- [Major Cloud Security Incidents: The Public Record, 2011 to 2026](/case-studies/CLOUD_SECURITY_INCIDENTS.md)
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
 - [The FireEye Mandiant Intrusion of 2020: The Public Record](/case-studies/MANDIANT_INTRUSION_2020.md)
 - [The Shadow Brokers and Vault 7: The NSA and CIA Tool Leaks, 2016 to 2017](/case-studies/NSA_CIA_TOOL_LEAKS.md)

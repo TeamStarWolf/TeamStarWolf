@@ -75,5 +75,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [The year 2024 in intrusions: a dated record](/case-studies/CHRONICLE_2024.md)
 - [The year 2023 in intrusions: a dated record](/case-studies/CHRONICLE_2023.md)
 - [The year 2025 in intrusions: a dated record](/case-studies/CHRONICLE_2025.md)
+- [Major cloud security incidents: the public record, 2011 to 2026](/case-studies/CLOUD_SECURITY_INCIDENTS.md)
 
 <!-- hub:end -->

@@ -105,5 +105,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [Tools research](/tools-research/README.md)
 - [Research notes](/research/README.md)
 - [Thirty days of exposure checks (KEV, October to November 2026): a lab case study](/case-studies/EXPOSURE_CHECKS_2026_11.md)
+- [Able2Shell and the RMM attack surface (N-able N-central, November 2026): a case study](/case-studies/NABLE_NCENTRAL_ABLE2SHELL_2026.md)
 
 <!-- hub:end -->

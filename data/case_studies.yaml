@@ -136,6 +136,32 @@ studies:
       - {"date": "2024-10-22", "label": "About 100 million individual notices sent"}
       - {"date": "2025-07-31", "label": "About 192.7 million people counted as affected"}
       - {"date": "2026-09-30", "label": "S.3315 passes the Senate by unanimous consent"}
+  case-studies/CHROME_ISOLATED_WEB_APPS_2026.md:
+    kind: "reference"
+    title: "Chrome Isolated Web Apps: Vulnerabilities and Abuse in 2026"
+    start: "2023-08"
+    end: "2026-11"
+    core_start: "2026-01"
+    core_end: "2026-11"
+    sectors: ["technology"]
+    cves: ["CVE-2026-11102", "CVE-2026-17743", "CVE-2026-87435", "CVE-2026-13886", "CVE-2026-14042", "CVE-2026-17780", "CVE-2026-17909", "CVE-2026-87577", "CVE-2026-87540", "CVE-2026-87468", "CVE-2026-121172", "CVE-2026-121206", "CVE-2026-87513", "CVE-2026-87491", "CVE-2026-2441", "CVE-2026-3910", "CVE-2026-3909", "CVE-2026-5281", "CVE-2026-11645", "CVE-2026-85046", "CVE-2026-125350", "CVE-2026-85880"]
+    actors: []
+    tags: ["Isolated Web Apps", "Chrome", "ChromeOS", "Direct Sockets", "Controlled Frame", "browser extensions"]
+    pdf: "Chrome_Isolated_Web_Apps_2026_Case_Study.pdf"
+    pptx: "Chrome_Isolated_Web_Apps_2026_Case_Study.pptx"
+    events:
+      - {"date": "2023-08-08", "label": "Google moves Chrome to weekly Stable security updates from Chrome 116 to shrink the n-day patch gap"}
+      - {"date": "2024-10-08", "label": "Google's post on IWA signing keys: the app ID derives from the key, and a compromised key is \"a troublesome situation\""}
+      - {"date": "2025-08-08", "label": "Praetorian presents ChromeAlone at DEF CON 33; its BLOWTORCH IWA uses Direct Sockets as a SOCKS proxy"}
+      - {"date": "2025-10-27", "label": "blink-dev announces the Google allowlist for managed IWA installations from M143"}
+      - {"date": "2026-02-10", "label": "IsolatedWebAppUserInstallationEnabled added for ChromeOS 146, default true"}
+      - {"date": "2026-04-07", "label": "Google reports CVE-2026-11102 (key rotation bypass) and CVE-2026-13886 (mandatory CSP bypass)"}
+      - {"date": "2026-06-02", "label": "Chrome 149 fixes CVE-2026-11102, which NVD and CISA-ADP later score CVSS 8.8 while Chromium rates it Medium"}
+      - {"date": "2026-07-29", "label": "Chrome 151 fixes IWA bugs CVE-2026-17780 and CVE-2026-17909 and Controlled Frame bug CVE-2026-17743"}
+      - {"date": "2026-08-13", "label": "SpecterOps publishes Attack of The Extensions: SilentChrome-BOF and Ditto sideload an IWA as a SOCKS sidecar"}
+      - {"date": "2026-09-08", "label": "Chrome 153 fixes three IWA and two Controlled Frame bugs, and exploited V8 bug CVE-2026-87491 with no link between them"}
+      - {"date": "2026-11-03", "label": "Chrome 157 fixes CVE-2026-121172 and CVE-2026-121206, the last IWA-component CVEs of the record"}
+      - {"date": "2026-11-10", "label": "CISA adds Chrome XML zero-day CVE-2026-125350 to KEV; the catalog holds no IWA or Controlled Frame entry"}
   case-studies/CHRONICLE_2019.md:
     kind: "era"
     title: "The Year 2019 in Intrusions: A Dated Record"

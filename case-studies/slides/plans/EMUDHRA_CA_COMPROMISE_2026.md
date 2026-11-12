@@ -73,7 +73,7 @@ Right: What no one found
 - No vendor confirmed malicious interception through 10 November.
 - Use before disclosure against clients that skip CT and revocation cannot be ruled out.
 Caption: Every handshake Cloudflare set to verify the certificate was refused.
-Notes: Demonstration [37]. Cloudflare [30][29]. CT [3]. Vendor statements [34][32][31][33][24][36]. The pre-disclosure window is Inferred from [1][4].
+Notes: Demonstration [37]. Cloudflare [30][29]. CT [3]. Vendor statements [34][32][31][33][24]. The pre-disclosure window is Inferred from [1][4].
 
 ## PART 5 | The checks that should have caught it never looked
 

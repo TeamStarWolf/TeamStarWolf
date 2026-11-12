@@ -78,7 +78,7 @@ Evidence grade: the weakness, the affected certificates, the response by each ro
 | Revocation | eMudhra, 18 October 2026, 09:24 to 09:38 UTC, reason cACompromise; Sectigo cross-certificates, 19 October [1] [18] |
 | Root removals | emSign ECC Root CA - G3 from Mozilla NSS (20 October release) and the Chrome Root Store (27 October); seven certificates from Windows (26 October) and Edge (27 October) [2] [3] [24] |
 | Identifiers | No CVE for the event itself. CVE-2026-111943, a Go `crypto/x509` record (CWE-299) that AWS also uses for the event, does not name eMudhra; Red Hat's bulletin RHSB-2026-012 groups it with CVE-2026-114406 (RHEL ca-certificates), CVE-2026-91403 (Java) and CVE-2026-113812 (Perl Mozilla::CA), assigned to carry trust-store updates [20] [18] [70] |
-| Malicious use | None confirmed by any vendor through 10 November 2026 [30] [31] [24] |
+| Malicious use | None confirmed by any vendor through 10 November 2026 [30] [31]; Microsoft makes no statement on exploitation [24] |
 | Outcome | eMudhra exits the global SSL/TLS certificate business; emSign Root CA - G1 issuance hard stop 16 November 2026 [16] [1] |
 
 ### Key findings
@@ -140,13 +140,13 @@ eMudhra's earlier accounts differ from the final one. Its 19 October comment sai
 
 ### The A series and why it was spared
 
-Mozilla could not recover the P-384 keys of eMudhra's A series intermediates or of the replacement A-1 series. eMudhra states those were generated on a different HSM platform, Entrust's, for domestic deployment, and are not affected (**Confirmed** [1] comment 82). A separate bug reports that the A series, issued on 30 April 2025 and revoked on 30 May 2025, is missing from eMudhra's 2024-25 WebTrust audit reports, and that a Certificate Problem Report sent on 3 November 2026 got no reply (**Confirmed** as the bug's report [10]).
+Mozilla could not recover the P-384 keys of eMudhra's A series intermediates or of the replacement A-1 series. eMudhra states those were generated on a different HSM platform, Entrust's, for domestic deployment, and are not affected (**Confirmed** [1] comments 11 and 82). A separate bug reports that the A series, issued on 30 April 2025 and revoked on 30 May 2025, is missing from eMudhra's 2024-25 WebTrust audit reports, and that a Certificate Problem Report sent on 3 November 2026 got no reply (**Confirmed** as the bug's report [10]).
 
 ### The warning in 2025
 
 The six G3B and G3C TLS intermediates had invalid CRL signatures in 2025. Mozilla Bug 1970728, opened on 5 June 2025, records the anomaly from 29 May to 6 June 2025 (**Confirmed** [9]). eMudhra now says this was an early sign of the key-handling defect (**Confirmed** [1] comment 82), and commenters on the 2026 bug argue the weak keys could have been caught then (**Reported** [1]). The certificates carry the weak public keys, so a CRL signed with the original strong key does not verify against them, which is consistent with what eMudhra later described (Inferred from [1] comments 11 and 82).
 
-A second CRL oddity surfaced during the incident: a CRL for emSign Root TLS CA - G1, CRL number 11 dated 14 October 2026, carried a signature that did not verify under that root, and a community member later matched it to an OCSP responder certificate's key (**Reported**, a commenter's finding on the bug [1] comment 7). A third bug records that eMudhra's CRLs were blocked for certain User-Agent headers (**Confirmed** [11]).
+A second CRL oddity surfaced during the incident: a CRL for emSign Root TLS CA - G1, CRL number 11 dated 14 October 2026, carried a signature that did not verify under that root, and a community member later matched it to an OCSP responder certificate's key (**Reported**, a commenter's finding on the bug [1] comments 7 and 34). A third bug records that eMudhra's CRLs were blocked for certain User-Agent headers (**Confirmed** [11]).
 
 ### What the keys allowed
 
@@ -202,7 +202,7 @@ Microsoft's two counts, seven certificates in October and ten remaining roots in
 
 ### Who held certificates under G3
 
-eMudhra estimated about 30,000 certificates to migrate when it stopped issuance under G3, about 97 percent of them issued through ACME (**Confirmed** [1] comment 19). Its incident page puts about 30,800 certificates under the affected G3 hierarchies in one US client ecosystem, now moved to the G1 RSA pathway, with G1 TLS issuance to stop once that federation's transition completes (**Confirmed** as eMudhra's statement [14]). Commenters on the Mozilla bug identify the ecosystem as InCommon, run by Internet2 for US universities and research institutions on eMudhra's CertiNext platform, with the issuer InCommon Intermediate CA - DVG3C; eMudhra does not name it (**Reported** [1] comment 69). These certificates sat under other intermediates of the G3 hierarchy, not under the eight, which issued none (Inferred from [1] [14]).
+eMudhra estimated about 30,000 certificates to migrate when it stopped issuance under G3, about 97 percent of them issued through ACME (**Confirmed** [1] comment 19). Its incident page puts about 30,800 certificates under the affected G3 hierarchies in one US client ecosystem, now moved to the G1 RSA pathway, with G1 TLS issuance to stop once that federation's transition completes (**Confirmed** as eMudhra's statement [14]). The Chrome Root Program counted 30,791 of the about 30,800 unexpired precertificates under emSign ECC Root CA - G3 as issued by two Internet2 / InCommon subordinate CAs, InCommon Intermediate CA - OVG3C (23,806) and InCommon Intermediate CA - DVG3C (6,985) (**Confirmed** [1] comment 30). Commenters on the bug describe InCommon as providing certificate services to US universities and research institutions on eMudhra's CertiNext platform and analyze the OVG3C and DVG3C certificate sets; eMudhra does not name the ecosystem (**Reported** [1] comments 69 and 81). These certificates sat under other intermediates of the G3 hierarchy, not under the eight, which issued none (Inferred from [1] [14]).
 
 ## Part 3: the timeline
 
@@ -287,8 +287,8 @@ eMudhra estimated about 30,000 certificates to migrate when it stopped issuance 
 | Cisco Talos | No malicious incidents seen in the wild as of 21 October 14:00 UTC | 21 Oct | [32] | Confirmed |
 | Cisco PSIRT | Not aware of malicious use | 10 Nov (v1.9) | [31] | Confirmed |
 | Splunk | No resulting compromise of its products, services or certificates | 27 Oct | [33] | Confirmed |
-| Microsoft | Not a compromise of Microsoft systems; no confirmed active exploitation | 26 Oct to 10 Nov | [24] | Confirmed |
-| Unit 42 | Reports no observed exploitation | 22 Oct | [36] | Confirmed |
+| Microsoft | Not a compromise of Microsoft systems; describes the capability, makes no statement on exploitation and continues to investigate the scope | 26 Oct to 10 Nov | [24] | Confirmed |
+| Unit 42 | Describes the capability and recommends actions; makes no statement on exploitation | 22 Oct | [36] | Confirmed |
 | eMudhra | Not aware of evidence the weak keys were recovered or exploited before disclosure | Oct to Nov | [14] | Confirmed (as eMudhra's statement) |
 
 The synthesis: certificates forged under the weak keys appeared only after public disclosure, none were in CT before the block, and no vendor reported confirmed malicious interception through 10 November 2026. Misuse before disclosure can be neither shown nor ruled out, because the intermediates never logged leaves to CT and the clients that would have accepted a forged certificate are the ones that do not report to anyone (Inferred from [30] [3] [24] [31]).

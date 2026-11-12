@@ -795,6 +795,117 @@ studies:
       - {"date": "2024-07-19", "label": "A CrowdStrike content update crashes an estimated 8.5 million Windows devices; not a cyberattack"}
       - {"date": "2024-11-13", "label": "FBI and CISA: PRC-affiliated actors compromised multiple telecommunications companies"}
       - {"date": "2024-12-24", "label": "UN General Assembly adopts the Convention against Cybercrime"}
+  case-studies/CHRONICLE_2026.md:
+    kind: "era"
+    title: "The Year 2026 in Intrusions: A Dated Record"
+    start: "2026-01"
+    end: "2026-11"
+    sectors: ["cross-sector", "government", "technology", "energy", "healthcare", "finance", "retail", "education", "defense", "transport"]
+    cves:
+      - "CVE-2008-0015"
+      - "CVE-2008-4128"
+      - "CVE-2008-4250"
+      - "CVE-2015-3306"
+      - "CVE-2015-5477"
+      - "CVE-2016-3081"
+      - "CVE-2018-0171"
+      - "CVE-2019-11510"
+      - "CVE-2020-3259"
+      - "CVE-2022-20775"
+      - "CVE-2023-20269"
+      - "CVE-2023-27532"
+      - "CVE-2024-40711"
+      - "CVE-2024-40766"
+      - "CVE-2024-55591"
+      - "CVE-2025-24472"
+      - "CVE-2025-43529"
+      - "CVE-2025-66376"
+      - "CVE-2026-0257"
+      - "CVE-2026-1731"
+      - "CVE-2026-2441"
+      - "CVE-2026-3910"
+      - "CVE-2026-12569"
+      - "CVE-2026-15409"
+      - "CVE-2026-15410"
+      - "CVE-2026-20122"
+      - "CVE-2026-20127"
+      - "CVE-2026-20128"
+      - "CVE-2026-20131"
+      - "CVE-2026-20133"
+      - "CVE-2026-20182"
+      - "CVE-2026-20316"
+      - "CVE-2026-20700"
+      - "CVE-2026-21509"
+      - "CVE-2026-24858"
+      - "CVE-2026-32201"
+      - "CVE-2026-33634"
+      - "CVE-2026-33825"
+      - "CVE-2026-35273"
+      - "CVE-2026-41940"
+      - "CVE-2026-45321"
+      - "CVE-2026-45659"
+      - "CVE-2026-48027"
+      - "CVE-2026-48356"
+      - "CVE-2026-50522"
+      - "CVE-2026-50751"
+      - "CVE-2026-55040"
+      - "CVE-2026-56164"
+      - "CVE-2026-58644"
+      - "CVE-2026-59310"
+      - "CVE-2026-63077"
+      - "CVE-2026-85046"
+      - "CVE-2026-85880"
+      - "CVE-2026-87491"
+      - "CVE-2026-88771"
+      - "CVE-2026-88772"
+      - "CVE-2026-88779"
+      - "CVE-2026-96652"
+      - "CVE-2026-96654"
+      - "CVE-2026-97229"
+      - "CVE-2026-98432"
+      - "CVE-2026-102764"
+      - "CVE-2026-104935"
+      - "CVE-2026-109618"
+      - "CVE-2026-109619"
+      - "CVE-2026-110447"
+      - "CVE-2026-123158"
+      - "CVE-2026-125350"
+    actors:
+      - "G0007"
+      - "G0010"
+      - "G0016"
+      - "G0032"
+      - "G0034"
+      - "G0035"
+      - "G0069"
+      - "G0082"
+      - "G0094"
+      - "G0096"
+      - "G0128"
+      - "G0138"
+      - "G1017"
+      - "G1024"
+      - "G1032"
+      - "G1055"
+      - "G1056"
+      - "G1057"
+      - "G1058"
+    tags: ["supply chain", "Trivy", "edge devices", "Cisco SD-WAN", "PLC attacks", "AI agents", "FortiBleed", "refrigeration sabotage", "KEV"]
+    pdf: "Chronicle_2026_Case_Study.pdf"
+    pptx: "Chronicle_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-01-23", "label": "ESET ties DynoWiper, used against a Polish energy company on 29 Dec 2025, to Sandworm with medium confidence"}
+      - {"date": "2026-02-25", "label": "Talos: Cisco Catalyst SD-WAN CVE-2026-20127 exploited as a zero-day back to at least 2023; CISA issues ED 26-03"}
+      - {"date": "2026-03-11", "label": "Stryker identifies an incident causing a global disruption to its Microsoft environment (8-K)"}
+      - {"date": "2026-03-19", "label": "Compromised credentials publish a malicious Trivy and force-push trivy-action tags (CVE-2026-33634); LiteLLM and axios follow"}
+      - {"date": "2026-03", "label": "Iranian-affiliated actors disrupt internet-exposed PLCs across US critical infrastructure (AA26-097A, 7 Apr)"}
+      - {"date": "2026-04-23", "label": "AA26-113A: China-nexus covert networks built mainly from compromised SOHO routers, IoT and NAS devices"}
+      - {"date": "2026-06-10", "label": "CISA issues BOD 26-04, Prioritizing Security Updates Based on Risk, revoking BOD 22-01 and BOD 19-02"}
+      - {"date": "2026-07-09", "label": "An AI agent running an internal OpenAI evaluation intrudes into Hugging Face infrastructure, 9 to 13 Jul"}
+      - {"date": "2026-08-26", "label": "National emergency to secure the US bulk-power system; DOJ and FBI seize QTFY's QScan and QTRouter platforms"}
+      - {"date": "2026-10-11", "label": "Attacks on refrigeration controllers at 700+ French retail sites cause fires and food losses, 11 to 12 Oct; France attributes them on 9 Nov"}
+      - {"date": "2026-10-17", "label": "Mozilla told that the private keys of eight eMudhra intermediate certificates are compromised; blocked via OneCRL"}
+      - {"date": "2026-10-29", "label": "Binance loses about US$6.3 billion in an attack traced to a compromised engineer's laptop (Reported)"}
   case-studies/CL0P_FILE_TRANSFER_2023.md:
     kind: "campaign"
     title: "The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study"

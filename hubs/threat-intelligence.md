@@ -74,5 +74,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [The year 2018 in intrusions: a dated record](/case-studies/CHRONICLE_2018.md)
 - [The year 2024 in intrusions: a dated record](/case-studies/CHRONICLE_2024.md)
 - [The year 2023 in intrusions: a dated record](/case-studies/CHRONICLE_2023.md)
+- [The year 2026 in intrusions: a dated record](/case-studies/CHRONICLE_2026.md)
 
 <!-- hub:end -->

@@ -29,6 +29,7 @@ Certificate rotation involves replacing digital certificates and their private k
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [The eMudhra Certificate Authority Key Compromise: A 2026 Case Study](/case-studies/EMUDHRA_CA_COMPROMISE_2026.md)
+- [The FireEye Mandiant Intrusion of 2020: The Public Record](/case-studies/MANDIANT_INTRUSION_2020.md)
 
 <!-- library-refs:end -->
 

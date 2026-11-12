@@ -1,0 +1,413 @@
+{
+  "name": "TeamStarWolf - The FireEye Mandiant Intrusion of 2020",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Enterprise ATT&CK v20.0 techniques bound in the FireEye Mandiant intrusion of 2020 case study, not an official MITRE mapping. Sources: FireEye's 13 December 2020 SUNBURST technique list, CISA AA20-352A, the ATT&CK SolarWinds Compromise campaign (C0024), Mandiant's and Microsoft's December 2020 and January 2021 identity guidance, CISA AA21-008A and the 2024 SVR advisory AA24-057A. T1098.005 Device Registration for the second-phone alert that exposed the intrusion is the study's own mapping. Group G0016 APT29; campaign C0024. Tactics are taken from data/attack/technique_profiles.jsonl. Scores indicate membership only. Each comment names source numbers from the Sources table of case-studies/MANDIANT_INTRUSION_2020.md.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "metadata": [
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in its technique profile"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "41"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "52"
+    },
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/MANDIANT_INTRUSION_2020.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The FireEye Mandiant Intrusion of 2020: The Public Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/MANDIANT_INTRUSION_2020.md"
+    }
+  ],
+  "techniques": [
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "enabled": true,
+      "comment": "Compromise Software Supply Chain. FireEye's 10-K: access through trojanized Orion updates (26 Feb 2021); FireEye technique list (13 Dec 2020); C0024; AA20-352A. Sources: [25]; [15]; [32]; [20]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1195.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "enabled": true,
+      "comment": "Compromise Software Dependencies and Development Tools. AA20-352A technique list (17 Dec 2020). Sources: [20]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 100,
+      "enabled": true,
+      "comment": "Trusted Relationship. C0024 procedure (campaign Aug 2019 to Jan 2021). Sources: [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 100,
+      "enabled": true,
+      "comment": "External Remote Services. C0024 procedure. Sources: [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 100,
+      "enabled": true,
+      "comment": "External Remote Services. C0024 procedure. Sources: [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "stealth",
+      "score": 100,
+      "enabled": true,
+      "comment": "Cloud Accounts. Synced privileged accounts (Mandiant, 19 Jan 2021); C0024; AA24-057A (26 Feb 2024). Sources: [23]; [32]; [46]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "persistence",
+      "score": 100,
+      "enabled": true,
+      "comment": "Cloud Accounts. Synced privileged accounts (Mandiant, 19 Jan 2021); C0024; AA24-057A (26 Feb 2024). Sources: [23]; [32]; [46]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "enabled": true,
+      "comment": "Cloud Accounts. Synced privileged accounts (Mandiant, 19 Jan 2021); C0024; AA24-057A (26 Feb 2024). Sources: [23]; [32]; [46]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 100,
+      "enabled": true,
+      "comment": "Cloud Accounts. Synced privileged accounts (Mandiant, 19 Jan 2021); C0024; AA24-057A (26 Feb 2024). Sources: [23]; [32]; [46]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1098.005",
+      "tactic": "persistence",
+      "score": 100,
+      "enabled": true,
+      "comment": "Device Registration. FireEye's late-November 2020 second-phone alert (this study's mapping, Inferred); C0024 mailbox-sync registration; AA24-057A (2024). Sources: [11]; [34]; [32]; [46]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1098.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "enabled": true,
+      "comment": "Device Registration. FireEye's late-November 2020 second-phone alert (this study's mapping, Inferred); C0024 mailbox-sync registration; AA24-057A (2024). Sources: [11]; [34]; [32]; [46]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "persistence",
+      "score": 100,
+      "enabled": true,
+      "comment": "Additional Cloud Credentials. Credentials added to OAuth apps and service principals (MSRC, Dec 2020; Mandiant, Jan 2021; AA21-008A); C0024. Sources: [36]; [23]; [37]; [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "enabled": true,
+      "comment": "Additional Cloud Credentials. Credentials added to OAuth apps and service principals (MSRC, Dec 2020; Mandiant, Jan 2021; AA21-008A); C0024. Sources: [36]; [23]; [37]; [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1098.002",
+      "tactic": "persistence",
+      "score": 100,
+      "enabled": true,
+      "comment": "Additional Email Delegate Permissions. Mailbox folder permission changes (Mandiant, 19 Jan 2021); C0024. Sources: [23]; [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1098.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "enabled": true,
+      "comment": "Additional Email Delegate Permissions. Mailbox folder permission changes (Mandiant, 19 Jan 2021); C0024. Sources: [23]; [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 100,
+      "enabled": true,
+      "comment": "Windows Service. FireEye technique list (13 Dec 2020). Sources: [15]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "enabled": true,
+      "comment": "Windows Service. FireEye technique list (13 Dec 2020). Sources: [15]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 100,
+      "enabled": true,
+      "comment": "Scheduled Task. Temporary scheduled-task modification (FireEye, 13 Dec 2020); C0024. Sources: [15]; [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 100,
+      "enabled": true,
+      "comment": "Scheduled Task. Temporary scheduled-task modification (FireEye, 13 Dec 2020); C0024. Sources: [15]; [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "enabled": true,
+      "comment": "Scheduled Task. Temporary scheduled-task modification (FireEye, 13 Dec 2020); C0024. Sources: [15]; [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 100,
+      "enabled": true,
+      "comment": "Service Execution. FireEye technique list (13 Dec 2020). Sources: [15]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "enabled": true,
+      "comment": "Code Signing. Trojanized DLL signed 24 Mar 2020 (FireEye, 13 Dec 2020); C0024. Sources: [15]; [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1484.002",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "enabled": true,
+      "comment": "Trust Modification. Trusted-domain changes adding an attacker identity provider (Mandiant, 19 Jan 2021; AA21-008A); C0024. Sources: [23]; [37]; [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1484.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "enabled": true,
+      "comment": "Trust Modification. Trusted-domain changes adding an attacker identity provider (Mandiant, 19 Jan 2021; AA21-008A); C0024. Sources: [23]; [37]; [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 100,
+      "enabled": true,
+      "comment": "Obfuscated Files or Information. FireEye technique list (13 Dec 2020). Sources: [15]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1027.003",
+      "tactic": "stealth",
+      "score": 100,
+      "enabled": true,
+      "comment": "Steganography. AA20-352A, citing FireEye's report and noting CISA had not independently confirmed it (17 Dec 2020). Sources: [20]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 100,
+      "enabled": true,
+      "comment": "Match Legitimate Resource Name or Location. C0024 procedure. Sources: [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 100,
+      "enabled": true,
+      "comment": "File Deletion. FireEye technique list (13 Dec 2020); C0024. Sources: [15]; [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1003.006",
+      "tactic": "credential-access",
+      "score": 100,
+      "enabled": true,
+      "comment": "DCSync. C0024 procedure. Sources: [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1552.004",
+      "tactic": "credential-access",
+      "score": 100,
+      "enabled": true,
+      "comment": "Private Keys. AD FS token-signing certificate theft (Mandiant, 19 Jan 2021); C0024. Sources: [23]; [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1606.002",
+      "tactic": "credential-access",
+      "score": 100,
+      "enabled": true,
+      "comment": "SAML Tokens. Forged SAML tokens (MSRC, Dec 2020; AA21-008A, 8 Jan 2021; Mandiant, 19 Jan 2021); C0024; not seen inside FireEye in the opened record. Sources: [36]; [37]; [23]; [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1606.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "enabled": true,
+      "comment": "Web Cookies. C0024 procedure. Sources: [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1539",
+      "tactic": "credential-access",
+      "score": 100,
+      "enabled": true,
+      "comment": "Steal Web Session Cookie. Chrome cookie theft to bypass MFA (CrowdStrike, 27 Jan 2022); C0024. Sources: [39]; [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 100,
+      "enabled": true,
+      "comment": "Brute Force. Password guessing and spraying (AA20-352A; AA21-116A); AA24-057A id (2024). Sources: [20]; [30]; [46]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1528",
+      "tactic": "credential-access",
+      "score": 100,
+      "enabled": true,
+      "comment": "Steal Application Access Token. AA24-057A token theft (26 Feb 2024); not on C0024. Sources: [46]; [68]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1621",
+      "tactic": "credential-access",
+      "score": 100,
+      "enabled": true,
+      "comment": "Multi-Factor Authentication Request Generation. On G0016; MFA bombing in AA24-057A (26 Feb 2024). Sources: [33]; [46]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1012",
+      "tactic": "discovery",
+      "score": 100,
+      "enabled": true,
+      "comment": "Query Registry. FireEye technique list (13 Dec 2020). Sources: [15]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 100,
+      "enabled": true,
+      "comment": "Process Discovery. FireEye technique list (13 Dec 2020). Sources: [15]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "enabled": true,
+      "comment": "File and Directory Discovery. FireEye technique list (13 Dec 2020). Sources: [15]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1518",
+      "tactic": "discovery",
+      "score": 100,
+      "enabled": true,
+      "comment": "Software Discovery. FireEye technique list (13 Dec 2020). Sources: [15]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1518.001",
+      "tactic": "discovery",
+      "score": 100,
+      "enabled": true,
+      "comment": "Security Software Discovery. FireEye technique list (13 Dec 2020). Sources: [15]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "enabled": true,
+      "comment": "Remote Desktop Protocol. C0024; attacker hostnames leaked in RDP certificates (FireEye, 13 Dec 2020). Sources: [32]; [15]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1550.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "enabled": true,
+      "comment": "Application Access Token. C0024 procedure. Sources: [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1550.004",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "enabled": true,
+      "comment": "Web Session Cookie. C0024 procedure. Sources: [32]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 100,
+      "enabled": true,
+      "comment": "Remote Email Collection. C0024; Mandia: the attackers moved into Office 365 to target email (23 Feb 2021). Sources: [32]; [12]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "enabled": true,
+      "comment": "Web Protocols. FireEye technique list (13 Dec 2020). Sources: [15]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1071.004",
+      "tactic": "command-and-control",
+      "score": 100,
+      "enabled": true,
+      "comment": "DNS. FireEye technique list (13 Dec 2020). Sources: [15]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1132.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "enabled": true,
+      "comment": "Standard Encoding. FireEye technique list (13 Dec 2020). Sources: [15]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1568.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "enabled": true,
+      "comment": "Domain Generation Algorithms. DGA-based C2 (FireEye, 13 Dec 2020). Sources: [15]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "enabled": true,
+      "comment": "Ingress Tool Transfer. FireEye technique list (13 Dec 2020). Sources: [15]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1090.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "enabled": true,
+      "comment": "External Proxy. Residential proxies (AA24-057A, 26 Feb 2024). Sources: [46]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    },
+    {
+      "techniqueID": "T1584",
+      "tactic": "resource-development",
+      "score": 100,
+      "enabled": true,
+      "comment": "Compromise Infrastructure. FireEye technique list (13 Dec 2020). Sources: [15]. Source numbers refer to the Sources table of case-studies/MANDIANT_INTRUSION_2020.md."
+    }
+  ]
+}

@@ -288,6 +288,18 @@
     "blurb": "Techniques from the eMudhra record, from the weak intermediate keys anyone could recover and the certificates researchers forged with them to the interception and code-signing capability no one was seen using. A curated layer for the eMudhra case study."
   },
   {
+    "file": "mandiant-intrusion-2020.json",
+    "name": "TeamStarWolf - The FireEye Mandiant Intrusion of 2020",
+    "description": "Enterprise ATT&CK v20.0 techniques bound in the FireEye Mandiant intrusion of 2020 case study, not an official MITRE mapping. Sources: FireEye's 13 December 2020 SUNBURST technique list, CISA AA20-352A, the ATT&CK SolarWinds Compromise campaign (C0024), Mandiant's and Microsoft's December 2020 and January 2021 identity guidance, CISA AA21-008A and the 2024 SVR advisory AA24-057A. T1098.005 Device Registration for the second-phone alert that exposed the intrusion is the study's own mapping. Group G0016 APT29; campaign C0024. Tactics are taken from data/attack/technique_profiles.jsonl. Scores indicate membership only. Each comment names source numbers from the Sources table of case-studies/MANDIANT_INTRUSION_2020.md.",
+    "blurb": "Techniques from the FireEye intrusion and the campaign that delivered it, from the trojanized Orion update and the second-phone MFA alert to forged SAML tokens, added cloud credentials and the 2024 SVR identity tradecraft. A curated layer for the FireEye Mandiant intrusion case study."
+  },
+  {
+    "file": "chronicle-2016.json",
+    "name": "TeamStarWolf - The Year 2016 in Intrusions",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2016 record supports: the DHS and FBI GRIZZLY STEPPE report JAR-16-20296A, the July 2018 GRU indictment, WADA, Unit 42 on Shamoon 2, BAE on Bangladesh Bank, US-CERT TA16-091A, TA16-132A and TA16-288A, CISA AA18-337A on SamSam, the FTC on Uber, Yahoo's filing, vendor bulletins, and the ATT&CK objects G0007 APT28, G0082 APT38, S0140 Shamoon, S0370 SamSam, S0604 Industroyer and campaign C0025. Each comment names source numbers from case-studies/CHRONICLE_2016.md. Scores: 100 the source or ATT&CK object prints the id, 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+    "blurb": "Techniques from the dated 2016 record: APT28's credential phishing and the DNC intrusions, Shamoon 2's wiper, the Bangladesh Bank SWIFT theft, SamSam and Locky ransomware, Mirai's default-credential logins and floods, the Uber cloud key, and the operator tradecraft of the December 2016 Kyiv grid attack. A curated layer for the 2016 chronicle."
+  },
+  {
     "file": "nsa-cia-tool-leaks.json",
     "name": "TeamStarWolf - NSA and CIA Tool Leaks 2016 to 2017",
     "description": "Techniques around the 2016 to 2017 NSA and CIA tool leaks: the Equation group as ATT&CK records it, the WannaCry and NotPetya malware that reused the leaked SMBv1 exploits, the NotPetya supply-chain vector, and this study's inferred mapping of the Vault 7 insider theft and the Hive tool; not an official MITRE mapping. Sources: ATT&CK G0020, S0366, S0368, S0606 and T1210 as published in ATT&CK v20, CISA TA17-132A and TA17-181A, Microsoft's 2017 analyses, the SDNY court record, the CIA WikiLeaks Task Force report and WikiLeaks' Vault 8 page. Tactics are taken from data/attack/technique_profiles.jsonl. Scores: 100 an ATT&CK object maps the technique, 70 an advisory describes the behavior and the study assigns the id, 40 the mapping is Inferred. Each comment names source numbers from the Sources table of case-studies/NSA_CIA_TOOL_LEAKS.md.",

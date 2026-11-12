@@ -971,6 +971,32 @@ studies:
       - {"date": "2011-06-07", "label": "FBI approaches Monsegur, who agrees to cooperate that night (about this date)"}
       - {"date": "2013-11-15", "label": "Jeremy Hammond sentenced to 10 years for computer hacking conspiracy"}
       - {"date": "2014-05-27", "label": "Monsegur sentenced to time served"}
+  case-studies/DOTCOM_ERA_CYBER_EVENTS.md:
+    kind: "era"
+    title: "The Dot-Com Era: Cyber Events, 1994 to 2003"
+    start: "1978"
+    end: "2005-01"
+    core_start: "1994"
+    core_end: "2003"
+    sectors: ["cross-sector", "finance", "government", "defense", "retail", "technology", "education"]
+    cves: ["CVE-2000-0884", "CVE-2001-0154", "CVE-2001-0500", "CVE-2002-0649", "CVE-2003-0352"]
+    actors: []
+    tags: ["dot-com era", "Melissa", "ILOVEYOU", "Code Red", "Nimda", "Slammer", "Blaster", "CIH", "Back Orifice", "Moonlight Maze", "Solar Sunrise", "Mafiaboy"]
+    pdf: "Dotcom_Era_Cyber_Events_Case_Study.pdf"
+    pptx: "Dotcom_Era_Cyber_Events_Case_Study.pptx"
+    events:
+      - {"date": "1994", "label": "Vladimir Levin and confederates begin transferring about $10 million from Citibank subsidiaries (Reported)"}
+      - {"date": "1996", "label": "Moonlight Maze intrusions begin against mainly US military, research and university networks"}
+      - {"date": "1998-02-01", "label": "Solar Sunrise, 1 to 26 Feb 1998: attacks on unclassified DoD networks, at least eleven (Reported)"}
+      - {"date": "1998-05-19", "label": "Seven L0pht members and Peter G. Neumann testify to the Senate Committee on Governmental Affairs"}
+      - {"date": "1999-03-26", "label": "Melissa reports begin; CERT/CC advisory CA-1999-04 follows on 27 March"}
+      - {"date": "1999-09", "label": "CVE List launches publicly with 321 records and a 19-member Editorial Board"}
+      - {"date": "2000-02-07", "label": "Yahoo unreachable for about three hours after a DDoS; Amazon, eBay, Buy.com and CNN hit on 8 Feb (Reported)"}
+      - {"date": "2000-05-04", "label": "CERT/CC CA-2000-04 on the Love Letter worm; over 500,000 affected systems reported by 8 May"}
+      - {"date": "2001-07-19", "label": "Code Red v2 begins about 10:00 UTC and infects 359,104 hosts in under fourteen hours (CAIDA)"}
+      - {"date": "2001-11-23", "label": "Council of Europe Convention on Cybercrime done at Budapest"}
+      - {"date": "2003-01-25", "label": "Slammer begins slightly before 05:30 UTC; over 90 percent of vulnerable hosts within ten minutes"}
+      - {"date": "2003-08-11", "label": "CERT/CC CA-2003-20 on W32/Blaster, 26 days after Microsoft's MS03-026"}
   case-studies/EMUDHRA_CA_COMPROMISE_2026.md:
     kind: "incident"
     title: "The eMudhra Certificate Authority Key Compromise: A 2026 Case Study"

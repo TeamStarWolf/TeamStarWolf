@@ -46,7 +46,7 @@ Notes: eMudhra's Full Incident Report, comment 82 of [1]. Earlier accounts diffe
 | emSign Root CA - G1 (RSA) | Chrome and Mozilla cut off certificates first logged after 16 Nov 2026 |
 | Remaining 10 eMudhra roots | Microsoft removes them from 16 Nov 2026 |
 Caption: Removing G3 alone does not stop the six cross-signed TLS certificates; Apple blocks twelve intermediate certificates.
-Notes: Roots [7][3][28][24]. Cross-certificates [1] comment 6, [28]. G1 cutoff [3][8]. Microsoft's counts [24]. Which root signed what differs by source; see the study's discrepancies list.
+Notes: Roots [7][3][28][24]. Cross-certificates [1] comments 6 and 13, [28]. G1 cutoff [3][8]. Microsoft's counts [24]. Which root signed what differs by source; see the study's discrepancies list.
 
 ## PART 3 | The browsers moved in hours
 

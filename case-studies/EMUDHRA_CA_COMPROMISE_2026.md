@@ -71,7 +71,7 @@ Evidence grade: the weakness, the affected certificates, the response by each ro
 | Why | Each private key was an integer below 256 instead of a random value near the size of the curve's group order [1] |
 | Root cause (eMudhra) | A host-side key-handling script used in a wrap/unwrap round trip after the 30 April 2025 ceremony re-created weak key objects; no key-strength check; near-identical object labels [1] (comment 82) |
 | Affected CAs | Six TLS CAs (EM DV, OV and EV TLS CA - G3B and G3C) and two code-signing CAs (EM OV CS CA - G3B and G3C) [1] |
-| Certificates carrying the keys | Sixteen: one eMudhra-issued and one Sectigo cross-certificate per key [1] (comment 6) |
+| Certificates carrying the keys | Sixteen: one eMudhra-issued and one Sectigo cross-certificate per key [1] (comments 2, 13 and 82) |
 | End-entity certificates from the eight | None, per eMudhra; one TLS CA had been live [1] (comments 2, 10) |
 | Reported to the root programs | 17 October 2026, 18:05 UTC, by a researcher signing as "Wayne", with signed proof of key control [1] [4] |
 | First block | Chrome CRLSet, 17 October 2026, 19:45 UTC [3] |
@@ -146,7 +146,7 @@ Mozilla could not recover the P-384 keys of eMudhra's A series intermediates or 
 
 The six G3B and G3C TLS intermediates had invalid CRL signatures in 2025. Mozilla Bug 1970728, opened on 5 June 2025, records the anomaly from 29 May to 6 June 2025 (**Confirmed** [9]). eMudhra now says this was an early sign of the key-handling defect (**Confirmed** [1] comment 82), and commenters on the 2026 bug argue the weak keys could have been caught then (**Reported** [1]). The certificates carry the weak public keys, so a CRL signed with the original strong key does not verify against them, which is consistent with what eMudhra later described (Inferred from [1] comments 11 and 82).
 
-A second CRL oddity surfaced during the incident: a CRL for emSign Root TLS CA - G1, CRL number 11 dated 14 October 2026, carried a signature that did not verify under that root, and a community member later matched it to an OCSP responder certificate's key (**Confirmed** as findings recorded in the bug [1] comment 7). A third bug records that eMudhra's CRLs were blocked for certain User-Agent headers (**Confirmed** [11]).
+A second CRL oddity surfaced during the incident: a CRL for emSign Root TLS CA - G1, CRL number 11 dated 14 October 2026, carried a signature that did not verify under that root, and a community member later matched it to an OCSP responder certificate's key (**Reported**, a commenter's finding on the bug [1] comment 7). A third bug records that eMudhra's CRLs were blocked for certain User-Agent headers (**Confirmed** [11]).
 
 ### What the keys allowed
 
@@ -178,11 +178,11 @@ Two things limited that power. The eight intermediates had no Certificate Transp
 | EM OV CS CA - G3B | eMudhra BV | Code signing | emSign Root CS CA - G3 | Microsoft |
 | EM OV CS CA - G3C | eMudhra Inc | Code signing | emSign Root CS CA - G3 | Microsoft |
 
-Source: Mozilla's opening comment and eMudhra's report (**Confirmed** [1] comments 0 and 82). Talos lists the same eight with CCADB records A012294 to A012308 (**Confirmed** [32]). eMudhra says the G3B and G3C intermediates were created for its European and US operations, that only one was put into production, that it issued no end-entity certificates, and that the code-signing issuers issued none (**Confirmed** as eMudhra's statement [1] comments 2 and 10). eMudhra disabled the live CA, EM DV TLS CA - G3C, on 17 October (**Confirmed** [1] comment 2).
+Source: Mozilla's opening comment and eMudhra's report (**Confirmed** [1] comments 0 and 82). Talos lists the same eight with CCADB records A012294 to A012308 (**Confirmed** [32]). eMudhra says the G3B and G3C intermediates were created for its European and US operations, that only one was put into production, that it issued no end-entity certificates, and that the code-signing issuers issued none (**Confirmed** as eMudhra's statement [1] comments 2 and 10). eMudhra disabled the live CA, EM DV TLS CA - G3C, on 17 October (**Reported**, the reporter relaying eMudhra's email [1] comment 2).
 
 ### The Sectigo cross-certificates
 
-Sectigo cross-certified the ECDSA set under its AAA Certificate Services root, and revoked eight cross-certificates on 19 October 2026 (**Confirmed** [1] comment 6). Cisco's advisory says the cross-signing took place in May 2025 (**Reported** as Cisco describing third parties [31]). Sectigo says AAA Certificate Services had already been removed from the Chrome and Mozilla stores but remains in the Microsoft and Apple programs (**Confirmed** [1] comment 6). That is why Apple warns that removing emSign ECC Root CA - G3 alone does not stop the six cross-signed TLS certificates verifying through AAA Certificate Services, and why Apple blocks twelve TLS intermediate certificates, two per CA (**Confirmed** [28]).
+Sectigo cross-certified the ECDSA set under its AAA Certificate Services root, and revoked eight cross-certificates on 19 October 2026 (**Confirmed** [1] comments 6 and 13; the AAA Certificate Services root is named in [18] and [28]). Cisco's advisory says the cross-signing took place in May 2025 (**Reported** as Cisco describing third parties [31]). Sectigo says AAA Certificate Services had already been removed from the Chrome and Mozilla stores but remains in the Microsoft and Apple programs (**Confirmed** [1] comment 6). That is why Apple warns that removing emSign ECC Root CA - G3 alone does not stop the six cross-signed TLS certificates verifying through AAA Certificate Services, and why Apple blocks twelve TLS intermediate certificates, two per CA (**Confirmed** [28]).
 
 ### The RSA set from the same ceremony
 
@@ -202,7 +202,7 @@ Microsoft's two counts, seven certificates in October and ten remaining roots in
 
 ### Who held certificates under G3
 
-eMudhra estimated about 30,000 certificates to migrate when it stopped issuance under G3, about 97 percent of them issued through ACME (**Confirmed** [1] comment 18). Its incident page puts about 30,800 certificates under the affected G3 hierarchies in one US client ecosystem, now moved to the G1 RSA pathway, with G1 TLS issuance to stop once that federation's transition completes (**Confirmed** as eMudhra's statement [14]). Commenters on the Mozilla bug identify the ecosystem as InCommon, run by Internet2 for US universities and research institutions on eMudhra's CertiNext platform, with the issuer InCommon Intermediate CA - DVG3C; eMudhra does not name it (**Reported** [1] comment 69). These certificates sat under other intermediates of the G3 hierarchy, not under the eight, which issued none (Inferred from [1] [14]).
+eMudhra estimated about 30,000 certificates to migrate when it stopped issuance under G3, about 97 percent of them issued through ACME (**Confirmed** [1] comment 19). Its incident page puts about 30,800 certificates under the affected G3 hierarchies in one US client ecosystem, now moved to the G1 RSA pathway, with G1 TLS issuance to stop once that federation's transition completes (**Confirmed** as eMudhra's statement [14]). Commenters on the Mozilla bug identify the ecosystem as InCommon, run by Internet2 for US universities and research institutions on eMudhra's CertiNext platform, with the issuer InCommon Intermediate CA - DVG3C; eMudhra does not name it (**Reported** [1] comment 69). These certificates sat under other intermediates of the G3 hierarchy, not under the eight, which issued none (Inferred from [1] [14]).
 
 ## Part 3: the timeline
 
@@ -214,23 +214,23 @@ eMudhra estimated about 30,000 certificates to migrate when it stopped issuance 
 | 30 May 2025 | A series intermediates revoked | [10] | Confirmed |
 | 2026, before the incident | eMudhra's transition plan for dual-purpose roots proposes a 15 June 2026 distrust-after date for its C1 and C3 roots; Mozilla notes a requested date does not itself change trust status (Bug 2018979) | [12] | Confirmed |
 | 2 Oct 2026 | Mozilla posts its intent to approve inclusion of four new eMudhra roots, last call 9 October; a participant replies he is not impressed by eMudhra's recent incident performance | [13] | Confirmed |
-| 14 Oct 2026 | A CRL for emSign Root TLS CA - G1 (number 11) carries a signature that does not verify under that root | [1] c7 | Confirmed |
+| 14 Oct 2026 | A CRL for emSign Root TLS CA - G1 (number 11) carries a signature that does not verify under that root | [1] c7 | Reported (a commenter's finding) |
 | 17 Oct, 16:27 | The reporter's run over a CCADB corpus finds the EC key break | [1] c2 | Confirmed |
 | 17 Oct, 18:05 | Report with signed attestations emailed to Apple, Chrome, Microsoft, Mozilla and eMudhra; the Chrome Root Program receives it | [1] c2; [3] | Confirmed |
 | 17 Oct, 19:45 | Chrome lands a CRLSet update blocking the intermediates' SPKI hashes, no browser update or restart needed | [3] | Confirmed |
 | 17 Oct, 20:06 | Mozilla receives the report, forwarded by Chrome, with proof of key control | [2]; [1] | Confirmed |
 | 17 Oct, 21:48 | Mozilla independently recovers the private keys | [1] c0 | Confirmed |
 | 17 Oct, 22:59 | OneCRL distribution complete for standard Firefox configurations | [2] | Confirmed |
-| 17 Oct | eMudhra disables EM DV TLS CA - G3C, the one live intermediate | [1] c2 | Confirmed |
+| 17 Oct | eMudhra disables EM DV TLS CA - G3C, the one live intermediate | [1] c2 | Reported (the reporter relaying eMudhra) |
 | 18 Oct, 09:24 to 09:38 | eMudhra revokes all eight intermediates, reason cACompromise; its chairman later says within 14 hours of discovery | [1] c10; [14] | Confirmed |
 | 18 Oct, 12:06 | Mozilla opens Bug 2083449 in CA Certificate Compliance, tagged ca-misissuance | [1] | Confirmed |
-| 19 Oct | Sectigo revokes the eight cross-certificates; downstream trust stores told | [1] c6; [18]; [4] | Confirmed |
+| 19 Oct | Sectigo revokes the eight cross-certificates; downstream trust stores told | [1] c6, c13; [18]; [4] | Confirmed |
 | 19 Oct | Go 1.27.3 and 1.26.10 released with the `crypto/x509` fix | [21] | Confirmed |
 | 19 Oct, about 17:00 | Cloudflare becomes aware and starts patching high-impact systems | [29] | Confirmed |
 | 19 Oct, about 22:00 | Android and Googlebooks receive the equivalent block through Google Play Services (the post names the weekday, Monday) | [3] | Confirmed |
 | 20 Oct, 02:00 and 09:15 | Cloudflare One Client and WARP updates, then the cloudflared Tunnel update | [29] | Confirmed |
 | 20 Oct, 12:15 | Public post shows independent key recovery with a forged certificate for a google.com subdomain | [37] | Demonstrated |
-| 20 Oct | Mozilla notes multiple people recovered the keys, some publicly, and orders emergency removal of emSign ECC Root CA - G3; Bug 2084101 filed; eMudhra stops issuing under G3 | [1] c18; [7] | Confirmed |
+| 20 Oct | Mozilla notes multiple people recovered the keys, some publicly, and orders emergency removal of emSign ECC Root CA - G3; Bug 2084101 filed; eMudhra stops issuing under G3 | [1] c18, c19; [7] | Confirmed |
 | 20 Oct | Firefox 158.0.1, ESR 115.43.1, ESR 153.5.1 and NSS 3.131.1 released | [2] | Confirmed |
 | 20 Oct | Mozilla publishes CVE-2026-113470 for the bundled OneCRL update; CPANSec publishes CVE-2026-113812 for Perl Mozilla::CA before 20261020 | [74] [73] | Confirmed |
 | 20 Oct | Microsoft updates the Windows Disallowed Certificate Trust List for the eight CAs; separate CRLSet for Edge and WebView2 | [24] | Confirmed |

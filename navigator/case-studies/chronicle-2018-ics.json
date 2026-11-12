@@ -1,0 +1,109 @@
+{
+  "name": "TeamStarWolf - The Year 2018 in Intrusions (ICS)",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "ics-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK for ICS techniques that the verified 2018 record supports: VPNFilter's Modbus-monitoring plugin as ATT&CK lists it on S1010 (Talos, 23 May 2018), the watering holes on ICS-related sites in TA18-074A, and Dragos's reporting of ICS vendor compromises linked to XENOTIME. Each comment names source numbers from case-studies/CHRONICLE_2018.md. Scores: 100 the source or the ATT&CK object prints the id, 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T0817",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Watering holes on ICS-related sites (TA18-074A, 15 Mar 2018); the library maps T0817 to G0035 at group level (basis: Described). Sources [11][119] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T0862",
+      "tactic": "initial-access",
+      "score": 50,
+      "comment": "Dragos reports compromises of ICS vendors and manufacturers in 2018 linked to XENOTIME; the library maps T0862 to G0088 at group level (basis: Reported). Sources [72][119] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T0842",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "S1010 VPNFilter; Talos's Modbus-monitoring sniffer plugin (basis: Listed). Sources [108][22] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T0830",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "S1010 VPNFilter (Talos, 23 May 2018) (basis: Listed). Sources [108][22] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: the source or ATT&CK object prints the ATT&CK id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2018.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "4"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "4"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/ics/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/ics/technique_profiles.jsonl"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2018 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2018.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

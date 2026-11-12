@@ -403,6 +403,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 21 November 2025: Shai-Hulud 2.0 trojanized uploads, 21 to 23 November
   - 30 March 2026: axios: social engineering and a RAT on the lead maintainer's PC expose the npm credentials
   - 4 August 2026: keyv maintainer's GitHub account compromised; the CHAINDROP worm follows
+- [The Year 2018 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2018.md). Period record, January to December 2018. Sectors: cross-sector, government, energy, finance, technology, education, healthcare, transport, retail. CVEs: CVE-2017-5715, CVE-2017-5753, CVE-2017-5754, CVE-2018-0101, CVE-2018-0171, CVE-2018-0296 and 26 more. ATT&CK groups: G0007 APT28, G0008 Carbanak, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly, G0045 menuPass and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2018_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2018_Case_Study.pptx).
+  - 3 January 2018: Google Project Zero publishes the speculative-execution flaws CVE-2017-5753, CVE-2017-5715 and CVE-2017-5754 (Spectre and Meltdown)
+  - 9 February 2018: Olympic Destroyer disrupts PyeongChang Winter Olympics systems during the opening ceremony; recovery within about 12 hours
+  - 15 February 2018: The UK and the White House attribute the June 2017 NotPetya attack to the Russian military
+  - 28 February 2018: GitHub is offline for five minutes under a memcached-reflected DDoS peaking at 1.35 Tbps
+  - 16 April 2018: US-UK alert TA18-106A on Russian state-sponsored exploitation of routers and switches; NIST releases CSF 1.1
+  - 23 May 2018: Talos publishes VPNFilter on at least 500,000 devices; DOJ obtains orders for the FBI to seize a C2 domain
+  - 13 July 2018: Special Counsel indictment of 12 GRU officers for 2016 election interference (allegations)
+  - 6 September 2018: DOJ unseals the Park Jin Hyok complaint (Sony, Bangladesh Bank, WannaCry 2.0); OFAC designates Park and his employer
+  - 28 September 2018: Facebook discloses the View As breach and resets access tokens for almost 50 million accounts
+  - 28 November 2018: DOJ unseals the SamSam indictment; OFAC designates two Iran-based exchangers and publishes bitcoin addresses for the first time
+  - 30 November 2018: Marriott discloses access to the Starwood network since 2014: up to about 500 million guests
+  - 20 December 2018: DOJ unseals the APT10 indictment and the UK and allies attribute APT 10 to China's MSS
 
 ### 2017 <!-- {docsify-ignore} -->
 

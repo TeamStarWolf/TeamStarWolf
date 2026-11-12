@@ -2357,6 +2357,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 11: the defender view](#part-11-the-defender-view)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md), [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md)"
     reviewed: null
+  case-studies/CHRONICLE_2018.md:
+    audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
+    level: "Intermediate"
+    read_when: "You want a dated record of the major intrusions of 2018, you need Olympic Destroyer, VPNFilter, the year's indictments and the Marriott and Facebook disclosures side by side, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 13: the defender view](#part-13-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md), [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md)"
+    reviewed: null
   case-studies/CHRONICLE_2019.md:
     audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
     level: "Intermediate"

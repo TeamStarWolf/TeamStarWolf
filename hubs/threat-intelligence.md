@@ -69,5 +69,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [The ransomware ecosystem, 2019 to 2026: a case study](/case-studies/RANSOMWARE_ECOSYSTEM.md)
 - [The FireEye Mandiant intrusion of 2020: a case study](/case-studies/MANDIANT_INTRUSION_2020.md)
 - [The year 2017 in intrusions: a dated record](/case-studies/CHRONICLE_2017.md)
+- [The year 2018 in intrusions: a dated record](/case-studies/CHRONICLE_2018.md)
 
 <!-- hub:end -->

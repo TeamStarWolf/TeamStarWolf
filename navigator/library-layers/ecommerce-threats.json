@@ -1,0 +1,266 @@
+{
+  "name": "TeamStarWolf - E-Commerce Threats: The Public Record, 1999 to 2026",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified e-commerce threat record of 1999 to 2026 supports: the DOJ Gonzalez ring charges, US-CERT TA14-212A on Backoff, the Home Depot and Target records, the ICO penalty notices on British Airways and Ticketmaster UK, ATT&CK's FIN6 procedures, the KEV and NVD records for Adobe Commerce and Magento, and Reported vendor research on the Magento waves, polyfill.io and Convertr. Each comment names source numbers from case-studies/ECOMMERCE_THREATS.md. Scores: 100 a Confirmed primary or ATT&CK's own FIN6 procedures describe the behavior; 60 the behavior is known only from Reported vendor research; 40 the id choice itself stretches the record. Except where the ATT&CK page carries the procedure, the mappings are this study's reading.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: the id choice stretches the record (Inferred)",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "60: Reported vendor research only",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: a Confirmed primary or ATT&CK's FIN6 procedures",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/ECOMMERCE_THREATS.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "23"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "31"
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "E-Commerce Threats: The Public Record, 1999 to 2026",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/ECOMMERCE_THREATS.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Valid Accounts: BA, a Swissport employee's credentials on the Citrix gateway (22 Jun 2018) [12]; Home Depot, a third-party vendor's user name and password (release of 6 Nov 2014) [8]; Target, HVAC contractor credentials (Reported, Nov 2013) [7]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Valid Accounts: BA, a Swissport employee's credentials on the Citrix gateway (22 Jun 2018) [12]; Home Depot, a third-party vendor's user name and password (release of 6 Nov 2014) [8]; Target, HVAC contractor credentials (Reported, Nov 2013) [7]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Valid Accounts: BA, a Swissport employee's credentials on the Citrix gateway (22 Jun 2018) [12]; Home Depot, a third-party vendor's user name and password (release of 6 Nov 2014) [8]; Target, HVAC contractor credentials (Reported, Nov 2013) [7]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Valid Accounts: BA, a Swissport employee's credentials on the Citrix gateway (22 Jun 2018) [12]; Home Depot, a third-party vendor's user name and password (release of 6 Nov 2014) [8]; Target, HVAC contractor credentials (Reported, Nov 2013) [7]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Trusted Relationship: the supplier paths into BA [12], Home Depot [8] and, by press accounts, Target [7]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "External Remote Services: BA's Citrix Access Gateway without multi-factor authentication (Jun 2018) [12]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "External Remote Services: BA's Citrix Access Gateway without multi-factor authentication (Jun 2018) [12]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Brute Force: Backoff operators brute-force remote desktop logins (US-CERT TA14-212A, 31 Jul 2014) [9]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Remote Desktop Protocol: Backoff access through remote desktop (TA14-212A) [9]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Process Injection: Backoff injects into explorer.exe (TA14-212A) [9]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Process Injection: Backoff injects into explorer.exe (TA14-212A) [9]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Keylogging: Backoff keylogging (TA14-212A) [9]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Keylogging: Backoff keylogging (TA14-212A) [9]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Web Protocols: Backoff's HTTP POST command and control (TA14-212A) [9]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Network Sniffing: the Gonzalez ring's sniffer programs on card-processing networks and the Dave & Buster's packet sniffer (DOJ, 5 Aug 2008) [4]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Network Sniffing: the Gonzalez ring's sniffer programs on card-processing networks and the Dave & Buster's packet sniffer (DOJ, 5 Aug 2008) [4]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1669",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Wi-Fi Networks: the Gonzalez ring's wardriving into retailers' wireless networks (DOJ, 5 Aug 2008) [4]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Data from Local System: FIN6's payment card data procedure, citing the BA and Newegg incidents [106]; BA's plaintext card logs reached on 26 Jul 2018 [12]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1119",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Automated Collection: FIN6 script bound to the submit-payment button [106]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1059.007",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "JavaScript: FIN6 malicious JavaScript stealing card data from e-commerce sites [106]; BA's edited script (live 21 Aug to 5 Sep 2018) [12]; the Inbenta script on Ticketmaster UK's payment page (Feb to Jun 2018) [13]; CosmicSting skimmers in CMS blocks (2024, Reported) [26]; Convertr's tracker (Oct 2026, Reported) [21]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1048.003",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Exfiltration Over Unencrypted Non-C2 Protocol: FIN6 sends stolen card data by HTTP POST [106]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1056.003",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "Web Portal Capture: capture of card fields in the shopper's browser at BA [12], Ticketmaster UK [13] and Convertr [21]; the ATT&CK page has no skimming procedure [108], so the id choice is this study's framing (Inferred). Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1056.003",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Web Portal Capture: capture of card fields in the shopper's browser at BA [12], Ticketmaster UK [13] and Convertr [21]; the ATT&CK page has no skimming procedure [108], so the id choice is this study's framing (Inferred). Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Compromise Software Supply Chain: the Inbenta chat bot (2018) [13], the polyfill.io domain (Feb to Jun 2024) [16][17] and the Convertr tracker (Oct 2026) [21]; ATT&CK's procedures are build and update compromises [110], so the id choice is Inferred. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Drive-by Compromise: polyfill.io redirecting mobile visitors of embedding sites (25 Jun 2024) [16][17]; the ATT&CK page covers tampered scripts but no skimming case [109] (Inferred). Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Exploit Public-Facing Application: the six Adobe Commerce and Magento KEV entries, 2022 to 2026 [23][24][25][27][32][33][34]; Cardbleed's suspected remote code execution (Sep 2020, Reported) [14]; WooCommerce Wholesale Lead Capture (Jun 2026, Reported) [42]; Drupal Commerce Core (Oct 2026, Reported) [43]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "Web Shell: the PolyShell mass wave uploads webshells (30 Mar 2026, Reported) [30]; webshell installs through CVE-2026-27540 (Jun 2026, Reported) [42]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Obfuscated Files or Information: obfuscated JavaScript injected into CMS pages and blocks (30 Mar 2026, Reported) [30]; obfuscated and spoofed-analytics skimmers (Microsoft, May 2022, Reported) [45]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1110.004",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Credential Stuffing: more than 1.1 million accounts at 17 companies (NY OAG guide, undated) [46]; buy-now-pay-later account takeover (F5 Labs, Aug 2021, Reported) [55]; definition [111]. Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1074.001",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "Local Data Staging: the library's ATT&CK mappings for RawPOS (S0169), FrameworkPOS (S0503) and PUNCHTRACK (S0197) [114]; tied to no named incident in this study (Inferred). Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "Financial Theft: the CD Universe extortion demand (Dec 1999, Reported) [1] and the Gonzalez ring's ATM cash-out (DOJ, 2008) [4]; the ATT&CK page names no e-commerce or skimming case [112] (Inferred). Source numbers refer to the Sources table of case-studies/ECOMMERCE_THREATS.md."
+    }
+  ]
+}

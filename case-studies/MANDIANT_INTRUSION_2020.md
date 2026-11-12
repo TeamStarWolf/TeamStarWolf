@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 52 min (11,931 words at 230 words a minute)
+About 52 min (11,969 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -529,7 +529,8 @@ The library's `technique_to_d3fend.jsonl` has no rows for T1606.002, T1484.002, 
 | [Remote Terminal Session Detection](/mitre/d3fend/remote-terminal-session-detection.md) | D3-RTSD | Same set | Attacker hostnames leaked in RDP certificates | [68][15] |
 | [Session Termination](/mitre/d3fend/session-termination.md) | D3-ST | T1021.001, T1133, T1199 | End sessions of compromised partner or cloud accounts (Inferred pairing) | [68] |
 | [Token Binding](/mitre/d3fend/token-binding.md) | D3-TB | T1528, T1550.001 | Limits replay of stolen application tokens (Inferred pairing) | [68] |
-| [Process Lineage Analysis](/mitre/d3fend/process-lineage-analysis.md) | D3-PLA | T1053.005, T1621 | The library's only named mapping for MFA request generation; the record's own advice is conditional access on MFA registration, so the fit is weak (Inferred) | [68][45] |
+| [Process Lineage Analysis](/mitre/d3fend/process-lineage-analysis.md) | D3-PLA | T1053.005, T1621 | One of the library's 12 mappings for MFA request generation, all process- or session-level; the record's own advice is conditional access on MFA registration, so the fit is weak (Inferred) | [68][45] |
+| [Web Session Access Mediation](/mitre/d3fend/web-session-access-mediation.md) | D3-WSAM | T1621 | Of the library's 12 mappings for MFA request generation, the closest to the record's advice: mediate session access with authentication and integrity checks (Inferred pairing) | [68][45] |
 | [Certificate Rotation](/mitre/d3fend/certificate-rotation.md) | D3-CERO | No library mapping to these techniques | Rotate the token-signing certificate with care; one rotation leaves the old one valid | [68][41] |
 | [Certificate Analysis](/mitre/d3fend/certificate-analysis.md) | D3-CA | T1071.001 | Azure AD Investigator's long-validity and issuer-mismatch checks | [68][24] |
 | [Configuration Inventory](/mitre/d3fend/configuration-inventory.md) | D3-CI | T1518.001 | Inventory federation and trusted-domain settings to spot added identity providers | [68][23] |

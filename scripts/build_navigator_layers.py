@@ -505,7 +505,10 @@ CATALOG = [
        "[2021 chronicle case study](/case-studies/CHRONICLE_2021.md)"),
       ("case-studies/zero-day-market-events-ics.json", "The Zero-Day Trade and Its Fallout (ICS)",
        "The 5 ATT&CK for ICS techniques that the ATT&CK pages for WannaCry (S0366), NotPetya (S0368) and Bad Rabbit (S0606) list, from the "
-       "[zero-day market case study](/case-studies/ZERO_DAY_MARKET_EVENTS.md)")]),
+       "[zero-day market case study](/case-studies/ZERO_DAY_MARKET_EVENTS.md)"),
+      ("case-studies/ransomware-ecosystem-2019-2026-ics.json", "The Ransomware Ecosystem, 2019 to 2026 (ICS)",
+       "The 3 ATT&CK for ICS techniques bound to ransomware that stopped operations from the IT side, at Colonial Pipeline and in CISA AA21-287A's water incidents, from the "
+       "[ransomware ecosystem case study](/case-studies/RANSOMWARE_ECOSYSTEM.md)")]),
 ]
 
 

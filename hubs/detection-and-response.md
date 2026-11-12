@@ -90,5 +90,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [ATT&CK detection strategies](/detections/strategies/README.md)
 - [Technique detail pages](/techniques/README.md)
 - [Change Healthcare 2024: a case study](/case-studies/CHANGE_HEALTHCARE_2024.md)
+- [The ransomware ecosystem, 2019 to 2026: a case study](/case-studies/RANSOMWARE_ECOSYSTEM.md)
 
 <!-- hub:end -->

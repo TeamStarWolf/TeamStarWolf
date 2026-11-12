@@ -1,0 +1,356 @@
+{
+  "name": "TeamStarWolf - The Dot-Com Era: Cyber Events, 1994 to 2003",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified record of the dot-com era, 1994 to 2003, supports: CERT/CC advisories and incident notes (IN-99-03, CA-1999-04, CA-1999-17, CA-2000-01, CA-2000-04, CA-2001-19, CA-2001-23, CA-2001-26, CA-2003-04, CA-2003-08, CA-2003-20), the Microsoft bulletins MS01-033, MS02-039 and MS03-026, DOJ records, cDc's own Back Orifice pages, F-Secure's Klez description and Kaspersky's Moonlight Maze findings. The events predate ATT&CK, so every mapping is the study's retrospective reading. Revoked ids map through data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/DOTCOM_ERA_CYBER_EVENTS.md. Scores rank the record behind each technique, not severity: 100 a Confirmed primary record describes the behavior, 60 the behavior is known only from a Reported source (the Solar Sunrise profile), 40 the id choice itself stretches the record (Mitnick's Valid Accounts).",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: id choice stretches the record (Mitnick's Valid Accounts)",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "60: behavior known only from a Reported source (Solar Sunrise profile)",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: a Confirmed primary record describes the behavior",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/DOTCOM_ERA_CYBER_EVENTS.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "36"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "46"
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Dot-Com Era: Cyber Events, 1994 to 2003",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/DOTCOM_ERA_CYBER_EVENTS.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Melissa as an email attachment (CA-1999-04, 27 Mar 1999); Love Letter (CA-2000-04, 4 May 2000) (basis: Confirmed primary record). Sources [21][29][95] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Melissa needs a user to open the document (27 Mar 1999); Love Letter attachment (4 May 2000); Nimda's readme.exe (CA-2001-26, 18 Sep 2001) (basis: Confirmed primary record). Sources [21][29][33][95] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1059.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Love Letter VBScript (4 May 2000); Melissa VBA macro (27 Mar 1999) (basis: Confirmed primary record). Sources [29][21][95] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1137.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Melissa infects the Normal.dot template (27 Mar 1999) (basis: Confirmed primary record). Sources [21][95] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Klez kills anti-virus processes (F-Secure, Oct 2001); Melissa lowers macro security (Inferred id choice); reported under revoked T1562.001 in earlier ATT&CK versions (basis: Confirmed primary record). Sources [36][21][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Love Letter Run keys (4 May 2000); Klez Run key (Oct 2001); Blaster \"windows auto update\" Run value (CA-2003-20, 11 Aug 2003) (basis: Confirmed primary record). Sources [29][36][40][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Love Letter Run keys (4 May 2000); Klez Run key (Oct 2001); Blaster \"windows auto update\" Run value (CA-2003-20, 11 Aug 2003) (basis: Confirmed primary record). Sources [29][36][40][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Love Letter fetches a further executable (4 May 2000); Nimda copies itself over TFTP (18 Sep 2001); Blaster retrieves its executable from the attacking host (11 Aug 2003) (basis: Confirmed primary record). Sources [29][33][40][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Love Letter overwrites files so recovery may be impossible (4 May 2000) (basis: Confirmed primary record). Sources [29][95] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1561.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "CIH tries to erase the hard drive (IN-99-03, 22 Apr 1999) (basis: Confirmed primary record). Sources [20][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1495",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "CIH overwrites the system BIOS (IN-99-03) (basis: Confirmed primary record). Sources [20][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Code Red on IIS (CA-2001-19, 19 Jul 2001); Nimda's IIS directory-traversal scanning (18 Sep 2001); Slammer on the SQL Resolution Service (CA-2003-04, 25 Jan 2003); Solar Sunrise's exploitation of a known OS flaw (Reported profile, Feb 1998) (basis: Confirmed primary record). Sources [33][40][10][95] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Blaster over DCOM RPC (11 Aug 2003); worm-to-worm spread of Code Red, Nimda and Slammer (basis: Confirmed primary record). Sources [40][33][95] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Nimda's open network shares (18 Sep 2001); weak-password compromises over TCP 445 (CA-2003-08, 11 Mar 2003) (basis: Confirmed primary record). Sources [33][40][95] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1080",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Nimda writes copies to shares and modifies web content (18 Sep 2001) (basis: Confirmed primary record). Sources [33][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Nimda's compromised websites infect browsers (18 Sep 2001) (basis: Confirmed primary record). Sources [33][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Nimda via browsers (18 Sep 2001); Klez's known Internet Explorer vulnerability (Oct 2001; Inferred id choice) (basis: Confirmed primary record). Sources [33][36][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1136.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Nimda creates a Guest account (18 Sep 2001) (basis: Confirmed primary record). Sources [33][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Nimda adds Guest to Administrators (18 Sep 2001) (basis: Confirmed primary record). Sources [33][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Nimda adds Guest to Administrators (18 Sep 2001) (basis: Confirmed primary record). Sources [33][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1491.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Code Red's earlier variant defaces English-language hosts (CA-2001-23, 26 Jul 2001) (basis: Confirmed primary record). Sources [33][95] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "The February 2000 attacks on commerce sites; Slammer's network degradation as a side effect (25 Jan 2003); DDoS agents in CA-2003-08 (basis: Confirmed primary record). Sources [25][40][95] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1498.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "TFN2K floods (CA-1999-17, 28 Dec 1999); Code Red's flood on days 20 to 27 (26 Jul 2001); Blaster's SYN flood against windowsupdate.com (11 Aug 2003) (basis: Confirmed primary record). Sources [21][33][40][95] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1498.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Mac OS 9 as a traffic amplifier of about 37.5 times (CA-1999-17) (basis: Confirmed primary record). Sources [21][95] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "TFN2K malformed-packet crash attacks (CA-1999-17) (basis: Confirmed primary record). Sources [21][95] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1499.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Blaster's TCP SYN flood (11 Aug 2003) (basis: Confirmed primary record). Sources [40][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1584.005",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "DoS tools installed on compromised hosts (CA-2000-01, 3 Jan 2000); IRC-controlled DDoS agents (CA-2003-08) (basis: Confirmed primary record). Sources [29][40][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Back Orifice (cDc, 21 Jul and 1 Aug 1998) (basis: Confirmed primary record). Sources [17][18][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Back Orifice keystroke logging (basis: Confirmed primary record). Sources [18][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Back Orifice keystroke logging (basis: Confirmed primary record). Sources [18][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Back Orifice screen capture (basis: Confirmed primary record). Sources [17][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1125",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Back Orifice video capture (basis: Confirmed primary record). Sources [17][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 60,
+      "comment": "Solar Sunrise probing for a known OS vulnerability (Feb 1998; Reported profile) (basis: Reported profile only). Sources [10][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Solar Sunrise sniffer implants (Reported profile); Mitnick's admitted use of sniffers (1999 plea; home study) (basis: Confirmed primary record). Sources [10][3][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Solar Sunrise sniffer implants (Reported profile); Mitnick's admitted use of sniffers (1999 plea; home study) (basis: Confirmed primary record). Sources [10][3][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Moonlight Maze relays through a series of hacked servers (1998 to 1999) (basis: Confirmed primary record). Sources [13][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1584.004",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Moonlight Maze's hacked relay servers (1998 to 1999) (basis: Confirmed primary record). Sources [13][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "Mitnick's theft of passwords (DOJ bulletin, Mar 2001); the home study carries the full Mitnick mapping (basis: id choice stretches the record). Sources [5][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "Mitnick's theft of passwords (DOJ bulletin, Mar 2001); the home study carries the full Mitnick mapping (basis: id choice stretches the record). Sources [5][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "Mitnick's theft of passwords (DOJ bulletin, Mar 2001); the home study carries the full Mitnick mapping (basis: id choice stretches the record). Sources [5][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Mitnick's theft of passwords (DOJ bulletin, Mar 2001); the home study carries the full Mitnick mapping (basis: id choice stretches the record). Sources [5][96] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Null or weak Administrator passwords (CA-2003-08, 11 Mar 2003) (basis: Confirmed primary record). Sources [40][95] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Null or weak Administrator passwords (CA-2003-08, 11 Mar 2003) (basis: Confirmed primary record). Sources [40][95] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Null or weak Administrator passwords (CA-2003-08, 11 Mar 2003) (basis: Confirmed primary record). Sources [40][95] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Null or weak Administrator passwords (CA-2003-08, 11 Mar 2003) (basis: Confirmed primary record). Sources [40][95] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    },
+    {
+      "techniqueID": "T1110.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "W32/Deloder guesses from a preloaded list (CA-2003-08) (basis: Confirmed primary record). Sources [40][95] refer to the Sources table of case-studies/DOTCOM_ERA_CYBER_EVENTS.md."
+    }
+  ]
+}

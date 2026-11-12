@@ -141,6 +141,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [Log4Shell (CVE-2021-44228): The Case Study](/case-studies/LOG4SHELL.md)
 - [North Korea-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_NORTH_KOREA.md)
 - [npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md)
+- [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md)
 - [The Year 2017 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2017.md)
 - [The Year 2018 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2018.md)
 - [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md)

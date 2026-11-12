@@ -2441,6 +2441,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 5: the combined timeline](#part-5-the-combined-timeline), [Part 6: the defender view](#part-6-the-defender-view)"
     pairs_with: "[Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md), [Threat Actors](/THREAT_ACTORS.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md)"
     reviewed: null
+  case-studies/DOTCOM_ERA_CYBER_EVENTS.md:
+    audience: "Vulnerability management leads, threat intelligence analysts, security historians and anyone who started their career between Melissa and Blaster and wants the primary record behind it"
+    level: "Beginner to intermediate"
+    read_when: "You want the cyber events of 1994 to 2003 as CERT/CC, Microsoft, the NVD, DOJ, the SEC and the statutes record them, you need the fix-to-outbreak gaps behind Code Red, Slammer and Blaster, or you want to know where CVE, ISACs, breach notice and CAN-SPAM came from"
+    start_at: "[Executive summary](#executive-summary), [Part 3: the worms, viruses and floods](#part-3-the-worms-viruses-and-floods), [Part 6: the defender and vulnerability-management view](#part-6-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md)"
+    reviewed: null
   case-studies/EMUDHRA_CA_COMPROMISE_2026.md:
     audience: "PKI owners, vulnerability management leads and security engineers who depend on the Web PKI"
     level: "Intermediate"

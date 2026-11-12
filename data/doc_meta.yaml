@@ -2455,6 +2455,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 3: the worms, viruses and floods](#part-3-the-worms-viruses-and-floods), [Part 6: the defender and vulnerability-management view](#part-6-the-defender-and-vulnerability-management-view)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md)"
     reviewed: null
+  case-studies/ECOMMERCE_THREATS.md:
+    audience: "Payments and e-commerce security engineers, platform admins who run Adobe Commerce or Magento, fraud analysts, vulnerability management leads and small-shop owners who take cards online"
+    level: "Beginner to intermediate"
+    read_when: "You want the card-theft and e-commerce fraud record from 1999 to 2026 as the SEC, DOJ, ICO, FTC, CISA, NVD, PCI SSC and the Federal Reserve record it, you need the case for payment page script controls, or you patch a commerce platform and want the KEV record and the cleanup lessons behind it"
+    start_at: "[Executive summary](#executive-summary), [Part 4: platform vulnerabilities and the KEV record](#part-4-platform-vulnerabilities-and-the-kev-record), [Part 7: the defender view](#part-7-the-defender-view)"
+    pairs_with: "[Fraud Framework Reference](/FRAUD_FRAMEWORK_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Magento and Adobe Commerce, CVE-2026-48356: Lab-Verified Exposure and Fix](/case-studies/MAGENTO_CVE_2026_48356.md)"
+    reviewed: null
   case-studies/EMUDHRA_CA_COMPROMISE_2026.md:
     audience: "PKI owners, vulnerability management leads and security engineers who depend on the Web PKI"
     level: "Intermediate"

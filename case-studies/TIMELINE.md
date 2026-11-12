@@ -722,6 +722,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 1 June 2023: Kaspersky discloses Operation Triangulation; the FSB blames US intelligence the same day
   - 19 October 2025: China's Ministry of State Security alleges an NSA campaign against the National Time Service Center
 
+### 1999 <!-- {docsify-ignore} -->
+
+- [E-Commerce Threats: The Public Record, 1999 to 2026](/case-studies/ECOMMERCE_THREATS.md). Attack surface, December 1999 to November 2026. Sectors: retail, finance, technology, transport. CVEs: CVE-2019-0344, CVE-2022-24086, CVE-2022-31181, CVE-2022-36408, CVE-2023-28121, CVE-2024-34102 and 10 more. ATT&CK groups: G0037 FIN6, G0046 FIN7, G0061 FIN8, G0053 FIN5. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ecommerce_Threats_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Ecommerce_Threats_Case_Study.pptx).
+  - 25 December 1999: CD Universe extortion, 25 Dec 1999 to 9 Jan 2000: about 300,000 card numbers claimed, card data posted after refusal (Reported)
+  - 18 December 2006: TJX finds suspicious software; it determines on 27 Dec that customer data was stolen and announces the intrusion on 17 Jan 2007
+  - 5 August 2008: DOJ charges eleven defendants, including Albert Gonzalez, over nine retailers and more than 40 million card numbers
+  - 27 November 2013: Cards used in Target's US stores exposed, 27 Nov to 18 Dec 2013; about 40 million card accounts
+  - 31 July 2014: US-CERT TA14-212A on Backoff point-of-sale malware
+  - 21 August 2018: British Airways' modified JavaScript copies card data to an attacker domain, 21 Aug to 5 Sep 2018
+  - 16 October 2020: ICO fines British Airways GBP 20m, down from GBP 183.39m proposed
+  - 23 June 2024: First CosmicSting (CVE-2024-34102) attacks in the wild, twelve days after Adobe's fix (Reported)
+  - 25 June 2024: polyfill.io serves malicious code; Cloudflare rewrites links to its mirror, 25 to 26 Jun 2024
+  - 31 March 2025: PCI DSS 6.4.3 and 11.6.1 on payment page scripts become required
+  - 22 October 2025: SessionReaper (CVE-2025-54236) attacks begin (Reported); KEV entry on 24 Oct
+  - 27 October 2026: PolyShell (CVE-2026-48356) added to KEV
+
 ### 1994 <!-- {docsify-ignore} -->
 
 - [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md). Period record, 1978 to January 2005 (core: 1994 to 2003). Sectors: cross-sector, finance, government, defense, retail, technology, education. CVEs: CVE-2000-0884, CVE-2001-0154, CVE-2001-0500, CVE-2002-0649, CVE-2003-0352. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Dotcom_Era_Cyber_Events_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Dotcom_Era_Cyber_Events_Case_Study.pptx).

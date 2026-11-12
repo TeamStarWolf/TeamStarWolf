@@ -49,6 +49,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [North Korea-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_NORTH_KOREA.md)
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
 - [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md)
+- [The Year 2024 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2024.md)
 
 <!-- library-refs:end -->
 

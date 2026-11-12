@@ -635,6 +635,86 @@ studies:
       - {"date": "2022-08-08", "label": "Treasury sanctions Tornado Cash"}
       - {"date": "2022-09-15", "label": "Uber breach through a contractor's account; the European Commission proposes the Cyber Resilience Act"}
       - {"date": "2022-10-10", "label": "Fortinet publishes CVE-2022-40684, aware of exploitation; Sandworm causes a power outage in Ukraine through SCADA software"}
+  case-studies/CHRONICLE_2024.md:
+    kind: "era"
+    title: "The Year 2024 in Intrusions: A Dated Record"
+    start: "2024-01"
+    end: "2024-12"
+    sectors: ["cross-sector", "government", "technology", "telecommunications", "healthcare", "energy", "finance", "retail"]
+    cves:
+      - "CVE-2006-5051"
+      - "CVE-2022-42475"
+      - "CVE-2023-3519"
+      - "CVE-2023-4966"
+      - "CVE-2023-46805"
+      - "CVE-2023-48788"
+      - "CVE-2024-0012"
+      - "CVE-2024-1086"
+      - "CVE-2024-1709"
+      - "CVE-2024-3094"
+      - "CVE-2024-3400"
+      - "CVE-2024-4040"
+      - "CVE-2024-4577"
+      - "CVE-2024-6387"
+      - "CVE-2024-7593"
+      - "CVE-2024-8963"
+      - "CVE-2024-9474"
+      - "CVE-2024-12356"
+      - "CVE-2024-20353"
+      - "CVE-2024-20359"
+      - "CVE-2024-21762"
+      - "CVE-2024-21887"
+      - "CVE-2024-21888"
+      - "CVE-2024-21893"
+      - "CVE-2024-23113"
+      - "CVE-2024-24919"
+      - "CVE-2024-27198"
+      - "CVE-2024-27199"
+      - "CVE-2024-37085"
+      - "CVE-2024-38193"
+      - "CVE-2024-39717"
+      - "CVE-2024-40711"
+      - "CVE-2024-40766"
+      - "CVE-2024-47575"
+      - "CVE-2024-50623"
+      - "CVE-2024-55956"
+    actors:
+      - "G0007"
+      - "G0010"
+      - "G0016"
+      - "G0034"
+      - "G0065"
+      - "G0117"
+      - "G0119"
+      - "G0128"
+      - "G0138"
+      - "G1003"
+      - "G1015"
+      - "G1017"
+      - "G1024"
+      - "G1033"
+      - "G1036"
+      - "G1044"
+      - "G1045"
+      - "G1047"
+      - "G1048"
+      - "G1053"
+    tags: ["edge devices", "Volt Typhoon", "Midnight Blizzard", "Snowflake", "Operation Cronos", "CrowdStrike outage", "KEV"]
+    pdf: "Chronicle_2024_Case_Study.pdf"
+    pptx: "Chronicle_2024_Case_Study.pptx"
+    events:
+      - {"date": "2024-01-19", "label": "Emergency Directive 24-01: federal civilian agencies must mitigate Ivanti Connect Secure and Policy Secure"}
+      - {"date": "2024-02-07", "label": "AA24-038A: Volt Typhoon pre-positioning in US critical infrastructure IT networks, with footholds of at least five years"}
+      - {"date": "2024-02-20", "label": "Operation Cronos: the NCA, FBI and partners take control of LockBit's administration environment and leak site"}
+      - {"date": "2024-02-21", "label": "Change Healthcare systems isolated after UnitedHealth identifies a suspected nation-state associated actor (the 8-K wording)"}
+      - {"date": "2024-03-08", "label": "Microsoft says Midnight Blizzard used stolen email to reach some source code repositories and internal systems"}
+      - {"date": "2024-03-26", "label": "PAN-OS GlobalProtect CVE-2024-3400: test exploitation from 26 Mar, zero-day use 10 Apr, advisory and KEV 12 Apr"}
+      - {"date": "2024-03-29", "label": "Andres Freund reports backdoored xz 5.6.0 and 5.6.1 (CVE-2024-3094)"}
+      - {"date": "2024-04-11", "label": "Emergency Directive 24-02 on Microsoft corporate email; CISA alert on the Sisense customer data compromise"}
+      - {"date": "2024-06-10", "label": "Mandiant: UNC5537 used infostealer credentials against Snowflake customer instances; about 165 organizations notified"}
+      - {"date": "2024-07-19", "label": "A CrowdStrike content update crashes an estimated 8.5 million Windows devices; not a cyberattack"}
+      - {"date": "2024-11-13", "label": "FBI and CISA: PRC-affiliated actors compromised multiple telecommunications companies"}
+      - {"date": "2024-12-24", "label": "UN General Assembly adopts the Convention against Cybercrime"}
   case-studies/CL0P_FILE_TRANSFER_2023.md:
     kind: "campaign"
     title: "The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study"

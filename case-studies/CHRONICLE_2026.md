@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 106 min (24,297 words at 230 words a minute)
+About 106 min (24,302 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -683,7 +683,7 @@ The [ATLAS Reference](/ATLAS_REFERENCE.md) and [the AI threats study](/case-stud
 | ROADTools | [S0684](/mitre/software/S0684.md) | AA26-237A | [73][172] |
 | Mimikatz | [S0002](/mitre/software/S0002.md) | AA26-293A | [113][172] |
 | PsExec | [S0029](/mitre/software/S0029.md) | AA26-293A | [113][172] |
-| 2025 Poland Wiper Attacks | [C0063](/mitre/campaigns/C0063.md) | The December 2025 attack disclosed in January 2026; home in the Sandworm and ICS studies | [172][2] |
+| 2025 Poland Wiper Attacks | [C0063](/mitre/campaigns/C0063.md) | The December 2025 attack disclosed in January 2026; home in [the Sandworm study](/case-studies/SANDWORM_OPERATIONS.md) and [the ICS attacks and advisories study](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md) | [172][2] |
 | AI-Assisted Breach of Mexico's Government Infrastructure | [C0064](/mitre/campaigns/C0064.md) | December 2025 to February 2026, the only ATT&CK campaign whose span reaches 2026 | [172] |
 | KV Botnet Activity | [C0035](/mitre/campaigns/C0035.md) | Volt Typhoon's earlier covert network (2022 to 2024), context for AA26-113A | [172][29] |
 

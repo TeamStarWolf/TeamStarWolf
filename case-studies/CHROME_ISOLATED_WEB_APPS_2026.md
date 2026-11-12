@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 53 min (12,118 words at 230 words a minute)
+About 53 min (12,156 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -333,11 +333,11 @@ The year's exploited Chrome bugs make the contrast sharp. KEV version 2026.11.10
 | CVE-2026-2441 | CSS, use after free; High | 145.0.7632.75/76 (13 Feb) | Shaheen Fazim, 11 Feb | 17 Feb | [53] [45] |
 | CVE-2026-3910 | V8, inappropriate implementation; High | 146.0.7680.75/76 (12 Mar) | Google Threat Analysis Group, 10 Mar | 13 Mar | [54] [45] |
 | CVE-2026-3909 | Skia, out-of-bounds write; High | 146.0.7680.80 (13 Mar) | Google Threat Analysis Group, 10 Mar | 13 Mar | [55] [45] |
-| CVE-2026-5281 | Dawn, use after free; High; KEV notes it needs an already-compromised renderer | 146.0.7680.177/178 (31 Mar) | Not stated here | 1 Apr | [56] [45] |
+| CVE-2026-5281 | Dawn, use after free; High; KEV notes it needs an already-compromised renderer | 146.0.7680.177/178 (31 Mar) | An anonymized reporter id, 10 Mar | 1 Apr | [56] [45] |
 | CVE-2026-11645 | V8, out-of-bounds memory access; High; $55,000 reward | 149.0.7827.102/.103 (8 Jun) | Reported 27 Apr | 9 Jun | [57] [45] |
 | CVE-2026-85046 | V8, type confusion; High | 152.0.7977.82/.83 (3 Sep) | Salvatore Gulizia, 4 Aug | 4 Sep | [58] [45] |
-| CVE-2026-87491 | V8, out-of-bounds write | 153.0.8010.36 (8 Sep) | Not stated here | 9 Sep | [39] [45] |
-| CVE-2026-125350 | XML, use after free; High; CWE-416 | 157.0.8103.50/.51 (9 Nov) | Anonymous, 6 Nov | 10 Nov, due 24 Nov | [52] [46] [47] [51] |
+| CVE-2026-87491 | V8, out-of-bounds write; Medium | 153.0.8010.36 (8 Sep) | Jihyeon Jeong (Compsec Lab, Seoul National University), 6 Aug | 9 Sep | [39] [45] |
+| CVE-2026-125350 | XML, use after free; High; CWE-416 | 157.0.8103.50/.51 (9 Nov) | Arni Hardarson (Neonix Security), 12 Oct, and anonymous, 6 Nov | 10 Nov, due 24 Nov | [52] [46] [47] [51] |
 
 (**Confirmed** for each row from the cited Chrome Releases post, KEV entry and CVE record.) The CVE record for CVE-2026-125350 says it allowed code execution inside the sandbox via a crafted HTML page, and CISA's SSVC entry records exploitation "active"; KEV records known ransomware use as Unknown (**Confirmed** [47] [46]). SecurityWeek counts CVE-2026-125350 as the eighth exploited Chrome zero-day of 2026 and says no details of the attacks are public (**Reported** [76]); The Hacker News and The Register say the same in their headlines as carried by the Hub feed, but the articles themselves were not opened (**Reported** [79]). One lookup that filtered KEV more narrowly returned six of the eight; both lookups agree that none is an IWA bug (**Confirmed** [45]).
 
@@ -476,21 +476,21 @@ Two more CAPEC entries apply through the techniques above: [CAPEC-698 Install Ma
 
 | Countermeasure | Id | Library mappings to this study's techniques | IWA control it matches | Source |
 |---|---|---|---|---|
-| [Software Update](/mitre/d3fend/software-update.md) | D3-SU | T1176 | Chrome milestones carrying the IWA fixes; relaunch policies | [82] [84] [66] |
-| [Software Inventory](/mitre/d3fend/software-inventory.md) | D3-SWI | T1176 | Inventory of force-installed IWAs, pins and allowlist status | [84] [11] |
-| [Asset Vulnerability Enumeration](/mitre/d3fend/asset-vulnerability-enumeration.md) | D3-AVE | T1176 | Matching installed Chrome builds to the per-platform fixed builds | [84] [43] |
+| [Software Update](/mitre/d3fend/software-update.md) | D3-SU | T1176, T1195.002 | Chrome milestones carrying the IWA fixes; relaunch policies | [82] [84] [66] |
+| [Software Inventory](/mitre/d3fend/software-inventory.md) | D3-SWI | T1176, T1195.002 | Inventory of force-installed IWAs, pins and allowlist status | [84] [11] |
+| [Asset Vulnerability Enumeration](/mitre/d3fend/asset-vulnerability-enumeration.md) | D3-AVE | T1176, T1195.002 | Matching installed Chrome builds to the per-platform fixed builds | [84] [43] |
 | [Executable Allowlisting](/mitre/d3fend/executable-allowlisting.md) | D3-EAL | Not mapped to these techniques | Google's IWA allowlist and the extension allowlist policies are the policy analogues (Inferred pairing) | [84] [20] [64] |
 | [Application Configuration Hardening](/mitre/d3fend/application-configuration-hardening.md) | D3-ACH | Not mapped to these techniques | `IsolatedWebAppUserInstallationEnabled`, `DefaultDirectSocketsSetting`, `DefaultControlledFrameSetting` (Inferred pairing) | [84] [12] [13] [14] |
 | [System Configuration Permissions](/mitre/d3fend/system-configuration-permissions.md) | D3-SCP | T1112, T1564.003 | Restricting who can write the native-messaging registry keys (Inferred pairing) | [84] [68] |
-| [File Integrity Monitoring](/mitre/d3fend/file-integrity-monitoring.md) | D3-FIM | T1564.003 | Watching the profile preference files SpecterOps names (Inferred pairing) | [84] [68] |
+| [File Integrity Monitoring](/mitre/d3fend/file-integrity-monitoring.md) | D3-FIM | T1071.001, T1564.003, T1566.002 | Watching the profile preference files SpecterOps names (Inferred pairing) | [84] [68] |
 | [Outbound Traffic Filtering](/mitre/d3fend/outbound-traffic-filtering.md) | D3-OTF | T1071.001 | Egress control for a browser acting as a SOCKS bridge (Inferred pairing) | [84] [68] |
 | [Relay Pattern Analysis](/mitre/d3fend/relay-pattern-analysis.md) | D3-RPA | T1071.001 | Spotting a browser process relaying traffic (Inferred pairing) | [84] [72] |
-| [URL Analysis](/mitre/d3fend/url-analysis.md) | D3-UA | T1189 | Crafted-page delivery of the bug class | [84] [81] |
-| [URL Reputation Analysis](/mitre/d3fend/url-reputation-analysis.md) | D3-URA | T1189 | Typosquat delivery in the September context | [84] [74] |
-| [Homoglyph Detection](/mitre/d3fend/homoglyph-detection.md) | D3-HD | T1189 | Typosquat domains in the September context | [84] [74] |
-| [Content Filtering](/mitre/d3fend/content-filtering.md) | D3-CF | T1564.003 | Filtering hostile content before it reaches the browser | [82] [84] |
+| [URL Analysis](/mitre/d3fend/url-analysis.md) | D3-UA | T1189, T1566.002 | Crafted-page delivery of the bug class | [84] [81] |
+| [URL Reputation Analysis](/mitre/d3fend/url-reputation-analysis.md) | D3-URA | T1189, T1566.002 | Typosquat delivery in the September context | [84] [74] |
+| [Homoglyph Detection](/mitre/d3fend/homoglyph-detection.md) | D3-HD | T1189, T1566.002 | Typosquat domains in the September context | [84] [74] |
+| [Content Filtering](/mitre/d3fend/content-filtering.md) | D3-CF | T1071.001, T1564.003, T1566.002 | Filtering hostile content before it reaches the browser | [82] [84] |
 
-The live D3FEND API resolves D3-SU, D3-EAL, D3-ACH, D3-UA and D3-CF, and each has a library page (**Confirmed** [82] for the API entries; [84] for the library pages). The technique column is the library's `technique_to_d3fend.jsonl` (**Confirmed** [84]). Hardware-based Process Isolation (D3-HBPI) has no library page and is left out (**Confirmed** [84]).
+The live D3FEND API resolves D3-SU, D3-EAL, D3-ACH, D3-UA and D3-CF, and each has a library page (**Confirmed** [82] for the API entries; [84] for the library pages). The technique column is the library's `technique_to_d3fend.jsonl` (**Confirmed** [84]). [Hardware-based Process Isolation](/mitre/d3fend/hardware-based-process-isolation.md) (D3-HBPI) has a library page but is not mapped to this study's techniques in `technique_to_d3fend.jsonl`, so it is left out (**Confirmed** [84]).
 
 ### Navigator layer
 

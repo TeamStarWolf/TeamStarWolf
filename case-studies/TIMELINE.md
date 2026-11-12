@@ -211,6 +211,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 7 April 2026: AA26-097A on the Iranian-affiliated campaign disrupting exposed Rockwell PLCs
   - 26 July 2026: Coordinated attack on OT at more than 30 Minnesota community water systems
   - 20 October 2026: Siemens Software Center CVE-2026-110936 added to KEV
+- [The Year 2024 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2024.md). Period record, January to December 2024. Sectors: cross-sector, government, technology, telecommunications, healthcare, energy, finance, retail. CVEs: CVE-2006-5051, CVE-2022-42475, CVE-2023-3519, CVE-2023-4966, CVE-2023-46805, CVE-2023-48788 and 30 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0034 Sandworm Team, G0065 Leviathan, G0117 Fox Kitten and 14 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2024_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2024_Case_Study.pptx).
+  - 19 January 2024: Emergency Directive 24-01: federal civilian agencies must mitigate Ivanti Connect Secure and Policy Secure
+  - 7 February 2024: AA24-038A: Volt Typhoon pre-positioning in US critical infrastructure IT networks, with footholds of at least five years
+  - 20 February 2024: Operation Cronos: the NCA, FBI and partners take control of LockBit's administration environment and leak site
+  - 21 February 2024: Change Healthcare systems isolated after UnitedHealth identifies a suspected nation-state associated actor (the 8-K wording)
+  - 8 March 2024: Microsoft says Midnight Blizzard used stolen email to reach some source code repositories and internal systems
+  - 26 March 2024: PAN-OS GlobalProtect CVE-2024-3400: test exploitation from 26 Mar, zero-day use 10 Apr, advisory and KEV 12 Apr
+  - 29 March 2024: Andres Freund reports backdoored xz 5.6.0 and 5.6.1 (CVE-2024-3094)
+  - 11 April 2024: Emergency Directive 24-02 on Microsoft corporate email; CISA alert on the Sisense customer data compromise
+  - 10 June 2024: Mandiant: UNC5537 used infostealer credentials against Snowflake customer instances; about 165 organizations notified
+  - 19 July 2024: A CrowdStrike content update crashes an estimated 8.5 million Windows devices; not a cyberattack
+  - 13 November 2024: FBI and CISA: PRC-affiliated actors compromised multiple telecommunications companies
+  - 24 December 2024: UN General Assembly adopts the Convention against Cybercrime
 - [AI Threats in the Cybersecurity Industry: A 2026 Case Study](/case-studies/AI_THREATS_2026.md). Period record, January 2024 to October 2026. Sectors: cross-sector, technology. CVEs: CVE-2021-29441, CVE-2025-3248, CVE-2025-7775, CVE-2025-32711. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/AI_Threats_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/AI_Threats_2026_Case_Study.pptx).
   - February 2024: Microsoft and OpenAI see five state actors use LLMs as a productivity tool, with no novel techniques
   - August 2025: Anthropic reports a "vibe hacking" extortion of at least 17 organizations run with Claude Code

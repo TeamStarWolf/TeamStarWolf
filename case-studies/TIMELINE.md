@@ -435,6 +435,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2016 <!-- {docsify-ignore} -->
 
+- [The Shadow Brokers and Vault 7: The NSA and CIA Tool Leaks, 2016 to 2017](/case-studies/NSA_CIA_TOOL_LEAKS.md). Incident, August 2016 to November 2017. Sectors: government, healthcare, technology, cross-sector. CVEs: CVE-2016-6366, CVE-2016-6367, CVE-2016-6909, CVE-2017-0005, CVE-2017-0143, CVE-2017-0144 and 10 more. ATT&CK groups: G0020 Equation, G0032 Lazarus Group, G0034 Sandworm Team, G0022 APT3, G0128 ZIRCONIUM, G1003 Ember Bear and 3 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/NSA_CIA_Tool_Leaks_2016_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/NSA_CIA_Tool_Leaks_2016_2017_Case_Study.pptx).
+  - 20 April 2016: A CIA developer restores revoked privileges, copies the CCI tool-development archives and deletes hundreds of log files
+  - 13 August 2016: The Shadow Brokers leak begins: a bitcoin auction of "Equation Group" files and a free sample archive
+  - 17 August 2016: Cisco publishes ASA advisories for CVE-2016-6366 and CVE-2016-6367 from the leaked firewall exploits
+  - 7 March 2017: WikiLeaks begins Vault 7 with "Year Zero", CIA Center for Cyber Intelligence material
+  - 14 March 2017: Microsoft publishes MS17-010, fixing six SMBv1 CVEs, a month before the Windows release
+  - 14 April 2017: The Shadow Brokers post "Lost in Translation" with Windows exploits; MSRC maps them to existing fixes the next day
+  - 12 May 2017: WannaCry spreads with the leaked SMBv1 exploit; at least 81 of 236 NHS trusts in England infected
+  - 27 June 2017: NotPetya begins in Ukraine through M.E.Doc, spreading by credential theft and two SMB exploits
+  - 17 October 2017: CIA WikiLeaks Task Force final report finds security on the development network "woefully lax"
+  - 9 November 2017: WikiLeaks begins Vault 8 with source code for the CIA Hive tool
+  - 13 July 2022: Joshua Schulte convicted on eight counts at retrial over the Vault 7 theft
+  - 1 February 2024: Schulte sentenced to 40 years
 - [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md). Period record, January to December 2016. Sectors: cross-sector, government, finance, energy, healthcare, technology, transport. CVEs: CVE-2015-5374, CVE-2016-0189, CVE-2016-0800, CVE-2016-1019, CVE-2016-2118, CVE-2016-3081 and 12 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0020 Equation, G0032 Lazarus Group, G0034 Sandworm Team and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2016_Case_Study.pptx).
   - February 2016: An attacker in Bangladesh Bank's SWIFT system attempts $951 million in transfers; $81 million is not recovered
   - 31 March 2016: TA16-091A: Locky in hospitals in the US, New Zealand and Germany; Samas into healthcare networks through web servers

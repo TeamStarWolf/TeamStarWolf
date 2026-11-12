@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 56 min (12,831 words at 230 words a minute)
+About 56 min (12,841 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -540,7 +540,7 @@ All sources were opened on 11 November 2026. Grades apply to the source as used 
 | 36 | Palo Alto Networks Unit 42, "eMudhra Intermediate CA Certificates Compromised", 22 Oct 2026 | [unit42.paloaltonetworks.com/emudhra-certificate-compromise/](https://unit42.paloaltonetworks.com/emudhra-certificate-compromise/) | 2026-11-11 | Confirmed |
 | 37 | Public post by q3k demonstrating independent key recovery, 20 Oct 2026, 12:15 UTC | social.hackerspace.pl/@q3k/117473185371937796 (plain text: on 11 November 2026 the host failed DNSSEC validation, so automated link checks cannot reach it; the post was opened by the host's address) | 2026-11-11 | Demonstrated |
 | 38 | OffSec, blog post on the eMudhra certificate compromise | [offsec.com/blog/emudhra-certificate-compromise/](https://www.offsec.com/blog/emudhra-certificate-compromise/) | 2026-11-11 | Reported |
-| 39 | SecurityOnline, rogue eMudhra certificates in CT logs, 26 Oct 2026 | [securityonline.info/emudhra-rogue-certificates-ct-logs/](https://securityonline.info/emudhra-rogue-certificates-ct-logs/) | 2026-11-11 | Reported |
+| 39 | SecurityOnline, rogue eMudhra certificates in CT logs, 26 Oct 2026 | securityonline.info/emudhra-rogue-certificates-ct-logs/ (plain text: the host times out for automated link checks) | 2026-11-11 | Reported |
 | 40 | CA/Browser Forum, Server Certificate Working Group minutes, 22 Oct 2026 | [cabforum.org/2026/10/22/2026-10-22-minutes-of-the-server-certificate-working-group/](https://cabforum.org/2026/10/22/2026-10-22-minutes-of-the-server-certificate-working-group/) | 2026-11-11 | Confirmed |
 | 41 | Controller of Certifying Authorities, licensed CAs | [cca.gov.in/licensed_ca.html](https://cca.gov.in/licensed_ca.html) | 2026-11-11 | Confirmed |
 | 42 | Controller of Certifying Authorities, about the CCA | [cca.gov.in/about.html](https://cca.gov.in/about.html) | 2026-11-11 | Confirmed |

@@ -97,12 +97,12 @@ Notes: Martin [28]. Pho [29]. Kaspersky [30][2]. POLITICO, Reported [31].
 
 Stat: 59 days | Patch to WannaCry, 12 May 2017
 Stat: 105 days | Patch to NotPetya, 27 June 2017
-- WannaCry scanned for TCP 445 and spread with the MS17-010 SMBv1 exploit.
+- WannaCry spread with the leaked MS17-010 SMBv1 exploit and DOUBLEPULSAR.
 - Microsoft patched XP, Windows 8 and Server 2003 a day later, a "highly unusual step".
 - NotPetya spread mainly by credential theft, PsExec and WMI, also by two SMB exploits.
 - The US attributed WannaCry to North Korea and NotPetya to the Russian military.
 Caption: No US government statement opened links either attack to the NSA.
-Notes: Intervals Inferred from [15][20][23]. WannaCry [20][64][65][21]. NotPetya [45][23]. Attribution [46][47][50][51].
+Notes: Intervals Inferred from [15][20][23]. WannaCry [20][64][65][21]; the outbreak has its home in the Zero-Day Trade study, Part 6. NotPetya [45][23]. Attribution [46][47][50][51].
 
 ## PART 7 | The tools were out before the leaks and long after
 

@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 63 min (14,474 words at 230 words a minute)
+About 61 min (13,960 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -288,39 +288,9 @@ Google's posts show a sequence: the 2010 bounties [91] [93], warnings to users t
 
 Howard records a critics' claim that the book credits Morgan Marquis-Boire with saving the day for Google in Aurora. Howard says the book does not claim this and calls him integral to the investigation [5] (**Reported**).
 
-## Part 5: the Equation group and the Shadow Brokers
+## Part 5: the Equation group and the Shadow Brokers (summary)
 
-### 5.1 Equation, as Kaspersky described it
-
-In February 2015 Kaspersky named the Equation group: earliest samples compiled in 2002, some command-and-control domains registered as early as 1996, a module that reprogrammed hard-drive firmware from more than a dozen brands, and two zero-days in the Fanny worm that were later found in Stuxnet, which Fanny used first [49] (**Confirmed**). Kaspersky names no government [49]. The Stuxnet side of this belongs to [STUXNET.md](/case-studies/STUXNET.md); briefly, ATT&CK dates Stuxnet components to November 2008 [98], Kaspersky linked Stuxnet's Resource 207 to Flame in 2012 [100] (**Reported** as the vendor's kinship claim), and the LNK flaw CVE-2010-2568 entered KEV on 15 September 2022 [22].
-
-### 5.2 The 2016 dump and the firewall fixes
-
-A group calling itself the Shadow Brokers appeared on 13 August 2016 claiming to hold Equation Group files. It released a free PGP-encrypted archive of about 300 MB of firewall exploits and tools, including BANANAUSURPER, BLATSTING and BUZZDIRECTION, and offered a second encrypted archive for auction. The newest timestamps in the free set date to October 2013 [50] (**Confirmed**).
-
-Kaspersky found 347 RC5 and RC6 implementations in the leak that are functionally identical to Equation code, down to subtracting 0x61C88647 instead of adding 0x9E3779B9, and stated high confidence that the tools are related to Equation malware. It said it could not determine who leaked them or how [50] (**Confirmed** as Kaspersky's assessment).
-
-Vendors moved within days. Cisco was alerted on 15 August and on 17 August published CVE-2016-6366, an ASA SNMP buffer overflow rated CVSS 8.5 (CWE-119) that needs the SNMP community string; the advisory says the exploit was publicly disclosed by the alleged Shadow Brokers group, and end-of-life PIX and FWSM devices get no fix [51] (**Confirmed**). Cisco named EXTRABACON (CVE-2016-6366), EPICBANANA (CVE-2016-6367, fixed since ASA 8.4(3)) and JETPLOW, a persistent implant of EPICBANANA, addressed BENIGNCERTAIN against legacy PIX on 19 August, and in April 2017 said it was analysing the new files [52] (**Confirmed**). Fortinet's FG-IR-16-023 (CVE-2016-6909) covers a cookie-parser overflow in FortiOS 4.3.8 and below; the advisory does not mention the leak and credits an SCRT researcher who reported the bug in August 2012 [53] (**Confirmed**; any tie to the dump is not checked). KEV lists CVE-2016-6366 and CVE-2016-6367, both added 24 May 2022; CVE-2016-6909 is not in KEV [23] (**Confirmed**).
-
-### 5.3 The 2014 Kaspersky detection
-
-Kaspersky's own investigation describes a September 2014 detection on a US user's home computer: a 7z archive holding Equation malware, apparent source code and four documents with classification markings. Kaspersky says the CEO ordered it deleted and that the data did not leave its network. The report does not mention the Shadow Brokers [54] (**Confirmed** as Kaspersky's account). No source opened links that detection to the leak.
-
-### 5.4 The 2017 releases
-
-Cisco became aware on 8 April 2017 of additional information posted online by the Shadow Brokers, and it investigated new files the group posted on 14 April 2017 [52] (**Confirmed**; the Shadow Brokers' own posts were not opened). Public GitHub mirrors of the two releases carry the same creation dates in their repository metadata [58] [59] (**Confirmed** for the dates only). The FBI affidavit says Microsoft patched CVE-2017-0144 on 14 March 2017 and that the Shadow Brokers released an exploit for it the next month, on 15 April 2017 [57] (**Confirmed**). This study uses Cisco's date of 14 April for the Windows release and notes the affidavit's 15 April where the date matters.
-
-On 15 April MSRC published its triage. MS17-010 addresses EternalBlue, EternalChampion, EternalRomance and EternalSynergy. MS10-061 addresses EmeraldThread, MS09-050 EducatedScholar, MS08-067 EclipsedWing and MS14-068 EskimoRoll. ErraticGopher was fixed before Vista (CVE-2017-8461 was added on 13 June 2017). EnglishmanDentist, EsteemAudit and ExplodingCan do not reproduce on supported platforms [60] (**Confirmed**). The post does not say where the March fix came from [60].
-
-### 5.5 Who the Shadow Brokers were
-
-No record opened for this study charges anyone as the Shadow Brokers or officially attributes them. The library's [NOTABLE_INCIDENTS.md](/NOTABLE_INCIDENTS.md) says "possibly Russian GRU or insider (never formally charged)" [55]; no primary in this pass supports the GRU part (**Reported**, and flagged in Part 10.4). The DOJ pages on the Pho and Martin cases were behind a bot check and were not opened, so no tie between those cases and the leak is stated.
-
-The NSA origin of the tools rests on Microsoft's statement [67] and the publisher's framing of the book [2] (**Reported**). The US government briefing on WannaCry declined to name the tools' source [71]. The ATT&CK `G0020` Equation page names no software and does not mention the Shadow Brokers, the NSA or EternalBlue [114] (**Confirmed**). [United States-Attributed Threat Actors](/case-studies/THREAT_ACTORS_UNITED_STATES.md) grades the wider attribution record for Equation and the leaks.
-
-### 5.6 Buckeye had the tools first
-
-Symantec reports that Buckeye (APT3, ATT&CK `G0022`) used a DoublePulsar variant delivered by a tool it calls Bemstour from at least March 2016, more than a year before the Shadow Brokers' Windows release. Bemstour exploited CVE-2019-0703, then a zero-day, and CVE-2017-0143. CVE-2019-0703 was reported in September 2018 and patched on 12 March 2019. Symantec says how Buckeye obtained the tools remains unknown [117] (**Confirmed** as Symantec's account). The ATT&CK `G0022` page carries the alias Buckeye but does not mention DoublePulsar, Bemstour or CVE-2019-0703 [115] (**Confirmed**). KEV added CVE-2019-0703 on 23 May 2022 [22].
+The leak events have their home in [The Shadow Brokers and Vault 7](/case-studies/NSA_CIA_TOOL_LEAKS.md); this paragraph summarizes the thread the book follows. Kaspersky named the Equation group in February 2015, with samples compiled from 2002, command-and-control domains from 1996, a hard-drive firmware module and two Fanny worm zero-days later seen in Stuxnet (home: [STUXNET.md](/case-studies/STUXNET.md)) [49] (**Confirmed**); Stuxnet's LNK flaw, CVE-2010-2568, entered KEV on 15 September 2022 [22]. The Shadow Brokers appeared on 13 August 2016 with about 300 MB of firewall exploits whose newest timestamps date to October 2013, and Kaspersky found 347 RC5 and RC6 implementations in them functionally identical to Equation code while saying it could not tell who leaked them or how [50] (**Confirmed**). Cisco published EXTRABACON (CVE-2016-6366) on 17 August and covered EPICBANANA (CVE-2016-6367), both added to KEV on 24 May 2022 [51] [52] [23] (**Confirmed**); Fortinet's CVE-2016-6909 advisory does not mention the leak [53] (**Confirmed**). Kaspersky's own account of a September 2014 detection of Equation files on a US home computer does not mention the Shadow Brokers, and no source opened links the two [54] (**Confirmed** as Kaspersky's account). The Windows release followed on 14 April 2017 (15 April in the FBI affidavit), and MSRC mapped EternalBlue, EternalChampion, EternalRomance and EternalSynergy to MS17-010, issued a month earlier, and listed ErraticGopher as fixed before Vista (CVE-2017-8461 was added on 13 June 2017) [52] [57] [60] (**Confirmed**). Symantec reports that Buckeye (APT3, `G0022`) used a DoublePulsar variant from at least March 2016, more than a year before that release, with CVE-2019-0703 (added to KEV on 23 May 2022) and CVE-2017-0143, and says how Buckeye got the tools is unknown [117] [22] (**Confirmed** as Symantec's account); the `G0022` page does not mention DoublePulsar or Bemstour [115]. No record opened charges anyone as the Shadow Brokers: the NSA origin of the tools rests on Microsoft's statement and the publisher's framing [67] [2] (**Reported**), the US WannaCry briefing declined to name the source [71], and the ATT&CK `G0020` page does not mention the Shadow Brokers or EternalBlue [114] (**Confirmed**). The library's [NOTABLE_INCIDENTS.md](/NOTABLE_INCIDENTS.md) calls them possibly the Russian GRU or an insider [55]; no primary opened supports the GRU part (**Reported**, and flagged in Part 10.5).
 
 ## Part 6: EternalBlue and WannaCry
 

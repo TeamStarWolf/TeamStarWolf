@@ -261,6 +261,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 30 January 2025: CISA finds an embedded backdoor in Contec CMS8000 patient-monitor firmware; FDA safety communication
   - 9 April 2025: Kettering Health: activity from 9 April and a system-wide outage from 20 May 2025; Kettering names Interlock
   - 17 May 2026: DentaQuest data accessed 17 to 20 May and later posted online; HHS records 15,000,000 people, the largest 2026 entry
+- [The Year 2023 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2023.md). Period record, January to December 2023. Sectors: cross-sector, government, technology, energy, healthcare, finance, telecommunications, education, manufacturing, defense, transport. CVEs: CVE-2017-6742, CVE-2019-18935, CVE-2020-1472, CVE-2021-44228, CVE-2022-31199, CVE-2022-42475 and 33 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0064 APT33 and 11 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2023_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2023_Case_Study.pptx).
+  - 18 January 2023: Zero-day CVE-2023-0669 used against GoAnywhere MFT from 18 to 30 January; Cl0p named for it in AA23-158A
+  - 26 January 2023: Hive infrastructure shut down by German, Dutch and US authorities with Europol; decryption tools given to victims
+  - 14 March 2023: Microsoft patches Outlook CVE-2023-23397, exploited against European government, transport, energy and military targets
+  - 30 March 2023: 3CX warns that its Electron Windows app in Update 7 has a security issue; CISA alert the same day
+  - 15 May 2023: Storm-0558 begins accessing email with forged tokens
+  - 24 May 2023: AA23-144A and Microsoft's report on Volt Typhoon
+  - 27 May 2023: MOVEit Transfer CVE-2023-34362 first exploited; Progress announces 31 May; KEV 2 Jun
+  - 26 July 2023: SEC adopts cyber incident disclosure rules
+  - 25 August 2023: FBI and partners take over QakBot's infrastructure; HTTP/2 Rapid Reset attacks begin at Cloudflare
+  - 12 September 2023: MGM Resorts announces a cybersecurity issue (8-K, 5 Oct)
+  - 10 October 2023: NetScaler fixes CVE-2023-4966 (Citrix Bleed); KEV lists Rapid Reset CVE-2023-44487
+  - 22 November 2023: CyberAv3ngers access Unitronics PLCs at US water facilities, 22 Nov 2023 to Jan 2024; AA23-335A on 1 Dec
 
 ### 2022 <!-- {docsify-ignore} -->
 

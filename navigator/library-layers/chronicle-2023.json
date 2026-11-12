@@ -1,0 +1,972 @@
+{
+  "name": "TeamStarWolf - The Year 2023 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2023 record supports: the CISA and partner advisories of the year (AA23-025A, AA23-061A, AA23-075A, AA23-129A, AA23-136A, AA23-144A, AA23-158A, AA23-165A, AA23-201A, AA23-213A, AA23-270A, AA23-284A, AA23-320A, AA23-325A, AA23-335A, AA23-341A, AA23-347A, AA23-352A, AA23-353A and others), Microsoft, Mandiant, Google and the victims' own reports, and the ATT&CK objects the study binds. Revoked ids printed by the advisories are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/CHRONICLE_2023.md. Scores: 100 an opened source or ATT&CK object prints the id, 70 the source describes the behavior and the study assigns the id, 40 Inferred (the Storm-0558 rows, whose sources list no ids).",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1589",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "AA23-341A table (Star Blizzard, 7 Dec) (basis: Source). Sources [81] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1590",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "AA23-347A table (SVR, 13 Dec) (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1590.004",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1592.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1593",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "AA23-341A table (basis: Source). Sources [81] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1598",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "AA23-353A table (ALPHV affiliates, 19 Dec) (basis: Source). Sources [85] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1598.004",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "AA23-320A table (help-desk impersonation, 16 Nov; live page revised 2025) (basis: Source). Sources [77] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA23-341A table (basis: Source). Sources [81] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1585.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA23-341A table (basis: Source). Sources [81] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1585.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA23-341A table (basis: Source). Sources [81] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1586",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA23-353A table (basis: Source). Sources [85] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1586.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA23-341A table (basis: Source). Sources [81] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1588.003",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA23-270A table (BlackTech, 27 Sep) (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA23-341A table; BianLian's valid RDP credentials (AA23-136A) and Okta's saved service account credential (Sep to Oct) as Behavior (basis: Source; Behavior). Sources [81][24][65] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA23-341A table; BianLian's valid RDP credentials (AA23-136A) and Okta's saved service account credential (Sep to Oct) as Behavior (basis: Source; Behavior). Sources [81][24][65] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA23-341A table; BianLian's valid RDP credentials (AA23-136A) and Okta's saved service account credential (Sep to Oct) as Behavior (basis: Source; Behavior). Sources [81][24][65] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA23-341A table; BianLian's valid RDP credentials (AA23-136A) and Okta's saved service account credential (Sep to Oct) as Behavior (basis: Source; Behavior). Sources [81][24][65] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA23-335A table (CyberAv3ngers, 1 Dec) (basis: Source). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA23-335A table (CyberAv3ngers, 1 Dec) (basis: Source). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA23-335A table (CyberAv3ngers, 1 Dec) (basis: Source). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA23-335A table (CyberAv3ngers, 1 Dec) (basis: Source). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "British Library Terminal Services server without MFA (Oct) (basis: Behavior). Sources [73] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "British Library Terminal Services server without MFA (Oct) (basis: Behavior). Sources [73] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATT&CK campaign C0057 (3CX) (basis: Source). Sources [132] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA23-144A, AA23-158A, AA23-213A and AA23-347A tables; behavior in Telerik (AA23-074A), GoAnywhere (Jan), ESXiArgs (Feb), PaperCut (Apr), Zyxel in Denmark (May), Barracuda ESG, Fortinet for Volt Typhoon, NetScaler (Jun, Oct), ColdFusion (Jun), ManageEngine and FortiOS (AA23-250A), Confluence and Cisco IOS XE (Oct) (basis: Source; Behavior). Sources [28][31][45][82][3][4][6][21][23][25][29][44][80][54][68][62][70] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATT&CK campaign C0057 (3CX, Mar); JumpCloud's downstream compromise of a US software company (Jul) as Behavior (basis: Source; Behavior). Sources [132][41] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA23-270A table (subsidiary routers to headquarters) (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA23-158A table; phishing to RMM installs (AA23-025A), Truebot (AA23-187A), the JumpCloud spear-phish (22 Jun) and Kimsuky's journalist personas (1 Jun) as Behavior (basis: Source; Behavior). Sources [31][1][40][42][92] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA23-341A table (basis: Source). Sources [81] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA23-341A table (basis: Source). Sources [81] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1566.003",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Midnight Blizzard's Teams chats from compromised tenants (2 Aug) (basis: Behavior). Sources [94] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1566.004",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA23-320A table (live page revised 2025) (basis: Source). Sources [77] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA23-144A and AA23-347A tables (basis: Source). Sources [28][82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA23-213A table (Ivanti EPMM, 1 Aug) (basis: Source). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA23-144A, AA23-158A and AA23-347A tables (basis: Source). Sources [28][31][82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA23-144A, AA23-158A and AA23-347A tables (basis: Source). Sources [28][31][82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1129",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA23-158A table (basis: Source). Sources [31] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Unauthorized Confluence administrator accounts (AA23-289A, Oct) (basis: Behavior). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1136.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Privileged local account on Cisco IOS XE (Oct) (basis: Behavior). Sources [62] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1505.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA23-144A, AA23-158A and AA23-213A tables; NetScaler web shell (AA23-201A) as Behavior (basis: Source; Behavior). Sources [28][31][45][44] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1542.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA23-270A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1542.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA23-270A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1543.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK campaign C0057 (basis: Source). Sources [132] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1543.004",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK campaign C0057 (basis: Source). Sources [132] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1546.011",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA23-158A table (basis: Source). Sources [31] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1546.011",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA23-158A table (basis: Source). Sources [31] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1547",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1547",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA23-158A and AA23-347A tables; Cisco CVE-2023-20273 to root as Behavior (basis: Source; Behavior). Sources [31][82][62] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA23-158A and AA23-347A tables (basis: Source). Sources [31][82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA23-158A and AA23-347A tables (basis: Source). Sources [31][82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1055.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK campaign C0057 (basis: Source). Sources [132] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1055.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "ATT&CK campaign C0057 (basis: Source). Sources [132] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1027.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA23-213A table (basis: Source). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA23-144A, AA23-158A and AA23-213A tables (basis: Source). Sources [28][31][45] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1564",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1564.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA23-158A and AA23-347A printed T1574.002, revoked into T1574.001; C0057 lists T1574.001 (basis: Source). Sources [31][82][132][134] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA23-158A and AA23-347A printed T1574.002, revoked into T1574.001; C0057 lists T1574.001 (basis: Source). Sources [31][82][132][134] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1620",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK campaign C0057 (basis: Source). Sources [132] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1218.015",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ATT&CK campaign C0057 (basis: Source). Sources [132] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1684.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA23-320A printed T1656, revoked into T1684.001 (live page revised 2025); ALPHV affiliates posing as IT staff (AA23-353A) and Kimsuky posing as journalists as Behavior (basis: Source; Behavior). Sources [77][85][92][134] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1205",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA23-270A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1205",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA23-270A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1205",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA23-270A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "AA23-270A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA23-270A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "AA23-270A table; ATT&CK campaign C0057 (basis: Source). Sources [60][132] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1553.006",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "AA23-270A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1556.004",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "AA23-270A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1556.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA23-270A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1556.004",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA23-270A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "AA23-325A table (Citrix Bleed, 21 Nov) (basis: Source). Sources [70] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA23-325A table (Citrix Bleed, 21 Nov) (basis: Source). Sources [70] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA23-325A table (Citrix Bleed, 21 Nov) (basis: Source). Sources [70] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1601.001",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "AA23-270A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1601.002",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "AA23-270A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "AA23-347A printed T1562.001; AA23-270A printed T1562, T1562.001 and T1562.006; all revoked into T1685 (basis: Source). Sources [82][60][134] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1685.005",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "AA23-144A printed T1070.001, revoked into T1685.005 (basis: Source). Sources [28][134] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1688",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "AA23-263A printed T1562.009, revoked into T1688 (Snatch, 20 Sep) (basis: Source). Sources [59][134] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1690",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "AA23-270A printed T1562.003, revoked into T1690 (basis: Source). Sources [60][134] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA23-144A table (basis: Source). Sources [28] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1003.002",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1003.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA23-144A table (basis: Source). Sources [28] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA23-144A and AA23-335A tables (basis: Source). Sources [28][79] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA23-144A table; Peach Sandstorm (Feb to Jul) and Midnight Blizzard against Microsoft (late Nov) as Behavior (basis: Source; Behavior). Sources [28][95][86] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1110.004",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "23andMe, about 14,000 accounts (Oct) (basis: Behavior). Sources [66] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1539",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA23-341A and AA23-325A tables; the CircleCI SSO session cookie (Dec 2022) as Behavior (basis: Source; Behavior). Sources [81][70][102] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1555",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA23-144A and AA23-353A tables (basis: Source). Sources [28][85] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1555.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA23-353A table (basis: Source). Sources [85] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA23-353A table (basis: Source). Sources [85] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1558",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA23-353A table (basis: Source). Sources [85] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1558.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1606",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Storm-0558 forged tokens with an acquired MSA signing key (from 15 May) (basis: Inferred). Sources [36][39] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1621",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA23-320A table (MFA fatigue in the 2023 original); Midnight Blizzard's authenticator prompts over Teams (2 Aug) as Behavior (basis: Source; Behavior). Sources [77][94] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA23-144A table (basis: Source). Sources [28] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA23-158A and AA23-213A tables (basis: Source). Sources [31][45] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1033",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA23-144A and AA23-347A tables (basis: Source). Sources [28][82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1069.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA23-144A table (basis: Source). Sources [28] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1069.002",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA23-144A table (basis: Source). Sources [28] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA23-144A and AA23-325A tables (basis: Source). Sources [28][70] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1087.002",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA23-213A table (basis: Source). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA23-270A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA23-158A table (basis: Source). Sources [31] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1021.004",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA23-270A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1550.001",
+      "tactic": "lateral-movement",
+      "score": 40,
+      "comment": "Storm-0558's forged tokens replayed against mail (basis: Inferred). Sources [36] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1550.004",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA23-341A table; HAR session tokens used to hijack five Okta customers' sessions as Behavior (basis: Source; Behavior). Sources [81][65] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1563",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA23-325A table (basis: Source). Sources [70] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1563.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA23-158A table (basis: Source). Sources [31] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA23-213A table (basis: Source). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA23-158A table (basis: Source). Sources [31] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA23-341A table; Storm-0558's mail access as Inferred (basis: Source; Inferred). Sources [81][36] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1114.003",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA23-341A table (basis: Source). Sources [81] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "LastPass cloud backups taken (2022, disclosed 1 Mar) (basis: Behavior). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1071",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA23-158A table (basis: Source). Sources [31] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1071.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA23-270A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA23-144A, AA23-213A and AA23-270A tables; Storm-0558's Tor and SOCKS5 proxies as Inferred (basis: Source; Inferred). Sources [28][45][60][36] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1090.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA23-213A table (basis: Source). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1090.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA23-144A and AA23-270A tables; Volt Typhoon's SOHO devices (Microsoft) as Behavior (basis: Source; Behavior). Sources [28][60][29] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1102.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK campaign C0057 (basis: Source). Sources [132] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA23-158A table (basis: Source). Sources [31] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA23-320A table (live page revised 2025); ScreenConnect and AnyDesk in the refund scam (AA23-025A) as Behavior (basis: Source; Behavior). Sources [77][1] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1568",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA23-213A and AA23-347A tables (basis: Source). Sources [45][82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1020",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "AA23-158A and AA23-347A tables (basis: Source). Sources [31][82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1567",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "AA23-347A table (basis: Source). Sources [82] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "ESXiArgs, Royal, LockBit 3.0, AvosLocker, Rhysida, Play and the DISH ransomware attack (basis: Behavior). Sources [6][11][13][71][76][84][9] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1491.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA23-335A table (basis: Source). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA23-335A table (basis: Source). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1499.002",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Storm-1359's layer 7 DDoS (Jun) and HTTP/2 Rapid Reset (from 25 Aug) (basis: Behavior). Sources [33][48][49] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1531",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA23-335A table (basis: Source). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1565.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA23-335A table (basis: Source). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "The refund scam (AA23-025A) and the Horizon bridge theft (FBI, 23 Jan) (basis: Behavior). Sources [1][5] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e2e8f0",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred, the study's reading of a source that lists no ids",
+      "color": "#e2e8f0"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: an opened source or ATT&CK object prints the id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2023.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "123"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "148"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2023 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2023.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

@@ -918,6 +918,32 @@ studies:
       - {"date": "2026-10-24", "label": "Sansec ties the deepveindrilling CMS-block loader campaign to earlier PolyShell uploads"}
       - {"date": "2026-10-27", "label": "CISA adds CVE-2026-48356 to KEV, due 10 November"}
       - {"date": "2026-11-04", "label": "TeamStarWolf lab run on Magento Open Source 2.4.8-p5"}
+  case-studies/MANDIANT_INTRUSION_2020.md:
+    kind: "incident"
+    title: "The FireEye Mandiant Intrusion of 2020: The Public Record"
+    start: "2019"
+    end: "2024-10"
+    core_start: "2020-11"
+    core_end: "2022-09"
+    sectors: ["technology", "government"]
+    cves: ["CVE-2018-8581", "CVE-2018-13379", "CVE-2019-9670", "CVE-2019-11510", "CVE-2019-19781", "CVE-2020-4006", "CVE-2011-0609", "CVE-2020-1472", "CVE-2018-15961", "CVE-2019-0604", "CVE-2019-0708", "CVE-2019-11580", "CVE-2020-10189", "CVE-2014-1812", "CVE-2019-3398", "CVE-2020-0688", "CVE-2016-0167", "CVE-2017-11774", "CVE-2019-8394"]
+    actors: ["G0016"]
+    tags: ["FireEye", "Mandiant", "red team tools", "SUNBURST", "MFA device registration", "Golden SAML", "APT29"]
+    pdf: "FireEye_Mandiant_Intrusion_2020_Case_Study.pdf"
+    pptx: "FireEye_Mandiant_Intrusion_2020_Case_Study.pptx"
+    events:
+      - {"date": "2020-11", "label": "FireEye's alert: an employee's account registered a second phone for two-factor codes"}
+      - {"date": "2020-12-03", "label": "FireEye's red_team_tool_countermeasures repository is created on GitHub, five days before disclosure"}
+      - {"date": "2020-12-08", "label": "Form 8-K and two blog posts disclose the attack and the Red Team tool theft; 311 rules and 16 CVEs published"}
+      - {"date": "2020-12-12", "label": "FireEye tells SolarWinds that Orion is compromised"}
+      - {"date": "2020-12-13", "label": "FireEye publishes the SUNBURST report (UNC2452); CISA issues Emergency Directive 21-01"}
+      - {"date": "2020-12-30", "label": "Final countermeasures table: 324 rules across 61 tool families"}
+      - {"date": "2021-01-05", "label": "FBI, CISA, ODNI and NSA call the actor likely Russian in origin"}
+      - {"date": "2021-02-23", "label": "Mandia testifies to the Senate Select Committee on Intelligence"}
+      - {"date": "2021-04-15", "label": "White House names the SVR with high confidence; Treasury sanctions; UK NCSC statement"}
+      - {"date": "2021-10-04", "label": "FireEye, Inc. becomes Mandiant, Inc.; the products business sale closes on 8 October"}
+      - {"date": "2022-04-27", "label": "Mandiant merges UNC2452 into APT29"}
+      - {"date": "2022-09-12", "label": "Google completes its acquisition of Mandiant"}
   case-studies/MITNICK_INTRUSIONS.md:
     kind: "actor"
     title: "Kevin Mitnick: Ghost in the Wires and The Art of Intrusion"

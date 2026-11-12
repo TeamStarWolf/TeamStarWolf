@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 90 min (20,813 words at 230 words a minute)
+About 91 min (20,835 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -627,7 +627,7 @@ Two series dominate, and they measure different things (Inferred from [96][106])
 
 FinCEN's figures come from financial institutions' reports and include attempted transactions; for 2022 to 2024 it counts 7,395 reports on 4,194 incidents and more than $2.1 billion, against about $2.4 billion for 2013 to 2021 (Confirmed [96]). Chainalysis counts what it can attribute on chain, and its totals rise as more payments are attributed: its 2024 figure went from $813.55 million to $892 million in a year (Reported [105][106]; Inferred for the pattern). Compare a first estimate with a first estimate, and cite the report date with every figure (Inferred from [104][105][106]).
 
-FinCEN's variant table for 2022 to 2024 ranks Akira first by incidents (376, about $120.9 million), with ALPHV (353, about $395.3 million), LockBit (353, about $252.4 million), Black Basta (171, about $137.7 million) and BianLian (119, about $39.3 million) following. By amount paid, the top industries were financial services (about $365.6 million), health care (about $305.4 million) and manufacturing (about $284.6 million) (Confirmed [96]).
+FinCEN's variant table for 2022 to 2024 ranks ten variants by incidents: Akira first (376, about $120.9 million), then ALPHV/BlackCat (353, about $395.3 million), LockBit (353, about $252.4 million), Phobos (202, about $13.3 million), Black Basta (171, about $137.7 million), Medusa (120, about $23.5 million) and BianLian (119, about $39.3 million), followed by Royal, BlackSuit and Hive. By amount paid, the top industries were financial services (about $365.6 million), health care (about $305.4 million) and manufacturing (about $284.6 million) (Confirmed [96]).
 
 ### Who pays, and how much
 
@@ -716,7 +716,7 @@ This Part binds the verified record to MITRE ATT&CK v20.0, CAPEC, CWE and D3FEND
 | [T1204.004](/mitre/techniques/T1204-004.md) | Malicious Copy and Paste | Execution | Interlock ClickFix-style lures (AA25-203A) | [28] | Confirmed (printed) |
 | [T1547.001](/mitre/techniques/T1547-001.md) | Registry Run Keys / Startup Folder | Persistence, Privilege Escalation | AA20-302A, printed as "T1047.001" with a link to T1547.001 | [1] | Confirmed (printed) |
 | [T1098](/mitre/techniques/T1098.md) | Account Manipulation | Persistence, Privilege Escalation | Daixin (AA22-294A); Gunra's rogue FortiOS super-user (AA26-222A) | [8][29] | Confirmed (printed in [8]) |
-| [T1505.003](/mitre/techniques/T1505-003.md) | Web Shell | Persistence | LEMURLOOT on MOVEit servers (from 27 May 2023) | [14] | Inferred (assigned) |
+| [T1505.003](/mitre/techniques/T1505-003.md) | Web Shell | Persistence | LEMURLOOT on MOVEit servers (from 27 May 2023) | [14] | Confirmed (printed in [14]) |
 | [T1068](/mitre/techniques/T1068.md) | Exploitation for Privilege Escalation | Privilege Escalation | Black Basta (AA24-131A) | [24] | Confirmed (printed) |
 | [T1055](/mitre/techniques/T1055.md) | Process Injection | Stealth, Privilege Escalation | AA20-302A | [1] | Confirmed (printed) |
 | [T1134](/mitre/techniques/T1134.md) | Access Token Manipulation | Stealth, Privilege Escalation | AA20-302A | [1] | Confirmed (printed) |
@@ -743,7 +743,7 @@ This Part binds the verified record to MITRE ATT&CK v20.0, CAPEC, CWE and D3FEND
 | [T1560.001](/mitre/techniques/T1560-001.md) | Archive via Utility | Collection | SafePay archives with 7-Zip and WinRAR before exfiltration (AA26-293A) | [30] | Confirmed (printed in [30]) |
 | [T1530](/mitre/techniques/T1530.md) | Data from Cloud Storage | Collection | Scattered Spider bulk pulls from Snowflake (2025 update); Gunra from OneDrive (2026) | [17][29] | Confirmed (printed in [17][29]) |
 | [T1213.002](/mitre/techniques/T1213-002.md) | Sharepoint | Collection | Gunra pulled data from SharePoint (AA26-222A) | [29] | Inferred (assigned) |
-| [T1219](/mitre/techniques/T1219.md) | Remote Access Tools | Command and Control | AnyDesk and Quick Assist (Black Basta); RMM products (Medusa); legitimate remote-management tools at Dallas (2023); recurring across advisories | [24][27][85] | Inferred (assigned) |
+| [T1219](/mitre/techniques/T1219.md) | Remote Access Tools | Command and Control | AnyDesk and Quick Assist (Black Basta); RMM products (Medusa); legitimate remote-management tools at Dallas (2023); recurring across advisories | [24][27][85] | Confirmed (printed in [27]) |
 | [T1567](/mitre/techniques/T1567.md) | Exfiltration Over Web Service | Exfiltration | Daixin (AA22-294A) | [8] | Confirmed (printed) |
 | [T1567.002](/mitre/techniques/T1567-002.md) | Exfiltration to Cloud Storage | Exfiltration | RClone to Mega (Gunra) and to OneDrive or Backblaze (SafePay); RClone by Black Basta | [29][30][24] | Inferred (assigned) |
 | [T1486](/mitre/techniques/T1486.md) | Data Encrypted for Impact | Impact | AA20-302A; Maui (AA22-187A); Daixin; Black Basta; every encrypting advisory in this study | [1][6][8][24] | Confirmed (printed) |

@@ -158,8 +158,8 @@
     {
       "techniqueID": "T1505.003",
       "tactic": "persistence",
-      "score": 70,
-      "comment": "LEMURLOOT on MOVEit servers (from 27 May 2023) (basis: Behavior). Sources [14] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+      "score": 100,
+      "comment": "LEMURLOOT on MOVEit servers (from 27 May 2023) (basis: Source). Sources [14] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
     },
     {
       "techniqueID": "T1068",
@@ -350,8 +350,8 @@
     {
       "techniqueID": "T1219",
       "tactic": "command-and-control",
-      "score": 70,
-      "comment": "AnyDesk and Quick Assist (Black Basta); RMM products (Medusa); legitimate remote-management tools at Dallas (2023); recurring across advisories (basis: Behavior). Sources [24][27][85] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+      "score": 100,
+      "comment": "AnyDesk and Quick Assist (Black Basta); RMM products (Medusa); legitimate remote-management tools at Dallas (2023); recurring across advisories (basis: Source). Sources [24][27][85] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
     },
     {
       "techniqueID": "T1567",

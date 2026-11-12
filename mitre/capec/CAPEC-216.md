@@ -44,6 +44,7 @@ Hand-written pages in this library that link to this page or to this object's en
 
 - [Iran-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_IRAN.md)
 - [The Year 2022 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2022.md)
+- [The Year 2023 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2023.md)
 
 <!-- library-refs:end -->
 

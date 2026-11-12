@@ -1,0 +1,164 @@
+{
+  "name": "TeamStarWolf - The Year 2023 in Intrusions (ICS)",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "ics-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK for ICS techniques from the 2023 record: the ids ATT&CK's G1027 page prints for the CyberAv3ngers Unitronics activity of November 2023 (campaign C0031), and the ids Mandiant's 9 November 2023 report on Sandworm's attack on a Ukrainian substation prints. Revoked ids are shown under their v20.0 successors. Each comment names source numbers from case-studies/CHRONICLE_2023.md. Scores: 100 an opened source or ATT&CK object prints the id.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T0883",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATT&CK G1027 page, Unitronics activity (campaign C0031, Nov 2023) (basis: Source). Sources [131] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1694.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "ATT&CK G1027 page, the Unitronics default password (basis: Source). Sources [131] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1694.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "ATT&CK G1027 page, the Unitronics default password (basis: Source). Sources [131] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T0814",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "ATT&CK G1027 page, Unitronics activity (basis: Source). Sources [131] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T0826",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK G1027 page, Unitronics activity (basis: Source). Sources [131] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T0828",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK G1027 page, Unitronics activity (basis: Source). Sources [131] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T0829",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK G1027 page, Unitronics activity (basis: Source). Sources [131] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T0847",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Mandiant's Sandworm OT report (published 9 Nov 2023, event Oct 2022) (basis: Source). Sources [75] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T0871",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Mandiant's Sandworm OT report (basis: Source). Sources [75] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T0872",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "Mandiant's Sandworm OT report (basis: Source). Sources [75] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1692.001",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "Mandiant printed T0855 Unauthorized Command Message, revoked into T1692.001 (basis: Source). Sources [75][134] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T1692.001",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "Mandiant printed T0855 Unauthorized Command Message, revoked into T1692.001 (basis: Source). Sources [75][134] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T0809",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "Mandiant's Sandworm OT report (basis: Source). Sources [75] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    },
+    {
+      "techniqueID": "T0831",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Mandiant's Sandworm OT report (basis: Source). Sources [75] refer to the Sources table of case-studies/CHRONICLE_2023.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e2e8f0",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred, the study's reading of a source that lists no ids",
+      "color": "#e2e8f0"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: an opened source or ATT&CK object prints the id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2023.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "12"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "14"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/ics/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/ics/technique_profiles.jsonl"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2023 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2023.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

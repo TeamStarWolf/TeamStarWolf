@@ -39,6 +39,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md)
 - [The FireEye Mandiant Intrusion of 2020: The Public Record](/case-studies/MANDIANT_INTRUSION_2020.md)
 - [The Year 2022 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2022.md)
+- [The Year 2023 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2023.md)
 
 <!-- library-refs:end -->
 

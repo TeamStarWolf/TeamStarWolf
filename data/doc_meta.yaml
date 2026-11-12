@@ -2413,6 +2413,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the year at a glance](#part-1-the-year-at-a-glance), [Part 14: the defender view](#part-14-the-defender-view)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [The SharePoint ToolShell Mass Exploitation: A 2025 Case Study](/case-studies/SHAREPOINT_TOOLSHELL_2025.md), [The Year 2024 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2024.md)"
     reviewed: null
+  case-studies/CHRONICLE_2026.md:
+    audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
+    level: "Intermediate"
+    read_when: "You want a dated record of the major intrusions of 2026 so far, you need the supply-chain chain from Trivy to LiteLLM and axios, the edge-device zero-days, the PLC and refrigeration attacks and the year's joint advisories side by side, or you want the defender lessons that apply now"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the year at a glance](#part-1-the-year-at-a-glance), [Part 15: the defender view](#part-15-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [AI Threats in the Cybersecurity Industry: A 2026 Case Study](/case-studies/AI_THREATS_2026.md), [The Year 2025 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2025.md)"
+    reviewed: null
   case-studies/CL0P_FILE_TRANSFER_2023.md:
     audience: "Vulnerability management leads, incident responders and owners of managed file transfer systems"
     level: "Intermediate"

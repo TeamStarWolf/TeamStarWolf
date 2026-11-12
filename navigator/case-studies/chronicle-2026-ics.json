@@ -1,0 +1,200 @@
+{
+  "name": "TeamStarWolf - The Year 2026 in Intrusions (ICS)",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "ics-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK for ICS techniques from the 2026 record: the ids AA26-097A (Iranian-affiliated PLC activity) and AA26-231A (Siemens S7 activity) print, and the behaviors in CERT Polska's account of the Polish energy attack (through CISA), CISA's water-sector alert, Darktrace's ZionSiphon analysis and France's and CERT-FR's account of the retail refrigeration attacks. T1693.001 is the v20 successor of the revoked T0857. Each comment names source numbers from case-studies/CHRONICLE_2026.md. Scores: 100 an opened source prints the id, 70 the source describes the behavior and the study assigns the id, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T0822",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Compromised remote control of retail refrigeration (ENISA CNW-2026-05) (basis: Inferred). Sources [150] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T0883",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA26-097A (7 Apr) (basis: Source). Sources [25] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T0821",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA26-231A (19 Aug) (basis: Source). Sources [70] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T0834",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA26-231A (basis: Source). Sources [70] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T0889",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "Modified PLC project files (AA26-097A) (basis: Inferred). Sources [25] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1693.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Corrupted firmware in the Polish energy attack (CERT Polska, via CISA) (basis: Behavior). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1693.001",
+      "tactic": "inhibit-response-function",
+      "score": 70,
+      "comment": "Corrupted firmware in the Polish energy attack (CERT Polska, via CISA) (basis: Behavior). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1693.001",
+      "tactic": "impair-process-control",
+      "score": 70,
+      "comment": "Corrupted firmware in the Polish energy attack (CERT Polska, via CISA) (basis: Behavior). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1694",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA26-231A (basis: Source). Sources [70] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T1694",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA26-231A (basis: Source). Sources [70] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T0893",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA26-231A (basis: Source). Sources [70] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T0885",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA26-097A (basis: Source). Sources [25] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T0813",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "Water operators locked out of PLCs and moved to manual operation (CISA, 30 Jul) (basis: Inferred). Sources [63] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T0828",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Food losses of tens of millions of euros from the French refrigeration attacks (basis: Behavior). Sources [159] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T0832",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "HMI and SCADA display manipulation (AA26-097A) (basis: Behavior). Sources [25] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T0879",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Damaged RTUs in Poland (CERT Polska); material damage and fires at French retail sites (France, CERT-FR) (basis: Behavior). Sources [1][159][160] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T0849",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "AA26-231A (basis: Source). Sources [70] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T0809",
+      "tactic": "inhibit-response-function",
+      "score": 70,
+      "comment": "Destroyed HMI data in the Polish energy attack (basis: Behavior). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T0892",
+      "tactic": "inhibit-response-function",
+      "score": 70,
+      "comment": "Operators locked out by PLC password changes (CISA, 30 Jul) (basis: Behavior). Sources [63] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    },
+    {
+      "techniqueID": "T0836",
+      "tactic": "impair-process-control",
+      "score": 70,
+      "comment": "ZionSiphon's sabotage logic for chlorine and pressure (Darktrace, Apr) (basis: Behavior). Sources [27] refer to the Sources table of case-studies/CHRONICLE_2026.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e2e8f0",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred, the study's reading of a source that lists no ids",
+      "color": "#e2e8f0"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: an opened source or ATT&CK object prints the id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2026.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "17"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "20"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/ics/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/ics/technique_profiles.jsonl"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2026 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2026.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

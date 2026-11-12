@@ -72,6 +72,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md)
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)
 - [The Year 2021 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2021.md)
+- [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)
 - [Thirty Days of Exposure Checks: Version and Configuration Evidence from the Lab](/case-studies/EXPOSURE_CHECKS_2026_11.md)
 
 <!-- library-refs:end -->

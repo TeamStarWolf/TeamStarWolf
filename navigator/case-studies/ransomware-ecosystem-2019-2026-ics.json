@@ -1,0 +1,93 @@
+{
+  "name": "TeamStarWolf - The Ransomware Ecosystem, 2019 to 2026 (ICS)",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "ics-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK for ICS techniques for ransomware on IT networks that stopped operations: Colonial Pipeline's precautionary shutdown (May 2021) and the water and wastewater incidents in CISA AA21-287A. Scores: 70 the source describes the behavior and the study assigns the id.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T0828",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Colonial Pipeline halted pipeline operations as a precaution after ransomware on its IT network, 7 May 2021 (basis: Behavior). Sources [71][62] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T0826",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Ransomware encrypted SCADA servers at California (Aug 2021) and Nevada (Mar 2021) water systems (basis: Behavior). Sources [3] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T0822",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "ZuCaNo reached a Maine wastewater SCADA computer through remote access (Jul 2021) (basis: Behavior). Sources [3] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 70,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: the opened source prints the ATT&CK id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/RANSOMWARE_ECOSYSTEM.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "3"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "3"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/ics/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/ics/technique_profiles.jsonl"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Ransomware Ecosystem: The Public Record, 2019 to 2026",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/RANSOMWARE_ECOSYSTEM.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

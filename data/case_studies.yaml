@@ -1081,6 +1081,30 @@ studies:
       - {"date": "2019-07-19", "label": "Related flaw CVE-2019-12815 published"}
       - {"date": "2026-10-08", "label": "CISA adds CVE-2015-3306 to KEV; joint advisory AA26-281A lists it"}
       - {"date": "2026-11-04", "label": "Lab run: the vulnerable build copies a file without login; the fixed build refuses"}
+  case-studies/RANSOMWARE_ECOSYSTEM.md:
+    kind: "era"
+    title: "The Ransomware Ecosystem: The Public Record, 2019 to 2026"
+    start: "2019-05"
+    end: "2026-11"
+    sectors: ["cross-sector", "healthcare", "government", "education", "energy", "manufacturing", "retail", "finance", "transport"]
+    cves: ["CVE-2018-13379", "CVE-2021-30116", "CVE-2019-19781", "CVE-2023-0669", "CVE-2023-34362", "CVE-2023-4966", "CVE-2023-46805", "CVE-2024-21887", "CVE-2024-37085", "CVE-2025-61882", "CVE-2026-0257", "CVE-2024-1709", "CVE-2020-3259", "CVE-2023-20269", "CVE-2024-40766", "CVE-2023-27532", "CVE-2024-40711", "CVE-2021-21974", "CVE-2020-12812", "CVE-2021-34473", "CVE-2022-41040", "CVE-2023-3519", "CVE-2023-27997", "CVE-2024-55591", "CVE-2025-24472", "CVE-2024-57727", "CVE-2025-0282", "CVE-2017-0144", "CVE-2020-1472", "CVE-2010-2861", "CVE-2009-3960", "CVE-2019-0604"]
+    actors: ["G0102", "G0092", "G0115", "G0119", "G1015", "G1024", "G1032", "G1040", "G1046", "G1050", "G1051"]
+    tags: ["ransomware", "ransomware-as-a-service", "extortion", "LockBit", "Conti", "ALPHV", "Akira", "KEV", "sanctions"]
+    pdf: "Ransomware_Ecosystem_2019_2026_Case_Study.pdf"
+    pptx: "Ransomware_Ecosystem_2019_2026_Case_Study.pptx"
+    events:
+      - {"date": "2019-05", "label": "Maze discovered; its operators steal data before encrypting and post it online"}
+      - {"date": "2020-10-28", "label": "CISA, FBI and HHS warn that TrickBot and BazarLoader against hospitals lead to Ryuk and Conti (AA20-302A)"}
+      - {"date": "2021-05-07", "label": "Colonial Pipeline halts operations after a ransom note on its IT network; about 75 bitcoin paid"}
+      - {"date": "2021-07-02", "label": "Kaseya VSA attack, later charged as REvil; 800 to 1,500 downstream businesses compromised"}
+      - {"date": "2022-02-09", "label": "9 to 10 Feb: five agencies describe the professional ransomware-as-a-service market of 2021 (AA22-040A)"}
+      - {"date": "2023-01-26", "label": "Justice Department announces the Hive disruption after the FBI ran inside its network from July 2022"}
+      - {"date": "2023-05-27", "label": "CL0P begins exploiting MOVEit Transfer CVE-2023-34362"}
+      - {"date": "2024-02-20", "label": "Operation Cronos: the NCA takes control of LockBit's admin environment and leak site"}
+      - {"date": "2024-05-07", "label": "LockBitSupp unmasked as Dmitry Khoroshev and sanctioned by the US, UK and Australia"}
+      - {"date": "2025-08", "label": "Jaguar Land Rover incident, rated Category 3 at an estimated 1.9 billion pounds"}
+      - {"date": "2026-07-16", "label": "Thalha Jubair and Owen Flowers, called leading Scattered Spider members by the NCA, each sentenced to five years six months"}
+      - {"date": "2026-11-10", "label": "KEV catalog version 2026.11.10: 361 of 1,779 entries flagged for known ransomware use"}
   case-studies/SANDWORM_OPERATIONS.md:
     kind: "actor"
     title: "Sandworm: The Operations in the Public Record"

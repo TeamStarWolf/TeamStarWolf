@@ -70,7 +70,7 @@ Evidence grade: advisories, indictments (as allegations), sanctions, regulator f
 | Field | Value |
 |---|---|
 | Period | 1 January to 31 December 2018, plus the earlier conduct that 2018 charges and disclosures describe (2010 to 2017) and the later records, from 2019 to 2026, that close 2018 events |
-| Processor flaws | CVE-2017-5753, CVE-2017-5715 and CVE-2017-5754 (Spectre variants 1 and 2, Meltdown), disclosed 3 January 2018 after notice to Intel, AMD and ARM on 1 June 2017; CVE-2017-5753 and CVE-2017-5754 are not in KEV [1][2][86] |
+| Processor flaws | CVE-2017-5753, CVE-2017-5715 and CVE-2017-5754 (Spectre variants 1 and 2, Meltdown), disclosed 3 January 2018 after notice to Intel, AMD and ARM on 1 June 2017; none of the three (CVE-2017-5753, CVE-2017-5715, CVE-2017-5754) is in KEV [1][2][86] |
 | Destructive attack of the year | Olympic Destroyer at the PyeongChang opening ceremony, 9 February 2018: destructive only, no exfiltration, recovery within about 12 hours; charged to GRU officers in October 2020 [5][6] |
 | DDoS of the year | GitHub, 28 February 2018: 1.35 Tbps and 126.9 million packets per second of memcached reflection; full outage 17:21 to 17:26 UTC [9] |
 | Device botnet | VPNFilter: at least 500,000 SOHO routers and NAS devices in at least 54 countries (Talos estimate); C2 domain seized 23 May 2018 [22][23] |
@@ -163,7 +163,7 @@ One row per event or report. The date is the event date where the source gives o
 | 2018-05-04 | NVD publishes CVE-2018-10561, Dasan GPON authentication bypass (CWE-287), in KEV; sibling CVE-2018-10562 in KEV with known ransomware use | Vulnerability | Confirmed | [93] |
 | 2018-05-08 and 2018-05-17 | VPNFilter infection spikes in Ukraine (Talos) | State, network | Confirmed | [22] |
 | 2018-05-09 | Microsoft fixes CVE-2018-8174 (VBScript engine, CWE-787) and CVE-2018-8120 (Win32k, CWE-404); both in KEV with known ransomware use | Vulnerability | Confirmed | [94][86] |
-| 2018-05-23 | Talos publishes VPNFilter: at least 500,000 devices in at least 54 countries, Modbus sniffing, a kill command, BlackEnergy overlap "not definitive". DOJ obtains orders for the FBI to seize a C2 domain and names the Sofacy Group (APT28). Home study: [Sandworm](/case-studies/SANDWORM_OPERATIONS.md) | State, network | Confirmed | [22][23] |
+| 2018-05-23 | Talos publishes VPNFilter: at least 500,000 devices in at least 54 countries, Modbus sniffing, a kill command, BlackEnergy overlap that Talos says "isn't definitive by any means". DOJ obtains orders for the FBI to seize a C2 domain and names the Sofacy Group (APT28). Home study: [Sandworm](/case-studies/SANDWORM_OPERATIONS.md) | State, network | Confirmed | [22][23] |
 | 2018-05-25 | TA18-145A and FBI PSA I-052518-PSA tell owners to reboot SOHO routers and NAS devices | Network | Confirmed | [69][68] |
 | 2018-05-29 | TA18-149A on HIDDEN COBRA's Joanap backdoor and Brambul SMB worm; 87 compromised Joanap nodes identified | State | Confirmed | [24] |
 | 2018-06-04 | MyHeritage: a researcher found email addresses and hashed passwords of 92,283,889 users who signed up through 26 Oct 2017 on a private outside server | Data breach | Confirmed | [25] |
@@ -258,7 +258,7 @@ On 5 April Talos warned that advanced actors, some believed to be linked to nati
 
 ### VPNFilter (summary; home: [Sandworm](/case-studies/SANDWORM_OPERATIONS.md))
 
-Talos estimated on 23 May that VPNFilter had infected at least 500,000 Linksys, MikroTik, NETGEAR, TP-Link and QNAP devices in at least 54 countries. Stage 1 survives reboot, some stage 2 versions carry a kill command that destroys the device, and a stage 3 sniffer steals website credentials and monitors Modbus traffic (Confirmed [22]). Infections in Ukraine spiked on 8 and 17 May, and Talos called the code overlap with BlackEnergy "not definitive" (Confirmed [22]). Talos had no definitive proof of the exploitation vector, though every affected model had well-known public vulnerabilities (Confirmed [22]). The same day DOJ obtained court orders for the FBI to seize a C2 domain, so the persistent stage 1 would call an FBI server that logs victim addresses for Shadowserver to pass to CERTs and ISPs; DOJ named the controller the Sofacy Group, with aliases including apt28 and sandworm (Confirmed [23]). TA18-145A and the FBI's PSA told owners to reboot (Confirmed [69][68]).
+Talos estimated on 23 May that VPNFilter had infected at least 500,000 Linksys, MikroTik, NETGEAR, TP-Link and QNAP devices in at least 54 countries. Stage 1 survives reboot, some stage 2 versions carry a kill command that destroys the device, and a stage 3 sniffer steals website credentials and monitors Modbus traffic (Confirmed [22]). Infections in Ukraine spiked on 8 and 17 May, and Talos said of the code overlap with BlackEnergy that it "isn't definitive by any means" (Confirmed [22]). Talos had no definitive proof of the exploitation vector, though every affected model had well-known public vulnerabilities (Confirmed [22]). The same day DOJ obtained court orders for the FBI to seize a C2 domain, so the persistent stage 1 would call an FBI server that logs victim addresses for Shadowserver to pass to CERTs and ISPs; DOJ named the controller the Sofacy Group, with aliases including apt28 and sandworm (Confirmed [23]). TA18-145A and the FBI's PSA told owners to reboot (Confirmed [69][68]).
 
 The attribution differs by source. DOJ in May named the Sofacy Group with a mixed alias list; the UK on 4 October dates VPNFilter's infections to October 2017 and lists it among the activities its lead sentence says the GRU is almost certainly responsible for, though the VPNFilter entry itself carries no separate NCSC assessment and points to the April joint alert on "Russian state-sponsored actors"; ATT&CK lists S1010 under Sandworm Team (G0034) through Cyclops Blink reporting rather than direct attribution (Confirmed [23][16][108]). This study states each with its source (Inferred).
 
@@ -366,7 +366,7 @@ TSMC is the counterexample. Its 5 August release reports a computer virus outbre
 
 ### Spectre and Meltdown
 
-Project Zero disclosed variant 1 (CVE-2017-5753), variant 2 (CVE-2017-5715) and variant 3 (CVE-2017-5754, Meltdown), reported to Intel, AMD and ARM on 1 June 2017 (Confirmed [1]). NVD published them on 4 January 2018, and the researchers' site says they do not know whether they were abused (Confirmed [2]). AWS's bulletin AWS-2018-013 covers all three, and EC2 Amazon Linux instances launched on or after 13 January include the patched kernel (Confirmed [3]). CVE-2017-5753 and CVE-2017-5754 are not in KEV (Confirmed [86]). They are a class of hardware design flaw, not a 2018 intrusion (Inferred).
+Project Zero disclosed variant 1 (CVE-2017-5753), variant 2 (CVE-2017-5715) and variant 3 (CVE-2017-5754, Meltdown), reported to Intel, AMD and ARM on 1 June 2017 (Confirmed [1]). NVD published them on 4 January 2018, and the researchers' site says they do not know whether they were abused (Confirmed [2]). AWS's bulletin AWS-2018-013 covers all three, and EC2 Amazon Linux instances launched on or after 13 January include the patched kernel (Confirmed [3]). None of the three (CVE-2017-5753, CVE-2017-5715, CVE-2017-5754) is in KEV (Confirmed [86]). They are a class of hardware design flaw, not a 2018 intrusion (Inferred).
 
 ### The CVEs that defined the year
 
@@ -383,7 +383,7 @@ Project Zero disclosed variant 1 (CVE-2017-5753), variant 2 (CVE-2017-5715) and 
 | CVE-2018-8174 | Windows VBScript engine RCE | 2018-05-09 | CWE-787 (NVD); CVSS 7.5 | Yes, since 2022-02-15, known ransomware use | [94][86] |
 | CVE-2018-8120 | Win32k elevation of privilege | 2018-05-09 | CWE-404 (NVD) | Yes, known ransomware use | [94][86] |
 | CVE-2018-0296 | Cisco ASA web interface path traversal and DoS | 2018-06-07 | CWE-20, CWE-22 (NVD) | Yes | [95] |
-| CVE-2018-7602 | Drupal core follow-on RCE | 2018-07-19 | CWE-94 (NVD) | Yes, known ransomware use | [15] |
+| CVE-2018-7602 | Drupal core follow-on RCE | 2018-07-19 | NVD-CWE-noinfo (NVD), CWE-94 (CNA) | Yes, since 2022-04-13, known ransomware use | [123][86] |
 | CVE-2018-14847 | MikroTik RouterOS directory traversal | 2018-08-02 | CWE-22 (NVD) | Yes | [96] |
 | CVE-2018-11776 | Apache Struts namespace RCE | 2018-08-22 | NVD-CWE-noinfo (NVD), CWE-20 (KEV); CVSS 8.1 | Yes, since 2021-11-03 | [98][86] |
 | CVE-2018-8453 | Win32k elevation of privilege (October zero-day) | 2018-10 | not stated here | Yes, known ransomware use | [97][86] |
@@ -398,7 +398,7 @@ Cisco's advisory for CVE-2018-0171 was later updated to record in-the-wild explo
 
 ### 2018 CVEs in KEV
 
-CISA's KEV catalog (version 2026.11.10, 1,779 entries) holds 89 CVE-2018 entries, 33 marked known ransomware campaign use; the top vendors are Cisco (18), Microsoft (16), Adobe (6), GIGABYTE (4) and Fortinet (4) (Confirmed [86]). None was added in 2018, because KEV began on 3 November 2021: 18 were added in 2021 (17 on the first day), 62 in 2022, 1 in 2023, 3 in 2024, 4 in 2025 and 1 in 2026, CVE-2018-14634 in the Linux kernel on 26 January 2026 (Confirmed [86]). The most frequent CWE ids are CWE-20 (14), none listed (10), CWE-78 (9), CWE-787 (9), CWE-404 (6), CWE-119 (6), CWE-502 (5) and CWE-22 (5) (Confirmed [86]). KEV's dates for these entries are catalog history, not exploitation dates (Inferred).
+CISA's KEV catalog (version 2026.11.10, 1,779 entries) holds 89 CVE-2018 entries, 33 marked known ransomware campaign use; the top vendors are Cisco (18), Microsoft (16), Adobe (6), GIGABYTE (4) and Fortinet (4) (Confirmed [86]). None was added in 2018, because KEV began on 3 November 2021: 18 were added in 2021 (17 on the first day), 62 in 2022, 1 in 2023, 3 in 2024, 4 in 2025 and 1 in 2026, CVE-2018-14634 in the Linux kernel on 26 January 2026 (Confirmed [86]). The most frequent CWE ids are CWE-20 (14), none listed (10), CWE-78 (9), CWE-787 (9), CWE-404 (6), CWE-119 (6), CWE-502 (5), CWE-22 (5) and CWE-399 (5) (Confirmed [86]). KEV's dates for these entries are catalog history, not exploitation dates (Inferred).
 
 A CVE-2018 id is not a 2018 event. NVD published CVE-2018-13379 (FortiOS SSL VPN path traversal, CWE-22) on 4 June 2019, CVE-2018-15982 (Flash) on 18 January 2019 and CVE-2018-20250 (WinRAR ACE) on 5 February 2019; this chronicle dates by advisory, so those belong to [the 2019 record](/case-studies/CHRONICLE_2019.md) (Confirmed for the dates [105]; the rule Inferred).
 
@@ -679,7 +679,7 @@ Only C0021 and C0013 contribute techniques to the tables above; the other four a
 
 ### CWE and CAPEC
 
-The CWE ids are those NVD, the vendor or KEV list for each CVE (Confirmed [87][88][89][90][91][92][93][94][95][96][98][99][100][103][104][105][86]). The CAPEC column lists the attack patterns the library's `cwe.jsonl` relates to that CWE, linked where a generated page exists; choosing the closest pattern is this study's reading (Inferred [120]).
+The CWE ids are those NVD, the vendor or KEV list for each CVE (Confirmed [87][88][89][90][91][92][93][94][95][96][98][99][100][103][104][105][123][86]). The CAPEC column lists the attack patterns the library's `cwe.jsonl` relates to that CWE, linked where a generated page exists; choosing the closest pattern is this study's reading (Inferred [120]).
 
 | CWE | Weakness (library name) | CVEs from the 2018 record | CAPEC the library relates |
 |---|---|---|---|
@@ -753,7 +753,7 @@ This section is the study's reading of the record (Inferred).
 - **Overstated: novelty of the year's "advanced" threats.** TA18-106A says no zero-days were needed and AA18-284A says sophisticated groups use public tools [19][46].
 - **Overstated: exposure counts as impact.** VPNFilter's 500,000 is an estimate of infected devices, not of harm; Talos's 168,000 Smart Install systems are potentially exposed, not compromised [22][18].
 - **Overstated: ATT&CK objects as the full picture.** VPNFilter has one Enterprise technique and SamSam five, while the advisories describe much more [108][111][57].
-- **Understated: uneven hedging.** The UK said "almost certainly", FireEye "we believe", Talos "not definitive", and the US alerts were flat [7][41][22][11].
+- **Understated: uneven hedging.** The UK said "almost certainly", FireEye "we believe", Talos "isn't definitive by any means", and the US alerts were flat [7][41][22][11].
 - **Understated: the supply-chain and trust layer.** Staging targets, MSPs and trade-site watering holes recur across the year's advisories [11][42].
 - **Understated: human-operated ransomware.** SamSam previewed the targeted, RDP-entered, network-wide encryption that defines later years [57][54].
 - **Understated: ransomware cost.** IC3's 2018 ransomware total is about an eighth of what DOJ alleges SamSam alone cost over three years [65][54].
@@ -904,6 +904,7 @@ All sources were opened on 11 November 2026. Grade is the source's evidence grad
 | 120 | TeamStarWolf library data on main: `data/weaknesses/capec.jsonl` (CAPEC 3.9) and `cwe.jsonl` | [github.com/TeamStarWolf/TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/weaknesses) | 2026-11-11 | Confirmed |
 | 121 | TeamStarWolf library data on main: `data/attack/technique_to_d3fend.jsonl` and `mitigation_to_technique.jsonl` | [github.com/TeamStarWolf/TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/technique_to_d3fend.jsonl) | 2026-11-11 | Confirmed |
 | 122 | TeamStarWolf library tree on main: `mitre/` pages, `navigator/library-layers/` (the chronicle-2019 layer format) and the home studies under `case-studies/` | [github.com/TeamStarWolf/TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/mitre) | 2026-11-11 | Confirmed |
+| 123 | NIST NVD, CVE-2018-7602 record (API 2.0) | [services.nvd.nist.gov](https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2018-7602) | 2026-11-11 | Confirmed |
 
 *© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*
 

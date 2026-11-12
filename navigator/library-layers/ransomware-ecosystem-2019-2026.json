@@ -1,0 +1,457 @@
+{
+  "name": "TeamStarWolf - The Ransomware Ecosystem, 2019 to 2026",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2019 to 2026 ransomware record supports: the joint #StopRansomware and other CISA advisories (AA20-302A, AA22-040A, AA22-187A, AA22-294A, AA23-320A, AA23-325A, AA23-352A, AA23-353A, AA24-131A, AA25-203A, AA26-222A, AA26-293A and others), victims' statements and testimony, and ATT&CK's own records. Each comment names source numbers from case-studies/RANSOMWARE_ECOSYSTEM.md. Scores: 100 the source prints the id, 70 the source describes the behavior and the study assigns the id.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1598",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ALPHV affiliates pose as IT staff to obtain credentials (AA23-353A, Dec 2023) (basis: Source). Sources [20] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1598.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Daixin Team (AA22-294A, Oct 2022) (basis: Source). Sources [8] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Interlock (AA25-203A, Jul 2025) (basis: Source). Sources [28] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Daixin (Oct 2022); Black Basta and ScreenConnect (May 2024); also MOVEit, Citrix Bleed, FortiOS and the CVEs of Part 5 (basis: Source). Sources [8][24][14][18][29] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "VPNs without MFA: Akira (2024 to 2025), Rhysida, Change Healthcare's Citrix portal (Feb 2024); Colonial's legacy VPN profile (May 2021) (basis: Source). Sources [71][23][16][70][29] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "VPNs without MFA: Akira (2024 to 2025), Rhysida, Change Healthcare's Citrix portal (Feb 2024); Colonial's legacy VPN profile (May 2021) (basis: Source). Sources [71][23][16][70][29] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Daixin (Oct 2022); Black Basta (May 2024) (basis: Source). Sources [8][24] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Daixin (Oct 2022); Black Basta (May 2024) (basis: Source). Sources [8][24] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Daixin (Oct 2022); Black Basta (May 2024) (basis: Source). Sources [8][24] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Daixin (Oct 2022); Black Basta (May 2024) (basis: Source). Sources [8][24] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Kaseya VSA reached customers through their managed service providers (Jul 2021); MSP targeting (AA22-040A) (basis: Behavior). Sources [44][5] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Black Basta (AA24-131A); a top vector of 2021 (AA22-040A); HSE (Mar 2021) (basis: Source). Sources [24][5][83] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1566.004",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Black Basta tech-support calls (AA24-131A, Nov 2024 update); Scattered Spider help-desk calls (basis: Source). Sources [24][17] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Black Basta (AA24-131A) (basis: Source). Sources [24] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "TrickBot and Ryuk (AA20-302A, Oct 2020) (basis: Source). Sources [1] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1059.008",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Maui (AA22-187A, Jul 2022), as printed (basis: Source). Sources [6] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1106",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA20-302A (basis: Source). Sources [1] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1204",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Black Basta (AA24-131A) (basis: Source). Sources [24] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1204.004",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Interlock ClickFix-style lures (AA25-203A) (basis: Source). Sources [28] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA20-302A, printed as \"T1047.001\" with a link to T1547.001 (basis: Source). Sources [1] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA20-302A, printed as \"T1047.001\" with a link to T1547.001 (basis: Source). Sources [1] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Daixin (AA22-294A); Gunra's rogue FortiOS super-user (AA26-222A) (basis: Source). Sources [8][29] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Daixin (AA22-294A); Gunra's rogue FortiOS super-user (AA26-222A) (basis: Source). Sources [8][29] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "LEMURLOOT on MOVEit servers (from 27 May 2023) (basis: Source). Sources [14] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Black Basta (AA24-131A) (basis: Source). Sources [24] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA20-302A (basis: Source). Sources [1] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA20-302A (basis: Source). Sources [1] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA20-302A (basis: Source). Sources [1] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA20-302A (basis: Source). Sources [1] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Black Basta (AA24-131A) (basis: Source). Sources [24] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA20-302A (basis: Source). Sources [1] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1684.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Scattered Spider (AA23-320A), printed as revoked T1656 (basis: Source). Sources [17][160][161] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Printed as revoked T1562.001 in AA20-302A and AA24-131A; as T1685 in the Gunra and SafePay advisories (2026) (basis: Source). Sources [1][24][29][30][160] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1685.005",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Advisory id T1070.001, revoked and mapped here by the library (basis: Source). Sources [160][161] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1686",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Advisory id T1562.004, revoked and mapped here by the library (basis: Source). Sources [160][161] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Citrix Bleed session hijacking bypasses MFA (AA23-325A, Nov 2023) (basis: Source). Sources [18] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Citrix Bleed session hijacking bypasses MFA (AA23-325A, Nov 2023) (basis: Source). Sources [18] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Citrix Bleed session hijacking bypasses MFA (AA23-325A, Nov 2023) (basis: Source). Sources [18] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Daixin (AA22-294A) (basis: Source). Sources [8] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Brute-forced RDP credentials (AA22-040A); SafePay (AA26-293A) (basis: Source). Sources [5][30] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1539",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Citrix Bleed (AA23-325A) (basis: Source). Sources [18] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ALPHV affiliates capture MFA codes and session cookies (AA23-353A) (basis: Source). Sources [20] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ALPHV affiliates capture MFA codes and session cookies (AA23-353A) (basis: Source). Sources [20] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1621",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Scattered Spider MFA fatigue (AA23-320A) (basis: Source). Sources [17] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA20-302A (basis: Source). Sources [1] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA20-302A (basis: Source). Sources [1] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA23-325A (basis: Source). Sources [18] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA20-302A (basis: Source). Sources [1] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Daixin (AA22-294A) (basis: Source). Sources [8] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1563",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Citrix Bleed (AA23-325A text) (basis: Source). Sources [18] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1563.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Daixin (AA22-294A) (basis: Source). Sources [8] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1563.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Daixin (AA22-294A) (basis: Source). Sources [8] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1560.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "SafePay archives with 7-Zip and WinRAR before exfiltration (AA26-293A) (basis: Source). Sources [30] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Scattered Spider bulk pulls from Snowflake (2025 update); Gunra from OneDrive (2026) (basis: Source). Sources [17][29] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1213.002",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Gunra pulled data from SharePoint (AA26-222A) (basis: Behavior). Sources [29] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AnyDesk and Quick Assist (Black Basta); RMM products (Medusa); legitimate remote-management tools at Dallas (2023); recurring across advisories (basis: Source). Sources [24][27][85] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1567",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Daixin (AA22-294A) (basis: Source). Sources [8] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1567.002",
+      "tactic": "exfiltration",
+      "score": 70,
+      "comment": "RClone to Mega (Gunra) and to OneDrive or Backblaze (SafePay); RClone by Black Basta (basis: Behavior). Sources [29][30][24] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA20-302A; Maui (AA22-187A); Daixin; Black Basta; every encrypting advisory in this study (basis: Source). Sources [1][6][8][24] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA20-302A; Black Basta (AA24-131A); backup targeting in 94 percent of surveyed attacks (basis: Source). Sources [1][24][115] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA20-302A (basis: Source). Sources [1] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1529",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Play's ESXi variant powers off virtual machines before encrypting (AA23-352A) (basis: Behavior). Sources [19] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Demands backed by leak threats and leak sites (ATT&CK's own scope); Black Basta, RansomHub and Medusa leak-site deadlines (basis: Source). Sources [159][24][25][27] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 70,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: the opened source prints the ATT&CK id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/RANSOMWARE_ECOSYSTEM.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "52"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "63"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Ransomware Ecosystem: The Public Record, 2019 to 2026",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/RANSOMWARE_ECOSYSTEM.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

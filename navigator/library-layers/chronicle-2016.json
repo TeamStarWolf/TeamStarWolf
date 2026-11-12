@@ -105,25 +105,25 @@
       "techniqueID": "T1078.002",
       "tactic": "stealth",
       "score": 100,
-      "comment": "Shamoon 2 spread with hardcoded stolen domain admin credentials (Unit 42, 30 Nov 2016); S0140 lists the sub-technique (basis: Listed). Sources [32][33] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+      "comment": "Shamoon 2 spread with stolen administrator credentials hardcoded with the victim's internal domain names (Unit 42, 30 Nov 2016); S0140 lists the sub-technique (basis: Listed). Sources [32][33] refer to the Sources table of case-studies/CHRONICLE_2016.md."
     },
     {
       "techniqueID": "T1078.002",
       "tactic": "persistence",
       "score": 100,
-      "comment": "Shamoon 2 spread with hardcoded stolen domain admin credentials (Unit 42, 30 Nov 2016); S0140 lists the sub-technique (basis: Listed). Sources [32][33] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+      "comment": "Shamoon 2 spread with stolen administrator credentials hardcoded with the victim's internal domain names (Unit 42, 30 Nov 2016); S0140 lists the sub-technique (basis: Listed). Sources [32][33] refer to the Sources table of case-studies/CHRONICLE_2016.md."
     },
     {
       "techniqueID": "T1078.002",
       "tactic": "privilege-escalation",
       "score": 100,
-      "comment": "Shamoon 2 spread with hardcoded stolen domain admin credentials (Unit 42, 30 Nov 2016); S0140 lists the sub-technique (basis: Listed). Sources [32][33] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+      "comment": "Shamoon 2 spread with stolen administrator credentials hardcoded with the victim's internal domain names (Unit 42, 30 Nov 2016); S0140 lists the sub-technique (basis: Listed). Sources [32][33] refer to the Sources table of case-studies/CHRONICLE_2016.md."
     },
     {
       "techniqueID": "T1078.002",
       "tactic": "initial-access",
       "score": 100,
-      "comment": "Shamoon 2 spread with hardcoded stolen domain admin credentials (Unit 42, 30 Nov 2016); S0140 lists the sub-technique (basis: Listed). Sources [32][33] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+      "comment": "Shamoon 2 spread with stolen administrator credentials hardcoded with the victim's internal domain names (Unit 42, 30 Nov 2016); S0140 lists the sub-technique (basis: Listed). Sources [32][33] refer to the Sources table of case-studies/CHRONICLE_2016.md."
     },
     {
       "techniqueID": "T1078.004",

@@ -72,7 +72,7 @@ Notes: BAE [26]. New York Fed [30]. DOJ complaint, an allegation [29]. Treasury 
 
 Left: Destructive
 - Shamoon 2 wiped at 20:45 on 17 November.
-- It spread with stolen domain admin credentials.
+- It spread with stolen, hardcoded administrator credentials.
 - Kyiv lost power for about an hour on 17 December.
 - ESET: Industroyer's use "highly probable".
 Right: Espionage and spyware

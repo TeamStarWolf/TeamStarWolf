@@ -789,6 +789,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 15 November 2013: Jeremy Hammond sentenced to 10 years for computer hacking conspiracy
   - 27 May 2014: Monsegur sentenced to time served
 
+### 1960 <!-- {docsify-ignore} -->
+
+- [Before the Internet: Computer Threats, 1960 to 1990](/case-studies/PRE_INTERNET_THREATS.md). Period record, November 1960 to March 1993 (core: 1960 to 1990). Sectors: cross-sector, government, defense, education, telecommunications, technology, finance, healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Pre_Internet_Threats_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Pre_Internet_Threats_Case_Study.pptx).
+  - November 1960: Bell System Technical Journal publishes Breen and Dahlbom on in-band trunk signaling
+  - 11 February 1970: Ware report for the Defense Science Board: threat taxonomy, trap doors, insider infiltration
+  - October 1972: Anderson report: penetration is easy, the Trojan horse defined, the reference monitor introduced
+  - 27 April 1976: GAO FGMSD-76-27: 69 federal cases, mostly by users with limited technical knowledge
+  - 3 November 1983: Fred Cohen's first experimental virus, conceived 3 Nov and demonstrated 10 Nov 1983
+  - 12 October 1984: Pub. L. 98-473 creates 18 U.S.C. 1030
+  - 16 October 1986: Pub. L. 99-474, the Computer Fraud and Abuse Act of 1986
+  - 9 December 1987: First known CHRISTMA EXEC infection, 9 to 14 Dec 1987 on BITNET and IBM's VNET
+  - 2 November 1988: Morris worm released from an MIT computer
+  - December 1988: CERT/CC established by DARPA at the SEI; first advisory CA-1988-01
+  - 8 December 1989: AIDS Information disks posted from London, 8 to 12 Dec 1989
+  - 29 June 1990: UK Computer Misuse Act 1990 receives Royal Assent
+
 <!-- case-study-timeline:list-end (the timeline replaces the list above on the site) -->
 
 ATT&CK&reg; and MITRE ATT&CK&reg; are registered trademarks of The MITRE Corporation. The group names come from the library's ATT&CK data; this project is not affiliated with or endorsed by MITRE.

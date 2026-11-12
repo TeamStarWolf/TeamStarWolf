@@ -404,6 +404,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 30 March 2026: axios: social engineering and a RAT on the lead maintainer's PC expose the npm credentials
   - 4 August 2026: keyv maintainer's GitHub account compromised; the CHAINDROP worm follows
 
+### 2017 <!-- {docsify-ignore} -->
+
+- [The Year 2017 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2017.md). Period record, January to December 2017. Sectors: cross-sector, healthcare, energy, finance, government, technology. CVEs: CVE-2017-0005, CVE-2017-0101, CVE-2017-0143, CVE-2017-0144, CVE-2017-0145, CVE-2017-0146 and 28 more. ATT&CK groups: G0020 Equation, G0022 APT3, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly, G0045 menuPass and 4 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2017_Case_Study.pptx).
+  - 7 March 2017: WikiLeaks publishes Vault 7 Part 1, "Year Zero", 8,761 documents it says came from the CIA
+  - 14 March 2017: Microsoft publishes MS17-010, fixing the SMBv1 flaws later used by WannaCry and NotPetya
+  - 14 April 2017: First backdoored M.E.Doc update goes out through the vendor's own update channel
+  - 27 April 2017: TA17-117A: intrusions at IT service providers reach customers in at least 12 countries
+  - 12 May 2017: WannaCry spreads through SMBv1 in over 150 countries; at least 81 NHS trusts in England disrupted
+  - 13 May 2017: Equifax intruders begin extracting data from the online dispute portal
+  - 27 June 2017: NotPetya surfaces through M.E.Doc and spreads worldwide
+  - 15 August 2017: Kaspersky publishes ShadowPad in NetSarang products; backdoored CCleaner 5.33 released
+  - 7 September 2017: Equifax announces an incident affecting about 143 million US consumers
+  - 24 October 2017: Bad Rabbit spreads through compromised websites serving a fake Flash Player update
+  - 14 December 2017: Mandiant publishes TRITON, used to reprogram Triconex safety controllers
+  - 19 December 2017: The United States, with the UK, Australia, Canada, New Zealand and Japan, attributes WannaCry to North Korea
+
 ### 2016 <!-- {docsify-ignore} -->
 
 - [The Shadow Brokers and Vault 7: The NSA and CIA Tool Leaks, 2016 to 2017](/case-studies/NSA_CIA_TOOL_LEAKS.md). Incident, August 2016 to November 2017. Sectors: government, healthcare, technology, cross-sector. CVEs: CVE-2016-6366, CVE-2016-6367, CVE-2016-6909, CVE-2017-0005, CVE-2017-0143, CVE-2017-0144 and 10 more. ATT&CK groups: G0020 Equation, G0032 Lazarus Group, G0034 Sandworm Team, G0022 APT3, G0128 ZIRCONIUM, G1003 Ember Bear and 3 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/NSA_CIA_Tool_Leaks_2016_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/NSA_CIA_Tool_Leaks_2016_2017_Case_Study.pptx).

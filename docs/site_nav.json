@@ -368,7 +368,8 @@
       "guides": ["ROLL_OUT_PHISHING_RESISTANT_MFA"],
       "pages": ["/platforms/entra-id.md", "/platforms/okta.md", "/platforms/ping-identity.md", "/platforms/cisco-duo.md", "/platforms/cyberark.md", "/platforms/beyondtrust.md", "/platforms/delinea.md", "/platforms/sailpoint.md", "/platforms/veeam.md", "/platforms/rubrik.md", "/databases/README.md"],
       "see_also": [
-        ["Active Directory attacks", "/ACTIVE_DIRECTORY_ATTACKS.md"]
+        ["Active Directory attacks", "/ACTIVE_DIRECTORY_ATTACKS.md"],
+        ["The eMudhra certificate authority key compromise: a 2026 case study", "/case-studies/EMUDHRA_CA_COMPROMISE_2026.md"]
       ]
     },
     {

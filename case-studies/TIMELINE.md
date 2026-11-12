@@ -40,6 +40,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 10 November 2026: N-central 2026.4 Hotfix 2 (2026.4.1.26) posted; N-able publishes seven CVE records, two at CVSS v4.0 9.3
   - 11 November 2026: All hosted N-central servers upgraded (status update, 01:04 dashboard time)
   - 11 November 2026: N-able blog: unauthenticated paths fixed, more hotfixes to come, calls claims it ignored disclosure inaccurate
+- [The eMudhra Certificate Authority Key Compromise: A 2026 Case Study](/case-studies/EMUDHRA_CA_COMPROMISE_2026.md). Incident, April 2025 to November 2026 (core: 17 October 2026 to 10 November 2026). Sectors: technology. CVEs: CVE-2026-111943, CVE-2026-113470, CVE-2026-114406, CVE-2026-91403, CVE-2026-113812. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/eMudhra_CA_Compromise_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/eMudhra_CA_Compromise_2026_Case_Study.pptx).
+  - 30 April 2025: Key ceremony produces 16 B and C series subordinate keys; a custom script re-creates weak ECDSA key objects
+  - 29 May 2025: Invalid CRL signatures on the six G3B and G3C TLS intermediates, 29 May to 6 June 2025 (Bug 1970728)
+  - 17 October 2026: Researcher reports the weak keys with signed proof; Chrome blocks them by CRLSet at 19:45 UTC, OneCRL by 22:59
+  - 18 October 2026: eMudhra revokes all eight intermediates, reason cACompromise
+  - 19 October 2026: Sectigo revokes the eight cross-certificates; Go 1.27.3 and 1.26.10 ship the crypto/x509 fix
+  - 20 October 2026: Mozilla orders emergency removal of emSign ECC Root CA - G3; forged certificates appear within hours
+  - 21 October 2026: Go publishes CVE-2026-111943; Red Hat RHSB-2026-012; CERT-In advisory CIAD-2026-0050; Cisco Talos advisory
+  - 22 October 2026: eMudhra's board decides to withdraw from the global SSL/TLS certificate business
+  - 26 October 2026: Microsoft out-of-band update removes seven certificates from the Windows trust list
+  - 27 October 2026: Chrome Root Store removal reaches devices; Chrome Root Program posts its review on the incident bug
+  - 7 November 2026: Eight RSA G2B and G2C intermediates from the same ceremony revoked, cessationOfOperation
+  - 10 November 2026: eMudhra posts its Full Incident Report to the Mozilla bug
 - [PHP2Shell and the October 2026 Attack Wave: A Case Study](/case-studies/PHP2SHELL_OCTOBER_2026.md). Vulnerability, October 2026. Sectors: technology, finance. CVEs: CVE-2026-109618, CVE-2026-109619. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/PHP2Shell_October_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/PHP2Shell_October_2026_Case_Study.pptx).
   - 14 October 2026: ConnectWise identifies the Cloud Backup issue
   - 17 October 2026: Amazon MadPot sees PHP2Shell attempts four days before disclosure
@@ -67,15 +80,6 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 31 October 2026: NVD publishes WordPress CVE-2026-119977 with no CPE configuration yet
   - 3 November 2026: CISA lists CVE-2026-119977, due 6 November; 34 KEV additions in the thirty-day window
   - 3 November 2026: TeamStarWolf lab run, 3 to 4 November 2026: version and configuration checks on matched pairs and real hosts
-- [The eMudhra Certificate Authority Key Compromise: A 2026 Case Study](/case-studies/EMUDHRA_CA_COMPROMISE_2026.md). Incident, October to November 2026. Sectors: technology. CVEs: CVE-2026-114406, CVE-2026-111943, CVE-2026-91403, CVE-2026-113812. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/eMudhra_CA_Compromise_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/eMudhra_CA_Compromise_2026_Case_Study.pptx).
-  - 30 April 2025: eMudhra key ceremony produces 24 intermediates; a test deviation generates the weak keys
-  - 17 October 2026: A researcher identifies the weak keys against CCADB and proves control
-  - 18 October 2026: eMudhra revokes all eight intermediates; Sectigo revokes the cross-certificates by 19 October
-  - 20 October 2026: Mozilla removes the root from NSS; Microsoft blocks the eight intermediates
-  - 22 October 2026: eMudhra announces it will exit the global SSL/TLS certificate business
-  - 27 October 2026: Chrome Root Store removes the emSign ECC Root CA G3
-  - October 2026: Apple, Go (CVE-2026-111943), Okta and Auth0, and downstream bundles follow; trust-store updates coordinated under Red Hat RHSB-2026-012
-  - November 2026: Root programs distrust the fallback emSign Root CA G1 (Chrome and Firefox after 16 November, Apple 30 November); eMudhra winds down all publicly trusted TLS
 - [GitLab, CVE-2026-97229: Lab-Verified Exposure and Fix](/case-studies/GITLAB_CVE_2026_97229.md). Vulnerability, September to November 2026. Sectors: technology. CVEs: CVE-2026-97229, CVE-2026-93577, CVE-2026-110264, CVE-2026-89078. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/GitLab_CVE_2026_97229_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/GitLab_CVE_2026_97229_Case_Study.pptx).
   - 23 September 2026: GitLab 19.4.1, 19.3.3 and 19.2.7 fix the authenticated CVE-2026-93577 (CVSS 9.9), an incomplete fix
   - 25 September 2026: Ruby PR #19020 merged upstream, fixing the compiled-pattern size overflow in Onigmo

@@ -2,7 +2,7 @@
 
 *A TeamStarWolf case study. Published 11 November 2026; every source checked as of that date.*
 
-[All case studies](/case-studies/README.md) · Related: [United States-Attributed Threat Actors](/case-studies/THREAT_ACTORS_UNITED_STATES.md), [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md), [Russia-Attributed Threat Actors](/case-studies/THREAT_ACTORS_RUSSIA.md), [Other State-Linked Threat Actors](/case-studies/THREAT_ACTORS_OTHER_STATES.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Insider Threat Reference](/INSIDER_THREAT_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
+[All case studies](/case-studies/README.md) · Related: [United States-Attributed Threat Actors](/case-studies/THREAT_ACTORS_UNITED_STATES.md), [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md), [Russia-Attributed Threat Actors](/case-studies/THREAT_ACTORS_RUSSIA.md), [The Zero-Day Trade and Its Fallout](/case-studies/ZERO_DAY_MARKET_EVENTS.md), [North Korea-Attributed Threat Actors](/case-studies/THREAT_ACTORS_NORTH_KOREA.md), [Other State-Linked Threat Actors](/case-studies/THREAT_ACTORS_OTHER_STATES.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Insider Threat Reference](/INSIDER_THREAT_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 65 min (14,843 words at 230 words a minute)
+About 65 min (14,962 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -63,7 +63,7 @@ The two leaks left very different records. For Vault 7 there is a full court rec
 
 The harm came from reuse, and the patch was early. Microsoft fixed the SMBv1 flaws in MS17-010 on 14 March 2017, a month before the April release, and marked them as neither public nor exploited at the time (Confirmed [15]). WannaCry struck 59 days after the patch and NotPetya 105 days after it (Inferred from [15][20][23]). The US government attributed WannaCry to North Korea and NotPetya to the Russian military; no US government statement opened links either attack to the NSA (Confirmed [46][50]; Inferred [46]). CISA added the six MS17-010 CVEs to its Known Exploited Vulnerabilities catalog between November 2021 and May 2022, all marked as known ransomware use, and a joint advisory, AA24-249A, still recorded EternalBlue use in 2024 (Confirmed [24][79]).
 
-This study is the home for the leak events themselves: the releases, the vendor triage, the Vault 7 prosecution and task force report, the patch-to-worm timeline, the policy argument that followed and the defender view. The Equation platform, the Lamberts and the national attribution question have their home in [United States-Attributed Threat Actors](/case-studies/THREAT_ACTORS_UNITED_STATES.md); NotPetya has its home in [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md); the North Korea attribution record for WannaCry sits in Part 11 of [Other State-Linked Threat Actors](/case-studies/THREAT_ACTORS_OTHER_STATES.md) (Confirmed [32]).
+This study is the home for the leak events themselves: the releases, the vendor triage, the Vault 7 prosecution and task force report, the patch-to-worm timeline, the policy argument that followed and the defender view. The Equation platform, the Lamberts and the national attribution question have their home in [United States-Attributed Threat Actors](/case-studies/THREAT_ACTORS_UNITED_STATES.md); NotPetya has its home in [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md); the North Korea attribution and government record for WannaCry has its home in [North Korea-Attributed Threat Actors](/case-studies/THREAT_ACTORS_NORTH_KOREA.md), with a short overview in Part 11 of [Other State-Linked Threat Actors](/case-studies/THREAT_ACTORS_OTHER_STATES.md) (Confirmed [32]). [The Zero-Day Trade and Its Fallout](/case-studies/ZERO_DAY_MARKET_EVENTS.md) holds the zero-day market and the book's view of these years, keeps the WannaCry outbreak in its Part 6 and summarizes the leaks with a link here; [Cyber Operations as Statecraft](/case-studies/HACKER_AND_THE_STATE_CASES.md) keeps only the dated outline its blowback case needs (Confirmed [32]).
 
 ### Key facts at a glance
 
@@ -227,6 +227,7 @@ One row per dated event or report. Where an event belongs to another study's hom
 | 2022-02-10 | KEV adds CVE-2017-0144 and CVE-2017-0145 | Confirmed | [24] |
 | 2022-03-25 | KEV adds CVE-2017-0146 and CVE-2017-3881 | Confirmed | [24] |
 | 2022-04-06 | KEV adds CVE-2017-0148 | Confirmed | [24] |
+| 2022-05-23 | KEV adds CVE-2019-0703 | Confirmed | [24] |
 | 2022-05-24 | KEV adds CVE-2017-0147, CVE-2016-6366, CVE-2016-6367 and CVE-2017-0005 | Confirmed | [24] |
 | 2022-07-13 | Schulte convicted on eight counts at retrial | Confirmed | [40] |
 | 2023-09-13 | Schulte convicted on three child sexual abuse material counts at a third trial | Confirmed | [41] |
@@ -369,7 +370,7 @@ Microsoft shipped the fix for Windows XP, Windows 8 and Windows Server 2003, oth
 
 The NHS harm is the best-documented. The UK National Audit Office found at least 81 of 236 trusts in England and 603 other NHS organisations, 595 of them GP practices, infected; it recorded 6,912 cancelled appointments and estimated more than 19,000; infected organisations ran unpatched or unsupported Windows; the Department of Health had been warned a year earlier and NHS Digital issued critical alerts in March and April 2017 (Confirmed [44]). The NAO report names no perpetrator (Confirmed [44]).
 
-Attribution came seven months later. On 19 December 2017 Tom Bossert publicly attributed WannaCry to North Korea at a White House briefing, citing hundreds of thousands of computers in more than 150 countries, with the UK, Australia, Canada, New Zealand and Japan joining and Microsoft and Facebook acting independently (Confirmed [46]). The UK Foreign Office said the NCSC judged it highly likely that the North Korean Lazarus Group was behind it (Confirmed [47]). The Department of Justice unsealed a complaint against Park Jin Hyok on 6 September 2018, alleging membership of the group known as Lazarus Group and a conspiracy including the creation of WannaCry 2.0 (Confirmed [48], unadjudicated allegations). Treasury designated Lazarus Group, Bluenoroff and Andariel on 13 September 2019, citing about 300,000 computers in 150 countries and NHS costs over $112 million (Confirmed [49]). That record has its home in Part 11 of [Other State-Linked Threat Actors](/case-studies/THREAT_ACTORS_OTHER_STATES.md) (Confirmed [32]).
+Attribution came seven months later. On 19 December 2017 Tom Bossert publicly attributed WannaCry to North Korea at a White House briefing, citing hundreds of thousands of computers in more than 150 countries, with the UK, Australia, Canada, New Zealand and Japan joining and Microsoft and Facebook acting independently (Confirmed [46]). The UK Foreign Office said the NCSC judged it highly likely that the North Korean Lazarus Group was behind it (Confirmed [47]). The Department of Justice unsealed a complaint against Park Jin Hyok on 6 September 2018, alleging membership of the group known as Lazarus Group and a conspiracy including the creation of WannaCry 2.0 (Confirmed [48], unadjudicated allegations). Treasury designated Lazarus Group, Bluenoroff and Andariel on 13 September 2019, citing about 300,000 computers in 150 countries and NHS costs over $112 million (Confirmed [49]). That record has its home in [North Korea-Attributed Threat Actors](/case-studies/THREAT_ACTORS_NORTH_KOREA.md), with a short overview in Part 11 of [Other State-Linked Threat Actors](/case-studies/THREAT_ACTORS_OTHER_STATES.md); the outbreak as the zero-day market saw it is in Part 6 of [The Zero-Day Trade and Its Fallout](/case-studies/ZERO_DAY_MARKET_EVENTS.md) (Confirmed [32]).
 
 ### NotPetya, in one paragraph
 
@@ -407,7 +408,7 @@ Exploitation did not end with 2017. ESET telemetry shows EternalBlue attempts fe
 | CVE-2017-0176 | Behind one of the three exploits that did not reproduce | Did not reproduce on supported platforms | Not in KEV | Not checked | April 2017 release | [18][24] |
 | CVE-2017-0005 | Windows flaw exploited by EpMe and APT31's Jian | March 2017 | 2022-05-24 | Not checked | Equation exploit cloned before the leak | [70][24] |
 | CVE-2017-3881 | Cisco IOS and IOS XE Cluster Management Protocol | cisco-sa-20170317-cmp | 2022-03-25 | Not checked | Found from Vault 7 documents | [71][24] |
-| CVE-2019-0703 | Windows SMB zero-day paired with CVE-2017-0143 by Bemstour | 12 March 2019 | Not checked | Not checked | Buckeye's use before the leak | [69] |
+| CVE-2019-0703 | Windows SMB zero-day paired with CVE-2017-0143 by Bemstour | 12 March 2019 | 2022-05-23 | Not checked | Buckeye's use before the leak | [69][24] |
 
 All six MS17-010 CVEs carry KEV's known-ransomware-campaign flag; CVE-2016-6366 and CVE-2016-6367 are marked Unknown (Confirmed [24]). The MS17-010 CVEs were rated Critical for all supported Windows releases, with CVE-2017-0147 the information-disclosure member (Confirmed [15]).
 
@@ -768,7 +769,7 @@ All sources were opened on 11 November 2026. "Primary" means the organization th
 - [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md)
 - [Insider Threat Reference](/INSIDER_THREAT_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Windows Hardening](/WINDOWS_HARDENING.md), [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md), [Firmware and IoT Security](/FIRMWARE_IOT_SECURITY_REFERENCE.md)
 - [CWE Reference](/CWE_REFERENCE.md), [CAPEC Reference](/CAPEC_REFERENCE.md), [D3FEND Reference](/D3FEND_REFERENCE.md)
-- Case studies: [United States-Attributed Threat Actors](/case-studies/THREAT_ACTORS_UNITED_STATES.md), [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md), [Other State-Linked Threat Actors](/case-studies/THREAT_ACTORS_OTHER_STATES.md), [China-Attributed Threat Actors](/case-studies/THREAT_ACTORS_CHINA.md), [Russia-Attributed Threat Actors](/case-studies/THREAT_ACTORS_RUSSIA.md), [SolarWinds and SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md)
+- Case studies: [United States-Attributed Threat Actors](/case-studies/THREAT_ACTORS_UNITED_STATES.md), [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md), [The Zero-Day Trade and Its Fallout](/case-studies/ZERO_DAY_MARKET_EVENTS.md), [North Korea-Attributed Threat Actors](/case-studies/THREAT_ACTORS_NORTH_KOREA.md), [Cyber Operations as Statecraft](/case-studies/HACKER_AND_THE_STATE_CASES.md), [Other State-Linked Threat Actors](/case-studies/THREAT_ACTORS_OTHER_STATES.md), [China-Attributed Threat Actors](/case-studies/THREAT_ACTORS_CHINA.md), [Russia-Attributed Threat Actors](/case-studies/THREAT_ACTORS_RUSSIA.md), [SolarWinds and SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md)
 - Groups: [G0020 Equation](/mitre/groups/G0020.md), [G0032 Lazarus Group](/mitre/groups/G0032.md), [G0034 Sandworm Team](/mitre/groups/G0034.md), [G0022 APT3](/mitre/groups/G0022.md), [G0128 ZIRCONIUM](/mitre/groups/G0128.md), [G1003 Ember Bear](/mitre/groups/G1003.md), [G0102 Wizard Spider](/mitre/groups/G0102.md)
 - Campaigns: [C0064 AI-Assisted Breach of Mexico's Government Infrastructure](/mitre/campaigns/C0064.md)
 - Software: [S0366 WannaCry](/mitre/software/S0366.md), [S0368 NotPetya](/mitre/software/S0368.md), [S0606 Bad Rabbit](/mitre/software/S0606.md), [S0532 Lucifer](/mitre/software/S0532.md), [S0690 Green Lambert](/mitre/software/S0690.md)

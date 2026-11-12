@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 63 min (14,426 words at 230 words a minute)
+About 63 min (14,474 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -106,7 +106,7 @@ Evidence grade: the technical facts, dates and official actions are **Confirmed*
 
 This study covers the events that the book's reviewers and publisher associate with it, from the earliest Equation infrastructure (1996) through the spyware sanctions of 2024 and the Robbinhood plea of 2025. It follows the method in the [case studies README](/case-studies/README.md): primary sources first, every claim graded, numbers given as the source states them. Every source in the Sources table was opened on 3 November 2026, except sources 58 and 59, which were opened on 11 November 2026; source 52 was reopened on 11 November 2026. Where a primary could not be opened (the book itself, the New York Times Baltimore story, the FTI report on the Bezos phone, the Shadow Brokers' own posts, a Symantec post now returning 404, and two DOJ pages behind a bot check), the study says so and grades the claim on what was opened. Direct quotations are kept under 15 words.
 
-Home rule for overlapping events: Stuxnet detail lives in [/case-studies/STUXNET.md](/case-studies/STUXNET.md), SolarWinds in [/case-studies/SOLARWINDS_SUNBURST.md](/case-studies/SOLARWINDS_SUNBURST.md), and NotPetya and the Ukraine grid attacks in [/case-studies/SANDWORM_OPERATIONS.md](/case-studies/SANDWORM_OPERATIONS.md). Each gets one summary paragraph here. This study is the home for the zero-day market, Aurora, the Hacking Team and Shadow Brokers leaks, WannaCry, NSO Group and Pegasus, and the Baltimore reporting dispute. The actor view of the Equation platform and of what the leaks say about their makers lives in [United States-Attributed Threat Actors](/case-studies/THREAT_ACTORS_UNITED_STATES.md); this study follows the leaked exploits downstream.
+Home rule for overlapping events: Stuxnet detail lives in [/case-studies/STUXNET.md](/case-studies/STUXNET.md), SolarWinds in [/case-studies/SOLARWINDS_SUNBURST.md](/case-studies/SOLARWINDS_SUNBURST.md), and NotPetya and the Ukraine grid attacks in [/case-studies/SANDWORM_OPERATIONS.md](/case-studies/SANDWORM_OPERATIONS.md). Each gets one summary paragraph here. This study is the home for the zero-day market, Aurora, the Hacking Team leak, WannaCry, NSO Group and Pegasus, and the Baltimore reporting dispute. The Shadow Brokers and Vault 7 leak events, the Vault 7 prosecution and the CIA task force report have their home in [The Shadow Brokers and Vault 7](/case-studies/NSA_CIA_TOOL_LEAKS.md); Part 5 here summarizes the leaks as the book tells them, and WannaCry's attribution and government record live in [North Korea-Attributed Threat Actors](/case-studies/THREAT_ACTORS_NORTH_KOREA.md). The actor view of the Equation platform and of what the leaks say about their makers lives in [United States-Attributed Threat Actors](/case-studies/THREAT_ACTORS_UNITED_STATES.md); this study follows the leaked exploits downstream.
 
 | Grade | Meaning in this study |
 |---|---|

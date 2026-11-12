@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 53 min (12,116 words at 230 words a minute)
+About 53 min (12,123 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -292,7 +292,7 @@ BAE Systems' analysis of 25 April 2016 adds the mechanics. The tool `evtdiag.exe
 
 ### 5.2 The Shadow Brokers and WannaCry, 2017
 
-The leak, the exploit and the outbreak are told in full in [The Zero-Day Trade and Its Fallout](/case-studies/ZERO_DAY_MARKET_EVENTS.md), and WannaCry's attribution and government record live in the [North Korea](/case-studies/THREAT_ACTORS_NORTH_KOREA.md) actor study; this paragraph keeps only the dated outline the book's blowback case rests on. Microsoft fixed the SMBv1 flaws in bulletin MS17-010 on 14 March 2017 [36]; on 15 April a group calling itself the Shadow Brokers released an exploit for CVE-2017-0144, and Microsoft said that MS17-010 already fixed it [14] [37]; WannaCry began spreading on 12 May [14] [38] (**Confirmed**). Microsoft said on 14 May that the exploits were drawn from those stolen from the NSA [43], while at the attribution briefing Tom Bossert did not confirm that the exploit came from the NSA [44], so the NSA provenance rests on Microsoft's assertion, not on any government admission among the sources opened (**Confirmed** for both statements). On 19 December 2017 the UK and the US, joined by Australia, Canada, New Zealand and Japan, attributed WannaCry to North Korea [39] [44] (**Confirmed**). The dated rows are in Part 6 and the technique rows in Part 9.5.
+The leak is told in full in [The Shadow Brokers and Vault 7](/case-studies/NSA_CIA_TOOL_LEAKS.md), the exploit and the outbreak in [The Zero-Day Trade and Its Fallout](/case-studies/ZERO_DAY_MARKET_EVENTS.md), and WannaCry's attribution and government record live in the [North Korea](/case-studies/THREAT_ACTORS_NORTH_KOREA.md) actor study; this paragraph keeps only the dated outline the book's blowback case rests on. Microsoft fixed the SMBv1 flaws in bulletin MS17-010 on 14 March 2017 [36]; on 15 April a group calling itself the Shadow Brokers released an exploit for CVE-2017-0144, and Microsoft said that MS17-010 already fixed it [14] [37]; WannaCry began spreading on 12 May [14] [38] (**Confirmed**). Microsoft said on 14 May that the exploits were drawn from those stolen from the NSA [43], while at the attribution briefing Tom Bossert did not confirm that the exploit came from the NSA [44], so the NSA provenance rests on Microsoft's assertion, not on any government admission among the sources opened (**Confirmed** for both statements). On 19 December 2017 the UK and the US, joined by Australia, Canada, New Zealand and Japan, attributed WannaCry to North Korea [39] [44] (**Confirmed**). The dated rows are in Part 6 and the technique rows in Part 9.5.
 
 ## Part 6: the timeline
 

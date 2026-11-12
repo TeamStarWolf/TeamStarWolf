@@ -1,0 +1,546 @@
+{
+  "name": "TeamStarWolf - The Year 2024 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2024 record supports: the technique tables of CISA and partner advisories AA24-038A (Volt Typhoon), AA24-060B (Ivanti), AA24-131A (Black Basta), AA24-190A (APT40), AA24-242A (RansomHub) and AA24-249A (Unit 29155), the AA24-109A (Akira) live table, AA24-057A, AA24-046A, AA24-207A and AA24-290A, Microsoft's Midnight Blizzard guidance, Mandiant's UNC5537 report, Volexity's Ivanti and Nearest Neighbor reports, the XZ Utils disclosure, and campaign C0041. Revoked ids printed by the advisories (T1562.001, T1562.004, T1070.001) are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/CHRONICLE_2024.md. Scores: 100 an opened source or ATT&CK object prints the id, 70 the source describes the behavior and the study assigns the id, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1595.001",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "AA24-249A table (Unit 29155, 5 Sep) (basis: Source). Sources [61] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "AA24-249A table (basis: Source). Sources [61] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1583.003",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA24-038A table (Volt Typhoon, 7 Feb) (basis: Source). Sources [13] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1584.005",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA24-038A, KV Botnet on end-of-life SOHO routers (basis: Source). Sources [13] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1584.008",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA24-190A, SOHO devices as last-hop redirectors (APT40, 8 Jul) (basis: Source). Sources [49] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1587.004",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA24-038A table (basis: Source). Sources [13] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1588.005",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA24-038A and AA24-242A tables (RansomHub, 29 Aug) (basis: Source). Sources [13][60] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA24-038A, AA24-060B, AA24-131A, AA24-242A and AA24-249A tables; AA24-109A live table; ATT&CK C0041; behavior in Ivanti (Jan), PAN-OS (Apr), FortiManager (Jun to Oct), ScreenConnect (Feb) and Andariel's web server exploitation (AA24-207A) (basis: Source; Behavior). Sources [13][5][39][36][60][61][143][2][32][69][55] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA24-038A table; AA24-109A live table (VPN without MFA); VPN logon with a former employee's credentials (AA24-046A) as Behavior (basis: Source; Behavior). Sources [13][36][15] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA24-038A table; AA24-109A live table (VPN without MFA); VPN logon with a former employee's credentials (AA24-046A) as Behavior (basis: Source; Behavior). Sources [13][36][15] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA24-038A, AA24-060B, AA24-131A and AA24-249A tables; AA24-109A live table; the former employee's account (AA24-046A) as Behavior (basis: Source; Behavior). Sources [13][5][39][36][61][15] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA24-038A, AA24-060B, AA24-131A and AA24-249A tables; AA24-109A live table; the former employee's account (AA24-046A) as Behavior (basis: Source; Behavior). Sources [13][5][39][36][61][15] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA24-038A, AA24-060B, AA24-131A and AA24-249A tables; AA24-109A live table; the former employee's account (AA24-046A) as Behavior (basis: Source; Behavior). Sources [13][5][39][36][61][15] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA24-038A, AA24-060B, AA24-131A and AA24-249A tables; AA24-109A live table; the former employee's account (AA24-046A) as Behavior (basis: Source; Behavior). Sources [13][5][39][36][61][15] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA24-038A table; Microsoft's legacy test tenant account (Behavior); UNC5537's Snowflake accounts (Inferred) (basis: Source; Behavior; Inferred). Sources [13][132][42] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA24-038A table; Microsoft's legacy test tenant account (Behavior); UNC5537's Snowflake accounts (Inferred) (basis: Source; Behavior; Inferred). Sources [13][132][42] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA24-038A table; Microsoft's legacy test tenant account (Behavior); UNC5537's Snowflake accounts (Inferred) (basis: Source; Behavior; Inferred). Sources [13][132][42] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA24-038A table; Microsoft's legacy test tenant account (Behavior); UNC5537's Snowflake accounts (Inferred) (basis: Source; Behavior; Inferred). Sources [13][132][42] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA24-131A and AA24-242A tables (basis: Source). Sources [39][60] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA24-109A live table; the RDP attachment campaign (CISA, 31 Oct) as Behavior (basis: Source; Behavior). Sources [36][73] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA24-109A live table; APT42's credential phishing (Google TAG, 14 Aug) as Behavior (basis: Source; Behavior). Sources [36][89] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1566.004",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA24-131A table (fake help-desk calls, Black Basta, 10 May) (basis: Source). Sources [39] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "XZ Utils 5.6.0 and 5.6.1 (29 Mar) (basis: Behavior). Sources [29][113] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA24-038A, AA24-060B, AA24-131A and AA24-242A tables (basis: Source). Sources [13][5][39][60] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA24-038A and AA24-242A tables (basis: Source). Sources [13][60] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA24-060B table (Ivanti, 29 Feb) (basis: Source). Sources [5] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1204",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA24-131A table (basis: Source). Sources [39] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA24-060B, AA24-190A and AA24-249A tables; ATT&CK C0041; Andariel's web shells (AA24-207A) and Volexity's Ivanti finding as Behavior (basis: Source; Behavior). Sources [5][49][61][143][55][2] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA24-242A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA24-242A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1098.003",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Midnight Blizzard grants the full_access_as_app role (Microsoft, 25 Jan) (basis: Behavior). Sources [132] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1098.003",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Midnight Blizzard grants the full_access_as_app role (Microsoft, 25 Jan) (basis: Behavior). Sources [132] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA24-242A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1136.003",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Midnight Blizzard creates a user to consent to its OAuth applications (basis: Behavior). Sources [132] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA24-038A and AA24-131A tables; AA24-109A live table (basis: Source). Sources [13][39][36] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1006",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA24-038A table (basis: Source). Sources [13] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1218",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA24-038A table (basis: Source). Sources [13] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA24-131A and AA24-242A tables (basis: Source). Sources [39][60] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA24-242A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Printed as T1562.001 in AA24-131A, AA24-242A and the AA24-109A live table (basis: Source). Sources [39][60][36][140] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1685.005",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Printed as T1070.001 in AA24-038A (basis: Source). Sources [13][140] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1686",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Printed as T1562.004 in the AA24-109A live table (basis: Source). Sources [36][140] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1689",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "ATT&CK C0041 FrostyGoop Incident (Jan) (basis: Source). Sources [143] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA24-242A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA24-038A, AA24-249A and AA24-109A live tables (basis: Source). Sources [13][61][36] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1003.002",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "ATT&CK C0041 (basis: Source). Sources [143] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1003.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA24-038A table and AA24-109A live table (basis: Source). Sources [13][36] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA24-057A (SVR, 26 Feb) (basis: Source). Sources [87][24] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA24-242A and AA24-249A tables; AA24-109A live table; Midnight Blizzard at Microsoft (Nov 2023 to Jan), Iranian spraying (AA24-290A) and Nearest Neighbor (Volexity, 22 Nov) as Behavior (basis: Source; Behavior). Sources [36][60][61][7][132][68][88] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1528",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA24-057A (system-issued tokens); Midnight Blizzard's legacy OAuth application as Behavior (basis: Source; Behavior). Sources [87][132] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1552.004",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA24-038A table (basis: Source). Sources [13] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1621",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "MFA push bombing by Iranian actors (AA24-290A, 16 Oct) (basis: Behavior). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1654",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA24-038A table (basis: Source). Sources [13] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA24-242A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "AA24-242A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA24-038A and AA24-242A tables; AA24-109A live table (basis: Source). Sources [13][60][36] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA24-242A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA24-249A table (basis: Source). Sources [61] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1074",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "AA24-038A table; UNC5537's staging (Inferred) (basis: Source; Inferred). Sources [13][42] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Midnight Blizzard reads Microsoft corporate mail through EWS (basis: Behavior). Sources [7][132] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1213.003",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Midnight Blizzard reaches some Microsoft source code repositories (8 Mar) (basis: Behavior). Sources [8][115] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1213.006",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "UNC5537 takes data from Snowflake customer instances (basis: Inferred). Sources [42] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1071",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "ATT&CK C0041 (basis: Source). Sources [143] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1090.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA24-038A table (basis: Source). Sources [13] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1090.002",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Midnight Blizzard's residential proxies (basis: Behavior). Sources [132] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA24-038A and AA24-249A tables; AA24-109A live table (basis: Source). Sources [13][61][36] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA24-242A table; AA24-109A live table (basis: Source). Sources [60][36] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA24-249A table; AA24-109A live table (basis: Source). Sources [61][36] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1048",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "AA24-038A table (basis: Source). Sources [13] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1048.002",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "AA24-242A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1048.003",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "AA24-242A table (basis: Source). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1537",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "AA24-242A table; AA24-109A live table (basis: Source). Sources [60][36] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1567.002",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "AA24-249A table; AA24-109A live table (basis: Source). Sources [61][36] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA24-249A table (WhisperGate) (basis: Source). Sources [61] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA24-131A and AA24-242A tables; AA24-109A live table (basis: Source). Sources [39][60][36] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA24-131A and AA24-242A tables; AA24-109A live table (basis: Source). Sources [39][60][36] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA24-109A live table (basis: Source). Sources [36] refer to the Sources table of case-studies/CHRONICLE_2024.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: an opened source or ATT&CK object prints the id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2024.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "68"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "77"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2024 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2024.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

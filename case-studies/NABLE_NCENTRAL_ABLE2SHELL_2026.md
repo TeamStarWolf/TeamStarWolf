@@ -247,7 +247,7 @@ The record after the drop is best read as a ladder, from what the vendor saw to 
 | Vendor | N-able | Scanning activity associated with the published code; no indications of compromise in hosted servers | Confirmed | [1] [3] |
 | Deception | watchTowr | Exploitation attempts against its honeypots overnight after the release; probing within 12 hours and later attempts matching the published scripts | Reported (watchTowr's own page not found) | [18] [30] [33] |
 | Deception | Previdian | 68 events from one source address from about 22:08 UTC on 9 November: probing, XXE and external-entity attempts, attempts to read sensitive local files including directory traversal, and probing of the service-import and log-submission methods | Demonstrated | [19] |
-| Deception | Defused | Probing of the attack surface within 24 hours | Reported (Defused's own statement not found) | [16] [30] |
+| Deception | Defused | Probing of the attack surface within 24 hours | Reported (Defused's own statement not found) | [26] [30] |
 | MDR | Huntress | No evidence of Able2Shell exploitation in partner environments; contacting potentially vulnerable customers | Confirmed | [17] |
 | MDR | Field Effect | No exploitation reported in its customer environments; attributes post-release scanning to researchers; presents no telemetry of its own | Confirmed | [20] |
 | Sector | H-ISAC | Relays N-able: no active exploitation, no unauthorized data access; no honeypot or scanning statement | Confirmed | [23] |

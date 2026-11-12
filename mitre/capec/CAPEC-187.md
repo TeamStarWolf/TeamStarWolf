@@ -40,6 +40,7 @@ An attacker exploits two layers of weaknesses in server or client software for a
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [The Year 2017 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2017.md)
 
 <!-- library-refs:end -->
 

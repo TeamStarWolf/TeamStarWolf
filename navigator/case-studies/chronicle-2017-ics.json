@@ -1,0 +1,300 @@
+{
+  "name": "TeamStarWolf - The Year 2017 in Intrusions (ICS)",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "ics-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK for ICS techniques for the 2017 Triton safety system attack (campaign C0030 and software S1009, with Mandiant's December 2017 report and ICSA-18-107-02) and the ICS rows ATT&CK lists for WannaCry (S0366) and NotPetya (S0368). Each comment names source numbers from case-studies/CHRONICLE_2017.md. Scores: 100 the source or the ATT&CK object prints the id, 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T0880",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S1009 Triton; safety controllers trip and shut the process down (Mandiant, 14 Dec 2017) (basis: Listed). Sources [90][25] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0858",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "S1009; the key switch must be in PROGRAM (ICSA-18-107-02) (basis: Listed). Sources [90][91] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0858",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "S1009; the key switch must be in PROGRAM (ICSA-18-107-02) (basis: Listed). Sources [90][91] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0821",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "S1009; reprogramming over TriStation (Mandiant) (basis: Listed). Sources [90][25] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0843",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "S1009; Mandiant (basis: Listed). Sources [90][25] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0843.003",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "C0030 (basis: Listed). Sources [89] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0845",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "S1009 (basis: Listed). Sources [90] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1693.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "S1009 (basis: Listed). Sources [90] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1693.001",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "S1009 (basis: Listed). Sources [90] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1693.001",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "S1009 (basis: Listed). Sources [90] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0820",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "S1009 (basis: Listed). Sources [90] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0890",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "S1009; the Tricon firmware flaws found during the HatMan investigation (ICSA-18-107-02) (basis: Listed). Sources [90][91] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0874",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "S1009 (basis: Listed). Sources [90] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0874",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "S1009 (basis: Listed). Sources [90] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0872",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "S1009; C0030 (basis: Listed). Sources [90][89] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0849",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "S1009 (basis: Listed). Sources [90] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0868",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "S1009 (basis: Listed). Sources [90] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0871",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "S1009 (basis: Listed). Sources [90] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0834",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "S1009 (basis: Listed). Sources [90] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0846.002",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "S1009 (basis: Listed). Sources [90] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0885",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "S1009 (basis: Listed). Sources [90] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0869",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "S1009 (basis: Listed). Sources [90] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1701",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "C0030 (basis: Listed). Sources [89] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1701.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "C0030 (basis: Listed). Sources [89] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1701.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "S1009 (basis: Listed). Sources [90] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0830",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "C0030 (basis: Listed). Sources [89] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1692.001",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "C0030 (basis: Listed). Sources [89] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1692.001",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "C0030 (basis: Listed). Sources [89] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0886",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "C0030 (basis: Listed). Sources [89] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0886",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "C0030 (basis: Listed). Sources [89] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0859",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "C0030 (basis: Listed). Sources [89] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0859",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "C0030 (basis: Listed). Sources [89] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0867",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "C0030; S0366; S0368 (basis: Listed). Sources [89][85][87] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0866",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "S0366 WannaCry; S0368 NotPetya (basis: Listed). Sources [85][87] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0866",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "S0366 WannaCry; S0368 NotPetya (basis: Listed). Sources [85][87] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T0828",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "C0030; S0368 NotPetya (the Merck and FedEx filings describe the effect) (basis: Listed). Sources [89][87][19][20] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: the source or the ATT&CK object prints the id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2017.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "28"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "36"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/ics/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/ics/technique_profiles.jsonl"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2017 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2017.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

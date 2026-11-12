@@ -314,7 +314,8 @@
       "pages": ["/operating-systems/README.md", "/commands/linux-commands.md", "/commands/systemctl.md", "/commands/macos-commands.md", "/commands/powershell-commands.md", "/commands/windows-cmd.md", "/platforms/tanium.md", "/platforms/microsoft-defender.md"],
       "see_also": [
         ["Endpoint security", "/ENDPOINT_SECURITY_REFERENCE.md"],
-        ["Active Directory security", "/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md"]
+        ["Active Directory security", "/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md"],
+        ["SSHole, the OpenSSH authentication bypass (CVE-2026-123158): a case study", "/case-studies/SSHOLE_CVE_2026_123158.md"]
       ]
     },
     {

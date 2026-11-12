@@ -50,5 +50,6 @@ Time and difficulty are quoted in full from each guide's header table.
 
 - [Endpoint security](/ENDPOINT_SECURITY_REFERENCE.md)
 - [Active Directory security](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md)
+- [SSHole, the OpenSSH authentication bypass (CVE-2026-123158): a case study](/case-studies/SSHOLE_CVE_2026_123158.md)
 
 <!-- hub:end -->

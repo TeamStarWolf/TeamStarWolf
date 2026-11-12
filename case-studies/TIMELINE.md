@@ -14,6 +14,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2026 <!-- {docsify-ignore} -->
 
+- [SSHole: The OpenSSH Authentication Bypass of November 2026 (CVE-2026-123158)](/case-studies/SSHOLE_CVE_2026_123158.md). Vulnerability, November 2026. Sectors: technology. CVEs: CVE-2026-123158, CVE-2016-6210, CVE-2016-10009, CVE-2019-5021, CVE-2023-38408, CVE-2024-6387 and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SSHole_CVE_2026_123158_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/SSHole_CVE_2026_123158_Case_Study.pptx).
+  - 1 August 2016: OpenSSH 7.3 fixes CVE-2016-6210, the long-password timing flaw whose fake-salt handling the researcher and press trace SSHole to
+  - 4 November 2026: OpenSSH learns of the bypass; fix commit 4353fdc, "avoid password authn bypass", authored at 21:18 UTC
+  - 5 November 2026: OpenSSH 10.6p2 released with an urgent security release mail; oss-security and musl advisories posted
+  - 5 November 2026: Alpine advisory with fixed packages back to 3.16 and point releases 3.21.10, 3.22.8, 3.23.8 and 3.24.4
+  - 5 November 2026: MITRE CNA publishes CVE-2026-123158 at 8.1 High with CWE-394; NVD follows at 16:17 UTC
+  - 5 November 2026: Buildroot ships a security bump to 10.6p2; Gentoo, Void Linux and the OpenWrt packages feed move to 10.6p2
+  - 6 November 2026: OpenEmbedded-Core upgrades to 10.6p2; Ubuntu lists every release Not affected; Synology says no product is affected
+  - 6 November 2026: Help Net Security reports Previdian's root access on an Alpine honeypot (Reported)
+  - 7 November 2026: GreyNoise's first observed successful exploitation, an sshd-to-shell chain on one of its sensors (Reported)
+  - 9 November 2026: CISA adds the CVE to KEV based on evidence of active exploitation, due 12 November, forensic triage required
+  - 11 November 2026: GreyNoise counts 26 confirmed post-exploitation chains from 8 attacker addresses on its sensors (Reported)
+  - 12 November 2026: KEV due date
 - [PHP2Shell and the October 2026 Attack Wave: A Case Study](/case-studies/PHP2SHELL_OCTOBER_2026.md). Vulnerability, October 2026. Sectors: technology, finance. CVEs: CVE-2026-109618, CVE-2026-109619. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/PHP2Shell_October_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/PHP2Shell_October_2026_Case_Study.pptx).
   - 14 October 2026: ConnectWise identifies the Cloud Backup issue
   - 17 October 2026: Amazon MadPot sees PHP2Shell attempts four days before disclosure

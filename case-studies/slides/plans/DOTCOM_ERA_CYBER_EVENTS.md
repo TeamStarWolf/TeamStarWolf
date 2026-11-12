@@ -9,7 +9,7 @@
 ## EXECUTIVE SUMMARY | The decade's worms used holes that already had a fix
 
 - **Code Red, Slammer and Blaster** each followed a Microsoft bulletin by 26 days to six months.
-- **Melissa used no vulnerability:** it needed a person to open a document.
+- **Melissa used no new vulnerability:** it needed a person to open a document.
 - **Speed outran people:** Slammer doubled about every 8.5 seconds in its first minute.
 - **The institutions came fast:** CVE, PDD-63, Budapest, Trustworthy Computing, SB 1386, CAN-SPAM.
 - **The quiet story was espionage:** Moonlight Maze ran from 1996 and is still only partly public.

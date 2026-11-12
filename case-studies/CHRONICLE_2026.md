@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 106 min (24,277 words at 230 words a minute)
+About 106 min (24,267 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -374,7 +374,7 @@ The series' cloud security incidents study is the home for the cloud events belo
 
 ## Part 9: ransomware, extortion and the money
 
-The series' ransomware ecosystem study is the home for the groups below; it had not reached the library when this study was written. [The Change Healthcare study](/case-studies/CHANGE_HEALTHCARE_2024.md) remains the reference point for ransomware against healthcare.
+[The ransomware ecosystem study](/case-studies/RANSOMWARE_ECOSYSTEM.md) is the home for the groups below (Demonstrated [178]). [The Change Healthcare study](/case-studies/CHANGE_HEALTHCARE_2024.md) remains the reference point for ransomware against healthcare.
 
 **Two #StopRansomware advisories.** AA26-222A, released on 10 August by the FBI, CISA, DC3, NSA, USSS and Korea's KNPA, describes Gunra, a RaaS first seen by the FBI in April 2025, derived from leaked Conti code, that launched a formal affiliate program in early 2026 and practises double extortion against government and critical infrastructure (Confirmed [68]). Its actors exploited FortiGate and SSL-VPN appliances, used default credentials on an appliance with no account lockout, altered a VDI OTP portal so an attacker-chosen code always succeeded, captured VDI sessions, dumped NTDS, passed hashes and tickets, exfiltrated to Mega and over FTP and encrypted data (Confirmed [68]). NVD lists the two Fortinet initial-access CVEs, CVE-2024-55591 and CVE-2025-24472, as CWE-288 (Confirmed [69]). AA26-293A, released on 20 October by the FBI, CISA, USSS, LKA Rheinland-Pfalz, the UK NCA and NW ROCU, says SafePay has been active since August 2024 on four continents, has at least 600 victims across critical infrastructure sectors and was among the most active groups of 2026; access came through stolen or brute-forced credentials, VPN abuse and edge exploitation of Cisco ASA CVE-2020-3259 and CVE-2023-20269, Veeam CVE-2023-27532 and CVE-2024-40711 and SonicWall CVE-2024-40766, and it points to BOD 26-04 for patch prioritization (Confirmed [113]). NVD lists CVE-2024-40711 as CWE-502 and CVE-2024-40766 as CWE-284 (Confirmed [114]). The library has no ATT&CK group or software object for Gunra or SafePay.
 

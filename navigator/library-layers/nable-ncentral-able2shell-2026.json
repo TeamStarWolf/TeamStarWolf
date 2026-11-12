@@ -1,0 +1,194 @@
+{
+  "name": "TeamStarWolf - N-able N-central Able2Shell (November 2026) Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the Able2Shell case study: the November 2026 N-able N-central disclosure and the RMM landmarks that frame it (Kaseya VSA 2021, ScreenConnect 2024, SimpleHelp 2025 and the earlier N-central KEV entries). No advisory names ATT&CK ids, so every binding is the study's own. Score 100: bound to the Able2Shell record by a Confirmed primary (vendor status page and CVE records). Score 50: the researcher's claims (Reported) and RMM-landmark context. Comments carry the study's source numbers.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: bound to the Able2Shell record by a Confirmed primary",
+      "color": "#15803d"
+    },
+    {
+      "label": "50: researcher's claims (Reported) and RMM-landmark context",
+      "color": "#86efac"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/NABLE_NCENTRAL_ABLE2SHELL_2026.md; ATT&CK v20.0 technique data"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 = bound to the Able2Shell record by a Confirmed primary; 50 = researcher's claims (Reported) and RMM-landmark context. No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "Able2Shell and the RMM Attack Surface: The N-able N-central Disclosure of November 2026",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/NABLE_NCENTRAL_ABLE2SHELL_2026"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Able2Shell record: N-able observes scanning tied to the published code (status page, 2026-11-10); Previdian decoy probing from 2026-11-09 (Demonstrated). Mapping is the study's own. Sources: [1] [3] [19].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Able2Shell record: CVE-2026-125883 and CVE-2026-125881, network vector with no privileges (CVE records, 2026-11-10); exploitation attempts against honeypots (2026-11-09 to 10, Reported); no confirmed compromise. RMM landmarks: Kaseya VSA (2021-07-02), ScreenConnect CVE-2024-1709 (KEV 2024-02-22), SimpleHelp CVE-2024-57727 (KEV 2025-02-13), N-central CVE-2026-86218 (KEV 2026-09-08). Mapping is the study's own. Sources: [4] [5] [18] [19] [45] [12] [53] [38] [59].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Able2Shell record: CVE-2026-125879 and CVE-2026-91000, local privilege escalation (CVE records, 2026-11-10); README chains 3 and 4 reach root (Reported). Mapping is the study's own. Sources: [7] [10] [14].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "Reported: the README claims code execution as the appliance service account and as root (2026-11-09); the record names no interpreter, so no sub-technique. Sources: [14] [16].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "score": 50,
+      "comment": "Reported: the README claims chain 1 can create an enabled administrator account (2026-11-09); Huntress hunts for unauthorized new administrator accounts (2026-11-10). RMM landmark: ScreenConnect CVE-2024-1709 lets an attacker create an administrator-level account (KEV 2024-02-22). Sources: [14] [17] [12] [50].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 50,
+      "comment": "RMM landmark: in the summer 2026 N-central intrusion the actor used Take Control to reach managed devices (N-able, 2026-07-31 onward); HF2 disables built-in remote control (2026-11-10). Mapping is the study's own. Sources: [36] [37] [2].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 50,
+      "comment": "RMM landmark: Cloudflare tunnel services registered for persistence in the summer 2026 N-central intrusion (N-able, 2026-08-02 to 10). Mapping is the study's own. Sources: [35] [37] [42].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 50,
+      "comment": "RMM landmark: a registered Cloudflared service among the N-central Hotfix 1 indicators (N-able, 2026-08-02); Windows service platform Inferred. Sources: [35].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 50,
+      "comment": "RMM landmark: a registered Cloudflared service among the N-central Hotfix 1 indicators (N-able, 2026-08-02); Windows service platform Inferred. Sources: [35].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "RMM landmark: attackers held N-central administrator access after CVE-2026-18577 (The Hacker News, 2026-08-08, Reported). Mapping is the study's own. Sources: [42] [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 50,
+      "comment": "RMM landmark: attackers held N-central administrator access after CVE-2026-18577 (The Hacker News, 2026-08-08, Reported). Mapping is the study's own. Sources: [42] [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 50,
+      "comment": "RMM landmark: attackers held N-central administrator access after CVE-2026-18577 (The Hacker News, 2026-08-08, Reported). Mapping is the study's own. Sources: [42] [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 50,
+      "comment": "RMM landmark: attackers held N-central administrator access after CVE-2026-18577 (The Hacker News, 2026-08-08, Reported). Mapping is the study's own. Sources: [42] [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "RMM landmark: Kaseya VSA used to push ransomware to managed endpoints (2021-07-02), as mapped in the library's Chronicle 2021 study. Sources: [59] [45].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "lateral-movement",
+      "score": 50,
+      "comment": "RMM landmark: Kaseya VSA used to push ransomware to managed endpoints (2021-07-02), as mapped in the library's Chronicle 2021 study. Sources: [59] [45].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 50,
+      "comment": "RMM landmarks: Kaseya MSP customers (2021); SimpleHelp at a software provider used against its downstream customers (AA25-163A, 2025-06-12); MSP advisory AA22-131A (2022-05-11). Mapping is the study's own. Sources: [45] [53] [55] [59].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 50,
+      "comment": "RMM landmarks: REvil ransomware through Kaseya VSA (2021-07-02); ransomware through SimpleHelp (AA25-163A, 2025-06-12); DragonForce through an MSP's SimpleHelp (Sophos, 2025, Reported). Sources: [45] [53] [54].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1552.001",
+      "tactic": "credential-access",
+      "score": 50,
+      "comment": "RMM landmark: SimpleHelp CVE-2024-57727 exposes server configuration files containing secrets and hashed passwords (NVD, 2025-01-15). Mapping is the study's own. Sources: [52].",
+      "enabled": true
+    }
+  ]
+}

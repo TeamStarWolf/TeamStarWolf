@@ -37,6 +37,7 @@ This attack takes advantage of the entity replacement property of certain data s
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [Able2Shell and the RMM Attack Surface: The N-able N-central Disclosure of November 2026](/case-studies/NABLE_NCENTRAL_ABLE2SHELL_2026.md)
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)
 

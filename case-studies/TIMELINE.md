@@ -27,6 +27,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 November 2026: CISA adds the CVE to KEV based on evidence of active exploitation, due 12 November, forensic triage required
   - 11 November 2026: GreyNoise counts 26 confirmed post-exploitation chains from 8 attacker addresses on its sensors (Reported)
   - 12 November 2026: KEV due date
+- [Able2Shell and the RMM Attack Surface: The N-able N-central Disclosure of November 2026](/case-studies/NABLE_NCENTRAL_ABLE2SHELL_2026.md). Vulnerability, November 2026. Sectors: technology, cross-sector. CVEs: CVE-2026-125883, CVE-2026-125881, CVE-2026-125878, CVE-2026-125879, CVE-2026-125882, CVE-2026-91000 and 19 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Nable_Ncentral_Able2Shell_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Nable_Ncentral_Able2Shell_2026_Case_Study.pptx).
+  - 2 July 2021: Kaseya VSA incident: SaaS shut down and on-premises customers told to shut servers down; REvil ransomware reaches MSP customers
+  - 22 February 2024: CISA adds ScreenConnect CVE-2024-1709, an authentication bypass to an administrator account, to KEV
+  - 12 June 2025: CISA AA25-163A: ransomware actors use unpatched SimpleHelp RMM against a software provider's downstream customers
+  - 13 August 2025: N-central 2025.3.1 fixes CVE-2025-8875 and CVE-2025-8876; CISA adds both to KEV the same day
+  - 31 July 2026: N-able's MDR detects an actor exploiting an unknown N-central flaw; Take Control used to reach managed devices
+  - 8 September 2026: CISA adds N-central CVE-2026-86218, a pre-authentication RCE, to KEV with a three-day due date
+  - 9 November 2026: Researcher's commit publishes 33 alleged N-central findings with proof-of-concept scripts, no notice by his own account (04:14 UTC)
+  - 9 November 2026: N-able status incident 202584: hosted and on-premises N-central offline in three regions, Major Outage
+  - 9 November 2026: watchTowr reports honeypot exploitation attempts (Reported); Previdian's decoy logs 68 events from one address (Demonstrated)
+  - 10 November 2026: N-central 2026.4 Hotfix 2 (2026.4.1.26) posted; N-able publishes seven CVE records, two at CVSS v4.0 9.3
+  - 11 November 2026: All hosted N-central servers upgraded (status update, 01:04 dashboard time)
+  - 11 November 2026: N-able blog: unauthenticated paths fixed, more hotfixes to come, calls claims it ignored disclosure inaccurate
 - [PHP2Shell and the October 2026 Attack Wave: A Case Study](/case-studies/PHP2SHELL_OCTOBER_2026.md). Vulnerability, October 2026. Sectors: technology, finance. CVEs: CVE-2026-109618, CVE-2026-109619. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/PHP2Shell_October_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/PHP2Shell_October_2026_Case_Study.pptx).
   - 14 October 2026: ConnectWise identifies the Cloud Backup issue
   - 17 October 2026: Amazon MadPot sees PHP2Shell attempts four days before disclosure

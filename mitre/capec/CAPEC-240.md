@@ -42,6 +42,7 @@ An adversary exploits weaknesses in input validation by manipulating resource id
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [Able2Shell and the RMM Attack Surface: The N-able N-central Disclosure of November 2026](/case-studies/NABLE_NCENTRAL_ABLE2SHELL_2026.md)
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 
 <!-- library-refs:end -->

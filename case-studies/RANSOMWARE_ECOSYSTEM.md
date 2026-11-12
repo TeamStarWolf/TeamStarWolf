@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 90 min (20,798 words at 230 words a minute)
+About 90 min (20,813 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -699,11 +699,11 @@ This Part binds the verified record to MITRE ATT&CK v20.0, CAPEC, CWE and D3FEND
 
 | Id | Name | Tactic (v20.0) | Where it appears in the record | Source | Grade |
 |---|---|---|---|---|---|
-| [T1598](/mitre/techniques/T1598.md) | Phishing for Information | Reconnaissance | ALPHV affiliates pose as IT staff to obtain credentials (AA23-353A, Dec 2023) | [20] | Inferred (assigned) |
+| [T1598](/mitre/techniques/T1598.md) | Phishing for Information | Reconnaissance | ALPHV affiliates pose as IT staff to obtain credentials (AA23-353A, Dec 2023) | [20] | Confirmed (printed in [20]) |
 | [T1598.002](/mitre/techniques/T1598-002.md) | Spearphishing Attachment | Reconnaissance | Daixin Team (AA22-294A, Oct 2022) | [8] | Confirmed (printed) |
 | [T1189](/mitre/techniques/T1189.md) | Drive-by Compromise | Initial Access | Interlock (AA25-203A, Jul 2025) | [28] | Confirmed (printed) |
 | [T1190](/mitre/techniques/T1190.md) | Exploit Public-Facing Application | Initial Access | Daixin (Oct 2022); Black Basta and ScreenConnect (May 2024); also MOVEit, Citrix Bleed, FortiOS and the CVEs of Part 5 | [8][24][14][18][29] | Confirmed (printed in [8][24]) |
-| [T1133](/mitre/techniques/T1133.md) | External Remote Services | Persistence, Initial Access | VPNs without MFA: Akira (2024 to 2025), Rhysida, Change Healthcare's Citrix portal (Feb 2024); Colonial's legacy VPN profile (May 2021) | [71][23][16][70] | Inferred (assigned) |
+| [T1133](/mitre/techniques/T1133.md) | External Remote Services | Persistence, Initial Access | VPNs without MFA: Akira (2024 to 2025), Rhysida, Change Healthcare's Citrix portal (Feb 2024); Colonial's legacy VPN profile (May 2021) | [71][23][16][70][29] | Confirmed (printed in [23][29]) |
 | [T1078](/mitre/techniques/T1078.md) | Valid Accounts | Stealth, Persistence, Privilege Escalation, Initial Access | Daixin (Oct 2022); Black Basta (May 2024) | [8][24] | Confirmed (printed) |
 | [T1199](/mitre/techniques/T1199.md) | Trusted Relationship | Initial Access | Kaseya VSA reached customers through their managed service providers (Jul 2021); MSP targeting (AA22-040A) | [44][5] | Inferred (assigned) |
 | [T1566](/mitre/techniques/T1566.md) | Phishing | Initial Access | Black Basta (AA24-131A); a top vector of 2021 (AA22-040A); HSE (Mar 2021) | [24][5][83] | Confirmed (printed in [24]) |
@@ -728,9 +728,9 @@ This Part binds the verified record to MITRE ATT&CK v20.0, CAPEC, CWE and D3FEND
 | [T1686](/mitre/techniques/T1686.md) | Disable or Modify System Firewall | Defense Impairment | Advisory id T1562.004, revoked and mapped here by the library | [160][161] | Confirmed (successor mapping) |
 | [T1556.006](/mitre/techniques/T1556-006.md) | Multi-Factor Authentication | Defense Impairment, Persistence, Credential Access | Citrix Bleed session hijacking bypasses MFA (AA23-325A, Nov 2023) | [18] | Confirmed (printed) |
 | [T1003](/mitre/techniques/T1003.md) | OS Credential Dumping | Credential Access | Daixin (AA22-294A) | [8] | Confirmed (printed) |
-| [T1110](/mitre/techniques/T1110.md) | Brute Force | Credential Access | Brute-forced RDP credentials (AA22-040A); SafePay (AA26-293A) | [5][30] | Inferred (assigned) |
+| [T1110](/mitre/techniques/T1110.md) | Brute Force | Credential Access | Brute-forced RDP credentials (AA22-040A); SafePay (AA26-293A) | [5][30] | Confirmed (printed in [30]) |
 | [T1539](/mitre/techniques/T1539.md) | Steal Web Session Cookie | Credential Access | Citrix Bleed (AA23-325A) | [18] | Confirmed (printed) |
-| [T1557](/mitre/techniques/T1557.md) | Adversary-in-the-Middle | Credential Access, Collection | ALPHV affiliates capture MFA codes and session cookies (AA23-353A) | [20] | Inferred (assigned) |
+| [T1557](/mitre/techniques/T1557.md) | Adversary-in-the-Middle | Credential Access, Collection | ALPHV affiliates capture MFA codes and session cookies (AA23-353A) | [20] | Confirmed (printed in [20]) |
 | [T1621](/mitre/techniques/T1621.md) | Multi-Factor Authentication Request Generation | Credential Access | Scattered Spider MFA fatigue (AA23-320A) | [17] | Confirmed (printed) |
 | [T1016](/mitre/techniques/T1016.md) | System Network Configuration Discovery | Discovery | AA20-302A | [1] | Confirmed (printed) |
 | [T1057](/mitre/techniques/T1057.md) | Process Discovery | Discovery | AA20-302A | [1] | Confirmed (printed) |
@@ -740,8 +740,8 @@ This Part binds the verified record to MITRE ATT&CK v20.0, CAPEC, CWE and D3FEND
 | [T1563](/mitre/techniques/T1563.md) | Remote Service Session Hijacking | Lateral Movement | Citrix Bleed (AA23-325A text) | [18] | Confirmed (printed) |
 | [T1563.001](/mitre/techniques/T1563-001.md) | SSH Hijacking | Lateral Movement | Daixin (AA22-294A) | [8] | Confirmed (printed) |
 | [T1563.002](/mitre/techniques/T1563-002.md) | RDP Hijacking | Lateral Movement | Daixin (AA22-294A) | [8] | Confirmed (printed) |
-| [T1560.001](/mitre/techniques/T1560-001.md) | Archive via Utility | Collection | SafePay archives with 7-Zip and WinRAR before exfiltration (AA26-293A) | [30] | Inferred (assigned) |
-| [T1530](/mitre/techniques/T1530.md) | Data from Cloud Storage | Collection | Scattered Spider bulk pulls from Snowflake (2025 update); Gunra from OneDrive (2026) | [17][29] | Inferred (assigned) |
+| [T1560.001](/mitre/techniques/T1560-001.md) | Archive via Utility | Collection | SafePay archives with 7-Zip and WinRAR before exfiltration (AA26-293A) | [30] | Confirmed (printed in [30]) |
+| [T1530](/mitre/techniques/T1530.md) | Data from Cloud Storage | Collection | Scattered Spider bulk pulls from Snowflake (2025 update); Gunra from OneDrive (2026) | [17][29] | Confirmed (printed in [17][29]) |
 | [T1213.002](/mitre/techniques/T1213-002.md) | Sharepoint | Collection | Gunra pulled data from SharePoint (AA26-222A) | [29] | Inferred (assigned) |
 | [T1219](/mitre/techniques/T1219.md) | Remote Access Tools | Command and Control | AnyDesk and Quick Assist (Black Basta); RMM products (Medusa); legitimate remote-management tools at Dallas (2023); recurring across advisories | [24][27][85] | Inferred (assigned) |
 | [T1567](/mitre/techniques/T1567.md) | Exfiltration Over Web Service | Exfiltration | Daixin (AA22-294A) | [8] | Confirmed (printed) |

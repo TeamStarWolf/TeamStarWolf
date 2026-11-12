@@ -20,8 +20,8 @@
     {
       "techniqueID": "T1598",
       "tactic": "reconnaissance",
-      "score": 70,
-      "comment": "ALPHV affiliates pose as IT staff to obtain credentials (AA23-353A, Dec 2023) (basis: Behavior). Sources [20] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+      "score": 100,
+      "comment": "ALPHV affiliates pose as IT staff to obtain credentials (AA23-353A, Dec 2023) (basis: Source). Sources [20] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
     },
     {
       "techniqueID": "T1598.002",
@@ -44,14 +44,14 @@
     {
       "techniqueID": "T1133",
       "tactic": "persistence",
-      "score": 70,
-      "comment": "VPNs without MFA: Akira (2024 to 2025), Rhysida, Change Healthcare's Citrix portal (Feb 2024); Colonial's legacy VPN profile (May 2021) (basis: Behavior). Sources [71][23][16][70] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+      "score": 100,
+      "comment": "VPNs without MFA: Akira (2024 to 2025), Rhysida, Change Healthcare's Citrix portal (Feb 2024); Colonial's legacy VPN profile (May 2021) (basis: Source). Sources [71][23][16][70][29] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
     },
     {
       "techniqueID": "T1133",
       "tactic": "initial-access",
-      "score": 70,
-      "comment": "VPNs without MFA: Akira (2024 to 2025), Rhysida, Change Healthcare's Citrix portal (Feb 2024); Colonial's legacy VPN profile (May 2021) (basis: Behavior). Sources [71][23][16][70] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+      "score": 100,
+      "comment": "VPNs without MFA: Akira (2024 to 2025), Rhysida, Change Healthcare's Citrix portal (Feb 2024); Colonial's legacy VPN profile (May 2021) (basis: Source). Sources [71][23][16][70][29] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
     },
     {
       "techniqueID": "T1078",
@@ -254,8 +254,8 @@
     {
       "techniqueID": "T1110",
       "tactic": "credential-access",
-      "score": 70,
-      "comment": "Brute-forced RDP credentials (AA22-040A); SafePay (AA26-293A) (basis: Behavior). Sources [5][30] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+      "score": 100,
+      "comment": "Brute-forced RDP credentials (AA22-040A); SafePay (AA26-293A) (basis: Source). Sources [5][30] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
     },
     {
       "techniqueID": "T1539",
@@ -266,14 +266,14 @@
     {
       "techniqueID": "T1557",
       "tactic": "credential-access",
-      "score": 70,
-      "comment": "ALPHV affiliates capture MFA codes and session cookies (AA23-353A) (basis: Behavior). Sources [20] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+      "score": 100,
+      "comment": "ALPHV affiliates capture MFA codes and session cookies (AA23-353A) (basis: Source). Sources [20] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
     },
     {
       "techniqueID": "T1557",
       "tactic": "collection",
-      "score": 70,
-      "comment": "ALPHV affiliates capture MFA codes and session cookies (AA23-353A) (basis: Behavior). Sources [20] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+      "score": 100,
+      "comment": "ALPHV affiliates capture MFA codes and session cookies (AA23-353A) (basis: Source). Sources [20] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
     },
     {
       "techniqueID": "T1621",
@@ -332,14 +332,14 @@
     {
       "techniqueID": "T1560.001",
       "tactic": "collection",
-      "score": 70,
-      "comment": "SafePay archives with 7-Zip and WinRAR before exfiltration (AA26-293A) (basis: Behavior). Sources [30] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+      "score": 100,
+      "comment": "SafePay archives with 7-Zip and WinRAR before exfiltration (AA26-293A) (basis: Source). Sources [30] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
     },
     {
       "techniqueID": "T1530",
       "tactic": "collection",
-      "score": 70,
-      "comment": "Scattered Spider bulk pulls from Snowflake (2025 update); Gunra from OneDrive (2026) (basis: Behavior). Sources [17][29] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
+      "score": 100,
+      "comment": "Scattered Spider bulk pulls from Snowflake (2025 update); Gunra from OneDrive (2026) (basis: Source). Sources [17][29] refer to the Sources table of case-studies/RANSOMWARE_ECOSYSTEM.md."
     },
     {
       "techniqueID": "T1213.002",

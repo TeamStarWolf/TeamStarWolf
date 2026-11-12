@@ -2560,6 +2560,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 6: the defender view](#part-6-the-defender-view)"
     pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Threat Actors](/THREAT_ACTORS.md), [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)"
     reviewed: null
+  case-studies/SSHOLE_CVE_2026_123158.md:
+    audience: "Vulnerability management leads, Linux and embedded platform engineers, container and cloud image owners, and incident responders"
+    level: "Intermediate"
+    read_when: "You run OpenSSH on Alpine Linux or another musl-based build, you need the facts of CVE-2026-123158 and its KEV deadline, or you want to decide exposure, fix it and triage a host where a login cannot be ruled out"
+    start_at: "[Executive summary](#executive-summary), [Part 4: Exposure](#part-4-exposure), [Part 6: The defender view](#part-6-the-defender-view)"
+    pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md), [The XZ Utils Backdoor](/case-studies/XZ_UTILS_BACKDOOR_2024.md)"
+    reviewed: null
   case-studies/STUXNET.md:
     audience: "ICS and OT security engineers, threat intelligence analysts and students of cyber conflict"
     level: "Intermediate"

@@ -258,6 +258,12 @@
     "blurb": "Techniques from a month of KEV listings checked in the lab: public-facing exploitation, privilege escalation, web shells, the Mark-of-the-Web bypass and the follow-on mining. A curated layer for the exposure-checks case study."
   },
   {
+    "file": "sshole-cve-2026-123158.json",
+    "name": "TeamStarWolf - SSHole OpenSSH CVE-2026-123158 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified SSHole record supports: the CVE record, the Alpine advisory and the CISA KEV entry for the initial-access path, and the post-exploitation behavior GreyNoise, SANS ISC, Previdian and the press reported. No advisory names ATT&CK ids, so every binding is the study's own. Each comment names source numbers from case-studies/SSHOLE_CVE_2026_123158.md. Scores: 75 is the initial-access path, 50 is Reported post-exploitation, 25 is an analogy labelled in the comment.",
+    "blurb": "Techniques from the SSHole record, from the password-free login to an existing local account on musl builds without PAM to the authorized keys, new accounts, shadow-file reads and Python agent reported on sensors afterwards. A curated layer for the SSHole case study."
+  },
+  {
     "file": "ransomware-ecosystem-2019-2026.json",
     "name": "TeamStarWolf - The Ransomware Ecosystem, 2019 to 2026",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2019 to 2026 ransomware record supports: the joint #StopRansomware and other CISA advisories (AA20-302A, AA22-040A, AA22-187A, AA22-294A, AA23-320A, AA23-325A, AA23-352A, AA23-353A, AA24-131A, AA25-203A, AA26-222A, AA26-293A and others), victims' statements and testimony, and ATT&CK's own records. Each comment names source numbers from case-studies/RANSOMWARE_ECOSYSTEM.md. Scores: 100 the source prints the id, 70 the source describes the behavior and the study assigns the id.",

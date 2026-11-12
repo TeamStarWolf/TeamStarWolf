@@ -1,0 +1,575 @@
+{
+  "name": "TeamStarWolf - The Year 2016 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2016 record supports: the DHS and FBI GRIZZLY STEPPE report JAR-16-20296A, the July 2018 GRU indictment, WADA, Unit 42 on Shamoon 2, BAE on Bangladesh Bank, US-CERT TA16-091A, TA16-132A and TA16-288A, CISA AA18-337A on SamSam, the FTC on Uber, Yahoo's filing, vendor bulletins, and the ATT&CK objects G0007 APT28, G0082 APT38, S0140 Shamoon, S0370 SamSam, S0604 Industroyer and campaign C0025. Each comment names source numbers from case-studies/CHRONICLE_2016.md. Scores: 100 the source or ATT&CK object prints the id, 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1598",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ATT&CK maps Phishing for Information to APT28, whose 2016 Clinton campaign, DNC and DCCC compromises it records as reported (basis: Listed). Sources [9] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1598.003",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Spring 2016: APT28 email leads recipients to change passwords on a fake webmail domain (JAR); ATT&CK maps the sub-technique to APT28 (basis: Listed). Sources [1][9] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "APT28 lookalike domains and shortened URLs (JAR, 29 Dec 2016) (basis: Described). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Spear phishing to obtain the IOC-created ADAMS account (WADA, 13 Sep 2016); spear phishing in the Bangladesh Bank conspiracy (DOJ, mapping Inferred) (basis: Described). Sources [14][29] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "TeleBots macro-laden Excel attachments against Ukraine's financial sector, second half of 2016; Locky spam with malicious Office documents (TA16-091A, 31 Mar 2016) (basis: Described). Sources [24][49] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "APT29 malicious-link emails to over 1,000 recipients, summer 2015, recorded in the 29 Dec 2016 JAR; spear phishing of the Clinton campaign chairman, 19 Mar 2016 (indictment allegation) (basis: Described). Sources [1][5] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Stolen webmail credentials (JAR); a DCCC employee's stolen credentials used on 12 Apr 2016 (indictment allegation); ATT&CK maps Valid Accounts to APT28 (basis: Listed). Sources [1][5][9] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Stolen webmail credentials (JAR); a DCCC employee's stolen credentials used on 12 Apr 2016 (indictment allegation); ATT&CK maps Valid Accounts to APT28 (basis: Listed). Sources [1][5][9] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Stolen webmail credentials (JAR); a DCCC employee's stolen credentials used on 12 Apr 2016 (indictment allegation); ATT&CK maps Valid Accounts to APT28 (basis: Listed). Sources [1][5][9] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Stolen webmail credentials (JAR); a DCCC employee's stolen credentials used on 12 Apr 2016 (indictment allegation); ATT&CK maps Valid Accounts to APT28 (basis: Listed). Sources [1][5][9] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Mirai logs into IoT devices with 62 default username and password pairs (TA16-288A, 14 Oct 2016) (basis: Described). Sources [63] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Mirai logs into IoT devices with 62 default username and password pairs (TA16-288A, 14 Oct 2016) (basis: Described). Sources [63] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Mirai logs into IoT devices with 62 default username and password pairs (TA16-288A, 14 Oct 2016) (basis: Described). Sources [63] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Mirai logs into IoT devices with 62 default username and password pairs (TA16-288A, 14 Oct 2016) (basis: Described). Sources [63] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Shamoon 2 spread with stolen administrator credentials hardcoded with the victim's internal domain names (Unit 42, 30 Nov 2016); S0140 lists the sub-technique (basis: Listed). Sources [32][33] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Shamoon 2 spread with stolen administrator credentials hardcoded with the victim's internal domain names (Unit 42, 30 Nov 2016); S0140 lists the sub-technique (basis: Listed). Sources [32][33] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Shamoon 2 spread with stolen administrator credentials hardcoded with the victim's internal domain names (Unit 42, 30 Nov 2016); S0140 lists the sub-technique (basis: Listed). Sources [32][33] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Shamoon 2 spread with stolen administrator credentials hardcoded with the victim's internal domain names (Unit 42, 30 Nov 2016); S0140 lists the sub-technique (basis: Listed). Sources [32][33] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Fall 2016: an access key an Uber engineer posted on a code-sharing site opens consumer data in third-party cloud storage (FTC) (basis: Described). Sources [85] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Fall 2016: an access key an Uber engineer posted on a code-sharing site opens consumer data in third-party cloud storage (FTC) (basis: Described). Sources [85] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Fall 2016: an access key an Uber engineer posted on a code-sharing site opens consumer data in third-party cloud storage (FTC) (basis: Described). Sources [85] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Fall 2016: an access key an Uber engineer posted on a code-sharing site opens consumer data in third-party cloud storage (FTC) (basis: Described). Sources [85] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATT&CK G0007: access to the DCCC used to reach the DNC (indictment dates the DNC step to 18 Apr 2016) (basis: Listed). Sources [9][5] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "SamSam actors exploit JBoss in early 2016 (AA18-337A); Samas through vulnerable web servers (TA16-091A); SAP Invoker Servlet exploitation at 36 or more organizations (TA16-132A, 11 May 2016) (basis: Described). Sources [58][49][77] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "SamSam actors use RDP with brute-forced or stolen credentials from mid-2016 (AA18-337A) (basis: Described). Sources [58] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "SamSam actors use RDP with brute-forced or stolen credentials from mid-2016 (AA18-337A) (basis: Described). Sources [58] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Dropping Elephant watering holes (Kaspersky, 8 Jul 2016) (basis: Described). Sources [37] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Backdoored Linux Mint 17.3 Cinnamon ISO on the download page, 20 Feb 2016; trojanized Transmission installers in March and August 2016 (vendor research, Reported) (basis: Described). Sources [90][53][91] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "STRONTIUM Flash zero-day CVE-2016-7855 (Microsoft, 1 Nov 2016); Firefox SVG use-after-free exploit in the wild (MFSA 2016-92, 30 Nov 2016); IE scripting engine CVE-2016-0189 exploited (MS16-051); PROMETHIUM and NEODYMIUM with CVE-2016-4117 in May 2016 (mapping Inferred) (basis: Described). Sources [43][71][76][46][38] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "C0025, December 2016 Ukraine attack (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "C0025; SamSam (S0370) (basis: Listed). Sources [20][59] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1059.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Shamoon 2 executes copies on remote hosts as a service (Unit 42) (basis: Described). Sources [32] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Shamoon 2 executes copies on remote hosts by scheduled task (Unit 42) (basis: Described). Sources [32] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Shamoon 2 executes copies on remote hosts by scheduled task (Unit 42) (basis: Described). Sources [32] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Shamoon 2 executes copies on remote hosts by scheduled task (Unit 42) (basis: Described). Sources [32] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1136.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "C0025; the Bangladesh Bank malware registers itself as a service (BAE, 25 Apr 2016; mapping Inferred) (basis: Listed). Sources [20][26] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "C0025; the Bangladesh Bank malware registers itself as a service (BAE, 25 Apr 2016; mapping Inferred) (basis: Listed). Sources [20][26] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1554",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1505.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Dirty COW CVE-2016-5195 exploited in the wild in October 2016 (NVD); Win32k CVE-2016-7255 exploited (MS16-135, 8 Nov 2016); STRONTIUM's Windows kernel zero-day per Microsoft, 1 Nov 2016 (CVE tie Inferred) (basis: Described). Sources [70][43][45] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1036.008",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1036.010",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1027.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1685.001",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1070.006",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "S0140 Shamoon, which ATT&CK records as observed in 2016 as Shamoon 2 (basis: Listed). Sources [33] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-impairment",
+      "score": 50,
+      "comment": "KeRanger installers signed with a valid Apple developer certificate (Unit 42, 4 Mar 2016); Keydnap signed with a different Developer ID (ESET, Aug 2016) (basis: Reported). Sources [53][91] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "C0025; SamSam brute-forced RDP credentials (AA18-337A) (basis: Listed). Sources [20][58] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1110.001",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Mirai's default-credential logins (TA16-288A) (basis: Described). Sources [63] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "X-Agent keylogging turned on in the DCCC network, April 2016 (indictment allegation) (basis: Described). Sources [5] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "X-Agent keylogging turned on in the DCCC network, April 2016 (indictment allegation) (basis: Described). Sources [5] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1606.001",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "An intruder used proprietary Yahoo code to learn how to forge cookies, tied in part to the state-sponsored actor (Yahoo 8-K, 14 Dec 2016) (basis: Described). Sources [81] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "C0025 (basis: Listed). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "C0025; Shamoon 2 remote copying (Unit 42; S0140 lists it) (basis: Listed). Sources [20][32][33] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "SamSam over RDP from mid-2016 (AA18-337A) (basis: Described). Sources [58] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1570",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "C0025; Shamoon 2 (S0140) (basis: Listed). Sources [20][32][33] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "X-Agent screenshot function turned on, April 2016 (indictment allegation) (basis: Described). Sources [5] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1119",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK G0007 for the 2016 intrusions (basis: Listed). Sources [9] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1560",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "ATT&CK G0007; compressed DNC data sent to a GRU-leased computer in Illinois (indictment allegation) (basis: Listed). Sources [9][5] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Uber consumer data taken from third-party cloud storage, fall 2016 (FTC) (basis: Described). Sources [85] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Shamoon 2 wipe set for 17 Nov 2016 (Unit 42); S0140 and S0604 list Data Destruction (basis: Listed). Sources [32][33][21] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "SamSam (AA18-337A; S0370 lists it); Locky and Samas (TA16-091A); SFMTA office computers, 25 Nov 2016 (basis: Listed). Sources [58][59][49][52] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S0604 Industroyer (basis: Listed). Sources [21] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Mirai against KrebsOnSecurity (20 Sep 2016) and OVH (late Sep 2016); ATT&CK G0007 maps the 2016 DDoS against WADA (basis: Listed). Sources [63][62][9] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1498.001",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "The 620 Gbps attack on KrebsOnSecurity used no amplification or reflection (victim's own post); TA16-288A volumes (basis: Described). Sources [62][63] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1499.004",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S0604 Industroyer (the Siemens relay denial of service) (basis: Listed). Sources [21] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1529",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Shamoon 2 forces a reboot after wiping (Unit 42); S0140 lists it (basis: Listed). Sources [32][33] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1561.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Shamoon 2 overwrites the MBR and partition tables (Unit 42; S0140); KillDisk corrupted master boot records in the 2015 Ukraine attack (IR-ALERT-H-16-056-01) (basis: Listed). Sources [32][33][16] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1565.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK G0082: DYEPACK altering SWIFT transaction records (APT38; the group page names the 2016 Bank of Bangladesh heist without a date per technique) (basis: Listed). Sources [28] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1565.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK G0082: SWIFT messages altered on the way to a printer (basis: Listed). Sources [28] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1565.003",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK G0082: DYEPACK.FOX removing traces (basis: Listed). Sources [28] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Bangladesh Bank, February 2016 ($81 million, DOJ); Tesco Bank, 5 to 7 Nov 2016 (GBP 2.26 million, FCA) (basis: Described). Sources [26][29][60] refer to the Sources table of case-studies/CHRONICLE_2016.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: the source or ATT&CK object prints the ATT&CK id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2016.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "63"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "81"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2016 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2016.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

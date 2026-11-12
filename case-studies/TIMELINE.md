@@ -709,6 +709,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 1 June 2023: Kaspersky discloses Operation Triangulation; the FSB blames US intelligence the same day
   - 19 October 2025: China's Ministry of State Security alleges an NSA campaign against the National Time Service Center
 
+### 1994 <!-- {docsify-ignore} -->
+
+- [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md). Period record, 1978 to January 2005 (core: 1994 to 2003). Sectors: cross-sector, finance, government, defense, retail, technology, education. CVEs: CVE-2000-0884, CVE-2001-0154, CVE-2001-0500, CVE-2002-0649, CVE-2003-0352. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Dotcom_Era_Cyber_Events_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Dotcom_Era_Cyber_Events_Case_Study.pptx).
+  - 1994: Vladimir Levin and confederates begin transferring about $10 million from Citibank subsidiaries (Reported)
+  - 1996: Moonlight Maze intrusions begin against mainly US military, research and university networks
+  - 1 February 1998: Solar Sunrise, 1 to 26 Feb 1998: attacks on unclassified DoD networks, at least eleven (Reported)
+  - 19 May 1998: Seven L0pht members and Peter G. Neumann testify to the Senate Committee on Governmental Affairs
+  - 26 March 1999: Melissa reports begin; CERT/CC advisory CA-1999-04 follows on 27 March
+  - September 1999: CVE List launches publicly with 321 records and a 19-member Editorial Board
+  - 7 February 2000: Yahoo unreachable for about three hours after a DDoS; Amazon, eBay, Buy.com and CNN hit on 8 Feb (Reported)
+  - 4 May 2000: CERT/CC CA-2000-04 on the Love Letter worm; over 500,000 affected systems reported by 8 May
+  - 19 July 2001: Code Red v2 begins about 10:00 UTC and infects 359,104 hosts in under fourteen hours (CAIDA)
+  - 23 November 2001: Council of Europe Convention on Cybercrime done at Budapest
+  - 25 January 2003: Slammer begins slightly before 05:30 UTC; over 90 percent of vulnerable hosts within ten minutes
+  - 11 August 2003: CERT/CC CA-2003-20 on W32/Blaster, 26 days after Microsoft's MS03-026
+
 ### 1992 <!-- {docsify-ignore} -->
 
 - [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md). Threat actor, 1981 to April 2024 (core: 1992 to 2000). Sectors: telecommunications, technology, government, education, media, healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Mitnick_Intrusions_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Mitnick_Intrusions_Case_Study.pptx).

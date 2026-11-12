@@ -1,0 +1,104 @@
+{
+  "name": "TeamStarWolf - The Year 2025 in Intrusions (ICS)",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "ics-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK for ICS techniques from the 2025 record: the behaviors CISA's AA25-343A describes for pro-Russia hacktivists reaching operational technology through minimally secured internet-facing VNC, with ids assigned by the study. Each comment names source numbers from case-studies/CHRONICLE_2025.md. Scores: 70 the source describes the behavior and the study assigns the id.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T0883",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Minimally secured internet-facing VNC used to reach OT (AA25-343A) (basis: Behavior). Sources [126] refer to the Sources table of case-studies/CHRONICLE_2025.md."
+    },
+    {
+      "techniqueID": "T0886",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "VNC sessions into OT environments (AA25-343A) (basis: Behavior). Sources [126] refer to the Sources table of case-studies/CHRONICLE_2025.md."
+    },
+    {
+      "techniqueID": "T0886",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "VNC sessions into OT environments (AA25-343A) (basis: Behavior). Sources [126] refer to the Sources table of case-studies/CHRONICLE_2025.md."
+    },
+    {
+      "techniqueID": "T0879",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Impacts including physical damage (AA25-343A) (basis: Behavior). Sources [126] refer to the Sources table of case-studies/CHRONICLE_2025.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e2e8f0",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred, the study's reading of a source that lists no ids",
+      "color": "#e2e8f0"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: an opened source or ATT&CK object prints the id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2025.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "3"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "4"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/ics/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/ics/technique_profiles.jsonl"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2025 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2025.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

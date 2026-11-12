@@ -518,6 +518,9 @@ CATALOG = [
       ("case-studies/chronicle-2023-ics.json", "The Year 2023 in Intrusions (ICS)",
        "The 12 ATT&CK for ICS techniques bound to the CyberAv3ngers Unitronics activity on ATT&CK's G1027 page and Mandiant's November 2023 report on Sandworm's attack on a Ukrainian substation, from the "
        "[2023 chronicle case study](/case-studies/CHRONICLE_2023.md)"),
+      ("case-studies/chronicle-2025-ics.json", "The Year 2025 in Intrusions (ICS)",
+       "The 3 ATT&CK for ICS techniques bound to CISA's AA25-343A on pro-Russia hacktivists reaching operational technology through minimally secured internet-facing VNC, from the "
+       "[2025 chronicle case study](/case-studies/CHRONICLE_2025.md)"),
       ("case-studies/zero-day-market-events-ics.json", "The Zero-Day Trade and Its Fallout (ICS)",
        "The 5 ATT&CK for ICS techniques that the ATT&CK pages for WannaCry (S0366), NotPetya (S0368) and Bad Rabbit (S0606) list, from the "
        "[zero-day market case study](/case-studies/ZERO_DAY_MARKET_EVENTS.md)"),

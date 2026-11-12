@@ -2406,12 +2406,19 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the year at a glance](#part-1-the-year-at-a-glance), [Part 12: the defender view](#part-12-the-defender-view)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [The Change Healthcare Attack of 2024](/case-studies/CHANGE_HEALTHCARE_2024.md), [The Year 2022 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2022.md)"
     reviewed: null
+  case-studies/CHRONICLE_2025.md:
+    audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
+    level: "Intermediate"
+    read_when: "You want a dated record of the major intrusions of 2025, you need the exploited edge appliances, SharePoint ToolShell, the stolen OAuth tokens and Salesforce data thefts, the build-pipeline and npm compromises, the Bybit theft and the emergency directives side by side, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the year at a glance](#part-1-the-year-at-a-glance), [Part 14: the defender view](#part-14-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [The SharePoint ToolShell Mass Exploitation: A 2025 Case Study](/case-studies/SHAREPOINT_TOOLSHELL_2025.md), [The Year 2024 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2024.md)"
+    reviewed: null
   case-studies/CHRONICLE_2026.md:
     audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
     level: "Intermediate"
     read_when: "You want a dated record of the major intrusions of 2026 so far, you need the supply-chain chain from Trivy to LiteLLM and axios, the edge-device zero-days, the PLC and refrigeration attacks and the year's joint advisories side by side, or you want the defender lessons that apply now"
     start_at: "[Executive summary](#executive-summary), [Part 1: the year at a glance](#part-1-the-year-at-a-glance), [Part 15: the defender view](#part-15-the-defender-view)"
-    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [AI Threats in the Cybersecurity Industry: A 2026 Case Study](/case-studies/AI_THREATS_2026.md), [The Year 2024 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2024.md)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [AI Threats in the Cybersecurity Industry: A 2026 Case Study](/case-studies/AI_THREATS_2026.md), [The Year 2025 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2025.md)"
     reviewed: null
   case-studies/CL0P_FILE_TRANSFER_2023.md:
     audience: "Vulnerability management leads, incident responders and owners of managed file transfer systems"
@@ -2419,6 +2426,13 @@ pages:
     read_when: "You want to understand the Cl0p MOVEit campaign and the file-transfer extortion pattern behind it, you run managed file transfer software on the internet edge, or you need the lessons for treating that software as its own asset class"
     start_at: "[Executive summary](#executive-summary), [Part 2: the MOVEit zero-day](#part-2-the-moveit-zero-day), [Part 4: managed file transfer as an asset class](#part-4-managed-file-transfer-as-an-asset-class)"
     pairs_with: "[Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
+    reviewed: null
+  case-studies/CLOUD_SECURITY_INCIDENTS.md:
+    audience: "Cloud security engineers, identity and SaaS administrators, incident responders and security leaders who own cloud risk"
+    level: "Intermediate"
+    read_when: "You want the public record of cloud incidents from 2011 to 2026 in one place, you need to tell the customer's share of a cloud breach from the provider's, or you want to know which controls the record says matter most"
+    start_at: "[Executive summary](#executive-summary), [Part 1: whose job is it? Shared responsibility as the providers state it](#part-1-whose-job-is-it-shared-responsibility-as-the-providers-state-it), [Part 7: the defender view](#part-7-the-defender-view)"
+    pairs_with: "[Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Investigate a Cloud Compromise](/guides/INVESTIGATE_A_CLOUD_COMPROMISE.md)"
     reviewed: null
   case-studies/CUCKOOS_EGG_1986.md:
     audience: "Incident responders, detection engineers, threat intelligence analysts and anyone who has read The Cuckoo's Egg and wants the primary record behind it"
@@ -2433,6 +2447,13 @@ pages:
     read_when: "You want the carding markets, DDoS extortion, Anonymous and LulzSec, or the 1990 crackdown as the court and government record tells them, you need to know which numbers in the books differ from the record, or you want the defender lessons on DDoS extortion, the HBGary chain and card fraud at the merchant edge"
     start_at: "[Executive summary](#executive-summary), [Part 5: the combined timeline](#part-5-the-combined-timeline), [Part 6: the defender view](#part-6-the-defender-view)"
     pairs_with: "[Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md), [Threat Actors](/THREAT_ACTORS.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md)"
+    reviewed: null
+  case-studies/DOTCOM_ERA_CYBER_EVENTS.md:
+    audience: "Vulnerability management leads, threat intelligence analysts, security historians and anyone who started their career between Melissa and Blaster and wants the primary record behind it"
+    level: "Beginner to intermediate"
+    read_when: "You want the cyber events of 1994 to 2003 as CERT/CC, Microsoft, the NVD, DOJ, the SEC and the statutes record them, you need the fix-to-outbreak gaps behind Code Red, Slammer and Blaster, or you want to know where CVE, ISACs, breach notice and CAN-SPAM came from"
+    start_at: "[Executive summary](#executive-summary), [Part 3: the worms, viruses and floods](#part-3-the-worms-viruses-and-floods), [Part 6: the defender and vulnerability-management view](#part-6-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md)"
     reviewed: null
   case-studies/EMUDHRA_CA_COMPROMISE_2026.md:
     audience: "PKI owners, vulnerability management leads and security engineers who depend on the Web PKI"
@@ -2601,6 +2622,13 @@ pages:
     read_when: "You run Plex Media Server or allow it on your network, you need the facts of the Plex2Shell chain (CVE-2026-96652, CVE-2026-96654, CVE-2026-96655 and CVE-2026-96656), or you want to find, fix and triage it on your own hosts"
     start_at: "[Executive summary](#executive-summary), [Part 4: what the lab showed](#part-4-what-the-lab-showed), [Part 5: find it and fix it on real hosts](#part-5-find-it-and-fix-it-on-real-hosts)"
     pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Internet-Facing Services Reference](/INTERNET_FACING_SERVICES_REFERENCE.md), [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md), [PHP2Shell and the October 2026 Attack Wave](/case-studies/PHP2SHELL_OCTOBER_2026.md)"
+    reviewed: null
+  case-studies/PRE_INTERNET_THREATS.md:
+    audience: "Security historians, threat intelligence analysts, educators and anyone who wants the primary record behind the field's origin stories"
+    level: "Beginner to intermediate"
+    read_when: "You want the computer threats of 1960 to 1990 as the government reports, statutes, court records, RFCs, CERT advisories and the early Virus Bulletin record them, you need to check a famous first or a famous number, or you want the roots of today's credential, media and supply-chain lessons"
+    start_at: "[Executive summary](#executive-summary), [Part 2: the timeline](#part-2-the-timeline), [Part 9: what is overstated and what is understated](#part-9-what-is-overstated-and-what-is-understated)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Malware Families](/MALWARE_FAMILIES.md), [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md), [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md)"
     reviewed: null
   case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md:
     audience: "Vulnerability management leads, Linux administrators and security engineers who run FTP services"

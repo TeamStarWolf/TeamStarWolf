@@ -61,6 +61,7 @@ An attacker tries each of the words in a dictionary as passwords to gain access 
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [Before the Internet: Computer Threats, 1960 to 1990](/case-studies/PRE_INTERNET_THREATS.md)
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 - [Five Hacks and Why They Worked: The Cases in Fancy Bear Goes Phishing](/case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md)
 - [Industrial Control System Attacks and Advisories, 2024 to 2026: Incidents, CVEs and Attribution](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md)

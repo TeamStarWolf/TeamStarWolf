@@ -795,6 +795,104 @@ studies:
       - {"date": "2024-07-19", "label": "A CrowdStrike content update crashes an estimated 8.5 million Windows devices; not a cyberattack"}
       - {"date": "2024-11-13", "label": "FBI and CISA: PRC-affiliated actors compromised multiple telecommunications companies"}
       - {"date": "2024-12-24", "label": "UN General Assembly adopts the Convention against Cybercrime"}
+  case-studies/CHRONICLE_2025.md:
+    kind: "era"
+    title: "The Year 2025 in Intrusions: A Dated Record"
+    start: "2025-01"
+    end: "2025-12"
+    sectors: ["cross-sector", "government", "technology", "telecommunications", "finance", "retail", "manufacturing", "energy", "healthcare", "transport", "media"]
+    cves:
+      - "CVE-2009-3960"
+      - "CVE-2010-2861"
+      - "CVE-2018-0171"
+      - "CVE-2018-13379"
+      - "CVE-2019-0604"
+      - "CVE-2023-20198"
+      - "CVE-2023-20273"
+      - "CVE-2023-23397"
+      - "CVE-2023-27532"
+      - "CVE-2023-38831"
+      - "CVE-2023-46805"
+      - "CVE-2024-3400"
+      - "CVE-2024-8190"
+      - "CVE-2024-8963"
+      - "CVE-2024-9379"
+      - "CVE-2024-9380"
+      - "CVE-2024-21887"
+      - "CVE-2024-36401"
+      - "CVE-2024-37085"
+      - "CVE-2024-40711"
+      - "CVE-2024-40766"
+      - "CVE-2024-55591"
+      - "CVE-2024-57727"
+      - "CVE-2025-0282"
+      - "CVE-2025-0283"
+      - "CVE-2025-2783"
+      - "CVE-2025-3928"
+      - "CVE-2025-5777"
+      - "CVE-2025-6543"
+      - "CVE-2025-7775"
+      - "CVE-2025-8088"
+      - "CVE-2025-8217"
+      - "CVE-2025-10035"
+      - "CVE-2025-20333"
+      - "CVE-2025-20362"
+      - "CVE-2025-20363"
+      - "CVE-2025-20393"
+      - "CVE-2025-21590"
+      - "CVE-2025-22457"
+      - "CVE-2025-24472"
+      - "CVE-2025-24813"
+      - "CVE-2025-29824"
+      - "CVE-2025-30066"
+      - "CVE-2025-30154"
+      - "CVE-2025-31161"
+      - "CVE-2025-31324"
+      - "CVE-2025-32433"
+      - "CVE-2025-42999"
+      - "CVE-2025-49704"
+      - "CVE-2025-49706"
+      - "CVE-2025-53770"
+      - "CVE-2025-53771"
+      - "CVE-2025-53786"
+      - "CVE-2025-55182"
+      - "CVE-2025-58034"
+      - "CVE-2025-59287"
+      - "CVE-2025-61882"
+      - "CVE-2025-61884"
+      - "CVE-2025-64446"
+    actors:
+      - "G0007"
+      - "G0010"
+      - "G0027"
+      - "G0035"
+      - "G0125"
+      - "G0128"
+      - "G1015"
+      - "G1024"
+      - "G1032"
+      - "G1040"
+      - "G1045"
+      - "G1048"
+      - "G1051"
+      - "G1053"
+      - "G1057"
+    tags: ["edge devices", "SharePoint ToolShell", "Salesforce", "OAuth tokens", "Shai-Hulud", "Bybit", "emergency directives", "KEV"]
+    pdf: "Chronicle_2025_Case_Study.pdf"
+    pptx: "Chronicle_2025_Case_Study.pptx"
+    events:
+      - {"date": "2025-01-14", "label": "Fortinet: FortiOS and FortiProxy authentication bypass CVE-2024-55591 exploited in the wild; KEV the same day, with known ransomware use"}
+      - {"date": "2025-02-21", "label": "About US$1.5 billion in virtual assets stolen from Bybit; the FBI's PSA of 26 Feb attributes the theft to North Korea"}
+      - {"date": "2025-03-11", "label": "reviewdog/action-setup compromised (11 to 15 Mar), the likely enabler of the tj-actions/changed-files compromise that spilled CI secrets"}
+      - {"date": "2025-05-21", "label": "Lumma disrupted: Microsoft's civil action on about 2,300 domains and the DOJ seizure of its command structure; AA25-141B"}
+      - {"date": "2025-07-07", "label": "SharePoint ToolShell (7 to 23 Jul): exploitation from 7 Jul, MSRC guidance on CVE-2025-53770 on 19 Jul, Warlock ransomware from 18 Jul"}
+      - {"date": "2025-08-08", "label": "UNC6395 exports data from numerous Salesforce instances with stolen Salesloft Drift OAuth tokens (8 to 18 Aug); tokens revoked 20 Aug"}
+      - {"date": "2025-08-27", "label": "AA25-239A: PRC state-sponsored actors overlapping Salt Typhoon compromise telecom backbone routers and other networks worldwide"}
+      - {"date": "2025-09", "label": "The self-replicating Shai-Hulud worm compromises over 500 npm packages; CISA's alert of 23 Sep"}
+      - {"date": "2025-09-25", "label": "Emergency Directive 25-03 on Cisco ASA and Firepower CVE-2025-20333 and CVE-2025-20362; Talos ties the activity to the ArcaneDoor actor"}
+      - {"date": "2025-10-15", "label": "F5 files its 8-K on a nation-state actor's long-term access to its BIG-IP development environment; Emergency Directive 26-01"}
+      - {"date": "2025-10-25", "label": "The UN Convention against Cybercrime opens for signature in Hanoi"}
+      - {"date": "2025-11-13", "label": "Anthropic discloses the AI-orchestrated espionage campaign it detected in mid-September; AA24-109A Akira updated"}
   case-studies/CHRONICLE_2026.md:
     kind: "era"
     title: "The Year 2026 in Intrusions: A Dated Record"
@@ -861,6 +959,8 @@ studies:
       - "CVE-2026-88779"
       - "CVE-2026-96652"
       - "CVE-2026-96654"
+      - "CVE-2026-96655"
+      - "CVE-2026-96656"
       - "CVE-2026-97229"
       - "CVE-2026-98432"
       - "CVE-2026-102764"
@@ -868,6 +968,7 @@ studies:
       - "CVE-2026-109618"
       - "CVE-2026-109619"
       - "CVE-2026-110447"
+      - "CVE-2026-111497"
       - "CVE-2026-123158"
       - "CVE-2026-125350"
     actors:
@@ -936,6 +1037,30 @@ studies:
       - {"date": "2023-06-14", "label": "Cl0p begins naming victims on its leak site with payment deadlines"}
       - {"date": "2024-08", "label": "The running tally reaches about 2,773 organizations and 95.8 million individuals"}
       - {"date": "2024", "label": "Cleo Harmony, VLTrader and LexiCom exploited, late 2024"}
+  case-studies/CLOUD_SECURITY_INCIDENTS.md:
+    kind: "reference"
+    title: "Major Cloud Security Incidents: The Public Record, 2011 to 2026"
+    start: "2011"
+    end: "2026-11"
+    sectors: ["technology", "cross-sector", "finance", "government", "telecommunications"]
+    cves: ["CVE-2021-27101", "CVE-2021-27104", "CVE-2021-30116", "CVE-2023-34362", "CVE-2024-1709", "CVE-2025-8875", "CVE-2025-8876", "CVE-2025-55241", "CVE-2026-18556", "CVE-2026-18577", "CVE-2026-84869", "CVE-2026-86218"]
+    actors: ["G0016", "G1004", "G1015", "G1057", "G0092"]
+    tags: ["cloud", "SaaS", "shared responsibility", "identity", "OAuth", "MFA", "Storm-0558", "Snowflake", "Capital One", "CSRB", "MSP"]
+    pdf: "Cloud_Security_Incidents_Case_Study.pdf"
+    pptx: "Cloud_Security_Incidents_Case_Study.pptx"
+    events:
+      - {"date": "2012-07-31", "label": "Dropbox: passwords stolen from other websites used to sign in to a small number of accounts; optional two-factor authentication announced"}
+      - {"date": "2016-11", "label": "Uber: an access key an engineer posted on a code-sharing site opens files at a third-party cloud provider (disclosed November 2017)"}
+      - {"date": "2019-03-22", "label": "Capital One: an outside individual reaches data through a \"configuration vulnerability\" (22 to 23 March)"}
+      - {"date": "2020-08-06", "label": "OCC assesses an $80 million penalty against Capital One over its risk assessment before moving to the public cloud"}
+      - {"date": "2022-12-16", "label": "CircleCI: an engineer's SSO session cookie is stolen and customer secrets exfiltrated (16 December 2022 to 4 January 2023)"}
+      - {"date": "2023-05-15", "label": "Storm-0558 forges tokens with a Microsoft consumer signing key to read Exchange Online mail (15 May to 16 June)"}
+      - {"date": "2023-09-28", "label": "Okta's support-case system entered through a saved service-account credential; files of 134 customers accessed (to 17 October)"}
+      - {"date": "2024-03-20", "label": "CSRB review of the Summer 2023 Exchange Online intrusion: preventable, a cascade of security failures (released 2 April)"}
+      - {"date": "2024-05-22", "label": "Mandiant: UNC5537 uses infostealer credentials against Snowflake customer instances without MFA; about 165 organizations notified"}
+      - {"date": "2025-08-08", "label": "UNC6395 uses stolen Salesloft Drift OAuth tokens to export data from many Salesforce instances (8 to 18 August)"}
+      - {"date": "2026-10-15", "label": "Storm-0940 signs in to customer tenants as ConnectWise multi-tenant apps and tries more than 2,250 tenants"}
+      - {"date": "2026-11-01", "label": "Todyl: one operator signs in as victims' own Entra apps with stolen secrets and reaches 27 organizations (to 6 November)"}
   case-studies/CUCKOOS_EGG_1986.md:
     kind: "incident"
     title: "The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986"
@@ -984,6 +1109,32 @@ studies:
       - {"date": "2011-06-07", "label": "FBI approaches Monsegur, who agrees to cooperate that night (about this date)"}
       - {"date": "2013-11-15", "label": "Jeremy Hammond sentenced to 10 years for computer hacking conspiracy"}
       - {"date": "2014-05-27", "label": "Monsegur sentenced to time served"}
+  case-studies/DOTCOM_ERA_CYBER_EVENTS.md:
+    kind: "era"
+    title: "The Dot-Com Era: Cyber Events, 1994 to 2003"
+    start: "1978"
+    end: "2005-01"
+    core_start: "1994"
+    core_end: "2003"
+    sectors: ["cross-sector", "finance", "government", "defense", "retail", "technology", "education"]
+    cves: ["CVE-2000-0884", "CVE-2001-0154", "CVE-2001-0500", "CVE-2002-0649", "CVE-2003-0352"]
+    actors: []
+    tags: ["dot-com era", "Melissa", "ILOVEYOU", "Code Red", "Nimda", "Slammer", "Blaster", "CIH", "Back Orifice", "Moonlight Maze", "Solar Sunrise", "Mafiaboy"]
+    pdf: "Dotcom_Era_Cyber_Events_Case_Study.pdf"
+    pptx: "Dotcom_Era_Cyber_Events_Case_Study.pptx"
+    events:
+      - {"date": "1994", "label": "Vladimir Levin and confederates begin transferring about $10 million from Citibank subsidiaries (Reported)"}
+      - {"date": "1996", "label": "Moonlight Maze intrusions begin against mainly US military, research and university networks"}
+      - {"date": "1998-02-01", "label": "Solar Sunrise, 1 to 26 Feb 1998: attacks on unclassified DoD networks, at least eleven (Reported)"}
+      - {"date": "1998-05-19", "label": "Seven L0pht members and Peter G. Neumann testify to the Senate Committee on Governmental Affairs"}
+      - {"date": "1999-03-26", "label": "Melissa reports begin; CERT/CC advisory CA-1999-04 follows on 27 March"}
+      - {"date": "1999-09", "label": "CVE List launches publicly with 321 records and a 19-member Editorial Board"}
+      - {"date": "2000-02-07", "label": "Yahoo unreachable for about three hours after a DDoS; Amazon, eBay, Buy.com and CNN hit on 8 Feb (Reported)"}
+      - {"date": "2000-05-04", "label": "CERT/CC CA-2000-04 on the Love Letter worm; over 500,000 affected systems reported by 8 May"}
+      - {"date": "2001-07-19", "label": "Code Red v2 begins about 10:00 UTC and infects 359,104 hosts in under fourteen hours (CAIDA)"}
+      - {"date": "2001-11-23", "label": "Council of Europe Convention on Cybercrime done at Budapest"}
+      - {"date": "2003-01-25", "label": "Slammer begins slightly before 05:30 UTC; over 90 percent of vulnerable hosts within ten minutes"}
+      - {"date": "2003-08-11", "label": "CERT/CC CA-2003-20 on W32/Blaster, 26 days after Microsoft's MS03-026"}
   case-studies/EMUDHRA_CA_COMPROMISE_2026.md:
     kind: "incident"
     title: "The eMudhra Certificate Authority Key Compromise: A 2026 Case Study"
@@ -1689,6 +1840,32 @@ studies:
       - {"date": "2026-10-20", "label": "CISA adds all four CVEs to KEV, each marked as chainable with the other three"}
       - {"date": "2026-11-03", "label": "KEV due date for CVE-2026-96652 and CVE-2026-96655"}
       - {"date": "2026-11-04", "label": "TeamStarWolf lab run: 1.43.2.10687 and 1.43.3.10828 told from 1.43.3.10861; no exploit step run"}
+  case-studies/PRE_INTERNET_THREATS.md:
+    kind: "era"
+    title: "Before the Internet: Computer Threats, 1960 to 1990"
+    start: "1960-11"
+    end: "1993-03"
+    core_start: "1960"
+    core_end: "1990"
+    sectors: ["cross-sector", "government", "defense", "education", "telecommunications", "technology", "finance", "healthcare"]
+    cves: []
+    actors: []
+    tags: ["pre-internet", "phone phreaking", "Ware report", "Anderson report", "Multics", "Brain", "AIDS Trojan", "CHRISTMA EXEC", "Morris worm", "WANK", "CFAA", "Computer Misuse Act"]
+    pdf: "Pre_Internet_Threats_Case_Study.pdf"
+    pptx: "Pre_Internet_Threats_Case_Study.pptx"
+    events:
+      - {"date": "1960-11", "label": "Bell System Technical Journal publishes Breen and Dahlbom on in-band trunk signaling"}
+      - {"date": "1970-02-11", "label": "Ware report for the Defense Science Board: threat taxonomy, trap doors, insider infiltration"}
+      - {"date": "1972-10", "label": "Anderson report: penetration is easy, the Trojan horse defined, the reference monitor introduced"}
+      - {"date": "1976-04-27", "label": "GAO FGMSD-76-27: 69 federal cases, mostly by users with limited technical knowledge"}
+      - {"date": "1983-11-03", "label": "Fred Cohen's first experimental virus, conceived 3 Nov and demonstrated 10 Nov 1983"}
+      - {"date": "1984-10-12", "label": "Pub. L. 98-473 creates 18 U.S.C. 1030"}
+      - {"date": "1986-10-16", "label": "Pub. L. 99-474, the Computer Fraud and Abuse Act of 1986"}
+      - {"date": "1987-12-09", "label": "First known CHRISTMA EXEC infection, 9 to 14 Dec 1987 on BITNET and IBM's VNET"}
+      - {"date": "1988-11-02", "label": "Morris worm released from an MIT computer"}
+      - {"date": "1988-12", "label": "CERT/CC established by DARPA at the SEI; first advisory CA-1988-01"}
+      - {"date": "1989-12-08", "label": "AIDS Information disks posted from London, 8 to 12 Dec 1989"}
+      - {"date": "1990-06-29", "label": "UK Computer Misuse Act 1990 receives Royal Assent"}
   case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md:
     kind: "vulnerability"
     title: "ProFTPD mod_copy, CVE-2015-3306: Unauthenticated File Copy in the Lab"

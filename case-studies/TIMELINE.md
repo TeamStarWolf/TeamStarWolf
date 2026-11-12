@@ -153,7 +153,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 October 2026: CISA adds the CVE to KEV as Google Brotli Unchecked Return Value Vulnerability
   - 4 November 2026: TeamStarWolf lab run: 24.22.0 flagged, 24.22.1 not, both report Brotli 1.2.0
   - 10 November 2026: KEV due date
-- [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md). Period record, January to November 2026. Sectors: cross-sector, government, technology, energy, healthcare, finance, retail, education, defense, transport. CVEs: CVE-2008-0015, CVE-2008-4128, CVE-2008-4250, CVE-2015-3306, CVE-2015-5477, CVE-2016-3081 and 62 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2026_Case_Study.pptx).
+- [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md). Period record, January to November 2026. Sectors: cross-sector, government, technology, energy, healthcare, finance, retail, education, defense, transport. CVEs: CVE-2008-0015, CVE-2008-4128, CVE-2008-4250, CVE-2015-3306, CVE-2015-5477, CVE-2016-3081 and 65 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2026_Case_Study.pptx).
   - 23 January 2026: ESET ties DynoWiper, used against a Polish energy company on 29 Dec 2025, to Sandworm with medium confidence
   - 25 February 2026: Talos: Cisco Catalyst SD-WAN CVE-2026-20127 exploited as a zero-day back to at least 2023; CISA issues ED 26-03
   - 11 March 2026: Stryker identifies an incident causing a global disruption to its Microsoft environment (8-K)
@@ -190,6 +190,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 19 July 2025: Microsoft ships out-of-band updates, 19 to 20 July
   - 20 July 2025: CISA adds CVE-2025-53770 to the KEV catalog
   - September 2025: Warlock's leak site lists roughly 60 victims
+- [The Year 2025 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2025.md). Period record, January to December 2025. Sectors: cross-sector, government, technology, telecommunications, finance, retail, manufacturing, energy, healthcare, transport, media. CVEs: CVE-2009-3960, CVE-2010-2861, CVE-2018-0171, CVE-2018-13379, CVE-2019-0604, CVE-2023-20198 and 53 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0027 Threat Group-3390, G0035 Dragonfly, G0125 HAFNIUM, G0128 ZIRCONIUM and 9 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2025_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2025_Case_Study.pptx).
+  - 14 January 2025: Fortinet: FortiOS and FortiProxy authentication bypass CVE-2024-55591 exploited in the wild; KEV the same day, with known ransomware use
+  - 21 February 2025: About US$1.5 billion in virtual assets stolen from Bybit; the FBI's PSA of 26 Feb attributes the theft to North Korea
+  - 11 March 2025: reviewdog/action-setup compromised (11 to 15 Mar), the likely enabler of the tj-actions/changed-files compromise that spilled CI secrets
+  - 21 May 2025: Lumma disrupted: Microsoft's civil action on about 2,300 domains and the DOJ seizure of its command structure; AA25-141B
+  - 7 July 2025: SharePoint ToolShell (7 to 23 Jul): exploitation from 7 Jul, MSRC guidance on CVE-2025-53770 on 19 Jul, Warlock ransomware from 18 Jul
+  - 8 August 2025: UNC6395 exports data from numerous Salesforce instances with stolen Salesloft Drift OAuth tokens (8 to 18 Aug); tokens revoked 20 Aug
+  - 27 August 2025: AA25-239A: PRC state-sponsored actors overlapping Salt Typhoon compromise telecom backbone routers and other networks worldwide
+  - September 2025: The self-replicating Shai-Hulud worm compromises over 500 npm packages; CISA's alert of 23 Sep
+  - 25 September 2025: Emergency Directive 25-03 on Cisco ASA and Firepower CVE-2025-20333 and CVE-2025-20362; Talos ties the activity to the ArcaneDoor actor
+  - 15 October 2025: F5 files its 8-K on a nation-state actor's long-term access to its BIG-IP development environment; Emergency Directive 26-01
+  - 25 October 2025: The UN Convention against Cybercrime opens for signature in Hanoi
+  - 13 November 2025: Anthropic discloses the AI-orchestrated espionage campaign it detected in mid-September; AA24-109A Akira updated
 
 ### 2024 <!-- {docsify-ignore} -->
 
@@ -602,6 +615,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 8 April 2022: Industroyer2 planned against high-voltage substations; CERT-UA says it was prevented
   - 10 October 2022: Third Ukrainian blackout, 10 to 12 October
   - 17 April 2024: Mandiant designates APT44
+- [Major Cloud Security Incidents: The Public Record, 2011 to 2026](/case-studies/CLOUD_SECURITY_INCIDENTS.md). Attack surface, 2011 to November 2026. Sectors: technology, cross-sector, finance, government, telecommunications. CVEs: CVE-2021-27101, CVE-2021-27104, CVE-2021-30116, CVE-2023-34362, CVE-2024-1709, CVE-2025-8875 and 6 more. ATT&CK groups: G0016 APT29, G1004 LAPSUS$, G1015 Scattered Spider, G1057 ShinyHunters, G0092 TA505. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cloud_Security_Incidents_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Cloud_Security_Incidents_Case_Study.pptx).
+  - 31 July 2012: Dropbox: passwords stolen from other websites used to sign in to a small number of accounts; optional two-factor authentication announced
+  - November 2016: Uber: an access key an engineer posted on a code-sharing site opens files at a third-party cloud provider (disclosed November 2017)
+  - 22 March 2019: Capital One: an outside individual reaches data through a "configuration vulnerability" (22 to 23 March)
+  - 6 August 2020: OCC assesses an $80 million penalty against Capital One over its risk assessment before moving to the public cloud
+  - 16 December 2022: CircleCI: an engineer's SSO session cookie is stolen and customer secrets exfiltrated (16 December 2022 to 4 January 2023)
+  - 15 May 2023: Storm-0558 forges tokens with a Microsoft consumer signing key to read Exchange Online mail (15 May to 16 June)
+  - 28 September 2023: Okta's support-case system entered through a saved service-account credential; files of 134 customers accessed (to 17 October)
+  - 20 March 2024: CSRB review of the Summer 2023 Exchange Online intrusion: preventable, a cascade of security failures (released 2 April)
+  - 22 May 2024: Mandiant: UNC5537 uses infostealer credentials against Snowflake customer instances without MFA; about 165 organizations notified
+  - 8 August 2025: UNC6395 uses stolen Salesloft Drift OAuth tokens to export data from many Salesforce instances (8 to 18 August)
+  - 15 October 2026: Storm-0940 signs in to customer tenants as ConnectWise multi-tenant apps and tries more than 2,250 tenants
+  - 1 November 2026: Todyl: one operator signs in as victims' own Entra apps with stolen secrets and reaches 27 organizations (to 6 November)
 
 ### 2009 <!-- {docsify-ignore} -->
 
@@ -696,6 +722,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 1 June 2023: Kaspersky discloses Operation Triangulation; the FSB blames US intelligence the same day
   - 19 October 2025: China's Ministry of State Security alleges an NSA campaign against the National Time Service Center
 
+### 1994 <!-- {docsify-ignore} -->
+
+- [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md). Period record, 1978 to January 2005 (core: 1994 to 2003). Sectors: cross-sector, finance, government, defense, retail, technology, education. CVEs: CVE-2000-0884, CVE-2001-0154, CVE-2001-0500, CVE-2002-0649, CVE-2003-0352. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Dotcom_Era_Cyber_Events_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Dotcom_Era_Cyber_Events_Case_Study.pptx).
+  - 1994: Vladimir Levin and confederates begin transferring about $10 million from Citibank subsidiaries (Reported)
+  - 1996: Moonlight Maze intrusions begin against mainly US military, research and university networks
+  - 1 February 1998: Solar Sunrise, 1 to 26 Feb 1998: attacks on unclassified DoD networks, at least eleven (Reported)
+  - 19 May 1998: Seven L0pht members and Peter G. Neumann testify to the Senate Committee on Governmental Affairs
+  - 26 March 1999: Melissa reports begin; CERT/CC advisory CA-1999-04 follows on 27 March
+  - September 1999: CVE List launches publicly with 321 records and a 19-member Editorial Board
+  - 7 February 2000: Yahoo unreachable for about three hours after a DDoS; Amazon, eBay, Buy.com and CNN hit on 8 Feb (Reported)
+  - 4 May 2000: CERT/CC CA-2000-04 on the Love Letter worm; over 500,000 affected systems reported by 8 May
+  - 19 July 2001: Code Red v2 begins about 10:00 UTC and infects 359,104 hosts in under fourteen hours (CAIDA)
+  - 23 November 2001: Council of Europe Convention on Cybercrime done at Budapest
+  - 25 January 2003: Slammer begins slightly before 05:30 UTC; over 90 percent of vulnerable hosts within ten minutes
+  - 11 August 2003: CERT/CC CA-2003-20 on W32/Blaster, 26 days after Microsoft's MS03-026
+
 ### 1992 <!-- {docsify-ignore} -->
 
 - [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md). Threat actor, 1981 to April 2024 (core: 1992 to 2000). Sectors: telecommunications, technology, government, education, media, healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Mitnick_Intrusions_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Mitnick_Intrusions_Case_Study.pptx).
@@ -759,6 +801,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 7 June 2011: FBI approaches Monsegur, who agrees to cooperate that night (about this date)
   - 15 November 2013: Jeremy Hammond sentenced to 10 years for computer hacking conspiracy
   - 27 May 2014: Monsegur sentenced to time served
+
+### 1960 <!-- {docsify-ignore} -->
+
+- [Before the Internet: Computer Threats, 1960 to 1990](/case-studies/PRE_INTERNET_THREATS.md). Period record, November 1960 to March 1993 (core: 1960 to 1990). Sectors: cross-sector, government, defense, education, telecommunications, technology, finance, healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Pre_Internet_Threats_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Pre_Internet_Threats_Case_Study.pptx).
+  - November 1960: Bell System Technical Journal publishes Breen and Dahlbom on in-band trunk signaling
+  - 11 February 1970: Ware report for the Defense Science Board: threat taxonomy, trap doors, insider infiltration
+  - October 1972: Anderson report: penetration is easy, the Trojan horse defined, the reference monitor introduced
+  - 27 April 1976: GAO FGMSD-76-27: 69 federal cases, mostly by users with limited technical knowledge
+  - 3 November 1983: Fred Cohen's first experimental virus, conceived 3 Nov and demonstrated 10 Nov 1983
+  - 12 October 1984: Pub. L. 98-473 creates 18 U.S.C. 1030
+  - 16 October 1986: Pub. L. 99-474, the Computer Fraud and Abuse Act of 1986
+  - 9 December 1987: First known CHRISTMA EXEC infection, 9 to 14 Dec 1987 on BITNET and IBM's VNET
+  - 2 November 1988: Morris worm released from an MIT computer
+  - December 1988: CERT/CC established by DARPA at the SEI; first advisory CA-1988-01
+  - 8 December 1989: AIDS Information disks posted from London, 8 to 12 Dec 1989
+  - 29 June 1990: UK Computer Misuse Act 1990 receives Royal Assent
 
 <!-- case-study-timeline:list-end (the timeline replaces the list above on the site) -->
 

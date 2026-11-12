@@ -36,6 +36,7 @@ Analyzing the behavior of embedded code in firmware and looking for anomalous be
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [APT41: The Public Record, 2012 to 2026](/case-studies/APT41_PUBLIC_RECORD.md)
+- [The Year 2025 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2025.md)
 - [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md)
 
 <!-- library-refs:end -->

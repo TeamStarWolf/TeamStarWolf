@@ -39,6 +39,7 @@ An adversary installs or adds malicious logic (also known as malware) into a see
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [Before the Internet: Computer Threats, 1960 to 1990](/case-studies/PRE_INTERNET_THREATS.md)
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 
 <!-- library-refs:end -->

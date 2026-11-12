@@ -280,5 +280,11 @@
     "name": "TeamStarWolf - N-able N-central Able2Shell (November 2026) Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified Able2Shell record supports: the N-able status page and CVE records for the November 2026 N-central disclosure, and the RMM landmarks that frame it (Kaseya VSA 2021, ScreenConnect 2024, SimpleHelp 2025 and the earlier N-central KEV entries). No advisory names ATT&CK ids, so every binding is the study's own. Each comment names source numbers from case-studies/NABLE_NCENTRAL_ABLE2SHELL_2026.md. Scores: 100 is bound to the Able2Shell record by a Confirmed primary, 50 is the researcher's claims and RMM-landmark context.",
     "blurb": "Techniques from the Able2Shell record and the RMM attack surface, from scanning and exploitation of the exposed N-central server to the remote-control, tunnel and software-deployment abuse seen in the Kaseya, SimpleHelp and earlier N-central intrusions. A curated layer for the Able2Shell case study."
+  },
+  {
+    "file": "emudhra-ca-compromise-2026.json",
+    "name": "TeamStarWolf - eMudhra Certificate Authority Key Compromise 2026 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the eMudhra certificate authority key compromise case study. No advisory or root program names ATT&CK ids, so every binding is the study's own. Score 50: the action happened, by researchers and testers (key recovery, certificate forging). Score 25: a capability the primaries name that no one observed (adversary-in-the-middle, code signing). Score 10: a form-only fit. No technique carries a score for adversary use, because none was observed.",
+    "blurb": "Techniques from the eMudhra record, from the weak intermediate keys anyone could recover and the certificates researchers forged with them to the interception and code-signing capability no one was seen using. A curated layer for the eMudhra case study."
   }
 ]

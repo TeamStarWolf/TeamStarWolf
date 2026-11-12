@@ -63,5 +63,6 @@ Time and difficulty are quoted in full from each guide's header table.
 ## See also
 
 - [Active Directory attacks](/ACTIVE_DIRECTORY_ATTACKS.md)
+- [The eMudhra certificate authority key compromise: a 2026 case study](/case-studies/EMUDHRA_CA_COMPROMISE_2026.md)
 
 <!-- hub:end -->

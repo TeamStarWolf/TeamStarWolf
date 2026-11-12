@@ -1,0 +1,592 @@
+{
+  "name": "TeamStarWolf - The Year 2017 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2017 record supports: WannaCry (S0366), NotPetya (S0368) and Bad Rabbit (S0606) as ATT&CK records them, campaign C0030, US-CERT alerts TA17-117A, TA17-132A, TA17-181A and TA17-293A, TA18-074A, and behavior described by Talos, ESET, Kaspersky, GAO, the FTC and DOJ for M.E.Doc, NetSarang, CCleaner, Equifax and Uber. Revoked ids are shown under their v20.0 successors from data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/CHRONICLE_2017.md. Scores: 100 the source or the ATT&CK object prints the id, 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1594",
+      "tactic": "reconnaissance",
+      "score": 70,
+      "comment": "Dragonfly campaign, as TA18-074A describes it (15 Mar 2018) (basis: Described). Sources [52] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1595",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "C0030, Jun to Aug 2017 (basis: Listed). Sources [89] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 40,
+      "comment": "Equifax scanned for the Struts flaw, 10 Mar 2017 (GAO) (basis: Inferred). Sources [13] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1593.003",
+      "tactic": "reconnaissance",
+      "score": 40,
+      "comment": "An Uber engineer's access key posted on a code-sharing site, used in late 2016 (FTC) (basis: Inferred). Sources [40] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1587.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "C0030 (basis: Listed). Sources [89] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1588.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "C0030 (basis: Listed). Sources [89] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Equifax dispute portal through CVE-2017-5638, from 13 May 2017 (GAO; DOJ allegation) (basis: Described). Sources [13][55] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "M.E.Doc updates of 14 Apr, 15 May and 22 Jun 2017; NetSarang, 17 Jul; CCleaner 5.33, 15 Aug; Dragonfly 2.0 trojanized software. The library maps it to G0034 and G0035 at group level; S0368 does not list it (basis: Described). Sources [18][86][77][28][29][33][26] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "MSP intrusions (TA17-117A, 27 Apr 2017); the MSP Theft Campaign (DOJ, 2018); Dragonfly staging targets (TA17-293A); the library maps it to G0045 (basis: Described). Sources [88][54][34][26] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Bad Rabbit via compromised websites, 24 Oct 2017 (S0606; ESET); Dragonfly watering holes (Described) (basis: Listed). Sources [26][36][34][33] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "En Marche spearphishing, Apr to May 2017 (indictment allegation); Boyusec spearphishing (allegation); APT33 (Mandiant, Reported) (basis: Described). Sources [48][56][58] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "TA17-293A and TA18-074A; APT34 with CVE-2017-11882, Dec 2017 (Mandiant, Reported) (basis: Described). Sources [34][52][59] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Single-factor VPN, RDP and OWA logons with stolen credentials (TA17-293A) (basis: Described). Sources [34] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Single-factor VPN, RDP and OWA logons with stolen credentials (TA17-293A) (basis: Described). Sources [34] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Stolen administrator credentials at service providers (TA17-117A); TA18-074A; Boyusec stolen credentials (allegation) (basis: Described). Sources [88][52][56] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Stolen administrator credentials at service providers (TA17-117A); TA18-074A; Boyusec stolen credentials (allegation) (basis: Described). Sources [88][52][56] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Stolen administrator credentials at service providers (TA17-117A); TA18-074A; Boyusec stolen credentials (allegation) (basis: Described). Sources [88][52][56] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Stolen administrator credentials at service providers (TA17-117A); TA18-074A; Boyusec stolen credentials (allegation) (basis: Described). Sources [88][52][56] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "S0368 NotPetya (basis: Listed). Sources [87] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "S0368 NotPetya (basis: Listed). Sources [87] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "S0368 NotPetya (basis: Listed). Sources [87] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "S0368 NotPetya (basis: Listed). Sources [87] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "Uber's posted cloud access key (FTC) (basis: Inferred). Sources [40] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "Uber's posted cloud access key (FTC) (basis: Inferred). Sources [40] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "Uber's posted cloud access key (FTC) (basis: Inferred). Sources [40] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Uber's posted cloud access key (FTC) (basis: Inferred). Sources [40] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "S0366 WannaCry; NotPetya through WMIC (TA17-181A; S0368) (basis: Listed). Sources [85][87][18] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "C0030; PowerShell and PowerSploit at service providers (TA17-117A, Described); APT34's PowerShell backdoor (Reported) (basis: Listed). Sources [89][88][59] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "NotPetya with PsExec (S0368; TA17-181A); S0606 Bad Rabbit (basis: Listed). Sources [87][18][26] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "S0368; S0606; C0030; scheduled tasks in the Dragonfly campaign (TA18-074A, Described) (basis: Listed). Sources [87][26][89][52] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "S0368; S0606; C0030; scheduled tasks in the Dragonfly campaign (TA18-074A, Described) (basis: Listed). Sources [87][26][89][52] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "S0368; S0606; C0030; scheduled tasks in the Dragonfly campaign (TA18-074A, Described) (basis: Listed). Sources [87][26][89][52] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "APT34 exploits CVE-2017-11882 within a week of the 14 Nov 2017 patch (Mandiant) (basis: Reported). Sources [59] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Bad Rabbit's fake Flash Player update (S0606; ESET) (basis: Listed). Sources [26][36] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1106",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "S0606 (basis: Listed). Sources [26] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "WannaCry installs a service (TA17-132A; S0366) (basis: Listed). Sources [15][85] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "WannaCry installs a service (TA17-132A; S0366) (basis: Listed). Sources [15][85] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Account creation in the Dragonfly campaign (TA18-074A) (basis: Described). Sources [52] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1136.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "New local accounts (TA17-293A, 20 Oct 2017) (basis: Described). Sources [34] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Web shell dated 31 May 2017 on M.E.Doc's update server (Talos); web shells in TA17-293A (basis: Described). Sources [86][34] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1547.009",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "LNK manipulation in the Dragonfly campaign (TA18-074A); the .LNK files served credential harvesting more than persistence (Inferred) (basis: Described). Sources [52] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1547.009",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "LNK manipulation in the Dragonfly campaign (TA18-074A); the .LNK files served credential harvesting more than persistence (Inferred) (basis: Described). Sources [52] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1548.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "S0606 (basis: Listed). Sources [26] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "S0368 (basis: Listed). Sources [87] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "S0606; C0030 (basis: Listed). Sources [26][89] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1218.011",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "S0368; S0606 (basis: Listed). Sources [87][26] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "PlugX and RedLeaves launched by DLL side-loading at service providers (TA17-117A; revoked T1574.002 maps here) (basis: Described). Sources [88][26] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "PlugX and RedLeaves launched by DLL side-loading at service providers (TA17-117A; revoked T1574.002 maps here) (basis: Described). Sources [88][26] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1221",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Dragonfly 2.0 spear-phishing with Phishery template injection (Symantec); TA18-074A; the library maps it to G0035 (basis: Described). Sources [33][52][26] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1027.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "C0030 (basis: Listed). Sources [89] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1686",
+      "tactic": "defense-impairment",
+      "score": 70,
+      "comment": "Firewall disabled (TA17-293A); the library maps it to G0035 (basis: Described). Sources [34][26] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Equifax intruders wiped logs daily (DOJ allegation) (basis: Described). Sources [55] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1685.005",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "S0368 (see Discrepancies); log deletion in TA17-293A (Described); the library maps it to G0035 (basis: Listed). Sources [87][34][26] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-impairment",
+      "score": 40,
+      "comment": "CCleaner 5.33 signed with a valid Piriform certificate (Talos); NetSarang installers signed with NetSarang's certificate (Kaspersky) (basis: Inferred). Sources [29][28] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "NotPetya's modified Mimikatz (S0368; TA17-181A); S0606; C0030; XData's embedded Mimikatz (ESET, Described) (basis: Listed). Sources [87][18][26][89][17] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1110.002",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Hashes leaked by forced SMB authentication cracked (TA17-293A; TA18-074A) (basis: Described). Sources [34][52] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "S0606 (basis: Listed). Sources [26] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1187",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Word documents and .LNK files that force SMB authentication (TA17-293A); the library maps it to G0035 (basis: Described). Sources [34][52][26] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1056.003",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "C0030 (basis: Listed). Sources [89] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1056.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "C0030 (basis: Listed). Sources [89] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1552.001",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Equifax: unencrypted credentials used to reach 48 more databases (GAO); administrative credentials in plain text (FTC) (basis: Inferred). Sources [13][14] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1518.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "S0368 (basis: Listed). Sources [87] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "S0368; file servers searched for ICS and SCADA documents (TA17-293A, Described) (basis: Listed). Sources [87][34] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "S0606 (basis: Listed). Sources [26] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "S0606 (basis: Listed). Sources [26] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "MS17-010 exploits: WannaCry, 12 May (S0366; TA17-132A); NotPetya, 27 Jun (S0368; TA17-181A); Bad Rabbit, 24 Oct (S0606) (basis: Listed). Sources [85][15][87][18][26] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "NotPetya with PsExec and stolen credentials (S0368; TA17-181A) (basis: Listed). Sources [87][18] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1570",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "S0366 (basis: Listed). Sources [85] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1563.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "S0366 (basis: Listed). Sources [85] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Screenshots taken (TA17-293A); the library maps it to G0035 (basis: Described). Sources [34][26] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1213",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "About 9,000 queries across Equifax databases (GAO) (basis: Inferred). Sources [13] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "Uber files downloaded from a third-party cloud provider (FTC) (basis: Inferred). Sources [40] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "S0366; Equifax traffic routed through about 34 servers in nearly 20 countries (DOJ allegation, Inferred) (basis: Listed). Sources [85][55] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1573",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "C0030; Equifax data removed over standard encrypted web protocols (GAO, Inferred) (basis: Listed). Sources [89][13] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1573.001",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "RC4-encrypted command traffic over port 443 (TA17-117A) (basis: Described). Sources [88] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1030",
+      "tactic": "exfiltration",
+      "score": 40,
+      "comment": "Equifax data removed in small increments (GAO) (basis: Inferred). Sources [13] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "The second Shamoon 2 wave set to wipe on 29 Nov 2016 (Unit 42, 9 Jan 2017) (basis: Described). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S0366 WannaCry; S0368 NotPetya; S0606 Bad Rabbit; S0370 SamSam (basis: Listed). Sources [85][87][26][65] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S0366 (basis: Listed). Sources [85] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S0366 (basis: Listed). Sources [85] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1495",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S0606 (basis: Listed). Sources [26] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "HIDDEN COBRA's DDoS botnet and DeltaCharlie (TA17-164A, 13 Jun 2017) (basis: Inferred). Sources [24] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1529",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S0368 (basis: Listed). Sources [87] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    },
+    {
+      "techniqueID": "T1561.002",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "NotPetya modifies the master boot record, leaving machines unusable (TA17-181A) (basis: Described). Sources [18] refer to the Sources table of case-studies/CHRONICLE_2017.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: the source or the ATT&CK object prints the id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2017.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "68"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "84"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2017 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2017.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

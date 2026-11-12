@@ -137,6 +137,7 @@ Hand-written pages in this library that link to this page or to this object's en
 
 - [Chrome Isolated Web Apps: Vulnerabilities and Abuse in 2026](/case-studies/CHROME_ISOLATED_WEB_APPS_2026.md)
 - [Cyber Operations as Statecraft: The Cases in The Hacker and the State](/case-studies/HACKER_AND_THE_STATE_CASES.md)
+- [The Year 2017 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2017.md)
 
 <!-- library-refs:end -->
 

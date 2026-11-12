@@ -77,5 +77,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [The year 2025 in intrusions: a dated record](/case-studies/CHRONICLE_2025.md)
 - [Major cloud security incidents: the public record, 2011 to 2026](/case-studies/CLOUD_SECURITY_INCIDENTS.md)
 - [The dot-com era, cyber events from 1994 to 2003: a case study](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md)
+- [Before the Internet, computer threats from 1960 to 1990: a case study](/case-studies/PRE_INTERNET_THREATS.md)
 
 <!-- hub:end -->

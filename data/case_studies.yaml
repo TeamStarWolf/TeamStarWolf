@@ -254,6 +254,74 @@ studies:
       - {"date": "2017-10-24", "label": "Bad Rabbit spreads through compromised websites serving a fake Flash Player update"}
       - {"date": "2017-12-14", "label": "Mandiant publishes TRITON, used to reprogram Triconex safety controllers"}
       - {"date": "2017-12-19", "label": "The United States, with the UK, Australia, Canada, New Zealand and Japan, attributes WannaCry to North Korea"}
+  case-studies/CHRONICLE_2018.md:
+    kind: "era"
+    title: "The Year 2018 in Intrusions: A Dated Record"
+    start: "2018-01"
+    end: "2018-12"
+    sectors: ["cross-sector", "government", "energy", "finance", "technology", "education", "healthcare", "transport", "retail"]
+    cves:
+      - "CVE-2017-5715"
+      - "CVE-2017-5753"
+      - "CVE-2017-5754"
+      - "CVE-2018-0101"
+      - "CVE-2018-0171"
+      - "CVE-2018-0296"
+      - "CVE-2018-0802"
+      - "CVE-2018-2628"
+      - "CVE-2018-4878"
+      - "CVE-2018-6789"
+      - "CVE-2018-7600"
+      - "CVE-2018-7602"
+      - "CVE-2018-8120"
+      - "CVE-2018-8174"
+      - "CVE-2018-8373"
+      - "CVE-2018-8440"
+      - "CVE-2018-8453"
+      - "CVE-2018-8589"
+      - "CVE-2018-8611"
+      - "CVE-2018-8653"
+      - "CVE-2018-10561"
+      - "CVE-2018-10562"
+      - "CVE-2018-10933"
+      - "CVE-2018-11776"
+      - "CVE-2018-13379"
+      - "CVE-2018-14634"
+      - "CVE-2018-14847"
+      - "CVE-2018-15961"
+      - "CVE-2018-15982"
+      - "CVE-2018-20062"
+      - "CVE-2018-20250"
+      - "CVE-2018-1002105"
+    actors:
+      - "G0007"
+      - "G0008"
+      - "G0032"
+      - "G0034"
+      - "G0035"
+      - "G0045"
+      - "G0046"
+      - "G0076"
+      - "G0082"
+      - "G0088"
+      - "G0107"
+      - "G0122"
+    tags: ["Olympic Destroyer", "VPNFilter", "Spectre and Meltdown", "memcached DDoS", "Marriott Starwood", "SamSam", "indictments"]
+    pdf: "Chronicle_2018_Case_Study.pdf"
+    pptx: "Chronicle_2018_Case_Study.pptx"
+    events:
+      - {"date": "2018-01-03", "label": "Google Project Zero publishes the speculative-execution flaws CVE-2017-5753, CVE-2017-5715 and CVE-2017-5754 (Spectre and Meltdown)"}
+      - {"date": "2018-02-09", "label": "Olympic Destroyer disrupts PyeongChang Winter Olympics systems during the opening ceremony; recovery within about 12 hours"}
+      - {"date": "2018-02-15", "label": "The UK and the White House attribute the June 2017 NotPetya attack to the Russian military"}
+      - {"date": "2018-02-28", "label": "GitHub is offline for five minutes under a memcached-reflected DDoS peaking at 1.35 Tbps"}
+      - {"date": "2018-04-16", "label": "US-UK alert TA18-106A on Russian state-sponsored exploitation of routers and switches; NIST releases CSF 1.1"}
+      - {"date": "2018-05-23", "label": "Talos publishes VPNFilter on at least 500,000 devices; DOJ obtains orders for the FBI to seize a C2 domain"}
+      - {"date": "2018-07-13", "label": "Special Counsel indictment of 12 GRU officers for 2016 election interference (allegations)"}
+      - {"date": "2018-09-06", "label": "DOJ unseals the Park Jin Hyok complaint (Sony, Bangladesh Bank, WannaCry 2.0); OFAC designates Park and his employer"}
+      - {"date": "2018-09-28", "label": "Facebook discloses the View As breach and resets access tokens for almost 50 million accounts"}
+      - {"date": "2018-11-28", "label": "DOJ unseals the SamSam indictment; OFAC designates two Iran-based exchangers and publishes bitcoin addresses for the first time"}
+      - {"date": "2018-11-30", "label": "Marriott discloses access to the Starwood network since 2014: up to about 500 million guests"}
+      - {"date": "2018-12-20", "label": "DOJ unseals the APT10 indictment and the UK and allies attribute APT 10 to China's MSS"}
   case-studies/CHRONICLE_2019.md:
     kind: "era"
     title: "The Year 2019 in Intrusions: A Dated Record"

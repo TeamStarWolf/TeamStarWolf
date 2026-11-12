@@ -1,0 +1,977 @@
+{
+  "name": "TeamStarWolf - The Year 2018 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2018 record supports: Talos on Olympic Destroyer and VPNFilter, US-CERT TA18-074A, TA18-106A, TA18-149A, TA18-201A, TA18-275A and TA18-276B, CISA AA18-284A and AA18-337A, the 2018 GRU, Mabna, Park Jin Hyok, SamSam and APT10 indictments, the GitHub memcached report, Ticketmaster, event-stream and other victim statements, and the ATT&CK objects G0035 Dragonfly, G0034 Sandworm Team, G0007 APT28, G0122 Silent Librarian, G0045 menuPass, G0082 APT38, S0365 Olympic Destroyer, S1010 VPNFilter, S0367 Emotet, S0370 SamSam and campaign C0021. Each comment names source numbers from case-studies/CHRONICLE_2018.md. Scores: 100 the source or ATT&CK object prints the id, 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1589.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "G0122 rows citing the Mabna indictment (23 Mar 2018) (basis: Listed). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1589.003",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "G0122 rows citing the Mabna indictment (basis: Listed). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1591.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "G0034 rows citing the UK NCSC statement of 19 Oct 2020 on attacks against the Olympic and Paralympic Games (basis: Listed). Sources [109] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1594",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "G0122 rows citing the Mabna indictment (basis: Listed). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1595",
+      "tactic": "reconnaissance",
+      "score": 40,
+      "comment": "Russian router and switch campaign: devices found through exposed legacy services (TA18-106A, 16 Apr 2018); the advisory does not name scanning (basis: Inferred). Sources [19] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1598.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "G0035 rows citing TA18-074A (15 Mar 2018) (basis: Listed). Sources [106][11] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1598.003",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "G0035 (TA18-074A); G0122 (Mabna indictment); G0007 rows citing the July and October 2018 GRU indictments (basis: Listed). Sources [106][113][115] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "G0122 (Mabna indictment); G0045 (APT10 indictment, Dec 2018); G0007 (October 2018 GRU indictment); six look-alike domains seized by Microsoft, Aug 2018 (Described) (basis: Listed). Sources [113][112][115][35] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1583.006",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "C0013 Operation Sharpshooter (Sep 2017 to Mar 2019) (basis: Listed). Sources [117] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1584.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "C0021, the November 2018 spearphishing campaign (basis: Listed). Sources [116][119] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1584.004",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "C0013 (basis: Listed). Sources [117] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1585.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "G0122 rows citing the Mabna indictment (basis: Listed). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1587.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "C0013; G0034 rows citing the NCSC Olympic statement (2020) (basis: Listed). Sources [117][109] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1588.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "G0034 rows citing the NCSC Olympic statement; C0021; the five public tools of AA18-284A, 11 Oct 2018 (Described) (basis: Listed). Sources [109][116][119][46] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1588.006",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "G0034 rows citing the NCSC Olympic statement (basis: Listed). Sources [109] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1608.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "C0013; C0021 (basis: Listed). Sources [117][116] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "G0035, G0045, G0122 and G0007 rows; legitimate-user masquerade on network devices (TA18-106A, Described); legitimate credentials on FASTCash switch servers (TA18-275A, Described) (basis: Listed). Sources [106][112][113][115][19][40] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "G0035, G0045, G0122 and G0007 rows; legitimate-user masquerade on network devices (TA18-106A, Described); legitimate credentials on FASTCash switch servers (TA18-275A, Described) (basis: Listed). Sources [106][112][113][115][19][40] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "G0035, G0045, G0122 and G0007 rows; legitimate-user masquerade on network devices (TA18-106A, Described); legitimate credentials on FASTCash switch servers (TA18-275A, Described) (basis: Listed). Sources [106][112][113][115][19][40] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "G0035, G0045, G0122 and G0007 rows; legitimate-user masquerade on network devices (TA18-106A, Described); legitimate credentials on FASTCash switch servers (TA18-275A, Described) (basis: Listed). Sources [106][112][113][115][19][40] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "Timehop: a credential to its cloud computing environment, with no multi-factor authentication, compromised (4 Jul 2018) (basis: Inferred). Sources [28] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "Timehop: a credential to its cloud computing environment, with no multi-factor authentication, compromised (4 Jul 2018) (basis: Inferred). Sources [28] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "Timehop: a credential to its cloud computing environment, with no multi-factor authentication, compromised (4 Jul 2018) (basis: Inferred). Sources [28] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Timehop: a credential to its cloud computing environment, with no multi-factor authentication, compromised (4 Jul 2018) (basis: Inferred). Sources [28] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "VPN, RDP and OWA access with harvested credentials (G0035, TA18-074A); SamSam's internet-facing RDP from mid-2016 (AA18-337A, Described) (basis: Listed). Sources [106][11][57] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "VPN, RDP and OWA access with harvested credentials (G0035, TA18-074A); SamSam's internet-facing RDP from mid-2016 (AA18-337A, Described) (basis: Listed). Sources [106][11][57] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Watering holes on trade-publication and ICS-related sites (G0035, TA18-074A); G0082 rows citing FireEye's APT38 report (3 Oct 2018) (basis: Listed). Sources [106][11][114] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "G0007 rows citing the October 2018 GRU indictment; SamSam through JBoss with the JexBoss kit, early 2016 (AA18-337A, Described) (basis: Listed). Sources [115][57] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1195.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "A new maintainer adds the malicious flatmap-stream dependency to event-stream 3.3.6, 9 Sep 2018, aimed at the Copay build (npm) (basis: Described). Sources [73] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "G0045 rows citing the APT10 indictment (MSP Theft Campaign); G0007 (July 2018 indictment); MSP credentials (TA18-276B, 3 Oct 2018, Described); staging targets (TA18-074A, Described) (basis: Listed). Sources [112][115][42][11] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "GRU spearphishing of the UK FCO (Mar 2018) and of OPCW staff impersonating Swiss authorities (May 2018); spearphishing in the October 2018 GRU indictment (basis: Described). Sources [16][21] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Office attachments sent from compromised accounts (TA18-074A, Described; the library also maps T1566.001 to G0035); S0367 Emotet (TA18-201A, 20 Jul 2018); G0045 (APT10 indictment); G0007 (July 2018 indictment); FIN7 emails with attachments backed by phone calls (DOJ, 1 Aug 2018; Described) (basis: Listed). Sources [106][110][112][115][33] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "S0367 (TA18-201A); C0021 (Nov 2018) (basis: Listed). Sources [110][116] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1669",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "GRU close-access Wi-Fi operation against OPCW networks in The Hague, April 2018 (DOJ indictment allegation) (basis: Described). Sources [21] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1047",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "S0365 Olympic Destroyer, 9 Feb 2018 (Talos describes WMI spreading) (basis: Listed). Sources [107][5] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "G0035 (TA18-074A); S0367 (TA18-201A) (basis: Listed). Sources [106][110] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "G0035 (TA18-074A); S0367 (TA18-201A) (basis: Listed). Sources [106][110] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "G0035 (TA18-074A); S0367 (TA18-201A) (basis: Listed). Sources [106][110] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "G0035 rows citing TA18-074A (basis: Listed). Sources [106] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "G0035 (TA18-074A); C0021 (basis: Listed). Sources [106][116] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "G0035 (TA18-074A); G0082 (FireEye, Oct 2018); S0370 SamSam (basis: Listed). Sources [106][114][111] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1059.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "C0013 (basis: Listed). Sources [117] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1059.006",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "G0035 rows citing TA18-074A (basis: Listed). Sources [106] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1106",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "C0013 (basis: Listed). Sources [117] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1204.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "G0007 rows citing the October 2018 indictment; C0021 (basis: Listed). Sources [115][116] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "C0013; G0045 rows citing the APT10 indictment (basis: Listed). Sources [117][112] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1559.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "C0013 (basis: Listed). Sources [117] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "S0365 Olympic Destroyer with PsExec; Thrip's PsExec install of Catchamas, Jan 2018 (Symantec, Described) (basis: Listed). Sources [107][26] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Whitefly loads Vcrodat through search-order hijacking (Symantec, 6 Mar 2019, on the July 2018 SingHealth attack); the library maps T1574.001 to G0107 (basis: Described). Sources [30][119] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Whitefly loads Vcrodat through search-order hijacking (Symantec, 6 Mar 2019, on the July 2018 SingHealth attack); the library maps T1574.001 to G0107 (basis: Described). Sources [30][119] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1098.007",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "G0035 rows citing TA18-074A (basis: Listed). Sources [106] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1098.007",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "G0035 rows citing TA18-074A (basis: Listed). Sources [106] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "G0035 (TA18-074A registry change to keep plaintext credentials in memory); G0082 (basis: Listed). Sources [106][11][114] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "G0035 (TA18-074A registry change to keep plaintext credentials in memory); G0082 (basis: Listed). Sources [106][11][114] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1136.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Local administrator accounts created in the Dragonfly campaign (G0035, TA18-074A) (basis: Listed). Sources [106][11] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Web shells on public email and web servers (G0035, TA18-074A) (basis: Listed). Sources [106][11] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1542.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "LoJax writes to SPI flash and survives OS reinstall and disk replacement (ESET, 27 Sep 2018; S0397 in the library's data) (basis: Listed). Sources [62][119] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1542.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "LoJax writes to SPI flash and survives OS reinstall and disk replacement (ESET, 27 Sep 2018; S0397 in the library's data) (basis: Listed). Sources [62][119] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "S0367 (TA18-201A) (basis: Listed). Sources [110] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "S0367 (TA18-201A) (basis: Listed). Sources [110] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "G0035 (TA18-074A); S0367 (TA18-201A); C0013 (basis: Listed). Sources [106][110][117] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "G0035 (TA18-074A); S0367 (TA18-201A); C0013 (basis: Listed). Sources [106][110][117] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "C0013; FASTCash switch-server manipulation (TA18-275A, mapping Inferred) (basis: Listed). Sources [117][40] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "C0013; FASTCash switch-server manipulation (TA18-275A, mapping Inferred) (basis: Listed). Sources [117][40] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "S0367 (TA18-201A) (basis: Listed). Sources [110] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "S0367 (TA18-201A) (basis: Listed). Sources [110] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1027.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "G0082 rows citing FireEye's APT38 report (basis: Listed). Sources [114] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1027.009",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "C0021 (library campaign data) (basis: Listed). Sources [119] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1027.010",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "C0021 (library campaign data) (basis: Listed). Sources [119] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1027.013",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "S0370 SamSam (basis: Listed). Sources [111] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1027.016",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "S0370 SamSam (basis: Listed). Sources [111] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "G0045 rows citing the APT10 indictment (malware named as OS files); C0013 (basis: Listed). Sources [112][117] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1036.010",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Local accounts disguised as backup accounts (G0035, TA18-074A) (basis: Listed). Sources [106][11] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "G0035, G0045, G0082 and G0007 rows; S0370; tools deleted (TA18-074A) (basis: Listed). Sources [106][112][114][115][111][11] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "C0021 (library campaign data) (basis: Listed). Sources [119] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1218.011",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "C0021 (basis: Listed). Sources [116] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1564.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "G0035 rows citing TA18-074A (basis: Listed). Sources [106] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1685.005",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "G0035 (TA18-074A log clearing); S0365 Olympic Destroyer; G0082; G0007 (July 2018 indictment) (basis: Listed). Sources [106][107][114][115] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1686",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "G0035 rows citing TA18-074A (host firewall disabled) (basis: Listed). Sources [106] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "G0007 rows citing the July and October 2018 GRU indictments (basis: Listed). Sources [115] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "S0365 (credentials from LSASS, Talos); G0007 (July 2018 indictment) (basis: Listed). Sources [107][5][115] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1003.002",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "G0035 (TA18-074A) (basis: Listed). Sources [106] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1003.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "NTDS collection (G0035, TA18-074A) (basis: Listed). Sources [106][11] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1003.004",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "G0035 (TA18-074A) (basis: Listed). Sources [106] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "G0007 rows citing the October 2018 indictment; VPNFilter's stage 3 sniffer (Talos, Described) (basis: Listed). Sources [115][22] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "G0007 rows citing the October 2018 indictment; VPNFilter's stage 3 sniffer (Talos, Described) (basis: Listed). Sources [115][22] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "G0045 (APT10 indictment); G0082; G0007 (July 2018 indictment) (basis: Listed). Sources [112][114][115] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "G0045 (APT10 indictment); G0082; G0007 (July 2018 indictment) (basis: Listed). Sources [112][114][115] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Brute force and credential reuse against network devices (TA18-106A); SamSam RDP brute force (AA18-337A) (basis: Described). Sources [19][57] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1110.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "S0367 (TA18-201A credential enumerator); Brambul's hard-coded credential lists against SMB (TA18-149A, Described); Gentoo's guessable password pattern, 28 Jun 2018 (Inferred) (basis: Listed). Sources [110][24][74] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1110.002",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Hashes harvested by forced SMB authentication cracked (G0035, TA18-074A) (basis: Listed). Sources [106][11] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "G0122 rows citing the Mabna indictment; password spraying against SSO, cloud and email (TA18-086A, 27 Mar 2018, Described) (basis: Listed). Sources [113][77] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1187",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Office documents that fetch a remote resource over SMB (G0035, TA18-074A) (basis: Listed). Sources [106][11] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1528",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Facebook View As: attackers stole access tokens, found 25 Sep 2018 and disclosed 28 Sep 2018 (basis: Inferred). Sources [39][75] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1552.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "S0367 (TA18-201A) (basis: Listed). Sources [110] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1555.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "S0365 (credentials from browsers, Talos) (basis: Listed). Sources [107][5] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Compromised routers used for man-in-the-middle (TA18-106A) (basis: Described). Sources [19] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Compromised routers used for man-in-the-middle (TA18-106A) (basis: Described). Sources [19] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1557.004",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "G0007 rows citing the October 2018 GRU indictment (hotel Wi-Fi) (basis: Listed). Sources [115][21] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1557.004",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "G0007 rows citing the October 2018 GRU indictment (hotel Wi-Fi) (basis: Listed). Sources [115][21] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1012",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "G0035 (TA18-074A) (basis: Listed). Sources [106] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "G0035 (TA18-074A); S0365 (basis: Listed). Sources [106][107] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "G0035 (TA18-074A); S0365 (basis: Listed). Sources [106][107] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1033",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "G0035 (TA18-074A) (basis: Listed). Sources [106] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1049",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "G0082 (FireEye, Oct 2018) (basis: Listed). Sources [114] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "G0082 (FireEye, Oct 2018) (basis: Listed). Sources [114] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1069.002",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "G0035 (TA18-074A) (basis: Listed). Sources [106] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "G0035 (TA18-074A); G0007 (July 2018 indictment) (basis: Listed). Sources [106][115] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1087.002",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "G0035 (TA18-074A) (basis: Listed). Sources [106] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "G0035 (TA18-074A); S0365 (basis: Listed). Sources [106][107] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "G0035 (TA18-074A); G0045 (APT10 indictment); SamSam over RDP (AA18-337A, Described) (basis: Listed). Sources [106][112][57] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "S0365 (PsExec over admin shares); Brambul's SMB brute force (TA18-149A, Described) (basis: Listed). Sources [107][24] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "S0367 (TA18-201A) (basis: Listed). Sources [110] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1570",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "S0365 (basis: Listed). Sources [107] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "G0035 (TA18-074A); G0045 (APT10 indictment); G0007 (July 2018 indictment) (basis: Listed). Sources [106][112][115] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1074.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "G0035 (TA18-074A) (basis: Listed). Sources [106] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1074.002",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "APT10 staged encrypted archives on other compromised hosts (DOJ, 20 Dec 2018) (basis: Described). Sources [58] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Screenshots taken through scheduled tasks (G0035, TA18-074A); G0007 (July 2018 indictment) (basis: Listed). Sources [106][11][115] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1114",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "G0122 rows citing the Mabna indictment (basis: Listed). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "G0035 (TA18-074A); G0007 (July 2018 indictment) (basis: Listed). Sources [106][115] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1114.003",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "G0122 rows citing the Mabna indictment (basis: Listed). Sources [113] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1115",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "G0082 (FireEye, Oct 2018) (basis: Listed). Sources [114] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1119",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "G0007 (July 2018 indictment) (basis: Listed). Sources [115] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1560",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "G0035 (TA18-074A); G0045 (APT10 indictment); G0007 (July 2018 indictment) (basis: Listed). Sources [106][112][115] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1602.002",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Configuration files with password hashes and SNMP community strings pulled over SNMP or Smart Install to TFTP (TA18-106A) (basis: Described). Sources [19] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "G0082 (FireEye, Oct 2018); C0021 (basis: Listed). Sources [114][119] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1071.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "G0035 (TA18-074A) (basis: Listed). Sources [106] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "C0013 (basis: Listed). Sources [117] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1090.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "G0007 (July 2018 indictment) (basis: Listed). Sources [115] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1095",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "C0021 (library campaign data) (basis: Listed). Sources [119] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "G0035; G0045; G0082; C0013; C0021 (basis: Listed). Sources [106][112][114][117][116] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1568.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "G0045 rows citing the APT10 indictment (basis: Listed). Sources [112] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "GRE tunnels on compromised routers; DNS redirected through GRE (TA18-106A, update of 19 Apr 2018) (basis: Described). Sources [19] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1573.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "C0021 (basis: Listed). Sources [116] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1020.001",
+      "tactic": "exfiltration",
+      "score": 70,
+      "comment": "GRE tunnels used to mirror traffic from compromised routers (TA18-106A) (basis: Described). Sources [19] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S0365 (wipes writable files on mapped shares, Talos); G0082 (disks and logs wiped) (basis: Listed). Sources [107][5][114] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S0370 SamSam (network-wide encryption, AA18-337A); G0082 (basis: Listed). Sources [111][57][114] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S0365 (basis: Listed). Sources [107] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S0365 deletes shadow copies and the backup catalog and disables recovery (Talos) (basis: Listed). Sources [107][5] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1491.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "G0034 rows citing the NCSC Olympic statement (2020) (basis: Listed). Sources [109] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "G0007 rows citing the October 2018 GRU indictment; webstresser.org DDoS-for-hire taken down 24 Apr 2018 (Europol, mapping Inferred) (basis: Listed). Sources [115][67] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1498.002",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Memcached UDP reflection against GitHub, 1.35 Tbps, 28 Feb 2018 (basis: Described). Sources [9][10] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1529",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S0365 (shuts hosts down, Talos); G0082 (basis: Listed). Sources [107][5][114] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1561.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "S1010 VPNFilter kill command (Talos, 23 May 2018) (basis: Listed). Sources [108][22] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1561.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "G0082 (FireEye, Oct 2018) (basis: Listed). Sources [114] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1565.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "G0082: fraudulent SWIFT transactions inserted and transaction history altered (FireEye) (basis: Listed). Sources [114][41] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1565.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "G0082; FASTCash switch servers approve fraudulent requests (TA18-275A, Described) (basis: Listed). Sources [114][40] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    },
+    {
+      "techniqueID": "T1565.003",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "G0082 (FireEye, Oct 2018) (basis: Listed). Sources [114] refer to the Sources table of case-studies/CHRONICLE_2018.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: the source or ATT&CK object prints the ATT&CK id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2018.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "127"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "148"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2018 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2018.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

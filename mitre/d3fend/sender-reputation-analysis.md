@@ -37,6 +37,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md)
 - [Five Hacks and Why They Worked: The Cases in Fancy Bear Goes Phishing](/case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md)
 - [North Korea-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_NORTH_KOREA.md)
+- [The Year 2018 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2018.md)
 
 <!-- library-refs:end -->
 

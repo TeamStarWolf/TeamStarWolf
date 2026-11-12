@@ -1,0 +1,344 @@
+{
+  "name": "TeamStarWolf - Before the Internet: Computer Threats, 1960 to 1990",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified record of computer threats from 1960 to 1990 supports: RFC 1135 on the Morris worm and the Second Circuit opinion, the 1988 and 1989 CERT advisories (CA-1988-01, CA-1989-03, CA-1989-04), RFC 1244 on CA-91:03, RISKS Digest on CHRISTMA EXEC and Lehigh, Virus Bulletin's 1989 and 1990 analyses (nVIR, Disk Killer, the AIDS Information disk), F-Secure's Brain and Jerusalem descriptions, Morris and Thompson's 1979 password study, and the Multics evaluation and Thompson's Turing lecture as Demonstrated cases. The events predate ATT&CK, so every mapping is the study's retrospective reading. Revoked ids map through data/attack/superseded_by.jsonl. Each comment names source numbers from case-studies/PRE_INTERNET_THREATS.md. Scores rank the record behind each technique, not severity: 100 a Confirmed primary record describes the behavior, 70 a controlled evaluation or experiment shows it, 40 the id choice is the study's inference.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Morris worm: sendmail debug and the fingerd gets() overflow, 2 Nov 1988 (basis: Confirmed primary record; record graded Confirmed). Sources [47][48][50][85] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1110.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Morris worm, 2 Nov 1988; WANK blank and account-name passwords, 16 Oct 1989 (basis: Confirmed primary record; record graded Confirmed). Sources [48][50][58] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1110.002",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Morris worm 432-word list and system dictionary, 1988; Morris and Thompson's dictionary search, Nov 1979 (basis: Confirmed primary record; record graded Confirmed; Demonstrated (1979 study)). Sources [50][14] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "CA-1989-03: logged credentials reused on other hosts, 16 Aug 1989 (basis: Confirmed primary record; record graded Confirmed). Sources [58][84] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "CA-1989-03: logged credentials reused on other hosts, 16 Aug 1989 (basis: Confirmed primary record; record graded Confirmed). Sources [58][84] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "CA-1989-03: logged credentials reused on other hosts, 16 Aug 1989 (basis: Confirmed primary record; record graded Confirmed). Sources [58][84] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "CA-1989-03: logged credentials reused on other hosts, 16 Aug 1989 (basis: Confirmed primary record; record graded Confirmed). Sources [58][84] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "WANK and the FIELD and DECNET accounts, Oct 1989; the 414s' default passwords, 1982 to 1983 (Reported) (basis: Confirmed primary record; record graded Confirmed; Reported). Sources [58][21] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "WANK and the FIELD and DECNET accounts, Oct 1989; the 414s' default passwords, 1982 to 1983 (Reported) (basis: Confirmed primary record; record graded Confirmed; Reported). Sources [58][21] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "WANK and the FIELD and DECNET accounts, Oct 1989; the 414s' default passwords, 1982 to 1983 (Reported) (basis: Confirmed primary record; record graded Confirmed; Reported). Sources [58][21] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "WANK and the FIELD and DECNET accounts, Oct 1989; the 414s' default passwords, 1982 to 1983 (Reported) (basis: Confirmed primary record; record graded Confirmed; Reported). Sources [58][21] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Morris worm poses as the legitimate user after guessing a password, 1988 (basis: Confirmed primary record; record graded Confirmed). Sources [50] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Morris worm poses as the legitimate user after guessing a password, 1988 (basis: Confirmed primary record; record graded Confirmed). Sources [50] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Morris worm poses as the legitimate user after guessing a password, 1988 (basis: Confirmed primary record; record graded Confirmed). Sources [50] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1078.003",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Morris worm poses as the legitimate user after guessing a password, 1988 (basis: Confirmed primary record; record graded Confirmed). Sources [50] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1021",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Morris worm over rsh and rexec to trusted hosts, 1988; parent only, because no sub-technique fits rsh (basis: Confirmed primary record; record graded Confirmed). Sources [48][50] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Morris worm reads hosts.equiv, .rhosts and .forward, 1988 (basis: Confirmed primary record; record graded Confirmed). Sources [50] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Morris worm reads routing-table gateways and point-to-point peers, 1988 (basis: Confirmed primary record; record graded Confirmed). Sources [50] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1554",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Trojaned telnet binaries logging credentials, CA-1989-03, 16 Aug 1989 (basis: Confirmed primary record; record graded Confirmed). Sources [58][86] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "WANK creates an account, Oct 1989 (basis: Confirmed primary record; record graded Confirmed). Sources [58] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "WANK resets the default DECNET password and leaves FIELD privileged, Oct 1989 (basis: Confirmed primary record; record graded Confirmed). Sources [58][87] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "WANK resets the default DECNET password and leaves FIELD privileged, Oct 1989 (basis: Confirmed primary record; record graded Confirmed). Sources [58][87] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Brain (Jan 1986); Lehigh (Nov 1987); nVIR (1989); Disk Killer (Jun 1989); Elk Cloner (1982, Reported) (basis: Confirmed primary record; record graded Confirmed; Reported). Sources [34][37][63][68][19][89] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Brain (Jan 1986); Lehigh (Nov 1987); nVIR (1989); Disk Killer (Jun 1989); Elk Cloner (1982, Reported) (basis: Confirmed primary record; record graded Confirmed; Reported). Sources [34][37][63][68][19][89] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1542.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Brain boot-sector infection (1986); Disk Killer (1989) (basis: Confirmed primary record; record graded Confirmed). Sources [34][68] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1542.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Brain boot-sector infection (1986); Disk Killer (1989) (basis: Confirmed primary record; record graded Confirmed). Sources [34][68] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Jerusalem deletes programs run on Friday the 13th (1986 to 1987) (basis: Confirmed primary record; record graded Confirmed). Sources [36] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Disk Killer encrypts the bootable partition (Jun 1989); the AIDS disk encrypts file names, not contents (Dec 1989) (basis: Confirmed primary record; record graded Confirmed). Sources [68][88] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1037",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AIDS installer rewrites AUTOEXEC.BAT, Dec 1989 (basis: Confirmed primary record; record graded Confirmed). Sources [68] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1037",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AIDS installer rewrites AUTOEXEC.BAT, Dec 1989 (basis: Confirmed primary record; record graded Confirmed). Sources [68] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1564.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AIDS disk hides directories, Dec 1989 (basis: Confirmed primary record; record graded Confirmed). Sources [68] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AIDS INSTALL run by recipients, Dec 1989; CHRISTMA EXEC run by recipients, Dec 1987 (basis: Confirmed primary record; record graded Confirmed). Sources [68][38][39] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1598",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "CA-91:03, messages posing as administrators asking for a password change, Apr 1991 (just after the window) (basis: Confirmed primary record; record graded Confirmed). Sources [53] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1684.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "CA-91:03, the same messages, Apr 1991 (basis: Confirmed primary record; record graded Confirmed). Sources [53][90] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Multics trap door distributed onward by the vendor (evaluation, 1972 to 1974, reported 2002); the Israeli vendor's demo diskette (Reported, 1989) (basis: controlled evaluation or experiment, Demonstrated; record graded Demonstrated; Reported). Sources [5][6][63] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1195.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Thompson's self-reproducing compiler Trojan, Aug 1984 (basis: controlled evaluation or experiment, Demonstrated; record graded Demonstrated). Sources [23] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1003.008",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Morris worm uses /etc/passwd clues; CA-1989-03 warns TFTP and anonymous FTP expose /etc/passwd (basis: the study's inferred id choice; record graded Inferred). Sources [50][58] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 40,
+      "comment": "Morris worm sends a bootstrap, then the main program (basis: the study's inferred id choice; record graded Inferred). Sources [50] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "Morris worm hid itself and left little evidence (basis: the study's inferred id choice; record graded Inferred). Sources [50] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "Morris worm overloads hosts until they crash or become catatonic; an unintended effect (basis: the study's inferred id choice; record graded Inferred). Sources [47][50] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1014",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "Brain hooks INT 13 to show the clean boot sector (basis: the study's inferred id choice; record graded Inferred). Sources [34] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1080",
+      "tactic": "lateral-movement",
+      "score": 40,
+      "comment": "Lehigh virus spreads through disks at public sites (1987); Cohen's virus spreads through shared programs (1983, Demonstrated) (basis: the study's inferred id choice; record graded Inferred). Sources [37][24] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1561.001",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "Lehigh virus erases disks after four infections (1987) (basis: the study's inferred id choice; record graded Inferred). Sources [37] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "AIDS disk presented as health information software (1989) (basis: the study's inferred id choice; record graded Inferred). Sources [68] refer to the Sources table of case-studies/PRE_INTERNET_THREATS.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: the id choice is the study's inference",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "70: a controlled evaluation or experiment, not an observed attack",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: a Confirmed primary record describes the behavior",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/PRE_INTERNET_THREATS.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "31"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "44"
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "Before the Internet: Computer Threats, 1960 to 1990",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/PRE_INTERNET_THREATS.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

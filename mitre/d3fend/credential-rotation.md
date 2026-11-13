@@ -63,6 +63,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md)
 - [SSHole: The OpenSSH Authentication Bypass of November 2026 (CVE-2026-123158)](/case-studies/SSHOLE_CVE_2026_123158.md)
 - [The FireEye Mandiant Intrusion of 2020: The Public Record](/case-studies/MANDIANT_INTRUSION_2020.md)
+- [The Ivanti Connect Secure Zero-Day Chain of October 2026 (CVE-2026-104935, CVE-2026-111357, CVE-2026-118527): A Case Study](/case-studies/IVANTI_CONNECT_SECURE_2026.md)
 - [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md)
 - [The Year 2017 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2017.md)
 - [The Year 2018 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2018.md)

@@ -2581,6 +2581,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 3: how the attacks and the CVEs relate](#part-3-how-the-attacks-and-the-cves-relate), [Part 5: the defender view](#part-5-the-defender-view)"
     pairs_with: "[ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Stuxnet: The Case Study](/case-studies/STUXNET.md)"
     reviewed: null
+  case-studies/SHAREPOINT_2026_EXPLOITATION.md:
+    audience: "Teams that run on-premises SharePoint Server, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run SharePoint Server on premises, you need the facts of the eight 2026 SharePoint CVEs in KEV, or you want to decide how to patch, rotate machine keys and hunt after the 2026 waves"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[The SharePoint ToolShell Mass Exploitation: A 2025 Case Study](/case-studies/SHAREPOINT_TOOLSHELL_2025.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)"
+    reviewed: null
   case-studies/IVANTI_CONNECT_SECURE_2026.md:
     audience: "Teams that run Ivanti Connect Secure or another remote-access VPN appliance, vulnerability management leads, incident responders and threat intelligence analysts"
     level: "Intermediate"

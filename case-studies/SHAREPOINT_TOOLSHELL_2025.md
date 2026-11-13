@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 11 min (2,540 words at 230 words a minute)
+About 11 min (2,554 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -219,4 +219,5 @@ See [the Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_R
 - [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md)
 - [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)
 - [PHP2Shell and the October 2026 Attack Wave](/case-studies/PHP2SHELL_OCTOBER_2026.md)
+- [The SharePoint Server Exploitation Waves of 2026](/case-studies/SHAREPOINT_2026_EXPLOITATION.md), the 2026 successors on the same product
 - [Notable Incidents](/NOTABLE_INCIDENTS.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)

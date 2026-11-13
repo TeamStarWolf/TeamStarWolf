@@ -50,6 +50,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [Log4Shell (CVE-2021-44228): The Case Study](/case-studies/LOG4SHELL.md)
 - [North Korea-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_NORTH_KOREA.md)
 - [Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation](/case-studies/EXCHANGE_MARAUDER_2021.md)
+- [The SharePoint Server Exploitation Waves of 2026 (CVE-2026-45659 and Successors): A Case Study](/case-studies/SHAREPOINT_2026_EXPLOITATION.md)
 - [The Year 2018 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2018.md)
 - [The Year 2021 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2021.md)
 - [The Year 2022 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2022.md)

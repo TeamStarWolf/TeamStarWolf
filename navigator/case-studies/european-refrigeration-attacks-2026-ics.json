@@ -1,0 +1,125 @@
+{
+  "name": "TeamStarWolf - Refrigeration-Controller Attacks on European Supermarkets and Blood Services, 2026 (ICS)",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "ics-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK for ICS techniques that the verified record of the 2026 refrigeration-controller attacks on European supermarkets and blood services supports: CERT-FR alert CERTFR-2026-ALE-012 and report CERTFR-2026-CTI-009, France's attribution statement, NCSC Ireland's advisory and the US joint fact sheet, with Sekoia's honeypot telemetry and the Ransom-ISAC site account relayed by Help Net Security. T1694.001 is the v20 successor of the revoked T0812. Each comment names source numbers from case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md. The mappings are this study's reading.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T0883",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Controllers reached while exposed to the internet (CERT-FR, 12 to 16 Oct 2026; NCSC-IE, 3 Nov 2026). Sources [1][15] refer to the Sources table of case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md."
+    },
+    {
+      "techniqueID": "T1694.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Default Administrator credentials at the Ransom-ISAC site (2 Nov 2026); default-account spraying on Sekoia honeypots (Oct to Nov 2026). Successor of the revoked T0812. Sources [19][25] refer to the Sources table of case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md."
+    },
+    {
+      "techniqueID": "T1694.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Default Administrator credentials at the Ransom-ISAC site (2 Nov 2026); default-account spraying on Sekoia honeypots (Oct to Nov 2026). Successor of the revoked T0812. Sources [19][25] refer to the Sources table of case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md."
+    },
+    {
+      "techniqueID": "T0836",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "Defrost parameters set to high temperatures (11 to 12 Oct 2026); EFS thresholds raised and 743 setpoint changes (2 Nov 2026). Sources [2][23][25] refer to the Sources table of case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md."
+    },
+    {
+      "techniqueID": "T0838",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "Alarm thresholds altered (Sekoia, Nov 2026); alarms muted (Ransom-ISAC, 2 Nov 2026). Sources [19][25] refer to the Sources table of case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md."
+    },
+    {
+      "techniqueID": "T0831",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Forced continuous heating and defrost cycles (US joint fact sheet, 5 Nov 2026). Sources [11] refer to the Sources table of case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md."
+    },
+    {
+      "techniqueID": "T0815",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Denial of view listed as an effect (US joint fact sheet, 5 Nov 2026). Sources [11] refer to the Sources table of case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md."
+    },
+    {
+      "techniqueID": "T0879",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "At least 15 fire starts and goods losses (11 to 12 Oct 2026). Sources [2][3] refer to the Sources table of case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md."
+    },
+    {
+      "techniqueID": "T0828",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Food losses of several tens of millions of euros (France, 9 Nov 2026). Sources [3] refer to the Sources table of case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#7c3aed"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: in this study's verified record (membership, not severity)",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "8"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "9"
+    },
+    {
+      "name": "score_meaning",
+      "value": "A score of 100 means membership in this study's record, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/ics/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/ics/technique_profiles.jsonl"
+    }
+  ],
+  "links": [
+    {
+      "label": "Refrigeration-Controller Attacks on European Supermarkets and Blood Services, 2026: A Case Study",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

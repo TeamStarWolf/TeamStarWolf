@@ -529,7 +529,10 @@ CATALOG = [
        "[zero-day market case study](/case-studies/ZERO_DAY_MARKET_EVENTS.md)"),
       ("case-studies/ransomware-ecosystem-2019-2026-ics.json", "The Ransomware Ecosystem, 2019 to 2026 (ICS)",
        "The 3 ATT&CK for ICS techniques bound to ransomware that stopped operations from the IT side, at Colonial Pipeline and in CISA AA21-287A's water incidents, from the "
-       "[ransomware ecosystem case study](/case-studies/RANSOMWARE_ECOSYSTEM.md)")]),
+       "[ransomware ecosystem case study](/case-studies/RANSOMWARE_ECOSYSTEM.md)"),
+      ("case-studies/european-refrigeration-attacks-2026-ics.json", "European Refrigeration Attacks, 2026 (ICS)",
+       "The 8 ATT&CK for ICS techniques bound to the October and November 2026 attacks on supermarket and blood-service refrigeration controllers (CERT-FR, France's attribution, NCSC Ireland and the US joint fact sheet), from the "
+       "[European refrigeration attacks case study](/case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md)")]),
 ]
 
 

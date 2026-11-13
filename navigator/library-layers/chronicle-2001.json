@@ -1,0 +1,288 @@
+{
+  "name": "TeamStarWolf - The Year 2001 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2001 record supports: the 37 CERT/CC advisories CA-2001-01 to CA-2001-37 and the 15 incident notes IN-2001-01 to IN-2001-15 (ramen, the BIND kits, snmpXdmid and Carko, sadmind/IIS, Code Red and Code Red II, Nimda, Sircam, Kaiten on null sa passwords, the SSH1 CRC-32 exploitation and the year's mass mailers), Microsoft's MS01 bulletins (the bogus VeriSign code-signing certificates of MS01-017, the IE MIME flaw of MS01-020, MS01-033 and MS01-044), CAIDA's Code Red measurements and the Justice Department's 2001 records (the Cisco insiders, the PACER billing bypass, the AIPAC defacement indictment, Gorshkov and Ivanov). No 2001 source prints an ATT&CK id: every entry is this study's later mapping. Equation's four group techniques are left out because ATT&CK does not date them. The Maroochy Shire techniques are in the separate ATT&CK for ICS layer navigator/case-studies/chronicle-2001-ics.json. Each comment names source numbers from case-studies/CHRONICLE_2001.md. Scores: 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 40,
+      "comment": "Nimda shares C: as C$ (18 Sep); CERT does not describe the share being used to move (basis: Inferred; a later mapping, since no 2001 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1036.007",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Anna Kournikova's attachment hides its .vbs extension (12 Feb) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1059.005",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "VBS/OnTheFly is a VBScript program (CA-2001-03, 12 Feb) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Cisco accountants exceed their authorized access to the stock-option system (Oct 2000 to Mar 2001; sentenced 26 Nov) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [26] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Cisco accountants exceed their authorized access to the stock-option system (Oct 2000 to Mar 2001; sentenced 26 Nov) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [26] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Cisco accountants exceed their authorized access to the stock-option system (Oct 2000 to Mar 2001; sentenced 26 Nov) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [26] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Cisco accountants exceed their authorized access to the stock-option system (Oct 2000 to Mar 2001; sentenced 26 Nov) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [26] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Kaiten through null sa passwords on SQL Server and MSDE (IN-2001-13, 27 Nov); the Interbase compiled-in account (CA-2001-01, 10 Jan) is a flaw class with no exploitation stated (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [2][1] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Kaiten through null sa passwords on SQL Server and MSDE (IN-2001-13, 27 Nov); the Interbase compiled-in account (CA-2001-01, 10 Jan) is a flaw class with no exploitation stated (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [2][1] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Kaiten through null sa passwords on SQL Server and MSDE (IN-2001-13, 27 Nov); the Interbase compiled-in account (CA-2001-01, 10 Jan) is a flaw class with no exploitation stated (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [2][1] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Kaiten through null sa passwords on SQL Server and MSDE (IN-2001-13, 27 Nov); the Interbase compiled-in account (CA-2001-01, 10 Jan) is a flaw class with no exploitation stated (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [2][1] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1080",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "Nimda modifies web documents and spreads through open shares (18 Sep); Sircam spreads through unprotected shares (25 Jul) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Nimda adds Guest to Administrators (18 Sep); sadmind/IIS adds a wildcard trust entry to root's .rhosts (8 May) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Nimda adds Guest to Administrators (18 Sep); sadmind/IIS adds a wildcard trust entry to root's .rhosts (8 May) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Nimda copies itself to IIS servers over TFTP (18 Sep) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "Sircam and Nimda reach unprotected shares; the advisories do not describe how they find them (basis: Inferred; a later mapping, since no 2001 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1136.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Nimda creates a Guest account (18 Sep) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Nimda served from compromised web sites to browsers (18 Sep) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "ramen via wu-ftpd, rpc.statd and LPRng (IN-2001-01, 18 Jan); BIND kits (IN-2001-03, 30 Mar); snmpXdmid (CA-2001-05, 30 Mar); sadmind/IIS against IIS (CA-2001-11, 8 May); Code Red (CA-2001-19, 19 Jul); Code Red II (IN-2001-09, 6 Aug); Nimda against IIS (CA-2001-26, 18 Sep) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [2][1] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "The IE MIME flaw (MS01-020, 29 Mar) used by Nimda (18 Sep) and BadTrans (27 Nov); Klez runs from a viewed email through a known IE flaw (26 Oct) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [5][1][2][60] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Anna Kournikova, Sircam and Goner need the user to open the file (12 Feb, 25 Jul, 4 Dec) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "sadmind/IIS spreads Solaris to Solaris through sadmind (8 May); SSH1 CRC-32 exploitation (IN-2001-12, 5 Nov; CA-2001-35, 13 Dec) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1491.002",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "sadmind/IIS (8 May); Code Red's English-language defacement (19 Jul); AIPAC web site replaced (1 Nov 2000; indicted 22 Oct 2001) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [1][24] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1498.001",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Code Red's flood of a fixed address on days 20 to 27 (CA-2001-19, CA-2001-23) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [1][16] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "Cisco 600-series DSL routers stop forwarding (19 Jul); IIS 4.0 redirection crash from Code Red traffic (MS01-044, 15 Aug). Side effects, not stated intent (basis: Inferred; a later mapping, since no 2001 source prints an ATT&CK id). Sources [1][9] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "Code Red II places the command interpreter in IIS script folders (IN-2001-09, 6 Aug); the closest fit, not an exact one (basis: Inferred; a later mapping, since no 2001 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1554",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Nimda trojanizes legitimate binaries (18 Sep) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1564.001",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Hidden files on PACER servers bypass the billing program (May to Nov 2000; plea 18 Dec 2001) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [27] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1565.001",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "Forged disbursal requests issue nearly $8 million in Cisco stock; DOJ does not describe how the records were changed (basis: Inferred; a later mapping, since no 2001 source prints an ATT&CK id). Sources [26] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Mass-mailed attachments, not targeted, so the targeted-delivery technique is the closest fit only: Anna Kournikova (12 Feb), Sircam (25 Jul), Nimda (18 Sep), BadTrans (27 Nov), Goner (4 Dec) (basis: Inferred; a later mapping, since no 2001 source prints an ATT&CK id). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1584.005",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "The Carko DDoS tool installed on hosts compromised through snmpXdmid (IN-2001-04, 24 Apr) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1588.003",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "An impostor obtains two \"Microsoft Corporation\" certificates from VeriSign (29 and 30 Jan; MS01-017, 22 Mar) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [4][1] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1595.001",
+      "tactic": "reconnaissance",
+      "score": 40,
+      "comment": "Worm propagation scanning, the closest fit, not pre-targeting reconnaissance: Code Red's random addresses on TCP 80 (19 Jul); rising 22/tcp scans (5 Nov); 1433/tcp scans before Kaiten (27 Nov) (basis: Inferred; a later mapping, since no 2001 source prints an ATT&CK id). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "The Gorshkov and Ivanov ring steals card and bank data and extorts victims (verdict 9 Oct 2001) (basis: Described; a later mapping, since no 2001 source prints an ATT&CK id). Sources [20][21] refer to the Sources table of case-studies/CHRONICLE_2001.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8"
+    ],
+    "minValue": 40,
+    "maxValue": 70
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2001.md (sources opened 12 November 2026 and checked as of 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "27"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "34"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2001 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2001.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

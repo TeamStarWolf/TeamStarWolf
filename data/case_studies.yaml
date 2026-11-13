@@ -557,6 +557,30 @@ studies:
       - {"date": "2002-10-21", "label": "Flood against all thirteen DNS root name servers, about 20:45 to 22:00 UTC"}
       - {"date": "2002-11-11", "label": "Trojaned tcpdump and libpcap on www.tcpdump.org, 11 to 13 November (CA-2002-30)"}
       - {"date": "2002-12-17", "label": "E-Government Act approved; Title III is the Federal Information Security Management Act"}
+  case-studies/CHRONICLE_2001.md:
+    kind: "era"
+    title: "The Year 2001 in Intrusions: A Dated Record"
+    start: "2001-01"
+    end: "2001-12"
+    sectors: ["cross-sector", "government", "defense", "technology", "finance", "retail", "telecommunications"]
+    cves: ["CVE-2000-0884", "CVE-2001-0008", "CVE-2001-0010", "CVE-2001-0144", "CVE-2001-0154", "CVE-2001-0241", "CVE-2001-0333", "CVE-2001-0500", "CVE-2001-0550"]
+    actors: ["G0020"]
+    tags: ["Code Red", "Nimda", "Sircam", "Klez", "sadmind/IIS", "ramen", "code-signing certificates", "Equation", "Maroochy", "PATRIOT Act", "Budapest Convention", "AES"]
+    pdf: "Chronicle_2001_Case_Study.pdf"
+    pptx: "Chronicle_2001_Case_Study.pptx"
+    events:
+      - {"date": "2001-01-18", "label": "IN-2001-01: the self-propagating ramen toolkit roots Linux hosts through wu-ftpd, rpc.statd and LPRng flaws"}
+      - {"date": "2001-01-29", "label": "29 and 30 January: VeriSign issues two \"Microsoft Corporation\" code-signing certificates to an impostor"}
+      - {"date": "2001-02-12", "label": "CA-2001-03: VBS/OnTheFly (\"Anna Kournikova\") mails itself through Outlook"}
+      - {"date": "2001-05-08", "label": "CA-2001-11: the sadmind/IIS worm crosses from Solaris to IIS"}
+      - {"date": "2001-06-18", "label": "MS01-033: the idq.dll overflow later used by Code Red, about four weeks before the worm"}
+      - {"date": "2001-07-19", "label": "CAIDA: Code-Red v2 infects 359,104 hosts in under 14 hours"}
+      - {"date": "2001-09-18", "label": "CA-2001-26: Nimda spreads by five paths, including the back doors earlier worms left"}
+      - {"date": "2001-10-09", "label": "Seattle jury convicts Vasiliy Gorshkov on 20 counts"}
+      - {"date": "2001-10-26", "label": "USA PATRIOT Act amends the computer fraud and surveillance statutes"}
+      - {"date": "2001-10-31", "label": "Vitek Boden sentenced over the Maroochy Shire sewerage intrusion (ATT&CK campaign C0020)"}
+      - {"date": "2001-11-23", "label": "Council of Europe Convention on Cybercrime done at Budapest"}
+      - {"date": "2001-12-20", "label": "MS01-059 and CA-2001-37: UPnP overflow leaves Windows XP vulnerable in its default configuration"}
   case-studies/CHRONICLE_2016.md:
     kind: "era"
     title: "The Year 2016 in Intrusions: A Dated Record"

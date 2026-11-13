@@ -1,0 +1,170 @@
+{
+  "name": "TeamStarWolf - SmarterTools SmarterMail Exploitation and Ransomware, 2026 (CVE-2026-23760, CVE-2026-24423, CVE-2025-52691) Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the case study of the 2026 exploitation of SmarterTools SmarterMail through CVE-2026-23760 (password-reset bypass), CVE-2026-24423 (ConnectToHub command execution) and CVE-2025-52691 (file upload), all three in KEV with ransomware use Known, and the vendor's own breach of 29 January 2026. No source lists ATT&CK ids; every binding is the study's own. Score 75: the CVE, NVD, KEV or CISA record describes the behavior. Score 50: a vendor, research or news report. Score 25: an inexact fit. Comments carry the study's source numbers.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "75: described in the CVE, NVD, KEV or CISA record",
+      "color": "#15803d"
+    },
+    {
+      "label": "50: from a vendor, research or news report",
+      "color": "#86efac"
+    },
+    {
+      "label": "25: inexact fit, the study's own reading",
+      "color": "#e5e7eb"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/SMARTERTOOLS_SMARTERMAIL_2026.md; ATT&CK v20.0 technique data"
+    },
+    {
+      "name": "score_meaning",
+      "value": "75 = CVE, NVD, KEV or CISA record; 50 = vendor, research or news report; 25 = inexact fit. No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "SmarterTools SmarterMail Exploitation and Ransomware, 2026 (CVE-2026-23760, CVE-2026-24423, CVE-2025-52691): A Case Study",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/SMARTERTOOLS_SMARTERMAIL_2026"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 50,
+      "comment": "Probes for CVE-2026-24423 against ReliaQuest's victim (ReliaQuest, 9 Feb 2026) and one source IP scanning for SmarterMail on F5 Labs sensors from 17 Feb 2026 (F5 Labs, 12 Mar 2026). Sources: [20] [21].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1587.004",
+      "tactic": "resource-development",
+      "score": 25,
+      "comment": "Inexact fit: a reported attack two days after the Build 9511 fix, read as patch diffing by this study, not by a source (watchTowr Labs, 22 Jan 2026). Sources: [15].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1588.005",
+      "tactic": "resource-development",
+      "score": 50,
+      "comment": "PoC material for the SmarterMail flaws traded in Telegram channels (Flare, 18 Feb 2026). Sources: [25].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1608.001",
+      "tactic": "resource-development",
+      "score": 25,
+      "comment": "Inexact fit: the payload was hosted on a legitimate cloud platform, earlier on GitHub; the source does not say who uploaded it (ReliaQuest, 9 Feb 2026). Sources: [20].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 75,
+      "comment": "Exploitation of the internet-facing SmarterMail server through CVE-2026-23760, CVE-2026-24423 and CVE-2025-52691 (CVE and NVD records, 22 and 23 Jan 2026; KEV, 26 Jan and 5 Feb 2026; vendor breach post, 3 Feb 2026). Sources: [5] [7] [9] [14] [15] [18] [20] [21].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 75,
+      "comment": "Operating system command execution through built-in management functions and the ConnectToHub flaw (CVE records, 22 and 23 Jan 2026); System Events and a volume-mount feature used to run commands (Huntress, 22 Jan; ReliaQuest, 9 Feb 2026). Sources: [4] [6] [18] [20].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "Forced reset of the system administrator password without the old password or a reset token (CVE-2026-23760 record, 22 Jan 2026). Sources: [4] [15] [18].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 75,
+      "comment": "Forced reset of the system administrator password without the old password or a reset token (CVE-2026-23760 record, 22 Jan 2026). Sources: [4] [15] [18].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "score": 50,
+      "comment": "Attackers aimed to take Active Directory and create users (SmarterTools breach post, 3 Feb 2026). Sources: [14].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1218.007",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "The legitimate Windows installer pulled the payload (ReliaQuest, 9 Feb 2026). Sources: [20].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "The attacker removed the System Event and test domain it had created (Huntress, 22 Jan 2026). Sources: [18].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 50,
+      "comment": "Payload downloaded from a cloud platform, earlier from GitHub (ReliaQuest, 9 Feb 2026). Sources: [20].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 50,
+      "comment": "Velociraptor configured for command and control (ReliaQuest, 9 Feb 2026); Velociraptor, SimpleHelp and JWRapper named by the vendor in its breach (3 Feb 2026). Sources: [14] [20].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 50,
+      "comment": "Encryption attempted and stopped at the vendor on 29 Jan 2026 (breach post, 3 Feb 2026); KEV ransomware use Known for all three CVEs (5 Feb, 26 Feb and 21 Apr 2026). Sources: [9] [10] [14].",
+      "enabled": true
+    }
+  ]
+}

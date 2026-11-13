@@ -2496,6 +2496,32 @@ studies:
       - {"date": "2025-07-19", "label": "Microsoft ships out-of-band updates, 19 to 20 July"}
       - {"date": "2025-07-20", "label": "CISA adds CVE-2025-53770 to the KEV catalog"}
       - {"date": "2025-09", "label": "Warlock's leak site lists roughly 60 victims"}
+  case-studies/SMARTERTOOLS_SMARTERMAIL_2026.md:
+    kind: "vulnerability"
+    title: "SmarterTools SmarterMail Exploitation and Ransomware, 2026 (CVE-2026-23760, CVE-2026-24423, CVE-2025-52691): A Case Study"
+    start: "2025-10"
+    end: "2026-11"
+    core_start: "2026-01-15"
+    core_end: "2026-02-26"
+    sectors: ["cross-sector", "technology"]
+    cves: ["CVE-2025-52691", "CVE-2026-23760", "CVE-2026-24423", "CVE-2026-40514"]
+    actors: []
+    tags: ["SmarterTools", "SmarterMail", "mail server", "authentication bypass", "password reset", "Warlock", "Storm-2603", "ransomware", "KEV"]
+    pdf: "SmarterTools_SmarterMail_2026_Case_Study.pdf"
+    pptx: "SmarterTools_SmarterMail_2026_Case_Study.pptx"
+    events:
+      - {"date": "2025-10-09", "label": "Build 9413 ships with \"Critical security fixes.\" and no CVE named"}
+      - {"date": "2025-12-29", "label": "CSA Singapore alert AL-2025-124 and the CVE record for CVE-2025-52691"}
+      - {"date": "2026-01-08", "label": "8 to 13 Jan: watchTowr reports the password-reset bypass; the vendor acknowledges it"}
+      - {"date": "2026-01-15", "label": "Build 9511 fixes the password-reset bypass and the ConnectToHub command execution flaw"}
+      - {"date": "2026-01-17", "label": "A SmarterMail forum post describes a successful attack (Reported)"}
+      - {"date": "2026-01-22", "label": "22 to 23 Jan: CVE-2026-23760 and CVE-2026-24423 published; watchTowr, Huntress and VulnCheck publish"}
+      - {"date": "2026-01-26", "label": "KEV adds CVE-2025-52691 and CVE-2026-23760; Shadowserver sees exploitation attempts"}
+      - {"date": "2026-01-29", "label": "SmarterTools' own network is breached through its unpatched SmarterMail VM"}
+      - {"date": "2026-02-05", "label": "KEV adds CVE-2026-24423; its ransomware flag goes to Known within hours"}
+      - {"date": "2026-02-09", "label": "ReliaQuest ties a CVE-2026-23760 intrusion to Storm-2603 (Reported)"}
+      - {"date": "2026-02-25", "label": "25 to 26 Feb: KEV ransomware flag for CVE-2026-23760 goes to Known"}
+      - {"date": "2026-04-21", "label": "KEV ransomware flag for CVE-2025-52691 goes to Known"}
   case-studies/SOLARWINDS_SUNBURST.md:
     kind: "campaign"
     title: "SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021"

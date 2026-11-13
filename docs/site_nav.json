@@ -253,6 +253,7 @@
         ["E-commerce threats: the public record, 1999 to 2026", "/case-studies/ECOMMERCE_THREATS.md"],
         ["The year 2026 in intrusions: a dated record", "/case-studies/CHRONICLE_2026.md"],
         ["The ConnectWise Cloud Backup compromise of October 2026: a case study", "/case-studies/CONNECTWISE_STORM_0940_2026.md"],
+        ["The Stryker device-wipe attack of March 2026: a case study", "/case-studies/STRYKER_HANDALA_WIPER_2026.md"],
         ["Refrigeration-controller attacks on European supermarkets and blood services, 2026", "/case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md"]
       ]
     },
@@ -296,7 +297,8 @@
         ["Network defense", "/NETWORK_DEFENSE_REFERENCE.md"],
         ["Network forensics", "/NETWORK_FORENSICS_REFERENCE.md"],
         ["ProFTPD mod_copy (CVE-2015-3306): a lab case study", "/case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md"],
-        ["The Ivanti Connect Secure zero-day chain (October 2026): a case study", "/case-studies/IVANTI_CONNECT_SECURE_2026.md"]
+        ["The Ivanti Connect Secure zero-day chain (October 2026): a case study", "/case-studies/IVANTI_CONNECT_SECURE_2026.md"],
+        ["The Cisco Catalyst SD-WAN authentication bypass (CVE-2026-20127): a case study", "/case-studies/CISCO_SDWAN_CVE_2026_20127.md"]
       ]
     },
     {

@@ -2337,6 +2337,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 4: exploited vulnerabilities](#part-4-exploited-vulnerabilities), [Part 7: the defender view](#part-7-the-defender-view)"
     pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
     reviewed: null
+  case-studies/ATF_MAJOR_INCIDENT_2026.md:
+    audience: "Government and public-sector security leaders, incident responders, vulnerability management leads and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You want the dated record of the 2026 ATF major incident and the Qilin listing that preceded it, how much of it rests on an agency statement quoted by the press, or which segmentation, isolation and federal reporting controls the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md), [The Ransomware Ecosystem](/case-studies/RANSOMWARE_ECOSYSTEM.md)"
+    reviewed: null
   case-studies/BEYONDTRUST_REMOTE_SUPPORT_CVE_2026_1731.md:
     audience: "Help-desk, remote-access and privileged-access teams that run BeyondTrust Remote Support or Privileged Remote Access, vulnerability management leads, incident responders and threat intelligence analysts"
     level: "Intermediate"

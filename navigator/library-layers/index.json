@@ -514,5 +514,11 @@
     "name": "TeamStarWolf - SmarterTools SmarterMail Exploitation and Ransomware, 2026 (CVE-2026-23760, CVE-2026-24423, CVE-2025-52691) Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the 2026 SmarterTools SmarterMail exploitation supports: the CVE, NVD and KEV records for CVE-2026-23760, CVE-2026-24423 and CVE-2025-52691, the vendor's account of its own breach of 29 January 2026, and the Huntress, ReliaQuest, F5 Labs and Flare reports of scanning, administrator password resets, command execution, tool transfer, remote access tools and attempted encryption. Score 75: the CVE, NVD, KEV or CISA record; 50: a vendor, research or news report; 25: an inexact fit. Comments carry the study's source numbers.",
     "blurb": "Techniques from the 2026 exploitation of SmarterTools SmarterMail through CVE-2026-23760, CVE-2026-24423 and CVE-2025-52691, from scanning and the forced administrator password reset to command execution, Velociraptor as a remote access tool and the encryption stopped at the vendor. A curated layer for the SmarterMail case study."
+  },
+  {
+    "file": "atf-major-incident-2026.json",
+    "name": "TeamStarWolf - ATF Major Incident 2026 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques from ATT&CK's profile of Qilin (S1242) that bear on the ATF major incident case study's recommendations. The public record of the ATF incident, ATF's 26 August 2026 statement as BleepingComputer and SecurityWeek quote it, describes a compromise of one standalone system and a containment step and no behavior a technique can name, so no technique is bound as observed at ATF. Score 20: ATT&CK S1242 profile context, not observed at ATF. Scores measure the strength of the tie to this record, not severity. Comments carry the study's source numbers.",
+    "blurb": "Context techniques from ATT&CK's Qilin profile for the 2026 ATF major incident: the edge exploitation and phishing entry points and the encryption, recovery-inhibition and service-stop impacts, none observed at ATF, whose record names no technique. A curated layer for the ATF major incident case study."
   }
 ]

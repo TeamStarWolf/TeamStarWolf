@@ -112,6 +112,31 @@ studies:
       - {"date": "2024-07-18", "label": "APT41 DUST (C0040) reported: prolonged access at shipping and logistics organizations"}
       - {"date": "2026-07-24", "label": "Google renames APT41 to SPIRE CASTLE"}
       - {"date": "2026-10-22", "label": "BlackX UEFI bootkit reported at diplomatic agencies in Tajikistan, Uzbekistan and Turkmenistan"}
+  case-studies/ATF_MAJOR_INCIDENT_2026.md:
+    kind: "incident"
+    title: "The ATF Major Incident of 2026: A Case Study"
+    start: "2026-03"
+    end: "2026-11"
+    core_start: "2026-08-26"
+    core_end: "2026-08-28"
+    sectors: ["government"]
+    cves: ["CVE-2026-0257", "CVE-2026-50751"]
+    actors: []
+    tags: ["ATF", "federal agency", "Qilin", "Agenda", "leak site", "FISMA major incident", "segmentation", "ransomware claim"]
+    pdf: "ATF_Major_Incident_2026_Case_Study.pdf"
+    pptx: "ATF_Major_Incident_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-03-05", "label": "Context: the FBI confirms it identified and addressed suspicious activities after a reported breach of its surveillance systems (Reported)"}
+      - {"date": "2026-05-07", "label": "Lineage: exploitation of Check Point VPN flaw CVE-2026-50751 begins against a few dozen organizations"}
+      - {"date": "2026-05-29", "label": "Lineage: PAN-OS CVE-2026-0257 enters KEV with ransomware use Known"}
+      - {"date": "2026-06", "label": "Lineage: Arctic Wolf investigates several intrusions that began with CVE-2026-0257 and ended in Qilin ransomware"}
+      - {"date": "2026-06-08", "label": "Lineage: Check Point's hotfix advisory notes a Qilin affiliate case; CISA adds CVE-2026-50751 to KEV"}
+      - {"date": "2026-07-01", "label": "Context: DHS confirms a compromise of HSIN, a legacy information sharing environment (Reported)"}
+      - {"date": "2026-08-26", "label": "Qilin lists ATF on its leak site with no proof screenshots, timer, theft claim or ransom claim (Reported)"}
+      - {"date": "2026-08-26", "label": "ATF statement: one standalone system compromised, connections terminated, a major incident designated (Reported)"}
+      - {"date": "2026-08-27", "label": "BleepingComputer reports; an ATF spokesperson had not responded by publication (Reported)"}
+      - {"date": "2026-08-28", "label": "SecurityWeek reports the major-incident designation and no effect on ATF's missions (Reported)"}
+      - {"date": "2026-11-13", "label": "No source opened shows Qilin publishing ATF data; the Hub has no ATF row, and its Oct Qilin rows cover PAN-OS CVE-2026-0257"}
   case-studies/BEYONDTRUST_REMOTE_SUPPORT_CVE_2026_1731.md:
     kind: "vulnerability"
     title: "The BeyondTrust Remote Support and PRA Command Injection of 2026 (CVE-2026-1731): A Case Study"

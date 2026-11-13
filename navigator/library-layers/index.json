@@ -480,6 +480,12 @@
     "blurb": "Techniques from the 2026 IDScan.net driver's license breach: the access to the VeriScan cloud environment from 4 April to 2 September 2026 and what the Nexus search service let buyers do with the records. A curated layer for the IDScan.net case study."
   },
   {
+    "file": "cpanel-whm-cve-2026-41940.json",
+    "name": "TeamStarWolf - cPanel and WHM Authentication Bypass of 2026 (CVE-2026-41940) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of CVE-2026-41940 in cPanel and WHM supports: the CVE record, the KEV record and the CISA alert for the exploitation of the internet-facing login flow and the ransomware use, BleepingComputer and KnownHost for the exploitation before the fix and the \"Sorry\" encryptor, and Socket and JFrog for the hijacked GitHub repositories, Packagist packages and workflows that scanned for the flaw and harvested secrets. Each comment names source numbers from case-studies/CPANEL_WHM_CVE_2026_41940.md. Scores: 75 is the CVE record, the KEV record or a CISA alert, 50 is a vendor research or news report, 25 is an inexact fit.",
+    "blurb": "Techniques from the 2026 exploitation of the cPanel and WHM authentication bypass CVE-2026-41940, from the pre-authentication login-flow exploitation and the \"Sorry\" encryptor to the hijacked GitHub Actions workflows that scanned for the flaw. A curated layer for the CVE-2026-41940 case study."
+  },
+  {
     "file": "fortinet-forticloud-sso-cve-2026-24858.json",
     "name": "TeamStarWolf - FortiCloud SSO Authentication Bypass of 2026 (CVE-2026-24858) Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of CVE-2026-24858, the FortiCloud SSO authentication bypass, supports: Fortinet's advisory FG-IR-26-060 and PSIRT blog for the attacker-held FortiCloud accounts, the SSO login bypass, the configuration downloads and the new local administrators, the KEV record for the exploitation, CISA's alert for the firewall and VPN changes, and Arctic Wolf for the automated login-to-administrator sequence. Each comment names source numbers from case-studies/FORTINET_FORTICLOUD_SSO_CVE_2026_24858.md. Scores: 75 is the vendor advisory or blog, the KEV record or a CISA alert, 50 is a security vendor's research report, 25 is an inexact fit.",

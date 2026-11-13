@@ -388,5 +388,11 @@
     "name": "TeamStarWolf - Cisco Catalyst SD-WAN Authentication Bypass (CVE-2026-20127) Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the 2026 Cisco Catalyst SD-WAN authentication bypass (CVE-2026-20127) supports: Cisco's advisories and the CISA and partner notices for the exploitation, root escalation and log tampering, and the Talos and Mandiant reports on UAT-8616, UAT-11473 and the other clusters. Each comment names source numbers from case-studies/CISCO_SDWAN_CVE_2026_20127.md. Scores: 75 is a vendor advisory or government notice, 50 is a vendor threat-intelligence report, 25 is an inexact fit or other clusters' activity.",
     "blurb": "Techniques from the Cisco Catalyst SD-WAN authentication bypass of 2026, from the peering bypass and the downgrade route to root to the SSH keys, account churn and log clearing Talos and CISA described. A curated layer for the Cisco SD-WAN case study."
+  },
+  {
+    "file": "stryker-handala-wiper-2026.json",
+    "name": "TeamStarWolf - Stryker Device-Wipe Attack March 2026 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the Stryker device-wipe case study, from the MOIS persona domains seized on 19 March 2026 through the compromised cloud administrator path to the remote wipe of managed devices on 11 March 2026. Scores of 100, 60 and 40 measure the tie to the record. Each comment names source numbers from case-studies/STRYKER_HANDALA_WIPER_2026.md.",
+    "blurb": "Techniques from the Stryker device-wipe record of March 2026: the Handala persona domains, a compromised Entra ID administrator path, a new Global Administrator and the built-in remote wipe that erased managed devices. A curated layer for the Stryker case study."
   }
 ]

@@ -88,7 +88,7 @@ Notes: Silence [1] to [8], Inferred. watchTowr names no actor [11]. KEV [4]. AA2
 - The bulletin still has no exploitation note or session-kill step.
 - watchTowr reported a further overread on 28 March.
 - It became CVE-2026-8451, fixed in CTX696604 on 30 June.
-- KEV has since listed four more exploited NetScaler flaws.
+- KEV has since listed five more, four of them beyond the CTX696604 fixes.
 Caption: The current fixed build, not the March one, is the target (Inferred from version order).
 Notes: Response [1]. Follow-on [12], Reported; fix [13]. KEV lineage [4].
 

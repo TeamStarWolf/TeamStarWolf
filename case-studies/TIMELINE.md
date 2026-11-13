@@ -428,6 +428,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 18 August 2026: AA25-071A update lists CVE-2026-1731 among the flaws Medusa actors exploit
   - 30 September 2026: Google calls the discovery an early indicator of AI-assisted vulnerability discovery (Reported)
   - 15 October 2026: 15 to 16 Oct: a separate RS flaw, CVE-2026-102764, is disclosed and added to KEV
+- [Ivanti EPMM Code Injection (CVE-2026-1281 and CVE-2026-1340): A Case Study](/case-studies/IVANTI_EPMM_CVE_2026_1281.md). Vulnerability, January to November 2026 (core: 29 January 2026 to 8 April 2026). Sectors: government, technology, cross-sector. CVEs: CVE-2026-1281, CVE-2026-1340, CVE-2026-6973, CVE-2023-35078, CVE-2023-35081, CVE-2025-4427 and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ivanti_EPMM_CVE_2026_1281_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Ivanti_EPMM_CVE_2026_1281_Case_Study.pptx).
+  - 21 January 2026: Ivanti reserves CVE-2026-1281; CVE-2026-1340 follows on 22 Jan
+  - 29 January 2026: Ivanti discloses both flaws with a very limited number of customers exploited; KEV adds CVE-2026-1281, due 1 Feb
+  - 30 January 2026: CERT-EU says one flaw was exploited; Rapid7 and watchTowr publish; the European Commission finds traces of an MDM attack
+  - 2 February 2026: NCSC-NL tells EPMM users to assume breach and to report even after patching
+  - 6 February 2026: Dutch government letter names the Data Protection Authority and the Council for the Judiciary
+  - 9 February 2026: NCSC-NL: misuse at several organisations, the MIFS database copied, multiple actors plausible
+  - 17 February 2026: Unit 42 reports widespread, mostly automated exploitation attempts (Reported)
+  - 20 February 2026: NCSC-2026-0043 rev 1.0.2: a compromised EPMM can reach Ivanti Sentry through the EPMM keystore
+  - 27 February 2026: Dutch letter lists six public bodies and a municipality; police reports filed
+  - 8 April 2026: KEV adds CVE-2026-1340, due 11 Apr; Canada relays that Ivanti says both were exploited
+  - 20 May 2026: Justice and Security annual report records that the prison service DJI was hit via the Ivanti hack
+  - 25 June 2026: Dutch parliamentary Digital Affairs committee debates the two government letters
 - [The Microsoft Office Security Feature Bypass of 2026 (CVE-2026-21509) and APT28: A Case Study](/case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md). Vulnerability, December 2025 to March 2026 (core: 26 January 2026 to 2 February 2026). Sectors: government. CVEs: CVE-2026-21509, CVE-2026-21514, CVE-2022-30190, CVE-2023-23397, CVE-2018-14634, CVE-2025-52691 and 2 more. ATT&CK groups: G0007 APT28. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Microsoft_Office_CVE_2026_21509_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Microsoft_Office_CVE_2026_21509_Case_Study.pptx).
   - July 2025: APT28's Covenant begins using the Filen cloud storage service for command and control, per ESET (Reported)
   - 16 September 2025: Sekoia publishes Operation Phantom Net Voxel with the same building blocks (Reported)

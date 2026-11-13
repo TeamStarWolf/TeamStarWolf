@@ -341,6 +341,30 @@ studies:
       - {"date": "2026-09-08", "label": "Chrome 153 fixes three IWA and two Controlled Frame bugs, and exploited V8 bug CVE-2026-87491 with no link between them"}
       - {"date": "2026-11-03", "label": "Chrome 157 fixes CVE-2026-121172 and CVE-2026-121206, the last IWA-component CVEs of the record"}
       - {"date": "2026-11-10", "label": "CISA adds Chrome XML zero-day CVE-2026-125350 to KEV; the catalog holds no IWA or Controlled Frame entry"}
+  case-studies/CHRONICLE_1993.md:
+    kind: "era"
+    title: "The Year 1993 in Intrusions: A Dated Record"
+    start: "1993-01"
+    end: "1993-12"
+    sectors: ["cross-sector", "government", "defense", "technology", "finance", "telecommunications", "energy", "education"]
+    cves: []
+    actors: []
+    tags: ["CERT advisories", "sendmail", "Internet Security Scanner", "Computer Misuse Act", "Masters of Deception", "polymorphic viruses", "Clipper Chip", "Crypto AG", "Kerberos V5", "Tripwire"]
+    pdf: "Chronicle_1993_Case_Study.pdf"
+    pptx: "Chronicle_1993_Case_Study.pptx"
+    events:
+      - {"date": "1993-02-03", "label": "CA-93:03: SunOS default file permissions give local root; CERT sees an increasing number of attackers exploiting them"}
+      - {"date": "1993-03-12", "label": "Steve Jackson Games v. US Secret Service decided: Privacy Protection Act and Stored Communications Act violated"}
+      - {"date": "1993-03-17", "label": "Paul Bedworth acquitted at Southwark Crown Court after a four-week Computer Misuse Act trial"}
+      - {"date": "1993-04-16", "label": "White House announces the voluntary Clipper Chip key-escrow initiative"}
+      - {"date": "1993-05-14", "label": "Channel Videodat broadcasts a Tremor-infected PKUNZIP to a claimed 60,000 subscribers"}
+      - {"date": "1993-07-14", "label": "CA-93:10 Anonymous FTP Activity: compromise, disk-filling denial of service, trading of pirated software"}
+      - {"date": "1993-08-04", "label": "Senate hearing \"Auditing the Auditors\": IRS staff browsing taxpayer records"}
+      - {"date": "1993-09-10", "label": "The Air Force Electronic Warfare Center is redesignated the Air Force Information Warfare Center"}
+      - {"date": "1993-09-30", "label": "CA-93:14: the Internet Security Scanner is posted to comp.sources.misc; CERT expects malicious use"}
+      - {"date": "1993-10-21", "label": "CA-93:15: the Sun sendmail flaw is being actively exploited"}
+      - {"date": "1993-11-03", "label": "Mark Abene (Phiber Optik) sentenced to a year and a day in federal court in Manhattan"}
+      - {"date": "1993-11-16", "label": "The seclists.org Bugtraq archive opens with a thread on CA-93:17"}
   case-studies/CHRONICLE_2016.md:
     kind: "era"
     title: "The Year 2016 in Intrusions: A Dated Record"

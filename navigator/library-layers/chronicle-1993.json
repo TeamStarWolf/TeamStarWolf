@@ -1,0 +1,241 @@
+{
+  "name": "TeamStarWolf - The Year 1993 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK did not exist in 1993: every id here is a later mapping made by the study from the 1993 record, chiefly the CERT/CC advisories CA-93:01 to CA-93:19 (with CA-94:01 as a boundary record), press reports of the year's prosecutions, and Virus Bulletin and the CARO WILDList on the virus record. No ATT&CK group, software or campaign object covers a 1993 actor or tool. Each comment names source numbers from case-studies/CHRONICLE_1993.md. Scores: 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred; no entry scores 100, because no 1993 source prints an id.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1595.001",
+      "tactic": "reconnaissance",
+      "score": 70,
+      "comment": "CA-93:14, 30 Sep 1993: the Internet Security Scanner interrogates every host in an IP address range (basis: Described). Sources [11][99] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 70,
+      "comment": "CA-93:14, 30 Sep 1993: known weaknesses checked in one widely available automated tool, which CERT expected to be used maliciously (basis: Described). Sources [11][2][98] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "CA-93:14: the scanner probes mail, FTP, NIS and NFS services (basis: Described). Sources [11][99] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Paul Bedworth's use of accounts on remote hosts, reported at his acquittal on 17 Mar 1993 (basis: Reported). Sources [24] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 50,
+      "comment": "Paul Bedworth's use of accounts on remote hosts, reported at his acquittal on 17 Mar 1993 (basis: Reported). Sources [24] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 50,
+      "comment": "Paul Bedworth's use of accounts on remote hosts, reported at his acquittal on 17 Mar 1993 (basis: Reported). Sources [24] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 50,
+      "comment": "Paul Bedworth's use of accounts on remote hosts, reported at his acquittal on 17 Mar 1993 (basis: Reported). Sources [24] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "CA-93:14 checks for default guest, bbs and lp accounts; CA-93:13 (17 Sep 1993) exposes SCO's dos and asg accounts (basis: Described). Sources [11][10][98] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "CA-93:14 checks for default guest, bbs and lp accounts; CA-93:13 (17 Sep 1993) exposes SCO's dos and asg accounts (basis: Described). Sources [11][10][98] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "CA-93:14 checks for default guest, bbs and lp accounts; CA-93:13 (17 Sep 1993) exposes SCO's dos and asg accounts (basis: Described). Sources [11][10][98] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "CA-93:14 checks for default guest, bbs and lp accounts; CA-93:13 (17 Sep 1993) exposes SCO's dos and asg accounts (basis: Described). Sources [11][10][98] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1110.001",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "CA-93:14 default-account checks (30 Sep 1993); Bedworth's password guessing (Reported, 17 Mar 1993) (basis: Described). Sources [11][24] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "CA-93:06 wuarchive ftpd (9 Apr), CA-93:11 gopher (9 Aug), CA-93:15 sendmail actively exploited (21 Oct), CA-93:16 sendmail (4 Nov), CA-93:14 sendmail debug commands (basis: Described). Sources [3][4][8][2][12][13][11] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1003.008",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "CA-93:14 NIS password-file retrieval; CA-93:11 intruders obtain password files through gopher (that tie is the study's reading) (basis: Described). Sources [11][8] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "CA-93:14 NFS export checks (basis: Described). Sources [11] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "CA-93:09 expreserve (11 Jun), CA-93:17 xterm (11 Nov), CA-93:18 modload and loadmodule (15 Dec 1993): local users gain root (basis: Described). Sources [2][14][15][98] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1548.001",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "CA-93:17, 11 Nov 1993: the flaw sits in a setuid or setgid xterm; the binding to setuid abuse is the study's reading (basis: Inferred). Sources [14][2][98] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "CA-93:10, 14 Jul 1993: deliberate filling of anonymous FTP disks (basis: Described). Sources [7][2][98] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Boundary event: CA-94:01, 3 Feb 1994, access information for tens of thousands of systems captured by network monitoring (basis: Described). Sources [17][18] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "Boundary event: CA-94:01, 3 Feb 1994, access information for tens of thousands of systems captured by network monitoring (basis: Described). Sources [17][18] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1027.014",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Polymorphic viruses and engines of 1993: G2 (Feb), Tremor (Mar), DAME (Aug), Coffeeshop and SatanBug (Sep to Oct); TridenT Polymorphic Engine (basis: Reported). Sources [43][32][31][36][38][98] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 50,
+      "comment": "Channel Videodat broadcasts a Tremor-infected PKUNZIP to its subscribers, 14 May 1993 (basis: Reported). Sources [35][98] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "lateral-movement",
+      "score": 40,
+      "comment": "Boot-sector viruses on the 15 Jul 1993 CARO WILDList (Stoned variants) and leading Virus Bulletin's 1993 prevalence tables (Form) (basis: Inferred). Sources [41][36][98] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Boot-sector viruses on the 15 Jul 1993 CARO WILDList (Stoned variants) and leading Virus Bulletin's 1993 prevalence tables (Form) (basis: Inferred). Sources [41][36][98] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1542.003",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "The same boot-sector viruses of the 1993 record (basis: Inferred). Sources [41][36][103] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    },
+    {
+      "techniqueID": "T1542.003",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "The same boot-sector viruses of the 1993 record (basis: Inferred). Sources [41][36][103] refer to the Sources table of case-studies/CHRONICLE_1993.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_1993.md (sources opened 12 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "17"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "26"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 1993 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_1993.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

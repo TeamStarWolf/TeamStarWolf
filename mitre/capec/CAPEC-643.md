@@ -53,6 +53,7 @@ An adversary discovers connections between systems by exploiting the target syst
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [The Year 1993 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1993.md)
 
 <!-- library-refs:end -->
 

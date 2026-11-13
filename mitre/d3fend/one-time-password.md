@@ -27,6 +27,16 @@ A one-time password is valid for only one user authentication.
 - [MITRE D3FEND Countermeasure Reference](/D3FEND_REFERENCE.md)
 - [All D3FEND countermeasures](/mitre/d3fend/README.md)
 
+<!-- library-refs:start (written by scripts/build_crosslinks.py; do not edit) -->
+
+## Library references
+
+Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
+
+- [The Year 1993 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1993.md)
+
+<!-- library-refs:end -->
+
 ---
 
 *Source: MITRE ATT&CK®, D3FEND™, CAPEC™, and ATLAS™, which are trademarks of The MITRE Corporation. Independent reference summary; consult the upstream projects for authoritative content.*

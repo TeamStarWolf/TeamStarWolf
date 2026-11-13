@@ -63,7 +63,7 @@ The state record for 2006 was written years later. Mandiant's 2013 report says i
 
 Inside the companies, TJX's intruder spent 2006 intercepting card authorization requests and was not found until 18 December (Confirmed [54][56]). The FTC settled with ChoicePoint for a $10 million civil penalty, the largest in its history to that date, and with the card processor CardSystems Solutions (Confirmed [10][12]). Hewlett-Packard told the SEC that a third party retained by its outside investigators had in some cases used pretexting to obtain phone records on directors' calls (Confirmed [51]). Botnet herders Jeanson James Ancheta and Christopher Maxwell were sentenced or pleaded guilty, and Maxwell's botnet had disrupted a Seattle hospital (Confirmed [15][26]). NIST issued FIPS 200 and SP 800-53 Revision 1, the IETF published TLS 1.1, MITRE released the first CWE List, and Microsoft shipped Windows Vista Beta 2 with address space layout randomization on by default (Confirmed [77][78][86][88][87]).
 
-This study records the year by date. It is built only from sources opened on 12 November 2026 and from checks of the library's data run on 12 and 13 November 2026, and is checked as of 13 November 2026.
+This study records the year by date. It is built only from sources opened on 12 and 13 November 2026 and from checks of the library's data run on 12 and 13 November 2026, and is checked as of 13 November 2026.
 
 ### Key facts at a glance
 
@@ -109,7 +109,7 @@ This study records the year by date. It is built only from sources opened on 12 
 
 ## Scope and method
 
-This study covers intrusions, vulnerabilities, malware, data losses, prosecutions, regulation, standards and policy dated to 2006, plus the later records that open, close or explain a 2006 event. It follows the method of the [case studies collection](/case-studies/README.md): primary sources first, every claim graded, and numbers given as the source states them. Sources were opened on 12 November 2026, and the library data checks were run on 12 and 13 November 2026.
+This study covers intrusions, vulnerabilities, malware, data losses, prosecutions, regulation, standards and policy dated to 2006, plus the later records that open, close or explain a 2006 event. It follows the method of the [case studies collection](/case-studies/README.md): primary sources first, every claim graded, and numbers given as the source states them. Sources were opened on 12 and 13 November 2026, and the library data checks were run on 12 and 13 November 2026.
 
 | Grade | Meaning in this study |
 |---|---|
@@ -264,7 +264,7 @@ MS06-013 (Critical, KB 912812, 11 April) is a cumulative Internet Explorer updat
 
 - **Word (May and June).** CERT/CC released VU#446012 on 19 May and US-CERT issued an alert the same day (Confirmed [29][100]). NVD records that ISC first reported the zero-day attack on 19 May and lists CWE-120 for CVE-2006-2492 (Confirmed [31]). ISC's diary of 21 May describes e-mail sent to specific people in one organization, each with a Word attachment that exploited the unknown flaw and dropped more code, and judges it the work of one group in a very targeted attack (Reported [30]). MS06-027 (Critical, KB 917336) fixed it on 13 June; Microsoft says it was being exploited at release, and the attack needs the user to open a crafted document (Confirmed [28]). CISA added it to KEV on 8 June 2022 as "Microsoft Word Malformed Object Pointer Vulnerability" (Confirmed [31][32]).
 - **Excel (July).** MS06-037 (Critical, KB 917285, 11 July) covers eight CVEs, and Microsoft says two of them, CVE-2006-1301 and CVE-2006-3059, were being exploited at release (Confirmed [34]).
-- **PowerPoint (August and October).** MS06-048 (Critical, KB 922968, 8 August) fixed CVE-2006-3590, exploited at release; NVD names Trojan.PPDropper.B as the malware using it (Confirmed [39]). MS06-060 (10 October) fixed CVE-2006-4534, also exploited at release (Confirmed [44]).
+- **PowerPoint (August and October).** MS06-048 (Critical, KB 922968, 8 August) fixed CVE-2006-3590, exploited at release; NVD names Trojan.PPDropper.B as the malware using it (Confirmed [39][101]). MS06-060 (10 October) fixed CVE-2006-4534, also exploited at release (Confirmed [44]).
 
 ### The Server service and IRCBot
 
@@ -538,7 +538,7 @@ This section is the study's reading of the record (Inferred).
 
 ## Sources
 
-Sources were opened on 12 November 2026, and the library data checks were run on 12 and 13 November 2026 as the Opened column shows. All are checked as of 13 November 2026. Grade is the source's evidence grade as used in this study. Addresses shown as code rather than as links refuse automated link checkers (the three ftc.gov releases and the FTC's TJX complaint, the three gao.gov reports, the seven sec.gov filings and McAfee's retired white-paper address); copy them into a browser to open them.
+Sources were opened on 12 and 13 November 2026, and the library data checks were run on 12 and 13 November 2026 as the Opened column shows. All are checked as of 13 November 2026. Grade is the source's evidence grade as used in this study. Addresses shown as code rather than as links refuse automated link checkers (the three ftc.gov releases and the FTC's TJX complaint, the three gao.gov reports, the six sec.gov filings and McAfee's retired white-paper address); copy them into a browser to open them.
 
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|
@@ -642,6 +642,7 @@ Sources were opened on 12 November 2026, and the library data checks were run on
 | 98 | TeamStarWolf library, `data/attack/technique_profiles.jsonl` (names and tactics) | https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/technique_profiles.jsonl | 2026-11-13 | Demonstrated |
 | 99 | TeamStarWolf library, `navigator/library-layers/chronicle-2016.json` (layer format and scoring scale) | https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/chronicle-2016.json | 2026-11-13 | Demonstrated |
 | 100 | US-CERT, Microsoft Word Vulnerability, 19 May 2006 (CISA archive) | https://www.cisa.gov/news-events/alerts/2006/05/19/microsoft-word-vulnerability | 2026-11-13 | Confirmed |
+| 101 | NVD API, CVE-2006-3590 | https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2006-3590 | 2026-11-13 | Confirmed |
 
 *© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*
 

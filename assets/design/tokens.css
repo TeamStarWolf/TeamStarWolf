@@ -1,0 +1,57 @@
+/* Copied from the TeamStarWolf.com site package on 2026-11-13; the site repository is the source of truth, edit there and copy back */
+/* TeamStarWolf Radar tokens: every colour, the wolf and stage tokens, the font stacks, the type scale, radii and layout sizes, in both themes.
+   This file is the source of truth for the whole product; the library, the Intelligence Hub and ATT&CK-Navi copy or import it and never redefine a token.
+   Radar design system, 2026-11-13.
+   No other file defines a colour: components.css, system.css and every page use these tokens only. */
+
+/* Dark first: the dark values and color-scheme on bare :root. Light values follow under the system preference and under the toggle.
+   The stage and the wolf tokens are the same in both themes. The .theme-dark and .theme-light classes scope one theme to an element (the design-system swatches). */
+:root {
+  --bg: #0a0a12; --bg-2: #11111c; --bg-3: #181827;
+  --fg: #ecebf5; --fg-2: #c4c2d6; --muted: #8f8da6;
+  --line: #22223a; --line-2: #30304a;
+  --accent: #b794ff; --signal: #9b5cff;
+  --green: #7fc48f; --amber: #e0a84f; --red: #ff6b6b; --grey: #7f7f96;
+  --glass: rgba(10, 10, 18, 0.74); --hi: rgba(255, 255, 255, 0.045); --shadow: 0 10px 28px rgba(0, 0, 0, 0.5); --tint: 12%;
+  --stage-bg: #000000; --stage-fg: #ecebf5; --stage-muted: #a9a7bd; --stage-grid: rgba(210, 160, 255, 0.07);
+  --wolf-hi: #d2a0ff; --wolf-1: #a63bff; --wolf-2: #7a16e6;
+  --k-campaign: color-mix(in srgb, var(--signal) 52%, var(--bg-2));
+  --font: "Inter", "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, ui-monospace, monospace;
+  --t-12: 0.75rem; --t-13: 0.8125rem; --t-14: 0.875rem; --t-16: 1rem; --t-18: 1.125rem; --t-22: 1.375rem; --t-28: 1.75rem; --t-36: 2.25rem;
+  --r: 10px; --r-s: 8px; --r-xs: 6px;
+  --row-h: 64px; --head-h: 116px;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f4f3fa; --bg-2: #ffffff; --bg-3: #e9e7f3;
+    --fg: #15131f; --fg-2: #302c3f; --muted: #5c5872;
+    --line: #d8d5e6; --line-2: #bfbbd3;
+    --accent: #5b21b6; --signal: #6d28d9;
+    --green: #1f7a3c; --amber: #9a6208; --red: #c0392b; --grey: #6b6b80;
+    --glass: rgba(244, 243, 250, 0.8); --hi: rgba(255, 255, 255, 0.85); --shadow: 0 10px 28px rgba(21, 19, 31, 0.14); --tint: 6%;
+    --wolf-hi: #d2a0ff; --wolf-1: #a63bff; --wolf-2: #7a16e6;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"], .theme-light {
+  --bg: #f4f3fa; --bg-2: #ffffff; --bg-3: #e9e7f3;
+  --fg: #15131f; --fg-2: #302c3f; --muted: #5c5872;
+  --line: #d8d5e6; --line-2: #bfbbd3;
+  --accent: #5b21b6; --signal: #6d28d9;
+  --green: #1f7a3c; --amber: #9a6208; --red: #c0392b; --grey: #6b6b80;
+  --glass: rgba(244, 243, 250, 0.8); --hi: rgba(255, 255, 255, 0.85); --shadow: 0 10px 28px rgba(21, 19, 31, 0.14); --tint: 6%;
+  --wolf-hi: #d2a0ff; --wolf-1: #a63bff; --wolf-2: #7a16e6;
+  color-scheme: light;
+}
+:root[data-theme="dark"], .theme-dark {
+  --bg: #0a0a12; --bg-2: #11111c; --bg-3: #181827;
+  --fg: #ecebf5; --fg-2: #c4c2d6; --muted: #8f8da6;
+  --line: #22223a; --line-2: #30304a;
+  --accent: #b794ff; --signal: #9b5cff;
+  --green: #7fc48f; --amber: #e0a84f; --red: #ff6b6b; --grey: #7f7f96;
+  --glass: rgba(10, 10, 18, 0.74); --hi: rgba(255, 255, 255, 0.045); --shadow: 0 10px 28px rgba(0, 0, 0, 0.5); --tint: 12%;
+  --wolf-hi: #d2a0ff; --wolf-1: #a63bff; --wolf-2: #7a16e6;
+  color-scheme: dark;
+}

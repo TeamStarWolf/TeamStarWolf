@@ -25,7 +25,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 12 min (2,684 words at 230 words a minute)
+About 12 min (2,688 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -103,7 +103,17 @@ In the dashboard: DNS, Records, **Add record**, pick the type, type `@` or `www`
 
 Check: `nslookup example.com 1.1.1.1` returns the four A records; `nslookup -type=CNAME www.example.com 1.1.1.1` returns `your-account.github.io`. Public DNS usually shows them within ten minutes.
 
-## Step 3: Set the custom domain on GitHub Pages and enforce HTTPS
+## Step 3: Verify the domain on your GitHub account
+
+GitHub recommends verifying the domain before adding it to a repository, to avoid takeover attacks [1]. Without verification, if your repository is ever deleted or Pages is turned off while the DNS records still point at GitHub, someone else can create a Pages site that claims your domain. Verification closes that.
+
+1. GitHub: your profile or organization **Settings**, **Pages**, **Add a domain**: enter `example.com`. GitHub shows a TXT record: name `_github-pages-challenge-ACCOUNT`, value a long token.
+2. Cloudflare: DNS, Records, **Add record**: type TXT, name `_github-pages-challenge-ACCOUNT`, content the token, **Save**.
+3. Back in GitHub, **Verify**. The domain shows as verified; it also covers the domain's immediate subdomains, such as `www.example.com` and `docs.example.com` [3].
+
+Check: `nslookup -type=TXT _github-pages-challenge-ACCOUNT.example.com 1.1.1.1` shows the token.
+
+## Step 4: Set the custom domain on GitHub Pages and enforce HTTPS
 
 1. In the repository: **Settings**, **Pages**, **Custom domain**: enter `example.com` and **Save**. GitHub runs a DNS check, then requests a certificate from Let's Encrypt for the apex and, if the `www` record already exists, for `www` as well.
 2. From a terminal, the same thing: `gh api -X PUT repos/OWNER/REPO/pages -f cname=example.com`.
@@ -114,16 +124,6 @@ Check: `nslookup example.com 1.1.1.1` returns the four A records; `nslookup -typ
 Two things to know. If you add the `www` record after GitHub issued the certificate, the certificate covers only the apex; re-save the custom domain to make GitHub request one that covers both. And for a **project** site, the custom domain serves the site at the domain root: `https://example.com/` now shows what `https://your-account.github.io/REPO/` showed, and the old address redirects. Any absolute links in your content that still name the old address keep working through that redirect, and deserve a cleanup commit.
 
 What success looks like: the site opens on your domain with a valid padlock, and the old address bounces to it.
-
-## Step 4: Verify the domain on your GitHub account
-
-Without verification, if your repository is ever deleted or Pages is turned off while the DNS records still point at GitHub, someone else can create a Pages site that claims your domain. Verification closes that.
-
-1. GitHub: your profile or organization **Settings**, **Pages**, **Add a domain**: enter `example.com`. GitHub shows a TXT record: name `_github-pages-challenge-ACCOUNT`, value a long token.
-2. Cloudflare: DNS, Records, **Add record**: type TXT, name `_github-pages-challenge-ACCOUNT`, content the token, **Save**.
-3. Back in GitHub, **Verify**. The domain shows as verified; it covers every subdomain too.
-
-Check: `nslookup -type=TXT _github-pages-challenge-ACCOUNT.example.com 1.1.1.1` shows the token.
 
 ## Step 5: Turn on the proxy and set the TLS policy
 
@@ -187,9 +187,9 @@ When you need a little server-side logic (a form endpoint, an API that reads a d
 
 ## Pitfalls
 
-- **Proxy on before the certificate.** GitHub's DNS check sees Cloudflare's addresses, not its own, and never issues the certificate. Keep the records DNS only until Step 3 passes.
+- **Proxy on before the certificate.** GitHub's DNS check sees Cloudflare's addresses, not its own, and never issues the certificate. Keep the records DNS only until Step 4 passes.
 - **`www` added late.** The origin certificate covers only the apex; re-save the custom domain.
-- **Forgetting verification.** Step 4 is five minutes and prevents a takeover that is otherwise silent.
+- **Forgetting verification.** Step 3 is five minutes and prevents a takeover that is otherwise silent.
 - **HSTS with preload on day one.** If a subdomain is not on HTTPS, it becomes unreachable for the full max-age, and preload lists are slow to leave.
 - **A CSP copied from a blog.** Start closed, open one directive at a time, and read the console.
 - **Scanning the wrong thing.** The servers behind your domain belong to GitHub and Cloudflare. Passive checks (TLS, headers, DNS) are fine; port scans, active exploitation tools and load tests against them are not yours to run.
@@ -199,9 +199,9 @@ When you need a little server-side logic (a form endpoint, an API that reads a d
 
 - [ ] `nslookup -type=NS example.com` shows Cloudflare nameservers.
 - [ ] The nine records exist; the apex resolves to the four GitHub addresses.
+- [ ] The domain is verified on the GitHub account (TXT record present).
 - [ ] GitHub Pages shows the certificate approved and Enforce HTTPS ticked.
 - [ ] `https://example.com/` and `https://www.example.com/` return 200; the github.io address returns 301.
-- [ ] The domain is verified on the GitHub account (TXT record present).
 - [ ] Proxy on; Full (strict); Always Use HTTPS; minimum TLS 1.2; DNSSEC enabled.
 - [ ] The security headers appear in `curl -sI`; securityheaders.com grades A; SSL Labs A or better.
 - [ ] HSTS enabled only after a week of clean HTTPS, with a short max-age first.
@@ -236,4 +236,3 @@ When you need a little server-side logic (a form endpoint, an API that reads a d
 - [Cloud Architecture Reference](/CLOUD_ARCHITECTURE_REFERENCE.md)
 - [Harden a Linux Host](/guides/HARDEN_A_LINUX_HOST.md), for the server you may add later
 - [Threat Model an Application](/guides/THREAT_MODEL_AN_APPLICATION.md), before you add server-side code
-- Live example of the result: [the Intelligence Hub](https://teamstarwolf.github.io/intelligence-hub/), a static site with a strict policy and the same hosting model

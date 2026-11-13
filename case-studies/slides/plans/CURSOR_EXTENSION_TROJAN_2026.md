@@ -14,7 +14,7 @@
 - A loader profiled the host, planted an SSH key and set up persistence.
 - The reverse SSH login mostly failed for want of admin rights.
 Caption: Evidence grades: Confirmed from Cursor's notice and Microsoft's analysis.
-Notes: Window and builds [1]. Not developed by Anthropic [1]. Loader behavior [1][2]. Admin rights [1]. Auto-update delivery, Reported [13].
+Notes: Window and builds [1]. Not developed by Anthropic [1]. Loader behavior [1][2]. Admin rights [1]. Auto-update delivery, Reported [5].
 
 ## KEY FACTS | One marketplace, two builds, no CVE
 

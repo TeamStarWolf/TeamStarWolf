@@ -1128,6 +1128,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 22 October 2025: SessionReaper (CVE-2025-54236) attacks begin (Reported); KEV entry on 24 Oct
   - 27 October 2026: PolyShell (CVE-2026-48356) added to KEV
 
+### 1996 <!-- {docsify-ignore} -->
+
+- [The Year 1996 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1996.md). Period record, January to December 1996. Sectors: cross-sector, defense, government, technology, telecommunications, manufacturing, education, healthcare. CVEs: CVE-1999-0022, CVE-1999-0043, CVE-1999-0067, CVE-1999-0103, CVE-1999-0116, CVE-1999-0128 and 7 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_1996_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_1996_Case_Study.pptx).
+  - 8 February 1996: CA-96.01: UDP packet storms between chargen and echo, typically with IP spoofing
+  - 20 March 1996: CA-96.06: the phf example CGI program in NCSA httpd and Apache is actively exploited
+  - 29 March 1996: Justice Department charges the Harvard intruder after the first court-ordered wiretap on a computer network
+  - 22 May 1996: GAO/AIMD-96-84: as many as 250,000 attacks on Defense systems in 1995, about 4 percent of test attacks detected
+  - 15 July 1996: Executive Order 13010 creates the President's Commission on Critical Infrastructure Protection
+  - 30 July 1996: Omega Engineering: an insider's time bomb deletes the company's manufacturing programs
+  - 16 August 1996: Justice Department web site altered and shut down (16 or 17 August)
+  - 19 September 1996: CA-96.21: TCP SYN flooding and IP spoofing, with no complete solution yet
+  - 11 October 1996: Pub. L. 104-294: the Economic Espionage Act and the National Information Infrastructure Protection Act
+  - 8 November 1996: Phrack 49 publishes Aleph One's Smashing The Stack For Fun And Profit
+  - 14 December 1996: A SYN flood takes more than 3,000 sites hosted by WebCom off the air for 40 hours
+  - 18 December 1996: CA-96.26: oversized ping packets crash, freeze or reboot systems
+
 ### 1995 <!-- {docsify-ignore} -->
 
 - [The Year 1995 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1995.md). Period record, January to December 1995. Sectors: cross-sector, defense, government, education, finance, technology, telecommunications. CVEs: CVE-1999-0073, CVE-1999-0077, CVE-1999-0080, CVE-1999-0099, CVE-1999-0151, CVE-1999-0155 and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_1995_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_1995_Case_Study.pptx).

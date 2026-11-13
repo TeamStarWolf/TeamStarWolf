@@ -256,7 +256,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 26 July 2026: Delivery of API provisioning records and user reports to institutions begins; Kroll handles notification
   - 29 September 2026: Forensic review complete; final delivery phase begins
 - [The IDScan.net Driver's License Breach of 2026: A Case Study](/case-studies/IDSCAN_DRIVERS_LICENSE_BREACH_2026.md). Incident, February 2025 to November 2026 (core: 4 April 2026 to 2 September 2026). Sectors: technology, cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/IDScan_Drivers_License_Breach_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/IDScan_Drivers_License_Breach_2026_Case_Study.pptx).
-  - February 2025: Caesars says it stopped using IDScan in February 2025 (Reported)
+  - February 2025: Caesars says it has not used VeriScan since February 2025 and had no active VeriScan accounts at the time of the incident (Reported)
   - June 2025: Earliest scan timestamps seen in the Nexus records, June 2025 (Demonstrated); read here as scan dates, not theft dates (Inferred)
   - 4 April 2026: 4 April to 2 September: an unauthorized third party accesses part of IDScan.net's cloud environment (VeriScan)
   - 31 August 2026: A source alerts KrebsOnSecurity to the Nexus listing on the Exploit forum (Reported)

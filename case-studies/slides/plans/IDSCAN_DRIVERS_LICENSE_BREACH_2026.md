@@ -62,10 +62,10 @@ Left: The vendor's notice
 - Fields vary by how each customer configured VeriScan.
 Right: The Nexus records
 - Front and back scans, with infrared and ultraviolet versions.
-- Some records carried a customer photo.
+- Customer photos in some records, per the reporting.
 - Timestamps in filenames; no passports seen by Krebs.
 Caption: A number is a record; an image is an impersonation kit (Inferred).
-Notes: Vendor fields, Confirmed [1]. Images, Demonstrated by the reporter's queries [4]. Passport claim in the advert, Reported [5].
+Notes: Vendor fields, Confirmed [1]. License scans, Demonstrated by the reporter's queries [4]. Customer photos, Reported [5][6]. Passport claim in the advert, Reported [5].
 
 ## DISCREPANCIES | Three windows, three notice dates
 
@@ -104,12 +104,12 @@ Notes: Seller's figures [4]. Dedupe, Inferred. Vendor response, Confirmed [1]. F
 | Who | What the record says |
 |---|---|
 | Customers | Hertz, Target, FedEx and others were listed as clients |
-| Caesars | Stopped using IDScan in February 2025 |
+| Caesars | Says it has not used VeriScan since February 2025 and had no active VeriScan accounts at the time of the incident (Reported) |
 | Courts | Nine putative class actions, E.D. Louisiana |
 | DoD | Evaluating the reports, 2 September |
 | California AG | No IDScan filing as of 11 November |
 Caption: The class-action dockets were not opened (HTTP 403); the count is Reported.
-Notes: Client list, Reported [4]; Target removed [6]. Caesars [4]. Courts [12]. DoD [5]. California AG, Confirmed [14].
+Notes: Client list, Reported [4]; Techlicious removed Target from its own list [6]. Caesars [4]. Courts [12]. DoD [5]. California AG, Confirmed [14].
 
 ## DEFENDER VIEW | Treat ID-scan vendors as identity stores
 
@@ -130,10 +130,10 @@ Left: Overstated
 - "153 million Americans": a seller's record count, with Canadians in it.
 - The advert's passport claim, against what Krebs saw.
 Right: Understated
-- The images, IR and UV scans and photos the notice omits.
+- The images, IR and UV scans and the customer photos reported, all omitted from the notice.
 - Long retention, shown by 2025 scan timestamps.
 - Senior officials' records in the set.
-Notes: Count [1][4][11]. Passports [4][5]. Images [1][4]. Retention [4][13]. National-security exposure [4][10]. The judgments are Inferred from the record.
+Notes: Count [1][4][11]. Passports [4][5]. Images [1][4]. Customer photos, Reported [5][6]. Retention [4][13]. National-security exposure [4][10]. The judgments are Inferred from the record.
 
 ## MITRE MAPPINGS | Three techniques, no group bound
 

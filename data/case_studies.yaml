@@ -1799,7 +1799,7 @@ studies:
     pdf: "IDScan_Drivers_License_Breach_2026_Case_Study.pdf"
     pptx: "IDScan_Drivers_License_Breach_2026_Case_Study.pptx"
     events:
-      - {"date": "2025-02", "label": "Caesars says it stopped using IDScan in February 2025 (Reported)"}
+      - {"date": "2025-02", "label": "Caesars says it has not used VeriScan since February 2025 and had no active VeriScan accounts at the time of the incident (Reported)"}
       - {"date": "2025-06", "label": "Earliest scan timestamps seen in the Nexus records, June 2025 (Demonstrated); read here as scan dates, not theft dates (Inferred)"}
       - {"date": "2026-04-04", "label": "4 April to 2 September: an unauthorized third party accesses part of IDScan.net's cloud environment (VeriScan)"}
       - {"date": "2026-08-31", "label": "A source alerts KrebsOnSecurity to the Nexus listing on the Exploit forum (Reported)"}

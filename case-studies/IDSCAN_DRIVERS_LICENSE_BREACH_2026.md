@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 16 min (3,569 words at 230 words a minute)
+About 16 min (3,617 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -55,7 +55,7 @@ No review recorded yet
 
 ## Executive summary
 
-The people in this breach are anyone who handed a driver's license to a scanner at a rental counter, a dispensary or another business. The seller offered a reporter's own Virginia license as a free sample in a search service called Nexus. The reporter then found licenses belonging to nine friends and family members who agreed to a search, his mother among the people he names, plus two security researchers, an FBI assistant director and the US Defense Secretary [4] (**Demonstrated** by the reporter's own queries; **Reported** here). Some records, the reporter's own among them, carried front, back, infrared and ultraviolet scans, and some carried a customer photo [4] (**Demonstrated**).
+The people in this breach are anyone who handed a driver's license to a scanner at a rental counter, a dispensary or another business. The seller offered a reporter's own Virginia license as a free sample in a search service called Nexus. The reporter then found licenses belonging to nine friends and family members who agreed to a search, his mother among the people he names, plus two security researchers, an FBI assistant director and the US Defense Secretary [4] (**Demonstrated** by the reporter's own queries; **Reported** here). Some records, the reporter's own among them, carried front, back, infrared and ultraviolet scans [4] (**Demonstrated**), and TechCrunch and Techlicious report that some carried a customer photo [5] [6] (**Reported**).
 
 The vendor, IDScan.net, an identity verification company, says an unauthorized third party accessed a portion of its cloud environment, limited to the VeriScan platform, between 4 April and 2 September 2026 [1] (**Confirmed**). It learned of possible unauthorized access on or around 1 September [1] (**Confirmed**), the day after a source pointed a journalist to the Nexus listing on a Russian-language criminal forum [4] (**Reported**).
 
@@ -71,7 +71,7 @@ No source states how the attacker got in. No CVE, KEV entry or government adviso
 | How the vendor learned | Information received on or around 1 Sep 2026 [1] (**Confirmed**); a journalist's source flagged the forum listing on 31 Aug [4] (**Reported**) |
 | Entry vector | Not stated by the vendor or any report opened [1] [4] [5] [10] (**Inferred** from the absence) |
 | Data per the vendor | Full name, contact information, date of birth, driver's license, passport and other government ID numbers, varying by customer configuration; no images listed; no count [1] (**Confirmed**) |
-| Data per the reporting | Front, back, basic, IR and UV scans, some with a customer photo, timestamps in filenames that appear to be GMT [4] (**Demonstrated**) |
+| Data per the reporting | Front, back, basic, IR and UV scans, timestamps in filenames that appear to be GMT [4] (**Demonstrated**); a customer photo in some records [5] [6] (**Reported**) |
 | Seller's figures | 153M+ US and Canadian licenses, 10M+ ID cards, 3M+ travel or international IDs, 579,000+ medical cards [4] (**Reported**, seller's claim) |
 | Sold through | Nexus, offered by a new user on the Russian-language Exploit forum; offline the evening of 1 Sep 2026 [4] (**Reported**) |
 | Attribution | Stops at the Nexus seller; no group named [4] [9] (**Inferred** from the absence) |
@@ -80,7 +80,7 @@ No source states how the attacker got in. No CVE, KEV entry or government adviso
 
 ### Key findings
 
-- **The vendor's notice describes numbers; the market showed pictures.** IDScan.net lists identifier fields and no images [1] (**Confirmed**). Krebs saw scans and photos in Nexus [4] (**Demonstrated**). An image is an impersonation kit; a number is not (**Inferred**).
+- **The vendor's notice describes numbers; the market showed pictures.** IDScan.net lists identifier fields and no images [1] (**Confirmed**). Krebs saw license scans in Nexus [4] (**Demonstrated**), and the reporting adds customer photos in some records [5] [6] (**Reported**). An image is an impersonation kit; a number is not (**Inferred**).
 - **Detection came from outside.** A journalist's source flagged the listing [4] (**Reported**); no source describes the vendor detecting the access itself (**Inferred** from the absence in [1]).
 - **The access window may be wider than stated.** The vendor says 4 April [1] (**Confirmed**); the seller claimed over a year of continuous exfiltration [4] (**Reported**). Scan timestamps reach back to June 2025 [4] [13], which shows how long the platform retained images, not when they were taken (**Inferred**).
 
@@ -106,7 +106,7 @@ This brief covers the VeriScan intrusion, the Nexus resale service, attribution 
 
 | Date | Event | Sources | Grade |
 |---|---|---|---|
-| Feb 2025 | Caesars Entertainment says it stopped using IDScan in February 2025 and had no active accounts at the time of the incident | [4] | Reported |
+| Feb 2025 | Caesars says it has not used VeriScan since February 2025 and had no active VeriScan accounts at the time of the incident | [4] | Reported |
 | Jun 2025 | Earliest scan timestamps seen: Krebs's own record [4] (Demonstrated); Barracuda reads the timestamps as when each license was taken and advises anyone scanned from June 2025 to 1 Sep 2026 to treat their data as exposed [13] (Reported); this study reads them as scan dates, not theft dates (Inferred) | [4] [13] | Demonstrated [4], Reported [13], Inferred |
 | 4 Apr 2026 | Start of the vendor-stated window of unauthorized access to a portion of its cloud environment | [1] [2] | Confirmed |
 | 31 Aug 2026 | A source alerts Krebs to a Nexus listing on the Exploit forum, posted by a new user, offering Krebs's own Virginia license as a free sample | [4] | Reported |
@@ -130,7 +130,7 @@ One notice, three dates: 4 September on the notice [1] (**Confirmed**), 8 Septem
 
 The vendor's account is short: "a portion of" its cloud environment, 4 April to 2 September 2026, and from the 29 September update no product other than VeriScan [1] [2] (**Confirmed**). It names no vulnerability, credential, misconfiguration or entry path, and no report does [1] [4] [5] [10] (**Inferred** from the absence). No patch or fixed version exists in the record. Containment is the vendor securing its cloud environment, plus the Nexus storefront going dark on 1 September [1] [4] (**Inferred**).
 
-The data in the market was richer than the notice. The vendor lists full name, contact information, date of birth, and driver's license, passport and other government ID numbers, varying by how each customer configured VeriScan [1] (**Confirmed**). Krebs's own record, and some others, carried six image files (pairs of front and back images: a basic scan plus infrared and ultraviolet versions), some with a customer photo, with timestamps in the filenames that appear to be GMT; he found no passports [4] (**Demonstrated**). TechCrunch reports a forum post claiming about half a million new documents a day and an advert promising customer photos "if available" and passports [5] (**Reported**, seller's claims). That passport claim is overstated against what Krebs saw [4], though the vendor lists passport numbers as a possible field [1] (**Inferred**).
+The data in the market was richer than the notice. The vendor lists full name, contact information, date of birth, and driver's license, passport and other government ID numbers, varying by how each customer configured VeriScan [1] (**Confirmed**). Krebs's own record, and some others, carried six image files (pairs of front and back images: a basic scan plus infrared and ultraviolet versions), with timestamps in the filenames that appear to be GMT; he found no passports [4] (**Demonstrated**). Techlicious reports that some listings included photos of the customers who submitted the licenses [6] (**Reported**). TechCrunch reports a forum post claiming about half a million new documents a day and an advert promising customer photos "if available" and passports [5] (**Reported**, seller's claims). That passport claim is overstated against what Krebs saw [4], though the vendor lists passport numbers as a possible field [1] (**Inferred**).
 
 Collection looked ongoing: Krebs saw nearly 400,000 records added in 24 hours [4] (**Demonstrated**), and the seller claimed continuous exfiltration [4] (**Reported**). How the data left is not stated anywhere (**Inferred** from the absence).
 
@@ -151,7 +151,7 @@ Attribution stops at a seller.
 
 **The vendor.** IDScan.net says it secured its systems, engaged unnamed third-party specialists, is adding security enhancements, is cooperating with regulators and law enforcement, says the notice has not been delayed by law enforcement, is not aware of misuse, and offers free credit monitoring and identity protection to US and Canadian individuals [1] (**Confirmed**). Its spokesperson called the reporting helpful to the investigation [6] (**Reported**).
 
-**Government and regulators.** The FBI New Orleans field office opened an official investigation into an apparent breach involving idscan.net on 1 September [4], and on 2 September an FBI spokesperson told TechCrunch the bureau was looking into the incident [5] (**Reported**). The California AG list shows no IDScan filing as of 11 November under three spellings, while a control search returned entries [14] (**Confirmed**). No regulator or state AG enforcement action appears in any source opened; Risky Business calls for FTC attention [10] (**Reported**).
+**Government and regulators.** The FBI New Orleans field office opened an official investigation into an apparent breach involving idscan.net on 1 September [4], and an FBI spokesperson told TechCrunch, in an update to its 2 September report, that the bureau was looking into the incident [5] (**Reported**). The California AG list shows no IDScan filing as of 11 November under three spellings, while a control search returned entries [14] (**Confirmed**). No regulator or state AG enforcement action appears in any source opened; Risky Business calls for FTC attention [10] (**Reported**).
 
 **Courts.** Nine putative class actions, per the timeline [12] (**Reported**; the dockets returned HTTP 403).
 
@@ -165,7 +165,7 @@ Attribution stops at a seller.
 ### What is overstated and what is understated
 
 - *Overstated:* Krebs's follow-up says the breach exposed license information on "more than 153 million Americans" [11]. That turns a seller's record count, which includes Canadians, into unique Americans; the vendor has confirmed no count [1] [4] (**Confirmed** for the absence; **Reported** for the figure). So is the advert's passport claim (Part 2) [5] (**Reported**).
-- *Understated:* The vendor's notice omits the images, IR and UV scans and photos journalists saw [1] [4] (**Confirmed** for the omission; **Demonstrated** for the images). Its access window starts later than the seller's claim of over a year [4] (**Reported**); the 2025 scan timestamps [4] [13] point to long retention, which the notice does not discuss (**Inferred**). The national-security exposure, with senior officials' records in the set, gets little space beside the consumer framing [4] [10] (**Inferred**).
+- *Understated:* The vendor's notice [1] omits the images, IR and UV scans [4] and the customer photos reported [5] [6] (**Confirmed** for the omission; **Demonstrated** for the scans; **Reported** for the photos). Its access window starts later than the seller's claim of over a year [4] (**Reported**); the 2025 scan timestamps [4] [13] point to long retention, which the notice does not discuss (**Inferred**). The national-security exposure, with senior officials' records in the set, gets little space beside the consumer framing [4] [10] (**Inferred**).
 
 ## MITRE mappings
 

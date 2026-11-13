@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 25 min (5,745 words at 230 words a minute)
+About 25 min (5,756 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -160,7 +160,7 @@ History explains why both readings circulate. A Tenable engineer estimated that 
 | KEV context (catalog 2026.11.10) | Value |
 |---|---|
 | Citrix entries | 27, of which six were added in 2026 |
-| 2026 additions before this event | CVE-2026-3055 (30 Mar), CVE-2026-8452 (26 Aug), CVE-2026-19490 (9 Sep) |
+| 2026 additions before this event | CVE-2026-3055 (30 Mar; [its own brief](/case-studies/CITRIX_NETSCALER_CVE_2026_3055.md)), CVE-2026-8452 (26 Aug), CVE-2026-19490 (9 Sep) |
 | This event | CVE-2026-88771 and CVE-2026-88772 (27 Sep), CVE-2026-88779 (4 Oct), all ransomware use Unknown |
 | Not listed | CVE-2026-107406 |
 
@@ -339,7 +339,7 @@ Not opened, so not cited as sources: Citrix's community blog posts for both bull
 ## Related references
 
 - [APT41: The Public Record](/case-studies/APT41_PUBLIC_RECORD.md), [Threat Actors: Iran](/case-studies/THREAT_ACTORS_IRAN.md), [Threat Actors: China](/case-studies/THREAT_ACTORS_CHINA.md), [Chronicle 2019](/case-studies/CHRONICLE_2019.md), [Chronicle 2020](/case-studies/CHRONICLE_2020.md), [Chronicle 2023](/case-studies/CHRONICLE_2023.md), [Chronicle 2025](/case-studies/CHRONICLE_2025.md), [The Ransomware Ecosystem](/case-studies/RANSOMWARE_ECOSYSTEM.md), [Change Healthcare 2024](/case-studies/CHANGE_HEALTHCARE_2024.md), [AI Threats in the Cybersecurity Industry](/case-studies/AI_THREATS_2026.md), [The Year 2026 in Intrusions](/case-studies/CHRONICLE_2026.md), [Timeline](/case-studies/TIMELINE.md)
-- Other 2026 edge-appliance studies: [The Ivanti Connect Secure zero-day chain](/case-studies/IVANTI_CONNECT_SECURE_2026.md), [The Cisco Catalyst SD-WAN authentication bypass](/case-studies/CISCO_SDWAN_CVE_2026_20127.md)
+- Other 2026 edge-appliance studies: [The Citrix NetScaler SAML IdP memory overread (CVE-2026-3055)](/case-studies/CITRIX_NETSCALER_CVE_2026_3055.md), [The Ivanti Connect Secure zero-day chain](/case-studies/IVANTI_CONNECT_SECURE_2026.md), [The Cisco Catalyst SD-WAN authentication bypass](/case-studies/CISCO_SDWAN_CVE_2026_20127.md)
 - [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)
 - [CVE Reference](/CVE_REFERENCE.md), [CWE Reference](/CWE_REFERENCE.md), [CAPEC Reference](/CAPEC_REFERENCE.md), [D3FEND Reference](/D3FEND_REFERENCE.md)
 - [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Citrix NetScaler platform page](/platforms/citrix-netscaler.md)

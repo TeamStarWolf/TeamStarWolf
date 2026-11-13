@@ -2372,6 +2372,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
     pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Check Point](/platforms/check-point.md)"
     reviewed: null
+  case-studies/DELL_RECOVERPOINT_CVE_2026_22769.md:
+    audience: "Backup, replication and virtualization teams that run Dell RecoverPoint for Virtual Machines or VMware vCenter and ESXi, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run RecoverPoint for Virtual Machines, you need the dated record of CVE-2026-22769 and its exploitation since mid-2024, or you want to decide how to patch, then hunt, on infrastructure appliances that scanners and endpoint agents often miss"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Hypervisor Security Reference](/HYPERVISOR_SECURITY_REFERENCE.md), [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Threat Actors: China](/case-studies/THREAT_ACTORS_CHINA.md)"
+    reviewed: null
   case-studies/CHROME_ISOLATED_WEB_APPS_2026.md:
     audience: "Browser and endpoint security engineers, ChromeOS and Chrome Enterprise administrators, vulnerability management leads and detection engineers"
     level: "Intermediate"

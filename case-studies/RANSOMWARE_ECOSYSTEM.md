@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 91 min (20,835 words at 230 words a minute)
+About 91 min (20,837 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -315,7 +315,7 @@ One row per dated event, advisory, action or report. Incidents with their own st
 | 3 Feb 2026 | Coveware Q4 2025: payment rate about 20 percent | [111] | Reported |
 | 26 Feb 2026 | Chainalysis: 2025 payments above $820 million | [106] | Reported |
 | Late Apr to May 2026 | Instructure's Canvas platform: data exfiltrated, platform disrupted, ransom paid | [103] | Confirmed |
-| Jun to Oct 2026 | Qilin and INC exploit PAN-OS GlobalProtect CVE-2026-0257 | [134] | Reported |
+| Jun to Oct 2026 | Qilin and INC exploit PAN-OS GlobalProtect CVE-2026-0257 ([case study](/case-studies/PALO_ALTO_PAN_OS_CVE_2026_0257.md)) | [134] | Reported |
 | 15 to 18 Jun 2026 | CISA holds four CIRCIA town halls | [34] | Confirmed |
 | 24 Jun 2026 | Operation Endgame season 3 against SocGholish, Amadey and StealC | [68] | Confirmed |
 | 8 Jul 2026 | HIPAA Security Rule final action pushed to no earlier than July 2027 | [141] | Reported |

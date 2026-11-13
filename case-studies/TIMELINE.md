@@ -203,6 +203,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 July 2026: Individual notification by mail begins
   - 23 July 2026: 23 to 27 July: trade press reports a 23 million estimate, a dedupe of name and birth-date pairs (Reported)
   - 11 November 2026: HHS export: 15,000,000 is the largest 2026 entry, ahead of Aesto and iRhythm Technologies
+- [The PAN-OS GlobalProtect Authentication Bypass of 2026 (CVE-2026-0257), Qilin and INC Ransomware: A Case Study](/case-studies/PALO_ALTO_PAN_OS_CVE_2026_0257.md). Vulnerability, November 2025 to November 2026 (core: 13 May 2026 to 20 October 2026). Sectors: cross-sector, education, finance, healthcare, technology, manufacturing, government, transport, energy, retail. CVEs: CVE-2026-0257, CVE-2023-27532. ATT&CK groups: G1032 INC Ransom, G1050 Water Galura. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Palo_Alto_PAN_OS_CVE_2026_0257_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Palo_Alto_PAN_OS_CVE_2026_0257_Case_Study.pptx).
+  - 3 November 2025: Palo Alto Networks reserves CVE-2026-0257
+  - 13 May 2026: Advisory published for the GlobalProtect authentication bypass; CVE record and NVD entry published
+  - 17 May 2026: Earliest exploitation Rapid7 MDR observed, from Vultr hosting; first alert on 18 May
+  - 21 May 2026: Second wave from Dromatics Systems hosting, likely the same actor (Rapid7)
+  - 28 May 2026: Fix-release timeline updated; CISA SSVC decision: exploitation active, technical impact total
+  - 29 May 2026: KEV adds the CVE, due 1 Jun; vendor status limited exploit attempts; Rapid7 analysis and public checker
+  - June 2026: Several intrusions with CVE-2026-0257 as initial access end in Qilin ransomware (Arctic Wolf)
+  - 9 June 2026: Siemens SSA-967325 V1.1 adds the CVE for RUGGEDCOM APE1808
+  - 20 July 2026: Arctic Wolf Labs report links the CVE to Qilin
+  - 9 October 2026: ReliaQuest says on X that Qilin and Settra are exploiting the flaw (Reported)
+  - 19 October 2026: Unit 42 reports attempted exploitation by Spikey Scorpius (Qilin) and Tarnished Scorpius (INC)
+  - 10 November 2026: Kaspersky ranks Qilin first by share of leak-site victims in Q3 2026
 - [The TeamPCP Supply-Chain Campaign of 2026: Trivy, Checkmarx and the Bitwarden CLI (CVE-2026-33634)](/case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md). Campaign, September 2025 to August 2026 (core: 19 March 2026 to 10 May 2026). Sectors: technology, government. CVEs: CVE-2026-33634, CVE-2026-42994, CVE-2025-55182. ATT&CK groups: G1056 TeamPCP. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Teampcp_Trivy_Supply_Chain_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Teampcp_Trivy_Supply_Chain_2026_Case_Study.pptx).
   - 28 February 2026: About 28 Feb: a pull_request_target workflow at Trivy yields a token and releases are deleted (Reported)
   - 1 March 2026: Aqua's first disclosure; the credential rotation that follows is not atomic

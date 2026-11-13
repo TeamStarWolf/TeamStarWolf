@@ -64,6 +64,31 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 October 2026: Chrome Root Store removal reaches devices; Chrome Root Program posts its review on the incident bug
   - 7 November 2026: Eight RSA G2B and G2C intermediates from the same ceremony revoked, cessationOfOperation
   - 10 November 2026: eMudhra posts its Full Incident Report to the Mozilla bug
+- [The ConnectWise Cloud Backup Compromise of October 2026: A Case Study](/case-studies/CONNECTWISE_STORM_0940_2026.md). Incident, September to November 2026 (core: 15 October 2026 to 21 October 2026). Sectors: technology, cross-sector. CVEs: CVE-2024-1709, CVE-2025-3935, CVE-2024-1708, CVE-2026-84869. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ConnectWise_Storm_0940_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/ConnectWise_Storm_0940_2026_Case_Study.pptx).
+  - September 2026: Storm-0940 is using the ARTEX agentic framework against organizations from as early as September 2026, per Microsoft
+  - 10 October 2026: Password spray against 327 accounts at eight organizations: over 151,000 failed logons, no success (10 to 14 October)
+  - 15 October 2026: A ConnectWise app self-assigns Global Administrator in one tenant; client secrets valid to 2028 added to two other apps
+  - 15 October 2026: The Cloud Backup app signs in to customer tenants from 144.172.64[.]128 and obtains Graph tokens (06:13 to 08:44 UTC)
+  - 16 October 2026: Huntress confirms unauthorized sign-ins in 162 tenants; ConnectWise publishes its advisory
+  - 17 October 2026: ConnectWise confirms unauthorized access to application identities, disables seven, and revokes certificates
+  - 19 October 2026: Full credential reset completed; Huntress finds post-compromise activity in two of more than 10,000 tenants reviewed
+  - 21 October 2026: Microsoft assesses that Storm-0940, China-state aligned, was responsible, using ARTEX; phased restoration begins
+  - 28 October 2026: M365 backup restoration begins through a new app; partners must re-authorize each tenant
+  - 4 November 2026: Last advisory update: billing and some notifications still being restored
+  - 6 November 2026: Microsoft reports Storm-3358, a financially motivated cluster, also using ARTEX
+- [The Ivanti Connect Secure Zero-Day Chain of October 2026 (CVE-2026-104935, CVE-2026-111357, CVE-2026-118527): A Case Study](/case-studies/IVANTI_CONNECT_SECURE_2026.md). Vulnerability, July to November 2026 (core: 3 October 2026 to 30 October 2026). Sectors: technology. CVEs: CVE-2026-104935, CVE-2026-111357, CVE-2026-118527, CVE-2023-46805, CVE-2024-21887, CVE-2024-21893 and 2 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ivanti_Connect_Secure_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Ivanti_Connect_Secure_2026_Case_Study.pptx).
+  - July 2026: A portion of the CVE-2026-104935 flaw is patched in the 25.1.3.0 release (Reported)
+  - 30 September 2026: 30 Sep to 7 Oct: an attacker virtual private server runs an OpenVPN server
+  - 1 October 2026: Defused says it first saw the activity on public honeypots and customer instances (Reported)
+  - 3 October 2026: Exploitation of the victim appliance, Connect Secure 22.8R2.4 (Build 19097), begins
+  - 5 October 2026: 5 to 10 Oct: Volexity investigates at a customer and shares indicators with its customers on 10 Oct
+  - 13 October 2026: Ivanti discloses CVE-2026-104935 under limited exploitation; KEV lists it, due 16 Oct; Volexity publishes
+  - 14 October 2026: INCIBE-CERT publishes INCIBE-2026-737
+  - 15 October 2026: The MITRE CNA publishes CVE-2026-111357, the root escalation, as exploited in the wild; no vendor fix yet
+  - 29 October 2026: Ivanti ships 25.1.1.3 and 22.8R2.6, fixing CVE-2026-111357 and CVE-2026-118527
+  - 30 October 2026: KEV adds CVE-2026-111357 (due 2 Nov) and CVE-2026-118527 (due 13 Nov); CISA revises its alert
+  - 3 November 2026: CVE-2026-118527 record published, four days after its KEV listing
+  - 10 November 2026: Ivanti's November Security Update does not mention Connect Secure
 - [PHP2Shell and the October 2026 Attack Wave: A Case Study](/case-studies/PHP2SHELL_OCTOBER_2026.md). Vulnerability, October 2026. Sectors: technology, finance. CVEs: CVE-2026-109618, CVE-2026-109619. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/PHP2Shell_October_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/PHP2Shell_October_2026_Case_Study.pptx).
   - 14 October 2026: ConnectWise identifies the Cloud Backup issue
   - 17 October 2026: Amazon MadPot sees PHP2Shell attempts four days before disclosure

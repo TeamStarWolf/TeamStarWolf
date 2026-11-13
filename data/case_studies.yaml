@@ -1085,6 +1085,31 @@ studies:
       - {"date": "2025-08-08", "label": "UNC6395 uses stolen Salesloft Drift OAuth tokens to export data from many Salesforce instances (8 to 18 August)"}
       - {"date": "2026-10-15", "label": "Storm-0940 signs in to customer tenants as ConnectWise multi-tenant apps and tries more than 2,250 tenants"}
       - {"date": "2026-11-01", "label": "Todyl: one operator signs in as victims' own Entra apps with stolen secrets and reaches 27 organizations (to 6 November)"}
+  case-studies/CONNECTWISE_STORM_0940_2026.md:
+    kind: "incident"
+    title: "The ConnectWise Cloud Backup Compromise of October 2026: A Case Study"
+    start: "2026-09"
+    end: "2026-11"
+    core_start: "2026-10-15"
+    core_end: "2026-10-21"
+    sectors: ["technology", "cross-sector"]
+    cves: ["CVE-2024-1709", "CVE-2025-3935", "CVE-2024-1708", "CVE-2026-84869"]
+    actors: []
+    tags: ["ConnectWise", "SkyKick", "Cloud Backup", "Storm-0940", "ARTEX", "Microsoft 365", "Entra ID", "OAuth", "MSP", "agentic AI", "supply chain"]
+    pdf: "ConnectWise_Storm_0940_2026_Case_Study.pdf"
+    pptx: "ConnectWise_Storm_0940_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-09", "label": "Storm-0940 is using the ARTEX agentic framework against organizations from as early as September 2026, per Microsoft"}
+      - {"date": "2026-10-10", "label": "Password spray against 327 accounts at eight organizations: over 151,000 failed logons, no success (10 to 14 October)"}
+      - {"date": "2026-10-15", "label": "A ConnectWise app self-assigns Global Administrator in one tenant; client secrets valid to 2028 added to two other apps"}
+      - {"date": "2026-10-15", "label": "The Cloud Backup app signs in to customer tenants from 144.172.64[.]128 and obtains Graph tokens (06:13 to 08:44 UTC)"}
+      - {"date": "2026-10-16", "label": "Huntress confirms unauthorized sign-ins in 162 tenants; ConnectWise publishes its advisory"}
+      - {"date": "2026-10-17", "label": "ConnectWise confirms unauthorized access to application identities, disables seven, and revokes certificates"}
+      - {"date": "2026-10-19", "label": "Full credential reset completed; Huntress finds post-compromise activity in two of more than 10,000 tenants reviewed"}
+      - {"date": "2026-10-21", "label": "Microsoft assesses that Storm-0940, China-state aligned, was responsible, using ARTEX; phased restoration begins"}
+      - {"date": "2026-10-28", "label": "M365 backup restoration begins through a new app; partners must re-authorize each tenant"}
+      - {"date": "2026-11-04", "label": "Last advisory update: billing and some notifications still being restored"}
+      - {"date": "2026-11-06", "label": "Microsoft reports Storm-3358, a financially motivated cluster, also using ARTEX"}
   case-studies/CUCKOOS_EGG_1986.md:
     kind: "incident"
     title: "The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986"
@@ -1556,6 +1581,32 @@ studies:
       - {"date": "2026-04-07", "label": "AA26-097A on the Iranian-affiliated campaign disrupting exposed Rockwell PLCs"}
       - {"date": "2026-07-26", "label": "Coordinated attack on OT at more than 30 Minnesota community water systems"}
       - {"date": "2026-10-20", "label": "Siemens Software Center CVE-2026-110936 added to KEV"}
+  case-studies/IVANTI_CONNECT_SECURE_2026.md:
+    kind: "vulnerability"
+    title: "The Ivanti Connect Secure Zero-Day Chain of October 2026 (CVE-2026-104935, CVE-2026-111357, CVE-2026-118527): A Case Study"
+    start: "2026-07"
+    end: "2026-11"
+    core_start: "2026-10-03"
+    core_end: "2026-10-30"
+    sectors: ["technology"]
+    cves: ["CVE-2026-104935", "CVE-2026-111357", "CVE-2026-118527", "CVE-2023-46805", "CVE-2024-21887", "CVE-2024-21893", "CVE-2025-0282", "CVE-2025-22457"]
+    actors: []
+    tags: ["Ivanti", "Connect Secure", "VPN", "edge device", "zero-day", "UTA0576", "KEV", "BOD 26-04"]
+    pdf: "Ivanti_Connect_Secure_2026_Case_Study.pdf"
+    pptx: "Ivanti_Connect_Secure_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-07", "label": "A portion of the CVE-2026-104935 flaw is patched in the 25.1.3.0 release (Reported)"}
+      - {"date": "2026-09-30", "label": "30 Sep to 7 Oct: an attacker virtual private server runs an OpenVPN server"}
+      - {"date": "2026-10-01", "label": "Defused says it first saw the activity on public honeypots and customer instances (Reported)"}
+      - {"date": "2026-10-03", "label": "Exploitation of the victim appliance, Connect Secure 22.8R2.4 (Build 19097), begins"}
+      - {"date": "2026-10-05", "label": "5 to 10 Oct: Volexity investigates at a customer and shares indicators with its customers on 10 Oct"}
+      - {"date": "2026-10-13", "label": "Ivanti discloses CVE-2026-104935 under limited exploitation; KEV lists it, due 16 Oct; Volexity publishes"}
+      - {"date": "2026-10-14", "label": "INCIBE-CERT publishes INCIBE-2026-737"}
+      - {"date": "2026-10-15", "label": "The MITRE CNA publishes CVE-2026-111357, the root escalation, as exploited in the wild; no vendor fix yet"}
+      - {"date": "2026-10-29", "label": "Ivanti ships 25.1.1.3 and 22.8R2.6, fixing CVE-2026-111357 and CVE-2026-118527"}
+      - {"date": "2026-10-30", "label": "KEV adds CVE-2026-111357 (due 2 Nov) and CVE-2026-118527 (due 13 Nov); CISA revises its alert"}
+      - {"date": "2026-11-03", "label": "CVE-2026-118527 record published, four days after its KEV listing"}
+      - {"date": "2026-11-10", "label": "Ivanti's November Security Update does not mention Connect Secure"}
   case-studies/LINUX_TCP_UAF_2026.md:
     kind: "vulnerability"
     title: "The CVE-2026-98432 Linux Kernel Flaw and an AI-Written Exploit: A 2026 Case Study"

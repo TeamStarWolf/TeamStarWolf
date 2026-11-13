@@ -2441,6 +2441,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: whose job is it? Shared responsibility as the providers state it](#part-1-whose-job-is-it-shared-responsibility-as-the-providers-state-it), [Part 7: the defender view](#part-7-the-defender-view)"
     pairs_with: "[Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Investigate a Cloud Compromise](/guides/INVESTIGATE_A_CLOUD_COMPROMISE.md)"
     reviewed: null
+  case-studies/CONNECTWISE_STORM_0940_2026.md:
+    audience: "Microsoft 365 and Entra administrators, managed service providers, detection engineers, incident responders and vulnerability management leads"
+    level: "Intermediate"
+    read_when: "You want the dated record of the October 2026 ConnectWise Cloud Backup compromise, you need to tell tenants targeted from tenants compromised, or you want the controls for vendor apps with standing Microsoft Graph permissions"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [SaaS Security Reference](/SAAS_SECURITY_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Major Cloud Security Incidents](/case-studies/CLOUD_SECURITY_INCIDENTS.md)"
+    reviewed: null
   case-studies/CUCKOOS_EGG_1986.md:
     audience: "Incident responders, detection engineers, threat intelligence analysts and anyone who has read The Cuckoo's Egg and wants the primary record behind it"
     level: "Beginner"
@@ -2538,6 +2545,13 @@ pages:
     read_when: "You need the record of industrial control system incidents and advisories from 2024 to 2026, you want to know how the attacks and the published CVEs relate, or you need the attribution and the defender view for OT networks"
     start_at: "[Executive summary](#executive-summary), [Part 3: how the attacks and the CVEs relate](#part-3-how-the-attacks-and-the-cves-relate), [Part 5: the defender view](#part-5-the-defender-view)"
     pairs_with: "[ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Stuxnet: The Case Study](/case-studies/STUXNET.md)"
+    reviewed: null
+  case-studies/IVANTI_CONNECT_SECURE_2026.md:
+    audience: "Teams that run Ivanti Connect Secure or another remote-access VPN appliance, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run Ivanti Connect Secure, you need the facts of the October 2026 zero-day chain and its three CVEs, or you want to decide how to patch, hunt and recover an edge appliance whose integrity check came back clean"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)"
     reviewed: null
   case-studies/LINUX_TCP_UAF_2026.md:
     audience: "Linux administrators, vulnerability management leads and security engineers"

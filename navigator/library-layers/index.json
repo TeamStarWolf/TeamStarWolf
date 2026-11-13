@@ -372,6 +372,18 @@
     "blurb": "Techniques from the dated 2026 record: the Trivy, LiteLLM and axios supply-chain compromises, the exploited edge appliances (Cisco SD-WAN, PAN-OS, Citrix, Ivanti, BeyondTrust), compromised routers in covert networks, MFA tampering and stolen sessions, the year's #StopRansomware advisories and the first advisories that print AI resource development. A curated layer for the 2026 chronicle."
   },
   {
+    "file": "ivanti-connect-secure-2026.json",
+    "name": "TeamStarWolf - Ivanti Connect Secure Zero-Day Chain (October 2026) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the October 2026 Ivanti Connect Secure zero-day chain supports: the CVE records and CISA's alert for the exploitation, privilege escalation and data theft, and Volexity's report of UTA0576's work on the appliance. Each comment names source numbers from case-studies/IVANTI_CONNECT_SECURE_2026.md. Scores: 75 is a CVE record or government advisory, 50 is Volexity's report, 25 is a capability, an assessment or an inexact fit.",
+    "blurb": "Techniques from the Ivanti Connect Secure zero-day chain of October 2026, from the authentication bypass and root escalation on a fully patched appliance to the in-memory patching, log tampering and directory-credential theft Volexity described. A curated layer for the Ivanti Connect Secure case study."
+  },
+  {
+    "file": "connectwise-storm-0940-2026.json",
+    "name": "TeamStarWolf - ConnectWise Cloud Backup Compromise October 2026 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the ConnectWise Cloud Backup compromise case study, from Storm-0940's 10 to 14 October 2026 password spray through the 15 October sign-ins as ConnectWise's multi-tenant Microsoft 365 apps, the role self-assignment and the secrets planted on other apps, to the Graph and Key Vault activity Microsoft reported on 21 October. Score 100: Microsoft lists the technique id for this activity and a primary describes the dated behavior. Score 60: a primary describes the behavior and the id is the study's own mapping (T1110.003 only). Scores measure the strength of the tie to this record, not severity. Comments carry the study's source numbers.",
+    "blurb": "Techniques from the ConnectWise Cloud Backup record: the password spray, sign-ins as a trusted vendor's multi-tenant app, stolen Graph tokens, a self-assigned Global Administrator role, secrets added to other apps, and Graph and Key Vault discovery and secret reads. A curated layer for the ConnectWise October 2026 case study."
+  },
+  {
     "file": "binance-heist-2026.json",
     "name": "TeamStarWolf - Binance Hot-Wallet Theft October 2026 Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the Binance hot-wallet theft case study, from the June 2026 tampered installer and the September fake job process to the 29 October container deployment and theft. No source names ATT&CK ids, so every binding is the study's own reading. Score 100: Binance's own record states the behavior and the technique fits directly. Score 60: Binance's record states the behavior and the fit is the study's inference. Score 40: the behavior, or the detail the technique turns on, is known only from Reported sources. Scores measure the strength of the tie to this record, not severity. The signing-service abuse, the EIP-7702 delegations and the laundering have no ATT&CK technique and are left out. Comments carry the study's source numbers.",

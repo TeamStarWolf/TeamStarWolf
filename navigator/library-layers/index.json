@@ -390,6 +390,12 @@
     "blurb": "Techniques from the Cisco Catalyst SD-WAN authentication bypass of 2026, from the peering bypass and the downgrade route to root to the SSH keys, account churn and log clearing Talos and CISA described. A curated layer for the Cisco SD-WAN case study."
   },
   {
+    "file": "stryker-handala-wiper-2026.json",
+    "name": "TeamStarWolf - Stryker Device-Wipe Attack March 2026 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the Stryker device-wipe case study, from the MOIS persona domains seized on 19 March 2026 through the compromised cloud administrator path to the remote wipe of managed devices on 11 March 2026. Scores of 100, 60 and 40 measure the tie to the record. Each comment names source numbers from case-studies/STRYKER_HANDALA_WIPER_2026.md.",
+    "blurb": "Techniques from the Stryker device-wipe record of March 2026: the Handala persona domains, a compromised Entra ID administrator path, a new Global Administrator and the built-in remote wipe that erased managed devices. A curated layer for the Stryker case study."
+  },
+  {
     "file": "binance-heist-2026.json",
     "name": "TeamStarWolf - Binance Hot-Wallet Theft October 2026 Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the Binance hot-wallet theft case study, from the June 2026 tampered installer and the September fake job process to the 29 October container deployment and theft. No source names ATT&CK ids, so every binding is the study's own reading. Score 100: Binance's own record states the behavior and the technique fits directly. Score 60: Binance's record states the behavior and the fit is the study's inference. Score 40: the behavior, or the detail the technique turns on, is known only from Reported sources. Scores measure the strength of the tie to this record, not severity. The signing-service abuse, the EIP-7702 delegations and the laundering have no ATT&CK technique and are left out. Comments carry the study's source numbers.",

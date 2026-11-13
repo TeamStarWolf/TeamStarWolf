@@ -2707,6 +2707,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 4: Exposure](#part-4-exposure), [Part 6: The defender view](#part-6-the-defender-view)"
     pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md), [The XZ Utils Backdoor](/case-studies/XZ_UTILS_BACKDOOR_2024.md)"
     reviewed: null
+  case-studies/STRYKER_HANDALA_WIPER_2026.md:
+    audience: "Microsoft Intune and Entra administrators, healthcare and medical-technology security teams, incident responders, threat intelligence analysts and vulnerability management leads"
+    level: "Intermediate"
+    read_when: "You want the dated record of the March 2026 Stryker device-wipe attack, you need to separate the Handala persona's claims from what Stryker and the US government confirmed, or you want the controls that stop a compromised administrator from wiping every managed device"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md), [Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Iran-Attributed Threat Actors](/case-studies/THREAT_ACTORS_IRAN.md)"
+    reviewed: null
   case-studies/STUXNET.md:
     audience: "ICS and OT security engineers, threat intelligence analysts and students of cyber conflict"
     level: "Intermediate"

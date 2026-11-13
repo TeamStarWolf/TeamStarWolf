@@ -154,6 +154,18 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 29 October 2026: CISA adds CVE-2026-97229 to KEV with forensic triage required, due 1 November
   - 30 October 2026: Metasploit module merged; press reports exploitation attempts against self-managed instances
   - 4 November 2026: TeamStarWolf lab run: 19.4.1 and 19.4.2 differ in GitLab version, not in ruby -v
+- [The ATF Major Incident of 2026: A Case Study](/case-studies/ATF_MAJOR_INCIDENT_2026.md). Incident, March to November 2026 (core: 26 August 2026 to 28 August 2026). Sectors: government. CVEs: CVE-2026-0257, CVE-2026-50751. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ATF_Major_Incident_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/ATF_Major_Incident_2026_Case_Study.pptx).
+  - 5 March 2026: Context: the FBI confirms it identified and addressed suspicious activities after a reported breach of its surveillance systems (Reported)
+  - 7 May 2026: Lineage: exploitation of Check Point VPN flaw CVE-2026-50751 begins against a few dozen organizations
+  - 29 May 2026: Lineage: PAN-OS CVE-2026-0257 enters KEV with ransomware use Known
+  - June 2026: Lineage: Arctic Wolf investigates several intrusions that began with CVE-2026-0257 and ended in Qilin ransomware
+  - 8 June 2026: Lineage: Check Point's hotfix advisory notes a Qilin affiliate case; CISA adds CVE-2026-50751 to KEV
+  - 1 July 2026: Context: DHS confirms a compromise of HSIN, a legacy information sharing environment (Reported)
+  - 26 August 2026: Qilin lists ATF on its leak site with no proof screenshots, timer, theft claim or ransom claim (Reported)
+  - 26 August 2026: ATF statement: one standalone system compromised, connections terminated, a major incident designated (Reported)
+  - 27 August 2026: BleepingComputer reports; an ATF spokesperson had not responded by publication (Reported)
+  - 28 August 2026: SecurityWeek reports the major-incident designation and no effect on ATF's missions (Reported)
+  - 13 November 2026: No source opened shows Qilin publishing ATF data; the Hub has no ATF row, and its Oct Qilin rows cover PAN-OS CVE-2026-0257
 - [The Boston Scientific Network Outage of August 2026: A Case Study](/case-studies/BOSTON_SCIENTIFIC_ATTACK_2026.md). Incident, July to November 2026 (core: 25 August 2026 to 9 September 2026). Sectors: healthcare, manufacturing. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Boston_Scientific_Attack_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Boston_Scientific_Attack_2026_Case_Study.pptx).
   - 25 August 2026: System availability issues traced to an unauthorized third party; containment begins and CrowdStrike's investigation starts
   - 26 August 2026: Form 8-K Item 8.01: a global disruption, including the ability to process and ship orders

@@ -2277,6 +2277,32 @@ studies:
       - {"date": "2012-06-01", "label": "New York Times Olympic Games account, relayed by the Guardian"}
       - {"date": "2012-06-24", "label": "Coded infection stop date for Stuxnet 1.x"}
       - {"date": "2013-02-26", "label": "Symantec publishes Stuxnet 0.5: The Missing Link"}
+  case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md:
+    kind: "campaign"
+    title: "The TeamPCP Supply-Chain Campaign of 2026: Trivy, Checkmarx and the Bitwarden CLI (CVE-2026-33634)"
+    start: "2025-09"
+    end: "2026-08"
+    core_start: "2026-03-19"
+    core_end: "2026-05-10"
+    sectors: ["technology", "government"]
+    cves: ["CVE-2026-33634", "CVE-2026-42994", "CVE-2025-55182"]
+    actors: ["G1056"]
+    tags: ["TeamPCP", "Trivy", "GitHub Actions", "CI/CD", "supply chain", "Checkmarx", "LiteLLM", "Bitwarden CLI", "European Commission", "KEV"]
+    pdf: "Teampcp_Trivy_Supply_Chain_2026_Case_Study.pdf"
+    pptx: "Teampcp_Trivy_Supply_Chain_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-02-28", "label": "About 28 Feb: a pull_request_target workflow at Trivy yields a token and releases are deleted (Reported)"}
+      - {"date": "2026-03-01", "label": "Aqua's first disclosure; the credential rotation that follows is not atomic"}
+      - {"date": "2026-03-19", "label": "Malicious Trivy v0.69.4 published; trivy-action and setup-trivy tags moved to a credential stealer"}
+      - {"date": "2026-03-22", "label": "Malicious Trivy images 0.69.5 and 0.69.6 pushed to Docker Hub with separately stolen credentials"}
+      - {"date": "2026-03-23", "label": "Malicious Checkmarx GitHub Actions and Open VSX extensions; NVD publishes CVE-2026-33634"}
+      - {"date": "2026-03-24", "label": "litellm 1.82.7 and 1.82.8 on PyPI; the European Commission SOC alerts on AWS API misuse"}
+      - {"date": "2026-03-26", "label": "CISA adds CVE-2026-33634 to KEV, due 9 Apr"}
+      - {"date": "2026-03-27", "label": "telnyx 4.87.1 and 4.87.2 published with stolen PyPI credentials; Commission press release IP/26/748"}
+      - {"date": "2026-04-22", "label": "Checkmarx second wave and the malicious Bitwarden CLI 2026.4.0 on npm (CVE-2026-42994)"}
+      - {"date": "2026-05-09", "label": "9 to 10 May: malicious Checkmarx Jenkins AST plugin published with access obtained in March"}
+      - {"date": "2026-07-06", "label": "Checkmarx declares the incident fully contained"}
+      - {"date": "2026-08-26", "label": "26 and 27 Aug: the AFP arrests two Western Australian men the FBI alleges are TeamPCP members"}
   case-studies/THREAT_ACTORS_CHINA.md:
     kind: "actor"
     title: "China-Attributed Threat Actors: The Public Record"

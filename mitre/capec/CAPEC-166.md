@@ -36,6 +36,7 @@ An attacker forces the target into a previous state in order to leverage potenti
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [Iran-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_IRAN.md)
+- [The cPanel and WHM Authentication Bypass of 2026 (CVE-2026-41940): A Case Study](/case-studies/CPANEL_WHM_CVE_2026_41940.md)
 - [The Year 2022 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2022.md)
 - [The Year 2023 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2023.md)
 

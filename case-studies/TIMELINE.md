@@ -242,6 +242,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 October 2026: ReliaQuest says on X that Qilin and Settra are exploiting the flaw (Reported)
   - 19 October 2026: Unit 42 reports attempted exploitation by Spikey Scorpius (Qilin) and Tarnished Scorpius (INC)
   - 10 November 2026: Kaspersky ranks Qilin first by share of leak-site victims in Q3 2026
+- [The cPanel and WHM Authentication Bypass of 2026 (CVE-2026-41940): A Case Study](/case-studies/CPANEL_WHM_CVE_2026_41940.md). Vulnerability, February to November 2026 (core: 28 April 2026 to 5 May 2026). Sectors: technology, cross-sector. CVEs: CVE-2026-41940, CVE-2026-48172, CVE-2026-54420, CVE-2026-87886. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/cPanel_WHM_CVE_2026_41940_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/cPanel_WHM_CVE_2026_41940_Case_Study.pptx).
+  - 23 February 2026: Earliest execution attempts KnownHost says it saw; Rapid7 calls the date speculation (Reported)
+  - 22 April 2026: CVE-2026-41940 reserved by VulnCheck
+  - 28 April 2026: Namecheap blocks the panel ports; vendor advisory and fixed builds for six tiers and WP Squared 136.1.7 follow
+  - 29 April 2026: CVE record and NVD entry published; CISA ADP grades exploitation active; watchTowr publishes analysis and proof of concept
+  - 30 April 2026: KEV adds CVE-2026-41940, due 3 May; mass exploitation dropping the "Sorry" encryptor reported from about this day
+  - 1 May 2026: Detection script withdrawn for false positives and replaced; 11.124 patch added
+  - 2 May 2026: News cites Shadowserver for at least 44,000 compromised cPanel IP addresses (Reported)
+  - 5 May 2026: Advisory adds patches for the 11.94 and 11.102 tiers
+  - 12 July 2026: 12 to 13 Jul: malicious dev versions of 10 Packagist packages carry 583 workflow files (Reported)
+  - 22 July 2026: Socket reports GitHub Actions workflows scanning for and attempting CVE-2026-41940 (Reported)
+  - 26 October 2026: JFrog ties Shellpanel artifacts to 42 hijacked repositories, one scanning cPanel-related ports (Reported)
+  - 10 November 2026: KEV catalog 2026.11.10 still lists ransomware use as Known
 - [The Instructure Canvas Breach and ShinyHunters Extortion of 2026: A Case Study](/case-studies/INSTRUCTURE_CANVAS_BREACH_2026.md). Incident, September 2025 to September 2026 (core: 25 April 2026 to 11 May 2026). Sectors: education, technology. ATT&CK groups: G1057 ShinyHunters. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Instructure_Canvas_Breach_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Instructure_Canvas_Breach_2026_Case_Study.pptx).
   - 21 September 2025: Instructure discloses a social-engineering compromise of its Salesforce instance; no product data exposed
   - 25 April 2026: 25 to 30 April: institution logs may show the actor using Canvas customer support representative accounts

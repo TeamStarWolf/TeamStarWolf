@@ -2476,6 +2476,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
     pairs_with: "[Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [SaaS Security Reference](/SAAS_SECURITY_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Major Cloud Security Incidents](/case-studies/CLOUD_SECURITY_INCIDENTS.md)"
     reviewed: null
+  case-studies/CPANEL_WHM_CVE_2026_41940.md:
+    audience: "Hosting providers and administrators who run cPanel, WHM, DNSOnly or WP Squared, vulnerability management leads, incident responders, CI and DevSecOps engineers and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run or host on a cPanel server, you need the dated record of CVE-2026-41940 and the ransomware and GitHub Actions scanning that followed it, or you want to decide how to patch, scope and rebuild after a pre-authentication flaw in a hosting control panel"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
+    reviewed: null
   case-studies/CUCKOOS_EGG_1986.md:
     audience: "Incident responders, detection engineers, threat intelligence analysts and anyone who has read The Cuckoo's Egg and wants the primary record behind it"
     level: "Beginner"

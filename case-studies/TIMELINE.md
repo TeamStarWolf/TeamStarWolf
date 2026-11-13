@@ -216,6 +216,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 October 2026: ReliaQuest says on X that Qilin and Settra are exploiting the flaw (Reported)
   - 19 October 2026: Unit 42 reports attempted exploitation by Spikey Scorpius (Qilin) and Tarnished Scorpius (INC)
   - 10 November 2026: Kaspersky ranks Qilin first by share of leak-site victims in Q3 2026
+- [The Instructure Canvas Breach and ShinyHunters Extortion of 2026: A Case Study](/case-studies/INSTRUCTURE_CANVAS_BREACH_2026.md). Incident, September 2025 to September 2026 (core: 25 April 2026 to 11 May 2026). Sectors: education, technology. ATT&CK groups: G1057 ShinyHunters. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Instructure_Canvas_Breach_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Instructure_Canvas_Breach_2026_Case_Study.pptx).
+  - 21 September 2025: Instructure discloses a social-engineering compromise of its Salesforce instance; no product data exposed
+  - 25 April 2026: 25 to 30 April: institution logs may show the actor using Canvas customer support representative accounts
+  - 29 April 2026: Instructure detects unauthorized activity in Canvas, revokes access and engages outside forensic experts
+  - 1 May 2026: Confirmed Security Incident posted: a criminal threat actor; Canvas Data 2, Beta and Test in maintenance
+  - 2 May 2026: Incident believed contained: privileged credentials and tokens revoked, patches deployed, keys rotated
+  - 3 May 2026: ShinyHunters lists Instructure on its leak site, claiming 3.65 TB on 275 million people (Reported)
+  - 7 May 2026: The actor returns through a second XSS flaw; ransom note on login pages of about 300 organizations
+  - 8 May 2026: CEO apology names a support-ticket flaw in the Free-for-Teacher environment and disables it
+  - 11 May 2026: Agreement with the actor: data returned, shred logs; House Homeland Security letter to the CEO
+  - 15 May 2026: FBI PSA: ShinyHunters claimed an attack that interrupted an unnamed learning management system
+  - 26 July 2026: Delivery of API provisioning records and user reports to institutions begins; Kroll handles notification
+  - 29 September 2026: Forensic review complete; final delivery phase begins
 - [The IDScan.net Driver's License Breach of 2026: A Case Study](/case-studies/IDSCAN_DRIVERS_LICENSE_BREACH_2026.md). Incident, February 2025 to November 2026 (core: 4 April 2026 to 2 September 2026). Sectors: technology, cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/IDScan_Drivers_License_Breach_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/IDScan_Drivers_License_Breach_2026_Case_Study.pptx).
   - February 2025: Caesars says it stopped using IDScan in February 2025 (Reported)
   - June 2025: Earliest scan timestamps seen in the Nexus records, June 2025 (Demonstrated); read here as scan dates, not theft dates (Inferred)

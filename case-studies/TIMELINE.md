@@ -216,6 +216,18 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 October 2026: ReliaQuest says on X that Qilin and Settra are exploiting the flaw (Reported)
   - 19 October 2026: Unit 42 reports attempted exploitation by Spikey Scorpius (Qilin) and Tarnished Scorpius (INC)
   - 10 November 2026: Kaspersky ranks Qilin first by share of leak-site victims in Q3 2026
+- [The IDScan.net Driver's License Breach of 2026: A Case Study](/case-studies/IDSCAN_DRIVERS_LICENSE_BREACH_2026.md). Incident, February 2025 to November 2026 (core: 4 April 2026 to 2 September 2026). Sectors: technology, cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/IDScan_Drivers_License_Breach_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/IDScan_Drivers_License_Breach_2026_Case_Study.pptx).
+  - February 2025: Caesars says it stopped using IDScan in February 2025 (Reported)
+  - June 2025: Earliest scan timestamps seen in the Nexus records: scan dates, not theft dates
+  - 4 April 2026: 4 April to 2 September: an unauthorized third party accesses part of IDScan.net's cloud environment (VeriScan)
+  - 31 August 2026: A source alerts KrebsOnSecurity to the Nexus listing on the Exploit forum (Reported)
+  - 1 September 2026: Nearly 400,000 records added to Nexus in 24 hours; the FBI New Orleans field office opens an investigation (Reported)
+  - 1 September 2026: IDScan.net receives information that data may have been accessed; Nexus goes offline that evening
+  - 2 September 2026: End of the vendor-stated access window; 2 to 4 September: nine putative class actions docketed (Reported)
+  - 4 September 2026: IDScan.net posts its notification of data security incident
+  - 10 September 2026: Risky Business frames the breach as a national security problem (Reported)
+  - 29 September 2026: Notice updated: the event was limited to the VeriScan platform
+  - 11 November 2026: No IDScan filing on the California Attorney General's breach list
 - [The TeamPCP Supply-Chain Campaign of 2026: Trivy, Checkmarx and the Bitwarden CLI (CVE-2026-33634)](/case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md). Campaign, September 2025 to August 2026 (core: 19 March 2026 to 10 May 2026). Sectors: technology, government. CVEs: CVE-2026-33634, CVE-2026-42994, CVE-2025-55182. ATT&CK groups: G1056 TeamPCP. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Teampcp_Trivy_Supply_Chain_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Teampcp_Trivy_Supply_Chain_2026_Case_Study.pptx).
   - 28 February 2026: About 28 Feb: a pull_request_target workflow at Trivy yields a token and releases are deleted (Reported)
   - 1 March 2026: Aqua's first disclosure; the credential rotation that follows is not atomic

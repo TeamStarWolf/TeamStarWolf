@@ -60,6 +60,7 @@ Data inventorying identifies and records the schemas, formats, volumes, and loca
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [The IDScan.net Driver's License Breach of 2026: A Case Study](/case-studies/IDSCAN_DRIVERS_LICENSE_BREACH_2026.md)
 - [The Shadow Brokers and Vault 7: The NSA and CIA Tool Leaks, 2016 to 2017](/case-studies/NSA_CIA_TOOL_LEAKS.md)
 
 <!-- library-refs:end -->

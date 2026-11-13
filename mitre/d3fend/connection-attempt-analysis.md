@@ -54,6 +54,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md)
 - [The Shadow Brokers and Vault 7: The NSA and CIA Tool Leaks, 2016 to 2017](/case-studies/NSA_CIA_TOOL_LEAKS.md)
 - [The Year 1997 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1997.md)
+- [The Year 2003 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2003.md)
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)
 - [The Year 2024 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2024.md)
 - [The Zero-Day Trade and Its Fallout: The Events in This Is How They Tell Me the World Ends](/case-studies/ZERO_DAY_MARKET_EVENTS.md)

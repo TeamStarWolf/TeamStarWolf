@@ -1,0 +1,98 @@
+{
+  "name": "TeamStarWolf - The Year 2003 in Intrusions (ICS)",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "ics-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK for ICS techniques for the January 2003 Slammer infection at the idled Davis-Besse nuclear plant: the worm reaching an unpatched server on the plant network and the loss of the monitoring and Safety Parameter Display System computers, from the US-Canada task force's reports and Poulsen's account. No 2003 source prints an ATT&CK id and no ATT&CK for ICS object covers the event: both entries are this study's later mappings. Each comment names source numbers from case-studies/CHRONICLE_2003.md. Scores: 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T0829",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Monitoring computers taken down (task force); the Safety Parameter Display System out for nearly five hours (Poulsen) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [35][37][91] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T0866",
+      "tactic": "initial-access",
+      "score": 50,
+      "comment": "Slammer reaches an unpatched Windows server on the plant network (Jan) (basis: Reported; a later mapping, since no 2003 source prints an ATT&CK id). Sources [37][91] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T0866",
+      "tactic": "lateral-movement",
+      "score": 50,
+      "comment": "Slammer reaches an unpatched Windows server on the plant network (Jan) (basis: Reported; a later mapping, since no 2003 source prints an ATT&CK id). Sources [37][91] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8"
+    ],
+    "minValue": 40,
+    "maxValue": 70
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2003.md (sources opened 12 and 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "2"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "3"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/ics/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/ics/technique_profiles.jsonl"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2003 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2003.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

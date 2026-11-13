@@ -1,0 +1,282 @@
+{
+  "name": "TeamStarWolf - TeamPCP Supply-Chain Campaign of 2026 Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the case study of the 2026 TeamPCP supply-chain campaign: the Trivy release and GitHub Actions compromise (CVE-2026-33634), the Checkmarx, LiteLLM, Telnyx and Bitwarden CLI publishes and the European Commission cloud breach. CERT-EU names T1586.003, T1078.004, T1195.002 and T1005, and ATT&CK's G1056 procedures cover T1677; the other bindings are the study's own. Score 75: a vendor advisory, CVE record or government release describes the behavior. Score 50: third-party research describes it. Score 25: an inexact fit, or the February intrusion no source attributes to TeamPCP. Comments carry the study's source numbers.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "75: described in a vendor advisory, CVE record or government release",
+      "color": "#15803d"
+    },
+    {
+      "label": "50: described in third-party research",
+      "color": "#86efac"
+    },
+    {
+      "label": "25: inexact fit or unattributed February intrusion, labelled in the comment",
+      "color": "#d1fae5"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md; ATT&CK v20.0 technique data"
+    },
+    {
+      "name": "score_meaning",
+      "value": "75 = vendor advisory, CVE record or government release; 50 = third-party research; 25 = inexact fit or the unattributed February intrusion. No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The TeamPCP Supply-Chain Campaign of 2026: Trivy, Checkmarx and the Bitwarden CLI (CVE-2026-33634)",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1195.001",
+      "tactic": "initial-access",
+      "score": 75,
+      "comment": "trivy-action and setup-trivy tags (19 Mar 2026); Checkmarx actions and Open VSX extensions (23 Mar); litellm (24 Mar); telnyx (27 Mar); Bitwarden CLI and the Checkmarx second wave (22 Apr); Checkmarx Jenkins plugin (9 May). Sources: [1] [5] [9] [11] [26].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 75,
+      "comment": "Malicious Trivy v0.69.4 release across registries (19 Mar 2026); Docker Hub 0.69.5 and 0.69.6 (22 Mar); CERT-EU's mapping for the European Commission intrusion. Sources: [1] [28].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1677",
+      "tactic": "execution",
+      "score": 75,
+      "comment": "Release workflow redirected to an imposter commit (19 Mar 2026); ATT&CK's G1056 procedure names Trivy, KICS and LiteLLM. The hackerbot-claw pull_request_target abuse (about 28 Feb) is third-party research and unattributed. Sources: [1] [7] [18] [25].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 75,
+      "comment": "Compromised credentials publish v0.69.4 (19 Mar 2026); separate Docker Hub credentials (22 Mar); the cx-plugins-releases service account (23 Mar, Wiz); PyPI credentials publish telnyx (27 Mar). Sources: [1] [10] [26].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 75,
+      "comment": "AWS API key used against the European Commission's Europa hosting (19 to 24 Mar 2026), CERT-EU's mapping. Sources: [28].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1586.003",
+      "tactic": "resource-development",
+      "score": 75,
+      "comment": "AWS API key obtained through the Trivy compromise (19 Mar 2026), CERT-EU's mapping. Sources: [28].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "A new access key created and attached to an existing user in the Commission's AWS account (March 2026). Sources: [28].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1528",
+      "tactic": "credential-access",
+      "score": 75,
+      "comment": "PyPI token exposed through the exploited Trivy dependency (litellm, 24 Mar 2026); GitHub and npm tokens harvested by the Bitwarden CLI payload (22 Apr, JFrog). Sources: [11] [14].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1550.001",
+      "tactic": "lateral-movement",
+      "score": 75,
+      "comment": "Stolen token publishes litellm (24 Mar 2026); stolen GitHub PATs run malicious workflows (Wiz). Sources: [11] [30].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1003.007",
+      "tactic": "credential-access",
+      "score": 75,
+      "comment": "Runner process memory read for secrets through the proc filesystem (19 Mar 2026); ATT&CK lists it for S9041. Sources: [1].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1552.001",
+      "tactic": "credential-access",
+      "score": 75,
+      "comment": "Runner filesystem swept for SSH, cloud, Kubernetes, Docker, .env and database credentials (19 Mar 2026); AI-tool and MCP configurations (22 Apr, JFrog). Sources: [1] [14].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1552.004",
+      "tactic": "credential-access",
+      "score": 75,
+      "comment": "SSH private keys collected (19 Mar 2026; 22 Apr, JFrog). Sources: [1] [14].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1560",
+      "tactic": "collection",
+      "score": 75,
+      "comment": "Harvest encrypted with AES-256-CBC and RSA-4096 before exfiltration (19 Mar 2026). Sources: [1].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1213.003",
+      "tactic": "collection",
+      "score": 75,
+      "comment": "Data taken from Checkmarx GitHub repositories (30 Mar 2026); mass git clones (Wiz). Sources: [9] [30].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 75,
+      "comment": "CERT-EU's own mapping for the European Commission data theft (discovered 24 Mar 2026). Sources: [28].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "score": 25,
+      "comment": "Inexact fit: data taken from the cloud hosting Europa.eu (discovered 24 Mar 2026); CERT-EU maps the theft as T1005. Sources: [27] [28].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 75,
+      "comment": "Exfiltration to a typosquat Aqua domain (19 Mar 2026), a Checkmarx look-alike domain (23 Mar) and a LiteLLM look-alike domain (24 Mar). Sources: [1] [8] [10] [11].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1567.001",
+      "tactic": "exfiltration",
+      "score": 75,
+      "comment": "Fallback exfiltration to a tpcp-docs repository in the victim's GitHub account (19 Mar 2026); docs-tpcp (23 Mar, Wiz); GitHub fallback (22 Apr, JFrog). Sources: [1] [10] [14].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 75,
+      "comment": "Typosquat and look-alike domains for Aqua, Checkmarx and LiteLLM (March 2026). Sources: [8] [10] [11].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1608.001",
+      "tactic": "resource-development",
+      "score": 75,
+      "comment": "Malicious builds staged on Docker Hub, PyPI, npm and Open VSX (March to May 2026). Sources: [1] [9] [11] [13].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 75,
+      "comment": "Malicious source fetched at build time (19 Mar 2026); Bun runtime fetched by the Bitwarden CLI payload (22 Apr, JFrog). Sources: [1] [14].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1176.002",
+      "tactic": "persistence",
+      "score": 25,
+      "comment": "Inexact fit: the ast-results and cx-dev-assist IDE extensions (23 Mar and 22 Apr 2026) served as a delivery route; ATT&CK files the technique under Persistence. Sources: [9].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1546.016",
+      "tactic": "persistence",
+      "score": 50,
+      "comment": "npm preinstall hook in the Bitwarden CLI 2026.4.0 package (22 Apr 2026, JFrog). Sources: [14].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1543.002",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "litellm persistence through a systemd service (24 Mar 2026, PyPA). Sources: [11].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1036.004",
+      "tactic": "stealth",
+      "score": 75,
+      "comment": "The litellm systemd service is masqueraded (24 Mar 2026, PyPA). Sources: [11].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1610",
+      "tactic": "execution",
+      "score": 75,
+      "comment": "litellm persistence through a Kubernetes pod (24 Mar 2026, PyPA). Sources: [11].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1580",
+      "tactic": "discovery",
+      "score": 50,
+      "comment": "AWS discovery within 24 hours of secret validation (Wiz); GKE scanning from exfiltration-linked infrastructure (late March 2026, Microsoft). Sources: [15] [30].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Malicious workflow logs deleted after stolen PATs ran them (Wiz). Sources: [30].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1651",
+      "tactic": "execution",
+      "score": 25,
+      "comment": "Inexact fit: ECS Exec use after the theft (Wiz). Sources: [30].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 25,
+      "comment": "Trivy releases v0.27.0 to v0.69.1 deleted in the February hackerbot-claw intrusion (about 28 Feb 2026), which no source attributes to TeamPCP. Sources: [7] [25].",
+      "enabled": true
+    }
+  ]
+}

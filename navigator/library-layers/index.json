@@ -412,5 +412,11 @@
     "name": "TeamStarWolf - Citrix NetScaler Zero-Days (September and October 2026) Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the September and October 2026 Citrix NetScaler zero-days supports: Citrix's bulletins, the CVE and KEV records and CISA's alert for the exploitation and the denial of service, and the GTIG and Mandiant, Unit 42, Rapid7 and GreyNoise reports of the web shells, tunneling, configuration theft and log scrubbing. Each comment names source numbers from case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md. Scores: 75 is a vendor bulletin, CVE record or government advisory, 50 is a security vendor's report, 25 is a capability or an inexact fit.",
     "blurb": "Techniques from the Citrix NetScaler zero-days of September and October 2026, from the August fingerprinting and the pre-authentication exploits to the web shells, the Python tunneler, the theft of bind secrets and TLS keys from the appliance configuration, and the SAML denial of service. A curated layer for the Citrix NetScaler case study."
+  },
+  {
+    "file": "teampcp-trivy-supply-chain-2026.json",
+    "name": "TeamStarWolf - TeamPCP Supply-Chain Campaign of 2026 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the 2026 TeamPCP supply-chain campaign supports: Aqua's advisory, the CVE, NVD and KEV records, the Checkmarx, LiteLLM, PyPA, Telnyx and Bitwarden statements and CERT-EU's report on the European Commission breach, with Wiz, JFrog, StepSecurity and Microsoft research for the post-theft activity. Each comment names source numbers from case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md. Scores: 75 is a vendor advisory, CVE record or government release, 50 is third-party research, 25 is an inexact fit or the unattributed February intrusion.",
+    "blurb": "Techniques from the 2026 TeamPCP supply-chain campaign, from the poisoned Trivy release and moved GitHub Actions tags to the runner secret theft, the stolen tokens that republished Checkmarx, LiteLLM, Telnyx and Bitwarden CLI packages, and the cloud keys used against the European Commission. A curated layer for the TeamPCP case study."
   }
 ]

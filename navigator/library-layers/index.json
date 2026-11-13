@@ -384,6 +384,12 @@
     "blurb": "Techniques from the ConnectWise Cloud Backup record: the password spray, sign-ins as a trusted vendor's multi-tenant app, stolen Graph tokens, a self-assigned Global Administrator role, secrets added to other apps, and Graph and Key Vault discovery and secret reads. A curated layer for the ConnectWise October 2026 case study."
   },
   {
+    "file": "cisco-sdwan-cve-2026-20127.json",
+    "name": "TeamStarWolf - Cisco Catalyst SD-WAN Authentication Bypass (CVE-2026-20127) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the 2026 Cisco Catalyst SD-WAN authentication bypass (CVE-2026-20127) supports: Cisco's advisories and the CISA and partner notices for the exploitation, root escalation and log tampering, and the Talos and Mandiant reports on UAT-8616, UAT-11473 and the other clusters. Each comment names source numbers from case-studies/CISCO_SDWAN_CVE_2026_20127.md. Scores: 75 is a vendor advisory or government notice, 50 is a vendor threat-intelligence report, 25 is an inexact fit or other clusters' activity.",
+    "blurb": "Techniques from the Cisco Catalyst SD-WAN authentication bypass of 2026, from the peering bypass and the downgrade route to root to the SSH keys, account churn and log clearing Talos and CISA described. A curated layer for the Cisco SD-WAN case study."
+  },
+  {
     "file": "binance-heist-2026.json",
     "name": "TeamStarWolf - Binance Hot-Wallet Theft October 2026 Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the Binance hot-wallet theft case study, from the June 2026 tampered installer and the September fake job process to the 29 October container deployment and theft. No source names ATT&CK ids, so every binding is the study's own reading. Score 100: Binance's own record states the behavior and the technique fits directly. Score 60: Binance's record states the behavior and the fit is the study's inference. Score 40: the behavior, or the detail the technique turns on, is known only from Reported sources. Scores measure the strength of the tie to this record, not severity. The signing-service abuse, the EIP-7702 delegations and the laundering have no ATT&CK technique and are left out. Comments carry the study's source numbers.",

@@ -1031,6 +1031,32 @@ studies:
       - {"date": "2026-10-11", "label": "Attacks on refrigeration controllers at 700+ French retail sites cause fires and food losses, 11 to 12 Oct; France attributes them on 9 Nov"}
       - {"date": "2026-10-17", "label": "Mozilla told that the private keys of eight eMudhra intermediate certificates are compromised; blocked via OneCRL"}
       - {"date": "2026-10-29", "label": "Binance loses about US$6.3 billion in an attack traced to a compromised engineer's laptop (Reported)"}
+  case-studies/CISCO_SDWAN_CVE_2026_20127.md:
+    kind: "vulnerability"
+    title: "The Cisco Catalyst SD-WAN Authentication Bypass of 2026 (CVE-2026-20127) and UAT-8616: A Case Study"
+    start: "2022-09"
+    end: "2026-10"
+    core_start: "2026-02-25"
+    core_end: "2026-05-14"
+    sectors: ["government", "telecommunications", "defense", "technology"]
+    cves: ["CVE-2026-20127", "CVE-2022-20775", "CVE-2026-20182", "CVE-2026-20122", "CVE-2026-20128", "CVE-2026-20133", "CVE-2026-20245", "CVE-2026-20262", "CVE-2026-76504"]
+    actors: []
+    tags: ["Cisco", "Catalyst SD-WAN", "SD-WAN", "edge device", "zero-day", "UAT-8616", "UAT-11473", "KeyDrift", "KEV", "ED 26-03"]
+    pdf: "Cisco_SD_WAN_CVE_2026_20127_Case_Study.pdf"
+    pptx: "Cisco_SD_WAN_CVE_2026_20127_Case_Study.pptx"
+    events:
+      - {"date": "2022-09-28", "label": "Cisco discloses CVE-2022-20775, an SD-WAN CLI path traversal to root"}
+      - {"date": "2023", "label": "Earliest malicious activity Talos ties to UAT-8616; CISA says activity likely began in 2023"}
+      - {"date": "2026-02-25", "label": "Cisco discloses CVE-2026-20127; Talos names UAT-8616; KEV adds it with CVE-2022-20775; CISA issues ED 26-03"}
+      - {"date": "2026-02-27", "label": "ED 26-03 patch deadline; Censys counts about 600 internet-facing SD-WAN Managers"}
+      - {"date": "2026-03", "label": "A public proof of concept appears, which Talos says is wrongly attributed to CVE-2026-20127"}
+      - {"date": "2026-03-03", "label": "The earliest of ten other clusters exploiting sibling Manager flaws is first seen (through 25 Mar)"}
+      - {"date": "2026-04-20", "label": "KEV adds CVE-2026-20133, CVE-2026-20122 and CVE-2026-20128"}
+      - {"date": "2026-05-14", "label": "Cisco discloses CVE-2026-20182; Talos attributes its exploitation to UAT-8616; KEV adds it"}
+      - {"date": "2026-06-16", "label": "Cisco adds Validator to the affected products; Rapid7 publishes a root-cause analysis"}
+      - {"date": "2026-06-24", "label": "Mandiant reports zero-day exploitation of CVE-2026-20245 in SD-WAN Manager"}
+      - {"date": "2026-09-30", "label": "KEV adds CVE-2026-76504, the platform's ninth 2026 KEV entry"}
+      - {"date": "2026-10-28", "label": "Talos names UAT-11473 and its KeyDrift framework; Cisco revision 2.1 links the post"}
   case-studies/CL0P_FILE_TRANSFER_2023.md:
     kind: "campaign"
     title: "The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study"

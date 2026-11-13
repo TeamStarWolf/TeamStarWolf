@@ -629,6 +629,30 @@ studies:
       - {"date": "2004-10-25", "label": "hugesoft.org, the first APT1 zone Mandiant knew, registered"}
       - {"date": "2004-12-15", "label": "Brian Salcedo sentenced to 108 months in the Lowe's wireless card-capture case"}
       - {"date": "2004-12-21", "label": "TA04-356A: the Santy.A worm exploits phpBB, finding targets through search engines"}
+  case-studies/CHRONICLE_2005.md:
+    kind: "era"
+    title: "The Year 2005 in Intrusions: A Dated Record"
+    start: "2005-01"
+    end: "2005-12"
+    sectors: ["cross-sector", "retail", "finance", "technology", "government", "defense", "telecommunications", "media"]
+    cves: ["CVE-2005-0773", "CVE-2005-1983", "CVE-2005-3650", "CVE-2005-4560"]
+    actors: ["G0010", "G0020"]
+    tags: ["ChoicePoint", "LexisNexis", "CardSystems", "DSW", "BJ's", "TJX", "Zotob", "Windows Metafile", "Sony BMG rootkit", "Ancheta", "Titan Rain", "SP 800-53"]
+    pdf: "Chronicle_2005_Case_Study.pdf"
+    pptx: "Chronicle_2005_Case_Study.pptx"
+    events:
+      - {"date": "2005-02", "label": "ChoicePoint notifies about 35,000 California consumers under a California law; later rounds follow"}
+      - {"date": "2005-03-08", "label": "Retail Ventures announces the DSW card-data theft, 103 stores (108 by 18 April)"}
+      - {"date": "2005-03-09", "label": "Reed Elsevier reports fraudulent access at LexisNexis's Seisint unit through misused customer credentials"}
+      - {"date": "2005-06-16", "label": "FTC settles with BJ's Wholesale Club, treating weak security as an unfair practice"}
+      - {"date": "2005-06-29", "label": "TA05-180A: the VERITAS Backup Exec Remote Agent flaw actively exploited, scanning on 10000/tcp up"}
+      - {"date": "2005-07", "label": "TJX's intruder first gets in, not found until December 2006"}
+      - {"date": "2005-07-08", "label": "TA05-189A, Targeted Trojan Email Attacks; Sven Jaschan convicted for Sasser"}
+      - {"date": "2005-08-09", "label": "MS05-039 fixes the Plug and Play flaw that Zotob exploits within days"}
+      - {"date": "2005-08-25", "label": "Zotob and Mytob suspects arrested in Morocco and Turkey (FBI release, 26 Aug)"}
+      - {"date": "2005-11-03", "label": "Jeanson James Ancheta arrested on a 17-count botnet indictment, which DOJ called the first of its kind"}
+      - {"date": "2005-11-15", "label": "VU#312073: Sony BMG's XCP software hides files with rootkit techniques; its uninstaller is unsafe"}
+      - {"date": "2005-12-28", "label": "TA05-362A: the Windows Metafile flaw exploited against patched XP SP2 before any patch"}
   case-studies/CHRONICLE_2016.md:
     kind: "era"
     title: "The Year 2016 in Intrusions: A Dated Record"

@@ -2487,6 +2487,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 3: the worms, the mass mailers and the web](#part-3-the-worms-the-mass-mailers-and-the-web), [Part 7: the defender view](#part-7-the-defender-view)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Four Books on Cybercrime](/case-studies/CYBERCRIME_FOUR_BOOKS.md), [Email Security](/EMAIL_SECURITY_REFERENCE.md), [The Year 2002 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2002.md)"
     reviewed: null
+  case-studies/CHRONICLE_2005.md:
+    audience: "Threat intelligence analysts, security historians, payment-card, privacy and compliance teams and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2005, you need the data-broker and card-data breaches side by side with Zotob, the Windows Metafile zero-day, the Sony BMG rootkit and the later records that date Snake and Equation to 2005, the FTC orders and breach-notice rules that followed, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 2: the data-broker and card-data breaches](#part-2-the-data-broker-and-card-data-breaches), [Part 8: the defender view](#part-8-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [E-Commerce Threats](/case-studies/ECOMMERCE_THREATS.md), [Database Security](/DATABASE_SECURITY_REFERENCE.md), [The Year 2004 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2004.md)"
+    reviewed: null
   case-studies/CHRONICLE_2016.md:
     audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
     level: "Intermediate"

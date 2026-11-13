@@ -71,6 +71,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md)
 - [The Year 1993 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1993.md)
 - [The Year 2002 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2002.md)
+- [The Year 2003 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2003.md)
 - [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md)
 - [The Year 2018 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2018.md)
 - [The Year 2022 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2022.md)

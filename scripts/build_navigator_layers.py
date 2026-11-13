@@ -538,7 +538,10 @@ CATALOG = [
        "[2000 chronicle case study](/case-studies/CHRONICLE_2000.md)"),
       ("case-studies/chronicle-2001-ics.json", "The Year 2001 in Intrusions (ICS)",
        "The 12 ATT&CK for ICS techniques that campaign C0020, Maroochy Water Breach, lists for the February to April 2000 attack on the Maroochy Shire sewerage control system, sentenced on 31 October 2001, from the "
-       "[2001 chronicle case study](/case-studies/CHRONICLE_2001.md)")]),
+       "[2001 chronicle case study](/case-studies/CHRONICLE_2001.md)"),
+      ("case-studies/chronicle-2003-ics.json", "The Year 2003 in Intrusions (ICS)",
+       "The two ATT&CK for ICS techniques this study maps for the January 2003 Slammer infection at the idled Davis-Besse nuclear plant, from the "
+       "[2003 chronicle case study](/case-studies/CHRONICLE_2003.md)")]),
 ]
 
 

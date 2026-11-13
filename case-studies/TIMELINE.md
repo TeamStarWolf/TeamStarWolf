@@ -53,6 +53,18 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 October 2026: Chrome Root Store removal reaches devices; Chrome Root Program posts its review on the incident bug
   - 7 November 2026: Eight RSA G2B and G2C intermediates from the same ceremony revoked, cessationOfOperation
   - 10 November 2026: eMudhra posts its Full Incident Report to the Mozilla bug
+- [The ConnectWise Cloud Backup Compromise of October 2026: A Case Study](/case-studies/CONNECTWISE_STORM_0940_2026.md). Incident, September to November 2026 (core: 15 October 2026 to 21 October 2026). Sectors: technology, cross-sector. CVEs: CVE-2024-1709, CVE-2025-3935, CVE-2024-1708, CVE-2026-84869. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ConnectWise_Storm_0940_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/ConnectWise_Storm_0940_2026_Case_Study.pptx).
+  - September 2026: Storm-0940 is using the ARTEX agentic framework against organizations from as early as September 2026, per Microsoft
+  - 10 October 2026: Password spray against 327 accounts at eight organizations: over 151,000 failed logons, no success (10 to 14 October)
+  - 15 October 2026: A ConnectWise app self-assigns Global Administrator in one tenant; client secrets valid to 2028 added to two other apps
+  - 15 October 2026: The Cloud Backup app signs in to customer tenants from 144.172.64[.]128 and obtains Graph tokens (06:13 to 08:44 UTC)
+  - 16 October 2026: Huntress confirms unauthorized sign-ins in 162 tenants; ConnectWise publishes its advisory
+  - 17 October 2026: ConnectWise confirms unauthorized access to application identities, disables seven, and revokes certificates
+  - 19 October 2026: Full credential reset completed; Huntress finds post-compromise activity in two of more than 10,000 tenants reviewed
+  - 21 October 2026: Microsoft assesses that Storm-0940, China-state aligned, was responsible, using ARTEX; phased restoration begins
+  - 28 October 2026: M365 backup restoration begins through a new app; partners must re-authorize each tenant
+  - 4 November 2026: Last advisory update: billing and some notifications still being restored
+  - 6 November 2026: Microsoft reports Storm-3358, a financially motivated cluster, also using ARTEX
 - [PHP2Shell and the October 2026 Attack Wave: A Case Study](/case-studies/PHP2SHELL_OCTOBER_2026.md). Vulnerability, October 2026. Sectors: technology, finance. CVEs: CVE-2026-109618, CVE-2026-109619. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/PHP2Shell_October_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/PHP2Shell_October_2026_Case_Study.pptx).
   - 14 October 2026: ConnectWise identifies the Cloud Backup issue
   - 17 October 2026: Amazon MadPot sees PHP2Shell attempts four days before disclosure

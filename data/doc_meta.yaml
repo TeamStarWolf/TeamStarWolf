@@ -2819,6 +2819,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the vulnerability chain](#part-1-the-vulnerability-chain), [Part 2: why patching alone did not fix it](#part-2-why-patching-alone-did-not-fix-it)"
     pairs_with: "[Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [PHP2Shell and the October 2026 Attack Wave: A Case Study](/case-studies/PHP2SHELL_OCTOBER_2026.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)"
     reviewed: null
+  case-studies/SMARTERTOOLS_SMARTERMAIL_2026.md:
+    audience: "Mail and Windows server administrators who run SmarterMail, hosting providers, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run SmarterMail, you need the dated record of CVE-2026-23760, CVE-2026-24423 and CVE-2025-52691 and the ransomware that followed, or you want to decide how to patch and hunt after a mail server flaw that was exploited two days after its fix"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Email Security Reference](/EMAIL_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md)"
+    reviewed: null
   case-studies/SOLARWINDS_SUNBURST.md:
     audience: "Threat intelligence analysts, supply chain security engineers and identity and incident response teams"
     level: "Intermediate"

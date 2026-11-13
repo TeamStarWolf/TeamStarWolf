@@ -429,6 +429,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 10 February 2026: KEV adds CVE-2026-21514, a Word flaw with the same CWE-807
   - 16 February 2026: KEV due date for federal agencies
   - 10 March 2026: ESET ties the January campaigns to Sednit's Covenant (Reported)
+- [SmarterTools SmarterMail Exploitation and Ransomware, 2026 (CVE-2026-23760, CVE-2026-24423, CVE-2025-52691): A Case Study](/case-studies/SMARTERTOOLS_SMARTERMAIL_2026.md). Vulnerability, October 2025 to November 2026 (core: 15 January 2026 to 26 February 2026). Sectors: cross-sector, technology. CVEs: CVE-2025-52691, CVE-2026-23760, CVE-2026-24423, CVE-2026-40514. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SmarterTools_SmarterMail_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/SmarterTools_SmarterMail_2026_Case_Study.pptx).
+  - 9 October 2025: Build 9413 ships with "Critical security fixes." and no CVE named
+  - 29 December 2025: CSA Singapore alert AL-2025-124 and the CVE record for CVE-2025-52691
+  - 8 January 2026: 8 to 13 Jan: watchTowr reports the password-reset bypass; the vendor acknowledges it
+  - 15 January 2026: Build 9511 fixes the password-reset bypass and the ConnectToHub command execution flaw
+  - 17 January 2026: A SmarterMail forum post describes a successful attack (Reported)
+  - 22 January 2026: 22 to 23 Jan: CVE-2026-23760 and CVE-2026-24423 published; watchTowr, Huntress and VulnCheck publish
+  - 26 January 2026: KEV adds CVE-2025-52691 and CVE-2026-23760; Shadowserver sees exploitation attempts
+  - 29 January 2026: SmarterTools' own network is breached through its unpatched SmarterMail VM
+  - 5 February 2026: KEV adds CVE-2026-24423; its ransomware flag goes to Known within hours
+  - 9 February 2026: ReliaQuest ties a CVE-2026-23760 intrusion to Storm-2603 (Reported)
+  - 25 February 2026: 25 to 26 Feb: KEV ransomware flag for CVE-2026-23760 goes to Known
+  - 21 April 2026: KEV ransomware flag for CVE-2025-52691 goes to Known
 - [The FortiCloud SSO Authentication Bypass of 2026 (CVE-2026-24858): A Case Study](/case-studies/FORTINET_FORTICLOUD_SSO_CVE_2026_24858.md). Vulnerability, December 2025 to November 2026 (core: 15 January 2026 to 30 January 2026). Sectors: cross-sector, technology. CVEs: CVE-2026-24858, CVE-2025-59718, CVE-2025-59719, CVE-2022-40684, CVE-2024-55591, CVE-2025-24472 and 3 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Fortinet_FortiCloud_SSO_CVE_2026_24858_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Fortinet_FortiCloud_SSO_CVE_2026_24858_Case_Study.pptx).
   - 9 December 2025: Fortinet FG-IR-25-647 discloses CVE-2025-59718 and CVE-2025-59719, a FortiCloud SSO bypass via a crafted SAML message
   - 12 December 2025: Arctic Wolf sees malicious FortiGate SSO logins and configuration exports three days after the advisory (Reported)

@@ -173,11 +173,11 @@ One row per event or report. The date is the event date where the source gives o
 | 1995-06-29 | CERT/CC heads-up "Continued IP Spoofing Attacks": 170 attacks, at least 80 targets network infrastructure (resent 21 July) | Intrusion | Confirmed | [13] |
 | 1995-07-11 | CIA releases the first 49 Venona translations | State | Confirmed | [52] |
 | 1995-07-12 | Tatu Ylonen announces SSH 1.0 (reposted to Bugtraq 18 July) | Defense | Confirmed | [77] |
-| 1995-07-14 | Hal Finney posts an SSL challenge, a recorded Netscape session under RC4-128-EXPORT-40 (17 July in Doligez's Bugtraq post) | Cryptography | Reported | [35][14] |
+| 1995-07-14 | Hal Finney posts an SSL challenge, a recorded Netscape session under RC4-128-EXPORT-40 (17 July in Doligez's announcement as forwarded to Bugtraq) | Cryptography | Reported | [35][14] |
 | 1995-08 | RFCs 1825 to 1829, the first IPsec standards-track documents | Standards | Confirmed | [66] |
 | 1995-08 (late) | Navy NCCOSC detects an intrusion into sensitive but unclassified research files, traced to Harvard's FAS host | Intrusion, Defense | Confirmed | [16] |
 | 1995-08-15 | Doligez breaks Finney's challenge by brute force; Byers and Young, with Back, broke it about two hours earlier | Cryptography | Demonstrated, Reported | [35][14] |
-| 1995-08-16 | Doligez's Bugtraq post: about 120 workstations and some parallel computers, a little more than half the keyspace in 8 days | Cryptography | Demonstrated | [14] |
+| 1995-08-16 | Doligez's announcement, forwarded to Bugtraq 16 August: about 120 workstations and some parallel computers, a little more than half the keyspace in 8 days | Cryptography | Demonstrated | [14] |
 | 1995-08-17 | Netscape's official response puts the cost of the break at about $10,000, a figure Doligez disputes | Cryptography | Reported | [35] |
 | 1995-08-17 | CA-95:08 sendmail version 5 and IDA sendmail: privileges up to root | Vulnerability | Confirmed | [1] |
 | 1995-08-24 | A volunteer ring organized by Back and Brooks breaks Finney's second challenge in under 32 hours | Cryptography | Reported | [35] |
@@ -362,7 +362,7 @@ Christopher Pile, the "Black Baron", wrote the SMEG polymorphic engine and the P
 
 ### Export-grade SSL falls
 
-US export rules limited the SSL encryption Netscape could ship abroad to 40-bit keys (Inferred from [32]). On 14 July, by Damien Doligez's own chronology, Hal Finney posted a challenge: a recorded Netscape session encrypted with RC4-128-EXPORT-40 (Reported [35]). Doligez found the key on about 120 workstations and a few parallel computers at INRIA, Ecole Polytechnique and ENS, after scanning a little more than half the keyspace in 8 days, and announced it on 15 August; his Bugtraq post is dated 16 August (Demonstrated [35][14]). David Byers and Eric Young, working with Adam Back, had broken it about two hours earlier, by Doligez's account (Reported [35]). Netscape's official response of 17 August, as Doligez records it, estimated the cost of a break at about $10,000, a figure he disputes (Reported [35]). A volunteer ring organized by Back and Piete Brooks broke a second challenge in under 32 hours from 24 August (Reported [35]). Goldberg and Wagner later wrote that several researchers recovered such traffic "in as few as 30 hours" on spare CPU time and that export rules made the weakness unfixable (Reported [32]).
+US export rules limited the SSL encryption Netscape could ship abroad to 40-bit keys (Inferred from [32]). On 14 July, by Damien Doligez's own chronology, Hal Finney posted a challenge: a recorded Netscape session encrypted with RC4-128-EXPORT-40 (Reported [35]). Doligez found the key on about 120 workstations and a few parallel computers at INRIA, Ecole Polytechnique and ENS, after scanning a little more than half the keyspace in 8 days, and announced it on 15 August; the Bugtraq forward of his announcement is dated 16 August (Demonstrated [35][14]). David Byers and Eric Young, working with Adam Back, had broken it about two hours earlier, by Doligez's account (Reported [35]). Netscape's official response of 17 August, as Doligez records it, estimated the cost of a break at about $10,000, a figure he disputes (Reported [35]). A volunteer ring organized by Back and Piete Brooks broke a second challenge in under 32 hours from 24 August (Reported [35]). Goldberg and Wagner later wrote that several researchers recovered such traffic "in as few as 30 hours" on spare CPU time and that export rules made the weakness unfixable (Reported [32]).
 
 ### Netscape's random seed
 
@@ -560,7 +560,7 @@ This section is the study's reading of the record (Inferred).
 
 ### Discrepancies in the record
 
-- **Finney's challenge date.** 14 July in Doligez's chronology against 17 July in his Bugtraq post [35][14].
+- **Finney's challenge date.** 14 July in Doligez's chronology against 17 July in his announcement as forwarded to Bugtraq [35][14].
 - **The 40-bit break.** Announced 15 August on cypherpunks, as the chronology and the Goldberg and Wagner reference list give it, against a Bugtraq copy dated 16 August [35][32][14].
 - **Pile's sentence.** 15 November in the article text of *Virus Bulletin*'s December 1995 issue, 17 November on its cover, and a hearing set for 17 November in Bates's February 1996 account; ten Computer Misuse Act charges plus incitement in one account, eleven offences in another (the same count) [21][22][23].
 - **The 1994 CERT incident count.** 2,341 in CERT's table as mirrored by ORNL against 2,340 in a reprint [44][45].
@@ -589,7 +589,7 @@ All sources were opened on 12 November 2026. Grade is the source's evidence grad
 | 11 | Bugtraq post of 31 March 1995 on SATAN's release schedule | `https://diswww.mit.edu/menelaus/bt/1357` | 2026-11-12 | Reported |
 | 12 | US Department of Justice, release of 29 June 1995 on computer crime legislation | https://www.justice.gov/archive/opa/pr/Pre_96/June95/370.txt.html | 2026-11-12 | Confirmed |
 | 13 | CERT/CC, "Continued IP Spoofing Attacks" heads-up (29 June 1995, resent 21 July 1995), NANOG copy | `https://diswww.mit.edu/charon/nanog/21` | 2026-11-12 | Confirmed |
-| 14 | Damien Doligez, Bugtraq post on breaking the SSL challenge, 16 August 1995 | https://seclists.org/bugtraq/1995/Aug/45 | 2026-11-12 | Demonstrated |
+| 14 | Bugtraq forward, 16 August 1995, of Damien Doligez's signed announcement that the SSL challenge was broken | https://seclists.org/bugtraq/1995/Aug/45 | 2026-11-12 | Demonstrated |
 | 15 | US Department of Justice, release 96-146, 29 March 1996 (Ardita complaint) | https://www.justice.gov/opa/pr/1996/March96/146.txt | 2026-11-12 | Confirmed |
 | 16 | US Department of Justice, release 96-146, 29 March 1996 (FAS mirror) | https://irp.fas.org/news/1996/146.htm | 2026-11-12 | Confirmed |
 | 17 | US Attorney, District of Massachusetts, release of 19 May 1998 (Ardita plea), FAS mirror | https://irp.fas.org/news/1998/05/arditasnt.htm | 2026-11-12 | Confirmed |

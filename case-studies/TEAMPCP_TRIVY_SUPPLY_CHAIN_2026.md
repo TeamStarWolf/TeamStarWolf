@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 27 min (6,207 words at 230 words a minute)
+About 27 min (6,220 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -57,7 +57,7 @@ No review recorded yet
 
 The people this hit hardest were the engineers who run build pipelines. Trivy is the open-source scanner many teams drop into CI to find vulnerable packages, and on 19 March 2026 the scanner itself became the thing to worry about. Probably using access it kept through an incomplete clean-up of an incident that began in late February (Aqua's assessment), an attacker published a malicious Trivy release and moved almost every version tag of the official GitHub Actions that run it, so pipelines that pulled the action by tag ran a credential stealer before the real scan [1] (**Confirmed**). For hours, a trusted step in every affected pipeline was the one stealing its secrets (**Inferred**).
 
-The stolen secrets then opened other doors. Checkmarx says the Trivy attack gave the attacker access to its GitHub repositories on the same day, which led to poisoned Checkmarx GitHub Actions and IDE extensions on 23 March and a second wave on 22 April [9] (**Confirmed**). LiteLLM believes its malicious PyPI releases of 24 March started with Trivy in its CI [12] (**Confirmed**). The European Commission's cloud hosting for Europa.eu lost about 91.7 GB, and CERT-EU assesses with high confidence that the Trivy compromise was the entry point [28] (**Confirmed**). A malicious Bitwarden CLI release on npm on 22 April is tied by Bitwarden to "a broader Checkmarx supply chain incident" [13] (**Confirmed**). Whether the same people did the April work is not settled [21] [22] (**Reported**).
+The stolen secrets then opened other doors. Checkmarx says the Trivy attack gave the attacker access to its GitHub repositories on the same day, which led to poisoned Checkmarx GitHub Actions and IDE extensions on 23 March and a second wave on 22 April [9] (**Confirmed**). LiteLLM believes its malicious PyPI releases of 24 March started with Trivy in its CI [12] (**Confirmed**). The European Commission's cloud hosting for Europa.eu lost about 91.7 GB, and CERT-EU assesses with high confidence that the Trivy compromise was the entry point [28] (**Confirmed**); [the European Commission cloud breach study](/case-studies/EUROPEAN_COMMISSION_CLOUD_BREACH_2026.md) is the home study for that intrusion. A malicious Bitwarden CLI release on npm on 22 April is tied by Bitwarden to "a broader Checkmarx supply chain incident" [13] (**Confirmed**). Whether the same people did the April work is not settled [21] [22] (**Reported**).
 
 ### Key facts at a glance
 

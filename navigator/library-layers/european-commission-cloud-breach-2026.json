@@ -1,0 +1,191 @@
+{
+  "name": "TeamStarWolf - European Commission Cloud Breach 2026 Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the case study of the European Commission cloud breach of 2026: the AWS secret taken through the poisoned Trivy scanner on 19 March 2026, the secret search, new access key and reconnaissance in the Commission's AWS estate, and the theft of europa.eu hosting data published on 28 March, with the upstream Trivy compromise that delivered the stealer. Score 100: CERT-EU's own technique mapping for the Commission intrusion. Score 60: Aqua's advisory or blog states the behavior and ATT&CK's entry for G1056 TeamPCP or S9041 TeamPCP Cloud Stealer lists the technique. Score 40: the study's own reading of a behavior CERT-EU describes. Scores measure the strength of the tie to this record, not severity. Comments carry the study's source numbers.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: CERT-EU's own mapping for the Commission intrusion",
+      "color": "#15803d"
+    },
+    {
+      "label": "60: stated by Aqua and listed by ATT&CK for G1056 or S9041",
+      "color": "#86efac"
+    },
+    {
+      "label": "40: the study's reading of a behavior CERT-EU describes",
+      "color": "#d1fae5"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/EUROPEAN_COMMISSION_CLOUD_BREACH_2026.md; ATT&CK v20.0 technique data"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 = CERT-EU's own mapping; 60 = stated by Aqua and listed by ATT&CK for G1056 or S9041; 40 = the study's reading of a behavior CERT-EU describes. No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The European Commission Cloud Breach of 2026: AWS Data Theft Through the Poisoned Trivy Scanner",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/EUROPEAN_COMMISSION_CLOUD_BREACH_2026"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Compromise Software Supply Chain. The Commission received a compromised Trivy through normal update channels (19 Mar 2026); CERT-EU's mapping. Sources: [1] [3].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1586.003",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Cloud Accounts (Compromise Accounts). A Commission AWS secret obtained through the Trivy compromise (19 Mar 2026); CERT-EU's mapping. Sources: [1].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Cloud Accounts (Valid Accounts). The stolen key used against the europa.eu hosting account, 19 to 25 Mar 2026; CERT-EU's mapping. Sources: [1].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Data from Local System. Website data taken from the hosting backend and published by ShinyHunters on 28 Mar 2026; CERT-EU's mapping. Sources: [1].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "Additional Cloud Credentials. A new access key created and attached to an existing user after 19 Mar 2026 (undated by CERT-EU); the study's reading. Sources: [1].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1552.001",
+      "tactic": "credential-access",
+      "score": 60,
+      "comment": "Credentials In Files. TruffleHog run in the Commission's AWS estate to find further secrets (19 Mar 2026, the study's reading of [1]); the stealer's sweep of more than 50 credential locations on runners (19 Mar), which ATT&CK lists for S9041. Sources: [1] [3] [18].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1580",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "Cloud Infrastructure Discovery. Reconnaissance after the key was obtained (19 Mar 2026); the study's reading. Sources: [1].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1677",
+      "tactic": "execution",
+      "score": 60,
+      "comment": "Poisoned Pipeline Execution. Misconfigured Trivy GitHub Actions environment abused (late Feb 2026); ATT&CK lists it for G1056. Sources: [6] [18].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1528",
+      "tactic": "credential-access",
+      "score": 60,
+      "comment": "Steal Application Access Token. Privileged access token extracted from the Trivy project (late Feb 2026); ATT&CK lists it for G1056 and S9041. Sources: [6] [18].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1195.001",
+      "tactic": "initial-access",
+      "score": 60,
+      "comment": "Compromise Software Dependencies and Development Tools. 76 of 77 trivy-action tags and all 7 setup-trivy tags repointed to credential-stealing commits (19 Mar 2026); ATT&CK lists it for G1056. Sources: [3] [18].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Domains. Typosquatted exfiltration domain (19 Mar 2026); ATT&CK lists it for G1056. Sources: [3] [18].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1003.007",
+      "tactic": "credential-access",
+      "score": 60,
+      "comment": "Proc Filesystem. Memory of the GitHub Actions runner process read for secrets (19 Mar 2026); ATT&CK lists it for S9041. Sources: [3] [18].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1552.004",
+      "tactic": "credential-access",
+      "score": 60,
+      "comment": "Private Keys. SSH keys swept from runners (19 Mar 2026); ATT&CK lists it for G1056 and S9041. Sources: [3] [18].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1560.001",
+      "tactic": "collection",
+      "score": 60,
+      "comment": "Archive via Utility. The haul encrypted with AES-256-CBC and RSA-4096 before exfiltration (19 Mar 2026); ATT&CK lists it for S9041. Sources: [3] [18].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 60,
+      "comment": "Exfiltration Over C2 Channel. Data sent to attacker infrastructure (19 Mar 2026); ATT&CK lists it for S9041. Sources: [3] [18].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1567.001",
+      "tactic": "exfiltration",
+      "score": 60,
+      "comment": "Exfiltration to Code Repository. Fallback to a public tpcp-docs repository in the victim's own GitHub account (19 Mar 2026); ATT&CK lists it for S9041. Sources: [3] [18].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1008",
+      "tactic": "command-and-control",
+      "score": 60,
+      "comment": "Fallback Channels. The same fallback path (19 Mar 2026); ATT&CK lists it for S9041. Sources: [3] [18].",
+      "enabled": true
+    }
+  ]
+}

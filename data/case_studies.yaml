@@ -1388,6 +1388,32 @@ studies:
       - {"date": "2026-10-27", "label": "Chrome Root Store removal reaches devices; Chrome Root Program posts its review on the incident bug"}
       - {"date": "2026-11-07", "label": "Eight RSA G2B and G2C intermediates from the same ceremony revoked, cessationOfOperation"}
       - {"date": "2026-11-10", "label": "eMudhra posts its Full Incident Report to the Mozilla bug"}
+  case-studies/EUROPEAN_COMMISSION_CLOUD_BREACH_2026.md:
+    kind: "incident"
+    title: "The European Commission Cloud Breach of 2026: AWS Data Theft Through the Poisoned Trivy Scanner"
+    start: "2026-02"
+    end: "2026-08"
+    core_start: "2026-03-19"
+    core_end: "2026-03-28"
+    sectors: ["government", "technology"]
+    cves: ["CVE-2026-33634"]
+    actors: ["G1056", "G1057"]
+    tags: ["European Commission", "CERT-EU", "Trivy", "GitHub Actions", "CI/CD", "AWS", "cloud keys", "supply chain", "ShinyHunters", "TeamPCP", "KEV"]
+    pdf: "European_Commission_Cloud_Breach_2026_Case_Study.pdf"
+    pptx: "European_Commission_Cloud_Breach_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-02", "label": "Late February: attackers abuse a misconfigured Trivy GitHub Actions environment and extract a privileged access token"}
+      - {"date": "2026-03-01", "label": "The Trivy team discloses the first incident and rotates credentials; the rotation is not atomic"}
+      - {"date": "2026-03-19", "label": "Malicious Trivy v0.69.4 pushed; 76 of 77 trivy-action tags and all 7 setup-trivy tags moved to credential-stealing commits"}
+      - {"date": "2026-03-19", "label": "The attacker obtains a Commission AWS secret through the Trivy compromise, searches for more secrets and begins reconnaissance"}
+      - {"date": "2026-03-24", "label": "Commission CSOC alerts on Amazon API misuse, possible account compromise and abnormal traffic; incident response begins"}
+      - {"date": "2026-03-25", "label": "The Commission notifies CERT-EU, secures the AWS secret and disables the new access keys"}
+      - {"date": "2026-03-26", "label": "CISA adds CVE-2026-33634 to KEV"}
+      - {"date": "2026-03-27", "label": "Commission press release IP/26/748"}
+      - {"date": "2026-03-28", "label": "ShinyHunters publishes the dataset on its leak site: about 91.7 GB compressed, 340 GB uncompressed"}
+      - {"date": "2026-04-02", "label": "CERT-EU publishes its post-incident report"}
+      - {"date": "2026-07-02", "label": "FBI FLASH-20260702-01 on TeamPCP"}
+      - {"date": "2026-08-26", "label": "Two Western Australian men charged with 14 offences; the FBI calls them alleged TeamPCP members"}
   case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md:
     kind: "campaign"
     title: "Refrigeration-Controller Attacks on European Supermarkets and Blood Services, 2026: A Case Study"

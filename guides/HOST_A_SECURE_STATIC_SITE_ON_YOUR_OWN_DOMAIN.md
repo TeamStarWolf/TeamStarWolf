@@ -25,7 +25,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 12 min (2,854 words at 230 words a minute)
+About 13 min (2,886 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -209,7 +209,7 @@ When you need a little server-side logic (a form endpoint, an API that reads a d
 ## Rollback
 
 - To leave Cloudflare's edge but keep the domain: switch the nine records back to DNS only. The site serves straight from GitHub Pages with its own certificate; the Transform Rule stops applying.
-- To return to the github.io address: in the repository's Pages settings, remove the custom domain. The old address serves the site again within minutes. Leave the DNS records in place until you decide what the domain should do next, and keep the verification record.
+- To return to the github.io address: in the repository's Pages settings, remove the custom domain. The old address serves the site again within minutes. A project site you rebuilt with base `/` in Step 4 needs its base path of `/REPO/` back at the same time, or its scripts and styles return 404 at the old address. Leave the DNS records in place until you decide what the domain should do next, and keep the verification record.
 - To undo HSTS: set the max-age to 0 in the same rule or setting, and wait out the previous max-age on clients that already saw it. This is why the first max-age is short.
 
 ## Sources

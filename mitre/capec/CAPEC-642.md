@@ -45,6 +45,7 @@ Adversaries know that certain binaries will be regularly executed as part of nor
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [The Year 1994 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1994.md)
 
 <!-- library-refs:end -->
 

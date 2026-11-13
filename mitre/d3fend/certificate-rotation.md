@@ -28,6 +28,7 @@ Certificate rotation involves replacing digital certificates and their private k
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [The Cisco Catalyst SD-WAN Authentication Bypass of 2026 (CVE-2026-20127) and UAT-8616: A Case Study](/case-studies/CISCO_SDWAN_CVE_2026_20127.md)
 - [The eMudhra Certificate Authority Key Compromise: A 2026 Case Study](/case-studies/EMUDHRA_CA_COMPROMISE_2026.md)
 - [The FireEye Mandiant Intrusion of 2020: The Public Record](/case-studies/MANDIANT_INTRUSION_2020.md)
 

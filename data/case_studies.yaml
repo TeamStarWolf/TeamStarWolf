@@ -1514,6 +1514,32 @@ studies:
       - {"date": "2026-04-03", "label": "FBI spokesperson: access was obtained through a third party; target phone numbers likely exposed (Reported)"}
       - {"date": "2026-04-06", "label": "Later notice per Bloomberg: forensics and remediation ongoing, a working group created, no actor named (Reported)"}
       - {"date": "2026-11-11", "label": "No hearing, IG report, formal attribution or joint advisory found; the Intelligence Hub feed has no row for the incident"}
+  case-studies/FORTINET_FORTICLOUD_SSO_CVE_2026_24858.md:
+    kind: "vulnerability"
+    title: "The FortiCloud SSO Authentication Bypass of 2026 (CVE-2026-24858): A Case Study"
+    start: "2025-12"
+    end: "2026-11"
+    core_start: "2026-01-15"
+    core_end: "2026-01-30"
+    sectors: ["cross-sector", "technology"]
+    cves: ["CVE-2026-24858", "CVE-2025-59718", "CVE-2025-59719", "CVE-2022-40684", "CVE-2024-55591", "CVE-2025-24472", "CVE-2022-42475", "CVE-2025-61624", "CVE-2025-53847"]
+    actors: []
+    tags: ["Fortinet", "FortiGate", "FortiOS", "FortiCloud", "single sign-on", "authentication bypass", "edge device", "firewall", "configuration theft", "KEV"]
+    pdf: "Fortinet_FortiCloud_SSO_CVE_2026_24858_Case_Study.pdf"
+    pptx: "Fortinet_FortiCloud_SSO_CVE_2026_24858_Case_Study.pptx"
+    events:
+      - {"date": "2025-12-09", "label": "Fortinet FG-IR-25-647 discloses CVE-2025-59718 and CVE-2025-59719, a FortiCloud SSO bypass via a crafted SAML message"}
+      - {"date": "2025-12-12", "label": "Arctic Wolf sees malicious FortiGate SSO logins and configuration exports three days after the advisory (Reported)"}
+      - {"date": "2025-12-16", "label": "KEV adds CVE-2025-59718, due 23 Dec 2025"}
+      - {"date": "2026-01-15", "label": "Arctic Wolf first sees a new cluster: SSO logins to admin accounts, configuration export, new accounts, VPN changes (Reported)"}
+      - {"date": "2026-01-21", "label": "Arctic Wolf publishes; the initial access method is not yet confirmed (Reported)"}
+      - {"date": "2026-01-22", "label": "Fortinet PSIRT blog: exploitation on fully upgraded devices points to a new attack path; two FortiCloud accounts locked out"}
+      - {"date": "2026-01-26", "label": "Fortinet disables FortiCloud SSO on the FortiCloud side"}
+      - {"date": "2026-01-27", "label": "CVE-2026-24858 and FG-IR-26-060 published; SSO re-enabled refusing vulnerable versions; KEV adds it, due 30 Jan"}
+      - {"date": "2026-01-28", "label": "CISA alert on Fortinet's guidance; third-party SAML IdPs and FortiAuthenticator stated not affected"}
+      - {"date": "2026-01-30", "label": "Advisory updated with the last release updates; KEV due date for federal civilian agencies"}
+      - {"date": "2026-03-10", "label": "Siemens SSA-975644 lists the CVE for the Fortinet NGFW on RUGGEDCOM APE1808"}
+      - {"date": "2026-05-12", "label": "SSA-975644 V1.1 adds two other Fortinet CVEs on the same platform"}
   case-studies/GHOSTCAT_CVE_2020_1938.md:
     kind: "vulnerability"
     title: "Ghostcat, CVE-2020-1938: The Tomcat AJP File Read in the Lab"

@@ -365,6 +365,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 10 February 2026: KEV adds CVE-2026-21514, a Word flaw with the same CWE-807
   - 16 February 2026: KEV due date for federal agencies
   - 10 March 2026: ESET ties the January campaigns to Sednit's Covenant (Reported)
+- [The FortiCloud SSO Authentication Bypass of 2026 (CVE-2026-24858): A Case Study](/case-studies/FORTINET_FORTICLOUD_SSO_CVE_2026_24858.md). Vulnerability, December 2025 to November 2026 (core: 15 January 2026 to 30 January 2026). Sectors: cross-sector, technology. CVEs: CVE-2026-24858, CVE-2025-59718, CVE-2025-59719, CVE-2022-40684, CVE-2024-55591, CVE-2025-24472 and 3 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Fortinet_FortiCloud_SSO_CVE_2026_24858_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Fortinet_FortiCloud_SSO_CVE_2026_24858_Case_Study.pptx).
+  - 9 December 2025: Fortinet FG-IR-25-647 discloses CVE-2025-59718 and CVE-2025-59719, a FortiCloud SSO bypass via a crafted SAML message
+  - 12 December 2025: Arctic Wolf sees malicious FortiGate SSO logins and configuration exports three days after the advisory (Reported)
+  - 16 December 2025: KEV adds CVE-2025-59718, due 23 Dec 2025
+  - 15 January 2026: Arctic Wolf first sees a new cluster: SSO logins to admin accounts, configuration export, new accounts, VPN changes (Reported)
+  - 21 January 2026: Arctic Wolf publishes; the initial access method is not yet confirmed (Reported)
+  - 22 January 2026: Fortinet PSIRT blog: exploitation on fully upgraded devices points to a new attack path; two FortiCloud accounts locked out
+  - 26 January 2026: Fortinet disables FortiCloud SSO on the FortiCloud side
+  - 27 January 2026: CVE-2026-24858 and FG-IR-26-060 published; SSO re-enabled refusing vulnerable versions; KEV adds it, due 30 Jan
+  - 28 January 2026: CISA alert on Fortinet's guidance; third-party SAML IdPs and FortiAuthenticator stated not affected
+  - 30 January 2026: Advisory updated with the last release updates; KEV due date for federal civilian agencies
+  - 10 March 2026: Siemens SSA-975644 lists the CVE for the Fortinet NGFW on RUGGEDCOM APE1808
+  - 12 May 2026: SSA-975644 V1.1 adds two other Fortinet CVEs on the same platform
 - [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md). Period record, January to November 2026. Sectors: cross-sector, government, technology, energy, healthcare, finance, retail, education, defense, transport. CVEs: CVE-2008-0015, CVE-2008-4128, CVE-2008-4250, CVE-2015-3306, CVE-2015-5477, CVE-2016-3081 and 65 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2026_Case_Study.pptx).
   - 23 January 2026: ESET ties DynoWiper, used against a Polish energy company on 29 Dec 2025, to Sandworm with medium confidence
   - 25 February 2026: Talos: Cisco Catalyst SD-WAN CVE-2026-20127 exploited as a zero-day back to at least 2023; CISA issues ED 26-03

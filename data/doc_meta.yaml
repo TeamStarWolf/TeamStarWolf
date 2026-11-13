@@ -2553,6 +2553,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
     pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Telecom and 5G Security Reference](/TELECOM_5G_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Threat Actors: China](/case-studies/THREAT_ACTORS_CHINA.md)"
     reviewed: null
+  case-studies/FORTINET_FORTICLOUD_SSO_CVE_2026_24858.md:
+    audience: "Firewall, network and edge-device teams that run FortiGate or other Fortinet products, identity and SSO owners, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run Fortinet devices registered to FortiCloud, you need the dated record of CVE-2026-24858 and the January 2026 SSO abuse, or you want to decide how to patch, scope and hunt after an edge-device login bypass that a previous patch did not close"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Fortinet](/platforms/fortinet.md)"
+    reviewed: null
   case-studies/GHOSTCAT_CVE_2020_1938.md:
     audience: "Vulnerability management leads, Apache Tomcat administrators and security engineers"
     level: "Intermediate"

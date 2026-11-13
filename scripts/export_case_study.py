@@ -167,6 +167,7 @@ EXPORT_NAMES = {
     "SMARTERTOOLS_SMARTERMAIL_2026": "SmarterTools_SmarterMail_2026",
     "ATF_MAJOR_INCIDENT_2026": "ATF_Major_Incident_2026",
     "CURSOR_EXTENSION_TROJAN_2026": "Cursor_Extension_Trojan_2026",
+    "NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026": "Notepad_Plus_Plus_Update_Hijack_2026",
 }
 
 

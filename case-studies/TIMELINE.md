@@ -516,6 +516,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 19 July 2025: Microsoft ships out-of-band updates, 19 to 20 July
   - 20 July 2025: CISA adds CVE-2025-53770 to the KEV catalog
   - September 2025: Warlock's leak site lists roughly 60 victims
+- [The Notepad++ Update-Channel Hijack (CVE-2025-15556): A Case Study](/case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md). Incident, June 2025 to November 2026 (core: June 2025 to February 2026). Sectors: technology, government, finance. CVEs: CVE-2025-15556. ATT&CK groups: G0030 Lotus Blossom. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Notepad_Plus_Plus_Update_Hijack_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Notepad_Plus_Plus_Update_Hijack_2026_Case_Study.pptx).
+  - June 2025: Incident begins, per the vendor's estimate (Reported)
+  - July 2025: Late July to early August: Kaspersky chain 1, an update launched by the updater leads to Cobalt Strike (Reported)
+  - 2 September 2025: Hosting provider says attackers lost access to the shared server (Reported)
+  - October 2025: Kaspersky chain 3: DLL sideloading delivers the Chrysalis backdoor (Reported)
+  - 18 November 2025: v8.8.8 addresses a potential WinGUp hijacking issue and advises a manual upgrade
+  - 2 December 2025: Attacker-held credentials stop working; the vendor's estimated end of the compromise (Reported)
+  - 9 December 2025: v8.8.9 aborts updates whose installer fails certificate and signature checks
+  - 2 February 2026: Vendor incident post, VulnCheck advisory and Rapid7 report (Lotus Blossom, moderate confidence)
+  - 3 February 2026: CVE-2025-15556 published and in NVD; Kaspersky report
+  - 5 February 2026: Vendor clarification: Notepad++ itself was not hacked
+  - 12 February 2026: CISA adds CVE-2025-15556 to KEV, due 5 March 2026
+  - 16 February 2026: v8.9.2 signs and verifies the update metadata
 - [The Year 2025 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2025.md). Period record, January to December 2025. Sectors: cross-sector, government, technology, telecommunications, finance, retail, manufacturing, energy, healthcare, transport, media. CVEs: CVE-2009-3960, CVE-2010-2861, CVE-2018-0171, CVE-2018-13379, CVE-2019-0604, CVE-2023-20198 and 53 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0027 Threat Group-3390, G0035 Dragonfly, G0125 HAFNIUM, G0128 ZIRCONIUM and 9 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2025_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2025_Case_Study.pptx).
   - 14 January 2025: Fortinet: FortiOS and FortiProxy authentication bypass CVE-2024-55591 exploited in the wild; KEV the same day, with known ransomware use
   - 21 February 2025: About US$1.5 billion in virtual assets stolen from Bybit; the FBI's PSA of 26 Feb attributes the theft to North Korea

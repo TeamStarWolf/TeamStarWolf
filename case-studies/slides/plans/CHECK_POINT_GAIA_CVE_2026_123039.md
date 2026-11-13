@@ -24,7 +24,7 @@ Stat: 4 | Release lines with a fixed Take
 Stat: 2 | End-of-support lines with no fix
 - Weaknesses: CWE-862 Missing Authorization and CWE-732 Incorrect Permission Assignment.
 - Exploited against "a couple of dozen customers" (vendor).
-- Not in KEV catalog version 2026.11.10, still current on 13 November.
+- Added to KEV on 13 November 2026 (catalog 2026.11.13), due 16 November under BOD 26-04.
 Notes: Score and CWEs [1][2]. Waves [5]. Fixed Takes and end of support [3][20]. Count [3]. KEV [7].
 
 ## PART 1 | A root daemon that never asks who is calling
@@ -99,7 +99,7 @@ Notes: Capabilities [5]. Name resemblance and the restore lesson Inferred from [
 Caption: Shared keys prove shared tools, not shared operators (Inferred).
 Notes: Lineage and scenarios [5]. ESET [12][13]. The Armory Castle name appears only in news reports (Reported) [44][45].
 
-## PART 5 | Five Check Point flaws in KEV, and one more waiting
+## PART 5 | Six Check Point flaws in KEV
 
 | CVE | Surface | KEV |
 |---|---|---|
@@ -108,8 +108,8 @@ Notes: Lineage and scenarios [5]. ESET [12][13]. The Armory Castle name appears 
 | CVE-2026-16232 | SmartConsole login bypass | 22 Jul 2026 |
 | CVE-2026-85102 | VPN certificate validation, RCE | 22 Sep 2026 |
 | CVE-2026-93616 | Management path traversal | 22 Sep 2026 |
-| CVE-2026-123039 | Gaia DynamicCLI root | Not yet |
-Caption: KEV rows Confirmed from the catalog version 2026.11.10.
+| CVE-2026-123039 | Gaia DynamicCLI root | 13 Nov 2026 |
+Caption: KEV rows Confirmed from the catalog version 2026.11.13.
 Notes: KEV [7]. Records [23][25][26][29]. CVE-2026-50751 has its own study [51].
 
 ## PART 6 | Score the chain, not the CVE

@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 48 min (10,992 words at 230 words a minute)
+About 48 min (11,090 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -75,7 +75,7 @@ The attribution is open. TSGA and TSProxy are modified variants of PhiliKit, an 
 | Fixed | Jumbo Hotfix Accumulator R82.20 Take 14, R82.10 Take 52, R82 Take 132, R81.20 Take 174. R81.10 and R81 (end of support): affected, no fixed Take [3] |
 | Disclosed | CVE reserved 5 Nov 2026; sk1000362 created 8 Nov; CVE published 12 Nov 2026 14:02 UTC [1] [3] |
 | Exploited | Yes: "a couple of dozen customers" (vendor) [3]; exploited in the wild, per Check Point as relayed by the Canadian Centre for Cyber Security [6] |
-| KEV | Not listed in catalog version 2026.11.10, which predates publication. PHP2Shell pair added 26 Oct 2026 [7] |
+| KEV | Added 13 Nov 2026 in catalog version 2026.11.13, due 16 Nov 2026 under BOD 26-04, ransomware use Unknown; the PHP2Shell pair was added 26 Oct 2026 [7] |
 | Campaign | Wave 1, 30 Oct 2026: Israeli organizations, destructive at some. Wave 2, 2 Nov 2026: multiple countries and sectors, no destruction reported [5] |
 | Chain | PHP2Shell on Mobile Access portals, then CVE-2026-123039 to root, then web shells, TSGA and TSProxy, gogo scanning, SSH to ESXi as vpxuser, destroy_v6 wiper [5] |
 | Attribution | Tooling lineage to PhiliKit (ESET: UNC5221); CPR makes no high-confidence assessment [5] [12] |
@@ -100,7 +100,7 @@ The attribution is open. TSGA and TSProxy are modified variants of PhiliKit, an 
 5. Hunt on every gateway and cluster member: the DynamicCLI log as sk1000362 describes, the CPR file names and hashes, web shells in the portal template directory, the TSGA listening port and the two attacker addresses [3] [5] (**Confirmed**).
 6. If you find anything, rebuild from a clean image of a fixed release rather than a backup or snapshot taken after compromise. Rotate credentials and certificates, re-issue VPN trust and check every ESXi host the gateway could reach (**Inferred** from [5] [40]).
 7. Break the path from firewall to hypervisor: ESXi SSH off, lockdown mode on, and a management network the gateway cannot reach [37] (**Confirmed** for the ESXi controls; the design **Inferred**).
-8. Do not wait for KEV. The vendor says the flaw is exploited, the Canadian Centre relays that, and the KEV catalog version current on 13 November did not list it [3] [6] [7] (**Confirmed**).
+8. Treat the KEV deadline as the floor, not the trigger. The vendor said the flaw was exploited on 12 November, the Canadian Centre relayed that the same day, and CISA added it to KEV on 13 November with a 16 November due date under BOD 26-04 [3] [6] [7] (**Confirmed**).
 
 ## Scope and method
 
@@ -116,7 +116,7 @@ This is not a lab study. Nothing was reproduced. Tradecraft is described at the 
 
 The primary record is the CVE record [1], sk1000362 [3] and the CPR report [5]. The Team Star Wolf Intelligence Hub feed served as a starting index of dated headlines; no fact here rests on it [52]. The press is secondary. Where a news report says more than the primaries, the extra claim is graded Reported and attributed.
 
-Not checked: the body of sk144112, which needs a login, so the list of Dynamic CLI commands the mitigation disables is not known here [4]; KEV status after 13 November 2026 [7]; national CERT notices other than the Canadian Centre, CSIRT Italia and CERT-EU, including NCSC UK, ACSC, BSI, JPCERT and the Israel National Cyber Directorate; Dream Security's own write-up of the Palo Alto Networks intrusions beyond the post cited [31]; and any primary source on EDR support for Gaia. No victim is named in any source opened for this study.
+Not checked: the body of sk144112, which needs a login, so the list of Dynamic CLI commands the mitigation disables is not known here [4]; national CERT notices other than the Canadian Centre, CSIRT Italia and CERT-EU, including NCSC UK, ACSC, BSI, JPCERT and the Israel National Cyber Directorate; Dream Security's own write-up of the Palo Alto Networks intrusions beyond the post cited [31]; and any primary source on EDR support for Gaia. No victim is named in any source opened for this study.
 
 ## Part 1: the vulnerability record
 
@@ -140,7 +140,7 @@ The prerequisite matters. sk1000362 says exploitation requires the attacker to a
 | CNA score | CVSS 3.1 7.8 High, CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H | [1] | Confirmed |
 | NVD | Published 2026-11-12T14:17:24, last modified 20:04:52, "Awaiting Analysis". Carries only the CNA's (Secondary) score and CWEs; no NVD score, no CPE configuration | [2] | Confirmed |
 | sk1000362 | Created 2026-11-08, last modified 2026-11-12, CVSS 7.8 | [3] | Confirmed |
-| CISA KEV | Not in catalog version 2026.11.10 (released 2026-11-10, before publication); still the current version on 13 Nov | [7] | Confirmed |
+| CISA KEV | Added 13 Nov 2026 in catalog version 2026.11.13 (the 2026.11.10 version, current at publication, did not list it); due 16 Nov 2026; required action under BOD 26-04 with forensic triage; ransomware use Unknown | [7] | Confirmed |
 | Canadian Centre | AV26-1154, 12 Nov 2026: Check Point indicates CVE-2026-123039 is exploited in the wild | [6] | Confirmed |
 
 ### Products and versions
@@ -209,7 +209,7 @@ Check Point published CVE-2026-107484 at 14:01 UTC on 12 November 2026, one minu
 | 9 Nov 2026 | CSIRT Italia AL05/261109 on Check Point PHP2Shell updates marks exploitation present; it does not mention CVE-2026-123039 | [9] | Confirmed |
 | 10 Nov 2026 | KEV catalog version 2026.11.10 released, without CVE-2026-123039 | [7] | Confirmed |
 | 12 Nov 2026 | CVE-2026-107484 published (14:01 UTC) and CVE-2026-123039 published (14:02 UTC). NVD receives the record (14:17). CPR publishes its report. sk1000362 last modified. Canadian Centre issues AV26-1154 | [1] [2] [3] [5] [6] [8] | Confirmed |
-| 13 Nov 2026 | Press coverage. NVD still "Awaiting Analysis"; KEV still at 2026.11.10; no Sigma rule for the campaign in the SigmaHQ repository | [2] [7] [41] [42] [43] [44] [46] | Confirmed / Reported |
+| 13 Nov 2026 | Press coverage. NVD still "Awaiting Analysis"; CISA adds CVE-2026-123039 to KEV in catalog version 2026.11.13, due 16 Nov under BOD 26-04; no Sigma rule for the campaign in the SigmaHQ repository | [2] [7] [41] [42] [43] [44] [46] | Confirmed / Reported |
 
 **Reading the dates.** Exploitation of CVE-2026-123039 happened no later than the waves of 30 October and 2 November. The CVE was reserved on 5 November and the support article created on 8 November. The flaw was therefore exploited before any fix or public record existed [1] [3] [5] (**Inferred**). BleepingComputer says exploitation began in late October [42] (**Reported**), which agrees.
 
@@ -323,7 +323,7 @@ The Hacker News writes that ESET first documented PhiliKit in June 2026 and attr
 
 ### Check Point's exploited-flaw record
 
-BleepingComputer reports that CISA has added five Check Point flaws to KEV over the past two years [42] (**Reported**). The KEV catalog confirms five: CVE-2024-24919, CVE-2026-50751, CVE-2026-16232, CVE-2026-85102 and CVE-2026-93616 [7] (**Confirmed**).
+BleepingComputer reports that CISA has added five Check Point flaws to KEV over the past two years [42] (**Reported**). The KEV catalog confirms five at that point: CVE-2024-24919, CVE-2026-50751, CVE-2026-16232, CVE-2026-85102 and CVE-2026-93616; CVE-2026-123039 became the sixth on 13 November 2026 [7] (**Confirmed**).
 
 | CVE | Surface | Weakness and score | KEV | Sources |
 |---|---|---|---|---|
@@ -335,11 +335,11 @@ BleepingComputer reports that CISA has added five Check Point flaws to KEV over 
 | CVE-2026-85103 | Heap overflow in VPN certificate ASN.1 decoding, also affects Security Management | CVSS 9.8 (CERT-EU) | Not in the catalog version read | [11] [7] |
 | CVE-2026-91843 | Stack overflow in the login process of Security Management and Log Servers (sk1000155); no exploitation statement | not checked | Not listed | [28] |
 | CVE-2026-107484 | Gaia Portal backend handlers, authenticated privilege escalation (sk1000291); no exploitation statement | CWE-269 | Not listed | [8] [6] |
-| CVE-2026-123039 | Gaia DynamicCLI local privilege escalation to root | CWE-862, CWE-732, CVSS 3.1 7.8 | Not in catalog 2026.11.10 | [1] [7] |
+| CVE-2026-123039 | Gaia DynamicCLI local privilege escalation to root | CWE-862, CWE-732, CVSS 3.1 7.8 | 13 Nov 2026, due 16 Nov | [1] [7] |
 
 CERT-EU 2026-012 pairs CVE-2026-85102 with CVE-2026-85103, but the exploited and KEV-listed September pair is CVE-2026-85102 with CVE-2026-93616. The two pairs should not be merged [7] [11] [29] (**Confirmed**). The CVE-2026-50751 story is told in full in [its home study](/case-studies/CHECK_POINT_VPN_CVE_2026_50751.md): first exploitation traced to 7 May 2026, a fix on 8 June, and a same-day KEV entry with ransomware use Known [26] [51] [7] (**Confirmed**).
 
-Three of the five KEV entries are on the gateway's remote-access path (CVE-2024-24919, CVE-2026-50751, CVE-2026-85102) and two are on the management plane (CVE-2026-16232, CVE-2026-93616). CVE-2026-123039 adds root on the box that sits behind an exposed Mobile Access portal (**Inferred** from [7]).
+Three of the earlier five KEV entries are on the gateway's remote-access path (CVE-2024-24919, CVE-2026-50751, CVE-2026-85102) and two are on the management plane (CVE-2026-16232, CVE-2026-93616). The sixth, CVE-2026-123039, adds root on the box that sits behind an exposed Mobile Access portal (**Inferred** from [7]).
 
 ### End of support is a security state
 
@@ -359,7 +359,7 @@ CVE-2026-50751 still got an R81.10 fix (Take 187) in June 2026, three months aft
 | Citrix NetScaler | CVE-2026-88771, CVE-2026-88772; CVE-2026-88779 | 27 Sep; 4 Oct 2026 | [Citrix NetScaler September 2026](/case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md) |
 | Ivanti Connect Secure | CVE-2026-104935; CVE-2026-111357, CVE-2026-118527 | 13 Oct; 30 Oct 2026 | [Ivanti Connect Secure 2026](/case-studies/IVANTI_CONNECT_SECURE_2026.md) |
 | PHP2Shell (on PAN-OS and Check Point) | CVE-2026-109618, CVE-2026-109619 | 26 Oct 2026 | [PHP2Shell October 2026](/case-studies/PHP2SHELL_OCTOBER_2026.md) |
-| Check Point Gaia | CVE-2026-123039 | not in 2026.11.10 | this study |
+| Check Point Gaia | CVE-2026-123039 | 13 Nov 2026 | this study |
 
 KEV dates come from the catalog [7] (**Confirmed**). In each row the first hop is an internet-facing appliance with its own Linux userland and its own web or management stack. Where a root step is described, it is a local flaw in the appliance's own plumbing: Fragnesia on PAN-OS, CVE-2026-111357 on Ivanti Connect Secure, DynamicCLI on Gaia. These are platforms where EDR coverage is usually absent (**Inferred** from [5] [7] [31]).
 
@@ -371,7 +371,7 @@ What is new in this campaign is the route: not an exposed ESXi service, but a fi
 
 ## Part 6: the vulnerability-management view
 
-**KEV lag.** CVE-2026-123039 was not in KEV catalog version 2026.11.10, released on 10 November, two days before the CVE existed publicly [7] (**Confirmed**). Catalog version 2026.11.10 was still the current version when the feed was opened on 13 November; any later update was not checked. The vendor says it is exploited and the Canadian Centre repeats it [3] [6] (**Confirmed**). A patch queue driven only by KEV would not have surfaced it on 13 November (**Inferred**).
+**KEV lag.** CVE-2026-123039 was not in KEV catalog version 2026.11.10, released on 10 November, two days before the CVE existed publicly [7] (**Confirmed**). CISA added it in catalog version 2026.11.13, one day after publication, with a 16 November due date under BOD 26-04 [7] (**Confirmed**). The vendor said it was exploited and the Canadian Centre repeated it on 12 November [3] [6] (**Confirmed**). A patch queue driven only by KEV would have surfaced it one day after the vendor did, and the three-day due date shows how little room that day leaves (**Inferred**).
 
 **The score.** The CNA scored it 7.8 with a local attack vector [1] (**Confirmed**). That is consistent with the vendor's prerequisite of prior local code execution [3] (**Inferred**). In this chain PHP2Shell supplied that execution remotely, so the score understates real-world severity on any gateway with an exposed Mobile Access portal (**Inferred** from [1] [3] [5]). Treat the pair as one remote root chain when prioritizing (**Inferred**).
 
@@ -550,7 +550,7 @@ All sources were opened on 13 November 2026.
 | 4 | Check Point support article sk144112, Dynamic CLI: Enhancing Gaia Clish with new Expert mode commands (public header; body needs a login) | [support.checkpoint.com/results/sk/sk144112](https://support.checkpoint.com/results/sk/sk144112) | 2026-11-13 | Confirmed |
 | 5 | Check Point Research, PHP2Shell Exploitation on Check Point Gateway, 12 Nov 2026 | [research.checkpoint.com/2026/php2shell-exploitation-on-check-point-gateway/](https://research.checkpoint.com/2026/php2shell-exploitation-on-check-point-gateway/) | 2026-11-13 | Confirmed (attribution is the vendor's assessment) |
 | 6 | Canadian Centre for Cyber Security, Check Point security advisory AV26-1154, 12 Nov 2026 | [cyber.gc.ca/en/alerts-advisories/check-point-security-advisory-av26-1154](https://cyber.gc.ca/en/alerts-advisories/check-point-security-advisory-av26-1154) | 2026-11-13 | Confirmed |
-| 7 | CISA, Known Exploited Vulnerabilities catalog JSON, catalog version 2026.11.10 | [cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 2026-11-13 | Confirmed |
+| 7 | CISA, Known Exploited Vulnerabilities catalog JSON, catalog version 2026.11.13 (the 2026.11.10 version was current at publication; the feed was opened again after the 13 Nov release) | [cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 2026-11-13 | Confirmed |
 | 8 | CVE Program record CVE-2026-107484 (CNA Check Point) | [cveawg.mitre.org/api/cve/CVE-2026-107484](https://cveawg.mitre.org/api/cve/CVE-2026-107484) | 2026-11-13 | Confirmed |
 | 9 | ACN / CSIRT Italia, alert AL05/261109, Check Point: aggiornamenti e mitigazioni per le vulnerabilità "PHP2Shell", 9 Nov 2026 | [acn.gov.it/portale/w/check-point-aggiornamenti-e-mitigazioni-per-le-vulnerabilita-php2shell-](https://www.acn.gov.it/portale/w/check-point-aggiornamenti-e-mitigazioni-per-le-vulnerabilita-php2shell-) | 2026-11-13 | Confirmed |
 | 10 | CERT-EU, security advisories index (including 2026-018, 23 Oct 2026) | [cert.europa.eu/publications/security-advisories/](https://cert.europa.eu/publications/security-advisories/) | 2026-11-13 | Confirmed |

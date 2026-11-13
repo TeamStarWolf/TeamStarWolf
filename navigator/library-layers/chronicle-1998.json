@@ -1,0 +1,300 @@
+{
+  "name": "TeamStarWolf - The Year 1998 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 1998 record supports: the thirteen CERT/CC advisories CA-1998-01 to CA-1998-13 (smurf floods, the BIND, NIS+, qpopper, IMAP, ToolTalk and mountd overflows, the MIME client overflow and the BSD stack crashes), the seven incident notes IN-98.01 to IN-98-07 (IRIX default-account sweeps, the mscan scanner, the 186,126-account password haul, scripted mountd attacks and Remote Explorer), the Microsoft bulletins of the year with MS98-010 on Back Orifice and cDc's own release pages, the F-Secure descriptions of CIH and Marburg, and the 2017 Moonlight Maze research on the HRTest relay and LOKI2. No 1998 source prints an ATT&CK id: every entry is this study's later mapping. Each comment names source numbers from case-studies/CHRONICLE_1998.md. Scores: 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Sniffed passwords on the compromised host (IN-98.03, 16 Jul); Moonlight Maze sniffers (1998 to 1999); Solar Sunrise sniffer implants (Feb, Reported) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [2][73][31] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "Sniffed passwords on the compromised host (IN-98.03, 16 Jul); Moonlight Maze sniffers (1998 to 1999); Solar Sunrise sniffer implants (Feb, Reported) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [2][73][31] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "Portmapper (TCP 111) scans and Linux fingerprinting (IN-98-06, 9 Dec) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Back Orifice keystroke logging (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [22][23][19] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Back Orifice keystroke logging (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [22][23][19] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "CDE dtappgather (CA-1998-02, 21 Jan); sechole (MS98-009, 27 Jul) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [1][18] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Automated logins to unpassworded guest, lp and demos (IN-98.01, 13 May) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Automated logins to unpassworded guest, lp and demos (IN-98.01, 13 May) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Automated logins to unpassworded guest, lp and demos (IN-98.01, 13 May) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Automated logins to unpassworded guest, lp and demos (IN-98.01, 13 May) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1080",
+      "tactic": "lateral-movement",
+      "score": 40,
+      "comment": "Remote Explorer infects files across the network (IN-98-07) (basis: Inferred; a later mapping, since no 1998 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Moonlight Maze operators relay through hacked servers, including HRTest (late 1998 to Mar 1999) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [72][73] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1095",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "LOKI2 tunnelling through protocols such as ICMP (samples 1997 to 1999) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [73] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Back Orifice remote file transfer (MS98-010) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [19] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1110.002",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "47,642 of 186,126 collected passwords cracked (IN-98.03, 16 Jul) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Back Orifice screen capture (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [22][19] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "Remote Explorer impersonates later logons, including domain administrators (IN-98-07) (basis: Inferred; a later mapping, since no 1998 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "Remote Explorer impersonates later logons, including domain administrators (IN-98-07) (basis: Inferred; a later mapping, since no 1998 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "qpopper (14 Jul), ToolTalk (31 Aug / 3 Sep), mountd (12 Oct) exploited; BIND (8 Apr); RDS DataFactory (MS98-004, 14 Jul; compromises reported in IN-99-08); Solar Sunrise (Feb, Reported); Max Butler's worm (Jun, Reported) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [1][16][3][31][34] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "CIH on cover CDs, a download and a firmware updater; Marburg on cover CDs and a game master CD (Jul to Aug) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [25][26] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 40,
+      "comment": "MIME-aware mail client overflow (CA-1998-10, 11 Aug; MS98-008, 27 Jul); a flaw with no exploitation reported at publication (basis: Inferred; a later mapping, since no 1998 source prints an ATT&CK id). Sources [1][17] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Back Orifice requires the user to install it and was typically sent as an e-mail attachment (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [19][24] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Back Orifice (announced 21 Jul, released 1 Aug; MS98-010, 4 Aug) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [22][23][19] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "CIH overwrites hard-disk data (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [25][3] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1495",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "CIH tries to overwrite the flash BIOS (found Jun 1998; payload dated 26 Apr 1999) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [25][3] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1498.001",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "Spoofed-source floods RFC 2267 targets (Jan) (basis: Inferred; a later mapping, since no 1998 source prints an ATT&CK id). Sources [61][1] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1498.002",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Smurf floods through broadcast addresses (CA-1998-01, 5 Jan) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [1][4] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1499.004",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Crafted packet sequences crash BSD-derived stacks (CA-1998-13, 21 Dec) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Remote Explorer installs itself as an NT service (IN-98-07, 22 Dec) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Remote Explorer installs itself as an NT service (IN-98-07, 22 Dec) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1555",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Back Orifice retrieval of cached passwords (the store is not named) (basis: Inferred; a later mapping, since no 1998 source prints an ATT&CK id). Sources [23] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1584.004",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "The HRTest relay, a compromised UK Solaris server (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [72][73] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1588.005",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "Moonlight Maze binaries borrowing exploits from forums and mailing lists (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [73] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1595.001",
+      "tactic": "reconnaissance",
+      "score": 70,
+      "comment": "tcpmux sweeps for IRIX (IN-98.01, 13 May); inverse mapping (IN-98.04, 29 Sep) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 70,
+      "comment": "mscan (IN-98.02, 2 Jul); large-scale mountd scans (CA-1998-12, 12 Oct); scripted scans (IN-98-06, 9 Dec); Solar Sunrise probes (Feb, Reported) (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [2][3][1][31] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    },
+    {
+      "techniqueID": "T1685.006",
+      "tactic": "defense-impairment",
+      "score": 70,
+      "comment": "The utmp log cleaner added to LOKI2 (basis: Described; a later mapping, since no 1998 source prints an ATT&CK id). Sources [73] refer to the Sources table of case-studies/CHRONICLE_1998.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8"
+    ],
+    "minValue": 40,
+    "maxValue": 70
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_1998.md (sources opened 12 and 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "29"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "36"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 1998 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_1998.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

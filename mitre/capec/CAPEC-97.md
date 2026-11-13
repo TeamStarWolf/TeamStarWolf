@@ -57,6 +57,7 @@ Hand-written pages in this library that link to this page or to this object's en
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 - [Refrigeration-Controller Attacks on European Supermarkets and Blood Services, 2026: A Case Study](/case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md)
+- [The Year 1998 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1998.md)
 
 <!-- library-refs:end -->
 

@@ -59,6 +59,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [E-Commerce Threats: The Public Record, 1999 to 2026](/case-studies/ECOMMERCE_THREATS.md)
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
 - [The Ransomware Ecosystem: The Public Record, 2019 to 2026](/case-studies/RANSOMWARE_ECOSYSTEM.md)
+- [The Year 1998 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1998.md)
 - [The Year 2021 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2021.md)
 - [The Year 2023 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2023.md)
 - [The Year 2024 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2024.md)

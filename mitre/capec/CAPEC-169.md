@@ -64,6 +64,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The ConnectWise Cloud Backup Compromise of October 2026: A Case Study](/case-studies/CONNECTWISE_STORM_0940_2026.md)
 - [The Year 1993 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1993.md)
 - [The Year 1997 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1997.md)
+- [The Year 1998 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1998.md)
 
 <!-- library-refs:end -->
 

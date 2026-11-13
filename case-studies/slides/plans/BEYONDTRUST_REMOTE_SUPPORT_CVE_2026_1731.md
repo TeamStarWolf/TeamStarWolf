@@ -23,7 +23,7 @@ Stat: 9.8 | NVD CVSS v3.1 score
 Stat: 3 | Days KEV allowed to fix
 Stat: 6 | Threat clusters within a week (Google)
 - Affected: RS 25.3.1 and earlier; PRA 24.3.4 and earlier.
-- Fixed: RS 25.3.2 or later, PRA 25.1 or later, or the BT26-02 patches.
+- Fixed: RS 25.3.2 or later, PRA 25.1.1 or later (the advisory's table lists 25.1 and greater), or the BT26-02 patches.
 - Weakness: CWE-78, OS command injection.
 Notes: Scores [2][3]. KEV [5][6]. Clusters, Reported [15]. Versions [1][2]. CWE [2][6].
 
@@ -105,7 +105,7 @@ Notes: Auto-update and scope [1]. Ports, Reported [10]. Clusters [15]. KEV [6].
 ## DEFENDER VIEW | Patch, scope, then hunt
 
 Left: Fix the appliance
-- RS 25.3.2 or later, PRA 25.1 or later, or BT26-02.
+- RS 25.3.2 or later, PRA 25.1.1 or later (the advisory's table lists 25.1 and greater), or BT26-02.
 - Upgrade RS older than 21.3 and PRA older than 22.1 first.
 - Keep the update service on.
 - Patch CVE-2026-102764 too.

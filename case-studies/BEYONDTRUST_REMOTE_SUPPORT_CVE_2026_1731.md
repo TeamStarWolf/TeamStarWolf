@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 21 min (4,870 words at 230 words a minute)
+About 21 min (4,939 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -66,7 +66,7 @@ Self-hosted customers who had not patched were the ones exposed. BeyondTrust saw
 | Products | BeyondTrust Remote Support (RS) and certain older Privileged Remote Access (PRA) versions [1] [2] |
 | Flaw | Pre-authentication OS command injection running as the site user; CWE-78; CNA CVSS 4.0 9.9; NVD CVSS 3.1 9.8 [2] [3] |
 | Affected | RS 25.3.1 and earlier; PRA 24.3.4 and earlier [1] [2] |
-| Fixed | Patch BT26-02-RS (RS 21.3 to 25.3.1) or RS 25.3.2 and later; patch BT26-02-PRA (PRA 22.1 to 24.x) or PRA 25.1 and later [1] |
+| Fixed | Patch BT26-02-RS (RS 21.3 to 25.3.1) or RS 25.3.2 and later; patch BT26-02-PRA (PRA 22.1 to 24.x) or PRA 25.1.1 or later (the advisory's table lists 25.1 and greater) [1] |
 | Disclosed | Advisory BT26-02 and CVE, 6 Feb 2026; CVE reserved 31 Jan 2026 [1] [2] |
 | SaaS patched | 2 Feb 2026, automatically [1] |
 | First exploitation attempt | 10 Feb 2026, per BeyondTrust [1] |
@@ -84,7 +84,7 @@ Self-hosted customers who had not patched were the ones exposed. BeyondTrust saw
 
 ### Top recommendations
 
-1. Confirm every self-hosted RS and PRA appliance runs RS 25.3.2 or later, PRA 25.1 or later, or the BT26-02 patch, and upgrade RS older than 21.3 and PRA older than 22.1 before patching [1] (**Confirmed** as the vendor's guidance).
+1. Confirm every self-hosted RS and PRA appliance runs RS 25.3.2 or later, PRA 25.1.1 or later (the advisory's table lists 25.1 and greater), or the BT26-02 patch, and upgrade RS older than 21.3 and PRA older than 22.1 before patching [1] (**Confirmed** as the vendor's guidance).
 2. Keep the appliance update service on; it is the control that separated patched from exposed in this record [1] (**Inferred**).
 3. Treat any internet-facing self-hosted instance not patched by 9 February 2026 as possibly compromised: check it for signs of compromise as the KEV notes direct, and open a Severity 1 ticket citing BT26-02 [1] [6] (**Confirmed** as vendor and CISA guidance).
 4. Hunt for new domain or local administrator accounts, remote-management tools started by appliance processes, PsExec fan-out, Active Directory enumeration, out-of-band DNS lookups and web shells on the appliance [13] [14] (**Reported**).
@@ -138,7 +138,7 @@ All sources were opened on 11 November 2026. BeyondTrust's 3 February knowledge 
 ### Discrepancies in the record
 
 - **Two starting points on 31 January.** BeyondTrust's timeline begins with anomalous activity on one customer appliance, which an external researcher then confirmed and reported [1]; Hacktron's begins with its own discovery [8] [9] (**Confirmed**; Hacktron **Reported**). Neither says whether that activity was exploitation before disclosure, so this study does not assert it (**Inferred**).
-- **The PRA fixed version.** BeyondTrust gives PRA 25.1 and later as fixed [1], and NVD marks PRA below 25.1 as vulnerable [3] (**Confirmed**). Hacktron gives the first fixed PRA build as 25.1.1 [8] (**Reported**). The vendor's table is the one to use (**Inferred**).
+- **The PRA fixed version.** BT26-02's Fixed Versions table lists Privileged Remote Access 25.1 and greater, but the same advisory's mitigation text tells self-hosted PRA customers they may upgrade to 25.1.1 or a newer version [1] (**Confirmed**), so the inconsistency sits inside the vendor advisory itself. NVD marks PRA versions below 25.1 as vulnerable [3] (**Confirmed**). Hacktron gives the first fixed PRA build as 25.1.1 [8] (**Reported**). PRA 25.1.1 or later is the only version that meets every one of these statements, so it is the one to target (**Inferred**).
 - **The proof-of-concept date.** GreyNoise says 10 February [10]; the repository that NVD lists was created on 11 February UTC [11] (**Confirmed**). It may be a different repository or a time-zone difference (**Inferred**).
 - **Exposure counts.** Hacktron counted about 11,000 internet-exposed RS instances [8]; Unit 42 counted more than 16,400 that may be vulnerable [14] (**Reported**). The gap most likely reflects different telemetry and scope (**Inferred**).
 
@@ -153,7 +153,7 @@ All sources were opened on 11 November 2026. BeyondTrust's 3 February knowledge 
 
 **The mechanism, at advisory level.** The CNA describes a critical pre-authentication remote code execution flaw: with specially crafted requests, an unauthenticated remote attacker may run operating-system commands in the context of the site user [2] (**Confirmed**). CISA's decision record calls it automatable with total technical impact [2] (**Confirmed**). Unit 42 says earlier patches for the component reportedly added numeric checks that did not cover every case, and it places the 2024 and 2026 flaws in different execution paths: third-party PostgreSQL handling for CVE-2024-12356 and BeyondTrust's own code for CVE-2026-1731 [14] (**Reported**).
 
-**What the attackers did after.** In activity it ties to suspected exploitation, Arctic Wolf saw renamed SimpleHelp remote-management binaries started by Bomgar processes as SYSTEM, new domain accounts added to Domain Admins and Enterprise Admins, Active Directory computer discovery, PsExec used to push SimpleHelp, and Impacket SMB session setup on appliances confirmed to run vulnerable versions [13] (**Reported**). Unit 42 adds SparkRAT and VShell backdoors, attempted installs of SimpleHelp, AnyDesk and Cloudflare tunnels, PHP web shells in the China Chopper or AntSword style, out-of-band DNS callbacks to confirm code execution, and staging and theft of configuration files and a PostgreSQL dump [14] (**Reported**). Google lists privilege escalation, data exfiltration, SNOWLIGHT, SPARKRAT and cryptominers [15] (**Reported**).
+**What the attackers did after.** In activity it ties to suspected exploitation, Arctic Wolf saw renamed SimpleHelp remote-management binaries started by Bomgar processes as SYSTEM, new domain accounts added to Domain Admins and Enterprise Admins, Active Directory computer discovery, PsExec used to push SimpleHelp, and Impacket SMBv2 session setup early in affected environments, each of which had an appliance confirmed to run a vulnerable version [13] (**Reported**). Unit 42 adds SparkRAT and VShell backdoors, attempted installs of SimpleHelp, AnyDesk and Cloudflare tunnels, PHP web shells in the China Chopper or AntSword style, out-of-band DNS callbacks to confirm code execution, and staging and theft of configuration files and a PostgreSQL dump [14] (**Reported**). Google lists privilege escalation, data exfiltration, SNOWLIGHT, SPARKRAT and cryptominers [15] (**Reported**).
 
 **How it was found.** BeyondTrust credits Harsh Jaiswal and the Hacktron AI team and says Hacktron found the flaw through AI-enabled variant analysis [1] (**Confirmed**). Google later wrote that Hacktron's research agent found it on its own [15] (**Reported**).
 

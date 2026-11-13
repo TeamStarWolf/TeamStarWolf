@@ -1,0 +1,103 @@
+{
+  "name": "TeamStarWolf - CareCloud Medical-Records Breach March 2026 Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the CareCloud medical-records breach case study: the cloud account an unauthorized third party used inside one of CareCloud's AWS-hosted EHR environments from 10 to 16 March 2026, and the patient data taken from databases there. No source names ATT&CK ids, so every binding is the study's own reading. Score 100: a primary states the behavior and the technique fits directly. Score 60: a primary states the behavior and the fit is partial. Scores measure the strength of the tie to this record, not severity. The record names no entry method, malware, exfiltration channel or impact mechanism, so none is bound. Comments carry the study's source numbers.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: stated in a primary, direct fit",
+      "color": "#15803d"
+    },
+    {
+      "label": "60: stated in a primary, partial fit",
+      "color": "#86efac"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/CARECLOUD_BREACH_2026.md; ATT&CK v20.0 technique data"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 = stated in a primary, direct fit; 60 = stated in a primary, partial fit. No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The CareCloud Medical-Records Breach of March 2026: A Case Study",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/CARECLOUD_BREACH_2026"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Valid Accounts: Cloud Accounts. An unauthorized third party accessed one cloud account supporting the affected EHR environment, 10 to 16 March 2026 (Q2 and Q3 10-Qs; consumer notice). Sources: [3] [4] [8].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Valid Accounts: Cloud Accounts. An unauthorized third party accessed one cloud account supporting the affected EHR environment, 10 to 16 March 2026 (Q2 and Q3 10-Qs; consumer notice). Sources: [3] [4] [8].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Valid Accounts: Cloud Accounts. An unauthorized third party accessed one cloud account supporting the affected EHR environment, 10 to 16 March 2026 (Q2 and Q3 10-Qs; consumer notice). Sources: [3] [4] [8].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Valid Accounts: Cloud Accounts. An unauthorized third party accessed one cloud account supporting the affected EHR environment, 10 to 16 March 2026 (Q2 and Q3 10-Qs; consumer notice). Sources: [3] [4] [8].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1213.006",
+      "tactic": "collection",
+      "score": 60,
+      "comment": "Data from Information Repositories: Databases. The third party claimed to have exfiltrated data from databases in the environment (consumer notice); forensics determined exfiltration of PII and PHI (Q2 10-Q, 6 Aug 2026); a partial fit, since the database detail comes from the actor's claim. Sources: [3] [8].",
+      "enabled": true
+    }
+  ]
+}

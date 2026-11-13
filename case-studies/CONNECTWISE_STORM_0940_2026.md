@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 21 min (4,753 words at 230 words a minute)
+About 21 min (4,791 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -124,7 +124,8 @@ How the vendor-tenant credential was first obtained is not public; on 20 October
 | 19 Oct | Full reset of all accounts and credentials in the affected environment completed. Huntress: two tenants with post-compromise activity among more than 10,000 reviewed | [1] [3] | Confirmed |
 | 20 Oct | Initial access still under investigation by third-party specialists | [1] | Confirmed |
 | 21 Oct | Microsoft assesses that Storm-0940 was responsible, using ARTEX. Phased restoration begins at 12:45. At 22:00 ConnectWise says it "appears" a China state-aligned group was responsible | [1] [2] | Confirmed |
-| 22 Oct | CEO Manny Rivelo says AI lets attackers test connections at "machine speed" | [12] | Reported |
+| 21 Oct, 22:00 | ConnectWise says AI now lets attackers test trusted connections at what it says Microsoft calls "machine speed"; Microsoft's report says ARTEX accelerated the activity to machine speed | [1] [2] | Confirmed |
+| 22 Oct | Cybersecurity Dive attributes the "machine speed" statement to CEO Manny Rivelo | [12] | Reported |
 | 26 Oct | A Monday onboarding target slips, with no new date. Huntress publishes its follow-up analysis | [1] [4] | Confirmed |
 | 28 Oct | Restoration of M365 backups begins through a new app, "ConnectWise Cloud Backup for M365"; partners must reset passwords and re-authorize each tenant | [1] | Confirmed |
 | 30 Oct | Phases 1 and 2 of four complete; archives "encrypted, isolated, and preserved" | [1] | Confirmed |
@@ -141,7 +142,7 @@ How the vendor-tenant credential was first obtained is not public; on 20 October
 
 ## Part 2: the intrusion record
 
-**The credential.** The compromised secret was an application credential (a client assertion credential, in Huntress's words) held in the vendor's own tenant [3] (**Confirmed**). ConnectWise's own wording moved from "application identities" on 17 October to "application credentials" on 28 October [1] (**Confirmed**). With these credentials, the attacker could authenticate as ConnectWise's multi-tenant apps into tenants that had consented to them and received Graph tokens carrying the permissions those customers had granted [2] [3] (**Confirmed**). Because this was app-only authentication, user MFA did not apply; Todyl, quoted by BleepingComputer, put it plainly: no user signed in [10] (**Reported**).
+**The credential.** The compromised secret was an application credential (a client assertion credential, in Huntress's words) held in the vendor's own tenant [3] (**Confirmed**). ConnectWise's own wording moved from "application identities" on 17 October to "application credentials" from its 21 October 12:45 UTC update [1] (**Confirmed**). With these credentials, the attacker could authenticate as ConnectWise's multi-tenant apps into tenants that had consented to them and received Graph tokens carrying the permissions those customers had granted [2] [3] (**Confirmed**). Because this was app-only authentication, user MFA did not apply; Todyl, quoted by BleepingComputer, put it plainly: no user signed in [10] (**Reported**).
 
 **Before the credential.** The sprays in Part 1 came from the same 144.172.64[.]0/24 range as the later app sign-ins and failed against users [2] [3] (**Confirmed**). Microsoft calls 144.172.64[.]99 Storm-0940 infrastructure [2]; Huntress notes that Microsoft does not say what links the spray to Storm-0940 [4] (**Confirmed**).
 
@@ -163,7 +164,7 @@ How the vendor-tenant credential was first obtained is not public; on 20 October
 
 **ARTEX is not a fingerprint.** Microsoft says many actors across multiple regions use ARTEX, so its use alone does not indicate Storm-0940 [2]. By 6 November Microsoft was reporting Storm-3358, a financially motivated Cambodia-based cluster, using it against financial organizations, mainly in Southeast Asia [7] (**Confirmed**).
 
-**Why.** Microsoft lists Storm-0940's targets as aerospace and defense, automotive, chemicals, energy, financial services, government, legal, manufacturing, media, military, semiconductor, software, technology, and think tanks and non-profits [2] (**Confirmed**). The second wave on 15 October went to policy, national security, trade and critical-minerals tenants [3] (**Confirmed**). That profile reads as intelligence collection rather than extortion (**Inferred**). No government advisory or attribution was found in a domain-restricted search [13] (**Reported**; search not exhaustive).
+**Why.** Microsoft lists Storm-0940's targets as aerospace and defense, automotive, chemicals, energy, financial services, government, legal, manufacturing, media, military, semiconductor, software, technology, and think tanks and non-profits [2] (**Confirmed**). The second wave on 15 October went to policy, national security, trade and critical-minerals tenants [3] (**Confirmed**). That profile reads as intelligence collection rather than extortion (**Inferred**). This study's own domain-restricted search found no government advisory or attribution (none found; not checked exhaustively).
 
 **Lineage.** Abuse of MSP trust has a long China-nexus record: APT10's Operation Cloud Hopper and Silk Typhoon's use of IT-provider credentials sit in [Threat Actors: China](/case-studies/THREAT_ACTORS_CHINA.md), which also lists [C0055 Quad7 Activity](/mitre/campaigns/C0055.md) against Storm-0940 [15] (**Confirmed** as the library records it). Credentials added to service principals and OAuth apps were also how the [SolarWinds SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md) actor held cloud access in 2020 [16] (**Confirmed** as the library records it).
 
@@ -271,7 +272,7 @@ The study's techniques are saved as an ATT&CK Navigator layer, [`navigator/libra
 
 ## Sources
 
-Sources 1 to 17 were opened on 11 November 2026, and sources 1 to 6 were reopened on 12 November 2026. Sources 18 and 19 were opened on 12 November 2026.
+Sources 1 to 17 were opened on 11 November 2026, and sources 1 to 7 were reopened on 12 November 2026. Sources 18 and 19 were opened on 12 November 2026.
 
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|

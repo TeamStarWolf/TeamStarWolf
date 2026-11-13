@@ -75,6 +75,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 - [File Types and Extensions Reference](/FILE_TYPES_REFERENCE.md)
 - [Other State-Linked Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_OTHER_STATES.md)
+- [The Year 1995 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1995.md)
 
 <!-- library-refs:end -->
 

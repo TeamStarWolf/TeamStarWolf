@@ -46,6 +46,7 @@ Hand-written pages in this library that link to this page or to this object's en
 
 - [Ghostcat, CVE-2020-1938: The Tomcat AJP File Read in the Lab](/case-studies/GHOSTCAT_CVE_2020_1938.md)
 - [The Year 1993 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1993.md)
+- [The Year 1995 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1995.md)
 
 <!-- library-refs:end -->
 

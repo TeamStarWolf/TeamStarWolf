@@ -40,6 +40,17 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 10 November 2026: N-central 2026.4 Hotfix 2 (2026.4.1.26) posted; N-able publishes seven CVE records, two at CVSS v4.0 9.3
   - 11 November 2026: All hosted N-central servers upgraded (status update, 01:04 dashboard time)
   - 11 November 2026: N-able blog: unauthenticated paths fixed, more hotfixes to come, calls claims it ignored disclosure inaccurate
+- [The Binance Hot-Wallet Theft of October 2026: A Case Study](/case-studies/BINANCE_HEIST_2026.md). Incident, June to November 2026 (core: 29 October 2026 to 1 November 2026). Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Binance_Heist_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Binance_Heist_2026_Case_Study.pptx).
+  - June 2026: A wallet developer downloads a tampered Homebrew installer; it is caught, but the engineer's role and colleagues are exposed
+  - September 2026: A second engineer's fake job assignment swaps a pyenv component; endpoint tools do not detect it
+  - 13 October 2026: IC3 warns that North Korean remote IT workers use facilitators and fraudulent hiring tradecraft (context)
+  - 20 October 2026: An internal AI tool takes over two more engineers' devices; one holds a container deployment token
+  - 29 October 2026: A container deployed with the stolen token abuses the signing service; hot wallets on ten chains drained from about 20:05 UTC
+  - 30 October 2026: Binance clears the EIP-7702 delegation at 00:10 UTC; Chainalysis names TraderTraitor; Update #2 gives about $6.3 billion
+  - 31 October 2026: FBI alert: North Korea responsible, TraderTraitor, 628 laundering addresses; Binance reports 98% of assets replenished
+  - 1 November 2026: Phase-one withdrawals resume on 15 networks
+  - 2 November 2026: Kim Yo Jong denies North Korea's role (Reported)
+  - 3 November 2026: Binance publishes its preliminary post-mortem; Chainalysis and TRM publish follow-ups
 - [The eMudhra Certificate Authority Key Compromise: A 2026 Case Study](/case-studies/EMUDHRA_CA_COMPROMISE_2026.md). Incident, April 2025 to November 2026 (core: 17 October 2026 to 10 November 2026). Sectors: technology. CVEs: CVE-2026-111943, CVE-2026-113470, CVE-2026-114406, CVE-2026-91403, CVE-2026-113812. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/eMudhra_CA_Compromise_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/eMudhra_CA_Compromise_2026_Case_Study.pptx).
   - 30 April 2025: Key ceremony produces 16 B and C series subordinate keys; a custom script re-creates weak ECDSA key objects
   - 29 May 2025: Invalid CRL signatures on the six G3B and G3C TLS intermediates, 29 May to 6 June 2025 (Bug 1970728)

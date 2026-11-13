@@ -70,5 +70,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [The Microsoft Office security feature bypass and APT28 (CVE-2026-21509): a case study](/case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md)
 - [The cPanel and WHM authentication bypass (CVE-2026-41940): a case study](/case-studies/CPANEL_WHM_CVE_2026_41940.md)
 - [The SmarterTools SmarterMail exploitation and ransomware (CVE-2026-23760, CVE-2026-24423, CVE-2025-52691): a case study](/case-studies/SMARTERTOOLS_SMARTERMAIL_2026.md)
+- [The trojanized Claude Code extension on Cursor's marketplace (October 2026): a case study](/case-studies/CURSOR_EXTENSION_TROJAN_2026.md)
 
 <!-- hub:end -->

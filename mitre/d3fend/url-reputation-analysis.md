@@ -40,6 +40,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [Iran-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_IRAN.md)
 - [The Binance Hot-Wallet Theft of October 2026: A Case Study](/case-studies/BINANCE_HEIST_2026.md)
 - [The Year 2004 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2004.md)
+- [The Year 2005 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2005.md)
 - [The Zero-Day Trade and Its Fallout: The Events in This Is How They Tell Me the World Ends](/case-studies/ZERO_DAY_MARKET_EVENTS.md)
 
 <!-- library-refs:end -->

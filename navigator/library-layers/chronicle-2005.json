@@ -1,0 +1,318 @@
+{
+  "name": "TeamStarWolf - The Year 2005 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2005 record supports: the FTC's complaints and releases on CardSystems (SQL injection, collection and scheduled exfiltration of card data), BJ's and DSW (default credentials and open wireless), the LexisNexis/Seisint filings on misused customer credentials, the Justice Department's Gonzalez charges (wardriving and sniffers), Microsoft's MS05-039 and Advisory 899588, CERT/CC's VU#998653 and the FBI's arrests for Zotob, US-CERT's TA05-180A on the VERITAS Remote Agent, TA05-189A on targeted trojan e-mail and TA05-362A on the Windows Metafile flaw, CERT/CC's VU#312073 on Sony BMG's XCP rootkit, and the Justice Department releases on Ancheta's botnets, the Massachusetts juvenile, the RPCSDBOT juvenile, Jiang and Lyttle, with the Samy worm from its author's account graded Reported. No 2005 source prints an ATT&CK id: every entry is this study's later mapping. Equation's four group techniques are not in this layer. Each comment names source numbers from case-studies/CHRONICLE_2005.md. Scores: 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "CardSystems: installed programs collect stored magnetic-stripe data (from Nov 2004) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [15] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1014",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Sony BMG's XCP uses rootkit technology to hide files (VU#312073, Nov) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [31] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "TA05-189A: trojans altered to evade antivirus; the alteration method is not stated (8 Jul) (basis: Inferred; a later mapping, since no 2005 source prints an ATT&CK id). Sources [43] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1029",
+      "tactic": "exfiltration",
+      "score": 70,
+      "comment": "CardSystems: data sent out of the network every four days (from Nov 2004) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [15] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1039",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "TA05-189A: network-drive scanning and document upload; the alert does not say the uploaded documents came from the drives (8 Jul) (basis: Inferred; a later mapping, since no 2005 source prints an ATT&CK id). Sources [43] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Sniffer programs on card-processing networks (charged 5 Aug 2008, alleged) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [18] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "Sniffer programs on card-processing networks (charged 5 Aug 2008, alleged) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [18] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 70,
+      "comment": "TA05-189A: trojans upload documents; the alert says their capabilities suggest exfiltration is a fundamental goal (8 Jul) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [43] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "TA05-180A: increased scanning on 10000/tcp for the VERITAS Remote Agent (29 Jun) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [25] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Jiang's keylogging software on Kinko's terminals (2001 to 2002; sentenced 28 Feb 2005) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [57] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Jiang's keylogging software on Kinko's terminals (2001 to 2002; sentenced 28 Feb 2005) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [57] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1059.007",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "The Samy cross-site scripting worm (4 Oct, author's account) (basis: Reported; a later mapping, since no 2005 source prints an ATT&CK id). Sources [42] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "MS05-039's local elevation of privilege on XP SP2 and Server 2003; a property of the flaw, not observed use (basis: Inferred; a later mapping, since no 2005 source prints an ATT&CK id). Sources [19] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1071",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Zotob opens an IRC-controlled backdoor (VU#998653); Ancheta's IRC botnets (3 Nov) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [21][50] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "TA05-189A: trojans use common ports such as TCP 80 to pass firewalls (8 Jul) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [43] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "LexisNexis/Seisint: misappropriated IDs and passwords of legitimate customers (9 Mar, 12 Apr); the Massachusetts juvenile's look-ups through an associate's accounts (sentenced 8 Sep) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [8][9][52] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "LexisNexis/Seisint: misappropriated IDs and passwords of legitimate customers (9 Mar, 12 Apr); the Massachusetts juvenile's look-ups through an associate's accounts (sentenced 8 Sep) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [8][9][52] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "LexisNexis/Seisint: misappropriated IDs and passwords of legitimate customers (9 Mar, 12 Apr); the Massachusetts juvenile's look-ups through an associate's accounts (sentenced 8 Sep) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [8][9][52] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "LexisNexis/Seisint: misappropriated IDs and passwords of legitimate customers (9 Mar, 12 Apr); the Massachusetts juvenile's look-ups through an associate's accounts (sentenced 8 Sep) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [8][9][52] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "BJ's commonly known default user IDs and passwords (16 Jun); DSW's commonly known user ID and password (1 Dec) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [14][13] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "BJ's commonly known default user IDs and passwords (16 Jun); DSW's commonly known user ID and password (1 Dec) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [14][13] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "BJ's commonly known default user IDs and passwords (16 Jun); DSW's commonly known user ID and password (1 Dec) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [14][13] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "BJ's commonly known default user IDs and passwords (16 Jun); DSW's commonly known user ID and password (1 Dec) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [14][13] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "TA05-189A: trojans gather system information (8 Jul) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [43] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "TA05-189A: trojans download more malware (8 Jul) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [43] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "TA05-189A: trojans scan network drives (8 Jul) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [43] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "The WMF flaw's likely delivery through web content (28 Dec); not stated in the sources (basis: Inferred; a later mapping, since no 2005 source prints an ATT&CK id). Sources [34][35] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "CardSystems' web application compromised by SQL injection (Sep 2004; FTC complaint) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [15][16] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "The WMF flaw exploited against patched XP SP2 (28 Dec); TA05-189A's trojanized files exploiting known flaws (8 Jul) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [34][35][43] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "TA05-189A: socially engineered recipients open the files (8 Jul) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [43] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "Zotob exploiting CVE-2005-1983 (Aug) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [21][22][23][24] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1491.002",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "The Deceptive Duo's website defacements (Apr 2002; plea 11 Mar 2005) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [56] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Ancheta's DDoS sales (3 Nov, alleged); the Massachusetts juvenile's DDoS on a telephone provider (Jun 2005); the RPCSDBOT DDoS (14 Aug 2003, sentenced 11 Feb 2005) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [50][52][55] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1564.001",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "XCP hides its files (Nov) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [31] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "TA05-189A: spoofed, work-themed e-mail with trojanized attachments (8 Jul) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [43] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "TA05-189A: links to trojanized files (8 Jul) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [43] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1584.005",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "Ancheta's botnets of thousands of computers, sold for DDoS and spam (3 Nov, alleged) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [50][51] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1669",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "The Gonzalez ring's wardriving into BJ's, DSW and other retailers (charged 5 Aug 2008, alleged); BJ's and DSW wireless failures (2005) (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [18][14][13] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 70,
+      "comment": "Zotob's in-the-wild code removes antivirus software (VU#998653). T1562.001 is revoked and superseded by T1685 (basis: Described; a later mapping, since no 2005 source prints an ATT&CK id). Sources [21][86] refer to the Sources table of case-studies/CHRONICLE_2005.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8"
+    ],
+    "minValue": 40,
+    "maxValue": 70
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2005.md (sources opened 12 and 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "31"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "39"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2005 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2005.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

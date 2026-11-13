@@ -192,6 +192,17 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 31 October 2026: The fixed php:8.4.27-apache Docker tag is last pushed
   - 2 November 2026: NVD last modifies both records
   - 4 November 2026: TeamStarWolf lab run: 8.4.26 and 8.4.27 told apart; both interim workarounds take effect
+- [The DentaQuest Health-Data Breach of May 2026: A Case Study](/case-studies/DENTAQUEST_BREACH_2026.md). Incident, May to November 2026 (core: 17 May 2026 to 20 May 2026). Sectors: healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DentaQuest_Breach_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/DentaQuest_Breach_2026_Case_Study.pptx).
+  - 17 May 2026: 17 to 19 May: one employee socially engineered out of credentials and an MFA code; data taken from a network file share
+  - 20 May 2026: DentaQuest learns a third party claims to hold its data; containment the same day
+  - 29 May 2026: DentaQuest learns the data was posted on the dark web
+  - 30 May 2026: ShinyHunters leak-site post last updated: about 234 GB, says DentaQuest failed to reach an agreement (Reported)
+  - 3 June 2026: Have I Been Pwned adds 2.6 million unique email addresses (Reported)
+  - 29 June 2026: Kroll gives DentaQuest initial information on impacted individuals
+  - 16 July 2026: Notice to the Rhode Island AG of more than 15 million people; HHS OCR lists 15,000,000, with California and Oregon filings
+  - 17 July 2026: Individual notification by mail begins
+  - 23 July 2026: 23 to 27 July: trade press reports a 23 million estimate, a dedupe of name and birth-date pairs (Reported)
+  - 11 November 2026: HHS export: 15,000,000 is the largest 2026 entry, ahead of Aesto and iRhythm Technologies
 - [The Stryker Device-Wipe Attack of March 2026: A Case Study](/case-studies/STRYKER_HANDALA_WIPER_2026.md). Incident, March to November 2026 (core: 11 March 2026 to 1 April 2026). Sectors: healthcare, manufacturing. ATT&CK groups: G1055 VOID MANTICORE. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Stryker_Handala_Wiper_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Stryker_Handala_Wiper_2026_Case_Study.pptx).
   - 6 March 2026: Persona domains claim 851 GB stolen from a Hasidic community and post data on about 190 people tied to the IDF (6 to 9 March)
   - 11 March 2026: Managed devices wiped in the US, Ireland, Costa Rica and Australia; the Entra login page shows the Handala logo (Reported)

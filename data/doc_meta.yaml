@@ -2476,6 +2476,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 5: the combined timeline](#part-5-the-combined-timeline), [Part 6: the defender view](#part-6-the-defender-view)"
     pairs_with: "[Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md), [Threat Actors](/THREAT_ACTORS.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md)"
     reviewed: null
+  case-studies/DENTAQUEST_BREACH_2026.md:
+    audience: "Healthcare and health-plan security leaders, identity and access teams, detection engineers, privacy and breach-response staff and vulnerability management leads"
+    level: "Intermediate"
+    read_when: "You want the dated record of the May 2026 DentaQuest breach, why its counts disagree, or which identity and data controls the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Healthcare Threat Watchlist](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md)"
+    reviewed: null
   case-studies/DOTCOM_ERA_CYBER_EVENTS.md:
     audience: "Vulnerability management leads, threat intelligence analysts, security historians and anyone who started their career between Melissa and Blaster and wants the primary record behind it"
     level: "Beginner to intermediate"

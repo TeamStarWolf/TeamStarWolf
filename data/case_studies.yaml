@@ -1210,6 +1210,30 @@ studies:
       - {"date": "2011-06-07", "label": "FBI approaches Monsegur, who agrees to cooperate that night (about this date)"}
       - {"date": "2013-11-15", "label": "Jeremy Hammond sentenced to 10 years for computer hacking conspiracy"}
       - {"date": "2014-05-27", "label": "Monsegur sentenced to time served"}
+  case-studies/DENTAQUEST_BREACH_2026.md:
+    kind: "incident"
+    title: "The DentaQuest Health-Data Breach of May 2026: A Case Study"
+    start: "2026-05"
+    end: "2026-11"
+    core_start: "2026-05-17"
+    core_end: "2026-05-20"
+    sectors: ["healthcare"]
+    cves: []
+    actors: []
+    tags: ["DentaQuest", "ShinyHunters", "health data", "social engineering", "MFA", "file share", "data extortion", "HIPAA"]
+    pdf: "DentaQuest_Breach_2026_Case_Study.pdf"
+    pptx: "DentaQuest_Breach_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-05-17", "label": "17 to 19 May: one employee socially engineered out of credentials and an MFA code; data taken from a network file share"}
+      - {"date": "2026-05-20", "label": "DentaQuest learns a third party claims to hold its data; containment the same day"}
+      - {"date": "2026-05-29", "label": "DentaQuest learns the data was posted on the dark web"}
+      - {"date": "2026-05-30", "label": "ShinyHunters leak-site post last updated: about 234 GB, says DentaQuest failed to reach an agreement (Reported)"}
+      - {"date": "2026-06-03", "label": "Have I Been Pwned adds 2.6 million unique email addresses (Reported)"}
+      - {"date": "2026-06-29", "label": "Kroll gives DentaQuest initial information on impacted individuals"}
+      - {"date": "2026-07-16", "label": "Notice to the Rhode Island AG of more than 15 million people; HHS OCR lists 15,000,000, with California and Oregon filings"}
+      - {"date": "2026-07-17", "label": "Individual notification by mail begins"}
+      - {"date": "2026-07-23", "label": "23 to 27 July: trade press reports a 23 million estimate, a dedupe of name and birth-date pairs (Reported)"}
+      - {"date": "2026-11-11", "label": "HHS export: 15,000,000 is the largest 2026 entry, ahead of Aesto and iRhythm Technologies"}
   case-studies/DOTCOM_ERA_CYBER_EVENTS.md:
     kind: "era"
     title: "The Dot-Com Era: Cyber Events, 1994 to 2003"

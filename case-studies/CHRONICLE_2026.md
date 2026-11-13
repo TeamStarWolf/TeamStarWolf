@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 106 min (24,441 words at 230 words a minute)
+About 106 min (24,456 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -382,7 +382,7 @@ North Korea's actors are traced across years in [the North Korea-attributed acto
 
 **Ransomware use in KEV.** 27 of the 295 KEV additions of 2026 are flagged for known ransomware use, among them SmarterMail (January and February), BeyondTrust CVE-2026-1731 (13 Feb), Cisco FMC CVE-2026-20131 (19 Mar) and CVE-2026-20316 (29 Jul), Defender CVE-2026-33825 (22 Apr), cPanel CVE-2026-41940 (30 Apr), Nx Console and TanStack (27 May), PAN-OS CVE-2026-0257 (29 May), Check Point CVE-2026-50751 (8 Jun), PeopleSoft (12 Jun), PTC Windchill CVE-2026-12569 (25 Jun), SharePoint CVE-2026-45659 (1 Jul), SonicWall SMA1000 CVE-2026-15409 and CVE-2026-15410 (14 Jul), TeamCity CVE-2026-63077 (5 Aug) and vCenter CVE-2026-59310 (18 Aug), alongside older flaws in Exchange, Windows, PaperCut, TeamCity, SimpleHelp, ScreenConnect and SolarWinds Web Help Desk (Confirmed [167]). That a build-tool compromise like TanStack carries the flag suggests stolen developer credentials can feed extortion (Inferred).
 
-**Victims.** Hungary's State Treasury suffered exfiltration followed by encryption, allegedly through an unpatched Oracle WebLogic server (Reported [64]). Ahold Delhaize expects an October incident to cut Q4 net sales by EUR 200 to 250 million (Confirmed [115]). UNM Health Sciences Center diverted ambulances and cancelled classes from 26 October and resumed on 28 October without concessions (Confirmed [126]). Vanderbilt University restricted most systems from 9 November (Confirmed [163]). Boston Scientific, Quest Diagnostics and DentaQuest reported intrusions without naming an actor or ransomware (Confirmed [72][121][39]). The US Bankruptcy Noticing Center was disrupted by an incident at its contractor (Confirmed [107][108]).
+**Victims.** Hungary's State Treasury suffered exfiltration followed by encryption, allegedly through an unpatched Oracle WebLogic server (Reported [64]). Ahold Delhaize expects an October incident to cut Q4 net sales by EUR 200 to 250 million (Confirmed [115]). UNM Health Sciences Center diverted ambulances and cancelled classes from 26 October and resumed on 28 October without concessions (Confirmed [126]). Vanderbilt University restricted most systems from 9 November (Confirmed [163]). Boston Scientific, Quest Diagnostics and DentaQuest reported intrusions without naming an actor or ransomware (Confirmed [72][121][39]). The home study for the DentaQuest breach is [The DentaQuest Health-Data Breach of May 2026](/case-studies/DENTAQUEST_BREACH_2026.md). The US Bankruptcy Noticing Center was disrupted by an incident at its contractor (Confirmed [107][108]).
 
 **The money.** Bitget revised its September hot-wallet loss to about US$387.5 million, traced to a third-party security product (Reported [89]). Attackers exploited a service provider for fraudulent transfers of up to about US$133 million from Credit Mutuel Arkea (Reported [158]). OFAC sanctioned nine individuals and 26 entities tied to the Prince Group on 23 June, and The Record reports a third round in November (Confirmed [51]; Reported [157]). Microsoft's DCU disrupted Fox Tempest's malware-signing service, naming Vanilla Tempest (Rhysida) as a co-conspirator and linking INC, Qilin and Akira as customers (Confirmed [37]).
 

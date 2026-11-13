@@ -1143,6 +1143,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 23 November 2001: Council of Europe Convention on Cybercrime done at Budapest
   - 25 January 2003: Slammer begins slightly before 05:30 UTC; over 90 percent of vulnerable hosts within ten minutes
   - 11 August 2003: CERT/CC CA-2003-20 on W32/Blaster, 26 days after Microsoft's MS03-026
+- [The Year 1994 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1994.md). Period record, January to December 1994. Sectors: cross-sector, defense, government, education, finance, technology, telecommunications. CVEs: CVE-1999-0113, CVE-1999-0120, CVE-1999-0207, CVE-1999-0211, CVE-1999-0337, CVE-1999-0338 and 4 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_1994_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_1994_Case_Study.pptx).
+  - 3 February 1994: CA-94:01: sniffers on compromised hosts have captured access information for tens of thousands of systems
+  - 9 February 1994: FIPS 185, the Escrowed Encryption Standard (Clipper), approved and published
+  - 21 February 1994: FBI arrests CIA officer Aldrich Ames in Arlington, Virginia
+  - 18 March 1994: CA-94:05 publishes MD5 checksums for SunOS files after intruders build Trojans to match the sum checksum
+  - 23 March 1994: Rome Laboratory first penetrated, per audit logs; staff find a sniffer on 28 March
+  - 6 April 1994: CA-94:07: intruder-modified wuarchive ftpd 2.2 and 2.1f source carries a root back door
+  - 12 May 1994: New Scotland Yard arrests the 16-year-old Datastream Cowboy; the US record never identifies Kuji
+  - June 1994: About 40 illegal transfers totalling more than $10 million from a US bank's cash management system begin (to October)
+  - 13 September 1994: Pub. L. 103-322 amends 18 U.S.C. 1030 and adds a civil action
+  - 19 October 1994: CA-94:14: Trojaned ircII 2.2.9 source, on FTP sites since May, is actively exploited
+  - December 1994: US Naval Academy penetrated from three countries and two US universities; more than 12,000 passwords changed
+  - 25 December 1994: IP spoofing attack on Tsutomu Shimomura's systems begins
 
 ### 1992 <!-- {docsify-ignore} -->
 

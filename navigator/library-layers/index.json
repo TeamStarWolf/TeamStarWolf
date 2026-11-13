@@ -556,5 +556,11 @@
     "name": "TeamStarWolf - Citrix NetScaler CVE-2026-3055 Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the 2026 NetScaler SAML IdP memory overread (CVE-2026-3055) supports: the Citrix bulletin, the CVE, NVD and KEV records, the CISA alert, CERT-EU Advisory 2026-003 and watchTowr's lab reproductions. No source names ATT&CK ids; every binding is the study's own. Score 75: a KEV entry or government record describes the behavior. Score 50: public research demonstrates it. Score 25: a capability rather than an observed act. Comments carry source numbers from case-studies/CITRIX_NETSCALER_CVE_2026_3055.md.",
     "blurb": "Techniques from the 2026 exploitation of the NetScaler SAML IdP memory overread CVE-2026-3055, from the unauthenticated overread on the internet-facing appliance to an administrative session ID in leaked memory and the reuse of a stolen session that CERT-EU's session-termination step guards against. A curated layer for the CVE-2026-3055 case study."
+  },
+  {
+    "file": "chronicle-1994.json",
+    "name": "TeamStarWolf - The Year 1994 in Intrusions",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 1994 record supports: the fifteen CERT/CC advisories CA-94:01 to CA-94:15 and the boundary advisory CA-95:01, GAO/AIMD-96-84 and the June 1996 Senate staff statement on the Rome Laboratory intrusions, the FBI history of the 1994 bank transfers, Shimomura's own account of the 25 December intrusion, F-Secure on One_Half, the KAOS4 record and the WildList of 1 September 1994. No 1994 source prints an ATT&CK id: every entry is this study's later mapping. Each comment names source numbers from case-studies/CHRONICLE_1994.md. Scores: 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+    "blurb": "Techniques from the dated 1994 record: the sniffer wave and its captured passwords, Trojaned system binaries and two back-doored source releases, the root exploits in the year's CERT advisories, the Rome Laboratory intrusions, the Christmas Day session hijack and the year's boot-sector and polymorphic viruses. A curated layer for the 1994 chronicle."
   }
 ]

@@ -341,6 +341,30 @@ studies:
       - {"date": "2026-09-08", "label": "Chrome 153 fixes three IWA and two Controlled Frame bugs, and exploited V8 bug CVE-2026-87491 with no link between them"}
       - {"date": "2026-11-03", "label": "Chrome 157 fixes CVE-2026-121172 and CVE-2026-121206, the last IWA-component CVEs of the record"}
       - {"date": "2026-11-10", "label": "CISA adds Chrome XML zero-day CVE-2026-125350 to KEV; the catalog holds no IWA or Controlled Frame entry"}
+  case-studies/CHRONICLE_1994.md:
+    kind: "era"
+    title: "The Year 1994 in Intrusions: A Dated Record"
+    start: "1994-01"
+    end: "1994-12"
+    sectors: ["cross-sector", "defense", "government", "education", "finance", "technology", "telecommunications"]
+    cves: ["CVE-1999-0113", "CVE-1999-0120", "CVE-1999-0207", "CVE-1999-0211", "CVE-1999-0337", "CVE-1999-0338", "CVE-1999-0661", "CVE-1999-1219", "CVE-1999-1309", "CVE-2000-0508"]
+    actors: []
+    tags: ["sniffers", "Rome Laboratory", "Datastream Cowboy", "CERT advisories", "source-code Trojans", "Clipper", "CALEA", "Aldrich Ames", "One_Half", "Good Times hoax"]
+    pdf: "Chronicle_1994_Case_Study.pdf"
+    pptx: "Chronicle_1994_Case_Study.pptx"
+    events:
+      - {"date": "1994-02-03", "label": "CA-94:01: sniffers on compromised hosts have captured access information for tens of thousands of systems"}
+      - {"date": "1994-02-09", "label": "FIPS 185, the Escrowed Encryption Standard (Clipper), approved and published"}
+      - {"date": "1994-02-21", "label": "FBI arrests CIA officer Aldrich Ames in Arlington, Virginia"}
+      - {"date": "1994-03-18", "label": "CA-94:05 publishes MD5 checksums for SunOS files after intruders build Trojans to match the sum checksum"}
+      - {"date": "1994-03-23", "label": "Rome Laboratory first penetrated, per audit logs; staff find a sniffer on 28 March"}
+      - {"date": "1994-04-06", "label": "CA-94:07: intruder-modified wuarchive ftpd 2.2 and 2.1f source carries a root back door"}
+      - {"date": "1994-05-12", "label": "New Scotland Yard arrests the 16-year-old Datastream Cowboy; the US record never identifies Kuji"}
+      - {"date": "1994-06", "label": "About 40 illegal transfers totalling more than $10 million from a US bank's cash management system begin (to October)"}
+      - {"date": "1994-09-13", "label": "Pub. L. 103-322 amends 18 U.S.C. 1030 and adds a civil action"}
+      - {"date": "1994-10-19", "label": "CA-94:14: Trojaned ircII 2.2.9 source, on FTP sites since May, is actively exploited"}
+      - {"date": "1994-12", "label": "US Naval Academy penetrated from three countries and two US universities; more than 12,000 passwords changed"}
+      - {"date": "1994-12-25", "label": "IP spoofing attack on Tsutomu Shimomura's systems begins"}
   case-studies/CHRONICLE_2016.md:
     kind: "era"
     title: "The Year 2016 in Intrusions: A Dated Record"

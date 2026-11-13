@@ -460,5 +460,11 @@
     "name": "TeamStarWolf - Oracle PeopleSoft CVE-2026-35273 and ShinyHunters 2026 Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the Oracle PeopleSoft CVE-2026-35273 case study: the ShinyHunters (UNC6240) zero-day wave of 27 May to 9 June 2026 against PeopleSoft PeopleTools, mostly in higher education, and the September 2026 n-day wave that got past WAF rules with an encoded path and planted JSP web shells. Score 100: a primary (Mandiant and GTIG, or ATT&CK's G1057 entry) states the behavior or lists the technique and the fit is direct. Score 60: the fit is partly inferred from a tool the primary names. Score 40: only a Reported source supports it. Scores measure the strength of the tie to this record, not severity. Comments carry the study's source numbers.",
     "blurb": "Techniques from the Oracle PeopleSoft CVE-2026-35273 campaign of 2026, from the ShinyHunters zero-day wave against universities to the September WAF bypass, JSP web shells, remote-access tools, tunnels and data-theft extortion. A curated layer for the Oracle PeopleSoft case study."
+  },
+  {
+    "file": "boston-scientific-attack-2026.json",
+    "name": "TeamStarWolf - Boston Scientific Network Outage August 2026 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the Boston Scientific network outage case study: an unauthorized third party entered through an external-facing network management device on or before 25 August 2026 and reached a limited portion of the on-premises IT environment, and the outage cut manufacturing, order processing and shipping until 9 September. The record states the entry point but not the method, so both Initial Access techniques are candidates at score 40 and neither is asserted. No source names ATT&CK ids, an actor, malware or a CVE. Comments carry the study's source numbers.",
+    "blurb": "Candidate Initial Access techniques for the August 2026 Boston Scientific outage, where an external-facing network management device was the way in and the method was never stated. A curated layer for the Boston Scientific case study."
   }
 ]

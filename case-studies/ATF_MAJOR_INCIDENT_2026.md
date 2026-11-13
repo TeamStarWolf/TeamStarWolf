@@ -1,6 +1,6 @@
 # The ATF Major Incident of 2026: A Case Study
 
-*A TeamStarWolf case study. Published 11 November 2026; every source checked as of that date.*
+*A TeamStarWolf case study. Published 11 November 2026; every source checked as of that date, and sources [12] and [13] re-checked on 13 November 2026.*
 
 [All case studies](/case-studies/README.md) · Related: [The Ransomware Ecosystem](/case-studies/RANSOMWARE_ECOSYSTEM.md), [The FBI Surveillance System Breach of 2026](/case-studies/FBI_SURVEILLANCE_SYSTEM_BREACH_2026.md), [The Year 2026 in Intrusions](/case-studies/CHRONICLE_2026.md), [Healthcare Threat Actor Watchlist](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md)
 
@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 19 min (4,281 words at 230 words a minute)
+About 19 min (4,306 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -125,8 +125,9 @@ This brief covers the incident from Qilin's 26 August 2026 listing to what could
 | 26 Aug 2026 | ATF publishes its statement, the same day as the listing per BleepingComputer | [1] [2] | Reported |
 | 27 Aug 2026 | BleepingComputer reports; an ATF spokesperson had not responded by publication | [1] | Reported |
 | 28 Aug 2026 | SecurityWeek reports the statement, including the major-incident designation and no effect on ATF's missions | [2] | Reported |
-| 11 Nov 2026 | BleepingComputer's ATF tag page lists only the one incident article (SecurityWeek's /tag/atf/ URL redirects to its 28 Aug article [2], so it gives no follow-up listing), and no source opened shows Qilin publishing data; this does not prove none exists | [11] [12] | Reported |
-| 11 Nov 2026 | The Intelligence Hub feed and its 2026 v7 shards contain no ATF row; its Qilin rows (20 to 22 Oct 2026) cover the PAN-OS CVE-2026-0257 campaign, not ATF | [13] | Confirmed |
+| 11 Nov 2026 | BleepingComputer's ATF tag page lists only the one incident article, and no source opened shows Qilin publishing data; this does not prove none exists | [11] | Reported |
+| 13 Nov 2026 | SecurityWeek's /tag/atf/ URL redirects to its 28 Aug article [2], so it gives no follow-up listing | [12] | Reported |
+| 13 Nov 2026 | The Intelligence Hub feed and its 2026 v7 shards contain no ATF row; its Qilin rows (20 to 22 Oct 2026) cover the PAN-OS CVE-2026-0257 campaign, not ATF | [13] | Confirmed |
 
 The listing and the statement fall on the same day [1] (**Reported**). The record does not say whether ATF found the intrusion itself or learned of it from the listing, or how long before 26 August discovery came (**Inferred**).
 
@@ -235,7 +236,7 @@ The study's Navigator layer is [`navigator/library-layers/atf-major-incident-202
 
 ## Sources
 
-All sources were opened on 11 November 2026.
+All sources were opened on 11 November 2026, except [12] and [13], which were re-opened on 13 November 2026.
 
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|

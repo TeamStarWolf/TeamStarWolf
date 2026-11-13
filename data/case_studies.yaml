@@ -136,7 +136,7 @@ studies:
       - {"date": "2026-08-26", "label": "ATF statement: one standalone system compromised, connections terminated, a major incident designated (Reported)"}
       - {"date": "2026-08-27", "label": "BleepingComputer reports; an ATF spokesperson had not responded by publication (Reported)"}
       - {"date": "2026-08-28", "label": "SecurityWeek reports the major-incident designation and no effect on ATF's missions (Reported)"}
-      - {"date": "2026-11-11", "label": "No source opened shows Qilin publishing ATF data; the Hub has no ATF row, and its Oct Qilin rows cover PAN-OS CVE-2026-0257"}
+      - {"date": "2026-11-13", "label": "No source opened shows Qilin publishing ATF data; the Hub has no ATF row, and its Oct Qilin rows cover PAN-OS CVE-2026-0257"}
   case-studies/BEYONDTRUST_REMOTE_SUPPORT_CVE_2026_1731.md:
     kind: "vulnerability"
     title: "The BeyondTrust Remote Support and PRA Command Injection of 2026 (CVE-2026-1731): A Case Study"

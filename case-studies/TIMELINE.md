@@ -165,7 +165,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 26 August 2026: ATF statement: one standalone system compromised, connections terminated, a major incident designated (Reported)
   - 27 August 2026: BleepingComputer reports; an ATF spokesperson had not responded by publication (Reported)
   - 28 August 2026: SecurityWeek reports the major-incident designation and no effect on ATF's missions (Reported)
-  - 11 November 2026: No source opened shows Qilin publishing ATF data; the Hub has no ATF row, and its Oct Qilin rows cover PAN-OS CVE-2026-0257
+  - 13 November 2026: No source opened shows Qilin publishing ATF data; the Hub has no ATF row, and its Oct Qilin rows cover PAN-OS CVE-2026-0257
 - [The Boston Scientific Network Outage of August 2026: A Case Study](/case-studies/BOSTON_SCIENTIFIC_ATTACK_2026.md). Incident, July to November 2026 (core: 25 August 2026 to 9 September 2026). Sectors: healthcare, manufacturing. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Boston_Scientific_Attack_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Boston_Scientific_Attack_2026_Case_Study.pptx).
   - 25 August 2026: System availability issues traced to an unauthorized third party; containment begins and CrowdStrike's investigation starts
   - 26 August 2026: Form 8-K Item 8.01: a global disruption, including the ability to process and ship orders

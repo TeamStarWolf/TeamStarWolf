@@ -68,6 +68,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [E-Commerce Threats: The Public Record, 1999 to 2026](/case-studies/ECOMMERCE_THREATS.md)
 - [Healthcare Threat Actor Watchlist, 2023 to 2026: Who Hits Hospitals, How They Get In, and What the Record Says](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md)
 - [Iran-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_IRAN.md)
+- [Ivanti EPMM Code Injection (CVE-2026-1281 and CVE-2026-1340): A Case Study](/case-studies/IVANTI_EPMM_CVE_2026_1281.md)
 - [Log4Shell (CVE-2021-44228): The Case Study](/case-studies/LOG4SHELL.md)
 - [North Korea-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_NORTH_KOREA.md)
 - [npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md)

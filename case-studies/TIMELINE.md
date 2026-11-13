@@ -380,6 +380,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 1 April 2026: Stryker is fully operational across global manufacturing
   - 9 April 2026: 8-K/A Item 1.05: material impact on operations and first-quarter results, not on full-year guidance
   - 20 April 2026: ATT&CK creates G1055 VOID MANTICORE; its current description names the Stryker attack
+- [The CareCloud Medical-Records Breach of March 2026: A Case Study](/case-studies/CARECLOUD_BREACH_2026.md). Incident, March to November 2026 (core: 10 March 2026 to 16 March 2026). Sectors: healthcare, technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/CareCloud_Breach_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/CareCloud_Breach_2026_Case_Study.pptx).
+  - 10 March 2026: 10 to 16 March: an unauthorized third party has access to one of CareCloud's AWS environments
+  - 16 March 2026: One of six EHR environments loses functionality for about 8 hours; contained the same day, the last date of activity
+  - 24 March 2026: CareCloud decides the incident is material because of the sensitivity of the data
+  - 27 March 2026: Form 8-K Item 1.05 filed; access to or exfiltration of patient data still being assessed
+  - 7 May 2026: Q1 10-Q: an undetermined amount of data exfiltrated; access began about a week earlier; two class actions served
+  - June 2026: Class actions consolidated in the Southern District of Florida
+  - 24 June 2026: CareCloud determines the affected data elements
+  - 24 July 2026: HHS breach report submitted: 3,756,469 individuals
+  - 25 July 2026: California AG listing; individual notices begin
+  - 6 August 2026: Q2 10-Q: one cloud account accessed; PII and PHI exfiltrated for a substantial number of individuals
+  - 19 August 2026: BleepingComputer reports that no ransomware or extortion group has claimed the attack (Reported)
+  - 5 November 2026: Q3 10-Q: no regulator claim; settlement discussions ongoing; no Item 1.05 8-K/A filed
 - [Magento and Adobe Commerce, CVE-2026-48356: Lab-Verified Exposure and Fix](/case-studies/MAGENTO_CVE_2026_48356.md). Vulnerability, March to November 2026. Sectors: retail, technology. CVEs: CVE-2015-3306, CVE-2020-1938, CVE-2026-48356, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Magento_CVE_2026_48356_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Magento_CVE_2026_48356_Case_Study.pptx).
   - 17 March 2026: Sansec publishes the PolyShell advisory
   - 19 March 2026: First attacks in the wild, per Sansec (Reported)

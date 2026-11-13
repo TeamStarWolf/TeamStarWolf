@@ -237,6 +237,32 @@ studies:
       - {"date": "2024-10-22", "label": "About 100 million individual notices sent"}
       - {"date": "2025-07-31", "label": "About 192.7 million people counted as affected"}
       - {"date": "2026-09-30", "label": "S.3315 passes the Senate by unanimous consent"}
+  case-studies/CARECLOUD_BREACH_2026.md:
+    kind: "incident"
+    title: "The CareCloud Medical-Records Breach of March 2026: A Case Study"
+    start: "2026-03"
+    end: "2026-11"
+    core_start: "2026-03-10"
+    core_end: "2026-03-16"
+    sectors: ["healthcare", "technology"]
+    cves: []
+    actors: []
+    tags: ["CareCloud", "EHR", "health data", "business associate", "cloud account", "AWS", "SEC 8-K Item 1.05", "HIPAA"]
+    pdf: "CareCloud_Breach_2026_Case_Study.pdf"
+    pptx: "CareCloud_Breach_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-03-10", "label": "10 to 16 March: an unauthorized third party has access to one of CareCloud's AWS environments"}
+      - {"date": "2026-03-16", "label": "One of six EHR environments loses functionality for about 8 hours; contained the same day, the last date of activity"}
+      - {"date": "2026-03-24", "label": "CareCloud decides the incident is material because of the sensitivity of the data"}
+      - {"date": "2026-03-27", "label": "Form 8-K Item 1.05 filed; access to or exfiltration of patient data still being assessed"}
+      - {"date": "2026-05-07", "label": "Q1 10-Q: an undetermined amount of data exfiltrated; access began about a week earlier; two class actions served"}
+      - {"date": "2026-06", "label": "Class actions consolidated in the Southern District of Florida"}
+      - {"date": "2026-06-24", "label": "CareCloud determines the affected data elements"}
+      - {"date": "2026-07-24", "label": "HHS breach report submitted: 3,756,469 individuals"}
+      - {"date": "2026-07-25", "label": "California AG listing; individual notices begin"}
+      - {"date": "2026-08-06", "label": "Q2 10-Q: one cloud account accessed; PII and PHI exfiltrated for a substantial number of individuals"}
+      - {"date": "2026-08-19", "label": "BleepingComputer reports that no ransomware or extortion group has claimed the attack (Reported)"}
+      - {"date": "2026-11-05", "label": "Q3 10-Q: no regulator claim; settlement discussions ongoing; no Item 1.05 8-K/A filed"}
   case-studies/CHECK_POINT_GAIA_CVE_2026_123039.md:
     kind: "vulnerability"
     title: "CVE-2026-123039 and Root on the Check Point Gateway: The PHP2Shell Chain, the TSGA Implant and the ESXi Wiper of October and November 2026"

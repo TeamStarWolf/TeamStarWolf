@@ -540,6 +540,12 @@
     "blurb": "Techniques from the 2026 exploitation of the Ivanti EPMM code injection flaws CVE-2026-1281 and CVE-2026-1340, from unauthenticated code injection on the internet-facing MDM server to web shells, the Nezha agent and cryptominers, and the theft of the MIFS database with its directory credentials, Office365 tokens and certificates. A curated layer for the Ivanti EPMM case study."
   },
   {
+    "file": "carecloud-breach-2026.json",
+    "name": "TeamStarWolf - CareCloud Medical-Records Breach March 2026 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the CareCloud medical-records breach case study: the cloud account an unauthorized third party used inside one of CareCloud's AWS-hosted EHR environments from 10 to 16 March 2026, and the patient data taken from databases there. No source names ATT&CK ids, so every binding is the study's own reading. Score 100: a primary states the behavior and the technique fits directly. Score 60: a primary states the behavior and the fit is partial. Scores measure the strength of the tie to this record, not severity. The record names no entry method, malware, exfiltration channel or impact mechanism, so none is bound. Comments carry the study's source numbers.",
+    "blurb": "Techniques from the CareCloud breach record of March 2026: the cloud account an unauthorized third party used inside one EHR environment for six days, and the patient data taken from its databases. A curated layer for the CareCloud case study."
+  },
+  {
     "file": "check-point-gaia-cve-2026-123039.json",
     "name": "TeamStarWolf - Check Point Gaia CVE-2026-123039, the PHP2Shell Chain, TSGA and the ESXi Wiper (2026) Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the case study of CVE-2026-123039, the Check Point Gaia OS DynamicCLI local privilege escalation to root (CWE-862, CWE-732), and the campaign Check Point Research reported on 12 November 2026: PHP2Shell on unpatched Mobile Access portals from 30 October, root through CVE-2026-123039, web shells, the TSGA and TSProxy implants, gogo scanning, SSH to VMware ESXi as vpxuser and the destroy_v6 wiper. No source lists ATT&CK ids; every binding is the study's own. Score 75: the CVE record, sk1000362 or the Check Point Research report describes the behavior. Score 50: the study's Inferred mapping. Comments carry the study's source numbers.",

@@ -92,7 +92,7 @@ This study records the year by date. It is built only from sources opened on 12 
 - **Later records date their view of long espionage campaigns from 2006.** Mandiant's APT1 visibility, the APT10 indictment's alleged campaign and McAfee's Shady RAT logs all start in 2006, and each source allows that activity may have begun earlier. None of these reports was public in 2006 (Confirmed [61][66][68]; Inferred for the reading).
 - **TJX's intruder worked through the year undetected.** The FTC says card authorization requests were intercepted from May to December 2006; TJX found suspicious software on 18 December (Confirmed [56][54]).
 - **Botnets were prosecuted as a business with real-world harm.** Ancheta sold botnet access for DDoS and spam and damaged Navy and DISA networks, and Maxwell's botnet disrupted a hospital (Confirmed [26][15]).
-- **Pretexting reached a board.** a third party working for HP's outside investigators had in some cases used pretexting to get phone records on directors' calls, and HP's chairman agreed to step down (Confirmed [51][52]).
+- **Pretexting reached a board.** A third party working for HP's outside investigators had in some cases used pretexting to get phone records on directors' calls, and HP's chairman agreed to step down (Confirmed [51][52]).
 
 ### Top recommendations
 

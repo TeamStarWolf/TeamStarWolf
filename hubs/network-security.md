@@ -53,5 +53,6 @@ Part of the [domain hubs](/hubs/README.md). 11 reference documents in this domai
 - [The Citrix NetScaler zero-days (September and October 2026): a case study](/case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md)
 - [The PAN-OS GlobalProtect authentication bypass (CVE-2026-0257): a case study](/case-studies/PALO_ALTO_PAN_OS_CVE_2026_0257.md)
 - [The BeyondTrust Remote Support and PRA command injection (CVE-2026-1731): a case study](/case-studies/BEYONDTRUST_REMOTE_SUPPORT_CVE_2026_1731.md)
+- [The FortiCloud SSO authentication bypass (CVE-2026-24858): a case study](/case-studies/FORTINET_FORTICLOUD_SSO_CVE_2026_24858.md)
 
 <!-- hub:end -->

@@ -40,6 +40,18 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 10 November 2026: N-central 2026.4 Hotfix 2 (2026.4.1.26) posted; N-able publishes seven CVE records, two at CVSS v4.0 9.3
   - 11 November 2026: All hosted N-central servers upgraded (status update, 01:04 dashboard time)
   - 11 November 2026: N-able blog: unauthenticated paths fixed, more hotfixes to come, calls claims it ignored disclosure inaccurate
+- [The Trojanized Claude Code Extension on Cursor's Marketplace (October 2026)](/case-studies/CURSOR_EXTENSION_TROJAN_2026.md). Incident, 27 October 2026 to 11 November 2026 (core: 29 October 2026 to 31 October 2026). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cursor_Extension_Trojan_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Cursor_Extension_Trojan_2026_Case_Study.pptx).
+  - 27 October 2026: Legitimate Claude Code 2.1.312 published to npm, GitHub and Open VSX
+  - 29 October 2026: About 09:27 UTC: malicious 2.1.312 and 2.1.313 become available in Cursor's marketplace
+  - 29 October 2026: About 20:35 UTC: window ends; Cursor removes the version and shuts its marketplace down
+  - 29 October 2026: Cursor's security notice published; its first version named only 2.1.313 (Reported)
+  - 30 October 2026: Anthropic publishes 2.1.314 to npm, GitHub and Open VSX
+  - 30 October 2026: Phorion's advisory, then its correction of the affected marketplace to Cursor
+  - 30 October 2026: Socket finds no Open VSX change-feed event for 2.1.313
+  - 30 October 2026: Cursor updates its indicators and clarifies the affected versions
+  - 31 October 2026: Microsoft Threat Intelligence publishes its analysis of the SSH backdoor
+  - 2 November 2026: SecurityWeek: Anthropic moved its extension straight to 2.1.314 (Reported)
+  - 10 November 2026: KEV catalog 2026.11.10 carries no Cursor or Anthropic entry
 - [The Binance Hot-Wallet Theft of October 2026: A Case Study](/case-studies/BINANCE_HEIST_2026.md). Incident, June to November 2026 (core: 29 October 2026 to 1 November 2026). Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Binance_Heist_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Binance_Heist_2026_Case_Study.pptx).
   - June 2026: A wallet developer downloads a tampered Homebrew installer; it is caught, but the engineer's role and colleagues are exposed
   - September 2026: A second engineer's fake job assignment swaps a pyenv component; endpoint tools do not detect it

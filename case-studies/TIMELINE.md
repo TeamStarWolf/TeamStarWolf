@@ -1063,6 +1063,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - October 2024: Media first report Salt Typhoon in US telecoms
   - 5 March 2025: 12 people charged, including eight i-Soon employees and APT27 actors
   - 27 August 2025: AA25-239A: 23 agencies in 13 countries on Salt Typhoon
+- [The Year 2006 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2006.md). Period record, January to December 2006. Sectors: cross-sector, government, defense, healthcare, technology, retail, finance, telecommunications, energy, education. CVEs: CVE-2005-4560, CVE-2006-0003, CVE-2006-0058, CVE-2006-1301, CVE-2006-1359, CVE-2006-1547 and 8 more. ATT&CK groups: G0006 APT1, G0045 menuPass. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2006_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2006_Case_Study.pptx).
+  - 5 January 2006: MS06-001 fixes the Windows Metafile flaw out of cycle, exploited before any patch; US-CERT alert
+  - 26 January 2006: FTC announces the ChoicePoint settlement: $10 million civil penalty and $5 million consumer redress
+  - 3 February 2006: Mywife.E (Nyxem) runs its first scheduled corruption of document files
+  - 3 May 2006: VA analyst's home burglarized; laptop and drive with data on up to 26.5 million veterans stolen
+  - 8 May 2006: Jeanson James Ancheta sentenced to 57 months for selling botnet access for DDoS and spam
+  - 19 May 2006: Word zero-day: CERT/CC VU#446012 and a US-CERT alert; ISC first reports the targeted attack
+  - 23 June 2006: OMB M-06-16: encrypt mobile devices and require two-factor remote access
+  - July 2006: Mandiant first observes APT1 using WEBC2 backdoors; Shady RAT logs its first victims
+  - 8 August 2006: MS06-040 (Server service) and MS06-048 (PowerPoint), both exploited at release
+  - 6 September 2006: HP 8-K: a third party working for its outside investigators used pretexting to get phone records
+  - 26 September 2006: MS06-055 fixes the exploited VML flaw out of cycle
+  - 18 December 2006: TJX finds suspicious software, then confirms an intruder and stolen customer data (18 to 27 Dec)
 
 ### 2005 <!-- {docsify-ignore} -->
 

@@ -50,6 +50,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
 - [The SharePoint Server Exploitation Waves of 2026 (CVE-2026-45659 and Successors): A Case Study](/case-studies/SHAREPOINT_2026_EXPLOITATION.md)
 - [The Year 2004 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2004.md)
+- [The Year 2006 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2006.md)
 - [The Year 2017 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2017.md)
 - [The Year 2018 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2018.md)
 - [The Year 2022 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2022.md)

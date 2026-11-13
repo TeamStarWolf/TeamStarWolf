@@ -1,0 +1,348 @@
+{
+  "name": "TeamStarWolf - The Year 1999 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 1999 record supports: the seventeen CERT/CC advisories CA-1999-01 to CA-1999-17 (the trojaned TCP Wrappers and util-linux sources, Melissa, ExploreZip, the FTP, statd, cmsd, amd, WU-FTPD, BIND and sadmind overflows, IIS and TFN2K), the eight incident notes IN-99-01 to IN-99-08 (sscan, Happy99, CIH, the chained RPC exploits, amd, distributed sniffers, trinoo and TFN, and MDAC RDS), the Microsoft bulletins and later CVE records of the year, the Justice Department releases on the defacers, Moonlight Maze in the 2017 research on the HRTest relay and LOKI2, and the Reported accounts of the 1999 defacements. No 1999 source prints an ATT&CK id: every entry is this study's later mapping. Each comment names source numbers from case-studies/CHRONICLE_1999.md. Scores: 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Distributed sniffers named like in.telnetd (IN-99-06, 25 Oct); ExploreZip copies itself into the system directory (10 Jun) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [2][1] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Distributed sniffers (IN-99-06, 25 Oct); Moonlight Maze sniffers (1998 to 1999); Mitnick's sniffers (sentence 9 Aug); c0mrade's router backdoor intercepting DTRA messages (23 Aug to 27 Oct) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [2][36][21][26] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "Distributed sniffers (IN-99-06, 25 Oct); Moonlight Maze sniffers (1998 to 1999); Mitnick's sniffers (sentence 9 Aug); c0mrade's router backdoor intercepting DTRA messages (23 Aug to 27 Oct) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [2][36][21][26] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1048",
+      "tactic": "exfiltration",
+      "score": 70,
+      "comment": "Moonlight Maze bundles moved by FTP to staging servers (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [37] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1059.005",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Melissa, a Word 97/2000 macro virus (CA-1999-04, 27 Mar) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Darkside members use root passwords from Miffleton's list (Feb); Moonlight Maze scripts using harvested passwords (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [20][37] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Darkside members use root passwords from Miffleton's list (Feb); Moonlight Maze scripts using harvested passwords (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [20][37] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Darkside members use root passwords from Miffleton's list (Feb); Moonlight Maze scripts using harvested passwords (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [20][37] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Darkside members use root passwords from Miffleton's list (Feb); Moonlight Maze scripts using harvested passwords (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [20][37] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1080",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "ExploreZip copies itself to shares and edits the WIN.INI file there (CA-1999-06) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Moonlight Maze relays through hacked servers, including HRTest (Oct 1998 to Mar 1999) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [36][37] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1095",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "LOKI2 tunnelling over ICMP (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [36][37] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 40,
+      "comment": "Moonlight Maze tasking files and scripts on victim hosts (basis: Inferred; a later mapping, since no 1999 source prints an ATT&CK id). Sources [36][37] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 70,
+      "comment": "Melissa sets a registry marker (CA-1999-04) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Melissa sets a registry marker (CA-1999-04) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1114",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "Alibris charged with intercepting Amazon.com mail to dealer clients (Jan to Jun 1998; charged 22 Nov 1999); a charge, not a finding (basis: Inferred; a later mapping, since no 1999 source prints an ATT&CK id). Sources [27] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "ExploreZip finds writable SMB shares (CA-1999-06, revised 14 Jun) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1137.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Melissa infects Normal.dot; the \"Word 97 Template\" flaw (MS99-002, 21 Jan) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [1][12] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "IIS .HTR (MS99-019, 15 Jun; CA-1999-07, 16 Jun); MDAC RDS (IN-99-08, 10 Dec); WU-FTPD (CA-1999-13, 19 Oct); FTP overflows (CA-1999-03, 11 Feb) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [13][1][2] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Trojaned TCP Wrappers 7.6 (CA-1999-01, 21 Jan); trojaned util-linux 2.9g (22 to 24 Jan; CA-1999-02, 5 Feb) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "scriptlet.typelib \"demonstrated by Bubbleboy\" (CVE-1999-0668, datePublic 21 Aug; MS99-032, 31 Aug) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [9][15] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Melissa needs a user to open the document; ExploreZip's zipped_files.exe; Happy99.exe (from 20 Jan) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1205",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "The TCP Wrappers Trojan gave root to connections from a specific source port (21 Jan) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1205",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "The TCP Wrappers Trojan gave root to connections from a specific source port (21 Jan) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1205",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "The TCP Wrappers Trojan gave root to connections from a specific source port (21 Jan) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 40,
+      "comment": "statd/automountd (9 Jun), rpc.cmsd (16 Jul), ToolTalk (IN-99-04, 22 Jul), amd (17 Sep), sadmind (14 Dec); CERT does not say whether hosts were reached from inside or outside a site (basis: Inferred; a later mapping, since no 1999 source prints an ATT&CK id). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 40,
+      "comment": "Back Orifice 2000 released (10 Jul); no 1999 intrusion using it is in the record (basis: Inferred; a later mapping, since no 1999 source prints an ATT&CK id). Sources [17] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "ExploreZip zeroes Office and source-code files (10 Jun) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1491.002",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "USIA, NATO and Vice President pages (Aug 1998 to Jan 1999); Army page (Jun); Energy, Interior and NPS pages (9 May, Reported); US and Taiwanese sites (May and 7 Aug, Reported) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [19][23][51][42] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1495",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "CIH overwrites the system BIOS (IN-99-03) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1498.001",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "trinoo and TFN (IN-99-07, 18 Nov); TFN2K floods over UDP, TCP and ICMP (CA-1999-17, 28 Dec) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [2][1] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1498.002",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "MacOS 9 hosts as amplifiers at about 37.5x (CA-1999-17) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1499.004",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "TFN2K malformed-packet crash attacks (CA-1999-17) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Happy99 registry start entry (IN-99-02, 29 Mar); ExploreZip run entry in the NT registry or WIN.INI (CA-1999-06, 10 Jun) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [2][1] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Happy99 registry start entry (IN-99-02, 29 Mar); ExploreZip run entry in the NT registry or WIN.INI (CA-1999-06, 10 Jun) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [2][1] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1560",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Moonlight Maze TGZ bundles (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [37] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1561.001",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "CIH tries to erase the hard drive (IN-99-03, 22 Apr; trigger 26 Apr); the note does not say which structures (basis: Inferred; a later mapping, since no 1999 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Melissa (26 Mar), ExploreZip (10 Jun) and the fake Ie0199.exe upgrade (5 Feb) arrive as email attachments (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1584.004",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "The HRTest relay, a compromised UK Solaris host (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [36] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1584.005",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "trinoo and TFN installed on hosts compromised through RPC and am-utils flaws (IN-99-07) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 70,
+      "comment": "sscan (IN-99-01, 28 Jan); Burns's Web Bandit scanner (Aug 1998 to Jan 1999) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [2][19] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "CD Universe extortion demand (late Dec 1999; data posted 8 Jan 2000) (basis: Inferred; a later mapping, since no 1999 source prints an ATT&CK id). Sources [78] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1684.001",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "Hoke's fake Bloomberg News page (7 Apr); mapped through the revoked T1656 (basis: Inferred; a later mapping, since no 1999 source prints an ATT&CK id). Sources [76][84] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 70,
+      "comment": "Melissa lowers macro security settings (CA-1999-04) (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8"
+    ],
+    "minValue": 40,
+    "maxValue": 70
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_1999.md (sources opened 12 and 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "36"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "44"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 1999 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_1999.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

@@ -151,6 +151,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [File Types and Extensions Reference](/FILE_TYPES_REFERENCE.md)
 - [Hugging Face as an AI Supply-Chain Attack Surface: A 2021 to 2026 Case Study](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md)
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
+- [The Year 1999 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1999.md)
 - [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md)
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)
 

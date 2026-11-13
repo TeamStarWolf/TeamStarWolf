@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 25 min (5,710 words at 230 words a minute)
+About 25 min (5,745 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -83,7 +83,7 @@ Four findings stand out. Governments told owners to collect evidence before, or 
 
 ## Scope and method
 
-This brief covers the September bulletin CTX697096 and the October bulletin CTX697174, from the first related scanning in August 2026 to KEV catalog 2026.11.10. It sets the August flaw CVE-2026-19490 and the later CVE-2026-107406 beside them as context. Earlier NetScaler waves (CVE-2019-19781, Citrix Bleed) are covered elsewhere in the library and linked in Part 3. Tradecraft is described at advisory level: no request formats, paths, indicators or exploit steps. Times are UTC unless a source gives another zone.
+This brief covers the September bulletin CTX697096 and the October bulletin CTX697174, from the first related scanning in August 2026 to KEV catalog 2026.11.10. It sets the August flaw CVE-2026-19490 and the later CVE-2026-107406 beside them as context. Earlier NetScaler waves (CVE-2019-19781, Citrix Bleed, CVE-2025-5777) are covered elsewhere in the library and linked in Part 3. Tradecraft is described at advisory level: no request formats, paths, indicators or exploit steps. Times are UTC unless a source gives another zone.
 
 | Grade | Meaning in this study |
 |---|---|
@@ -133,7 +133,7 @@ A note on CERT-EU numbering: Security Advisory 2026-010, published 19 August 202
 
 Sources: [1] [2] [5] to [10] (**Confirmed**).
 
-The other six CVEs in CTX697096 are request smuggling (CVE-2026-88773, 9.3), a policy bypass (CVE-2026-88774, 7.0), three memory overflows (CVE-2026-88775 to CVE-2026-88777, 8.8) and TCP ISN prediction (CVE-2026-88778, 8.8); none is marked exploited [1] (**Confirmed**). CERT-EU advises enabling Enhanced ISN Generation [15] (**Confirmed**), which this study reads as the answer to the last of these (**Inferred**). Citrix-managed cloud services and Adaptive Authentication were upgraded by Cloud Software Group [1] (**Confirmed**). Citrix credits JPMorgan Chase, Bishop Fox and watchTowr in the CVE-2026-88779 bulletin [2] (**Confirmed**).
+The other six CVEs in CTX697096 are request smuggling (CVE-2026-88773, 9.3), a policy bypass (CVE-2026-88774, 7.0), three memory overflows (CVE-2026-88775 to CVE-2026-88777, 8.8) and TCP ISN prediction (CVE-2026-88778, 8.8); none is marked exploited [1] (**Confirmed**). Citrix directs deployments affected by CVE-2026-88778 to enable Enhanced ISN Generation, and CERT-EU gives the same advice [1] [15] (**Confirmed**). Citrix-managed cloud services and Adaptive Authentication were upgraded by Cloud Software Group [1] (**Confirmed**). Citrix credits JPMorgan Chase, Bishop Fox and watchTowr in the CVE-2026-88779 bulletin [2] (**Confirmed**).
 
 **What attackers did, at advisory level.** GTIG identified exploitation of CVE-2026-88772 reaching root-level access, followed by custom web shells, web-server configuration changes for persistence, a tunneler used for internal reconnaissance, credential harvesting and access-log scrubbing [25] (**Reported**). It names two custom tools: WHIPSHOT, a PHP web shell that hides command and control in native HTTP headers, and SLAPSHOT, a Python tunneler; in at least one intrusion the actor tunnelled in for manual reconnaissance and credential theft [25] (**Reported**). GreyNoise describes a playbook of a root shell, a hidden PHP web shell behind a fake stylesheet path and a web-server restart [28] (**Reported**). Rapid7 describes the configuration theft noted above and a separate web shell [27] (**Reported**). watchTowr's analyses reproduced root-level command execution for CVE-2026-88771 and code execution from the DTLS memory overflow for CVE-2026-88772 [29] [30] (**Demonstrated**).
 
@@ -145,7 +145,7 @@ No Citrix, CISA, NCSC UK, CERT-EU, NCSC-NL, GTIG or Unit 42 record opened for th
 
 The suspicions are on record as suspicions. Mandiant's Consulting CTO said advanced and suspected state-sponsored actors are likely behind the initial targeted intrusions using CVE-2026-88772 [46] (**Reported**). A researcher judged the initial activity probably nation-state aligned espionage [44] (**Reported**). watchTowr's CEO said no attribution had been made public and no clear target trend had emerged [47] (**Reported**). After the public proof of concept, deception sensors recorded attempts within minutes and exploitation turned opportunistic [45] (**Reported**), so later intrusions need not share an actor with the September ones (**Inferred**).
 
-History explains why both readings circulate. A Tenable engineer estimated that about two-thirds of NetScaler-targeting activity over seven years involved APT groups and one-third ransomware groups [44] (**Reported**). KEV marks known ransomware use for CVE-2023-3519, CVE-2023-4966 (Citrix Bleed) and CVE-2025-5777, and Unknown for all three 2026 CVEs here [11] (**Confirmed**). The library already records APT41 exploiting CVE-2019-19781 in [APT41: The Public Record](/case-studies/APT41_PUBLIC_RECORD.md), Fox Kitten (Pioneer Kitten) using Citrix in [Threat Actors: Iran](/case-studies/THREAT_ACTORS_IRAN.md), Citrix in PRC advisories in [Threat Actors: China](/case-studies/THREAT_ACTORS_CHINA.md), and the 2019 to 2020 wave in [Chronicle 2019](/case-studies/CHRONICLE_2019.md) and [Chronicle 2020](/case-studies/CHRONICLE_2020.md) [53] (**Confirmed**). None of that lineage is evidence about who ran the 2026 campaign (**Inferred**).
+History explains why both readings circulate. A Tenable engineer estimated that about two-thirds of NetScaler-targeting activity over seven years involved APT groups and one-third ransomware groups [44] (**Reported**). KEV marks known ransomware use for CVE-2023-3519, CVE-2023-4966 (Citrix Bleed, in [Chronicle 2023](/case-studies/CHRONICLE_2023.md) and [The Ransomware Ecosystem](/case-studies/RANSOMWARE_ECOSYSTEM.md)) and CVE-2025-5777 (in [Chronicle 2025](/case-studies/CHRONICLE_2025.md)), and Unknown for all three 2026 CVEs here [11] (**Confirmed**). The library already records APT41 exploiting CVE-2019-19781 in [APT41: The Public Record](/case-studies/APT41_PUBLIC_RECORD.md), Fox Kitten (Pioneer Kitten) using Citrix in [Threat Actors: Iran](/case-studies/THREAT_ACTORS_IRAN.md), Citrix in PRC advisories in [Threat Actors: China](/case-studies/THREAT_ACTORS_CHINA.md), the 2019 to 2020 wave in [Chronicle 2019](/case-studies/CHRONICLE_2019.md) and [Chronicle 2020](/case-studies/CHRONICLE_2020.md), Citrix Bleed in [Chronicle 2023](/case-studies/CHRONICLE_2023.md) and [The Ransomware Ecosystem](/case-studies/RANSOMWARE_ECOSYSTEM.md), and CVE-2025-5777 in [Chronicle 2025](/case-studies/CHRONICLE_2025.md) [53] (**Confirmed**). None of that lineage is evidence about who ran the 2026 campaign (**Inferred**).
 
 ## Part 4: impact and response
 
@@ -322,7 +322,7 @@ All sources were opened on 11 November 2026.
 | 50 | Check Point Research, threat intelligence report, 12 Oct 2026 | [research.checkpoint.com/2026/12th-october-threat-intelligence-report/](https://research.checkpoint.com/2026/12th-october-threat-intelligence-report/) | 2026-11-11 | Reported |
 | 51 | Cloudflare, post on protecting NetScaler gateways, 19 Oct 2026 | [blog.cloudflare.com/protect-your-netscaler-gateway/](https://blog.cloudflare.com/protect-your-netscaler-gateway/) | 2026-11-11 | Reported |
 | 52 | TeamStarWolf library data: `data/attack/technique_profiles.jsonl`, `groups.jsonl`, `software.jsonl`, `campaigns.jsonl`, `technique_to_d3fend.jsonl` and `superseded_by.jsonl` (ATT&CK v20.0), `data/weaknesses/cwe.jsonl` and `capec.jsonl`, and the `mitre/` page tree | [github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack) | 2026-11-11 | Demonstrated |
-| 53 | TeamStarWolf case studies and references on Citrix: APT41, Iran, China, Chronicle 2019 and 2020, Change Healthcare, AI Threats, Edge Device Security | [/case-studies/README.md](/case-studies/README.md) | 2026-11-11 | Confirmed |
+| 53 | TeamStarWolf case studies and references on Citrix: APT41, Iran, China, Chronicle 2019, 2020, 2023 and 2025, The Ransomware Ecosystem, Change Healthcare, AI Threats, Edge Device Security | [/case-studies/README.md](/case-studies/README.md) | 2026-11-11 | Confirmed |
 
 Not opened, so not cited as sources: Citrix's community blog posts for both bulletins (bot challenge), the ASD ACSC alert (timeout), Citrix CTX697191 for CVE-2026-107406, Arctic Wolf's figure of 78 (its own blog does not carry it), and the Shadowserver and Censys dashboards behind the press exposure counts. Rapid7's separate technical analysis of 19 October was not checked.
 
@@ -338,7 +338,7 @@ Not opened, so not cited as sources: Citrix's community blog posts for both bull
 
 ## Related references
 
-- [APT41: The Public Record](/case-studies/APT41_PUBLIC_RECORD.md), [Threat Actors: Iran](/case-studies/THREAT_ACTORS_IRAN.md), [Threat Actors: China](/case-studies/THREAT_ACTORS_CHINA.md), [Chronicle 2019](/case-studies/CHRONICLE_2019.md), [Chronicle 2020](/case-studies/CHRONICLE_2020.md), [Change Healthcare 2024](/case-studies/CHANGE_HEALTHCARE_2024.md), [AI Threats in the Cybersecurity Industry](/case-studies/AI_THREATS_2026.md), [The Year 2026 in Intrusions](/case-studies/CHRONICLE_2026.md), [Timeline](/case-studies/TIMELINE.md)
+- [APT41: The Public Record](/case-studies/APT41_PUBLIC_RECORD.md), [Threat Actors: Iran](/case-studies/THREAT_ACTORS_IRAN.md), [Threat Actors: China](/case-studies/THREAT_ACTORS_CHINA.md), [Chronicle 2019](/case-studies/CHRONICLE_2019.md), [Chronicle 2020](/case-studies/CHRONICLE_2020.md), [Chronicle 2023](/case-studies/CHRONICLE_2023.md), [Chronicle 2025](/case-studies/CHRONICLE_2025.md), [The Ransomware Ecosystem](/case-studies/RANSOMWARE_ECOSYSTEM.md), [Change Healthcare 2024](/case-studies/CHANGE_HEALTHCARE_2024.md), [AI Threats in the Cybersecurity Industry](/case-studies/AI_THREATS_2026.md), [The Year 2026 in Intrusions](/case-studies/CHRONICLE_2026.md), [Timeline](/case-studies/TIMELINE.md)
 - Other 2026 edge-appliance studies: [The Ivanti Connect Secure zero-day chain](/case-studies/IVANTI_CONNECT_SECURE_2026.md), [The Cisco Catalyst SD-WAN authentication bypass](/case-studies/CISCO_SDWAN_CVE_2026_20127.md)
 - [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)
 - [CVE Reference](/CVE_REFERENCE.md), [CWE Reference](/CWE_REFERENCE.md), [CAPEC Reference](/CAPEC_REFERENCE.md), [D3FEND Reference](/D3FEND_REFERENCE.md)

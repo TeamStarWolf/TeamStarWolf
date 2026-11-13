@@ -1160,6 +1160,31 @@ studies:
       - {"date": "2026-06-24", "label": "Mandiant reports zero-day exploitation of CVE-2026-20245 in SD-WAN Manager"}
       - {"date": "2026-09-30", "label": "KEV adds CVE-2026-76504, the platform's ninth 2026 KEV entry"}
       - {"date": "2026-10-28", "label": "Talos names UAT-11473 and its KeyDrift framework; Cisco revision 2.1 links the post"}
+  case-studies/CITRIX_NETSCALER_CVE_2026_3055.md:
+    kind: "vulnerability"
+    title: "The Citrix NetScaler SAML IdP Memory Overread (CVE-2026-3055): A Case Study"
+    start: "2026-02"
+    end: "2026-11"
+    core_start: "2026-03-23"
+    core_end: "2026-03-31"
+    sectors: ["technology"]
+    cves: ["CVE-2026-3055", "CVE-2026-4368", "CVE-2026-8451", "CVE-2026-8452", "CVE-2026-8655", "CVE-2026-10816", "CVE-2026-10817", "CVE-2026-13474", "CVE-2026-19490", "CVE-2026-88771", "CVE-2026-88772", "CVE-2026-88779", "CVE-2023-3519", "CVE-2023-4966", "CVE-2023-6548", "CVE-2023-6549", "CVE-2025-5777", "CVE-2025-6543", "CVE-2025-7775"]
+    actors: []
+    tags: ["Citrix", "NetScaler", "NetScaler ADC", "NetScaler Gateway", "SAML", "identity provider", "memory overread", "session hijacking", "CitrixBleed", "edge device", "KEV"]
+    pdf: "Citrix_Netscaler_CVE_2026_3055_Case_Study.pdf"
+    pptx: "Citrix_Netscaler_CVE_2026_3055_Case_Study.pptx"
+    events:
+      - {"date": "2026-02-23", "label": "The NetScaler CNA reserves CVE-2026-3055"}
+      - {"date": "2026-03-23", "label": "Citrix CTX696300 for CVE-2026-3055 and CVE-2026-4368; a same-day revision adds 14.1-60.58 as a fixed build"}
+      - {"date": "2026-03-23", "label": "CERT-EU Advisory 2026-003 sees no public evidence of exploitation and advises snapshot, update and session termination"}
+      - {"date": "2026-03-27", "label": "watchTowr's honeypots see exploitation from known threat-actor addresses (Reported)"}
+      - {"date": "2026-03-28", "label": "watchTowr Part 1 reproduces a small overread on the SAML login path"}
+      - {"date": "2026-03-29", "label": "watchTowr Part 2: a WS-Federation overread leaks an authenticated administrative session ID"}
+      - {"date": "2026-03-30", "label": "KEV adds CVE-2026-3055 on evidence of active exploitation, due 2 Apr"}
+      - {"date": "2026-03-31", "label": "CISA's ADP container records Exploitation active, Automatable yes, Technical Impact total"}
+      - {"date": "2026-05-20", "label": "A Metasploit auxiliary scanner module for the flaw is merged"}
+      - {"date": "2026-06-17", "label": "NVD's last modification: status Analyzed, CWE-125"}
+      - {"date": "2026-06-30", "label": "Citrix CTX696604 fixes the follow-on SAML IdP overread CVE-2026-8451"}
   case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md:
     kind: "vulnerability"
     title: "The Citrix NetScaler Zero-Days of September and October 2026 (CVE-2026-88771, CVE-2026-88772, CVE-2026-88779): A Case Study"

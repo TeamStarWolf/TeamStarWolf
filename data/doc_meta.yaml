@@ -2477,6 +2477,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
     pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)"
     reviewed: null
+  case-studies/CITRIX_NETSCALER_CVE_2026_3055.md:
+    audience: "Teams that run NetScaler ADC or NetScaler Gateway as a SAML identity provider, identity and single sign-on administrators, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run NetScaler as a SAML IdP, you need the dated record of CVE-2026-3055 and its follow-on CVE-2026-8451, or you want to decide how to find the exposed appliances, check the right fixed build and end sessions that may have leaked before the patch"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [The Citrix NetScaler Zero-Days of September and October 2026](/case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md)"
+    reviewed: null
   case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md:
     audience: "Teams that run NetScaler ADC or NetScaler Gateway or another remote-access appliance, vulnerability management leads, incident responders and threat intelligence analysts"
     level: "Intermediate"

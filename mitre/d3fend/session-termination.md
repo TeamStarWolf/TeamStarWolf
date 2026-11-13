@@ -50,6 +50,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Boston Scientific Network Outage of August 2026: A Case Study](/case-studies/BOSTON_SCIENTIFIC_ATTACK_2026.md)
 - [The Change Healthcare Attack of 2024: The Largest Healthcare Breach on Record](/case-studies/CHANGE_HEALTHCARE_2024.md)
 - [The Check Point Remote Access VPN IKEv1 Authentication Bypass of 2026 (CVE-2026-50751): A Case Study](/case-studies/CHECK_POINT_VPN_CVE_2026_50751.md)
+- [The Citrix NetScaler SAML IdP Memory Overread (CVE-2026-3055): A Case Study](/case-studies/CITRIX_NETSCALER_CVE_2026_3055.md)
 - [The Citrix NetScaler Zero-Days of September and October 2026 (CVE-2026-88771, CVE-2026-88772, CVE-2026-88779): A Case Study](/case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md)
 - [The FBI Surveillance System Breach of 2026: A Case Study](/case-studies/FBI_SURVEILLANCE_SYSTEM_BREACH_2026.md)
 - [The FireEye Mandiant Intrusion of 2020: The Public Record](/case-studies/MANDIANT_INTRUSION_2020.md)

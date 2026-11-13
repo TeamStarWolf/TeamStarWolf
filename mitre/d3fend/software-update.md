@@ -96,6 +96,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [SSHole: The OpenSSH Authentication Bypass of November 2026 (CVE-2026-123158)](/case-studies/SSHOLE_CVE_2026_123158.md)
 - [The BeyondTrust Remote Support and PRA Command Injection of 2026 (CVE-2026-1731): A Case Study](/case-studies/BEYONDTRUST_REMOTE_SUPPORT_CVE_2026_1731.md)
 - [The Check Point Remote Access VPN IKEv1 Authentication Bypass of 2026 (CVE-2026-50751): A Case Study](/case-studies/CHECK_POINT_VPN_CVE_2026_50751.md)
+- [The Citrix NetScaler SAML IdP Memory Overread (CVE-2026-3055): A Case Study](/case-studies/CITRIX_NETSCALER_CVE_2026_3055.md)
 - [The cPanel and WHM Authentication Bypass of 2026 (CVE-2026-41940): A Case Study](/case-studies/CPANEL_WHM_CVE_2026_41940.md)
 - [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md)
 - [The Dell RecoverPoint for Virtual Machines Hard-Coded Credential Zero-Day of 2026 (CVE-2026-22769): A Case Study](/case-studies/DELL_RECOVERPOINT_CVE_2026_22769.md)

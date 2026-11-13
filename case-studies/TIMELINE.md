@@ -317,6 +317,18 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 10 September 2026: Risky Business frames the breach as a national security problem (Reported)
   - 29 September 2026: Notice updated: the event was limited to the VeriScan platform
   - 11 November 2026: No IDScan filing on the California Attorney General's breach list
+- [The Citrix NetScaler SAML IdP Memory Overread (CVE-2026-3055): A Case Study](/case-studies/CITRIX_NETSCALER_CVE_2026_3055.md). Vulnerability, February to November 2026 (core: 23 March 2026 to 31 March 2026). Sectors: technology. CVEs: CVE-2026-3055, CVE-2026-4368, CVE-2026-8451, CVE-2026-8452, CVE-2026-8655, CVE-2026-10816 and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Citrix_Netscaler_CVE_2026_3055_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Citrix_Netscaler_CVE_2026_3055_Case_Study.pptx).
+  - 23 February 2026: The NetScaler CNA reserves CVE-2026-3055
+  - 23 March 2026: Citrix CTX696300 for CVE-2026-3055 and CVE-2026-4368; a same-day revision adds 14.1-60.58 as a fixed build
+  - 23 March 2026: CERT-EU Advisory 2026-003 sees no public evidence of exploitation and advises snapshot, update and session termination
+  - 27 March 2026: watchTowr's honeypots see exploitation from known threat-actor addresses (Reported)
+  - 28 March 2026: watchTowr Part 1 reproduces a small overread on the SAML login path
+  - 29 March 2026: watchTowr Part 2: a WS-Federation overread leaks an authenticated administrative session ID
+  - 30 March 2026: KEV adds CVE-2026-3055 on evidence of active exploitation, due 2 Apr
+  - 31 March 2026: CISA's ADP container records Exploitation active, Automatable yes, Technical Impact total
+  - 20 May 2026: A Metasploit auxiliary scanner module for the flaw is merged
+  - 17 June 2026: NVD's last modification: status Analyzed, CWE-125
+  - 30 June 2026: Citrix CTX696604 fixes the follow-on SAML IdP overread CVE-2026-8451
 - [The TeamPCP Supply-Chain Campaign of 2026: Trivy, Checkmarx and the Bitwarden CLI (CVE-2026-33634)](/case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md). Campaign, September 2025 to August 2026 (core: 19 March 2026 to 10 May 2026). Sectors: technology, government. CVEs: CVE-2026-33634, CVE-2026-42994, CVE-2025-55182. ATT&CK groups: G1056 TeamPCP. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Teampcp_Trivy_Supply_Chain_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Teampcp_Trivy_Supply_Chain_2026_Case_Study.pptx).
   - 28 February 2026: About 28 Feb: a pull_request_target workflow at Trivy yields a token and releases are deleted (Reported)
   - 1 March 2026: Aqua's first disclosure; the credential rotation that follows is not atomic

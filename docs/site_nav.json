@@ -179,7 +179,7 @@
           "DETECTION_RULES_REFERENCE.md", "SIEM_REFERENCE.md", "SIEM_DETECTION_CONTENT.md",
           "SECURITY_DATA_ENGINEERING_REFERENCE.md", "SOAR_AUTOMATION_REFERENCE.md", "THREAT_HUNTING_REFERENCE.md",
           "THREAT_HUNTING_PLAYBOOKS.md", "LOTL_DETECTION_REFERENCE.md", "ENDPOINT_SECURITY_REFERENCE.md",
-          "NETWORK_DEFENSE_REFERENCE.md", "NETWORK_MONITORING_REFERENCE.md", "EMAIL_SECURITY_REFERENCE.md",
+          "NETWORK_DEFENSE_REFERENCE.md", "NETWORK_MONITORING_REFERENCE.md", "EMAIL_SECURITY_REFERENCE.md", "FILE_TYPES_REFERENCE.md",
           "DECEPTION_TECHNOLOGY_REFERENCE.md", "HONEYPOT_DECEPTION_REFERENCE.md", "VENDOR_PREVENTION_POLICIES.md"]},
         {"heading": "Incident response and forensics", "docs": [
           "INCIDENT_RESPONSE_REFERENCE.md", "IR_PLAYBOOKS.md", "RANSOMWARE_DEFENSE_REFERENCE.md",
@@ -261,7 +261,8 @@
         ["The Instructure Canvas breach and ShinyHunters extortion of 2026: a case study", "/case-studies/INSTRUCTURE_CANVAS_BREACH_2026.md"],
         ["Oracle PeopleSoft CVE-2026-35273 and the ShinyHunters mass exploitation of 2026: a case study", "/case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026.md"],
         ["The Boston Scientific network outage of August 2026: a case study", "/case-studies/BOSTON_SCIENTIFIC_ATTACK_2026.md"],
-        ["The IDScan.net driver's license breach of 2026: a case study", "/case-studies/IDSCAN_DRIVERS_LICENSE_BREACH_2026.md"]
+        ["The IDScan.net driver's license breach of 2026: a case study", "/case-studies/IDSCAN_DRIVERS_LICENSE_BREACH_2026.md"],
+        ["The European Commission cloud breach of 2026 (Trivy): a case study", "/case-studies/EUROPEAN_COMMISSION_CLOUD_BREACH_2026.md"]
       ]
     },
     {

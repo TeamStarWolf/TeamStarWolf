@@ -55,7 +55,7 @@ No review recorded yet
 
 ## Executive summary
 
-The people this touched first were three engineers. One downloaded a tampered installer in June, one sat through a fake job interview in September, and in October the attackers took over the computers of the first engineer and a third colleague [1] [2] (**Confirmed**, as Binance states). Behind them stood the exchange's customers, who found withdrawals suspended on 29 October after a loss of about $6.34 billion from Binance's hot wallets [1] [3] [15] (**Confirmed**; **Reported** for the suspension's timing). Binance says it bore the loss from its SAFU fund and treasury, and had replenished 98% of the affected token assets by 31 October [2] [3] (**Confirmed**).
+The people this touched first were three engineers. One downloaded a tampered installer in June, one sat through a fake job interview in September, and in October the attackers took over the computers of the first engineer and a third colleague [1] [2] (**Confirmed**, as Binance states). Behind them stood the exchange's customers, who found withdrawals suspended on 29 October after a loss of about $6.34 billion from Binance's hot wallets [1] [3] [15] (**Confirmed**; **Reported** for the suspension's timing). Binance says it bore the loss from its SAFU fund and treasury [3], and had replenished 98% of the affected token assets by 31 October [1] (**Confirmed**).
 
 Most of the value left in minutes, though the theft window ran almost four hours. From about 20:05 UTC on 29 October, hot wallets on ten chains sent funds to attacker addresses, and most of the value had left within about 20 minutes [3] [9] (**Confirmed** for the start; **Reported** for the 20-minute figure). On Ethereum the attackers used signed EIP-7702 authorizations that acted outside the withdrawal system and kept working after Binance paused withdrawals, because the MPC hot wallet had no single key that could revoke them; Binance cleared the delegation at 00:10 UTC on 30 October [1] [2] (**Confirmed**). Stablecoin issuers and others froze about $2.85 billion [1] (**Confirmed**). About $2.4 billion in ETH and BTC stayed with the attacker [10] (**Reported**).
 
@@ -141,7 +141,6 @@ The FBI alert returned HTTP 403 when this brief was researched on 11 November an
 
 - **Loss.** $5.8 billion (early wallet tracking) [16], $6.3 billion (Update #2) [3], $6.34 billion (post-mortem) [1], $6.36 billion at time-of-theft prices and $6.23 billion at later prices (TRM) [9], $6.4 billion (Chainalysis) [12] and $6.43 billion (Elliptic and The Hacker News) [14] [19]. This brief leads with Binance's $6.34 billion (**Inferred** choice).
 - **Frozen.** About $2.7 billion (TRM) [9], about $3 billion (Update #2) [3], $2.8 billion (Chainalysis) [12] and $2.85 billion (Binance post-mortem and Elliptic) [1] [14]. Binance's later figure is lower than its earlier one. Tether's freeze is "more than $1.567 billion" in the CEO post BleepingComputer relays [16] and about 1.77 billion USDT in TRM's count [9].
-- **The June lure.** Binance says a tampered Homebrew installer [1], found while the engineer was looking for an AI coding tool [2]; The Record paraphrases it as malicious software disguised as an AI coding tool [21].
 - **Chain count.** Ten (TRM) [9] against 11 (Elliptic and The Hacker News) [14] [19].
 - **Stale text.** TRM's 3 November update still says no government has attributed the theft, after the FBI alert [10].
 - **Replenishment.** Binance gives 98% of affected token assets replenished by 31 October [1] and about 95% of the impacted amount covered on 1 November [4]; the two figures measure different things and are not a decline.
@@ -294,7 +293,7 @@ The study's techniques are saved as an ATT&CK Navigator layer, [`navigator/libra
 
 ## Sources
 
-Sources [1] to [27] were opened on 11 November 2026; [24], [28] and [29] were opened on 12 November 2026.
+Sources [1] to [23] and [25] to [27] were opened on 11 November 2026; [24], [28] and [29] were opened on 12 November 2026.
 
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|

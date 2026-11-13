@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 21 min (4,934 words at 230 words a minute)
+About 21 min (4,933 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -147,7 +147,7 @@ The Intelligence Hub feed indexes the news and research rows on this topic; it i
 
 Claroty Team82 researchers found both sets: Tomer Goldschmidt for Danfoss and Amir Zaltzman for Copeland [5] [7]. SecurityScorecard links XWEB PRO controllers acting as spam and proxy nodes from 2 November to CVE-2026-25085, at low to medium confidence. It does not link them to the European attacks [25] (**Reported**).
 
-**Exposure and reconnaissance.** On 11 October Censys counted nearly 3,000 exposed Danfoss StoreView panels, over 1,800 in France; the French count fell to 537 by 14 October [18] (**Reported**: Censys data relayed by Unit 42). Predicta Lab counted 2,752 exposed Danfoss systems, 1,590 in France [20], and Coalition 618 still exposed after the first wave [33] (**Reported**). Unit 42 counts over 5,000 exposed devices from the named vendors worldwide on 5 to 6 November [18] (**Demonstrated**). Sekoia's honeypots, emulating the Danfoss web interface in France and the Netherlands from 12 October, saw unauthenticated enumeration from 13 October, date and time reads from 19 to 25 October and password spraying of default accounts [19] (**Demonstrated**).
+**Exposure and reconnaissance.** On 11 October Censys counted nearly 3,000 exposed Danfoss StoreView panels, over 1,800 in France; the French count fell to 537 by 14 October [21] (**Reported**: Censys data relayed by SecurityWeek). Predicta Lab counted 2,752 exposed Danfoss systems, 1,590 in France [20], and Coalition 618 still exposed after the first wave [33] (**Reported**). Unit 42 counts over 5,000 exposed devices from the named vendors worldwide on 5 to 6 November [18] (**Demonstrated**). Sekoia's honeypots, emulating the Danfoss web interface in France and the Netherlands from 12 October, saw unauthenticated enumeration from 13 October, date and time reads from 19 to 25 October and password spraying of default accounts [19] (**Demonstrated**).
 
 ## Part 3: who and why
 

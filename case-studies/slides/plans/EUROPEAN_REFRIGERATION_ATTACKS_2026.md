@@ -64,13 +64,13 @@ Notes: Danfoss [5][6]. Copeland [7][8]. Research [9]. Absence from CNW-2026-05, 
 
 ## PART 2 | Exposure fell fast once people looked
 
-Stat: ~3,000 | exposed Danfoss panels, 11 Oct (Censys via Unit 42)
+Stat: ~3,000 | exposed Danfoss panels, 11 Oct (Censys via SecurityWeek)
 Stat: 537 | French count by 14 Oct
 Stat: 5,000+ | named-vendor devices worldwide, 5 to 6 Nov
 - Sekoia honeypots saw enumeration from 13 October and default-account spraying.
 - One confirmed exploitation attempt, 1 November: about 30 minutes, blocked.
 - Sekoia assesses it used a non-public flaw, not CVE-2025-41450.
-Notes: Censys counts relayed by Unit 42 [18] Reported. Unit 42 count [18] Demonstrated. Honeypots [19] Demonstrated; the assessment is Reported.
+Notes: Censys counts relayed by SecurityWeek [21] Reported. Unit 42 count [18] Demonstrated. Honeypots [19] Demonstrated; the assessment is Reported.
 
 ## PART 3 | Attribution is narrower than the headlines
 

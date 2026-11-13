@@ -382,5 +382,11 @@
     "name": "TeamStarWolf - ConnectWise Cloud Backup Compromise October 2026 Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the ConnectWise Cloud Backup compromise case study, from Storm-0940's 10 to 14 October 2026 password spray through the 15 October sign-ins as ConnectWise's multi-tenant Microsoft 365 apps, the role self-assignment and the secrets planted on other apps, to the Graph and Key Vault activity Microsoft reported on 21 October. Score 100: Microsoft lists the technique id for this activity and a primary describes the dated behavior. Score 60: a primary describes the behavior and the id is the study's own mapping (T1110.003 only). Scores measure the strength of the tie to this record, not severity. Comments carry the study's source numbers.",
     "blurb": "Techniques from the ConnectWise Cloud Backup record: the password spray, sign-ins as a trusted vendor's multi-tenant app, stolen Graph tokens, a self-assigned Global Administrator role, secrets added to other apps, and Graph and Key Vault discovery and secret reads. A curated layer for the ConnectWise October 2026 case study."
+  },
+  {
+    "file": "stryker-handala-wiper-2026.json",
+    "name": "TeamStarWolf - Stryker Device-Wipe Attack March 2026 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the Stryker device-wipe case study, from the MOIS persona domains seized on 19 March 2026 through the compromised cloud administrator path to the remote wipe of managed devices on 11 March 2026. Scores of 100, 60 and 40 measure the tie to the record. Each comment names source numbers from case-studies/STRYKER_HANDALA_WIPER_2026.md.",
+    "blurb": "Techniques from the Stryker device-wipe record of March 2026: the Handala persona domains, a compromised Entra ID administrator path, a new Global Administrator and the built-in remote wipe that erased managed devices. A curated layer for the Stryker case study."
   }
 ]

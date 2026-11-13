@@ -2093,6 +2093,30 @@ studies:
       - {"date": "2026-11-09", "label": "CISA adds the CVE to KEV based on evidence of active exploitation, due 12 November, forensic triage required"}
       - {"date": "2026-11-11", "label": "GreyNoise counts 26 confirmed post-exploitation chains from 8 attacker addresses on its sensors (Reported)"}
       - {"date": "2026-11-12", "label": "KEV due date"}
+  case-studies/STRYKER_HANDALA_WIPER_2026.md:
+    kind: "incident"
+    title: "The Stryker Device-Wipe Attack of March 2026: A Case Study"
+    start: "2026-03"
+    end: "2026-11"
+    core_start: "2026-03-11"
+    core_end: "2026-04-01"
+    sectors: ["healthcare", "manufacturing"]
+    cves: []
+    actors: ["G1055"]
+    tags: ["Stryker", "Handala Hack", "VOID MANTICORE", "MOIS", "Iran", "Microsoft Intune", "Entra ID", "remote wipe", "wiper", "medical technology"]
+    pdf: "Stryker_Handala_Wiper_2026_Case_Study.pdf"
+    pptx: "Stryker_Handala_Wiper_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-03-06", "label": "Persona domains claim 851 GB stolen from a Hasidic community and post data on about 190 people tied to the IDF (6 to 9 March)"}
+      - {"date": "2026-03-11", "label": "Managed devices wiped in the US, Ireland, Costa Rica and Australia; the Entra login page shows the Handala logo (Reported)"}
+      - {"date": "2026-03-11", "label": "Stryker 8-K: a global disruption to its Microsoft environment, with no indication of ransomware or malware"}
+      - {"date": "2026-03-12", "label": "Stryker 8-K: order processing, manufacturing and shipping disrupted"}
+      - {"date": "2026-03-18", "label": "CISA alert on endpoint management hardening names the Stryker attack"}
+      - {"date": "2026-03-19", "label": "DOJ announces the seizure of four domains, two Handala-branded, used by Iran's MOIS"}
+      - {"date": "2026-03-23", "label": "Stryker 8-K revises the no-malware view: a malicious file ran commands to hide activity"}
+      - {"date": "2026-04-01", "label": "Stryker is fully operational across global manufacturing"}
+      - {"date": "2026-04-09", "label": "8-K/A Item 1.05: material impact on operations and first-quarter results, not on full-year guidance"}
+      - {"date": "2026-04-20", "label": "ATT&CK creates G1055 VOID MANTICORE; its current description names the Stryker attack"}
   case-studies/STUXNET.md:
     kind: "campaign"
     title: "Stuxnet: The Case Study"

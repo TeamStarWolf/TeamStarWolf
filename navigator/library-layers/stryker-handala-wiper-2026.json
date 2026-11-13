@@ -1,0 +1,184 @@
+{
+  "name": "TeamStarWolf - Stryker Device-Wipe Attack March 2026 Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the Stryker device-wipe case study, from the persona domains Iran's MOIS used to claim the 11 March 2026 attack through the compromised cloud administrator path to the remote wipe of managed devices. Score 100: a primary opened for the study describes the behavior. Score 60: the tie rests on ATT&CK's G1055 VOID MANTICORE rows or is a partial, persona-level fit. Score 40: Reported sources only. Scores measure the strength of the tie to this record, not severity. Each technique appears under every tactic ATT&CK gives it. Comments carry the study's source numbers.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: a primary describes the behavior",
+      "color": "#15803d"
+    },
+    {
+      "label": "60: ATT&CK G1055 row or partial, persona-level fit",
+      "color": "#86efac"
+    },
+    {
+      "label": "40: Reported sources only",
+      "color": "#99edb9"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/STRYKER_HANDALA_WIPER_2026.md; ATT&CK v20.0 technique data"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 = a primary opened for the study describes the behavior; 60 = the tie rests on ATT&CK's G1055 rows or is a partial, persona-level fit; 40 = Reported sources only. No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Stryker Device-Wipe Attack of March 2026: A Case Study",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/STRYKER_HANDALA_WIPER_2026"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Four persona domains used by MOIS (Handala-Hack, Handala-Redwanted, Justicehomeland, Karmabelow80), seized by DOJ on 19 Mar 2026. Sources: [14].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1585.001",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "ATT&CK G1055 row: Handala Hack and other personas used social media accounts including Telegram; persona level, no Stryker-specific account described. Sources: [17] [19].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 60,
+      "comment": "Persona-level phishing-based identity exploitation (Unit 42, 12 Mar 2026); not Stryker-specific. Sources: [16].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Entra ID compromise in the Unit 42 assurance letter (20 Mar 2026) and an administrator account compromised as reported (19 Mar 2026); ATT&CK G1055 row. Sources: [3] [4] [19] [23].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Entra ID compromise in the Unit 42 assurance letter (20 Mar 2026) and an administrator account compromised as reported (19 Mar 2026); ATT&CK G1055 row. Sources: [3] [4] [19] [23].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Entra ID compromise in the Unit 42 assurance letter (20 Mar 2026) and an administrator account compromised as reported (19 Mar 2026); ATT&CK G1055 row. Sources: [3] [4] [19] [23].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Entra ID compromise in the Unit 42 assurance letter (20 Mar 2026) and an administrator account compromised as reported (19 Mar 2026); ATT&CK G1055 row. Sources: [3] [4] [19] [23].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 60,
+      "comment": "ATT&CK G1055 row citing the Unit 42 letter (20 Mar 2026) for administrative account abuse or privilege escalation. Sources: [4] [19].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 60,
+      "comment": "ATT&CK G1055 row citing the Unit 42 letter (20 Mar 2026) for administrative account abuse or privilege escalation. Sources: [4] [19].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1136.003",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "New Global Administrator account created, as reported by BleepingComputer (19 Mar 2026); Reported only. Sources: [23].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1651",
+      "tactic": "execution",
+      "score": 60,
+      "comment": "ATT&CK G1055 row: built-in remote wipe or factory reset commands in a cloud management solution; Stryker wipe of 11 Mar 2026 as reported. Sources: [19] [22] [23].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "execution",
+      "score": 60,
+      "comment": "Remote wipe through a privileged Intune account (ATT&CK G1055 row); 11 Mar 2026 as reported. Sources: [19] [22] [23].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "lateral-movement",
+      "score": 60,
+      "comment": "Remote wipe through a privileged Intune account (ATT&CK G1055 row); 11 Mar 2026 as reported. Sources: [19] [22] [23].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 60,
+      "comment": "Destructive attack claimed through the Handala-hack domain on 11 Mar 2026 (DOJ); ATT&CK G1055 row citing the Stryker source. Sources: [14] [19].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1561.001",
+      "tactic": "impact",
+      "score": 60,
+      "comment": "Managed devices wiped on 11 Mar 2026 as reported; ATT&CK G1055 row citing the Stryker source. Sources: [19] [22].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1491.001",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "Entra login page shown with the Handala logo on 11 Mar 2026, as reported; Reported only. Sources: [22].",
+      "enabled": true
+    }
+  ]
+}

@@ -144,6 +144,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [ProFTPD mod_copy, CVE-2015-3306: Unauthenticated File Copy in the Lab](/case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md)
 - [The Year 1993 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1993.md)
 - [The Year 1994 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1994.md)
+- [The Year 1995 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1995.md)
 - [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md)
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)
 

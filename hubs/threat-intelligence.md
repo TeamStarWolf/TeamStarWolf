@@ -82,5 +82,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [The year 2026 in intrusions: a dated record](/case-studies/CHRONICLE_2026.md)
 - [The ConnectWise Cloud Backup compromise of October 2026: a case study](/case-studies/CONNECTWISE_STORM_0940_2026.md)
 - [The Stryker device-wipe attack of March 2026: a case study](/case-studies/STRYKER_HANDALA_WIPER_2026.md)
+- [The Binance hot-wallet theft of October 2026: a case study](/case-studies/BINANCE_HEIST_2026.md)
 
 <!-- hub:end -->

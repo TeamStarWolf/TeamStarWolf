@@ -1,0 +1,99 @@
+{
+  "name": "TeamStarWolf - ATF Major Incident 2026 Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques from ATT&CK's profile of Qilin (S1242) that bear on the ATF major incident case study's recommendations. The public record of the ATF incident, ATF's 26 August 2026 statement as BleepingComputer and SecurityWeek quote it, describes a compromise of one standalone system and a containment step and no behavior a technique can name, so no technique is bound as observed at ATF. Score 20: ATT&CK S1242 profile context, not observed at ATF. Scores measure the strength of the tie to this record, not severity. Comments carry the study's source numbers.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 60
+  },
+  "legendItems": [
+    {
+      "label": "20: ATT&CK S1242 profile context, not observed at ATF",
+      "color": "#bbf7d0"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/ATF_MAJOR_INCIDENT_2026.md; ATT&CK v20.0 technique data"
+    },
+    {
+      "name": "score_meaning",
+      "value": "20 = a technique in ATT&CK's Qilin (S1242) profile that bears on the study's recommendations, not observed at ATF. No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The ATF Major Incident of 2026: A Case Study",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/ATF_MAJOR_INCIDENT_2026"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 20,
+      "comment": "Exploit Public-Facing Application. Context only: ATT&CK S1242 profile (modified 23 Apr 2026); Qilin-linked edge exploitation of CVE-2026-50751 and CVE-2026-0257 at other victims in May and June 2026; not observed at ATF. Sources: [4] [6] [8] [14].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 20,
+      "comment": "Spearphishing Attachment. Context only: ATT&CK S1242 profile; not observed at ATF. Sources: [4] [14].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 20,
+      "comment": "Data Encrypted for Impact. Context only: ATT&CK S1242 profile; ATF did not confirm ransomware or encryption (reported 27 Aug 2026). Sources: [1] [4] [14].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 20,
+      "comment": "Inhibit System Recovery. Context only: ATT&CK S1242 profile; not observed at ATF. Sources: [4] [14].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1489",
+      "tactic": "impact",
+      "score": 20,
+      "comment": "Service Stop. Context only: ATT&CK S1242 profile; ATF reports no effect on its missions (reported 28 Aug 2026). Sources: [2] [4] [14].",
+      "enabled": true
+    }
+  ]
+}

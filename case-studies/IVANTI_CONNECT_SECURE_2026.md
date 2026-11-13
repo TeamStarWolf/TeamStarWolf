@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 20 min (4,536 words at 230 words a minute)
+About 21 min (4,862 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -122,7 +122,7 @@ Ivanti's own advisory could not be opened, so its content is known through CISA,
 
 ### Discrepancies in the record
 
-- **Affected versions.** CISA's revised alert lists 22.8R2.5 and prior and 25.1.1.2 and prior; the CVE-2026-104935 record lists 22.8R2.5 as unaffected; the CVE-2026-111357 record lists only 22.8R2.4; NVD's CPEs run to before 25.1.1.3 [3] [4] [7] [10] (**Confirmed**). Read together, the 13 October builds closed the bypass and code execution but not the full chain (**Inferred**).
+- **Affected versions.** CISA's revised alert lists 25.1.1.2 and prior, 25.1.2.2 and prior, and 22.8R2.5 and prior; the CVE-2026-104935 record lists 22.8R2.5 as unaffected; the CVE-2026-111357 record lists only 22.8R2.4; NVD's CPEs run to before 25.1.1.3 [3] [4] [7] [10] (**Confirmed**). Read together, the 13 October builds closed the bypass and code execution but not the full chain (**Inferred**).
 - **Which weakness.** The CVE-2026-111357 record and NVD give CWE-829; the KEV entry gives CWE-306, CWE-862 and CWE-345 and names it "Missing Authentication for Critical Function" [4] [7] [9] (**Confirmed**).
 - **Which score.** MITRE's CVSS for CVE-2026-111357 is 7.0; the press cites 8.8 [7] [23] (**Confirmed** for 7.0; 8.8 **Reported**).
 - **KEV before CVE.** CVE-2026-118527 was added to KEV on 30 October, four days before its CVE record was published [5] [9] (**Confirmed**).
@@ -146,7 +146,7 @@ Sources: the CVE records and NVD [3] to [8], fixed versions for CVE-2026-104935 
 
 The upload handler's predictable-path element matches the CVE-2026-118527 description, but Volexity's post never names that CVE; the mapping is ours (**Inferred**). CISA's KEV entries for both later CVEs say each can be chained with the other two [9] (**Confirmed**).
 
-**What the actor did on the box.** With root, UTA0576 extracted stored LDAP credentials, ran LDAP queries for LAPS passwords and BitLocker recovery keys, used a custom tool able to Kerberoast (Volexity notes the Kerberoast function was not used), sprayed passwords, ran a renamed packet-capture tool that harvested LDAP and HTTP Basic credentials and NTLM hashes, and reviewed logs for valid usernames [12] (**Confirmed**). Volexity reports no lateral movement: the operation was detected and disrupted before the actor's objectives could be determined, and Volexity assesses with high confidence that the activity was preparation for lateral movement [12] (**Confirmed**).
+**What the actor did on the box.** With root, UTA0576 extracted stored LDAP credentials, ran LDAP queries for LAPS passwords and BitLocker recovery keys, used a custom tool able to Kerberoast (Volexity notes the Kerberoast function was not used), sprayed passwords, ran a renamed packet-capture tool that harvested LDAP and HTTP Basic credentials and NTLM hashes, and reviewed logs for valid usernames [12] (**Confirmed**). Volexity describes no lateral movement: the operation was detected and disrupted before the actor's objectives could be determined, and Volexity assesses with high confidence that the activity was preparation for lateral movement [12] (**Confirmed**).
 
 **Why it was hard to see.** Commands, results and data moved through the exploit chain's own HTTPS requests and responses, with no separate command channel [12] (**Confirmed**). The actor patched library code only in memory, restored configuration afterward, and tampered with the Ivanti debug log and the Linux audit log; Volexity rebuilt the chain and found the sniffer through memory and core-dump analysis [12] (**Confirmed**). Rapid7 said at disclosure that reliable indicators were not yet available [18] (**Reported**); Volexity later published one exploitation IP and YARA rules [13] (**Confirmed**).
 
@@ -215,19 +215,27 @@ ATT&CK has no group object for UTA0576 and no software object for its tooling [2
 | [`T1587.004`](/mitre/techniques/T1587-004.md) | Exploits | Resource Development | Zero-day chain used by UTA0576; Volexity assesses with medium confidence that LLMs were used for exploit development (13 Oct) | [12] |
 | [`T1588.007`](/mitre/techniques/T1588-007.md) | Artificial Intelligence | Resource Development | Medium-confidence use of LLMs for exploit development and post-exploitation (Volexity, 13 Oct) | [12] |
 | [`T1190`](/mitre/techniques/T1190.md) | Exploit Public-Facing Application | Initial Access | Auth bypass and code execution against the appliance from 3 Oct | [3] [12] |
+| [`T1059.004`](/mitre/techniques/T1059-004.md) | Unix Shell | Execution | The uploaded Perl script runs a Bash script, which runs the next stage (Volexity, 13 Oct) | [12] |
+| [`T1059.006`](/mitre/techniques/T1059-006.md) | Python | Execution | An in-memory Python script, run by the Bash stage, carries the privilege escalation exploit (Volexity, 13 Oct) | [12] |
 | [`T1068`](/mitre/techniques/T1068.md) | Exploitation for Privilege Escalation | Privilege Escalation | Root via dsinvoked and DSCache, CVE-2026-111357 (15 Oct record) | [4] [12] |
 | [`T1601.001`](/mitre/techniques/T1601-001.md) | Patch System Image | Defense Impairment | Library code patched only in memory during exploitation and then restored, which the Integrity Checker could not see (Volexity, 13 Oct) | [12] |
 | [`T1070`](/mitre/techniques/T1070.md) | Indicator Removal | Stealth | Ivanti debug log tampered with (Volexity, 13 Oct) | [12] |
 | [`T1685.006`](/mitre/techniques/T1685-006.md) | Clear Linux or Mac System Logs | Defense Impairment | Recent entries selectively removed from the Linux audit log (Volexity, 13 Oct) | [12] |
 | [`T1036.003`](/mitre/techniques/T1036-003.md) | Rename Legitimate Utilities | Stealth | Renamed packet-capture tool (Volexity, 13 Oct) | [12] |
+| [`T1140`](/mitre/techniques/T1140.md) | Deobfuscate/Decode Files or Information | Stealth | The Python stage is delivered Base64-encoded and zlib-compressed, then decoded on the appliance (Volexity, 13 Oct) | [12] |
+| [`T1070.004`](/mitre/techniques/T1070-004.md) | File Deletion | Stealth | The LDAP and Kerberos helper scripts deleted after use, and the root-stage payload unlinks its own file (Volexity, 13 Oct) | [12] |
+| [`T1564.001`](/mitre/techniques/T1564-001.md) | Hidden Files and Directories | Stealth | The renamed packet-capture tool and its capture files kept in a hidden dot-directory, out of normal file listings (Volexity, 13 Oct) | [12] |
 | [`T1552`](/mitre/techniques/T1552.md) | Unsecured Credentials | Credential Access | Stored LDAP credentials extracted; LDAP queries for LAPS passwords and BitLocker recovery keys (Volexity, 13 Oct) | [12] |
 | [`T1040`](/mitre/techniques/T1040.md) | Network Sniffing | Credential Access, Discovery | LDAP and HTTP Basic credentials and NTLM hashes harvested from traffic (Volexity, 13 Oct) | [12] |
 | [`T1110.003`](/mitre/techniques/T1110-003.md) | Password Spraying | Credential Access | Spraying against directory accounts (Volexity, 13 Oct) | [12] |
 | [`T1654`](/mitre/techniques/T1654.md) | Log Enumeration | Discovery | Logs reviewed for valid usernames (Volexity, 13 Oct) | [12] |
+| [`T1087.002`](/mitre/techniques/T1087-002.md) | Domain Account | Discovery | Active Directory queried through a compromised service account and the results exported (Volexity, 13 Oct) | [12] |
+| [`T1016`](/mitre/techniques/T1016.md) | System Network Configuration Discovery | Discovery | The appliance's DNS resolver configuration exfiltrated and internal domains of the victim resolved (Volexity, 13 Oct) | [12] |
+| [`T1005`](/mitre/techniques/T1005.md) | Data from Local System | Collection | Appliance configuration and authentication data, including authentication methods, collected for exfiltration (Volexity, 13 Oct) | [12] |
 | [`T1071.001`](/mitre/techniques/T1071-001.md) | Web Protocols | Command and Control | Commands and results carried in the exploit's HTTPS requests (Volexity, 13 Oct) | [12] |
 | [`T1041`](/mitre/techniques/T1041.md) | Exfiltration Over C2 Channel | Exfiltration | Data returned in exploit responses, no separate channel (Volexity, 13 Oct); CISA cites data exfiltration (30 Oct) | [10] [12] |
 
-Fit notes (**Inferred**): T1601.001 is written for network-device operating systems and covers in-memory changes at runtime; the ICS appliance is such a device, so the fit is close but not exact. T1552 is bound at the parent level because the sources do not say where the stored LDAP credentials lived. No technique is bound for the upload-handler file write; it is part of the T1190 exploitation. No technique is bound for Kerberoasting: Volexity says the tool's Kerberoast function was not used [12].
+Fit notes (**Inferred**): T1601.001 is written for network-device operating systems and covers in-memory changes at runtime; the ICS appliance is such a device, so the fit is close but not exact. T1552 is bound at the parent level because the sources do not say where the stored LDAP credentials lived. No technique is bound for the upload-handler file write; it is part of the T1190 exploitation. No technique is bound for Kerberoasting: Volexity says the tool's Kerberoast function was not used [12]. ATT&CK has no Perl sub-technique, so the Perl stage is carried by T1190 and the Unix Shell and Python rows. T1087.002 and T1016 are the discovery behaviors Volexity describes; the packet captures and log review that served the same end are bound above as T1040 and T1654.
 
 ### CWE and CAPEC
 
@@ -240,16 +248,18 @@ Fit notes (**Inferred**): T1601.001 is written for network-device operating syst
 | CWE-345 | Insufficient Verification of Data Authenticity | CVE-2026-111357 KEV entry | [9] |
 | CWE-340 | Generation of Predictable Numbers or Identifiers | CVE-2026-118527 record, NVD and KEV | [5] [8] [9] |
 
-CAPEC entries the library relates to these CWEs or techniques that meet the record [24]:
+CAPEC entries that the CNA records assign, and those the library relates to these CWEs or techniques that meet the record [3] [5] [24]:
 
 | CAPEC | Name | Via | Where it meets the record |
 |---|---|---|---|
+| [CAPEC-115](/mitre/capec/CAPEC-115.md) | Authentication Bypass | CVE-2026-104935 record | Assigned by the CNA on the record for the authentication bypass [3] (**Confirmed**) |
+| [CAPEC-17](/mitre/capec/CAPEC-17.md) | Using Malicious Files | CVE-2026-118527 record | Assigned by the CNA on the record for the predictable-filename upload [5] (**Confirmed**) |
 | [CAPEC-22](/mitre/capec/CAPEC-22.md) | Exploiting Trust in Client | CWE-290 | A request-routing bypass, with Volexity's header/path mismatch detection [12] (**Inferred**) |
 | [CAPEC-565](/mitre/capec/CAPEC-565.md) | Password Spraying | T1110.003 | Spraying against directory accounts [12] |
 | [CAPEC-158](/mitre/capec/CAPEC-158.md) | Sniffing Network Traffic | T1040 | The renamed packet-capture tool [12] |
 | [CAPEC-268](/mitre/capec/CAPEC-268.md) | Audit Log Manipulation | T1070 | Debug and audit log tampering [12] |
 
-The library relates no CAPEC to CWE-340, and the race condition Volexity describes has no CWE in any record, so no race-condition CAPEC is bound [8] [24] (**Demonstrated**). See the [CWE Reference](/CWE_REFERENCE.md) and [CAPEC Reference](/CAPEC_REFERENCE.md).
+The library relates no CAPEC to CWE-340 [24] (**Demonstrated**), but the CNA assigns CAPEC-17 on the CVE-2026-118527 record [5] (**Confirmed**). The race condition Volexity describes has no CWE in any record, so no race-condition CAPEC is bound [8] [24] (**Demonstrated**). See the [CWE Reference](/CWE_REFERENCE.md) and [CAPEC Reference](/CAPEC_REFERENCE.md).
 
 ### D3FEND countermeasures
 
@@ -327,8 +337,8 @@ Not opened, so not cited as sources: Ivanti's security advisory on its support h
 - [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [AI Security Reference](/AI_SECURITY_REFERENCE.md)
 - [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)
 - Campaigns: [C0029 Cutting Edge](/mitre/campaigns/C0029.md)
-- Techniques: [T1587.004 Exploits](/mitre/techniques/T1587-004.md), [T1588.007 Artificial Intelligence](/mitre/techniques/T1588-007.md), [T1190 Exploit Public-Facing Application](/mitre/techniques/T1190.md), [T1068 Exploitation for Privilege Escalation](/mitre/techniques/T1068.md), [T1601.001 Patch System Image](/mitre/techniques/T1601-001.md), [T1070 Indicator Removal](/mitre/techniques/T1070.md), [T1685.006 Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md), [T1036.003 Rename Legitimate Utilities](/mitre/techniques/T1036-003.md), [T1552 Unsecured Credentials](/mitre/techniques/T1552.md), [T1040 Network Sniffing](/mitre/techniques/T1040.md), [T1110.003 Password Spraying](/mitre/techniques/T1110-003.md), [T1654 Log Enumeration](/mitre/techniques/T1654.md), [T1071.001 Web Protocols](/mitre/techniques/T1071-001.md), [T1041 Exfiltration Over C2 Channel](/mitre/techniques/T1041.md)
-- CAPEC: [CAPEC-22](/mitre/capec/CAPEC-22.md), [CAPEC-565](/mitre/capec/CAPEC-565.md), [CAPEC-158](/mitre/capec/CAPEC-158.md), [CAPEC-268](/mitre/capec/CAPEC-268.md)
+- Techniques: [T1587.004 Exploits](/mitre/techniques/T1587-004.md), [T1588.007 Artificial Intelligence](/mitre/techniques/T1588-007.md), [T1190 Exploit Public-Facing Application](/mitre/techniques/T1190.md), [T1068 Exploitation for Privilege Escalation](/mitre/techniques/T1068.md), [T1601.001 Patch System Image](/mitre/techniques/T1601-001.md), [T1070 Indicator Removal](/mitre/techniques/T1070.md), [T1685.006 Clear Linux or Mac System Logs](/mitre/techniques/T1685-006.md), [T1036.003 Rename Legitimate Utilities](/mitre/techniques/T1036-003.md), [T1552 Unsecured Credentials](/mitre/techniques/T1552.md), [T1040 Network Sniffing](/mitre/techniques/T1040.md), [T1110.003 Password Spraying](/mitre/techniques/T1110-003.md), [T1654 Log Enumeration](/mitre/techniques/T1654.md), [T1071.001 Web Protocols](/mitre/techniques/T1071-001.md), [T1041 Exfiltration Over C2 Channel](/mitre/techniques/T1041.md), [T1059.004 Unix Shell](/mitre/techniques/T1059-004.md), [T1059.006 Python](/mitre/techniques/T1059-006.md), [T1140 Deobfuscate/Decode Files or Information](/mitre/techniques/T1140.md), [T1070.004 File Deletion](/mitre/techniques/T1070-004.md), [T1564.001 Hidden Files and Directories](/mitre/techniques/T1564-001.md), [T1087.002 Domain Account](/mitre/techniques/T1087-002.md), [T1016 System Network Configuration Discovery](/mitre/techniques/T1016.md), [T1005 Data from Local System](/mitre/techniques/T1005.md)
+- CAPEC: [CAPEC-115](/mitre/capec/CAPEC-115.md), [CAPEC-17](/mitre/capec/CAPEC-17.md), [CAPEC-22](/mitre/capec/CAPEC-22.md), [CAPEC-565](/mitre/capec/CAPEC-565.md), [CAPEC-158](/mitre/capec/CAPEC-158.md), [CAPEC-268](/mitre/capec/CAPEC-268.md)
 - [Navigator layers](/navigator/index.md), including this study's layer, [ivanti-connect-secure-2026.json](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/ivanti-connect-secure-2026.json)
 - The [Team Star Wolf Intelligence Hub](https://teamstarwolf.github.io/intelligence-hub/)
 - [All case studies](/case-studies/README.md)

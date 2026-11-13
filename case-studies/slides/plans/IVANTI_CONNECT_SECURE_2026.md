@@ -140,7 +140,7 @@ Right: Understated
 - The integrity check gave a false clean.
 Notes: Overstated [3][4][5][10][21][12], Inferred where labelled. Understated [12][15], Confirmed.
 
-## MITRE MAPPINGS | Fourteen techniques, all the study's own reading
+## MITRE MAPPINGS | Twenty-two techniques, all the study's own reading
 
 | Id | Technique | Tie to the chain |
 |---|---|---|
@@ -150,7 +150,7 @@ Notes: Overstated [3][4][5][10][21][12], Inferred where labelled. Understated [1
 | T1552 | Unsecured Credentials | LDAP, LAPS and BitLocker secrets |
 | T1040 | Network Sniffing | Renamed packet capture |
 | T1041 | Exfiltration Over C2 Channel | Data in exploit responses |
-Caption: ATT&CK v20.0; also T1587.004, T1588.007, T1070, T1685.006, T1036.003, T1110.003, T1654, T1071.001. CWE-290, 829, 306, 862, 345, 340.
+Caption: ATT&CK v20.0; the other sixteen techniques are in the study's table and its Navigator layer. CWE-290, 829, 306, 862, 345, 340.
 Notes: Techniques and fit notes [12][3][4][10] with library data [24]. CWE [3][4][5][7][8][9]. © 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: ATT&CK Terms of Use, https://attack.mitre.org/resources/legal-and-branding/terms-of-use/. ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.
 
 ## CROSS-CUTTING THEMES | The VPN edge is a standing exposure

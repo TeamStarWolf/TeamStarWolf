@@ -172,6 +172,62 @@
       "score": 25,
       "comment": "Close but inexact fit: library code patched only in memory during exploitation and then restored, which the Integrity Checker Tool could not see (Volexity, 13 Oct 2026). Sources: [10] [12].",
       "enabled": true
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "Uploaded Perl script runs a Bash script, which runs the next stage (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059.006",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "In-memory Python script, run by the Bash stage, carries the privilege escalation exploit (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Python stage delivered Base64-encoded and zlib-compressed, then decoded on the appliance (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "LDAP and Kerberos helper scripts deleted after use; the root-stage payload unlinks its own file (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1564.001",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Renamed packet-capture tool and its capture files kept in a hidden dot-directory (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1087.002",
+      "tactic": "discovery",
+      "score": 50,
+      "comment": "Active Directory queried through a compromised service account and the results exported (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 50,
+      "comment": "DNS resolver configuration exfiltrated and the victim's internal domains resolved (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 50,
+      "comment": "Appliance configuration and authentication data collected for exfiltration (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
     }
   ]
 }

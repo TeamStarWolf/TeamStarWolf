@@ -38,7 +38,7 @@ endobj
 endobj
 7 0 obj
 <<
-/Contents 167 0 R /MediaBox [ 0 0 612 792 ] /Parent 166 0 R /Resources <<
+/Contents 189 0 R /MediaBox [ 0 0 612 792 ] /Parent 188 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] /XObject <<
 /FormXob.786c1aff17b9d23a8babf050530b091f 3 0 R
 >>
@@ -50,7 +50,7 @@ endobj
 endobj
 8 0 obj
 <<
-/Contents 168 0 R /MediaBox [ 0 0 612 792 ] /Parent 166 0 R /Resources <<
+/Contents 190 0 R /MediaBox [ 0 0 612 792 ] /Parent 188 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
 >> /Rotate 0 /Trans <<
 
@@ -81,7 +81,7 @@ endobj
 endobj
 12 0 obj
 <<
-/Annots [ 9 0 R 10 0 R 11 0 R ] /Contents 169 0 R /MediaBox [ 0 0 612 792 ] /Parent 166 0 R /Resources <<
+/Annots [ 9 0 R 10 0 R 11 0 R ] /Contents 191 0 R /MediaBox [ 0 0 612 792 ] /Parent 188 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
 >> /Rotate 0 
   /Trans <<
@@ -91,7 +91,7 @@ endobj
 endobj
 13 0 obj
 <<
-/Contents 170 0 R /MediaBox [ 0 0 612 792 ] /Parent 166 0 R /Resources <<
+/Contents 192 0 R /MediaBox [ 0 0 612 792 ] /Parent 188 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
 >> /Rotate 0 /Trans <<
 
@@ -101,7 +101,7 @@ endobj
 endobj
 14 0 obj
 <<
-/Contents 171 0 R /MediaBox [ 0 0 612 792 ] /Parent 166 0 R /Resources <<
+/Contents 193 0 R /MediaBox [ 0 0 612 792 ] /Parent 188 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
 >> /Rotate 0 /Trans <<
 
@@ -125,7 +125,7 @@ endobj
 endobj
 17 0 obj
 <<
-/Annots [ 15 0 R 16 0 R ] /Contents 172 0 R /MediaBox [ 0 0 612 792 ] /Parent 166 0 R /Resources <<
+/Annots [ 15 0 R 16 0 R ] /Contents 194 0 R /MediaBox [ 0 0 612 792 ] /Parent 188 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
 >> /Rotate 0 
   /Trans <<
@@ -135,7 +135,7 @@ endobj
 endobj
 18 0 obj
 <<
-/Contents 173 0 R /MediaBox [ 0 0 612 792 ] /Parent 166 0 R /Resources <<
+/Contents 195 0 R /MediaBox [ 0 0 612 792 ] /Parent 188 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
 >> /Rotate 0 /Trans <<
 
@@ -157,7 +157,7 @@ endobj
 endobj
 21 0 obj
 <<
-/Annots [ 20 0 R ] /Contents 174 0 R /MediaBox [ 0 0 612 792 ] /Parent 166 0 R /Resources <<
+/Annots [ 20 0 R ] /Contents 196 0 R /MediaBox [ 0 0 612 792 ] /Parent 188 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
 >> /Rotate 0 
   /Trans <<
@@ -189,997 +189,1154 @@ endobj
 25 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1068)
->> /Border [ 0 0 0 ] /Rect [ 78.24 558.04 98.04 565.96 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1059-004)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 558.04 113.88 565.96 ] /Subtype /Link /Type /Annot
 >>
 endobj
 26 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1601-001)
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1059-006)
 >> /Border [ 0 0 0 ] /Rect [ 78.24 528.64 113.88 536.56 ] /Subtype /Link /Type /Annot
 >>
 endobj
 27 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1070)
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1068)
 >> /Border [ 0 0 0 ] /Rect [ 78.24 489.04 98.04 496.96 ] /Subtype /Link /Type /Annot
 >>
 endobj
 28 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1685-006)
->> /Border [ 0 0 0 ] /Rect [ 78.24 469.84 113.88 477.76 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1601-001)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 459.64 113.88 467.56 ] /Subtype /Link /Type /Annot
 >>
 endobj
 29 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1036-003)
->> /Border [ 0 0 0 ] /Rect [ 78.24 440.44 113.88 448.36 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1070)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 420.04 98.04 427.96 ] /Subtype /Link /Type /Annot
 >>
 endobj
 30 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1552)
->> /Border [ 0 0 0 ] /Rect [ 78.24 411.04 98.04 418.96 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1685-006)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 400.84 113.88 408.76 ] /Subtype /Link /Type /Annot
 >>
 endobj
 31 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1040)
->> /Border [ 0 0 0 ] /Rect [ 78.24 371.44 98.04 379.36 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1036-003)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 371.44 113.88 379.36 ] /Subtype /Link /Type /Annot
 >>
 endobj
 32 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1110-003)
->> /Border [ 0 0 0 ] /Rect [ 78.24 342.04 113.88 349.96 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1140)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 342.04 98.04 349.96 ] /Subtype /Link /Type /Annot
 >>
 endobj
 33 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1654)
->> /Border [ 0 0 0 ] /Rect [ 78.24 322.84 98.04 330.76 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1070-004)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 302.44 113.88 310.36 ] /Subtype /Link /Type /Annot
 >>
 endobj
 34 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1071-001)
->> /Border [ 0 0 0 ] /Rect [ 78.24 303.64 113.88 311.56 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1564-001)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 262.84 113.88 270.76 ] /Subtype /Link /Type /Annot
 >>
 endobj
 35 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1041)
->> /Border [ 0 0 0 ] /Rect [ 78.24 274.24 98.04 282.16 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1552)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 223.24 98.04 231.16 ] /Subtype /Link /Type /Annot
 >>
 endobj
 36 0 obj
 <<
-/Annots [ 22 0 R 23 0 R 24 0 R 25 0 R 26 0 R 27 0 R 28 0 R 29 0 R 30 0 R 31 0 R 
-  32 0 R 33 0 R 34 0 R 35 0 R ] /Contents 175 0 R /MediaBox [ 0 0 612 792 ] /Parent 166 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1040)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 183.64 98.04 191.56 ] /Subtype /Link /Type /Annot
 >>
 endobj
 37 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-22)
->> /Border [ 0 0 0 ] /Rect [ 78.24 449.4225 118.827 460.5225 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1110-003)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 154.24 113.88 162.16 ] /Subtype /Link /Type /Annot
 >>
 endobj
 38 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-565)
->> /Border [ 0 0 0 ] /Rect [ 78.24 418.2225 123.4418 429.3225 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1654)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 124.84 98.04 132.76 ] /Subtype /Link /Type /Annot
 >>
 endobj
 39 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-158)
->> /Border [ 0 0 0 ] /Rect [ 78.24 398.1225 123.4418 409.2225 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1087-002)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 105.64 113.88 113.56 ] /Subtype /Link /Type /Annot
 >>
 endobj
 40 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-268)
->> /Border [ 0 0 0 ] /Rect [ 78.24 366.9225 123.4418 378.0225 ] /Subtype /Link /Type /Annot
+/Annots [ 22 0 R 23 0 R 24 0 R 25 0 R 26 0 R 27 0 R 28 0 R 29 0 R 30 0 R 31 0 R 
+  32 0 R 33 0 R 34 0 R 35 0 R 36 0 R 37 0 R 38 0 R 39 0 R ] /Contents 197 0 R /MediaBox [ 0 0 612 792 ] /Parent 188 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
 >>
 endobj
 41 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/CWE_REFERENCE)
->> /Border [ 0 0 0 ] /Rect [ 412.6464 313.34 484.8922 324.86 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1016)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 675.44 98.04 683.36 ] /Subtype /Link /Type /Annot
 >>
 endobj
 42 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/CAPEC_REFERENCE)
->> /Border [ 0 0 0 ] /Rect [ 503.3472 313.34 539.5373 324.86 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1005)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 635.84 98.04 643.76 ] /Subtype /Link /Type /Annot
 >>
 endobj
 43 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/CAPEC_REFERENCE)
->> /Border [ 0 0 0 ] /Rect [ 72.24 299.14 116.5248 310.66 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1071-001)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 596.24 113.88 604.16 ] /Subtype /Link /Type /Annot
 >>
 endobj
 44 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/inbound-session-volume-analysis)
->> /Border [ 0 0 0 ] /Rect [ 78.24 212.8225 203.7194 223.9225 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1041)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 566.84 98.04 574.76 ] /Subtype /Link /Type /Annot
 >>
 endobj
 45 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/application-protocol-command-analysis)
->> /Border [ 0 0 0 ] /Rect [ 78.24 181.6225 225.3824 192.7225 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-115)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 135.2225 123.4418 146.3225 ] /Subtype /Link /Type /Annot
 >>
 endobj
 46 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/process-code-segment-verification)
->> /Border [ 0 0 0 ] /Rect [ 78.24 150.4225 209.2472 161.5225 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-17)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 104.0225 118.827 115.1225 ] /Subtype /Link /Type /Annot
 >>
 endobj
 47 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/credential-rotation)
->> /Border [ 0 0 0 ] /Rect [ 78.24 118.6 149.2797 128.56 ] /Subtype /Link /Type /Annot
+/Annots [ 41 0 R 42 0 R 43 0 R 44 0 R 45 0 R 46 0 R ] /Contents 198 0 R /MediaBox [ 0 0 612 792 ] /Parent 188 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
 >>
 endobj
 48 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/credential-revocation)
->> /Border [ 0 0 0 ] /Rect [ 170.9593 118.6 208.7824 128.56 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-22)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 673.1225 118.827 684.2225 ] /Subtype /Link /Type /Annot
 >>
 endobj
 49 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/credential-revocation)
->> /Border [ 0 0 0 ] /Rect [ 78.24 107.5 119.7566 117.46 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-565)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 641.9225 123.4418 653.0225 ] /Subtype /Link /Type /Annot
 >>
 endobj
 50 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/reissue-credential)
->> /Border [ 0 0 0 ] /Rect [ 138.2158 107.5 208.3259 117.46 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-158)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 621.8225 123.4418 632.9225 ] /Subtype /Link /Type /Annot
 >>
 endobj
 51 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/credential-compromise-scope-analysis)
->> /Border [ 0 0 0 ] /Rect [ 78.24 88.0225 224.4528 99.1225 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-268)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 590.6225 123.4418 601.7225 ] /Subtype /Link /Type /Annot
 >>
 endobj
 52 0 obj
 <<
-/Annots [ 37 0 R 38 0 R 39 0 R 40 0 R 41 0 R 42 0 R 43 0 R 44 0 R 45 0 R 46 0 R 
-  47 0 R 48 0 R 49 0 R 50 0 R 51 0 R ] /Contents 176 0 R /MediaBox [ 0 0 612 792 ] /Parent 166 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/CWE_REFERENCE)
+>> /Border [ 0 0 0 ] /Rect [ 380.1024 522.84 480.2112 534.36 ] /Subtype /Link /Type /Annot
 >>
 endobj
 53 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/restore-software)
->> /Border [ 0 0 0 ] /Rect [ 329.6544 695.04 417.732 706.56 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/CAPEC_REFERENCE)
+>> /Border [ 0 0 0 ] /Rect [ 470.8032 522.84 537.1968 534.36 ] /Subtype /Link /Type /Annot
 >>
 endobj
 54 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/restore-configuration)
->> /Border [ 0 0 0 ] /Rect [ 425.1648 695.04 537.0912 706.56 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/CAPEC_REFERENCE)
+>> /Border [ 0 0 0 ] /Rect [ 72.24 508.64 116.5248 520.16 ] /Subtype /Link /Type /Annot
 >>
 endobj
 55 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/D3FEND_REFERENCE)
->> /Border [ 0 0 0 ] /Rect [ 416.9472 680.84 502.3008 692.36 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/inbound-session-volume-analysis)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 422.3225 203.7194 433.4225 ] /Subtype /Link /Type /Annot
 >>
 endobj
 56 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/ivanti-connect-secure-2026.json)
->> /Border [ 0 0 0 ] /Rect [ 72.24 624.64 361.2 634.96 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/application-protocol-command-analysis)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 391.1225 225.3824 402.2225 ] /Subtype /Link /Type /Annot
 >>
 endobj
 57 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/library-layers/ivanti-connect-secure-2026.json)
->> /Border [ 0 0 0 ] /Rect [ 367.0656 624.44 460.8816 635.96 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/process-code-segment-verification)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 359.9225 209.2472 371.0225 ] /Subtype /Link /Type /Annot
 >>
 endobj
 58 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/navigator/index)
->> /Border [ 0 0 0 ] /Rect [ 489.2544 624.44 533.5664 635.96 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/credential-rotation)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 328.1 149.2797 338.06 ] /Subtype /Link /Type /Annot
 >>
 endobj
 59 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/navigator/index)
->> /Border [ 0 0 0 ] /Rect [ 72.24 610.24 165.8812 621.76 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/credential-revocation)
+>> /Border [ 0 0 0 ] /Rect [ 170.9593 328.1 208.7824 338.06 ] /Subtype /Link /Type /Annot
 >>
 endobj
 60 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/THREAT_ACTORS_CHINA)
->> /Border [ 0 0 0 ] /Rect [ 155.4592 482.94 243.4912 494.46 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/credential-revocation)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 317 119.7566 326.96 ] /Subtype /Link /Type /Annot
 >>
 endobj
 61 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/AI_THREATS_2026)
->> /Border [ 0 0 0 ] /Rect [ 463.3216 341.14 533.7568 352.66 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/reissue-credential)
+>> /Border [ 0 0 0 ] /Rect [ 138.2158 317 208.3259 326.96 ] /Subtype /Link /Type /Annot
 >>
 endobj
 62 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/AI_THREATS_2026)
->> /Border [ 0 0 0 ] /Rect [ 88.24 326.94 183.7312 338.46 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/credential-compromise-scope-analysis)
+>> /Border [ 0 0 0 ] /Rect [ 78.24 297.5225 224.4528 308.6225 ] /Subtype /Link /Type /Annot
 >>
 endobj
 63 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.ivanti.com/blog/october-2026-security-update)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 222.21 411.9745 232.41 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/restore-software)
+>> /Border [ 0 0 0 ] /Rect [ 329.6544 258.14 417.732 269.66 ] /Subtype /Link /Type /Annot
 >>
 endobj
 64 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.ivanti.com/blog/october-2026-security-update)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 212.01 340.1697 222.21 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/d3fend/restore-configuration)
+>> /Border [ 0 0 0 ] /Rect [ 425.1648 258.14 537.0912 269.66 ] /Subtype /Link /Type /Annot
 >>
 endobj
 65 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.ivanti.com/blog/november-2026-security-update)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 192.81 412.3925 203.01 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/D3FEND_REFERENCE)
+>> /Border [ 0 0 0 ] /Rect [ 416.9472 243.94 502.3008 255.46 ] /Subtype /Link /Type /Annot
 >>
 endobj
 66 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.ivanti.com/blog/november-2026-security-update)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 182.61 348.1953 192.81 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/ivanti-connect-secure-2026.json)
+>> /Border [ 0 0 0 ] /Rect [ 72.24 187.74 361.2 198.06 ] /Subtype /Link /Type /Annot
 >>
 endobj
 67 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://cveawg.mitre.org/api/cve/CVE-2026-104935)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 163.41 412.8105 173.61 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://mitre-attack.github.io/attack-navigator/#layerURL=https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/library-layers/ivanti-connect-secure-2026.json)
+>> /Border [ 0 0 0 ] /Rect [ 367.0656 187.54 460.8816 199.06 ] /Subtype /Link /Type /Annot
 >>
 endobj
 68 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://cveawg.mitre.org/api/cve/CVE-2026-104935)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 153.21 336.3773 163.41 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/navigator/index)
+>> /Border [ 0 0 0 ] /Rect [ 489.2544 187.54 533.5664 199.06 ] /Subtype /Link /Type /Annot
 >>
 endobj
 69 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://cveawg.mitre.org/api/cve/CVE-2026-111357)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 134.01 412.8105 144.21 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/navigator/index)
+>> /Border [ 0 0 0 ] /Rect [ 72.24 173.34 165.8812 184.86 ] /Subtype /Link /Type /Annot
 >>
 endobj
 70 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://cveawg.mitre.org/api/cve/CVE-2026-111357)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 123.81 336.3773 134.01 ] /Subtype /Link /Type /Annot
+/Annots [ 48 0 R 49 0 R 50 0 R 51 0 R 52 0 R 53 0 R 54 0 R 55 0 R 56 0 R 57 0 R 
+  58 0 R 59 0 R 60 0 R 61 0 R 62 0 R 63 0 R 64 0 R 65 0 R 66 0 R 67 0 R 
+  68 0 R 69 0 R ] /Contents 199 0 R /MediaBox [ 0 0 612 792 ] /Parent 188 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
 >>
 endobj
 71 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://cveawg.mitre.org/api/cve/CVE-2026-118527)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 104.61 412.8105 114.81 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/THREAT_ACTORS_CHINA)
+>> /Border [ 0 0 0 ] /Rect [ 155.4592 638.54 243.4912 650.06 ] /Subtype /Link /Type /Annot
 >>
 endobj
 72 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://cveawg.mitre.org/api/cve/CVE-2026-118527)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 94.41 336.3773 104.61 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/AI_THREATS_2026)
+>> /Border [ 0 0 0 ] /Rect [ 463.3216 496.74 533.7568 508.26 ] /Subtype /Link /Type /Annot
 >>
 endobj
 73 0 obj
 <<
-/Annots [ 53 0 R 54 0 R 55 0 R 56 0 R 57 0 R 58 0 R 59 0 R 60 0 R 61 0 R 62 0 R 
-  63 0 R 64 0 R 65 0 R 66 0 R 67 0 R 68 0 R 69 0 R 70 0 R 71 0 R 72 0 R ] /Contents 177 0 R /MediaBox [ 0 0 612 792 ] /Parent 166 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/AI_THREATS_2026)
+>> /Border [ 0 0 0 ] /Rect [ 88.24 482.54 183.7312 494.06 ] /Subtype /Link /Type /Annot
 >>
 endobj
 74 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-104935)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 674.81 411.1233 685.01 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.ivanti.com/blog/october-2026-security-update)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 377.81 411.9745 388.01 ] /Subtype /Link /Type /Annot
 >>
 endobj
 75 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-104935)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 664.61 410.5153 674.81 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.ivanti.com/blog/october-2026-security-update)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 367.61 340.1697 377.81 ] /Subtype /Link /Type /Annot
 >>
 endobj
 76 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-111357)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 645.41 411.1233 655.61 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.ivanti.com/blog/november-2026-security-update)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 348.41 412.3925 358.61 ] /Subtype /Link /Type /Annot
 >>
 endobj
 77 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-111357)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 635.21 410.5153 645.41 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.ivanti.com/blog/november-2026-security-update)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 338.21 348.1953 348.41 ] /Subtype /Link /Type /Annot
 >>
 endobj
 78 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-118527)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 616.01 411.1233 626.21 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://cveawg.mitre.org/api/cve/CVE-2026-104935)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 319.01 412.8105 329.21 ] /Subtype /Link /Type /Annot
 >>
 endobj
 79 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-118527)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 605.81 410.5153 616.01 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://cveawg.mitre.org/api/cve/CVE-2026-104935)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 308.81 336.3773 319.01 ] /Subtype /Link /Type /Annot
 >>
 endobj
 80 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 586.61 412.8257 596.81 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://cveawg.mitre.org/api/cve/CVE-2026-111357)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 289.61 412.8105 299.81 ] /Subtype /Link /Type /Annot
 >>
 endobj
 81 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 576.41 410.7053 586.61 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://cveawg.mitre.org/api/cve/CVE-2026-111357)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 279.41 336.3773 289.61 ] /Subtype /Link /Type /Annot
 >>
 endobj
 82 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 566.21 308.4929 576.41 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://cveawg.mitre.org/api/cve/CVE-2026-118527)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 260.21 412.8105 270.41 ] /Subtype /Link /Type /Annot
 >>
 endobj
 83 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.cisa.gov/news-events/alerts/2026/10/13/cisa-urges-patching-newly-exploited-vulnerabilities-ivanti-connect-secure)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 547.01 412.4001 557.21 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://cveawg.mitre.org/api/cve/CVE-2026-118527)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 250.01 336.3773 260.21 ] /Subtype /Link /Type /Annot
 >>
 endobj
 84 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.cisa.gov/news-events/alerts/2026/10/13/cisa-urges-patching-newly-exploited-vulnerabilities-ivanti-connect-secure)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 536.81 329.6209 547.01 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-104935)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 230.81 411.1233 241.01 ] /Subtype /Link /Type /Annot
 >>
 endobj
 85 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 497.21 413.2361 507.41 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-104935)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 220.61 410.5153 230.81 ] /Subtype /Link /Type /Annot
 >>
 endobj
 86 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 487.01 339.3261 497.21 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-111357)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 201.41 411.1233 211.61 ] /Subtype /Link /Type /Annot
 >>
 endobj
 87 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.volexity.com/blog/2026/10/13/a-series-of-unauthenticated-events-chained-exploitation-of-ivanti-connect-secure-zero-days/)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 467.81 406.9205 478.01 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-111357)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 191.21 410.5153 201.41 ] /Subtype /Link /Type /Annot
 >>
 endobj
 88 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/volexity/threat-intel/tree/main/2026/2026-10-13%20Ivanti)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 418.01 413.2437 428.21 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-118527)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 172.01 411.1233 182.21 ] /Subtype /Link /Type /Annot
 >>
 endobj
 89 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/volexity/threat-intel/tree/main/2026/2026-10-13%20Ivanti)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 407.81 359.1849 418.01 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2026-118527)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 161.81 410.5153 172.01 ] /Subtype /Link /Type /Annot
 >>
 endobj
 90 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://cyber.gc.ca/en/alerts-advisories/ivanti-security-advisory-av26-1035)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 388.61 410.6977 398.81 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 142.61 412.8257 152.81 ] /Subtype /Link /Type /Annot
 >>
 endobj
 91 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://cyber.gc.ca/en/alerts-advisories/ivanti-security-advisory-av26-1035)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 378.41 409.8465 388.61 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 132.41 410.7053 142.61 ] /Subtype /Link /Type /Annot
 >>
 endobj
 92 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://cyber.gc.ca/en/alerts-advisories/ivanti-security-advisory-av26-1035)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 368.21 304.2673 378.41 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 122.21 308.4929 132.41 ] /Subtype /Link /Type /Annot
 >>
 endobj
 93 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://www.incibe.es/incibe-cert/alerta-temprana/avisos/multiples-vulnerabilidades-en-productos-de-ivanti-4)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 349.01 410.2721 359.21 ] /Subtype /Link /Type /Annot
+/Annots [ 71 0 R 72 0 R 73 0 R 74 0 R 75 0 R 76 0 R 77 0 R 78 0 R 79 0 R 80 0 R 
+  81 0 R 82 0 R 83 0 R 84 0 R 85 0 R 86 0 R 87 0 R 88 0 R 89 0 R 90 0 R 
+  91 0 R 92 0 R ] /Contents 200 0 R /MediaBox [ 0 0 612 792 ] /Parent 188 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
 >>
 endobj
 94 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.incibe.es/incibe-cert/alerta-temprana/avisos/multiples-vulnerabilidades-en-productos-de-ivanti-4)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 338.81 344.8209 349.01 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.cisa.gov/news-events/alerts/2026/10/13/cisa-urges-patching-newly-exploited-vulnerabilities-ivanti-connect-secure)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 674.81 412.4001 685.01 ] /Subtype /Link /Type /Annot
 >>
 endobj
 95 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.hkcert.org/security-bulletin/ivanti-connect-secure-multiple-vulnerabilities_20261102)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 309.41 397.1849 319.61 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.cisa.gov/news-events/alerts/2026/10/13/cisa-urges-patching-newly-exploited-vulnerabilities-ivanti-connect-secure)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 664.61 329.6209 674.81 ] /Subtype /Link /Type /Annot
 >>
 endobj
 96 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.csa.gov.sg/alerts-and-advisories/alerts/al-2026-147/)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 280.01 411.1233 290.21 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 625.01 413.2361 635.21 ] /Subtype /Link /Type /Annot
 >>
 endobj
 97 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.csa.gov.sg/alerts-and-advisories/alerts/al-2026-147/)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 269.81 363.4029 280.01 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 614.81 339.3261 625.01 ] /Subtype /Link /Type /Annot
 >>
 endobj
 98 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.rapid7.com/blog/post/etr-ivanti-connect-secure-zero-day-exploited-in-the-wild-cve-2026-104935/)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 250.61 412.3925 260.81 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.volexity.com/blog/2026/10/13/a-series-of-unauthenticated-events-chained-exploitation-of-ivanti-connect-secure-zero-days/)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 595.61 406.9205 605.81 ] /Subtype /Link /Type /Annot
 >>
 endobj
 99 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.rapid7.com/blog/post/etr-ivanti-connect-secure-zero-day-exploited-in-the-wild-cve-2026-104935/)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 240.41 352.8389 250.61 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/volexity/threat-intel/tree/main/2026/2026-10-13%20Ivanti)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 545.81 413.2437 556.01 ] /Subtype /Link /Type /Annot
 >>
 endobj
 100 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://bleepingcomputer.com/news/security/ivanti-warns-of-connect-secure-zero-day-exploited-in-attacks)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 221.21 410.7053 231.41 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/volexity/threat-intel/tree/main/2026/2026-10-13%20Ivanti)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 535.61 359.1849 545.81 ] /Subtype /Link /Type /Annot
 >>
 endobj
 101 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://bleepingcomputer.com/news/security/ivanti-warns-of-connect-secure-zero-day-exploited-in-attacks)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 211.01 374.7877 221.21 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://cyber.gc.ca/en/alerts-advisories/ivanti-security-advisory-av26-1035)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 516.41 410.6977 526.61 ] /Subtype /Link /Type /Annot
 >>
 endobj
 102 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 191.81 410.7053 202.01 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://cyber.gc.ca/en/alerts-advisories/ivanti-security-advisory-av26-1035)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 506.21 409.8465 516.41 ] /Subtype /Link /Type /Annot
 >>
 endobj
 103 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 181.61 406.4645 191.81 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://cyber.gc.ca/en/alerts-advisories/ivanti-security-advisory-av26-1035)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 496.01 304.2673 506.21 ] /Subtype /Link /Type /Annot
 >>
 endobj
 104 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.cybersecuritydive.com/news/hacker-ivanti-connect-secure-chained-exploitation/832983/)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 162.41 413.2285 172.61 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.incibe.es/incibe-cert/alerta-temprana/avisos/multiples-vulnerabilidades-en-productos-de-ivanti-4)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 476.81 410.2721 487.01 ] /Subtype /Link /Type /Annot
 >>
 endobj
 105 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.cybersecuritydive.com/news/hacker-ivanti-connect-secure-chained-exploitation/832983/)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 152.21 413.2285 162.41 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.incibe.es/incibe-cert/alerta-temprana/avisos/multiples-vulnerabilidades-en-productos-de-ivanti-4)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 466.61 344.8209 476.81 ] /Subtype /Link /Type /Annot
 >>
 endobj
 106 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.cybersecuritydive.com/news/hacker-ivanti-connect-secure-chained-exploitation/832983/)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 142.01 368.0617 152.21 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.hkcert.org/security-bulletin/ivanti-connect-secure-multiple-vulnerabilities_20261102)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 437.21 397.1849 447.41 ] /Subtype /Link /Type /Annot
 >>
 endobj
 107 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.thestack.technology/ivanti-patches-two-more-cves-amid-highly-unusual-connect-secure-exploitation/)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 122.81 412.4077 133.01 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.csa.gov.sg/alerts-and-advisories/alerts/al-2026-147/)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 407.81 411.1233 418.01 ] /Subtype /Link /Type /Annot
 >>
 endobj
 108 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.thestack.technology/ivanti-patches-two-more-cves-amid-highly-unusual-connect-secure-exploitation/)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 112.61 365.0673 122.81 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.csa.gov.sg/alerts-and-advisories/alerts/al-2026-147/)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 397.61 363.4029 407.81 ] /Subtype /Link /Type /Annot
 >>
 endobj
 109 0 obj
 <<
-/Annots [ 74 0 R 75 0 R 76 0 R 77 0 R 78 0 R 79 0 R 80 0 R 81 0 R 82 0 R 83 0 R 
-  84 0 R 85 0 R 86 0 R 87 0 R 88 0 R 89 0 R 90 0 R 91 0 R 92 0 R 93 0 R 
-  94 0 R 95 0 R 96 0 R 97 0 R 98 0 R 99 0 R 100 0 R 101 0 R 102 0 R 103 0 R 
-  104 0 R 105 0 R 106 0 R 107 0 R 108 0 R ] /Contents 178 0 R /MediaBox [ 0 0 612 792 ] /Parent 166 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/A <<
+/S /URI /Type /Action /URI (https://www.rapid7.com/blog/post/etr-ivanti-connect-secure-zero-day-exploited-in-the-wild-cve-2026-104935/)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 378.41 412.3925 388.61 ] /Subtype /Link /Type /Annot
 >>
 endobj
 110 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 674.81 411.9897 685.01 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.rapid7.com/blog/post/etr-ivanti-connect-secure-zero-day-exploited-in-the-wild-cve-2026-104935/)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 368.21 352.8389 378.41 ] /Subtype /Link /Type /Annot
 >>
 endobj
 111 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 664.61 410.2721 674.81 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://bleepingcomputer.com/news/security/ivanti-warns-of-connect-secure-zero-day-exploited-in-attacks)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 349.01 410.7053 359.21 ] /Subtype /Link /Type /Annot
 >>
 endobj
 112 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 654.41 314.3981 664.61 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://bleepingcomputer.com/news/security/ivanti-warns-of-connect-secure-zero-day-exploited-in-attacks)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 338.81 374.7877 349.01 ] /Subtype /Link /Type /Annot
 >>
 endobj
 113 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 635.21 409.4285 645.41 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 319.61 410.7053 329.81 ] /Subtype /Link /Type /Annot
 >>
 endobj
 114 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 625.01 402.2617 635.21 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 309.41 406.4645 319.61 ] /Subtype /Link /Type /Annot
 >>
 endobj
 115 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/THREAT_ACTORS_CHINA)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 565.01 413.2209 575.21 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.cybersecuritydive.com/news/hacker-ivanti-connect-secure-chained-exploitation/832983/)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 290.21 413.2285 300.41 ] /Subtype /Link /Type /Annot
 >>
 endobj
 116 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/THREAT_ACTORS_CHINA)
->> /Border [ 0 0 0 ] /Rect [ 300.0417 554.81 340.5801 565.01 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.cybersecuritydive.com/news/hacker-ivanti-connect-secure-chained-exploitation/832983/)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 280.01 413.2285 290.21 ] /Subtype /Link /Type /Annot
 >>
 endobj
 117 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://attack.mitre.org/resources/legal-and-branding/terms-of-use/)
->> /Border [ 0 0 0 ] /Rect [ 105.8568 467.38 191.7384 477.46 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.cybersecuritydive.com/news/hacker-ivanti-connect-secure-chained-exploitation/832983/)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 269.81 368.0617 280.01 ] /Subtype /Link /Type /Annot
 >>
 endobj
 118 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/THIRD_PARTY_NOTICES)
->> /Border [ 0 0 0 ] /Rect [ 304.2648 348.58 418.614 358.66 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.thestack.technology/ivanti-patches-two-more-cves-amid-highly-unusual-connect-secure-exploitation/)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 250.61 412.4077 260.81 ] /Subtype /Link /Type /Annot
 >>
 endobj
 119 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/THREAT_ACTORS_CHINA)
->> /Border [ 0 0 0 ] /Rect [ 88.24 293.44 176.272 304.96 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.thestack.technology/ivanti-patches-two-more-cves-amid-highly-unusual-connect-secure-exploitation/)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 240.41 365.0673 250.61 ] /Subtype /Link /Type /Annot
 >>
 endobj
 120 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/AI_THREATS_2026)
->> /Border [ 0 0 0 ] /Rect [ 181.6096 293.44 350.2048 304.96 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 221.21 411.9897 231.41 ] /Subtype /Link /Type /Annot
 >>
 endobj
 121 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/PHP2SHELL_OCTOBER_2026)
->> /Border [ 0 0 0 ] /Rect [ 355.5424 293.44 481.4752 304.96 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 211.01 410.2721 221.21 ] /Subtype /Link /Type /Annot
 >>
 endobj
 122 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/CHRONICLE_2026)
->> /Border [ 0 0 0 ] /Rect [ 486.8128 293.44 526.2976 304.96 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 200.81 314.3981 211.01 ] /Subtype /Link /Type /Annot
 >>
 endobj
 123 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/CHRONICLE_2026)
->> /Border [ 0 0 0 ] /Rect [ 88.24 279.24 164.0128 290.76 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 181.61 409.4285 191.81 ] /Subtype /Link /Type /Annot
 >>
 endobj
 124 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/TIMELINE)
->> /Border [ 0 0 0 ] /Rect [ 169.3504 279.24 205.6192 290.76 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 171.41 402.2617 181.61 ] /Subtype /Link /Type /Annot
 >>
 endobj
 125 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/THREAT_ACTORS)
->> /Border [ 0 0 0 ] /Rect [ 88.24 261.54 145.8592 273.06 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/THREAT_ACTORS_CHINA)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 111.41 413.2209 121.61 ] /Subtype /Link /Type /Annot
 >>
 endobj
 126 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/MALWARE_FAMILIES)
->> /Border [ 0 0 0 ] /Rect [ 151.1968 261.54 225.8656 273.06 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/THREAT_ACTORS_CHINA)
+>> /Border [ 0 0 0 ] /Rect [ 300.0417 101.21 340.5801 111.41 ] /Subtype /Link /Type /Annot
 >>
 endobj
 127 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/NOTABLE_INCIDENTS)
->> /Border [ 0 0 0 ] /Rect [ 231.2032 261.54 305.3728 273.06 ] /Subtype /Link /Type /Annot
+/Annots [ 94 0 R 95 0 R 96 0 R 97 0 R 98 0 R 99 0 R 100 0 R 101 0 R 102 0 R 103 0 R 
+  104 0 R 105 0 R 106 0 R 107 0 R 108 0 R 109 0 R 110 0 R 111 0 R 112 0 R 113 0 R 
+  114 0 R 115 0 R 116 0 R 117 0 R 118 0 R 119 0 R 120 0 R 121 0 R 122 0 R 123 0 R 
+  124 0 R 125 0 R 126 0 R ] /Contents 201 0 R /MediaBox [ 0 0 612 792 ] /Parent 188 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
 >>
 endobj
 128 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/CVE_REFERENCE)
->> /Border [ 0 0 0 ] /Rect [ 88.24 243.84 154.9312 255.36 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://attack.mitre.org/resources/legal-and-branding/terms-of-use/)
+>> /Border [ 0 0 0 ] /Rect [ 105.8568 635.78 191.7384 645.86 ] /Subtype /Link /Type /Annot
 >>
 endobj
 129 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/CWE_REFERENCE)
->> /Border [ 0 0 0 ] /Rect [ 160.2688 243.84 229.6192 255.36 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/THIRD_PARTY_NOTICES)
+>> /Border [ 0 0 0 ] /Rect [ 304.2648 516.98 418.614 527.06 ] /Subtype /Link /Type /Annot
 >>
 endobj
 130 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/CAPEC_REFERENCE)
->> /Border [ 0 0 0 ] /Rect [ 234.9568 243.84 314.9824 255.36 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/THREAT_ACTORS_CHINA)
+>> /Border [ 0 0 0 ] /Rect [ 88.24 461.84 176.272 473.36 ] /Subtype /Link /Type /Annot
 >>
 endobj
 131 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/D3FEND_REFERENCE)
->> /Border [ 0 0 0 ] /Rect [ 320.32 243.84 405.6736 255.36 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/AI_THREATS_2026)
+>> /Border [ 0 0 0 ] /Rect [ 181.6096 461.84 350.2048 473.36 ] /Subtype /Link /Type /Annot
 >>
 endobj
 132 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/EDGE_DEVICE_SECURITY_REFERENCE)
->> /Border [ 0 0 0 ] /Rect [ 88.24 226.14 226.96 237.66 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/PHP2SHELL_OCTOBER_2026)
+>> /Border [ 0 0 0 ] /Rect [ 355.5424 461.84 481.4752 473.36 ] /Subtype /Link /Type /Annot
 >>
 endobj
 133 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/AI_SECURITY_REFERENCE)
->> /Border [ 0 0 0 ] /Rect [ 232.2976 226.14 325.6672 237.66 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/CHRONICLE_2026)
+>> /Border [ 0 0 0 ] /Rect [ 486.8128 461.84 526.2976 473.36 ] /Subtype /Link /Type /Annot
 >>
 endobj
 134 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/VULNERABILITY_MANAGEMENT_REFERENCE)
->> /Border [ 0 0 0 ] /Rect [ 88.24 208.44 246.1696 219.96 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/CHRONICLE_2026)
+>> /Border [ 0 0 0 ] /Rect [ 88.24 447.64 164.0128 459.16 ] /Subtype /Link /Type /Annot
 >>
 endobj
 135 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/VULNERABILITY_PRIORITIZATION_REFERENCE)
->> /Border [ 0 0 0 ] /Rect [ 251.5072 208.44 406.2208 219.96 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/TIMELINE)
+>> /Border [ 0 0 0 ] /Rect [ 169.3504 447.64 205.6192 459.16 ] /Subtype /Link /Type /Annot
 >>
 endobj
 136 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/campaigns/C0029)
->> /Border [ 0 0 0 ] /Rect [ 142.1248 190.74 228.5728 202.26 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/THREAT_ACTORS)
+>> /Border [ 0 0 0 ] /Rect [ 88.24 429.94 145.8592 441.46 ] /Subtype /Link /Type /Annot
 >>
 endobj
 137 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1587-004)
->> /Border [ 0 0 0 ] /Rect [ 143.2 173.04 225.376 184.56 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/MALWARE_FAMILIES)
+>> /Border [ 0 0 0 ] /Rect [ 151.1968 429.94 225.8656 441.46 ] /Subtype /Link /Type /Annot
 >>
 endobj
 138 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1588-007)
->> /Border [ 0 0 0 ] /Rect [ 230.7136 173.04 364.1056 184.56 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/NOTABLE_INCIDENTS)
+>> /Border [ 0 0 0 ] /Rect [ 231.2032 429.94 305.3728 441.46 ] /Subtype /Link /Type /Annot
 >>
 endobj
 139 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1190)
->> /Border [ 0 0 0 ] /Rect [ 369.4432 173.04 488.9536 184.56 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/CVE_REFERENCE)
+>> /Border [ 0 0 0 ] /Rect [ 88.24 412.24 154.9312 423.76 ] /Subtype /Link /Type /Annot
 >>
 endobj
 140 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1190)
->> /Border [ 0 0 0 ] /Rect [ 88.24 158.84 135.1936 170.36 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/CWE_REFERENCE)
+>> /Border [ 0 0 0 ] /Rect [ 160.2688 412.24 229.6192 423.76 ] /Subtype /Link /Type /Annot
 >>
 endobj
 141 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1068)
->> /Border [ 0 0 0 ] /Rect [ 140.5312 158.84 320.3392 170.36 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/CAPEC_REFERENCE)
+>> /Border [ 0 0 0 ] /Rect [ 234.9568 412.24 314.9824 423.76 ] /Subtype /Link /Type /Annot
 >>
 endobj
 142 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1601-001)
->> /Border [ 0 0 0 ] /Rect [ 325.6768 158.84 462.8128 170.36 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/D3FEND_REFERENCE)
+>> /Border [ 0 0 0 ] /Rect [ 320.32 412.24 405.6736 423.76 ] /Subtype /Link /Type /Annot
 >>
 endobj
 143 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1070)
->> /Border [ 0 0 0 ] /Rect [ 468.1504 158.84 534.8512 170.36 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/EDGE_DEVICE_SECURITY_REFERENCE)
+>> /Border [ 0 0 0 ] /Rect [ 88.24 394.54 226.96 406.06 ] /Subtype /Link /Type /Annot
 >>
 endobj
 144 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1070)
->> /Border [ 0 0 0 ] /Rect [ 88.24 144.64 126.112 156.16 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/AI_SECURITY_REFERENCE)
+>> /Border [ 0 0 0 ] /Rect [ 232.2976 394.54 325.6672 406.06 ] /Subtype /Link /Type /Annot
 >>
 endobj
 145 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1685-006)
->> /Border [ 0 0 0 ] /Rect [ 131.4496 144.64 318.7264 156.16 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/VULNERABILITY_MANAGEMENT_REFERENCE)
+>> /Border [ 0 0 0 ] /Rect [ 88.24 376.84 246.1696 388.36 ] /Subtype /Link /Type /Annot
 >>
 endobj
 146 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1036-003)
->> /Border [ 0 0 0 ] /Rect [ 324.064 144.64 489.4624 156.16 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/VULNERABILITY_PRIORITIZATION_REFERENCE)
+>> /Border [ 0 0 0 ] /Rect [ 251.5072 376.84 406.2208 388.36 ] /Subtype /Link /Type /Annot
 >>
 endobj
 147 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1552)
->> /Border [ 0 0 0 ] /Rect [ 494.8 144.64 522.016 156.16 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/campaigns/C0029)
+>> /Border [ 0 0 0 ] /Rect [ 142.1248 359.14 228.5728 370.66 ] /Subtype /Link /Type /Annot
 >>
 endobj
 148 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1552)
->> /Border [ 0 0 0 ] /Rect [ 88.24 130.44 185.872 141.96 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1587-004)
+>> /Border [ 0 0 0 ] /Rect [ 143.2 341.44 225.376 352.96 ] /Subtype /Link /Type /Annot
 >>
 endobj
 149 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1040)
->> /Border [ 0 0 0 ] /Rect [ 191.2096 130.44 290.9824 141.96 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1588-007)
+>> /Border [ 0 0 0 ] /Rect [ 230.7136 341.44 364.1056 352.96 ] /Subtype /Link /Type /Annot
 >>
 endobj
 150 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1110-003)
->> /Border [ 0 0 0 ] /Rect [ 296.32 130.44 427.5808 141.96 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1190)
+>> /Border [ 0 0 0 ] /Rect [ 369.4432 341.44 488.9536 352.96 ] /Subtype /Link /Type /Annot
 >>
 endobj
 151 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1654)
->> /Border [ 0 0 0 ] /Rect [ 432.9184 130.44 535.9072 141.96 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1190)
+>> /Border [ 0 0 0 ] /Rect [ 88.24 327.24 135.1936 338.76 ] /Subtype /Link /Type /Annot
 >>
 endobj
 152 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1071-001)
->> /Border [ 0 0 0 ] /Rect [ 88.24 116.24 199.2256 127.76 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1068)
+>> /Border [ 0 0 0 ] /Rect [ 140.5312 327.24 320.3392 338.76 ] /Subtype /Link /Type /Annot
 >>
 endobj
 153 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1041)
->> /Border [ 0 0 0 ] /Rect [ 204.5632 116.24 356.0896 127.76 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1601-001)
+>> /Border [ 0 0 0 ] /Rect [ 325.6768 327.24 462.8128 338.76 ] /Subtype /Link /Type /Annot
 >>
 endobj
 154 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-22)
->> /Border [ 0 0 0 ] /Rect [ 126.6496 98.54 173.5936 110.06 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1070)
+>> /Border [ 0 0 0 ] /Rect [ 468.1504 327.24 534.8512 338.76 ] /Subtype /Link /Type /Annot
 >>
 endobj
 155 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-565)
->> /Border [ 0 0 0 ] /Rect [ 178.9312 98.54 231.2128 110.06 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1070)
+>> /Border [ 0 0 0 ] /Rect [ 88.24 313.04 126.112 324.56 ] /Subtype /Link /Type /Annot
 >>
 endobj
 156 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-158)
->> /Border [ 0 0 0 ] /Rect [ 236.5504 98.54 288.832 110.06 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1685-006)
+>> /Border [ 0 0 0 ] /Rect [ 131.4496 313.04 318.7264 324.56 ] /Subtype /Link /Type /Annot
 >>
 endobj
 157 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-268)
->> /Border [ 0 0 0 ] /Rect [ 294.1696 98.54 346.4512 110.06 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1036-003)
+>> /Border [ 0 0 0 ] /Rect [ 324.064 313.04 489.4624 324.56 ] /Subtype /Link /Type /Annot
 >>
 endobj
 158 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/navigator/index)
->> /Border [ 0 0 0 ] /Rect [ 88.24 80.84 157.5904 92.36 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1552)
+>> /Border [ 0 0 0 ] /Rect [ 494.8 313.04 522.016 324.56 ] /Subtype /Link /Type /Annot
 >>
 endobj
 159 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/ivanti-connect-secure-2026.json)
->> /Border [ 0 0 0 ] /Rect [ 279.472 80.84 415.5232 92.36 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1552)
+>> /Border [ 0 0 0 ] /Rect [ 88.24 298.84 185.872 310.36 ] /Subtype /Link /Type /Annot
 >>
 endobj
 160 0 obj
 <<
-/Annots [ 110 0 R 111 0 R 112 0 R 113 0 R 114 0 R 115 0 R 116 0 R 117 0 R 118 0 R 119 0 R 
-  120 0 R 121 0 R 122 0 R 123 0 R 124 0 R 125 0 R 126 0 R 127 0 R 128 0 R 129 0 R 
-  130 0 R 131 0 R 132 0 R 133 0 R 134 0 R 135 0 R 136 0 R 137 0 R 138 0 R 139 0 R 
-  140 0 R 141 0 R 142 0 R 143 0 R 144 0 R 145 0 R 146 0 R 147 0 R 148 0 R 149 0 R 
-  150 0 R 151 0 R 152 0 R 153 0 R 154 0 R 155 0 R 156 0 R 157 0 R 158 0 R 159 0 R ] /Contents 179 0 R /MediaBox [ 0 0 612 792 ] /Parent 166 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1040)
+>> /Border [ 0 0 0 ] /Rect [ 191.2096 298.84 290.9824 310.36 ] /Subtype /Link /Type /Annot
 >>
 endobj
 161 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/intelligence-hub/)
->> /Border [ 0 0 0 ] /Rect [ 107.4496 695.04 245.632 706.56 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1110-003)
+>> /Border [ 0 0 0 ] /Rect [ 296.32 298.84 427.5808 310.36 ] /Subtype /Link /Type /Annot
 >>
 endobj
 162 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/README)
->> /Border [ 0 0 0 ] /Rect [ 88.24 678.06 154.9312 692.26 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1654)
+>> /Border [ 0 0 0 ] /Rect [ 432.9184 298.84 535.9072 310.36 ] /Subtype /Link /Type /Annot
 >>
 endobj
 163 0 obj
 <<
-/Annots [ 161 0 R 162 0 R ] /Contents 180 0 R /MediaBox [ 0 0 612 792 ] /Parent 166 0 R /Resources <<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1071-001)
+>> /Border [ 0 0 0 ] /Rect [ 88.24 284.64 199.2256 296.16 ] /Subtype /Link /Type /Annot
+>>
+endobj
+164 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1041)
+>> /Border [ 0 0 0 ] /Rect [ 204.5632 284.64 356.0896 296.16 ] /Subtype /Link /Type /Annot
+>>
+endobj
+165 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1059-004)
+>> /Border [ 0 0 0 ] /Rect [ 361.4272 284.64 453.2032 296.16 ] /Subtype /Link /Type /Annot
+>>
+endobj
+166 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1059-006)
+>> /Border [ 0 0 0 ] /Rect [ 458.5408 284.64 536.992 296.16 ] /Subtype /Link /Type /Annot
+>>
+endobj
+167 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1140)
+>> /Border [ 0 0 0 ] /Rect [ 88.24 270.44 292.5952 281.96 ] /Subtype /Link /Type /Annot
+>>
+endobj
+168 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1070-004)
+>> /Border [ 0 0 0 ] /Rect [ 297.9328 270.44 399.8464 281.96 ] /Subtype /Link /Type /Annot
+>>
+endobj
+169 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1564-001)
+>> /Border [ 0 0 0 ] /Rect [ 405.184 270.44 525.7792 281.96 ] /Subtype /Link /Type /Annot
+>>
+endobj
+170 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1564-001)
+>> /Border [ 0 0 0 ] /Rect [ 88.24 256.24 134.1088 267.76 ] /Subtype /Link /Type /Annot
+>>
+endobj
+171 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1087-002)
+>> /Border [ 0 0 0 ] /Rect [ 139.4464 256.24 258.4384 267.76 ] /Subtype /Link /Type /Annot
+>>
+endobj
+172 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1016)
+>> /Border [ 0 0 0 ] /Rect [ 263.776 256.24 468.1024 267.76 ] /Subtype /Link /Type /Annot
+>>
+endobj
+173 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1005)
+>> /Border [ 0 0 0 ] /Rect [ 473.44 256.24 523.6 267.76 ] /Subtype /Link /Type /Annot
+>>
+endobj
+174 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/techniques/T1005)
+>> /Border [ 0 0 0 ] /Rect [ 88.24 242.04 167.728 253.56 ] /Subtype /Link /Type /Annot
+>>
+endobj
+175 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-115)
+>> /Border [ 0 0 0 ] /Rect [ 126.6496 224.34 178.9312 235.86 ] /Subtype /Link /Type /Annot
+>>
+endobj
+176 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-17)
+>> /Border [ 0 0 0 ] /Rect [ 184.2688 224.34 231.2128 235.86 ] /Subtype /Link /Type /Annot
+>>
+endobj
+177 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-22)
+>> /Border [ 0 0 0 ] /Rect [ 236.5504 224.34 283.4944 235.86 ] /Subtype /Link /Type /Annot
+>>
+endobj
+178 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-565)
+>> /Border [ 0 0 0 ] /Rect [ 288.832 224.34 341.1136 235.86 ] /Subtype /Link /Type /Annot
+>>
+endobj
+179 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-158)
+>> /Border [ 0 0 0 ] /Rect [ 346.4512 224.34 398.7328 235.86 ] /Subtype /Link /Type /Annot
+>>
+endobj
+180 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/mitre/capec/CAPEC-268)
+>> /Border [ 0 0 0 ] /Rect [ 404.0704 224.34 456.352 235.86 ] /Subtype /Link /Type /Annot
+>>
+endobj
+181 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/navigator/index)
+>> /Border [ 0 0 0 ] /Rect [ 88.24 206.64 157.5904 218.16 ] /Subtype /Link /Type /Annot
+>>
+endobj
+182 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/library-layers/ivanti-connect-secure-2026.json)
+>> /Border [ 0 0 0 ] /Rect [ 279.472 206.64 415.5232 218.16 ] /Subtype /Link /Type /Annot
+>>
+endobj
+183 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/intelligence-hub/)
+>> /Border [ 0 0 0 ] /Rect [ 107.4496 188.94 245.632 200.46 ] /Subtype /Link /Type /Annot
+>>
+endobj
+184 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/README)
+>> /Border [ 0 0 0 ] /Rect [ 88.24 171.96 154.9312 186.16 ] /Subtype /Link /Type /Annot
+>>
+endobj
+185 0 obj
+<<
+/Annots [ 128 0 R 129 0 R 130 0 R 131 0 R 132 0 R 133 0 R 134 0 R 135 0 R 136 0 R 137 0 R 
+  138 0 R 139 0 R 140 0 R 141 0 R 142 0 R 143 0 R 144 0 R 145 0 R 146 0 R 147 0 R 
+  148 0 R 149 0 R 150 0 R 151 0 R 152 0 R 153 0 R 154 0 R 155 0 R 156 0 R 157 0 R 
+  158 0 R 159 0 R 160 0 R 161 0 R 162 0 R 163 0 R 164 0 R 165 0 R 166 0 R 167 0 R 
+  168 0 R 169 0 R 170 0 R 171 0 R 172 0 R 173 0 R 174 0 R 175 0 R 176 0 R 177 0 R 
+  178 0 R 179 0 R 180 0 R 181 0 R 182 0 R 183 0 R 184 0 R ] /Contents 202 0 R /MediaBox [ 0 0 612 792 ] /Parent 188 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
 >> /Rotate 0 
   /Trans <<
@@ -1187,123 +1344,123 @@ endobj
 >> /Type /Page
 >>
 endobj
-164 0 obj
+186 0 obj
 <<
-/PageMode /UseNone /Pages 166 0 R /Type /Catalog
+/PageMode /UseNone /Pages 188 0 R /Type /Catalog
 >>
 endobj
-165 0 obj
+187 0 obj
 <<
 /Author (TeamStarWolf) /CreationDate (D:20000101000000+00'00') /Creator (scripts/export_case_study.py) /Keywords () /ModDate (D:20000101000000+00'00') /Producer (ReportLab PDF Library - \(opensource\)) 
   /Subject (TeamStarWolf case study) /Title (The Ivanti Connect Secure Zero-Day Chain of October 2026 \(CVE-2026-104935, CVE-2026-111357, CVE-2026-118527\): A Case Study) /Trapped /False
 >>
 endobj
-166 0 obj
+188 0 obj
 <<
-/Count 14 /Kids [ 7 0 R 8 0 R 12 0 R 13 0 R 14 0 R 17 0 R 18 0 R 21 0 R 36 0 R 52 0 R 
-  73 0 R 109 0 R 160 0 R 163 0 R ] /Type /Pages
+/Count 14 /Kids [ 7 0 R 8 0 R 12 0 R 13 0 R 14 0 R 17 0 R 18 0 R 21 0 R 40 0 R 47 0 R 
+  70 0 R 93 0 R 127 0 R 185 0 R ] /Type /Pages
 >>
 endobj
-167 0 obj
+189 0 obj
 <<
 /Filter [ /ASCII85Decode /FlateDecode ] /Length 1531
 >>
 stream
 Gatm:gN)%,'R\M6ls&P0N<%nMH#aXtj/,Na96DnN+!;11d?'"_J<om&*KZFn.8DO1V&>-lLi[_UB+N'K6,ED5h>lHYnDZ;-j-Z*>+UKn#!EZVTa3jAb6Q?a\,)B/1`5nFq`t>"R^k)]B-8\=n&B:J!K3=1;:]s'V35Qpc&]_l[cUa;H7m8!eO6r.Z4t6L_-0O2@)j7Hc,&ogg7>1,KO']KMVYO4F8Wq(R'4o:KAQJ:cUe@sDBge_H/nr<t][ESLU\?.P_or?G*TbD'?^uc]"%e9?T`=@tn"6K`0Pg1;2$[WDG+Q]uE]LhMFS>=,hp*qQ"1.0^fk1;JSqJ3Vhp]Z*dsZ$Rq:IgqA'ZW]l[.#?Ko'\OR6+)RhAM1-V9p*_`-.bo4K4!KThG<J42$j_SFZG/],4=]Y:fb""f#KA7-C0X*[V^3U?'FQ1ucX:ll02=,-8`4FiF'Xf^a!ZCR1h[Ld87*9P=itm-Eei5%aup@'=D%ZbOFPMIu.,q*im]EhD(^e-,6OAZ]bp$bt]'^6d*9nk7&NBst7W1V#n[ao$cB+=qV[T]R`_:^AGjB.Vo3YY"UtL1k4SVrmcj-il4NL@7>=V`]c[#!uH,V_N)'lQ&@?+H.!&(Q'-[VfN(7*uOLW6:l9tdEpd;?tlh+eUu(-VsYjIf/1?lH2Dd,Gs_9Y3@!m?UrDAEKY,;qi5:4eO.O9UaPmK3N@3-J$K!p#&plfq->==$]`Nk`1rqZ#C2h@"l?+\P>I[;"deX%qBd>V9ieO$<NQ%dC0O=PZF"PD`PNh)n]O,&WURf%/GqQ5<mCTiSjet\j8O0%)8c8NhXOjimD=01dLM8%A]s6#@97pJnXcnH/f'"05BG$e68tfE99e5$g.<<tA:hf5Hjt+-^SC9PN`dLIoX#gp52fc$[PJqG!T[%e%7W@0)5pS9ZiZ@";f&4)U#?c`Q%WND&iUWurD+,]>LsAKO&urnmSTW;NO5">aV#4WH+^2Xl/dBl.GqHuiKX%Gb1<OG=6_[GYb+[>qN>1c/%@6hkF%5UPBDb?X'A\ts1f"ebS!%A\6DC@b0?m&Q$]gE(96p=$$h%-Jo"gM?Fm$02I,F2CEDN^C:,gT`d^/<*H9948H]nQp,e`.^HjTVQY-i;e.G_K)6.>eT,?:-rY@ocBhGULET.i5c!PV=N]e9_(o3,@$i8j\&M:e_"_P1fRBhmU*;8dg#[;(pZrZcH)p(bA<:TM=+>!#9EMgC37CR49u>t^g_YTN&\#^bQj3#]H75+F%ED85)Nle0Mt->tPaY0ij,;!uJ/(n#/<TTD&jC+8O)4#M,QNN*A9s*.=G*^a<l:AfCP_0Bu`]mOEHS_d*a>GLbhOf^tqN-FJ_I$+0Zr*\)BCbZIh0MfE/]:W5jl2d_>:_&1/]Ko?%PX]A*OKkq;)I;Z.m9`ofoR+%U$LOe)C%\@BeUUm?\F&Q^)R38LE_9Ld`c&"t(MCgC'=D.T,s8/d*_P>]1\/'@rHjBT(hPB_m6Z])<im1m<?AkjXifU]&hAfap7FDQ7XkKW7g;'~>endstream
 endobj
-168 0 obj
+190 0 obj
 <<
 /Filter [ /ASCII85Decode /FlateDecode ] /Length 2871
 >>
 stream
 Gb!#]?$"c/&q0MXfXE=N)(!)eqT2U)4)WM*NE(2bg4"QC:dRkX$348W^V@+J.+*l&a19>dm26Ed!kXBHZY+J*$3:8prSO=MGWgbQhGU!TVA7I66nj#o(XnS/-R=L7)Q#cO1l/IH#\A"?K:/>[#U#*U8MWgbK.%ic"!aK8nV#t+`kiQ`^quK#5QViO=gHcs&/P(IN6pYW9mIAJ5lr>!20nL)A0gm2"b^a:HTg2TJO5Nma>A`E'#Cr+dIcGr2n5<JIt5<6Gk^nH9`K\.O1:#Jrq9gc@Bh@W8=IMY">9m_5&fU/9XI]lE,[+\ed2&S0`(DN?c-EjV#jr=+,/0"@=SM4J_ST5qVi22:MCC%@8$qEfL<)*a>4rARRJA'P5F9hps07<@!/2%-]Cq91M@nk@Zi(-IquPT+mA0H!f;Fq?*"6C`"V8YH-1&6ifE4)Dlhu2V<a#_V-C;_,5&akTk@7qnnbq';YXN^Lo*E(r_5*T8/,V5VY>HjJ.7hDH1LL$?^ie]P+7[pJYM[:bS$5]5\Ps<5SugDgmk_.(I1Mh'T\WTP_;630ckc8X&qa.$YP#Pi%V@F.`<S1?Wn#;0nOLW_4b[QP`Z6G`5gr'"XMnhHODi=7<;)LIB,m[jT.aH#AFqSH8hYIG$@SJRmPW2:NVtdj;UM9PiU-tcXIOU>BEtj*0TLPp6P,$)oE3q?q^YEb<A^GO\1/d#t_`O%24*hMB3BJU8(%cU`L1fV5VQb0p&5bV-tGD*t#/rh*):R"DGA8f-^/P<"YQ&@EtHB7))RjhWV6sgfL$-=;pr*i9f`KEcq7o$o>e$Yn.Zf,M<o99IQUM<S9Mj\-_W^L'IE#^,tDM3%!U(9V,KrfWXd@'U"gYLdjPnm+",WrA!Y&TJVVV7iu7r9@'90\[B;#BA#Tj@6lAfc]*R:gS1gf7Q6*n`u)pZj1MkL=9mj7ZI[HD-aidX=74RfWMGkC;"g]E0FG(XG/\PP$s`+%I$/@V2jE-h!VLC$`>_[^<g:BOHu-2(-2Pn=">#P:(2df7#<.Uu_<o=u5KMR+#I2duM2i/PArU\8*Un%iOSEL.Gp@0'CQ#11eWuXnQ2DoA#.ag[lo<t$hVg\;&sogs$ATo%C%FU15.<a1'#P0t4O3B?JE;jcKjDiFlOp^aE?2q.YX>opEfqI+*5>fb5OZ'@,P6=o4RfWj-$9,+6eMg>#sOu0:'KKST<U\kH]*M1fL]N(Fnn0WoT(s,+d[p4M2pWEo>555]Mhtg(X40aormV*&?!Ve3%"3Ke?,k)d&MGh<sn(Z[nC[p(\aYWfm6:%B2IpEBq\NQ9;)[nKoq?o]S8m;q&mtkSo$kEgLdt&[0$7#R[^j<R]C^l/Sh+S;'V,A`,C#C:LD;^alY)ds%*"c:]gE4=\J+@TbOphE[Jpb:`?FNY`E3Fo\Art@L_$VTj-Vdg!4>H(SZ<"/\dfPpufGW'Dj3`c"m/^0^t:NTDRC63#K$a7i;`2.]&RumHKVi+P]^;"6gDN>F51XbI]V)^$:03G"^<6.ssH-d:=J^7bq1(2K-MTOG:)U5BG6aB!&.-$`,C?Ba7a>KWg"3%]J4Q3O!]1QbQ<K?XK<u/j;tF3pqY)\);..!/<l_6`ErLYWd?kDPa&h:)N%Hb`_`uU$\+>0[!-GW3lMmgK+O7C4f80q:YnR:m_Ji!TgIDC:.JL4R[Mni8oTm`I-EYO+]*0m9:<-ESL4?fGph&>.*FokX#)T/"]+"Qr9+66OM(/G#YR8!agm%,J7*B#2(PCXrKFg'4DD22Y7B+SNo`^9$G('6sV#Jb]n,7C8;)VD)WC2@,Y!D0fRa^9bsJ5(YbrERVH+q,;$?=(d+cm)pr?*L0Dk22f%p1O_W_`$/Zmq/H/^`o8\Y^:)qWs/&'"WU!$&B4=.3*`63)>Qf,6bLNd[^hiHaPq>2ZaT@_N)dhiQ?FX*CsDrY;lX=@(6@72Q/PJ#br+\T`)U4ai%G,7oIa08ag@^0^erQKk'b=]>L/ED0ZK4;tTf'ObBO!]WZV+nuH^*5dt7O\":@a3>k7/u7K)c:9I,/`r]&\T!WZ_FVr`:mFPMmQNl:03_J#]TA/Ko_LK^:q2DL.<XHU'>jN['a:aCC7>)ph<!F4H*[ZK$h=3';>0d`V!ps/LJ24d.O%PmoI"W*Dt-NL!$3t.&&p:mbW'k\@L31G`CI)_p)<<%1)2=p9L1+BArBs&;DJ.f7H:lO@[R?#Ef6AlL15pAioMXrW<(cWo\Y1j!P56po+mu=ppPF3Mb&\E\=$Cc'$8\lEf*'at#4$jZbMHQh!R\SSk+Zonj\ChU[3\<,PMi3m.JS#0%[8CV:Y5^_liIe$]oKgb"2qAj_-R9;tqCB4HGJ%u\hA$s]f)(paGK;!;N5NO2l;"WCK:167/QmfL(GGDo:<Wg>n(RRX7('B+!A-V^2*XiG9HpY?9)JcG<'!4jS(VMQEPB,N%/3Pb%5Ym2P(B[q:ghqf)Elj^D@J'[d.@LtXCXN::3X3**^GpK3T$Wi/`oZLIUe"N2)(Qee8U-Y^S6O3;+jjj/;(?V_MZ/.[*)&hSj$04rgU(j0lijc3?imNb^p:*eU_!aA7HI,E#"^D)3.T%=dqba&&p5uPTEl'6`:;s--7Xh:pDRpdqh%s7sEj>o6^^,rpo`!3"!sgFfg0-M;f03](DBp]Z;6#!/3gu`;*F:m=7(`6tGYs8C*rf*JUV?GLd@C'qVX%3gY&O*t:t1(I.)gfi`0n@QfX.WV6j^?NjrP)=b0%SMA$<JELYVT**0TTFTUD[1*K`(nn&H9>ck""OFj9'm<d\_g9`47lW'`3W@0MChKQ]@7]G/*/;4GnNKCFL[f92/f&B;ga(>S`?;`K8V\K@14!\]Rd(H*$7NG"X\:AtKNY/dm~>endstream
 endobj
-169 0 obj
+191 0 obj
 <<
 /Filter [ /ASCII85Decode /FlateDecode ] /Length 2309
 >>
 stream
 Gatm<9lo&K'#!U4oP('ofiS4W^G70,G-[]M1*0Zce8CcY7(,K/,bP.!*WQ!g5boqWZBCVu\]UcQTY&VMqXpU#:nYV`n#?J73JDss@_arskJ.340RX=Ae'XKoTd!o:%YWt$/IEVZVkO=+(hoY)Vi5-iA;l/6,iN,Ck.cjG=VNtiJP_r6]ECQ(RMFMn.8%++V`8,<[ti+"j>6t%&"[6P*"%kKn0m7DGV>un*>i<i0UZR*A-/VKN2L;9^VeUoj:^>Lnb1LSR!sYO0B!Ipn2$GCLX#B8,C,F>(iBo1Dl*.7-:VdP4Bu=&Z3^J!CQ;3P4\Qcn1mg<$;0arb$_6brDT7n+ZfCP"bbuqRPRt,8(F`6c(-mbi&.&G:`p7!G*g$m!7_6@.a@XOJK2eWlch`,q\/LKkBu,<*+C\WWXZM7VQ6^f.Db1_Jk#$<I97(=*3E[cfXCakgXVeN'P;?)PS"kqY4*->9E81>H;GN(A`Gk$-/eF2JXacAFN/##+O!)Q&!0O9#IG$M(J/+jc7`+i@:qAY@7VG1BTm[F&?mVnI8]ee$?nBkXh[PKT)fptBOr$Al>),S'OBB-9Jr9_s09);>_)DY-Z<2B^n%iFDdC]1Q>V95,FbNY[<Ek)E=Z%kjmHM^rb`o8ki9eY*'hDWJ9BG'"l8)VR)96t(rqd8HkB`0>@bi\R@N35?RVp4/nb,\sGE)66D-Hk;r&m#b#@;jK%3HGeGk6;%L4AVA6Ga&b=+hjp)^S#s.Da`jh_2cll)P$N`^23C!^X!k)I;PoMdKNK66/`N`>uCPl&\jP"fUa`;;*,2b_P5LEa>o'%VFqn&9Tt>5I%n5=A%I="2VW-/$JRH)O*,5LV.EUU&,R8Mq3O.+BQ9Cm8YIG1)f:Q[4@.feo;K]ceRH-XL(KuAIJ$:/h;l\KFaT$g]s1&d;rm2I<^ll'AG;JMj:;pY@"'j_9MM&S!YO!%_hOSM+_@W*Z%%l/M9R4Z1\'!>4R.0clh%/&VVL7H%7.NkZK]g&MQ&UWlu)cM)t9gWIGI\>*MGI^):?u2e):2UQb*9Fe!7^3Y5HTA/\TrT4Lm^KPtb9(XCE565)[aO[9gQ;[4L<8Y5+eqYsr/"6Y4V'+Q4=%MDg(<.sH-C*Ed0C&D?P=228/ZoefZl@:RW'em>uMiBZ4P_5B(3/>Z3L6`2Inr6*9G!o*.caMap=4VXN1PbZ>CV[-segS:N#2`Oh=u:6VS$Qn/UmJ2d$rs&G9MThu,_Ca5YmE46G6ed?pJ;fNTT'2799_UY*9OOa.p]?ET_'/Oj,8Cmn>ccJ2?IH:I';/<fPN6s;)#k-/n,6Q7VR.Lna"=,)PN>M;Q>G24N&Zbd5%U^IIK:7Cl%F'bRF4IU6XTm#G-AiRr&H26.sEfV;Y[+]5l'X2*5Uu,%[1>GnrbN[^*bH&`o[C\jU^204Gjf;;,XmN,R&EedFUCnQ&WqG`1:fi50/\V6k8Oj`4(7XjWg^1h\W57kiDZDDrf\PgD1AK+NS)X88F'eB/[[/*E$\C35_@1TWlgOS,_r@9U*aMsUo!Ag$G*a.;kj..V/Hj*T6rlp0=_Yj5%(j1se7HE71DN^E8^N.LT1F9G@m(;/qZJ[>^_Ska`&=%S^>ieNa4\:F+.PXF%CF%Z"0k\^N:gdO$92nK\t`'t5pP4G9#6fUJZ=pYi]$([/ehl.XNJe>7@JA\8E`]^4d(?h']A2KJ8+IXAbPlYBRn=D\MeFjYN%iel:]U'(Q,jEn]-'+Cc,bh+$s02Mb8f]7b$3[+D6uY?T08#FNoH7'sigG5XH$9Z=\m6AQk[3l%7.@J=m8X^oFh"W.V,a(npL';cE@l;SP451nXM>'b)OABs[L8Wa\NYq2s6f^t/69dA_nu6"a[VS4EHKtV7F';h^9CH[XC[]X,VNAhS6\kp!`0Ep];H?W6.jYN@RmO?WeAHLGd9rSd35^2=SlW06!Yqk"]gfF7D\1K<6&Gun&)B^'^Q*iY1ckrJ9r`3Wm5*4qe\^R2O+O]3)3:1CEN#A%!YD8Vb-)$G"+Q3jj,4F_<q!:#E)e]%d8qR-=h4A^P1Yg]iB^8kE)3;H3lOjJC[cGXL)EVa`P*8W;g!"RCkP3anrChR%.EO9d2bsP?2Dc:1:;/F>qMVU%2nQ\FWI>.!nbNDu+=j/4sP!2+D^hWPBEn=ToFOjUBlZCUf:$?hs1tK$s)Qf&&q*4rsDN,E:Sl4JJ)7N*Dlk<;=f5i6E,@;7d<YQ3`q;/<A4eL[?u,AGp*]eD^m`Sid'e5^<U"d2pmm5bE7H3Ukr/<Gj5Uh=YL[FB=Xl0V=82>PId!aob-5"!N@.o`~>endstream
 endobj
-170 0 obj
+192 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2862
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2871
 >>
 stream
-GauHNgN)%.&q/A5oNRP/)[h/r0?KEQGV[Pi:=e!BX&dLJ9L9@=&ubm[3VrV%5U8cK\kj-k-<2[R!P06+#E@1A&AWgI\=`"*i8"tDofE1@@5nJ.&;/ph\/tACmNKdU&k%7hKR"O>,*]D:oV@fUL56KW`Xiai%&8?)Q8&<?LQXWo!=+9l^hEiU'->0PFr!Q3\QKW/E-G1mZ3Z59U0<beN^A]71Ck^6RJ1T$Xar_S>*2\':rm$(L]6f>l8.3+YO:>`?U"Gf)MWaXn2EFcJGi]1--+!Q+@K)N?O35q\64[$<%o`k>c&h&bB0^0r(lV;o"A/C?n,+c`>H=bAaq$':eX6$ljk/?0C>s0"LBB3#bdPi.-<LG!Q@p[!WjcibJ3r$6QnSdnnNk06Cbn439)CoX+/FQ^5&ef)$.YUYt_<'CU>Tc:jC'"60OV88hi9$d*K[IN$bQp/t\4T=uNfP'+pJIbu@$f[TLXs^"WFK35p^4\=W=m9I-jnd!tfhmaYell9H!&Lkh);O(,Aj!^g>t3d6Z/X9ri]=5Ns,F:%";4ASBP;mBHG>\5Y=mk]J=<Z+.6J`e)*Ns?8GpVA!m_]2eB@Y7s.p.6T>Csd`ABiZ3$(^7=_bCH73UGZ/^UKEa'Z>UFL=G!O.=?)0UfWYO42:GZ\P1.9>LnaKp#;JaHV!ro@rTcNgS-H)!1Q$d4_J+s+]Pl;>iA@cqTq4_.,(#$-(pRZe%hS%PS:me/'?43ql"i;p'SRnt*g)cA/IRT^k+i(fS[:PS/bF$5-P>]gAt=%Q]-@Fo1IS5pf?2\!/PZA3e9a;IJJ2QQVqpG&74IOch1+eGAG#Zni$Jsh$A0U\JL);`@lc&r&#m3Jah0a7,+oMl+oN\rpVg%.dN$gMF-K)/Y:9:?74&Ol$<YC7CfR$'Rk07aN.Zd)<^hI8ol2urGDHR'-ojr^()T:%]RiSG93&Kc\XZ:E3K@N1'@3<[/4>n$AHjW._^J"X"UI&[dW-[gOf&<LcX.n0J*RYnIgYY?Fk2](0a'rPMS)A*^i1qC:_jU"NrG3-*C(7iAU%DP<=Y`S7J^;)==IN.`=*McX[FVS8A10)oJ/?JEqlr%q8:h=lLS^Dpb[%[BGWZ'<&lAtZ-r7(Lqj.I^(_4D'`K5kLjMMJHT>CNR=Prc"0.$Zd\[-lSm<ZSBrP.5>XOXk@ehiZ.85Y)XqsN@+^m/rKACW`b$lt\W8*U]5FT6#M"l)LLa:kc6qJ2bpse%AE<HkCh@`i8&LKV+JN&s$s&dJP<JpKaZ;PD9jrbFtRBl@sJ=FA<:l=6oMASJLh_!A0"-VRfH@1.g!9HdI<.5`*?CfY!Is=uH-%?%`;NmGS=30c36?#G>d(!\X*oQQbbiB;(-WIgCVGn4+8ctdj!Oo@^0(em4bJ4V`>i_n9[)scCU^WAE?L"#Zd*dHe1R3j'cj$(A3<`EOB"YDEkep(4)#88n7i;&$f`ai%k3&=_r89$bo#l3c')!XXTPU&@I1j7;d:n-Y,kOW=X8Z%p9KF\_`R\o[b&Q*GSk0AI2-6Wu5dlj,gW'4u'(!n$A*NI2]'aVG",#@/$_-:!qt]sErFqp5O)3tuN.Pt%$G2tUTAE=F$i-29p_`,WGaM??HX)""ro`qVLb(?oe^+J19*llN(;5F<c2AB5RFEN2A!Sn)!iS\6g7A/%#7X'R1@`N&eUnOf`mn;''+:'oYgejg.I,*ee.\7JlV72Oo#XIZ;9mJJ/][S7aRUX/m>l*bl]2=X?b03DIa)TB#EShC_]#"ZMKQ#&!L2;MPV6FMNkk:do]C=9oBuHqE.'Z]csraFlAunfd:n^;1hf@&(EiKPfdR6di(S0</CqI<X@\)k;Ak-g_1%sK:?D)lnF##%1Tb&'EtTVsO"T@9=r7QLVM3l)UeI4VX!_Uf*-$,uk1R%XQ+shefd*q+#4Cq%#29iVCR%ZX1,!&go_0AGY5"2UU_.YSR91]D/RTmrXO&Y%5IQ/m-rV$dbL:j_CZn5G=%-C+l;MI7KG'T@8UlaKU`E%?=/GX@T85q0jXUFcql@srB]//S"]0A''m[3"7(NNTX3+1gVMW'Z'2:LlR`$7/OVR+<;me<Kk-)JlYdC8Wk/.S=gMOp<PFl.qDQWqs3K5Y]K]OD![@f,/7(-!jd-K/jn[c@FhbY:0;;C.kZqDi<E-,uqLj("%]<:@9r+'m8H)rBRc6^J#3_LLB9GF(Dg)l6u*]h#demmV.EGBFF+(&qWp.KqDm^sN\%lQd*m]PYDR2U=9a1n`IHC`.VZgg"<M+4*iDK0RF!Id44G=cC/oQNp=aINO!:R-G-l+$?6E]0,Xb!EYh@gS)pju`L7-I\1+p1_j/F=H-rC@'Gl%/k=Hgn*h.-?5*k`gnq_OlLVuh(GL,#>gU<3ZgaR?0.*?f^AYi-'_9NST_`VC'o1?pRW(*@YBr4Z35p.23iGu[VrL@^2oS.ZU,SOM\9jZA':C/IDjiYCrIDi'&Gn$KnTA2Ne!0R!e259PK2LK]E9h#p:U'-60kXS*7BWF,(][pLt\b6_4Gje;=fg-<2T93/Yt5%Q4&hQb$>HmEr(]gpqU[RR%g6/USZ-s/#9SBgcIgb-LMr<*-=%0+%`iu*A=&\Og#Egf]H>5>t$(7LqKeY=JiN.]oq*J+ubtrOtEa2Flg=\1g/@nS@O6`iof+EUP2a&]1T%_4PbI8CHZjF"^Yce?'tn_\YopY!e0-B0.%J1Cu&@rD;1nr&+=?=q=WIoQN[#Bl:I!D>s1!KEH\JP9dROt8!!Vk$]PO<T\K1dj(edA;IiT>'3S),G&;S!#O;T8PJ)b,Aq,#WOL[YQl\.$^S*[N',fh&_?+R-,Zn,LKYbT4]faLdQ`-%,P2u-Qj^#-%7E'j"8h3oZ3~>endstream
+GauHNgN)%.&q/A5oNRP/)[h2S/Uh^Sc\sZ:PI7gTWg3/UPE:HS6tu]oMZ/&3i'il"(TN)@UrntL5^0"#TQ.OD!Z3U&q_OWB]H>#*IO.6-%*(UM@PI]_GJi9E4bT4n]FYVaYocDb#k_=/C=:9*6g,0t6kBn:$mUgb&hs<]LZ0_VSdu**c_iK?9`-"?[^.Z^bg)r="T+DBJ;#r_'\8_SFVH%\>OsPCQ$MhReJ\\rJIrb($j@&oF6F/'DEl%fnFdInqrQ;1DdiDg%"C!q#aiB7=E7Rro`>gsrf5p9JGU)-$42>Ib=#7DP=V!3_#K)1Y<VLc%&R9AOH8?n;WP#J!Q?mGQi>q=mb7U1RU?nX5!l2Z(Q*S[7t@<f@NGOagZ:[!ejBJ>HWdaC(*]Bf*.6nD0W=t4K;TbGSn8*:"2r>a[FT"l(o-#Vhn6`WXUol_$a/(VClB^HQnDa.bZd!64VJGB8'P""i#uHaH+hqLPC/6"_biS]/"[)TXeGd_rRIshL=Cf#MNAoF1-^W7Q3n%l$0^/2L9N/;O]cu0.oun9GHd\0!iC@M&=H(5e/pH]8$"Ir+9LjMJWE;5rqMsO3/0Gt^r?T5kT#aZK#jVbbgMG0T4$a1!j=b=lAaA&fo0BKN6%\i-tY32An0dR@UR(8&_9Wc+c=SR-NOQ-([a^Uo$7[;I!0a_B7s3e[9uIdG=X]Q0T$@"3\?kJ-8F$!-q<9jE"X>FN:K-M3XI1MH-q;M<a7]?9e]#P=c\?6ATl7Ke$=DM!JXY/!RV,J\<W6`[QCfj]%c$Q!/h[<eWsu^lg5H8*fB8H*[/i:17Qa/ndiAEoq(TdoM%)eH$aXs#8dVN*(ReR+44"J.>j.b]N^5o33'ij+X-sc.1K)K;C+XOf+Ig,%_\K5nseX<3:85'!NWP,F[hX!$BYU@0g2[sr'T#Tj_WBh-9alg74Pd^pnuDA=QHKD\NQ@=WIV\B(reAG#,u%IMe";8OI7+YI700PE!%R9AqFf<52bl,2'UGW%`*@en51$8SN%Vl@$I>2=`cb7:LX>n%UnD]01jOl,bA.nULi=p^l*dlhh?ZI<5k$H@%lY=(BUs?/"o3[1CZI!0+3n*Isn7ZT*L!A1Im+AJV-U\K01)G2*['+9MjY>+b<DIpL9)/B.3[#`_.m]d!VTS(,2%H(SLTXAceP<E[?VQj;BM7Y;;T^1sa*POV\37-=\mb9pWB3k<aaDFMY;Iah*:`9D=E:r!c,[FMWf,]c@`@(LlGV;0a0jilB,]#*ZY@MchY?hEFY71+D9(pgPtA-JhgC5Bm6%;=mBkK9uT7V4=AI@N:.VDm((P]S_Qic@a$6e%4WOV^f=>&'p/Lo()AZI<1\cg^tSaWYq]:GWb.Fn\aDoRB;,pjFe=9"##2BK.,<]qHgT=b`L.r-Au-NC][>Ri*#*:^7K?k1rq55#qp=q@4dBda?hiG[E1pO<nb@1V2IFPaJI$30VX\Zl+,t!4b[^$g$VnXhK^.V9iIi`Jp/J&%knn,%]O9pInHP4B"9hPg@%I50"]>*TjT51Z4JI@<mnQnm,'2,p0?($rk<:84r;g)GdtFBBeD36+.b]e#9%d,G.tf6qZ`gg$ejD#m=_m_^Q8SjU-'G,1WiCPb728e\9eFOVL#uq\q5#QJ-<ld)]7?ph#a2T<IiSF.FKeuRUi>_a_uIOJ7h"+D`$65>CgWrh7t7Ba>ARHRVYPm?d+4mLb.5Djd41<B-B`mFs1ca[AQKK0+i#LCpR;p7%!euV>>4J:'3\)l'DlqCoSr8WO<"-C78#&JB9hRe"tLiLV`rd]Bd;hj01h1L?bg.C?UB76/p=g&b3I5_55:L8I0YZP1rp?p:J;4K_QaV?=4HeenOPO52Qkmn'!f@$MHA*&`WWF's+=D(8+'YX"?b4Khdk['mf&!X4oRK_n'EfEu.b%Zo8npSt62A'U1&79]mTM@*[<s4`Rq*'3:pkErd`I+F(t9-*f@/0U=r3Jpp6rB\8.4I*?<g7OD2j>nH:!CDVX:(10U^:+2nY8\J'!:GSF/7BXQJ%>1S5nefkqql'WF4.hD#g+spY!prruVa/_`?-eAI*<T"[LRlMDo]iD\kd(#"Y!!2qWJ^N0b3X:MZ0gYNS\hN%]?$o/Q'JRYUp_$qjVpus;Whe9*]Hi\2tBV!"!`\-4GS)/jTl>Lm1fA%#gU.7qPBfXNkLDE7,au\pdAboA"!^V$W$Xud5aJ495)$2%3MM1QMoo^8[<O@f"1IYbhXe)<npu;Q..\\%$/0&8:$iJr_n-5SjfDI(Ul@_lMs/9Wk0N45B(g=g;ofiP=q1Us'`J0lZ+lsL!2g8e7/cCP579</go,Sd<96MLib*(?#&`UF:?rIVsL#@:aYuJRuMc/TH_GDHFmHR[18iV@<=\h>e8'!6]p't>tQT5RQKnaB@R^a\F1Fe]Z(5t&S3[*f/8h=UUP0JR_Ej.n'bNTaRTC+fji0ph*,:b3&]cV-OFFYkX%W801Wgu*e?OO]ZKd4S%Kt!]ah^J@UAB&<ts$.#=L]G#7rag^Us[;fYZbk)lZO*b?IT<'."DV9;K6>.!,5[;1.F^>==TTRF0GoT,#f.:%k-NFd$_ck8\V$oNt-knrDO=IO&S0&lq2s1omPXT9+7Y*fIu/W`MN$R:j*Y+PF'#?WZYATh2;^jNJCp'j7H#*\EW#eQ)F)mXAqkH%1UUgY^m.HlQ%\eOi[p=i3#TQ.>aF9B*B91!d;s?Ma?Ni/MHLS$MVNSMne%bf/,5)!@oFHX_SFqqkt1?S\LFIc[$<YBtM3472,]Jk*XU..W3CVF&sB^>XlJ=(HXsBeChlfP?2j%XQq^\1XtoP<9R&IY_NK;oS(.Yc5O!)D>_Z8F3t?".%bUA"hC\_tFWL]tXSg>:[;~>endstream
 endobj
-171 0 obj
+193 0 obj
 <<
 /Filter [ /ASCII85Decode /FlateDecode ] /Length 2792
 >>
 stream
 Gb!#]=`YLl(4PFJS=5e+'UH0!l9%([A3AI`159eKY2]c7/YL/2,*Kb3^V;(;dkjh+9t42%Y&])TNm@?h9a!.X+RX_7"*cbTo+(s0Ku"%NLHHDY6Z:?JhEok)KS=qqM#A_'7&]RnTZ4)R0SDVU5m.4^i*jPP-ip)%/JL\eANh51R87<XR.rr]XA<7m4a2c-'"g=@#@<2g5iLuT`uTj>q2RUsBZ],C5q)ne+L!-/^dEYXK,M$$]us3u+'d[>f?`%j?Gk]>(qd,/#hZm,=gFMJAH<,_ItR5Y^t"V2-A/JFF-.='Me&Lar)Y:lp7=K9GJ^[+j9Rps7Lk+RMJ3(Jg>0BtRJhA"YST);+]RJ076Z_V5Z&ADMu\a+ppV>L."J3r?:sF8aJU]oht'\^P[C?8D]u/qNr\_NH%iA810Ouo'Pu5;$_1m"n<l1>4iupoNAE@n$rJ?e4OuA'&emjd;*s210#_WQD=\pC@cZK]Fm'2T$h.q9s(m+%XnIM!3D%"_*'c8pIBO=TJ2'^6$KpIg!?kJYK59eQKa%od73o`$VP(rUr^OcO?+7ok#tf6V/"FDd>=iuC[BGcFRD>$EO1EWKY[rff2HX$`gRJi;LS.$Z<=1iaiTBPkN3f@2map;u7,taa-3F1q]*"07p$@.V/+'_2-AI.JYreV=KNn(rpGqCmTcl5]Rlf*uP\H]MA%5d2M9&DWE0JB`7T)NRAbQ!84tQ9CXqiC6K7!%fm_]:>NutB[^U6_V.\3rY1*:(B-ISMsrq<qkdsj8YPYm+'/4q*#S^aMeK)`ch3g!#kR.SkXi3rAP6hdb@03%ba^6s]eiPLh#-+&CP1I?`U`G(XD#<5>PmM\a)ZA>@M'7j@BQcf4^P@/4enA!O"((rthP01V?_(%;e6p;(=M/2$`.T.tK!D;Lin1#E%?mHNq;Z<b!A2@^ig+1QR.GE4<08@qL:IGQa^&uApf%[BV5DTmL(Mgd(\2'.ddtEK<3>Fb6;[+a[.ifE++B8WQa$C#K['dl"0j87+*AJ9b@:PjrE9#0.9*92eEj<'i4eWC*:LX\Qd]!/I^@/:)EH-ddYYD1?XQ_Y^Q+u]9MeX0N^hdjr%7mVHM`N)gRW!\\3i*Wf91C1jgkFc_pY3\4oheQV5nJUF(4e]Yem,[+?-S(3#%$5f"mkN.-HZb;PpbuPr$[Sf[j$&dm?aQ)X/[\^MaY)/'B*[:MS0j*>Nf4f"'\5KiiN^0eon)m?AtU*b&4n$PEc@($6Okjc<$:e>2TBOlm#\KYuVL?NCU)]'ugVSoT_;./`a>Y.:O_!(^1QJ];QCS!d=bBS'+RgrDidKH6Zi!@LW.K,gt;MN,b[^1?D\X]oRI\$8H,,W5=!*(a<1&@4XZ#,2P!/nfdlR;TSF2[s6QJ_L>@JX8XF;qfgkuf*">?+%7\nD2GZ)/gO0j=)TAXqkEPSi2FiNmeQJA7JG73_C?r3S<sE6P>s(rO:0(pQ!8A"[<G)Mg]>,dhc;9;TBBHp(d<SD90(/cnQSh!-B4t4/FqLtO[:7)1S1c`O8'l]7@iWP.%F8S&ILR<H$=7LIbDEE56#YMEHD+\`R`SYc$B?KYOh2$n)magfB8J:f*@rSHUfh.YjDis*t^mP?&'l<_@Z]\L"'-OMJam6f9In`.(lC4GW+oi6_;GrZB[\_P0N,O=XEk!3;.a\*JZGZ:!1YtA4s2iT.c.nEPmR\g7j^a:Z7m.^jY^V,61,%o5t?<?.6%ps5C5ugZ=s."mQ*XO$g\N*?"nNJ_tUoF-S>`W>Mg)/Tek-7B:2L-n,TV1N!T&C.kS5Hmp.+$:?*]K`\"bg1:#hg@;o7jiKnU@dEm\65B,jDYX3-E(WKQ#eN?@D$.WC2@pi.ooiRk6ot2O`PI!S#6&=f\.K?sJ[(SOli87l2Hh1,7b`=Y"X?1]57YfSlVr6VQNr'2Ue##;matr<RO-6#'ec=u.bn.kD*:PD>._b$.X>c!V;)oZ4:64saP81(S^qu;-'9.)B+C!5I*,kI2q._K31eRJ*b,$*G>e>;$N.uMESps"S9&6s$UHj)M4,R^7uP1?4/UiJRs&`7=F]aAW?5*qn-c/%_Or#`0R0UW4NJZj&%PMncp`;qSdXdtChqM5O]K=/N*MFK'M<!nf.Vl1Y!*)niKhfre;f$VG3i2Dp/TXQ@E0T"4>4"4g.n\f:SQmh*T(0b%P8'So-lUV\NNM$.61T=ZS<o0NME[p\l\?HBAMG3TJ.JX+#`mUod#n[^M1-;_,dR+O/_KM4g>MN*T.-H]$.N\cS-),1#4^s8qg#>2A@(R6jWnC/:Z1-Akkk=Ha-@Q$co22?R]nZXa#IC#eNU:*<MEk.f4=0#eWa5Gu"J1;T/d$Qq#ZN.C:`oM=1hGc'a_&>8FncZ(Pp8grrM">:=3Q.qsYgd@pI-$77l2Va?Z0,(hgn<ki($IRqBggHPs,=@)Rm"Z9"ZRl+_4)a(+D#fq&E3L#r5'YIq&a^LKn'V7'9!=ju7Y+/0AX27W*]]Vs^;[nRW"]W_n>!4MW`KNgJW55p]EbP`9?2Jc.$5bc=Ag3HK4te!!pGaYm$1^i)#kia(`0XL"%h3*bR4,T_:RlI6QMdu#e@4]1WEK0Q)R-m^oiA8`%DQ?"jRlLS,D:_05!FbTGe!"&YB7HK4.C:I!B5PT%Eu>%0Q,#F7>.0IIQLf%.X#!I;O`XkJX@6D60Rl./s\hhmukuR]6CsJ@:7+<F0#44K3Th\'PXcAO\i&<Z%/CT^!bG8BdS_M4-X>TB"dV<:P7fU@,hnG]W)[(<&Q:k`<r9(.I#c"e)^mBH(agp[VYdu~>endstream
 endobj
-172 0 obj
+194 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 3282
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 3280
 >>
 stream
-Gau0E?$G$]&q0MXR&@@GA#&rKPrq'%g3)_WBrj4*fBEB*N^tuP^]:$<p"/XMJ<D3I:26EfEK4L+,VV$aF6Ch.KE)&Zh.PCA]U6MG5DB_=0O$f0YQSRin7m.;l%B43*6("C+:lnp!#A%<1'LsU8-g>66^AIKKb5R2M^-RSMsjHoZm_Y."VsLG)GPbd@@@qarEB;\'),GF_X-cgBpRgG"t\ZujK+94@&Yq8@*rZEMqR;]#['Vik#oR,"D/ZJB!3gn_p.Q-*PDFFqT&&4p(treVjB`CT?X\#Q^<]kN9*L>[r?t=[H,aC\5Z@8C#K9>5pQ:D[5rfZf5TD^+[I^<f@$ZZC5@HiK+F0h5@0o0YNK>U9]M?l[UU+(dU65Y/+Om@6XWjUrk"dt=9bf>3I7(R/<-<T1eCiANL)6PS1ohB&ct^V-2suhHmB6#/:/d_ETUN4a?*nB?E&+aC13T?c@joVEAoXuaJQrMeM)Y8C5LcdgZ'r`;8A?ffY$jBf*K!Lrc[ksAFjUY3KOA(6)<jB54's:5VZgR/TMo:+:=<S$F:I5f,Z'O`OWT'i;.\Ei3KQmib8P,L<9=I>HeP<0<NZ!M$fJh2s0DN*t8Bl>\F3-Kl'(*A^B</fgV"b);q(9]X1dlYtAL0f.Sf66E.4VBa&G")/(Z$h+n,fJHcl^Dd3dBd4>aD,b\Qmf,&@DT]a=rPcbF6=htJSY>tB12/"Pk'(m/,inBp=@'B\Bj^>1T^adk9T=5),_(VbMW"h6,5"trP/`$fG#,s-lo']u`,`%(8GPgjA\/8ajKp&\"L0f$"IJE4=9X"71X*ZY9NuTuKhRP;^O(cj4hHNS[B:5Su2dA#`=KM3)Lfkd0;3CYS:o)2"J'V_Fi<;07g^U1YlHS\l2)O)FB[5BBND"gQXIrS$M_?W,.k7i,P=Ysr_s#DKYD[*9#)1h(_dkmr/SZW!8hPeb7T4M>nDQG5gQ61:Q*qAKBXpRV>NdIE:tfOl8ZG;*[pcAbU-f;k>m[9]T!%4c:_]j\PDNBQ&ga_hiXgEN5gB>GdY]=h.+Q\mX):ej$&Oq.`n!+e%+7@B&TA[d2c,ZA(!;\_]19V<ddnu,p@b-N)LFZ::Jj8sd=i;V)niq4s#f>j0P/A2N6bF+UP"@k=dV;th:EdN4,8RVMXn\.*m+"HeTG+X>b`0?lVU`'bFRf2fLDp8DHui'Y&BT0:_Ms?$*C#@m`bdfZ7nh-e:go_VZG&PX@CYhBaDlLQm>hrU5i&r6YL<cZ$ffc@CBaWT%gQE1_FfRom4qNQ;F*m]M_`89"&LH&j#BD?FraQJo_3tLCk8K@8X5<*hd4lf-<H?>d=$gZGQE6;gS;\)MDlLLV!Yua2Kn01r+l==F0uBDQ_4hd<a$JBY1YfC)C#/;CiT^\#87\G7Ts2j*<M(4`JNt[1PnGJH]Hr-h5Xki>qAUQ%S%i!cBHpb>oM$I["F_>N*(pa@_]P.W&RI)BH#ad/mZqdCL]C_rBkt^N3(iFSkqPmAI-\=6PEb.h!H1P$>Hme%>0Mqk&dj(SHQ7nRVRB'07T%D*gH<-hgM%-;E&O$c6H(B*DlCj=St!ib,K1Pd>egXM;>p^uBA2OG0o"$/t%P-0i+7S4!gZK-YNt.WFtDkfQ2u?$Xco/0kDT!R(&DfI*]g*tZs<nY@a#\r&Wt0K0s4E<[D/WdAJ7m2?3);%iKM=q*WI.sjP\X]cb*r^.\=B-_M!0^08d)%[!E/NP&#$_#hiAJ^\`VADkq)L^>O/NTuOcok?:Pbr23T]NaSBXt2L?LR@/dX8->SZ8peKmZ7k'eZak]rO3$AZq%UhZNIBl&SVJ8;cXYi2:/q)f7rVrC4m2)j;I:@o!_PiLHr?P=][p[1l(jOf*Mi8F/_V'*aC9W\o#U6=Pcqo%^p.H$+0/]L?\XYGLesT>=Ei<ci;R(FQjb=g$^A%/tq70VOPl4u2uU^NoguC!<;]0W-mP^sXck*Y3:k9!65Xf<%;d010mgT,<OV0+:ir0qpmm:CS/gM3a>Rk*;#cF^&0r_PfO*M>8):7JWOam9TqA!u=@_f7#Z^0:n@YW0@\'"Zf5l'5\KH"Xjhp^U[%5."#M&]pR("rQ2hPJ![p3GbnnnffEk/#F.$SpQ,208ri?9&j%D!-)L*q@uZY!b?b^LP9[te9!)Y_Kq_rmF:a0eMh9Gc&iE8ej.*^S!]"Mb4,BVi9sZhMfC[;7eh(?NRcM3D4ruh]LcI=HL39_dJFKQWH"@%'ms6U$#sC/7e36`.77m4dbAFF$'=NA.\K87edu=L5/oTZdlK0V2?W1GMLI%/N*Of='^'6B\hFmah7S%t\nSU$"i;Bgq&ht3YMkbBYHRkV=Bs8U^)rJj[;GK@&,&^Of,<Q*b0>Z!K[?&M4dE!nE&BU;PhV_,HLs3;NT:12ATGB5A0[fP8.O&!Y6Xu$:h=Ql$W6TVISA9!+4s>D\gFX.rY&F,,s,K*!Q*p4SK!VRZpFLde=dc%95n[^W?ncSa)6YA]j#S[LJ2m\?Q92?feMdHJl%$#WASiBD#@7(-<C:JO\"p6gpie##W:a5<a\r;nf<5]7EZ"RRhE++/[R;\V1hsEs?+i.>*<hcP/2=#:KriUj7oXO6X/,%1@(^Ok=3Cj9rVXI?@cc*9"XY_u#LjEa44NjR'OgQki5+XhG'^0lRR+(:s$IZYEH8^&DNl;q0[$632mIil8RRR#XkU-aTddC:])q2BaBkoB\7&7l[t;d9c_,G;"K=9tUJq=AMa7RpV4g@YCYh!ccQ%\CpP/ho9@G0Zh:b(6FI[nZpQ.Nq0XOl&eEME?f,1j`I^X64KTjGFlim+C41;CK4jpTp1BQ!g<)5!;Z*`oPo/0l+]OORc>`-:ebLAI6?$:(T$*k]Hfm_E>9!&Ne,uTu_fbe0;@V86XdNBZA<ck3*)G<S8%_Qa3koUFfJ6I42>3kR?G!CmXeKHIILDMOO04]L1\pg=GnMZp:$+Ee$\>IbKgPVJ4Y%ZClR3?lZr,mb8"#`<.5=nVldQts+Pbucfc6#po99b^i7oIE<im^41Db'QOBRj+MVD_@uZjMQ%f"=<\*VDSN,1Rp4T#'$7.qu9>P`D(>de*7kZt$##..f;6O$3_3)[Q=!hZ;F''Dm8iJ;(LSiTDdaAN/-7m/g;tb5L=K3;k(Zb,97?;r!F:r:#GFb)ru,`Xac)JdP`MVJB/$`hFlIU;\#O:!)-1C(SCa$qb5ceSTDUjR@kSLMLkNiIcE2kQIaEcB(IHFpQHU>jb*6/dB1EBggjjYoZ4gh4?`/eB5RDFM(.nah@k!_o_oYAOk=M~>endstream
+Gau0E?$G$]&q0MXR&@@GA#&rKPrq'%g3)_WBrj4*fBEB*N^tuP^]:$<p"/XMJ<D3I:26EfEK4L+,VV$aF6Ch.KE)&Zh.PCA]U6MG5DB_=0O$f0YQSRin7m.;l%B43*6("C+:lnp!#A%<1'LsU8-g>66^AIKKb5R2M^-RSMsjHoZm_Y."VsLG)GPbd@@@qarEB;\'),GF_X-cgBpRgG"t\ZujK+94@&Yq8@*rZEMqR;]#['Vik#oR,"D/ZJB!3gn_p.Q-*PDFFqT&&4p(treVjB`CT?X\#Q^<]kN9*L>[r?t=[H,aC\5Z@8C#K9>5pQ:D[5rfZf5TD^+[I^<f@$ZZC5@HiK+F0h5@0o0YNK>U9]M?l[UU+(dU65Y/+Om@6XWjUrk"dt=9bf>3I7(R/<-<T1eCiANL)6PS1ohB&ct^V-2suhHmB6#/:/d_ETUN4a?*nB?E&+aC13T?c@joVEAoXuaJQrMeM)Y8C5LcdgZ'r`;8A?ffY$jBf*K!Lrc[ksAFjUY3KOA(6)<jB54's:5VZgR/TMo:+:=<S$F:I5f,Z'O`OWT'i;.\Ei3KQmib8P,L<9=I>HeP<0<NZ!M$fJh2s0DN*t8Bl>\F3-Kl'(*A^B</fgV"b);q(9]X1dlYtAL0f.Sf66E.4VBa&G")/(Z$h+n,fJHcl^Dd3dBd4>aD,b\Qmf,&@DT]a=rPcbF6=htJSY>tB12/"Pk'(m/,inBp=@'B\Bj^>1T^adk9T=5),_(VbMW"h6,5"trP/`$fG#,s-lo']u`,`%(8GPgjA\/8ajKp&\"L0f$"IJE4=9X"71X*ZY9NuTuKhRP;^O(cj4hHNS[B:5Su2dA#`=KM3)Lfkd0;3CYS:o)2"J'V_Fi<;07g^U1YlHS\l2)O)FB[5BBND"gQXIrS$M_?W,.k7i,P=Ysr_s#DKYCefoUY'G[@58nt(,_:K,o8mlUT(jZq!];VD+H06V&"-J#XQWcC>M9IM1F#<F')='C;(-fKbb\8aR2Y;4nNhRa+^6a*LojBJriNK"VZ[=;Zge6(RA)Qd6O[cQ<n]ll:smOHp"k"EFY+0_2=o?Lq8/#*32o%[+dbC`KHg"EO3.SUt=8jd<pi;To1P-nC[O'Ac1^OT8"dfNobY[dMa,o/BYij.1*`n@GNq#>Z[.=#4Y6]?`L9hdNKRScruLBMHfL2YJ<&"%<^^*LNe0IKS>RkT2'&G*I;W6!1/C*>,3dP)F"[E`aq#r?:dLlG/klM.Mm5\dMkMg98W&b_@<h'a7\5R%4-n!CTc99(:&VQ7-9c76;XsnK94GgVtA\3_Gcsl:d'c9i!YHh`UsL"bI\h[.HcT%YE]jJLRJk*5Lpr^$TZu_^ca<I\L.GB<5R)TcgThoEB]30A(F*'XgM!C\>#*pYs>uc*H/N9W)O\]X.ej19AZh235PtQ#bsA)+sjn^]r5s*>ZAKjV0:NAj7n\`9OfRm3t#2JP$=alXAG[%ehpXh9.jEB`,/Tr4l^b=.rC>bIikHaoQBC*r@i/DTjq/E$Whh(=.X7.F7JZ"o[#XrN5'X)-Uk[Bk_B?'?E2&AauX0$R#DBSTM1ujjk<'!$s&@.[]c.m=18]B4Dl7H&6:/%r;<3YIJ8p=W<%+&A56G7:1,)J3Jb*on!Tf%UnKkX=WSCV6l#\'U=pf_eAXpZZc<42AtqN7J4!+t:CX1,_]V09@\-c(TkA=U&'2LcX(0q7W'oX(AF9dOSY@;1_Eb(h-R<UrF5+4kiY'W16:kLY:OBQ>LQr^fLFS82<0%Kq>h965QhA/[rV]lfO4CC3't1i@Ds4UG-+9gt<JS$LQ*KM!?sY;\nHfUq1#3!1e;Rh2D()OD.!]31;?U_#8O>#!F#BpPkma\Z_C-f'<0%ZKSL@saJ?_JL"trJ;/l>$.]D!t^DD$IKW9sAf<;u2>=GkOa%Ls35K\%Wq2;Er&T5Y_roT@Ql7N_Fbceg^A=`b)7'Sd0#RRPWa5u(G%'cH)D'r^S4a:@/BK+\*:TkZ/KoZ-L$!@'YQEg"DS'!eB`b:?@*Q)>ccJ"refht+;4Mr8lr_C0Dl3OsE`nXO,UV-N49cq+kABWEg?5\^#lc".e^i=kPG`GF]):]BJU]DRBD.ikt>eksmVW/Sj3J)%M1Ecfp"fI:Mc.>=Z>CR!map3PYe*#YVPC+chA'Eu[QK.tMP'Vt_kW)5kukL?sWOAQtQ5nmmHR`1E(VItoID\7oV,kiVZn_b9Rbc-.JXFmn`KNH^F.ha=Vf5je^kc*+.#)_+a9"L?kDS+GdYk96dot^6hDBs1DGlrOp5@<sZRMrLl%&28;\F&kY2425P?J8aE6Lo2SGD"QKkD'M4Lq2_U*2TFc>N$PqKC.=Hpic(eEoN2sH+W&Si?:I6$&5%MI9^BD7W.1:8B*d`#&b\TA@AoCeElK)[=E7QOe)eT&]$dU)I):eVOQp?FhSgX"E(",$2NU"DlH!DIEP.WGKdn&XI\eoS8GC>BCW=SarHBLOs'?@K8H)BGVs1Rf23+bbRq@mgkfUC[eW/5#E71]CYMZJkdoBG)G1CM-&$K[^FQi[XhW:YSf5,QIXP%T_na=`hB=AQ-#..e;6-8QlF!n_.(BCgM(r!\A:<T&U7*l?,upiIj.1P,>!?Wgk6J^9/#S+O0N%@)TUmjnTq61r#a8m(%o.nado1\F$u.*g+3H9rPN*s1UC7H^=WT`?M>b=`!ct/Q4Yi9F30pT1[H`Da(\N2,\1I.YC,\MAC83LU2,LRqFC7ubC/hV'IC&Xk@JG.u3"WAP9iBlNrR4'Q)&RK,fi%u?CILaamUpU#0amG_)om[mH!J9o?pDA8)]R6N*SWOu+?`<hU_4S=gTE\Ho>SR.VKC(ZptN>QIFHYVf>a4$$W<Va2[ut?b+N&b7EM*[+grP;L@d#+![;5FB.B^^FJS'7$ceG0nK8+9Pp`95hTfj0Za`sT_GY>td3A9NesEE&#AP?!_s*e4)[2:<9"hU6\7t)_AhBK$U6ii+B8AZXdpr3;jHM29%Id8a5<h2Y83&4u<_=H*+chIY"(Ah_hG^0M<jeFN9]aYO)#@G-$:/d`pMc$iO,/)d?R)_L`EH2$?8b@GgOmt8SR/&;cY,T?'`;bim+ZmmACjWDs-Wm'im*7M[j76p;!5:q=>_N$Mu2K*O!lKM`fX&:5A'H')f@)pb!m75^p".qCq6%<;/mM4U0*9gCBQI?Dg/-G(oK,;V$U23dIE@:(Btq`_'OjIjrL00PaX[$(:Dd<5X0;"+18Tq#RdLAIIG1%#gma@nl/I:"1Q\J,5EP^%aYY4rr`:Uf/s~>endstream
 endobj
-173 0 obj
+195 0 obj
 <<
 /Filter [ /ASCII85Decode /FlateDecode ] /Length 2887
 >>
 stream
 Gb!Sm>B:]C(4Q"]3,cW3TP^[sP:,+)At<HZ)4S`IXmq%lI/m!Q,pEX/s8/oC)@SOD\Zd_kWH,R9Qg`_EF5RTq"?cUa>(G'Fr9H3F/mpXCT!/?Pn)/S<o]:lt8^-37=Hl<i;#oW#9hMXR,7P7G.;)ca)&JB&//DV*`kNLuZ7&,2!fKI:M@s%0e#^XYG=>1N@@(@aHap'!P!$m;jf=jP3WTCW"2'GH%c6HSPCZ)ed?/^?YUk?6$bbNpamX1+4Lp-[hnOMd%)[R&p^:ru5lXm*o)6Ud3+I5rDB1i.\@@gX.l]=gA*)YVX1:[o%pCc6-1Bc..[:2oLA-rlT?r1G6jBFCfuN[b4Uu_$P]=h_gVCdc1b&l@7:%5o#?D'!07Q&m)(^ei-Xi1E<'Uh*P-R49?5pC8@\i7A"&".j93Z8S8.q4>HV/3r(.@aB>N_hgQtFPhb"q2mQnfTt2`6e?<Yk#'SAQH2(>G+]]/QQ1@S'P#2LUZ#KR@:oT1<7K<blagS4%<3B2H!+?T&E=-R*P6?j2UT"GR<TgL*><Pp#C[]QU9uV:RJ/6uaZk:7ufSEHM=\fC8M3j3e@3W,>rQ:7;Cbe0<?8JD+4]%P$QP:6huIT"t4@>3V="Z@Q*"@cc,l_Ph\Trmg3L6oKjaDunee_SL"t;*.dgQ+R][AoSa\,c8W=cmhr7-%;74M_/]4i4?RP;6RmHQE,4AoN9c^lUT#d`sb`#^KTLO#Na_\CZ#f;R;35.l%<9ui*_L$>1l0;DH3I-#!"tTOeghrJ=3;9,N5YfoE`H'X1XnJo0W8Pd[e6iH08Qi7>i:@p:P.F;&VabWgVI\Dl4!460*LAP;aVT6PhZX.G??V0e5XhMP[3J'Z4)bb!BUmR5M*e=Mm#Z5G0Y:Btl?;=G%p$[FlqI"+HN#DsfMoI/*bLR?XE[!T/<uo-+op5:FUsrF<\.BV%=tjpO=ACNlG+Yr++p)J\NaOV">Q<nbk05&7LO>Msg.C1l7SZj:_C\q@b>=@S*3Y+>M]gheQj+%L9JjK.\lG^hU0,%DoE=ib:Z&[Au!%I96!<^dl>]2k$p,!kmSU)k^E`B7:?.oM\9GK#.[]?X/]`cj#gIrrK1!t]/ig;q,n$AE(lB'pD!!U#u0V2dJ"ds\fc.G$/P?li)%o`%#:OkD7[4b!&Xl;c9U`_8^h1X6l!7`S<YLZ^[U&g%(km2omqa!WO]TT!!a1AqlcGiqg!d7mogm6^AhR1=F^>kG"]0;bb<P4chSS4p/A[ip4/,AW>idXq#X!lP`RYT)$nk!A8'_n:!!U*M6/]l(YFX6lQ.Gn*U6$6^a:5YfF0eDhFjFc@/S;:ig2A?$0QqfjR2'):\#^D:B`4fIpLh@#Pt,cs3j(FdN<-I'*.NC"!hB34EA0^=Kc/Bb\^7!]qk]e(m_?LJ+fg6J:TOCUeEp7Zh/#(dX[^AVBXlh>K4M*fuJI/U;]8Xf*hmDB(\nCu05n#M5S[]>'CmX'#niL`9O4:T6!/ne>^571s!ceXj?Mi"c)k-E*lb2*e6rXB#(b04^V^BXNjpK6<OJl!)k6L_`<kY]9]SRUZ5^BMGASr5H*IT$0cMGKk8?Okm%>(.g+XQ9fp-Qb\p'rNbNrA>f4"JQEHZtd-@a3Z6t?&7("<Q5Zd'Ii($ZadbtU1u?(^!1ZB3/p6hd1_*HQ\&dfc'+W`E:M!%`Td2KTRe>JHV^+Zqr?:2@h]g?R\r(tiSSRkb#(s94/:1X=I^8p?*Fu>c:7X86oSNu/[M;I-j8AGaamq8h/;GBm,hm#4BG-NjNL_RiSa(f,UB2q4j5M>+k<`Oq`Lf-ORR+Mpn0d(CRuX'H/bo-43uAlE'&$<6!r%NSoi5'&L-t%Zl[Y&QTQ,*(s3(tjEBBn[.9DqPeS0E;ThYqVr1V7i`Us!]&Vk1_]g@XVa_Sk^HJ+g*hCMBci,nCifKX3'W!NI0"s+TS:IZ9enDlqV$DpaL0M#[)%FkqV'cb3VD_pAO'%cp;o;Sk@V?X`"ppj0V]]V.l3468-B-JVXGQg288<V#'N4<+m=h5Da]5VQ!=TA#^j4He?tQ?eTX21(DF,2B]!IgseJ&q771)'>Tk]O]2Kao#FpG$$F&D?h`j_Lc*Uq(c<a^]0%diCi6A)CYk]m;,2d24hH_-C4Eo5]?n4Yt!no-lmX]?_Sj8TYW<*?NfLDlU;UV/P0PNET7N@]SAL;1W:7!WGX]0]o11:H%,Y]rp@*/*^,#a+1B\9L,SR_^b"50[)+]0:YETg;9['IM-V,!-c_m6Xl*q=H-YeHWDNP_fJ(:bdg4\usCt_X*u!WEF#d(a8&27V\Z^3F)1>AtOZbia@P)j"H27@Vb=9O@5jN)#JSAr,MZXOOTr1a,*gqDN2E"@eCUL@l-BQqLaC6d";gL8@I#\;,*=o4%SfV/$*\Z(t$4IQtAJalZJ]K6GhC!BrX,2/iSP'h\<n@2'/M%-@oqbp=\Q>]6KIcNu'l(*(2@#C%AoehX<oaDetei2:>52oUHbe$_9I>Q"c@\',=!5ke%9Jb3b)GE$h^ZfE@mL.gIlpVa4@!k$I;o@#D8(kBO[@\X!rBV]/t^R)c9j9\=hO%=V=VmY)%UZURa^C84(?Cu'/E39X?"Ud=='ON=u)_H<gM*bNg#p1;K5?FUOh<m,VLmY)1kZ?e\qZB>s7\5qh#3\26>p@,*lh-H`(nCF7Rf^t"BI@6Qiq8N'_\N@0B)<h&(Kiic.B.S8bZ,LK]Gm[6'%Xj]$XmsmIi%<YEW%?Mu]opX;O7t-2?B%r2rU[U\o2ROC=[2;&/>7q<^c@9%ihFaEn,po:/shHp_p:?=22@H&Q0EX)>Qt+#7/L-;FMN@V#N*3Uq#I%OY5@_VjMOtg0W3(.1EdG#n@V6oHhBftYdq9siIf=i"W[IWhi`Fa~>endstream
 endobj
-174 0 obj
+196 0 obj
 <<
 /Filter [ /ASCII85Decode /FlateDecode ] /Length 2724
 >>
 stream
 Gatm<=``=W&q9SYkbjDQb!l[+Sih94B?E<HelIs6F^-AOCe7/g5QO,!g0_VFTJ"9J*D^-Gl(HDtf*@a3";1.m>."?[%cQX[%U?eg$p7r)$t$mInEB0MMisIJ3Nsomd\6`]7@KHK-V#(!aA^Bi!\uANM-)=E,)h"9@V&Dm3!C(S3#*aDLo4C<D5e^+P!C<1cb:bVZQtSe@/3u(cqZjBd\'pb`(I^-LFX<'A/VYrZ\2lr$sP\4StE]JX5V_XI!G8R`G[I.%)^tZL]dUZg%,$nME#*kOksP07C\^Xm1g%gel[4-_Q'pJs$^]uT?AMhVG_+^@sCpt1I;Hn&fH'Z*kX^%V2qN:9$0,)N:#iJMDQdj?q"BI0aC_`o.U,)@Mp_WoZG#rB;pCsdNiCL[ee^neIa$%-QH4i/EpZP@j>,YZL!\1i[gJZ;7=bC].hKs9pD8n,Gr\FNk:n)3@g!s.Hg3SbctGX]:UJd&PJj-:%VI]&;m$Rs#Kq%Zp't;!0W#!SQ5P0(:/Z/OCZ0NV]oUG$<N^Ae"J$qHug]`kmrotBZFOD$CFp?@]NK58]c4\cRtC3^IJj!Bg#eo^kC269/mt0mB()?RCd7=Laa9l6GS@*=p3r\7J%)f'Z"6iCjf,j#,5MIg:Jlnoj24BLuM;PP0WMeJ*.BGY20[Sl5KXcIh-%!;*.dKHE/I@j$lc`GQYt:BOP?9QNqr$5"[br;<?N8?;Rbhp']I@>onUa]P44/UBY/#r"Qg6EYGB]e]q^eiB"SrG0;RA)-0rt8+9H8GZr9:e0sWPBlk:(fB!HHF+1I9hL?Vepj>m.V]klX_KHCD-mUo0fTRsNgW>d+'6sqDa7KU1;#8+S6V8ur+iQI"KA4fhU8/%U^s(1e00Rl0\r5,!:=ngp#:%p&Q0tI<Nbm-f)mW;56HIT:GR'uR`ufSu#EcL]$dU^>H.(;cZ>.AR*e&#c#6#4em\k18(1dr\0cEhS;@P7]c9O:$r=]DLCV#q^'<%]2f1dUU4NODanN]ol+=SnM8#t#>C2]Fm1J3"<Z9cR1o3c[H]Rrr?^g_(A#1%KsG(,>&X"$NTBMdQfdeqc.1$<PF'6.M3fb!O?eBXa3'ffsGg;+8+AMdZ42fP>C^i`8jNGd\7n]ER*G91,T0j;2HrN=1)rl0KB,i:FDl7*iil)>pgn%e.H5+OSfe6%@D#$WAA>RS8Ii[)m/o`lb6l"(,8"iH;8:R-P^FCOLmm,E-:WQ)ioTS%5sr=gjYWRUFo2#'f@jcaPq[TKT54fsYaWu?,7+Itm_>1B."kQO7QhH8t]f'r7l.gO[24PERAj@rNkQL)ea,U[j:_Rs#-HsGO@gK&hfM*k&',I!7>`l^=Q%T*mU-&fI5=i*l/C.`V[2J\O&=-FSq"koAEF4K1O!F7"@*gt<sjgO"cGC%MBCb-H%bG>;$p1U.#Y%iojfk`BC%0D!J2+CI&Ck_A'K2P$,m@[K;B]FYWEGNKrjCuOlkFsA5\:EUTT&)R;\LBC@BTEh-4H4knI6e5sl!1H!_H8]+Tk[EhK2<EsibWs;:<cf#<=>)VFK!$OkSJ(OqIDP,US++(#W939WmNC/X.W3tN'.L>Z>Y!&)S::=b(/;2^En:#gO3SfG?l]SFK&e.ZPT<.]t,%eSjP#@</99s>/^Xq<g#K'YR!Ded#I/XYJ\WZHd6VoZ#"8U\SAZddPpkTUL)`:TtDdV<b*2uN"s-d0Zf*_>Mk,%+c_JNje<GPELsMtLIi^]"Nu=RnqTe])R6s!j.<Of/:E2K),'NW/,C-IV^4cZL\Onlo9=4E!_]7i&9t[,M#T^\)H*hi90Hm_FPY9WF0o\`Y[2HBRQPqmS.15S,ffrMhZeSJ>XU,pF6_./WuR_Hi5>?s%*m_$pB0gSpr3'pk6t\?G!"<0/Bc-01l4T>d8;PIY:9dBBbAA9ZpC0NNNBM1-Os1VPX)KGV-83@<-g3u02F`3;m!cWph=?b=>f<pB4l=--iZs0nu6.]PA6g&P2+KT#n\Of:*4\JC_cI%;]Uorf*Bq3^[*mkJb"^gC7.ldOp.oE=sSGFi,`^oG2@+kb3t8H--cr/nZ$c:TF6fLB:AY),m<Nn'59"T&/7@:VOL9JGJ*6RBH>Z+Ii9mL=o=>GIVllgc;k4>!438gA.Q(%RTjY7.SJ5=mCNfnCTdU+"IoL_UKrJO@>'VC:fS#^O7QXO3*R+cRYBft)]7O5cBYYqT'0K":qH'7h0KuY9BWR6mrU]nH6.YM'\$`eTk*6'i!MA5F.kHC+6k5Y&DR'XdoW$RBPr$ik1D>#5USC,1?\a=6l@_!G:\Z&(T[m@'T3Wr4hcsDES"/fPOIrX?q-c&iC#;G2a!#H4:?INZaF<+#[InP0b'i7+$u;6F?@@.V@)EmA3+!PGb[2A_c<NV7f?F$:AjXD.g9SUO"GSZ9/aDOQuDiBXT_LF^?<jQ(-FU8n(YU55/dC(VM>ip&d53n_%?o(%P:MqZnu9%+*qBs#5#"lm>>#FZ4A/67E+5$39PmY8Q#DEFdEeIA[Ir,)0OD)D'%Id4`5t[G!Wm[\Li<XH*?jNA+"V*_2!H`Zh6BHYR1Va=\XCQ\e$<t+;1!9]N@Ck6#aU-p?3PdU3np]^Wp!".Dg/-2B1>:,5)(.[Zbl+&!BbBs$o.d>$A%$+,lND3]Fs6Y"=8FddgAt[r-OQ%bKROJMVPM1sukmFr/I_=)%.2h53O7cj<P&7\O,VcMPd@h1L1T;@JTb&$BhM-3~>endstream
 endobj
-175 0 obj
+197 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 3169
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 3236
 >>
 stream
-Gb!;gh/h=/&qBX_YtnH/';GQBffV:'F6?Rqgdl9p0(&g8Xs>hLT`C`*rV&5Nog(O&8R&isZf?&l&[Btolu0YCA3b\IF$HuDi6;sbI*7%c0V&4P8-%*n>Y\)/S.HV6b`@>%R"e06KR%!fJsr<25TpUTM%YW3#6?-b#7=o5_[/nu`:H>=eFQ$\"[Z?/-../V-!oM1H%\V9?^+#G9Ht\MFsk>$#71\WH^&aop>/J%1,+M.9/;M/&d9s@@5PY[HO#c!fgkht_t`Wn0`;BV5M/C5m(Y,Tp,H4$O%>dopBWD`Y#`1j!mY@W@:io!=fi87NCodKn26^h\>V[<i'V,;/Lp7g(W"A[r:eB5qs,]+60a5YO;;1K$#,h.8`D#b)3E@)s7)^/,_EXlC*R-uPL+pp_B:+D[/%%YaU,5@%N(9-8C3l,91CF?8tn\!o-5WO6!e<DeX\7'A1l*#^*Q+SG\h.BAgC)o9,WBVEeWUUg4pJu*[Lh][Yq<a*$K/^qWl7iPO5]]kDUZt,`Eir:VO1B;=I.nBs>t,ABf`]i`e,D9d25#JM>u1!V*5lqk3(*3h&n#DPM\<s.0/kQ^'kE<'hfHbSHK=;PUtHd^Mnq@:YYlR!K_pJPSi=60+'jPbhmuOe!5uV\gZ+mO@$7e.r]`8j*Og)CGPfL&3FR0(WRk\&_36n.9:un62Vl:N_b253XE^-%8LuhL'Z9cm!p0.@q>>SSsgK%uYdq1p^6_FM=.ZocTjG%h&+kmC:nC_PF$phAUAE5-W2`1MsZ.7\(@NqS9ed7h@@)\$Pe:oA!j'Rb4uh.#dPsHZ(sV\i>MB0IFLU*_62m0Cds)/FZ4D7/g%F9R15<Fu.Q*h]LXpo/mY>iDKJWE.^1/$7c3VJ\n6_k2;8NQ]TRl_,4E3A?E.-S6Z8H)O"RhkL,>O9nOcfV31GW>;N&4LGhI[iZ#M*Rn2+T7)BT%Vk/l]c7V[.LJVlS21O:=p,=AfR,;r^j4aR8\B`8^8DH9%.1;?,:`=FZ?<b'0oF>PuIA>'1YKK6>UV"du:TTJ!b-oM=ae=,IU3>_0h03sl.kKbe`6*1*X<5JYPM\U?`[N3u;OYJp%Rr&_b4ur2QO)+[F1>MnDppK\`mJSs>o*38Qo/ibd=0!(0T.NheBo[!(Ng%PXC`Zs.RPltDI>SUVr8+#2H4<e!B,hmae/%`LRSnID&2gNG]ut&e/CM*n'B%)'uhMEM82^hV/\Gu>2gR)atmVI9Or_kE)dc,$8K$`ci[p3-2%:hZU%`>kHJs[_FCZTef,)>/PJD;$Tl(JQ,?L7F1QXQ)^-`A)/W7H$D)d9+V2-l1LAKk(pT;N:PXm52(W3=9"WKfOoaUZ-4[k7I9VNooI\BW2;]GRflC5ObT1s>!4=Y4o]][^_H75=AJo7=NL3"sE`SY5gocuKCU!N)aW(>r@TGSNkAr7*D87\6\CD./3LJ2faV#R=H2qDFQ$r6'KFUh'C&67#6)14h&mf%*SUhs334bMW]9Bp/@O2AO,@'Mm(Hl33fD3fAr$2KTcko_B/ogJ,5B0iX7k"nK"G^6?C*c)Smbi+?3To&s?bsI/`L%ae2STUfkA;:r!t$i`nilSR5ZN7?]"o$4;ZF^I>nLY$;Uu;GQ?^GS-9'TZ->RJ&KWC9^HR)j&B_r0)U%SP#=R!L<^+,ISW*\_S(YBeO+GJ'R/8c2(lR$-nX]@+\=VY]`'pMfm[>)=pU7-#,Y'VR?l'>I["U_Z"$M.><[h.60"WNrXcBTu8c52jr7Ko3]M]=4Wcdt#51UFDR%AF575(.F%..5C*p0nJm!9H-1OpXB^.9F1G!N=t#T,?Y.^;rJHSH/n3DFnl]XliO%3>c'T;.8n8rTDo,E;Xi]1pammQPV6:OAHj<>;i;[QDE[IEWorMeR*1jnf?&"rbE07`cBq22`<3ga+TO?)>T)VD+A#GPX#Zr$d=Q3@Bg#JSUkWhfdanZKLUg2c<EF`Mk4S@V.IXGD8`Z3]u5(Koclf&hh`0cZU+Js'e^0=3#>&Kh!D082^8Z<"SR@=>N>ai&2ECGN>ch>o'A0$du5r>]h::^(=0A_6.tS0ps=A%=\fl\h3K+d!R'rh.d[EcnstK,/'P9(m@ZX$^=2W"Vn(]oD]=T0p1f&D8n-f.Ii)O_>sl'P!8pqRG\/XZh0epm7MdB)SVlsjo`T+.l;"@ll!_7;Ah764@-d1pW\o1D[;MaO\,6Qr),AplfO<X[lfZ]h]4P^aG-hn>UUcTR1JB8QS$b;fO5P_<",<dn+L=#,$_\NOlUK9p/3/eo"T3$r]nSINMsMLVlppNBj*.`cHEiO*UBO^Le7P%_.6a5Xm(#u*a@#A\9&dUuUl$n\/#h7E2F,<_nW#;+._b<SQ/OWNH=Rn2n#a77CQ)LHb`$C4nLTlHAb7d<HoN0//3L4jA1oJJ6t,hC8P?4]<B-:c\?+s.<R6#L+ZJlYlN\2.K>Nnh]?RS#MAIJGfA4T8%F;HJ+aNFYll^P0<t7(TGNI27mV#&gJ[]U#Ulh)3;\o.O9RX,r8!]uG)gKm_;Ij@'/:,N`%*qJ.`$j,X@5MM".=o%CE3KeGbr*C_g*K"J*Q&6Om..KRrK([F=Z5`s_&)/"C![<EE54!iR4(bhl/BMe'qFa8p<i\f<u(G=5A9;,JGI2J8"H"a:(\;tE):4_<Ab'7N]&?993GuYYFq&OEQJqSBL`Qe\f!YaL"C9m2*$:_(t=Z%%Buu&RupMDQcm9\p_0D-YHWL?@IVknmtcYb*>,nT\XiGkcLcU7n-oR;]@TQeIB=^!]sDDZ*_C'R0D&DOKaDPO+F+YJDhYH?QS'sR.I>j[B%cCJR\AHDJQh\82rFW<]5)9q)X`hD#2Q?b<)!C@Rc@"N#]f2#T5"kih(*=)Gugk#M!D@XOhE];5\M.7?L5ZFXEi#e"#ln<b(p[;2]&a^PPsR'AO4r$!k98D',eLc/_snm@I/bP+Z7,Rm=YZ@atlE#[FX]B\$EH9`/PGdB>eF3%@\6g-!0e0TWeNEE/PUC,CFZmB$*q;/ferVf5S4'"0_.1""g<8X=u$k?LD00fl;&)L!WV)Y@57^f+P3PL#i'oJld5K$>-"tG67OX)KD*K)*;/<+*JlGpMRPQD!MT"(K@lB,hMb.I_%`mZC:pHI'"E+g[tG>[hcf]XtkdS40G,8gsiOH8GgpdCZ07'+,a6g0E~>endstream
+Gb!<Rh/h=/'#<E'=7"CqgPHJlhjckj[WD+@8_mM9c!8^&Qs>J-PCs!hZ?:Zq%7l>MgW60:>c*B7rZm$M`W!*o"iu2q"kJ&r$@m=VGl+'5F'pm2jq/,9;n/EiI5rP%F.!sKTcs*(#RGL!0*\gD.tL%N1D3(e0F'^4>R(t[r;/8_8!2j.5cE`>:(2e25DXns.nUebC#omAr4,ZEGTdNHK\MV-ko>M8hhXdZZOuZ^Cnh)b+>@)UJO]bPAd+^NXtMuSh<a,7r9NP1qsRqd+..Ip)DNofgMY]fh)]F=_T75XEJAG=ih[E0.E`>;%<n2h$K9m@jQ)3%iA0Gf"?D70'.rZMJO>t.5+c3]G!.S;:)NY5f-c7Dj<B^^is80i7\7eR`/XVcrcps7GW[K8)L<Rs*@S_tHkHXQ+*4qR,KA.Q"6'@Og:?M5BJbZ>Yg73)d&<h((R=.J;<Dr*&3?l\M3'k<qj%O+M5.4&A+3?uYh3^fogZY_M+==XUKbGtLjP3^Eq\U2qeYIQ:(fAB#ETX4?htd?E(Oa>@(t%1\-HN^2/3aB"]"7`@BTD2`%_bgJm,tc`GF+aG5dQrbN2N=?#!>3,q9%W8QL^%2-/$kqQ!G$8E,V&0CocP@rsA;Anf+kZ6c;f6M$E`;rVpq\YdIa#qr09+bGH2#KGUQo=ANt,uN:<M2CuWc5kL%]_Bq!SU7UtfX2MT4mb_^m5aTBf5Bprd^ACfK@Y3On*=R)kaM?T\)Xg?SaZWYbp)c0q1$sQMh@VVUH<+;8=\Ya=kL(TBVRsmYOB.G)"ltXc,tRMqrICf2B:0%d`,t,H>hF'*NB/8Z'hm%e,H)V>=4AHcAH6,0^AD,_"l7*hDN(ZM<k#YFoRR?\9@og0Z$M*4D'6a:UEYVT3%Z"gH1MWL*Uq*G18cY>[n,N_GZ"cTPu?FhE.Or7)X;KGLV^uZ<#'TX)n>j(_C>d6H>QT&:88EN<9h:[XMg(%27Hbc8UbT2^,\:b6a**)`oA\2me`%oV'noCO\)?peT;:&Ul8#g\2`lXV,tA2pl?Zr$WhTHGco;;f?#mH`Y?g@a45:AM/\>7egI)]P::*OD*OMT<N'BEBEI]'s96Wb5t="_I7kb7'ACs]2+T%gQqCf,gEd"XtYS,2>fMITRIaU!5HVqT7gMQY:;C/4-:V=cChsPe-.,'S;S*)"@6[*_fYaKJk&emFuYhgCPJt-+l-i@T?ip@[Ylfc\jOO#m/PA$5@+E521Bn(+@Ut3E#>CBH:OIq6>8.jM;UDLPT'-u/;ufPi6!bnJA2Cn<b;*R^bP)i;-.EdUBZdi<3UqI'=JDT02kuq8l%>UE@k]-T?ju7^4B?N@rnN&TV5uD2%CN?PN_\`1p-*g_dYZ_M\h0">[nFji3pAG75B/7'2^AC2n2sBF-/9m5(]Du]oSc>Ro3pPn3rLJ<=K%?dj>m=cJX/bjAj_iIj.eoI);[s4J+::-n>`fgVM-oTsu7]Y%.PB%jPblBsHRO5@B!I0+>I;I6q@qqXLN_=C8b:c1u-(T&;6=4<O9EWrl^I*GpJY#H"aX[l5V@HC7Et@LBTCEi9TsQ5W_.<l!Z7YHlEVhS<VJP,ra)jp@S%Pk_&Jd\`a\=FdVjarqb;W!fmYLI3bS6VkCj9mOA%fpEmiFjSa5i7LXi/kQ]:Uqf<s27.+B?E`YB,ULIZ>8iHu^ZdFC\5EB4&sc.k7#hWXX:h,6S#1&JnXPTArE)O*g3ADcC?e89[Y^_E1e<B@7i'_%br2SmA[A)Eh+iGY\_!Ak$r^\<\:\>VaKd>>-RgpS"Ga>sj[q^Eg2+$smOidJoha?_dP0h[TukN,'15#n,#pZ2PFh(]O,5g*]5kga'Z3L-)539("4L3;pi+)mP/5tcdTF:Z_0<Wh!Yg3b>2+)9/"C*Pm?"h,Q<^A.ft$FhQ@d@\gafPYD2PST7_odLRBJo@Y_bY[Xnk'2ZRjn9UGFGe@ATg;FL*c=6BEXG/<nNI*E<t(&#^V5Fe1oK2,nha:<fe'%&)e&-Q%QSiDdOpR"_%j29EF/n-KK5iZg2pX5i)OjLNQ*n7,Jap(foNp[nT.\H'm4,q;T^.1@<^gbpGuEc-Z(@W=>_r)%0abKRN.X_%Ab8$65Lb505MF+)ug-Aln\gf,mq*2;)NlDS*"<K^.FR$oUm]#d>ibV@LSL%uXO=VT('LoF4=ps<,_=2Lt9Tc8Ll7&K.es)2G<R%<6Q,'<uSWB5op'/>CT;=XcsM@6+H_=c)FJ(5_Z>2TZiqY'o3@D_<.XW:;Ao&KiE,iMC5DMr3Xo)g#iWd$l@+0a5K!&8D:"6>i]M\aoQGsAL5KPPs^L!?Lk]uYP5`DXNH3L?`_R>CV)rXBn*1Uk?iA/M2D]<,O"F]hR-MRchH>GQJU_SDXKBl)=qigm(JRu@/8,)`9Qa6i,\2U=o5X-t$)#pJ-88([)mQ>G9#LaC)%al!cZ;5YOboo:r,Ta._Sa-!ma*.'e#o[V7Y+th?FMq]SbrX%+<.To&lq%D5T%,C?)k.2;"CYW2DW@NA&9uoUlW@'9:9>3<>.SuJB-m'oM\cV\0_Hc.l@q4!E"5'j!ZopEcr4j7OhI<0gE?"nP85h(oi:Cbb]b1Yc/^<F*(oP*i^E$'#GdUJ`Lm*-nk@JTe4D]K"RE;[1_#l<t.>2]^>'m,E:XY4+f5Eq*g>$-d9g$aoo9>/*MfMZ8\@8eZq&ut)pXFA0^@)I4eZ!-=/A>lUm7?26@>^nl));C<HP5\b*IT/d3NmV"I2G[,U!.X'%q^k,A5h]/UK"P*#N1eH4OKPqd/NE*ND0kTGNk5J*DA,(n%d^rH'BdqYIM4YH7GE4YW6&nTj#>9Y'9d*""CN7!CI8mGP'S3hhE=9,!Y?CG-hiGU4/?l!U`Q7TD-VFp*19`(6;`"!n$GGmn-Q]gC848<MXN5pZ$(5CU,+G4CcP3l/QUVTbB9C<JD6!>ck6Y>r>@Hq-52#"rj%Q49.uuJgZeAd8=J]d,OS+]/[[`;XsE.;X=jA5cb:I=!g0c0sT9>]BIo7\:>r`X@lh>H%Er+XTi]gND<XU2GkXe8)/4Al#j?>VfDgiAR1rI=VJ,%paapDb;r^tE$b"YI4GG$4;Y!-(9^E;EbO07;oYL\<qkV).4sYgH*qBHH0Asd]T:1O]MWduY$E90=>n2@n)(j]qhr^E+)D;olV/F.b#1j_M[VR%<F&a`$?q2\$Iq`o\6\*<Ke0=j>at)s]MXK!T8]rC.k4R8NVc^Bbi`?Yi9YsA0?BL~>endstream
 endobj
-176 0 obj
+198 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 3025
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 3231
 >>
 stream
-GauHN;01I$(4OT53,_H6'!3HQZ@1UY8NXK;B![&XcJ15eNY.qdD,FFmbPq?"'%f/qfS910RH\*1ko?8c8NP`V0R2LVG5ip-^tT1np'q0O0UVs=Lr/3T>YWMXSfs0kfFIt-J]GV=&13?*T]]rJGRuQfGR,9&TH<Y1BE>GHcVP=1`+OT_i\M2JnhB)Iht?OOTro1tR"+!Bi\^-aTV/[Q]H[t3k1oP>ft-p$ZCM(%cL$\oVhe9=A2'BU%6q^S1;&68IscM8"t"i9jB((BKDd<U`Qc:5T;*N>0*Y_g\Gd9,7`%^X\O[-f7C(>Cr[Y@e\;]#n>/W0$21n++URm,CiXlZm#G_0s$iBGqHSk:26E'#_$CM]aJANG)4pD_3l/00=6QD]Do'Hj"J/EhG(hG,RgW(#JB?3Q2@R(V=h;kRo7m"TonO%<f\XT$"EE8H/5HAm\k0be]:IqLSO7gQs(e%l`'k=aNhaCMjG(1lo)2`[lk;Jn>^g=/-T4_NWb-h=j+Ghd]*0SNS1#sTfJ?Wtl!?r;JrcXlE57`,Uf^UP*0Lie"0!eIuN':N5S53QM]Y,5sYkt2,LAdS&VH&-K$C&.r>S%G)/YFVe\MhZ%;:Wh0BX_#Uj:R;r0*j#ZR/31Nh$?<_^2>S.[kZV"61`_07dYX\)o/5(G)l"\g;_aFi=^Ji3T\-4V18Y[+c82*YHQSaQ3doA/;Mt*@t`#^+&"<I-jg6*ebD(C-4Uq:S=qV^dAngG=pQ]F)NY-@73Uj)Ql`V*M;8QVf?J$2<]Ui35pIAR+/5uE&)0fnZORNV4[1-Gc/F("\fd-eSu+]2%Td6cE[-e#8<q*IoeJ-,GZr"0WROW(o+"><!=FkX#MXr^-jhU<"OJ>iH?p&[pQp&q.bu!?IWaNkqgF4a_1.+CrWj%^@hU-#!:`5r&X'(-&eRX8[gZO)8\-B&)Uo2PXn'CS,>P(<_b@*>rf\;7.ZBbK_qo'l<]M$Nm2GABQsO9%!=!&+"^AdP1[X?(Z3*SmFQS-<_F)\'O+8J/-Tld;\&+n9Ric3=aF"KTD&b@.@AK`J:1&UM*=fc;j?#3rIWZ/F2gX9iKKe4*hBNk-I]lrY-`n6Ldq0U&9$;]("PWJ&la0I6F.[>,kLo$SoX`U&CX$pm2Qu^]24M]UMVQ"\cuN/>G;Y#rfYkC-T[Q6r2'/XtTMILMM?/`V^B!Io*qj:=]uYo114H:C<$ir@8d4"O/?^WjBt0a<"O*[g7>F%as%k-'OHJIdKjp*/HXMp(&0@hbs*]X\Y6JQj3G$*sa\'/.3AojC]p,%A&b:u5?`4]&2Qf.?_oZ,CD[r9Ci0KK>"dk!o<'KPKY<e('2YK4D^FfYJ5$b_c)j)[lq/tfQ`s+:BN9e$V_]B)3r)\fZi6qsWh/ihX7q'$8J?@[J['C7+rL1Q\YrSdT"J(>9KDji7UfkaEs$h!`F2V5F^WJkfs2Q[2dcIM\groK^p0n2/0*klqTFr(mKSpb')`II>D!)95hV>g%?kij80Y>t#`580p[O])`a^DH%5tGdC_k9MgGkLed<RTM\E+8VcaJo@_N)Ek8[,[iQq"g.L.ZE_gY]m83J2J8NSV+`i['6$l\^5*QK(7nIP]M)8Ac_WU'n8l_rhY.!Lo3T>[Z&H410J.m8JY=AVSWU/RG\+08,,2cDe^[@>j!o:oiCX`q)8$GV?*;OB]h3Xn];@4E-OE/)/$&WmG`%cX1*(G4PM)o][ZJ_8]n(&fVeNO`n3YMkI2\A:UB.n+eH_00+:ON(5Yn7%<7Q0<Gi/!Ym/S%TUd5(/C7c?[Y!Z*HG4)t)s;6RF\fLZk#pq%eInG:fQ*[/&9S:dG7]$/-%?)k?;8"P097nDKk6d%&`t9oQc@nE)5Yb>n8tY*Ihm87D[0'f#NB\[Pm0FNC7cAkN,uO7V9SSPXuP^/K1rKcFMLVC-83?eC@5WafEEI!F"hUB'\]^e"/tIP%?ZGkg0@K7OSRBr?4[.GdVf=('?$=#cM#p$T*+a8U,8s?n,SS!nEWg8[48TQ-mBfDh9ulWomKn@+;3'U^bC&:fN*u^2&$mk4X;R[S*O8$`jW1g\Vn,$=lVn8U@P:*ogDr6^f2#)Q;=6*7D'MtdhTqDik1FJ4R4%4KET5B)O-Jt:q"%XpgQ2O`WKAZP?R(s%HAc,7I@COh;D1A.PHa@9s&jn?[dHV?n@!&h7[o3dW].I[)eF?W>N.uD;WpTN:V;`?/tcW#kju<+>oCrp&b3@Is6$V$1;IA3YQM<dLDOt)]&S%rlUuDiJm1b/"%V.aPVK4c;1uAV_p)Tn06[Y-]EJ0-,1;.%oODDjk5,?hqOX1_qVOMd__(Hk.&e]4(N8-=%]J]>oa\`]IYW21^ZDWgdR]8a9kFi_Q9X#L0C4&'QHfR'p2E30W&0%_>`^%*tsBB&CFEOr9Ja:%uj$:mOms.]#k-ao/L"l]/V_0[ECsu./o^7BUL@`*I0g(<.EE-k-ISlPmN]!A]7H[\Ua&)VK-BMe(MCGd>lrLpUb%)"pe.J;MKtMAQmqTghLD"U/Di-/@/tVpH0P"3Ae_1jnTm4\V61/@J>oDo,VU[B7X8@o]k&a2X*tRYjpDH',MT&U.p/O]"b[<%dXK1^5Z8\:'&87<f&43(oaKbZ']1]?W"35U!$,iW4*_U7[`6VcgO/FZA#!r0/AYmDP,Q@,`=XSMZQkLY$ppr9(5MgOV]c%@(*&dNn'P*-;C8de4RX%r"Bc^!+=E;*sL1RS$G(!.):sPCPR<K0t1r2BNV0i(bs6[*D&8q#Xncppu>s+04`Hr^n$dJOV[?l/5G/!R2u,.>7kgY[oTW2SD8s>WeT)NQ$Xlh;60ouf]t5aq\:.h,Bc$3\pa6$_MkY<_d<btU(G?$4N;(BbH7:9S:e!(p>VrFDe#YVO9f^,,SNh;2UlDbHOX?#H9:6kp3r0\JLO(lPLEKi*O&!_>ABGF6GPQXbG,E6??LrH@F:^q5#0VU<\)K(R4R:6jm_s`4q)AM0"Z%uq4Nm(6LX2NO_@t;5226$MthrGDsqT<9#UkWrWelbmVD~>endstream
+Gb!;f>BAOW(4Q"]3):L$A"`lnnBsM2ZIAInFhP3BbcKh0Lk71b'VPMg*:L)g!I,4<=J?e?ZdWG3OY,R_K6+bJ_$:UgJ:[KFZN\.jA,,"7!CC3W!tq=>`p_kqI.I(9i@lB?$jan@,mb\\=dXei3%4hpbQs(=L^8\GUO[q30`1hPV+EuU"pi\.d1d-=/4uY].ZA')=&DA[kDRb:N,\tKXu1Lj-mXUoo.Zo(Gs@@j4V3Dn-Sg]K'SS5I^gMP0p++pWc[LY1^V,-o*K:#Knb6o5!Va&=9D4:?6%n6ND$cdA\6SXB8f4P%&=J4kOfc!@rs5`]kPPWUF"Rhs1\`Q.C*GK29I'<h(u8L,h8^\T@2^hQ:s1JU0UsJ?OuNaM!\!`rs8A8t'Z&g$;=-&r&YlQ1(,?RoeW2`GS07"ZO8oUgKk7>hHZV>C;7+Mb60,Le"^`+ioqTZBkX!quC4`6rg"?!l9Mh079*p/"[2+[H[kBCDKV:6&f3InP!<fkQrV+FsPPWt"3m1We3f%=):+VPV7NmGIpW/GlW((81E;rn)+PJpm31n^i$WB_>qJ_sXi:[qJYZZ\o'YUki96c[ZO3eSp#>+Wp?4cInJ6O0BfV>gnkf-C1&/HBl\u6)+q>h#S7=O3Z.!?[kBHLKNDn3V'!#D=P@)n,=iX<"i!Jq(+XpQ/D@E^MXZVL\pl+<LDBFppq#g#r$cFFZg&8P-F:`?]C.W'C0$u(;qJA\-]hPc^bK\<=M!YU/dDPVj\""4W%16P*u7,o1s(eBOI;K@I`>h,5tM%E6tOA].uh")6!0nVp*Wr0[JR4Z=/ddYuE+5V_`PoJ@!><fo29JD=7+\)X!e4IDBf![;dU82lUq:^g(`ejq)$2^[nT=+7+8/3rVYgV<!<PZ.%R9C!sF9#PbV]TMT'B-,hldiY`/o_ANQ/5o8>1^[eEg]R,AE&T"o;`hW_Phi61h:I<e929U_D*4$_"\KGilb$X<r7j6`=uikKe@T[;mkPh0Wt0'\U_*3XBa8LVmS5FKmXfoWa'q6p?<8^i-OLV'].nLJ'PeRoR9SRV/?e>]-S8*S]TF9fCAXtQGZCs"h[nSc_4%?mM+s8L69W"OgW$:4,Mt$V[PVeZY)@*HoCJZSVtA-XSgV5>CP:**EcqKC+>-skDq3JSZA_MKrj'jR)2P]AmLU@mb)MOSN`V$OZP+1l??=t"O'TkY>1[0=jPb7'8/+)bb3PTNcsJR0nF,BXNFL[\e?G"?eGSU29(b^/3I<uBtGm!Xn(mZqC=*O5(BpnX5"W7\COQfmc'^mpp/,/Zu6j9%K8@/?b=>NGpSD,hj>.,#.#O)./Os,Pd!4k#cgJN*h[K"/p+k=JRh/-ka_7=&:&JkZs8$$<8/12k6:1N_t_f_KjEr;b^g-$/j5N#0Z'>HTtlI1GCs#XU9&IaMqRS5N%T%o+HohChj8MoQN/+r5(,KgNo59:O[K.0+n3MnP(\+D`$nj=a(an(^^9e)<sT+"XK#X^d);O<TdY%**ZZ2#jU3LTPeHn`<a$o9oBrN-hh4)B<QbT5`CsrNNPR2lK2:D'#\+KUhgIa.Ggt/F;7HW,MXoCTS;O_u"K8/9;(<X&pfXXKRJmb+5Sh7k=K'Ja_GAkka"4'l+1`IR*eXQ36*CVG(ZHfL>VAT+RhL?/_5sq&E%&,cJl2NPRC)D*/6><VAE>`XiX='`Jh^\m\o/s2jdM'L/%,ln8;^R8%9[`=:=?[TM]=&fj!u@e$<&!l@B-tZ_k5k,/p-c_<E`)TrV>,(A6M[_r5<XY\Qk%AJh%"*AFi-:?AZ[bD%g$5`3_A;H.N@./T\n/_`9BI\^3$o\aU1B5=)j9-.fRhdYnK(ELi"O?$<1>_0[R%6tjQ!MqF(pQ4,JlQr:ug4@574DSO1AZ:a4s9M5H2<eVW:iK5)JS!=RaT.^Jq`a^ZMn;m.Td6!`mVr1bB*6`.QCeSZ>l+YlWM4cgN6'?JVN-5&gh"9RI;mgt-34JlS+hth;>i`Hqeb,,sWrfYS1_'sSM%RbWJ)uai^oJkYT:^GQd"IcT?LpS/q-#7bTQ/.SQqY\[0I9tj4Sr&ZaS=2d["EESKj6ck(2G??_9TRp,P50(L)Rc;+<2f;W8Ta6lYU_R\8c\Hjo37F@UYauIAr),.;>df_QJMI5br/^e<-$4=7n43ER"4hJc]9Z=ZHV5]^VpkB@drp%aC4@/^8Wfd<NQd;N/\TX=+J'L:[l8B'e0rMGf>kQ^2IpG<U>pK)MubK"C>]c@N/7m1"K[l;pic#tjruHI[Q+mOcR('1D+>n"-I%PfAq/-%@T28gB(RKVh7Rpuq$`=W=n+ntF]T4"j87m\V0gDGQ$ATuj@upgs_Y+[e\dipJMnWUt"r&,>s7ac1:/pL^DS9GS-D"I6tTIbc:;&q?5a[]c_sMbNC".9t]#D]K_Q?/-J4rB=M0(Ylo6F:WT[^>g!FDSYTN&d_8o+d#6MobN*O7hutt"uV%B<VtsiCP\R(qbUD.16*i1G&/8U/7"8WJ='Yke,Y5bJAi72Hr%Ac4[/okI2[/ChSWX3%j,f`lD)O/GQ^"kKL_XqJ!J$`K>=h1iTAFJQL<p`)`6Aikg_!*d.$J_(.;U*giYG=kgPLh21e7Fkd<fHZkEOil>0rqC&-WrP+mtXYM9'M3;7.,r\t/1.k.L$>RstMSGUf]=d[`U-8Xlrc*p$_=e4tq#+d;ZWk^oWhQ&lT*<:MVd4l%tM"D(*"3/5"FoEQl:]-Fh^XcjD1Wq/VJ?+r^lc-H$&hZ<j16Y%o")>VY0IW*;3>VLj6*WqXh6D=:96SR:4]@4`B!#."%WcBjZ+V=`CVCBL6!+e#Se1B?-&!S!8nnf)=(df!lXSR]7Emf8c97<5M<=X@[)fd&-*??YN.B<r$P/VZ'.Ut=o-"Jb8k%8MkGN4\;&\<kfYL?/d=JK<-1kbl@/Inmg*-V/VC-[LkPKJG^@@T*Qc4e*'X8oC7`#(JWu+3<b)Y2lXlR*p#Rc`@gY`qE%?9:rAm.a[;oZ_bHXbWW=%6"+;0Q.Y1.3igl<ep]@CE??\C_8t@@cq:FbAFMB=A-EVQ?(W5rTL([H/8dckt4D_$2h;@pW,;lY3?TF7"!KO\h&iW@O_ng9n!@qAV5_]mMO`aVIt:=r0,_ipoeu]kH6WeDKW'+ZjN$3#&D1Yp;L7Wc9Caq\oc(p_1cQ4I;I8X3Gec>FCBO@/?57-*P<:q`b.(\XDrAmRF3q<uC$nQ#FO[_R,hAi8f@h.4Qn~>endstream
 endobj
-177 0 obj
+199 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 3305
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 3246
 >>
 stream
-Gb!SnD/U@P')q<+0u*fkV6K/0Qi#?]Ea@kdCRV'(RK@.!"1:4R[ZO+GUnm4'rF*2d=`Pe2G'2D('>X.PORr1i1W.mbL`ca?I[1XtmsB$IL'&7=)ZZ3u6LQL2p.g'$@?HLoS,nPR.*6O<>U6TT4$:n%6'cJUk)aTa11IKgM_Or"KGAbbiWN@/i^=Kr,+bTUHG:q=6AAKlnate7,*c;q!m=W-Jp%39Q3?k)-<g)Vn$P&m85n4t9-m4WoHqrL?(V'!f=gd:nE]t\DdG`u2s>Z_M`B)@e[GDGD+0u#/5N]4*[+e5Q1d(?(p1(8E/iu',5_hNl2I?AE%t7u"uCf(V)Nh0+<lrbD<Kp-AX@l5njjO9_AM%SMrdN0jM:=;QSA_G"S4kWj+O85374j^11Q/k#p_97=k[2BiVJ4iV^2QpJ]T6>)`Ek5"\\Uc/P^q4*nA2SAJ\r@@)L]ZApm^L%37AjPAsXal_U,h4#=q!b1b[0&tZ<O?*3pqL'X;f]__6AmjG/[1D)m8jTL]d'!U$"VSOD8Gn_'H>bjZ]"U-@ZT!8tV&BfaK68Y%i*t<3nYTcirHP;L?A9l&$hiX(5;'mDtP$Wti(8XkL0'S?)>9_ucbK1=@&kV"`;!J/pOjAZl#I$^44+tnueb/_s%L/s*`\,*%6Oudj:`;KqLGPuYD)C)C`ZgYe>'*]</+<apf/b#.B@gbR(Wp3.2f,eu_StZ'c(iaQj!.I8ZP_6S#lFs:>kbA+9;i7[d)L^WZ1:F`r<OEqa)\!Ahe202L.?H,,NKm#G/A]mWNGEU.m6.5Z"bA^IF>ZS`S_Xh88FIc+b"M.mK`NC"15#Mer\/Spj!Z:'"NRR4;D!#N5tPqQltCGgFTjq>0J`/)X5@(MaQn['XZ.I26VeX)[g/`7!h1BP"NT3,J.W#(:$Nk+sgf$KU8Jc#Ee3AIXju4G`UcCJs6NuJ]VY8Hem[<i[j)CTY!SsELsL9o'f\t#9"jJ-YmW4gc:9].dp_i<,7UA/<5nsUgPY4)9]sqm\HPP/1P*Ab]CAl.RULp!^6VsZ%=@_q'eX@lhmhfIcE=`V_!EuF0%Ve:`@W+]`p0?DuR<B&KV'r)sf$6"d..5cJD+5>?'n<P-[%K\m_R"Wrq1%bD,Gs0$o#SEqYu<dqKKPX'FkU.;GgS]e[k"gK1:,Y+<T?N,B<EO)R`\`oA>fo8oCOCiM./_c;H,Q&")0[+6,t1$nDK>XYJdR0cli<nVi#;1#ZK><D1$moB2Z.ruPtK.DdIbQ+pO-E+9R"W*d`[oL^pOT_k2/=+:V?n;`2*3Gg*p7SF2m>1!VFJZ,:kQ1eWEMVa)Z*,=-g:]_=0n-)b7GZtQ=MM,:p9-c`Q.Su"0HNYF:P&qMR]:g"Y5RpU+JPAnkCObpJqA#Z*-V38hlSbb;5K%6mD18:64861.l<X-6Q9E6HFWA7G`l\jMW?55Y;qN8liE%<GY4qQEMBs9<K<_/P9<l+8S^$*K/\V,$/T9+9*@DQg?B)%?4r0Cf%JfI4WqCJ9mEs\G4InC(Y1Rt/SEqlH:Z1PclJ9&$C80l3TI>'iUG1,%:;b>;4sQ.W^MC`G3pjPLl$<<%K.TkEMNLOOIXcp]sj%7a">WC?j_$WO76s,1I4.We9dd,-E&6C;=AeaC3%X.lUpo-,+$gk5u"9;>3QY?Hq'XC5h4oGjl"Vk@A0"RCDs_n83t`94&*T;LY:>=K*SI8Fah"$"K9#9d=J?@M-JdRLR[95S6?+#5(.Y\86XT/eBTRMO`'r*C>@%mBkRM]nQ8pqW;To@9.GD.8\L6Tjl)^J+86d\N,%0ZEX)f'dLSoD)=/'"8AL[^Xpue6PW=YG6"nfJr;dIH,@TF)4UVW>PV5N\W3,Zh0W;a:_p[a`8*&D,L)\[l.FC3(jDq8j$d38q,?:;_D;?n'/(M/o(?mhTTi+Mge?rGhiIY7?phoK5:fb80'm@i05]NuHJD/QP0qL^]k"3E,eXT5`/8AIY"`^8l3EfK'h<c^/Wf7lX(tB?b\,/6$8=hU4IiQN[m;ZfT^P$W\jl`KaTemW(97AGJNgQ!YkGTm4\1qJ1W]>Z_JYG7Za/F+79iJ]JpbT;HG-]SjYCS1k*:7bej&MBDqKO`^NQ4k!Uh$XY(p*6.4)LhsiJ\TrfQQ>s``]Z17K5'bn"T)b`1egE+uCUl$Sb)Nm:$,M:<YgS[^&9m]:unkE:NAO;-$jg\G5_0*.#2&R&5;+<j_u4.rm!5<?A"Q/*0-2j0kG6Mbf\A%c975cMHS4Cm+]chSDp,#<1=AT^n3#nA1Qe<>0+&P_[SpV!cZEKE5NcMg@JiLBP/f*e\$hLQWu!0.$6XTbd2p.-PZe=d2isY>4n`,s9F2:\f[)VVZC>A9$+Fs'F_TYIR7SDfI/ND`#$=XQnJl%N,?uZR*KC[m.^%DQ7\!Kr.,eH8nBmPZKOr[J$fUnQUr+['/Xo0K';"-r=n3NUtZ1s-q#,Te=j>Yo]H;rGh3o=@&Rp=M#=/?XDI4YFql_NXe5lVjboMOr@Tj;i!E:F>\-Rjf="=rKsK>mOBSGSr$^\c]6?b?\`Os:_t['cI2_b(G+!J?2=2gCtff[S?Y$EWC:XdS5R)+#Sor9\1,i\d:dbaYWEO"RK+=L17?6uUpr1ebDZ&7?p/`DDolhoN[U9"%tS:($(=8Dm6D?)R*5/sOMa/GD/Gj,)tKW6G=%;)Trl62*A<PMU5aFKO$X[a"6Fl:VEeXQ"udKBkkec9Ybac8ft&o*megp?KLh:\aF*O7%IEfs&/iY9T)AZr^O1F@GPa@V=[GZ*q=a7ZYkLbO;9#E)g$ahFr.Fk-]`M*iZ!dC6&pGpdIjL$qNjYPAcOn2h^HM.Vo>^%g#E.m_=8t%P#3?PD9J:5,pH)W/(WZ#<n)=Z3H&Bb*%n/KkH.!Jr+r5HNUFGL@E0epN))4n4kj%K5r?H2n#(<R0PI(8@%*qW-Nom*r_fBU:n4Rs@r:0tm*toR;#://SnDRn:g5d\-qu!]H#pSZ1Nb.J6,WM[2<=Wi1`>qM]d2NT\Ep\F*&MnDX`![>.d6>M3N$iUk"N]o[qA/[<`4'W/3p)K\K]cbBR"Cr^q<VeCie)bGSh)p,[KjfPe,S@t1juTWGM\@SDI4CgHQ!tQS#:m%9Ck;SO&Pm1ob+KqF&\&@S(-:=1Nn#?VY+(Pa0WeX2;$ME3/mIq:B>b75=N)X,K>l,ab(EpVR/ijcKQ!HMt3LCH64f4!qM`XGKaCujM;"T6%7%>49t"=Ku-dBQfN+rI]C'A$-0I68UDH@Gp9P,ds:L#JiPjL.E>5-["(9>AN;(Kp;3>Krd4bprrGKoMTY~>endstream
+Gb!#^hfIO1&q9R^YtnHo`^0Y:+Mm<+X#Q[*V5_el,VteZ!N$urNC]uJACpk[c%;`Zg"$ZqR[_;Q)+asS(VAQWG<_5k"UZg[?W7"iO5\>F#)pHE$;;!3it$)h55Xr1:m%t-"%"dnPleh4'KN\V=Uc'#a[iESAK1h!#mY*NqTgs\/&`/.K^qP%*!g+2<U"*3-!\AoS?VYUVE>S29n?iGVJ$tT7:\69'&K)Oo=-pcK/?#Z=Xlrl?sLNUI!P64gl*nhiU^t0hYd`?5@FCbgr'3m3jEM9=Iu<6;fYP#gq`eK?&'%^[]W=:i5QH]BAgPEg#606!2I(WCTpb4XU+XO38g%!n9$G]F?.:#6UjM984#kn/tsW9'bHWZOY@o'4T>",B-`3.Zar;naGAnRJJ=8XC&<#R2eN7V/Jo$"6o;16SInYbPB</KOu+43(gZs1h7[)fafGpBeL`4ecc3\31.H;lhT?[_[!/D4:Aar9aX#!WDU4T>).9PToKQu<Song)Ng@eGj#N%_+;S+C&-X8;*Z8uj=:;3Q^uHo1ODMT[@:Y!nO].;(UR;aFB1nWU[OFu46.m\7ioQop_In%c(MGIVN(01X+Pf","i_7u)B\Y"h(>;8M*d7^=d2<7N%gJQ(gUBPNj_:$%ml_J<3##k1jmf<fr9Kn8b-,8h\eVCHD^fs'>c/_hkf9&gc,CIJBF8;+j:BT;cl!3m5W0%=lZqbkm">E.@T<;p$]D2rC_cCP,2DMKsap\XS\%2rk.4Vq</;K58[dn&UDIO/Yt!Aq(Ae9Ik;JF$tVSSZ!7#(A_e4X(bJ?YLVn?r`dL@(iUc/mkO^Gt2I:Y%XI[.uNh+2+hu]GEF(K_93kL9p\:%Ion'Bt,%!22S(ZqnV4T+,GDY1lW2bP1RCHkgqYB22T0JUBXTsQ\)@Jk?E3f$FT-lot(VoCaGJ?`bAi9QGNn<mlVS-kmOE6?\r!@h#n&>@.sH`YdKmJX_@'=_1+rD;(O_g";?qCuK=&k\A*LchNfm]`?s\u^=18a/n\XEsqQ'R!I]+#12/1a40dhZYi1We6s9;Sl41eo'bn3^s's1u[<&DsLXK4$B.#`F0;uj1aP>7)]`amA)5lIBV4eRD;]:hb4k&H5Ws]%G!-AJVU(TrE[4Ve&1*(h$rm`2(8WTYj4>+pf5r-Eja7rfT0^+Nptg3E0D;nRo?>7CMm30d.IN`FMu&A+R!QS*+mY0eGSWk_&n$$+rR:&e6[:b1Q=Xb!RD/e1l`XS:)$![,UoEB97^Y"NP/C_nr3,$43F`m,_?;qek8n,Eg`s,&depWGYJaPKSnZYTN#G]F&p)4U]ST[HQ9b0LQ?>3"5DZJ!u#]PhE($F^mTld`^=Sd66(R\CjZj]i<pH+SO4oQnCCRIp;-"?lQ3Wq?[k1ngJs'cmc`[7B^a,Im2P:WQ@Z1.=r05WjqGT&>U9*L2si@HH.I/_n3oNVb/i/_dT+WI5p02L>o4u+4Xjl"eFcTk0tqVgXmn*sc1+#*6<SrD+'P5u>;gLGdtC4)]uBXmGdn@@Gd$aYCKL03^8TprlTYG0`^KjGMqEg%[@%qGlD!h'+D+&h[6KL:9*^LnpZ[:m0J4(*@9fWkP<`6%s+#'YSWbF8MrSb<oe=tZX_b:$H$B)S/]>ZE\B8L"ElK1TJS-u7O.4aB//-jt.l^+lS_*D7q9kCoERCN_HJ>krk6ZEfls3!XQKV8koIB*/QPY^`cUMgH>m>XLV6K$e]aEjRI:H4"lOmj$#kk\ND+5DVoJer<$XX-;B.F8ZEXegq&$*giSl(1l5uK&Db9O2.i0g5`5>f24\0N9A`G6BXpN9DjDN+=,iEK:d/o&(En/FU[M<cl$H,8jQDj'Nt`H.bKeirarja4<^Ch6-l/(`hS?$+-lDRM0Mh:Gi3,>@]h')MS5Mi9@+?PVOXj`436Ynr'DB7hf&!_0VunE+\;S6nsXm.5L]o/U3fa9\UnIM?UH.m7L#D8C0h]<9n],?YXtSh7K.Ce,9(Ga#P+g\f/71h?A,i'^sDct=5G%2c7</WBEXZ4d=!Alb<\^aJ0bBa^'@5WImO0,PN!N(RB32`/J[Lbil@b'I0X$E8j`rD:^\4Yn-q]m,(i_E,J2lV-]h_S``pfNq16_6aVtWNq.-65P,H<!*-ER3^,0^GJ;Dc:Q%HUpl@1PfQra[MJQa>t-)4dlrq0O?(E=\K65>3E4+J-fA;IM30S-;hn7(i7`npq?AO,ff$#!<U6#WRlf@lCVS--2Pp-u"&F..#4uVT'.GqBZX_218NEToqjWKc4?2@q^aFe]Z%-E/7f%1FCVQR`f'[X^cg2>Qj$HZON'EA@]srA!honG<o*_>n-OtlfP]4WL8&B(m26tc\frFZKD@4"';.FZF>3(CA38K2g4>q@5p[b\X_hY];=6K)3ip%j[pZF;ZYf/Q]2Z9p1*&b(rf[;gU?W$?bX`c'=>e"0p+$mF+1ri,QCVhA0P)+LDDb8BIjGDrG_F;R`:*pR)A9c:7Go&#f.G[;&0\$/S&c!p5V9S#!DV4P-o.X>OZ5Bp5CJre&+07iX_E$YC[[uCce<Rl4g5VYXHej]pgNBf)0^=R4X7%r>d,:c[H,7Eg+t0go&8DYqisg[dUkXS4-aE1E3P.kBG1_0c<P_hh6c\q!'d**S3Rbf*=QkN7WpJ*W\0A</S[UY$dGR2ad?ng5QRPeIPsSY#6DUF`p/]6K?\Q<'fktW@[lC4C:mQ2#'jp#mPTm)7EE2TW7h%cl_Qrk_KKCCb:W6qf?E:W$,Y=d7_+BNF1pISIfT$^SbTc+4"Cjue4O&s]@_aMPPiPO/f27`OZN%c8;5]rcYOB[<Zj0mS`H^/<jr\FnnS`Xdb\aS^K]W"*a?@1]-U>)<XLg'&g'eh<Xo;$4?dqA^%q!g(qY6d[A0o>>^.kLh]XqDcfVPR06sL\[r/@00U@c8qOSs!EHbt?>6tT'1e9l?R%nf(O1'HG=A/U_F?(4q5T(0c?Vrob='u!Jn)S8#;6$?o*8oKGF"C6D%EZ>,si!ZV1FpaXjb37Q3L=)pBD3L7E14")iZF&3!bha4=a72MmmRiP*DSrkk!Ot".I90VH'1gj"mZ$MW/?K;n/S4\`8Yjpn8";-*PURJE..gEpQA[L\@"X*EZgg65@3'#0(=nu6m4&OfgAIe*JGhPh*Tk@-R,a2Fm&`3!_Q4%4(%:Q?,ErPJ_b6hF3dXgpa"53ZU^ToOV(Un,fICXT#@>Z+c!BrGeo?AP?+Ig;]u%7Mr8WY>BE&(lD,!4~>endstream
 endobj
-178 0 obj
+200 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 3136
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2859
 >>
 stream
-Gb!TZD/\/g'$&nm;[dUu2I0E!+8)kRiK1Y(DK`Wd2fX2S6\0q81H&H?nk-9qfh[*j/B`3O=]A#cE/+EZ*(_,jo`&nj*1?j3%&Eln/c]3Q_#KMsTeO"^_@_RF)n;E.rGdQGB7tthE/6ps!?tM4(s:N7%N%Mu:_5oX-ub+^Ki5edpLbn7,0C$29UVP.+A>07"hUZdU:br4+qd"d-k:KX"$khr;VaDA&JB6\0VV;9?;?qD&-r?dA/K8"E0r37HuaN&/)3lPDW%/=Dgm'7P><n.hE43Ar+qiKVjjM65[boJ)P0U3=spj]0J;p$VAa>`\gf$(>F(!;.X?^;4Ae*QpMc\gi_Ge)0b*($q=qk(BE%N/jtRMTTtPoK8DlH/'SR-3"Ai>6s5rtl$K0koDaqf8,Ub3/E.Pm!q3]"c))@fG":tgV2t(L"N+R_t$G-/TJpM*6-AtJDj[50dURBR%eK%Q,?6Ao)'+u!LmA#?MgL;`NgX.'l8.^@3@/J0[A0ulS]j#tJqr;L>Db*UK#d0dj(VNu\0Lc*4T_=13@^K-FqngT`+sMiPGL78t<dm0Ne>Nn5&I1*M7X4ftTZ8*7Cmrec%Tk[7@to/d1\6om1sQ9ZCRiEnZ>1F9'_V0iKa.@hNAJ_<&,;f;)N3Y945Dk2@^#;S[nuW(O-:urkVj+4?GGkHVkJgbj6/KQ%,u_k`5`fT9]<Z&J`(k&gJ3#UliI_qJG=l/rOHrq!sU"AaeGAj6hBJYniZs,!R1F#S%].p^T-t]@TB;2gOsQ0-K/%ZG^o=^df:$i#rD1#NIgDlbiQ4\#0.nH<.(73?C/d@gJ7j+^hC?J<1A-=R7n3L0T0YS1%L%'T`:Rp2#$^]Wt@INU_]+)@:'7#Y2$\HE(s.S?ibolKHh*ds"L.U^5RZg<K)1DK$@qLnR,IPU8Vj4Pq:N:PnhHn;j==TUKOkq93H!/;cVn-]&&J<>ZO$Wp`Ja(?;:H;l\_6X?+u;XA`=;2TkKdIa$kH\b/F[M!YET"`Jt@]rA&S2mYT-o@3W(?3Ap4%^C1"I1Nl*/q*"uhh5+O1TjtF#E+CZf(V37\:PBhrC*@[?8,[MNs1ZiU3b'OZQg\FGcs7Qu&NUG4=6ALKRI_O>M")oON3@+P7ds&W4QLJWk;"QPQ;dR_b&UW3G:HNpaU6Ha-Wr0VT5UpjN`p_0AQbuVY;9r^#U7oQ&.s>-.%h:5%0I<4FCb!R"f15bUEEqbr'VK2*iFe!/oRSd8nqT\V.JaajaFGW["#87=o%ei:+Q?clQ5*8hrWFe^TS/rMEY&-SOMC2P=(<=@EG3G/!?8k%NQELV8k/]GUQ80m#.Beao$nfj\/_E0%&ogjYM-3+0rp-@-sG5$C]+un)B=W0XG\!ZaM*_P\X:@.59O`KTG;B/tl2=Cm?<C=(SEM]YA^oB&8jhk]rYLSQEp"6B]GgIsb[U/reZj2i<uYpi/9-N'nM,d<TIbC\c396flFtb]W%!"0DG!rP*EG@%T.QE3HU+4I;KV`1BW>2Y=8qm,,=IO7^l@_P%(u%qRDt?NCTubX_0*<(3dnqTBFPF/8FQ]O+DI/Lu(6<-o`'3S^Ruo>k`6rOgk&[!j:%#%3>l6R:e78?`rYaBWh>`)N!WeS6Zds)."OWE21,Z_G=9<eaH0e?BZ&J[sMM'ssS?3conM@a^#UPCG(\3._OJQ)+dB`BCl[PEh`_>cT\9$bjef(I)_N7!i#m&M)7@SQFV@PaEp6VV5\;E!6bEcQUD=PoK@mYc8:g][.9`R24m`jg4ZkNK*BVT^aY7/PRLu!7L"8o`3ZU=?&!'YGc5rf_p]ZNQ4n"/H!,]R+7mC8AoMJ\3XrA1i1-sa^^mH`VS9)6O.jNDV_RokG:kZVfF@F.-7b5PV1,!;(Z+8@#qOHSQ=kpc`aLl'dWShrcN4%@C$$AlFhVUTpQm^2BkVDZf`mTRe!OWrY>Tch`"%)Id;S\kF=fTV-jM$iR4q>)DiY`^u2n6d(n/1#MJFeP/g.c9N@7n=Q\<OqMGp*O/<,r?%e3GJY[&[d7PUNY#SJdO)XW_ecleCWDBjJ",!oTmt$f$$*kJHmIgWOJI&iq+)m/_bbO3KEC?c3L2T9n-_ab$d_qJtPLt,>bET++h<\%OfA!l\HdAIRX>b$6DmUq;3)nlKiZ+Dpif0E`(p8Z.rP[*7_s<Q+e_BWEb=cc$Gr$=(o:^>LaMJPe]#qB`B"P-oh7;^Q/;raBeRf]>pQ4,\f63'=Ae*?nAk8-uG9I>=b&Bk*`&S0s[qVN+<8C,Vn>ZHY;H`8o>`#B?@Ti,2V`aJ_6W.L)OE7G$60u*<Cdej]mYXZ5^N`O`1,*%*P/'l.2"2JZDn[@XafaG*kR\qS4CseP`8R\,g'Rf)59#HSU7D$rKXb5tRFE^q'Xl3:4\43X%GM/XK[aF4kV(POJ3(nN%[UI?0p?nZBG1,FQ-YV)@<RqihDB@<*h%K<Mu:7qdT1d>;>(D8@ci4/1Ub+X]3qS+[EGFp]"`@@c1.:jiZr<QiqN'&<$anVE,+$_#L8jecsP6Lbe-kE1jBjG&IAf.#<9IiQ>.=ui,Wl06cZk>QeBrY-BHLhn[AD8FV?5`eJ*7)g%<Hte/r$;,VBiDfaN!oGm/C;++g4@%\Ei#=o3$EYI,o2m7U`2C6NP2mA]IDg6%m&6eZB*3u$6gJD?R+OisKKVs,Ae^pGV@q@<rFbT'Yc?=m(f<B_?<MrdRSE`?t"Po>Ns$LqEp"JSp./PH[HRB(]nPRa16f]Nk&-Nc\q6N3Kr20Y%$d`+:)-Dp!9el]$nl8\,h]GO^L??'liLeI+D6H#^/$V2K0Eqd24OmlQVZ70=OJu!iD?r?8&P&>"fD:f_n=+oH6%oX8&PXaO7OP3jCo(5<.).2'Ji`8;;S@GqAJVi:p;m?714Z?`KELN51F&.%WeoDjt/I@3UZ;r0onkAK%-4b:$/.*igRmi?\JJfY/&9XR2CG$])B-LkY0[JDUhYM,ieoD#D4@sb[cfErolsMj)\C]Kk\`ZOK@Pj+47F'pmIm]6?3j`\/A2@R,F#D2@lG%;XR/'A<X\R<j8!dpaEP7cK8'U4JjV6Z-?O=;aIXuH^Z/h,OoNYF/r(,"QSekNaHP0G(#N9h<-=+g;E]kcK4(6.*h+mp<hnP_ufm`u)<7'7~>endstream
+Gb!TYD/\Gm&qIa[<t'$il7EWPUu#;q%V_@adUoi?NHYb82CN6QA@!eM/kOfeqt11dZ=7JF\l$ke70"R<7*aOC_]`Ru*dBrNcYN[P_Z9Nt;4n=%"jhc&0Xuk\_9&;s`!^tXa$@;i$^1]!ARU[P*h>jk+:]iW&r7rg^`u#FNDP"L6II,fIL*l%I`PD0*Y"kiH5u#Y(0%%GU!_=TBb\Kl"=.;GWjH8tOK_X/,HOc2LI#DPKd^t?`_f!q!!X,#%5,t6_<p1Y/c>>=qPP,`p]C`X\j7%chf;o3HWoQ%,Yl4aM8om'F"XSF$RI*2(2bjrBnUu2<bFYf#IkUl+[Hk43jWRW)OSPhps?WtIsL2U4el>FqB7"m75'gW?CCjci[""BOL-eCmE6.U_;[j@('ZK"),).]64uf5AI5gn`-FD:5QW&o*NKnoSV8ML[e\1/.aos>M6U;=<*><FYiFDu#dpDeWb5d5d\ImU.GUj^:6sIK*Yd%aUsX5,)a6T]Cus&O:]<IZ4r^g8OsD2Z"PI<5M^ou6n6J:,'f%UZJt"aCHP]j'F-b(P'ljG#N"\$`dPo8Y8^PPVKYl`%_TuEeJ,?MQgk,n9;&("Q$I6YZrK&;LbU`Mpi;9qY[#S5hPe*7ef?WlSNS8><'@0GlkRmGNcoA1%E?oCMXAU\@$)8pOT*-hK)H4L>>$j<Z<tq?*UBqCpb]"&/1tnYEANiH=dqL8@bg=-q`$lC*P`<l&n-Qs`5Lf&'R+[*rS>3HInnD]URDYLsC%06(Aak#\>eUH-<XU`lKZnCp7LFA(4W+/p.Id>]%A;0J(uSdQQatQS5>@E2BflQu/8tn^Ag0`Z>9P)7NQS@FH<7C;XYKk"Q4GVSg`f(-UGj$*j;-#sX0h[40#g6Kq@433='@>>"dPY&@j,MCPIXgJ%iZ,OI$[U#,=E3.4;4H3&sa1Pa2/d5ZS<.\)g_pGp]LdW-1_S.D[NK^Ms1rIas"ZX.6"+B-7k+$Id4Y5eNG`,0=_fi<qg;23I`_ZEf1k(.(b6rk23Z9X(o)n4NB6X'JAf6(+>.ZQ?WbSR<9-7jE#E2/;26t!pl:YR%lQ+ag3-L:+`;7"(RH<*6H'h5__!<hZ%O;YGB."(A7d70kML:E/dkd'M:GOAnFD(S^ZaMEsK3Q-&hU=JO@7Z*bQd>$$Xn2YN*%,T,1*86;KL#oR"rPWB'7!2T?EkdY4m_0$>;$UHt6e3>Ag*KM8.6B#.-eb#[jcR1>65<rjf*\rJ>B<kQ2?b&8c[B--U&Lp@9jM^(UUU?-d&o=?PLe@_g6>`[6LMXEgI`Qbr5=fE"lijVQ7B\i>JJ]X."aWtrcYUn)&r,N0DNB+I]5hL8Qopin%5AG<8`kZ[S/4ESeq-@qMGMt^?`V3@]YHf,(BJn4c@d7YliWCS88g4t*3@mR$JjG/s/rB]f8dh'QbeCHWmg4+JVglU9m\c:oM9G7Q6ri,18P#VP^34;'XSAaGHV-kkG.QPFQ3c7_1hM?f/lTo-gfWasWtIW'qs]Sr$0G\T3QkZnkNJ5ulg%VKLjCq]MF,!A$TT[KEc*m2Q&t_:2L^Q=g+d>%^Of?8:cf:$11dP&^Am6InS2>@VG[e]jhju`1$1030FG-Srl^Z%o.-b@G6=RCS6G;4*epVQlVh'I]TW*7fVW!Jp9V\n?a6usT%e"&eIpc>REkML_1<[Ap6Tm;!KGfuD_#Db`WRn(lhT$AgH0U.?X!X@e-KfH&p%+jSo.Bu7=`hUJ;o>jPGQ+Dc81oPjX.LnB3*?s!D2"C=A"0gf,LM,F.6KK4Lcu.:P3gm&<^GMYk?+PFSsWFM+G!tC)Y*FIDOtqhJDW6jCtpQ\D;3rl/%8Fa2RVClCraK`Re>I(/qE2B=[J\6m)QnMKo=%b(7ARKks=("'9/;:(VaOfSYtnfPS*h1OG[tgI4*RHSg2;N-B3D[gMUlT7eg)Sg309Q'Y]d"C=b'(-^&A03uK1<C?s@o#Pg9V\MZc'1V`:4S20`PW6f,S,]DWl4)5,q?bX<Ej9mKFWK$^:u=F?Fs,8/_0<U(mfjR5+EWF^]:'DZ[5pn3F<7F-P3.\60CaRUaP@:f6JXeKoqX1mm06FuJRiND+-pZk=1(-T;`982CN\a*ZWZCV"46HKNV^SSSl'e6mp-9,h`u$M!hU+VRAKeETM':J**?Fs2^Et;Sp5Q2\IEgR])nQ95P2AbT+Dq;;$Y%_`qTc6(APlWLEk\*#fe(FV;QufpZQWlH+lOn5Or*;F$&GpgUl7P4F*pa?8LB,2[=(>?L0&2VK@=03Lon)9"$GB8&Y/>04@&6,@?DN6s,F:ku"'K76d8O^UCge^3.9n\9AgUUN#Z9LBDLn0fu]0fHDs$MgMA]G2c8r+3"cXYHA(J0+Xd?@f*4Nrt"L^&,+K/Bi'h`]iuBbTfqnW&f9tK]fTZ78P_Yg+(*ZK#MI^]\oY^hW-9&AUHn8ZKgRPlIWt[BBKt]dMS"06j6>$qjT(`4^WX<(I:U'KAkG3!`*_#`)q8qkTcnHJ'.Jkd,;nq*1q*F>;6lh=+5:kcB>j[K2TMlrT8,Jf&b7R7E>7P@$9eUb`#\5g,VS#tH'csN@(puaDD@3eI`;ob=h9R20o1$&pCP2/pL^'CH-'C0]9N#Rn=9r/96fCOhgG*U+4dN8)3&,Cmo&R>7kX3e<_)`/rS:(jA-VL3iSs.rr"OUBC*DR,e$N)k@Lhj>V*rR`U(l2Wjt,PYQYHXfhnHfbD;f/W4]K17Um+\oIsQdob72IIf66LPcs4&Zd:SD/U<)5T3D&8NNHrG>Xj+L4]Lik_/=M$J"eV'g?\f=hhu+h<oKTdeEW5kVQi?o2^@"efa5]I_Op@N>KR_>A[S+0co>l@ZH3,Jo"iHpNO8~>endstream
 endobj
-179 0 obj
+201 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 3955
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 3494
 >>
 stream
-Gb!#^D/\/u')q<+0u*fkoam2YSRh/PX#Q+-'$"Xc%=0]>d*tZs_\[Geg%G=?_^o._fofoRgu_KWc"^luk*anjB4o>;!<_ci:3(k,-?/UC!uEYZ!EZ4-nfCOQ#JV9%;j,<(O9J=5+WqS)7H!;5"Y^3=7h^L5!Ye!N^fd''m/Wn8'N,#g+gm++):p2llVS(EntQ>.F+7"s<58oMd&lAQ-QkhE\&V=Pg\YF-lG14QRPHQ(NIj_3UWLXJ#Ip9D?biS#n)&R)P@%bh2]BVcrp-HCO&%:%_'%5H'/(o,hS_jR_RM-(S()CkPEiKDDsPQ`2t7oI(NEVD3J3Aa?!^_?JdDN\U[cYXL\/n[c;Z&H+qF=#Tk7.-(^?[s*&-sK?i5/!#&Xs/<^RUp(6F/L)?\GH1UoP46<\@o"fN>D%<Nj),;d#OPK'Y(gGlD%f\MkH%-M?<=C#E?%e_kM-K#_prD:euXLtf`VsX1DRVRjU2s*5o>MsNEqQGP/%Q`9.d*B!*a[MA?Y:jo:U&nmg,)8:tc5V+_HRVN,SWkBn3qlPb'BFQm#SiG=P,iJ&7"X6nJ8Lo_7"YsD7O(=tY^nYko+'B_gKJ.j>U^AH[R3:H";hD"@d_Q05lY(NmcZ;C5RsK`]kB%4CA,hkjV#1P#n^RdGjn^Kr,hIXk5nOSe7A6U=lA>g(3[91%E/BJ6@U"P5Iu*N)^b_mkg#aRPMWf(nrUsals>Q6=A$[5-Kb`RB<B2XL:\4sf_7!n^/tVQp9o8Nc7Vak6WlZZf=n#3KVDgWbb8?&gESH,*]%G39_1eMZ1<A)f]?R9U"Q?mNh2.NS"hHpBukjHNfa\'2T8N8,WLNQ01-nNC4GHZdJ.%%;B+.CWGg7%EYjQ)_CdrMKtXTB.J"c^qhVR'_Q_)(K6c[s4S2/cVB3RkUd;62*MZ&oB2:KG0BdUDL[daWT5^$$DV5EdClb)n"//3W@ToeFVb=%=\Ob-j^dp=s4>NTB6'iK(6],+M[:pE?P0Tht,XV[&'$4(m(l:^qdu8+a_:+_a$l)1X1IcW2B8kc5s-[Qn;=Z_dE.K>iTg)^KI0S^i/?38kda!jTe*ci7(enh:?e2LZ<+[r-dVBZ24.+$1r46s$UULS(1XCk<r+Sm>*7ZrM'^9Ndqg%GK=dn"NJ$$kf3K\s58$BAGPf3AQ:?TUA6.#V<*\qs$CAFr"em#6!cVlj1`H9.>\/HA`-N<2U?^q(Trs:W9+hRUMeP7N1D>^67<Fr5+jOWaf4"dB@[7TAS9m/!.(]A'G\G:)gT%;1.4^;bogp2+S6<YYfC.e;8ba=4[VjBYm\c70(/q*_,&^&IR47WUi.)_/<nQ6QER5ni=U"fE5O&l92JT-joBlQ!!gAU9q73h%Qo#48)qo7c0;:R:J4DF:4)#VLUlMZt6"d^1^rtS3CcGh^]-["[Rf.^O,7D.O8oa<cAQcOeMCj1'A:s2]6&)Mc"`0EKelI@`!e^<I6`Q@Z2oC7(rn`$iup<VcCVe=&;:S0n)?IIKPiB]-,m^Of[WQVb3ofipGr;&r=62P*m/Wt=%<TX`W'0NpWX%60PIa5rEc[:/[_&&@6^,`2A&s7df/W@ut)G5K"HNdCU79N!@eohC?"dQi<<j17=bBF\#FB_<%4,BdnBiV`+\oOTh"k@APD]jtg2-c-2/Z.+P.?m8E#B9dq\^GUK0j9s>O:c:%:b?LL?%)_[`i#0hR9Q_,\/N&M9[5pY75AdjpB<0c9W@*b$Bju"3_D0@Pl//N;4JonWi2opZRB`r'fNKSR['p_$C&m#q?(H^W5#RY(H\J$ijS`DSZOBYUmT$\,+b+0Q$#%:_:#0*lr%'([9]T1o[;EmJlt-A3Elqc93Vk+'oL;@%r4]7E(c%B;u2Xo1e0Yp77Ej2LPL'p6^:$%CJ%;kD^A4WL8`_4ne@%cK]Z!ON38Hg:+$i*0J;1eFE*k;"i=f4<cD9S08,Lp934ki8W1YHX_O2/YK1KsdsBDl?sT@)<Ef5#h"FnJ\FDaWCf/m;%BnDRI4!P,(!ZALeQcZU#S4nWLi_%2R^I;F3"+$We#N+*>#V+;O56/f#s7f>/7&'%h47c*M.a.O9B0@WdXa!IV'D&3^2%?8lNT\XchFRTiZM&r28PpQhQi]W)dD_aj/FD7[XpWEX\7[_B!0@k_8^&XQN_bO.3tDtX5#VnW+>bhj@Vs<LVf[:'cldUgo$>n3WglU/F%Oa]fu!deFQ$Yh>Cps&2I-#r]^C&lj4T#a)u6)YlP)TfJnei.\3D-O3mFmagf<g#NS'L,Qg,)nc\mT3#TC^aStE`23Mn=gQSs&V"4\lBY$*%*>D*aQ.mh9dre[lZ9>Hj8:aH2.1&#R8uW6A5W-dkO]#(HHqp=[QtihSN/m^nFmT5(Qdj1/%1ip5C`@#MdS9*Cd\71gPBWo@Da'd8?VGqEI.hQ#3^1+@#h*HoP`T.R!SCP/^Sddn.\p=W:FopY`lWVPEcu&c/J;:T?(KHF5uWe4%_&%lm!<2WC$AZIF+7d6Qp1?UG-?FOCI6a[(f#-HhEP%0\Dfg4Q(drB7p%Q+^kpRg,u>bKU1lNUg#!]Be;K,*TJs,p-mM'8dMGe")9!dF(ksf'E">>u0)$6UBr[[3ehS@F5n4LIJ7PY0F@?4Nc;`QEV*moA^(V@!7G>+nF]<:0gLE[=?2'VelnLObD(da]3O00,GLtF=FRZZ)Y,^43D2pZ,G:kM)g\HXcI"^7=UI4^4NI-9@#sBk^>1@FY*2:#'+O+bh(;%ceX]t%ocQsNJ7<Ro\e>jKt"iT."[ONC*1")pRD[p#rA\qc(?I'f?RkZo/.?Vf)5AZe#e`/0]]nu'134l#coet+E/@G4uccS;_c7J(1FD?_[?b?r-pF5B3^`Nn?&QOU5FMeZX#hSPNRqISt$4M`*\*to!JYLNC9*c7Vlh[HBW2)7'BqFk@-ZIIej@o`85OIn0b[O(TRuB:Q+0h;sW4nt]\5jG_>(ngGZaG[VW5Ls\"].FOcKUdAP:!_`&u2D6"4#rU>p>>;b5?Gbh[\+#@O10^IuS1STeJ'WNA!e1le4"FlHcN4YV*Xb1W&EE>f:]QgS3PYm&']k91tW&l$jV/rD]^USanueC(k"mWc`,4-snrQO1R?.m[ibQkqHGo23l_6L%dmNrDV$0BFJf/#(I1B!@-T;W,C0s4YGLO3pWc<q^i$bE=@i`O:b??JgaeQUU\.ur]Kgm#io@r7U#XXdpYQWPR;fA&)gCH>OC2[;5=MfIMoDFYk@rMdMNQ&oDQf;1q]5n:#@pboKA;SOH($_RQ_ac?r8R"PX-$&2&$XkA*=6-(K!:[+hDhi,)(NQlm,P`!QDsa^jsRJM8UNkoTBlg(f4?V2L0.1AVHksek/K8;6$eTU0nfVqC&6dZLl:2!G!.3jhbC>DK6[F:l7->#pk=@&<\r48EZ/^,WFNm>CT0j>_`>8VVpP0AQG]$I4iW!"Ul0^Z)d+U:RBkcU:+3jc6%e>$0ModVLnEiFd=A0DrW)pjun,U?7rRm0Q;Lq1LW5PM/%-l4Ep$aRb>6*P:DEqXTK$ma;Ch$7'_?d];i;"SE=g<k(cS4N;,AL?sRgo?.cg&M6dH9L)Lpc0[=M$i-ee1I]*%mLH+PLG[J`<+NC3C`["gA,0hdQ\+?t%WBpSLeJ,V;:r`mo>4d1;WUL]/4,'rG`$EekHanf>E+WlmF1a'PfrRPcBF<&_50i2g\h2_P/se3)gEL=<,"75dS5s0+]AbAT+T>oTiS9]@R?ZI7`SonP=dm`Z()cTdeUbbm4uOr!S*c'JOo?+T'!5"+(t9O"`_fWY*#q[bem+V0FGS?,23]&6Ed\H5gn<Msc9h"X_k>bi6:!p.,nhD`gckO2j%tO`4SV_l^$TI8_ehUG'CN,/&:WAlN(0dNkZb8oJEo`UPsc4mbnn7n/A=^='L<k"n*KnF\:2H$W>&+rJTp!ONDKlGjp+e>c!g?Rh"hNimXYfPrrq?$ZZ?~>endstream
+GauaBlYkN;'#;9FY8H2J>BaN'I-J&r>W:J^\(g=3DARL&:bXY7X0EsPU7KR.o`sbn-*]#$-2(LbM&t`>_te:a8;[BO%&EY9D#mrq@.K`dTs2$1_@_RB41JO#I(_e41W"N)fZ.k@!$]qS+_7X3">KU'6!aO4TtiBl'J^!(5@1!:#Uj`p@EMgn!lDnK!q04u,KbpB'G9eJU!Vg`p&OorUnVuG!ot-A_h_@<Hb$*O5euu5Q+k;$a'l6,dGf3C)dFtlF85@E]@S]DnHB[ml9YXGs12BS^08ZAj9P+JMUrKt*^l`3R&*@u,6_.(g1M&t/$m`N,p$I&(3'E?/UW@RH6Y5=R!N^7RXMbhoUcW04Cg'2W7<L7\2Xls"b+6)!>H=*TDs:i4Li-sWZH1&\J2L1EYnOXFh*(($`#Z)#p9_6QXeS2U[DQH]IplPYNVF<@[em1h5?`H[#3C[ItQafe],%0I"K5..7slY:ChJMp\&\PQaeI9l8$,4Pm"s-YPrP3oqHoeVn-F_8$3*E[au3$)tXJ[3$^o".5ms'hf2#@K'"X+U7ebS*b)-D&,QA4h(_BD;iJ&[&.K49=Z'X/)dYDr=K=krQ#igbXP[K5+AF=u+`CB;.e]f]k.6A?C-k_Xe2:o"%D>fcN@Uouhd884>8fH()@*D4Ft&,i_7*B==D1NVW:/=kq0LmPC:J0"M&'f/E/SjjMs7=7b`4r6i.aE&8sn>=@/U-2Wi(Yi1#$I)[\h$k^E-h;#$&.O-1nfa^In6',eHKA*sJ&,h^.=Cr*?3#jtc#_8`b:%I+ZP//j!W`lm#9]mo.`^R94XuaTL/HL0MohPp\$D8ONX(6J=#M4;12's.JskO>Ot!h5A6:hHipsTRXi!CaF/t?)VEW-S'Epml(brq:BMJ`p0M^dAQpiOdW_92mJ6O%WQOC233;Bm>MG)1iA1`ndsu)#n/a'iHh<N'(S"bm5H51o$)Ue+6W)8Qe=[eT[o+r8%I8E&0%%:lPBc&lNN+=l)Ndcr9&*H+Xh;<$\V?pgjiHb[/2Kt,>UP#+`dOCQC%I$UB)Lk"a1;>'^#P"d_d>mpUMLZ1/[kCk[6Sg48%!Si!EhU`rSjM;)U#3N1PhmL]M*G"jbWX2U8aDnFjYo6-Ze@p..DpA7u4o%=Un+b7Ce,H4K(IpcXPa/6;;uR_XNM=?XI?h,5Yh_b6-$5YMiYa8+OnH_4[=ajUg*$ON",Qm0?X$$cagg+<R+TcGDEE@)nF+(RRG3N?KO'T-tUW3BtdK;c"'fRsSQl<)"@'ss;7mLARA3M5pmh8m??oe;+L>ffZ$RIh7Y-=X101/W$:P[)(:@2D.nM-gXKb$t_mVaWdo5&\ZQRqg)(mL&Al[0Dc/51/RG@:(,_8ZF%H1.nlaS?/0"V2QL:T]+;!mBe8.#L[:eH@RQ',M:J5Cs[agR3=an)FmZ9S_S&0<T/7YGT<b"2hWc`JrSFB3gHqg(@,Uk%IN)a\b4%0>%^_]-Vfo]5UL\h*ih,E(`13X&F9s/Z.#*9p#tdu=UlWY_LJHSWC[5)e9Z1[6SUakD;5[7cFtS)X4CO_jjt>Cg:G]*5A=*DWLPbXfJJs]B\4#8KEftFgHpPeU;910jtfOLlg167`%i)7b[dGiQChbCHdGE$FVm$>>tJAYBT,8/%rn1Q%l!r]=9imh-U1T2#IMX"*a)E+6UolocOcoYQOI<`\R'F70N8^?6PNoLS48G^8mSXD\TB;ZdRlp.#Xr2HP:Et[.[@t.T,d$\6G6-rhYNcJ7iY./2D;WGeCh4J6.FR%CdK-MYXO?.p/C,`mU2r4]R<"kqsr1'?-X6rW%JEgqog/"Du5NOGFN+9J*:-afOa;f+"85UnJ6@\fQIZ5R9hU,b`nKUmC=j..)R'n''I@9[`*kYM;fJ21do;i:*_Vq+sn9U\%Cud7jVUg1f(Yb5\JWIL@A\QYRs*i=JNq&Vha5^53n^>]_Ss%k@BbIN1VJ5G@R:5Gj*bC;48-ok<cR4g0NTMo1!H&RP[4fB#!"i'dn`*D/Z?XRC#,^7KuSC7>KgqRkuH-1R,pG(JImcM&pa_Iha=]YtOc4o(64qVosLZY<:"c%?/u9c)-[d5r^"Dl,hakM!9?9Dcd2o=2@_IC4`<nfaaO4F*kH&/2iJg-3c$R[$!^3fG&/=!tD3JZm=ksJbm9[SM:0N,O>UeKuH36k$f,[r@qP0k!+"4pj_U@Xeg7Bq/kKu(KJD1hG&RuGdDdH2WFSPUU6j>,(kmcfj)?6M2+`d+8XlH:f_8r\>lr0F#B(0F5et*Lmir3UI'rOmNKi@PHC;(&:ghhT$(E.WUp%t>/drF$2aPW]"BVEno>u:/l#HRFM$9XR>m-DY"V,b-P&H&:G?OBU;?)#A4`;mL@Sd$&b?FJo2pd3nN$/c=)*1Z3B*4DU.REL.XKi<7p(`h$;Wd`R*hqTSb1JE&t?<c#SNVY9d$.RjoTcl,^M??+,$HFcHt=/l99o=g7fiBG@2?P1GH!dlA5sBo_o,o2#(]C.J+p-8):)'<gOs_G0O\#0/`tQn3THgh<a%--\4JQB/N,W;c%]R+(Uk-)Mc?F>%8gXUaB=#P`HT^qLKg(55/`)4d[B*GX9r5E;fQRC(h`'*V1lK_6rj"nNe4!>)VUId?AB8BodkP9#&[Ac'Bh,!Ma)=%.YL0"uq,hMdfC/F7gt_>M\X1#XCAYk`teFmjf]Y]9=sR[F\a0ZfC=si80>gK*NYV?Ipr_MfAFYaZ1ZG[EQ#gOHS!P8N5o!M2OBcNB@!*kTFq&LL\q&L4EZ1YR(Zd[FWV%?$ep13H1H1]FiP^bk/0a]T%P?g,NW/Q[Yh<d+4UI>/f`[K%l:3oe8/>mpL%Zmgp3(DRX\)]7b.A>`TD=4DHIUK9;Sq220MY&%Q?o*hul?bgOTmKdNG%Tn]Po>&?2&J6B7k+aDZRCB.Go>+@th2ZAb98'(<e5TqdFjU&W9UOMeLLYchjSE^Vg8Ggp:fhtN45e6aLMJ3rh+\to&7EP*&+`hX&mk]^WJ.fhj"%j.'%1oC:IlJCA%RQ<@HU34Krqr`qma6j%3[e9MRrN6RD5U+DBHb@g8r;o\FE7hZpa-[-""]-=5Li4WH-O/UlP\pl"g-2.Ui;+Zf=h*pbL5-i,BNK':Qps_QLN;s<)&M-mR4][3X\5rlW@\_V>K'k+ibq0o^e7%b%01&*3Mf\`M0k*qKMaNp+%+27eli!\5O.:;VWQRcXf:smU]JUqRkCchF(g#UX%/CjLAj*(Q=t$ho7.0PNT5pqYN%58I9ALD>*gj,g7s>@D@0Z?#,Q>%MA##>6q*^Icj;-[b2E4a7QOKX-GBlME%$2XL@"l=Ii"gp^<R3?cd/Rj=1gkabe"0oDWe]2T<)EIgh7p\0+HiQ"J!lj>[_U-h/d[_Cpq1S31#-Oj!Au.tasP&rBjS\_8_0?K:%ir,TCD4In&fbc_pps#bZ"pAG\BQR7!ts(AZk=Hn/MZgj@i!aj6#;!\r>'PelHqMR[F%#D(ENsiJm+#]Ar_u~>endstream
 endobj
-180 0 obj
+202 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 665
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 3467
 >>
 stream
-GauI3>>O$.&;B$?/'d/jM5ePcoarTK,[(No'rg1=Uu#[`>XUIXlG'Nmh6`m0_HRbsMWHkYF2!UMOHAC//Sj9(a87Xs/*%)B-B7p9Vn%$d,^%+p"%al"pE3L+#BWVd5f+BclX<p^9?Is[LrFq<i4[8A8?0n4!0V0"[sqA?PTEe]f`!H0<]b"]DS0\&Vr5Z*p*?W.^#OL,JRND1l)Z54Ok5u^Vam@5c];s_HZaW-%f$Xr#>)j)ce+OjDlYWdcC5W0+!N>/MPab>UhuQ&p6`m@dm\YB?$l@?pkb2i@b%,Wi2Z.uqq+2+AT9Xjq0I@S?4U3(O;T72p`aWen0%24c577Mpc%Af/=o;:9;ijKKc3E"Ed"po0GfsECBeL7hL;Ls`fr0=r>2re%ak,TeEaj4T%e!Gb>nSH\YiFhnMhiTR"G>iA]Ep,.Fr"_r?B.6JfQ^UMIcqV8a3X-'P"7D_iP!iR718:a(Zb-S^Q"T\fo]-b_\c;R:^T"E'(,=?=lKs>@Mcrc40Loi;:]8c:*B0OHR^7C"-OW;*%=]`-PmGmHB5rG(:p"?87V?BJ;3b@o6am(EIDJC4V;?O&`Sk`hn^i\@I)TB+H)^ao5@*h==Qd4@8XsCu@7F:$q?Cc&Se2A[.7tpRCWP\:0?dFm18Of&BjuquU52':8~>endstream
+Gb!#]gN)(-&q/A5o[?9$`GOB:HCpFa*,AWa'knXh[T&Nd8B_KO?7$dbZM*UnRKVdtNN@BVM76G1#t3h%V]1WE%1Wd`nG[W<!W4X*k:\i7!Rhp*KaO\iE&'TOr;`7K>UFtP@G4mM0!n4obR\GrOD'ZoK&HbF6Ra-;R!j1/WO5'-5UN9B.3R[)=L/ma:oJi-5]6!#8rZH1!DLLuqV;I^W;Gs:'QJIa9VW(;N1h[6UX1EV<cC#]3I2.$e"[:qs7Yg@[kRaiVVfcD%eMPPb<J.lO9QB!G:$WU35*H!cGQHWCR96al1.hnn1PTHB?/[G9GX&"Tp`aO]PFZU!5X>>X2E'*-dV#6B:Pr#C.-k2(L#']$YU3S,R7"ioe1bV5QeJ#Fjs56W!-.nQ,^b\AdOe/84Y6@VuY@UX">>`_\C@*\4P/Mf"%ks].D_qjUC=d>HG!T2d:Xa7OI)]g@\:fiD"CRW_qOLK/D2IRW6Ps2KuseQKV*L^E8E?M<LMK8/dUl]e;ig"s66NR7p%KEu`1b8t)=#mPXDQ\i232Q)5a*0YN1X2baP%dabMq*ngh`VM!ZJY(3U-[TS=>[4e8F^M0Af$iB?%ZJrm59t5hQ#2ci8Y*R6XFKekQ_pr17Fl@p&TW-*raD,Z;1gs@FdD?lW9\HY*G2^U7lJ(c9EdG9aH12BJiTfp_FF"FS.?Z^:_?[Si=lJ]B2_F+8N=,mI>"\e-hbf^&c)U3Qr>*Xp<+0DILU1Sm(XO`Rbf]8fHon:AE;9`?crsT=5'F849:434>V<=V\SYW^E<2BA='>$qKkn0e;0j*bgVV1\=2D<!Y5Qg5_[:s,2!dTe^%h,j"t@r=@t@9H1fV89MMdpApcr`3@sMK2Efo/8lH`g0Yk2W6H]JCO?4"l3dn.UVp$),."=?iF2BhC6;^4sP^4k;gHm"Z*>DB"WjUmWl[pALT/+T-5h^o$D>c<&)qPFc'qe$qC3BZoDX'><"qCdUoe*6AJhhF@ZJ&9]hWhl-?[;Pbqn5/IDB[^m6=R.\mi#oP?DnFjr]9!c1b//r-&+$[D@2YNk.,ICJa_!>9qJ<9_'>W-e'?F[dmtTMeEW_kic1uf>KP`9a(#%VgY:VgSHa)TVAj!3eE`KUbWiU9XB-kbg;tU?a1f`)UnD7^uC@^8GH<%La*/3bR-W`WT3Y_Na=O@-k`k=UiTX/2UKLOKEgDA2.kI1pOhZ\d0Qp6'-#U<4E56,]QF]n\EcEjZpU#(?Q4D[o-D<kgu?R'Z7IPQ`sXT>tn(!469-tQ&<Ig/YGUAeme%?ed&jiO!%deSGq$sgKFY#-':0'(7,`FnDY26&$5V2tbH:mNLE`Cd*<b!Z]`#E_p4NVGMbP$mR$V.OhnDd8)'*/^i@>1X3K/6m-KcK%\J>QMR!_/9&6o]#Yto:q6.0>G5H4$B.)>[g^OR.^X_b/t.nO##.1)X>0,Jp^t!Gd]R.Ke*%f(#7":=6H`7Ecm*lY0N0Im/_ul4A'X@CXDPXPj.EMlg`joZVp,Q\$^Pdgl?9a@54;7R\%?j1^FSpG`q^A&>.`2eo-Tgi!C=5;OKiu`R(Dtf"bFGd\LXjOX.lemC%tX&g\3+PYiu#JmhkQ&akL3j!ml/+k);$=j)=`"VmgQ'9]3Cd$5s!3E*2T98PDq`EHXW0%)*+2,_+>gcbbjF:hd/_,9&HTmZs*Ks.i!+ho+;jAQnK>&r[fPhfWWYbm&NFg5\nE47por7/?f,];4(bj?Z`=,md@0.pHB`5A1'p_lon0!'jr[.ae"b*B\a:H>LIep#5r>:G0bch+6R=:+N+/R-be=A6+?bZb,"&e-RYN<%QG;^7&P'aQ7Nb:S4r20[R1J$AW!Y-52&QD2sRXR`33pNk^R?$9L7\eBJMlL)c=_:%ukoek[:!_phHiO9SjYT*A$h6TLZ"XZXF,Q(/AU*qa$9*f*kNVuaI<)T/<BqEGm-ZCepjBVj]hETlI1Q+aaj(5mXqmbHmb0bZ,]5ar,fsM/+,%e3>QDh`f`"t];UmP)LGN3a'PVFSd4Tafol!kp0^benfiq[nf-5'6C22;X@8W(AQ(^FDCD05.uK^-maZ?@D'p*F/?3ifTtX'FIDL?u)@H14PtScAFLZ2ZN-g8mlo?O4&2d9<r7/I(;Q%c!8L>%W4i[pu!l@8*IN=`p:=k<LZt">iFXV:inqW"S^"6'F!3GFSuHn^c`@Ci?I>Q)m2N+SlqNGGR]rT]fN^PZ$:EnmF(;ELrP`&X[;NRmX*Y.-OE^&q)T4e(B\]:jA,BN\WA$"+T'gOf??b5`7D?#W-q!GJ0&j9#q`\M)Gr5CZs4r$C7guKJKL-;;39]F0noi*CLT;:l)@sRACI:_2]-X`?^;bobItdF","h8@5+0`_K9.,@-35DMQDQ91B1U[p>5[>,,&,4!J)MR`*3CKS2`\;.Y)#"0*a%_I.,$hhjQpTG194rPYS89"4YN9p$*4ID</M8:u"hh&;N:fqDajKo+[OVXVV2IhE0dem`<Rb%W[]S^B_mM?FAEC0O/"JZ4O!Lq?=0jO[T[Rj>k4ce=om_2u^+Fah-.6/G]2[^^h0Oh<N.OD@uTVA.G)N+:'\BFgUCn_WUuUPe\U:MqkVn]rJ=/mm--pD$\Z,PU?S-HMR+PE3nmn_JV2c8F!#QG?A]W'E[<K@@DQAa/@g6iN>AP`8VXq<GQ`q6QDjmd'[0*B74Tb?/Gg5F<<M%N]Ko9$>P5^[\.i4#gsGXP>na0TM*3Wpf!V\@cT==2AU9`>H2"7)C@eTabgQfS:9GC2U?J_6d5f@g49Vb6"40HM*EcJZlD->iVoR5<t0!K8`C3E-52A3-0/uH)eBi]8l<r#?6)n[2/)A]W:otbS;f<NgRB'b(ja\#&dbuf5NBY5F[W<Dju?bINR`UgYOi^JBMNFme-o)X[nTAW`Ttge,hX'#)M0KCH)i!fAt2jD/hQ23:g\tMed71Y!*HiGZ<;_!PhC,^%8q<rC?(8bP`%XcL8?`^27l/i7Kp=ZW3K-SU5hPntpBqd[.*_>Fj?O-<0lU/KoL@0+5h'FSg`u;8(\eHr7C7cC<A'H4.bW3(gpY=I&PL9>GOGdF6drn:pHuMOW"_7Z1$1\pnZ90Kf&Gs"8=F+.mSn1`U.6[baYabr]_3XGer!`?5:j5?Ic:j@Uq%FC.LX`Q\;)NcVIpg0%*nlR:O:Pab!si#IHJaM,3)\Nq7b_$Yk#BShmg#p]i]h=?[_dlU3PJ#jqAh$\8:LpRLZq(G/<.FD?55\eXbfq)aD),KsS'k6'%D>$c!mG9j^IEG::k.1&`V#D:/Nb4*U@gNdqLk\b>Kp?#p12jH;5GpREb3[Dj8h7V/TbBf^kjbV=<lNlRm3"7FlMK2TBDM%YrbMl'r>Rcrf#A9m382;#^-\A`l@Hlk1<c=-IE>*H)^C]m._+iN!:QCt[R2G#e`uu[I#S#^$W1@3hj(/6K!shKs6us<+jX?D]@2"eHjTn7X@M3H"$$&d5[AUp~>endstream
 endobj
 xref
-0 181
+0 203
 0000000000 65535 f 
 0000000061 00000 n 
 0000000123 00000 n 
@@ -1330,171 +1487,193 @@ xref
 0000030901 00000 n 
 0000031117 00000 n 
 0000031328 00000 n 
-0000031539 00000 n 
-0000031755 00000 n 
-0000031966 00000 n 
-0000032182 00000 n 
+0000031544 00000 n 
+0000031760 00000 n 
+0000031971 00000 n 
+0000032187 00000 n 
 0000032398 00000 n 
-0000032609 00000 n 
-0000032820 00000 n 
-0000033036 00000 n 
-0000033247 00000 n 
-0000033463 00000 n 
-0000033674 00000 n 
-0000033985 00000 n 
-0000034200 00000 n 
-0000034417 00000 n 
-0000034634 00000 n 
-0000034851 00000 n 
-0000035059 00000 n 
-0000035269 00000 n 
-0000035476 00000 n 
-0000035716 00000 n 
-0000035962 00000 n 
-0000036204 00000 n 
-0000036427 00000 n 
-0000036655 00000 n 
-0000036880 00000 n 
-0000037105 00000 n 
-0000037348 00000 n 
-0000037666 00000 n 
-0000037889 00000 n 
-0000038118 00000 n 
-0000038329 00000 n 
-0000038583 00000 n 
-0000038911 00000 n 
-0000039121 00000 n 
-0000039328 00000 n 
-0000039555 00000 n 
-0000039778 00000 n 
-0000039998 00000 n 
-0000040203 00000 n 
-0000040408 00000 n 
-0000040614 00000 n 
-0000040820 00000 n 
-0000041017 00000 n 
-0000041214 00000 n 
-0000041411 00000 n 
-0000041608 00000 n 
-0000041805 00000 n 
-0000042001 00000 n 
-0000042354 00000 n 
-0000042573 00000 n 
-0000042792 00000 n 
-0000043011 00000 n 
-0000043230 00000 n 
-0000043449 00000 n 
-0000043668 00000 n 
-0000043900 00000 n 
-0000044132 00000 n 
-0000044364 00000 n 
-0000044637 00000 n 
-0000044910 00000 n 
-0000045153 00000 n 
-0000045396 00000 n 
-0000045677 00000 n 
-0000045901 00000 n 
-0000046125 00000 n 
-0000046349 00000 n 
-0000046573 00000 n 
-0000046797 00000 n 
-0000047054 00000 n 
-0000047311 00000 n 
-0000047556 00000 n 
-0000047769 00000 n 
-0000047982 00000 n 
-0000048237 00000 n 
-0000048492 00000 n 
-0000048745 00000 n 
-0000048998 00000 n 
-0000049258 00000 n 
-0000049518 00000 n 
-0000049764 00000 n 
-0000050010 00000 n 
-0000050256 00000 n 
-0000050515 00000 n 
-0000050774 00000 n 
-0000051248 00000 n 
-0000051473 00000 n 
-0000051698 00000 n 
-0000051923 00000 n 
-0000052139 00000 n 
-0000052355 00000 n 
-0000052583 00000 n 
-0000052811 00000 n 
-0000053028 00000 n 
-0000053242 00000 n 
-0000053466 00000 n 
-0000053690 00000 n 
-0000053921 00000 n 
-0000054144 00000 n 
-0000054364 00000 n 
-0000054581 00000 n 
-0000054787 00000 n 
-0000054999 00000 n 
-0000055212 00000 n 
-0000055418 00000 n 
-0000055627 00000 n 
-0000055838 00000 n 
-0000056048 00000 n 
-0000056269 00000 n 
-0000056486 00000 n 
-0000056713 00000 n 
-0000056947 00000 n 
-0000057164 00000 n 
-0000057382 00000 n 
-0000057604 00000 n 
-0000057822 00000 n 
-0000058037 00000 n 
-0000058255 00000 n 
-0000058477 00000 n 
-0000058695 00000 n 
-0000058909 00000 n 
-0000059131 00000 n 
-0000059352 00000 n 
-0000059566 00000 n 
-0000059780 00000 n 
-0000059998 00000 n 
-0000060218 00000 n 
-0000060436 00000 n 
-0000060655 00000 n 
-0000060873 00000 n 
-0000061088 00000 n 
-0000061304 00000 n 
-0000061519 00000 n 
-0000061735 00000 n 
-0000061941 00000 n 
-0000062199 00000 n 
-0000062822 00000 n 
-0000063019 00000 n 
-0000063231 00000 n 
-0000063458 00000 n 
-0000063530 00000 n 
-0000063943 00000 n 
-0000064101 00000 n 
-0000065725 00000 n 
-0000068689 00000 n 
-0000071091 00000 n 
-0000074046 00000 n 
-0000076931 00000 n 
-0000080306 00000 n 
-0000083286 00000 n 
-0000086103 00000 n 
-0000089365 00000 n 
-0000092483 00000 n 
-0000095881 00000 n 
-0000099110 00000 n 
-0000103158 00000 n 
+0000032614 00000 n 
+0000032830 00000 n 
+0000033041 00000 n 
+0000033257 00000 n 
+0000033473 00000 n 
+0000033684 00000 n 
+0000033895 00000 n 
+0000034111 00000 n 
+0000034322 00000 n 
+0000034538 00000 n 
+0000034877 00000 n 
+0000035088 00000 n 
+0000035299 00000 n 
+0000035515 00000 n 
+0000035726 00000 n 
+0000035943 00000 n 
+0000036158 00000 n 
+0000036410 00000 n 
+0000036625 00000 n 
+0000036842 00000 n 
+0000037059 00000 n 
+0000037276 00000 n 
+0000037484 00000 n 
+0000037694 00000 n 
+0000037901 00000 n 
+0000038141 00000 n 
+0000038387 00000 n 
+0000038629 00000 n 
+0000038852 00000 n 
+0000039080 00000 n 
+0000039303 00000 n 
+0000039526 00000 n 
+0000039771 00000 n 
+0000039994 00000 n 
+0000040223 00000 n 
+0000040434 00000 n 
+0000040688 00000 n 
+0000041016 00000 n 
+0000041226 00000 n 
+0000041433 00000 n 
+0000041803 00000 n 
+0000042030 00000 n 
+0000042253 00000 n 
+0000042473 00000 n 
+0000042678 00000 n 
+0000042883 00000 n 
+0000043089 00000 n 
+0000043295 00000 n 
+0000043492 00000 n 
+0000043689 00000 n 
+0000043886 00000 n 
+0000044083 00000 n 
+0000044280 00000 n 
+0000044477 00000 n 
+0000044696 00000 n 
+0000044915 00000 n 
+0000045134 00000 n 
+0000045353 00000 n 
+0000045572 00000 n 
+0000045791 00000 n 
+0000046023 00000 n 
+0000046255 00000 n 
+0000046487 00000 n 
+0000046857 00000 n 
+0000047130 00000 n 
+0000047403 00000 n 
+0000047646 00000 n 
+0000047889 00000 n 
+0000048170 00000 n 
+0000048394 00000 n 
+0000048619 00000 n 
+0000048844 00000 n 
+0000049069 00000 n 
+0000049294 00000 n 
+0000049552 00000 n 
+0000049810 00000 n 
+0000050056 00000 n 
+0000050270 00000 n 
+0000050484 00000 n 
+0000050740 00000 n 
+0000050996 00000 n 
+0000051249 00000 n 
+0000051502 00000 n 
+0000051762 00000 n 
+0000052022 00000 n 
+0000052268 00000 n 
+0000052514 00000 n 
+0000052760 00000 n 
+0000053019 00000 n 
+0000053278 00000 n 
+0000053503 00000 n 
+0000053728 00000 n 
+0000053953 00000 n 
+0000054169 00000 n 
+0000054385 00000 n 
+0000054613 00000 n 
+0000054841 00000 n 
+0000055319 00000 n 
+0000055536 00000 n 
+0000055750 00000 n 
+0000055974 00000 n 
+0000056198 00000 n 
+0000056429 00000 n 
+0000056652 00000 n 
+0000056872 00000 n 
+0000057089 00000 n 
+0000057295 00000 n 
+0000057507 00000 n 
+0000057720 00000 n 
+0000057926 00000 n 
+0000058135 00000 n 
+0000058346 00000 n 
+0000058556 00000 n 
+0000058777 00000 n 
+0000058994 00000 n 
+0000059221 00000 n 
+0000059455 00000 n 
+0000059672 00000 n 
+0000059890 00000 n 
+0000060112 00000 n 
+0000060330 00000 n 
+0000060545 00000 n 
+0000060763 00000 n 
+0000060985 00000 n 
+0000061203 00000 n 
+0000061417 00000 n 
+0000061639 00000 n 
+0000061860 00000 n 
+0000062074 00000 n 
+0000062288 00000 n 
+0000062506 00000 n 
+0000062726 00000 n 
+0000062944 00000 n 
+0000063163 00000 n 
+0000063381 00000 n 
+0000063603 00000 n 
+0000063824 00000 n 
+0000064039 00000 n 
+0000064261 00000 n 
+0000064482 00000 n 
+0000064701 00000 n 
+0000064923 00000 n 
+0000065140 00000 n 
+0000065353 00000 n 
+0000065567 00000 n 
+0000065784 00000 n 
+0000066000 00000 n 
+0000066216 00000 n 
+0000066432 00000 n 
+0000066649 00000 n 
+0000066865 00000 n 
+0000067073 00000 n 
+0000067333 00000 n 
+0000067530 00000 n 
+0000067742 00000 n 
+0000068424 00000 n 
+0000068496 00000 n 
+0000068909 00000 n 
+0000069066 00000 n 
+0000070690 00000 n 
+0000073654 00000 n 
+0000076056 00000 n 
+0000079020 00000 n 
+0000081905 00000 n 
+0000085278 00000 n 
+0000088258 00000 n 
+0000091075 00000 n 
+0000094404 00000 n 
+0000097728 00000 n 
+0000101067 00000 n 
+0000104019 00000 n 
+0000107606 00000 n 
 trailer
 <<
 /ID 
 [<5f1a412f9efa844bfb7185ee404e57f3><5f1a412f9efa844bfb7185ee404e57f3>]
 % ReportLab generated PDF document -- digest (opensource)
 
-/Info 165 0 R
-/Root 164 0 R
-/Size 181
+/Info 187 0 R
+/Root 186 0 R
+/Size 203
 >>
 startxref
-103915
+111166
 %%EOF

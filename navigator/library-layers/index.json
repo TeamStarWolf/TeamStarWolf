@@ -402,6 +402,12 @@
     "blurb": "Techniques from the Binance theft record, from the tampered installer and the fake job assignment through the internal AI tool, the stolen deployment token and the container deployment to the hot-wallet theft. A curated layer for the Binance October 2026 case study."
   },
   {
+    "file": "european-refrigeration-attacks-2026-enterprise.json",
+    "name": "TeamStarWolf - Refrigeration-Controller Attacks on European Supermarkets and Blood Services, 2026",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified record of the 2026 refrigeration-controller attacks on European supermarkets and blood services supports: the reconnaissance France's C4 describes (Modbus scanning, the FOFA service), the access classes the US joint fact sheet lists, Sekoia's honeypot telemetry, the default credentials at the Ransom-ISAC site and the supplier path to the French blood service. Each comment names source numbers from case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md. The mappings are this study's reading.",
+    "blurb": "Techniques from the 2026 refrigeration-controller attacks in Europe: Modbus scanning and the FOFA service, exposed and end-of-life controllers, default accounts and password spraying, and the supplier path to the French blood service. A curated layer for the European refrigeration attacks case study."
+  },
+  {
     "file": "sharepoint-2026-exploitation.json",
     "name": "TeamStarWolf - SharePoint Server Exploitation Waves (2026) Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the 2026 on-premises SharePoint Server exploitation waves supports: CISA's alert and the KEV catalog for the exploitation and machine-key theft, and the Symantec and press reports of the Warlock intrusions that began with SharePoint exploitation. Each comment names source numbers from case-studies/SHAREPOINT_2026_EXPLOITATION.md. Scores: 75 is CISA's alert or the KEV catalog, 50 is a vendor or researcher report, 25 is a capability, an attempt or an inexact fit.",

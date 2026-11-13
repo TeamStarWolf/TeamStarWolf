@@ -1,0 +1,129 @@
+{
+  "name": "TeamStarWolf - Refrigeration-Controller Attacks on European Supermarkets and Blood Services, 2026",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified record of the 2026 refrigeration-controller attacks on European supermarkets and blood services supports: the reconnaissance France's C4 describes (Modbus scanning, the FOFA service), the access classes the US joint fact sheet lists, Sekoia's honeypot telemetry, the default credentials at the Ransom-ISAC site and the supplier path to the French blood service. Each comment names source numbers from case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md. The mappings are this study's reading.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1595",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Modbus port 502 scanning of Schneider Electric equipment (from April 2026, C4); honeypot enumeration (from 13 Oct 2026). Sources [2][19] refer to the Sources table of case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md."
+    },
+    {
+      "techniqueID": "T1596.005",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Operators used the FOFA scanning service (C4, 9 Nov 2026). Sources [2] refer to the Sources table of case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Authentication bypass and code injection against exposed controllers (US joint fact sheet, 5 Nov 2026); exploitation attempt on honeypots (Sekoia, 1 Nov 2026). Sources [11][19] refer to the Sources table of case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Default Administrator credentials on XWEB Pro (Ransom-ISAC site, 2 Nov 2026). Sources [25] refer to the Sources table of case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Default Administrator credentials on XWEB Pro (Ransom-ISAC site, 2 Nov 2026). Sources [25] refer to the Sources table of case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Default Administrator credentials on XWEB Pro (Ransom-ISAC site, 2 Nov 2026). Sources [25] refer to the Sources table of case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Default Administrator credentials on XWEB Pro (Ransom-ISAC site, 2 Nov 2026). Sources [25] refer to the Sources table of case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Spraying of default accounts on Sekoia honeypots (Oct to Nov 2026). Sources [19] refer to the Sources table of case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "EFS supervision reached via its refrigeration provider's remote-monitoring service (2 Nov 2026); abuse of trusted access not established (Inferred, low confidence). Sources [23][31] refer to the Sources table of case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#7c3aed"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: in this study's verified record (membership, not severity)",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md (sources opened 11 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "6"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "9"
+    },
+    {
+      "name": "score_meaning",
+      "value": "A score of 100 means membership in this study's record, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "Refrigeration-Controller Attacks on European Supermarkets and Blood Services, 2026: A Case Study",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

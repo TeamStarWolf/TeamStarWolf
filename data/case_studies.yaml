@@ -1260,6 +1260,32 @@ studies:
       - {"date": "2026-10-27", "label": "Chrome Root Store removal reaches devices; Chrome Root Program posts its review on the incident bug"}
       - {"date": "2026-11-07", "label": "Eight RSA G2B and G2C intermediates from the same ceremony revoked, cessationOfOperation"}
       - {"date": "2026-11-10", "label": "eMudhra posts its Full Incident Report to the Mozilla bug"}
+  case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md:
+    kind: "campaign"
+    title: "Refrigeration-Controller Attacks on European Supermarkets and Blood Services, 2026: A Case Study"
+    start: "2025-05"
+    end: "2026-11"
+    core_start: "2026-10-11"
+    core_end: "2026-11-10"
+    sectors: ["retail", "healthcare", "energy"]
+    cves: ["CVE-2025-41450", "CVE-2025-41451", "CVE-2025-41452", "CVE-2026-25085", "CVE-2026-21718", "CVE-2026-24663", "CVE-2023-6448"]
+    actors: []
+    tags: ["refrigeration", "cold chain", "OT sabotage", "Danfoss", "Copeland XWEB", "IRGC", "blood service"]
+    pdf: "European_Refrigeration_Attacks_2026_Case_Study.pdf"
+    pptx: "European_Refrigeration_Attacks_2026_Case_Study.pptx"
+    events:
+      - {"date": "2025-05", "label": "Danfoss AK-SM 8xxA flaws disclosed, May to Aug 2025: CVE-2025-41450 and CISA ICSA-25-140-03, then CVE-2025-41451 and CVE-2025-41452"}
+      - {"date": "2026-02-26", "label": "CISA ICSA-26-057-10 lists 23 CVEs in Copeland XWEB Pro 1.12.1 and earlier"}
+      - {"date": "2026-08-09", "label": "Claroty Team82 publishes its Copeland XWEB Pro research; fixed firmware 1.13"}
+      - {"date": "2026-10-11", "label": "About 700 French retail sites compromised overnight 11 to 12 Oct: defrost set high, goods lost, at least 15 fire starts"}
+      - {"date": "2026-10-12", "label": "CERT-FR alert CERTFR-2026-ALE-012 names Danfoss AK-SM and AK-SC controllers; Paris prosecutor opens an investigation"}
+      - {"date": "2026-10-14", "label": "Copeland bulletin on XWEB supervisors, including the end-of-life XWEB EVO line"}
+      - {"date": "2026-11-01", "label": "Second wave, night of 1 to 2 Nov: stores in several European countries and the UK, and three French blood-service (EFS) sites"}
+      - {"date": "2026-11-03", "label": "NCSC Ireland advisory and CSIRTs Network CNW-2026-05; NoName057(16) and Z-Pentest claim on Telegram, unverified"}
+      - {"date": "2026-11-04", "label": "ENISA, the Commission, Europol EC3, the CSIRTs Network and EU-CyCLONe issue a joint statement"}
+      - {"date": "2026-11-05", "label": "CISA, FBI, HHS, USDA and DOT joint fact sheet on refrigeration and cold-chain monitoring systems"}
+      - {"date": "2026-11-09", "label": "France attributes the October wave to the IRGC's Shahid Kaveh unit; CERT-FR publishes CERTFR-2026-CTI-009"}
+      - {"date": "2026-11-10", "label": "KEV catalogVersion 2026.11.10 holds no Danfoss, Copeland or Dixell CVE"}
   case-studies/EXCHANGE_MARAUDER_2021.md:
     kind: "campaign"
     title: "Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation"

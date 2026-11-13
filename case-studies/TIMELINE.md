@@ -242,6 +242,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 October 2026: ReliaQuest says on X that Qilin and Settra are exploiting the flaw (Reported)
   - 19 October 2026: Unit 42 reports attempted exploitation by Spikey Scorpius (Qilin) and Tarnished Scorpius (INC)
   - 10 November 2026: Kaspersky ranks Qilin first by share of leak-site victims in Q3 2026
+- [The Check Point Remote Access VPN IKEv1 Authentication Bypass of 2026 (CVE-2026-50751): A Case Study](/case-studies/CHECK_POINT_VPN_CVE_2026_50751.md). Vulnerability, May to November 2026 (core: 7 May 2026 to 15 June 2026). Sectors: cross-sector, technology. CVEs: CVE-2026-50751, CVE-2026-50752, CVE-2024-24919, CVE-2026-0257, CVE-2026-16232, CVE-2026-85102 and 2 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Check_Point_VPN_CVE_2026_50751_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Check_Point_VPN_CVE_2026_50751_Case_Study.pptx).
+  - 7 May 2026: Earliest exploitation Check Point observed; start of the attacker indicator window
+  - 4 June 2026: Check Point Research begins investigating suspicious VPN activity; sk185033 created
+  - 7 June 2026: CVE-2026-50751 reserved; sk185035 created for the site-to-site companion CVE-2026-50752
+  - 8 June 2026: Check Point publishes the CVE and announces the hotfix; KEV adds it, due 11 Jun, ransomware use Known; AV26-559 issued
+  - 11 June 2026: KEV due date; sk185033 adds R81.10 JHF Take 187 and more indicators
+  - 12 June 2026: watchTowr Labs publishes its reproduction and analysis
+  - 13 June 2026: sk185033 adds attacker addresses and a section on identifying hits on the IPS signature
+  - 15 June 2026: Recommended accumulators for R82.10, R82 and R81.20 listed; CPR weekly report records the Qilin case (Reported)
+  - 17 June 2026: The CNA adds affected-version data; CISA ADP adds its SSVC decision
+  - 22 July 2026: A later Check Point flaw, CVE-2026-16232 (SmartConsole), enters KEV
+  - 10 September 2026: CERT-EU 2026-012 covers later Check Point VPN flaws; it does not mention CVE-2026-50751
+  - 22 September 2026: CVE-2026-85102 and CVE-2026-93616 enter KEV with BOD 26-04 forensic triage marked Yes
 - [The cPanel and WHM Authentication Bypass of 2026 (CVE-2026-41940): A Case Study](/case-studies/CPANEL_WHM_CVE_2026_41940.md). Vulnerability, February to November 2026 (core: 28 April 2026 to 5 May 2026). Sectors: technology, cross-sector. CVEs: CVE-2026-41940, CVE-2026-48172, CVE-2026-54420, CVE-2026-87886. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/cPanel_WHM_CVE_2026_41940_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/cPanel_WHM_CVE_2026_41940_Case_Study.pptx).
   - 23 February 2026: Earliest execution attempts KnownHost says it saw; Rapid7 calls the date speculation (Reported)
   - 22 April 2026: CVE-2026-41940 reserved by VulnCheck

@@ -212,6 +212,32 @@ studies:
       - {"date": "2024-10-22", "label": "About 100 million individual notices sent"}
       - {"date": "2025-07-31", "label": "About 192.7 million people counted as affected"}
       - {"date": "2026-09-30", "label": "S.3315 passes the Senate by unanimous consent"}
+  case-studies/CHECK_POINT_VPN_CVE_2026_50751.md:
+    kind: "vulnerability"
+    title: "The Check Point Remote Access VPN IKEv1 Authentication Bypass of 2026 (CVE-2026-50751): A Case Study"
+    start: "2026-05"
+    end: "2026-11"
+    core_start: "2026-05-07"
+    core_end: "2026-06-15"
+    sectors: ["cross-sector", "technology"]
+    cves: ["CVE-2026-50751", "CVE-2026-50752", "CVE-2024-24919", "CVE-2026-0257", "CVE-2026-16232", "CVE-2026-85102", "CVE-2026-85103", "CVE-2026-93616"]
+    actors: []
+    tags: ["Check Point", "Quantum Security Gateway", "Spark", "Remote Access VPN", "IKEv1", "authentication bypass", "edge device", "VPN", "Qilin", "ransomware", "KEV"]
+    pdf: "Check_Point_VPN_CVE_2026_50751_Case_Study.pdf"
+    pptx: "Check_Point_VPN_CVE_2026_50751_Case_Study.pptx"
+    events:
+      - {"date": "2026-05-07", "label": "Earliest exploitation Check Point observed; start of the attacker indicator window"}
+      - {"date": "2026-06-04", "label": "Check Point Research begins investigating suspicious VPN activity; sk185033 created"}
+      - {"date": "2026-06-07", "label": "CVE-2026-50751 reserved; sk185035 created for the site-to-site companion CVE-2026-50752"}
+      - {"date": "2026-06-08", "label": "Check Point publishes the CVE and announces the hotfix; KEV adds it, due 11 Jun, ransomware use Known; AV26-559 issued"}
+      - {"date": "2026-06-11", "label": "KEV due date; sk185033 adds R81.10 JHF Take 187 and more indicators"}
+      - {"date": "2026-06-12", "label": "watchTowr Labs publishes its reproduction and analysis"}
+      - {"date": "2026-06-13", "label": "sk185033 adds attacker addresses and a section on identifying hits on the IPS signature"}
+      - {"date": "2026-06-15", "label": "Recommended accumulators for R82.10, R82 and R81.20 listed; CPR weekly report records the Qilin case (Reported)"}
+      - {"date": "2026-06-17", "label": "The CNA adds affected-version data; CISA ADP adds its SSVC decision"}
+      - {"date": "2026-07-22", "label": "A later Check Point flaw, CVE-2026-16232 (SmartConsole), enters KEV"}
+      - {"date": "2026-09-10", "label": "CERT-EU 2026-012 covers later Check Point VPN flaws; it does not mention CVE-2026-50751"}
+      - {"date": "2026-09-22", "label": "CVE-2026-85102 and CVE-2026-93616 enter KEV with BOD 26-04 forensic triage marked Yes"}
   case-studies/CHROME_ISOLATED_WEB_APPS_2026.md:
     kind: "reference"
     title: "Chrome Isolated Web Apps: Vulnerabilities and Abuse in 2026"

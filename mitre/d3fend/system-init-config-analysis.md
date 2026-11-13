@@ -33,6 +33,7 @@ Analysis of any system process startup configuration.
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [Other State-Linked Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_OTHER_STATES.md)
+- [The Dell RecoverPoint for Virtual Machines Hard-Coded Credential Zero-Day of 2026 (CVE-2026-22769): A Case Study](/case-studies/DELL_RECOVERPOINT_CVE_2026_22769.md)
 
 <!-- library-refs:end -->
 

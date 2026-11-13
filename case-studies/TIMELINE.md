@@ -378,6 +378,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 3 April 2026: FBI spokesperson: access was obtained through a third party; target phone numbers likely exposed (Reported)
   - 6 April 2026: Later notice per Bloomberg: forensics and remediation ongoing, a working group created, no actor named (Reported)
   - 11 November 2026: No hearing, IG report, formal attribution or joint advisory found; the Intelligence Hub feed has no row for the incident
+- [The Dell RecoverPoint for Virtual Machines Hard-Coded Credential Zero-Day of 2026 (CVE-2026-22769): A Case Study](/case-studies/DELL_RECOVERPOINT_CVE_2026_22769.md). Vulnerability, 2024 to November 2026 (core: 17 February 2026 to 21 February 2026). Sectors: technology. CVEs: CVE-2026-22769. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Dell_RecoverPoint_CVE_2026_22769_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Dell_RecoverPoint_CVE_2026_22769_Case_Study.pptx).
+  - 2024: Mid-2024: earliest exploitation GTIG identifies; UNC6201 deploys SLAYSTYLE, BRICKSTORM and GRIMBOLT (Reported)
+  - September 2025: Mandiant sees BRICKSTORM binaries on compromised appliances replaced with GRIMBOLT (Reported)
+  - 24 September 2025: GTIG publishes its BRICKSTORM espionage campaign report; it does not mention RecoverPoint
+  - 4 December 2025: CISA, NSA and the Canadian Cyber Centre publish AR25-338A, BRICKSTORM Backdoor
+  - 9 January 2026: Dell reserves CVE-2026-22769
+  - 20 January 2026: AR25-338A revised to add YARA rules
+  - 11 February 2026: AR25-338A adds Sample 12, a file whose hash GTIG later lists as GRIMBOLT
+  - 17 February 2026: Dell publishes DSA-2026-079 and the CVE; NVD publishes; GTIG publishes its UNC6201 report
+  - 18 February 2026: CISA adds the CVE to KEV, due 21 Feb
+  - 19 February 2026: CISA SSVC decision: exploitation active, automatable yes, technical impact total
+  - 18 March 2026: Dell KB 000426742, the remediation script, revised to version 2
+  - 16 April 2026: ATT&CK creates S9015 BRICKSTORM, naming UNC6201 among its users
 - [Node.js, CVE-2026-111497: Version Check and Fix in the Lab](/case-studies/NODEJS_CVE_2026_111497.md). Vulnerability, February to November 2026. Sectors: technology. CVEs: CVE-2026-111497, CVE-2026-105481, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Nodejs_CVE_2026_111497_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Nodejs_CVE_2026_111497_Case_Study.pptx).
   - 27 February 2026: Brotli fix commit 0ed4268 lands on the default branch with no release
   - 14 October 2026: Node.js pre-announces a security release for 21 October

@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 25 min (5,681 words at 230 words a minute)
+About 25 min (5,710 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -227,6 +227,7 @@ Fit notes (**Inferred**): T1059.006 rests on GTIG's description of SLAPSHOT as a
 | CWE-20 | Improper Input Validation | CVE-2026-88771: Citrix, CNA record and NVD | [1] [5] [8] |
 | CWE-119 | Improper Restriction of Operations within the Bounds of a Memory Buffer | CVE-2026-88772 (Citrix, NVD), CVE-2026-88779 (Citrix), and CVE-2026-88771 in KEV only | [1] [2] [9] [11] |
 | CWE-288 | Authentication Bypass Using an Alternate Path or Channel | CVE-2026-19490, the August precursor | [3] |
+| CWE-444 | Inconsistent Interpretation of HTTP Requests | CVE-2026-88773 (Citrix), not exploited | [1] |
 
 CAPEC entries the library relates to these CWEs or techniques that meet the record [52]:
 
@@ -238,7 +239,7 @@ CAPEC entries the library relates to these CWEs or techniques that meet the reco
 | [CAPEC-268](/mitre/capec/CAPEC-268.md) | Audit Log Manipulation | T1070 | Access-log scrubbing [25] |
 | [CAPEC-542](/mitre/capec/CAPEC-542.md) | Targeted Malware | T1587.001 | WHIPSHOT and SLAPSHOT [25] |
 
-The request-smuggling flaw CVE-2026-88773 corresponds to [CAPEC-33](/mitre/capec/CAPEC-33.md) HTTP Request Smuggling, but it is not marked exploited and no CWE for it was checked, so it is not bound [1] (**Inferred**). The library's CAPEC relations for CWE-288 (CAPEC-127, CAPEC-665) do not meet the record [52] (**Demonstrated**). See the [CWE Reference](/CWE_REFERENCE.md) and [CAPEC Reference](/CAPEC_REFERENCE.md).
+The request-smuggling flaw CVE-2026-88773 carries CWE-444 (Inconsistent Interpretation of HTTP Requests) in the Citrix bulletin, which the library relates to [CAPEC-33](/mitre/capec/CAPEC-33.md) HTTP Request Smuggling, but it is not marked exploited, so it is not bound [1] [52] (**Confirmed** for the CWE; the decision not to bind is **Inferred**). The library's CAPEC relations for CWE-288 (CAPEC-127, CAPEC-665) do not meet the record [52] (**Demonstrated**). See the [CWE Reference](/CWE_REFERENCE.md) and [CAPEC Reference](/CAPEC_REFERENCE.md).
 
 ### D3FEND countermeasures
 

@@ -1,0 +1,348 @@
+{
+  "name": "TeamStarWolf - The Year 2003 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2003 record supports: the 28 CERT/CC advisories CA-2003-01 to CA-2003-28 (Slammer, the weak-password SMB compromises of CA-2003-08, the exploited IIS WebDAV flaw, the public DCOM RPC exploits and Blaster) and the incident notes IN-2003-01 to IN-2003-04 (Mimail, Sobig.F and the Internet Explorer exploitation), Microsoft's MS02-039 and MS03-026, the Debian project's report on its November compromise, Poulsen's account of Slammer at Davis-Besse, and the Justice Department's 2003 releases (Racine, Amato, Zezev, Ivanov, Jiang, Carlson, Wiggs, Baas, the Lowe's wireless intrusion and the Weaknees DDoS case). No 2003 source prints an ATT&CK id: every entry is this study's later mapping. The Regin and Equation techniques are left out because ATT&CK draws them from later platforms, not a dated 2003 event. The Davis-Besse techniques are in the separate ATT&CK for ICS layer navigator/case-studies/chronicle-2003-ics.json. Each comment names source numbers from case-studies/CHRONICLE_2003.md. Scores: 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1014",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Rootkits on klecker, master, murphy and gluck (19 Nov) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [38] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "CA-2003-08 compromises over SMB shares on 445/tcp (11 Mar) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "CA-2003-08 tools scan TCP 445 within the same /16 (11 Mar); scanning for TCP 135 (CA-2003-19, 31 Jul); Blaster scans for more hosts (11 Aug) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1056",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "A program installed to capture Lowe's customers' card data; the release does not say how it captured them (basis: Inferred; a later mapping, since no 2003 source prints an ATT&CK id). Sources [50] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1056",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "A program installed to capture Lowe's customers' card data; the release does not say how it captured them (basis: Inferred; a later mapping, since no 2003 source prints an ATT&CK id). Sources [50] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Jiang's keylogging software on Kinko's terminals (Feb 2001 to Dec 2002; plea 10 Jul) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [42] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Jiang's keylogging software on Kinko's terminals (Feb 2001 to Dec 2002; plea 10 Jul) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [42] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Public RPC exploits create a privileged back-door command shell (CA-2003-19, 31 Jul) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "The do_brk() kernel flaw on Debian machines (19 Nov) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [38] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1071",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "CA-2003-08 tools connect to IRC for commands (11 Mar) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Debian intruder logs in with a sniffed password (19 Nov); Baas uses cracked passwords and a \"master key\" (plea 18 Dec); Jiang uses captured credentials (plea 10 Jul) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [38][55][42] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Debian intruder logs in with a sniffed password (19 Nov); Baas uses cracked passwords and a \"master key\" (plea 18 Dec); Jiang uses captured credentials (plea 10 Jul) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [38][55][42] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Debian intruder logs in with a sniffed password (19 Nov); Baas uses cracked passwords and a \"master key\" (plea 18 Dec); Jiang uses captured credentials (plea 10 Jul) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [38][55][42] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Debian intruder logs in with a sniffed password (19 Nov); Baas uses cracked passwords and a \"master key\" (plea 18 Dec); Jiang uses captured credentials (plea 10 Jul) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [38][55][42] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Null or weak Administrator passwords on SMB shares (CA-2003-08, 11 Mar) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Null or weak Administrator passwords on SMB shares (CA-2003-08, 11 Mar) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Null or weak Administrator passwords on SMB shares (CA-2003-08, 11 Mar) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Null or weak Administrator passwords on SMB shares (CA-2003-08, 11 Mar) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Blaster retrieves its executable from the compromising host (11 Aug); Sobig.F's scheduled contact to fetch further code (22 Aug, as CERT believed) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1110.001",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "The same compromises; the advisory says weak passwords, not how they were found (basis: Inferred; a later mapping, since no 2003 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1110.002",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Baas cracks an encrypted password file for about 300 passwords (charged Aug; plea 18 Dec) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [55] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1114",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Racine intercepts about 300 e-mails (Mar) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [41] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Slammer on the SQL Server Resolution Service (CA-2003-04, 25 Jan); the IIS 5.0 WebDAV ntdll.dll overflow, actively exploited (CA-2003-09, 17 Mar) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [1][7] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 50,
+      "comment": "Slammer enters Davis-Besse through a contractor's network and T1 link (Jan) (basis: Reported; a later mapping, since no 2003 source prints an ATT&CK id). Sources [37] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "IE VU#865940 exploited to install tools (IN-2003-04, 1 Oct); Mimail installs when viewed on a vulnerable system (2 Aug) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Mimail as a fake administrator account-expiry notice (IN-2003-02); Sobig.F's attachments (IN-2003-03) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "Slammer host to host (25 Jan); public DCOM RPC exploits (CA-2003-19, 31 Jul); Blaster (CA-2003-20, 11 Aug); Welchia through the same flaw (18 Aug) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [1][21][33] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1213",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "Baas downloads other customers' files from Acxiom's systems (basis: Inferred; a later mapping, since no 2003 source prints an ATT&CK id). Sources [55] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Wiggs deletes configuration files and takes down a county child-protection hotline (1 to 4 Jul; plea agreement filed 19 Nov) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [52] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Commissioned DDoS on Weaknees and Rapid Satellite (Oct); the RPCSDBOT variant's DDoS on Microsoft (arrest 26 Sep). Slammer's network degradation was a side effect of scanning, not a payload (25 Jan) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [56][48][1] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1498.001",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Blaster's TCP SYN flood against windowsupdate.com, confirmed in CERT's lab (11 Aug) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Amato's repeated \"ZIP-42\" archives slow or stop NASA's mail server (Nov 2001; charged 13 Feb 2003) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [40] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1499.001",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "The same SYN flood read as a connection-table exhaustion attack, as the home study maps it (basis: Inferred; a later mapping, since no 2003 source prints an ATT&CK id). Sources [1][97] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Blaster's Run value (11 Aug); Sobig.F's Run key (22 Aug) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Blaster's Run value (11 Aug); Sobig.F's Run key (22 Aug) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Mass-mailed, not targeted, so the closest fit only: Mimail's zipped MHTML (1 Aug), Sobig.F's .pif attachments (22 Aug) (basis: Inferred; a later mapping, since no 2003 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1571",
+      "tactic": "command-and-control",
+      "score": 40,
+      "comment": "Some of those shells listen on TCP 4444 (CA-2003-19); a listening port, so a weak fit (basis: Inferred; a later mapping, since no 2003 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1584.001",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "Racine takes over the Aljazeera.net domain account at Network Solutions (Mar) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [41] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1584.005",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "Denial-of-service tools installed on hosts commanded over IRC (CA-2003-08); the commissioned DDoS on Weaknees (Oct), in a case the 2008 release ties to Agobot (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [1][56] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Zezev's attempted $200,000 extortion (convicted 26 Feb; the intrusion predates 2003); Ivanov's extortion (sentenced 25 Jul) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [39][43] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1669",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "The Lowe's store wireless network in Southfield (Oct to 9 Nov) (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [50] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1684.001",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Racine's forged photo ID and authorization form in the name of Al Jazeera's systems administrator (Mar). T1656 is revoked and superseded by T1684.001 (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [41][92] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1684.002",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Sobig.B and Sobig.C spoof Microsoft addresses; Carlson's spam with reporters' spoofed addresses (indicted 25 Sep). T1672 is revoked and superseded by T1684.002 (basis: Described; a later mapping, since no 2003 source prints an ATT&CK id). Sources [15][47][92] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 50,
+      "comment": "Fizzer kills anti-virus tasks (8 May). T1562.001 is revoked and superseded by T1685 in the library's data (basis: Reported; a later mapping, since no 2003 source prints an ATT&CK id). Sources [32][92] refer to the Sources table of case-studies/CHRONICLE_2003.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8"
+    ],
+    "minValue": 40,
+    "maxValue": 70
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2003.md (sources opened 12 and 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "35"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "44"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2003 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2003.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

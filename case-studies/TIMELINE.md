@@ -1109,6 +1109,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 15 December 2004: Brian Salcedo sentenced to 108 months in the Lowe's wireless card-capture case
   - 21 December 2004: TA04-356A: the Santy.A worm exploits phpBB, finding targets through search engines
 
+### 2003 <!-- {docsify-ignore} -->
+
+- [The Year 2003 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2003.md). Period record, January to December 2003. Sectors: cross-sector, technology, energy, government, defense, retail, media, finance, telecommunications. CVEs: CVE-2002-0649, CVE-2002-1337, CVE-2003-0109, CVE-2003-0161, CVE-2003-0209, CVE-2003-0352 and 7 more. ATT&CK groups: G0010 Turla, G0020 Equation. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2003_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2003_Case_Study.pptx).
+  - January 2003: Slammer takes down monitoring computers at the idled Davis-Besse nuclear plant
+  - 25 January 2003: Slammer (Sapphire) begins slightly before 05:30 UTC, six months after MS02-039; CA-2003-04 the same day
+  - 11 March 2003: CA-2003-08: Windows systems compromised through null or weak Administrator passwords on SMB shares
+  - 17 March 2003: MS03-007 and CA-2003-09: ntdll.dll overflow actively exploited through WebDAV on IIS 5.0
+  - 16 July 2003: MS03-026 fixes the DCOM RPC overrun, 26 days before CERT/CC's Blaster advisory
+  - 11 August 2003: CA-2003-20: W32/Blaster
+  - 13 August 2003: CA-2003-21 announces the root compromise of the server behind GNU's primary FTP sites, reportedly from March
+  - 14 August 2003: The Northeast blackout; the US-Canada task force later finds no evidence of a malicious cause
+  - 22 August 2003: IN-2003-03: W32/Sobig.F
+  - 15 October 2003: MS03-041 to MS03-045 published together, Microsoft's first monthly batch
+  - 19 November 2003: Four Debian project machines compromised with a sniffed password and the do_brk() kernel flaw
+  - 16 December 2003: CAN-SPAM approved (Pub. L. 108-187)
+
 ### 2002 <!-- {docsify-ignore} -->
 
 - [The Year 2002 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2002.md). Period record, January to December 2002. Sectors: cross-sector, technology, government, defense, finance, media, healthcare, telecommunications. CVEs: CVE-2000-0979, CVE-2001-0154, CVE-2001-0803, CVE-2002-0012, CVE-2002-0013, CVE-2002-0059 and 9 more. ATT&CK groups: G0020 Equation. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2002_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2002_Case_Study.pptx).

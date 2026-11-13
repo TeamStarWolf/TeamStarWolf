@@ -55,6 +55,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Year 1997 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1997.md)
 - [The Year 1998 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1998.md)
 - [The Year 2002 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2002.md)
+- [The Year 2003 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2003.md)
 - [The Year 2004 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2004.md)
 - [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md)
 - [The Zero-Day Trade and Its Fallout: The Events in This Is How They Tell Me the World Ends](/case-studies/ZERO_DAY_MARKET_EVENTS.md)

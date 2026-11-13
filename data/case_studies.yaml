@@ -581,6 +581,30 @@ studies:
       - {"date": "2001-10-31", "label": "Vitek Boden sentenced over the Maroochy Shire sewerage intrusion (ATT&CK campaign C0020)"}
       - {"date": "2001-11-23", "label": "Council of Europe Convention on Cybercrime done at Budapest"}
       - {"date": "2001-12-20", "label": "MS01-059 and CA-2001-37: UPnP overflow leaves Windows XP vulnerable in its default configuration"}
+  case-studies/CHRONICLE_2003.md:
+    kind: "era"
+    title: "The Year 2003 in Intrusions: A Dated Record"
+    start: "2003-01"
+    end: "2003-12"
+    sectors: ["cross-sector", "technology", "energy", "government", "defense", "retail", "media", "finance", "telecommunications"]
+    cves: ["CVE-2002-0649", "CVE-2002-1337", "CVE-2003-0109", "CVE-2003-0161", "CVE-2003-0209", "CVE-2003-0352", "CVE-2003-0528", "CVE-2003-0545", "CVE-2003-0567", "CVE-2003-0605", "CVE-2003-0693", "CVE-2003-0717", "CVE-2003-0812"]
+    actors: ["G0010", "G0020"]
+    tags: ["CERT advisories", "Slammer", "Blaster", "Sobig", "Welchia", "Davis-Besse", "Northeast blackout", "GNU", "Debian", "monthly patches", "Snake", "CAN-SPAM"]
+    pdf: "Chronicle_2003_Case_Study.pdf"
+    pptx: "Chronicle_2003_Case_Study.pptx"
+    events:
+      - {"date": "2003-01", "label": "Slammer takes down monitoring computers at the idled Davis-Besse nuclear plant"}
+      - {"date": "2003-01-25", "label": "Slammer (Sapphire) begins slightly before 05:30 UTC, six months after MS02-039; CA-2003-04 the same day"}
+      - {"date": "2003-03-11", "label": "CA-2003-08: Windows systems compromised through null or weak Administrator passwords on SMB shares"}
+      - {"date": "2003-03-17", "label": "MS03-007 and CA-2003-09: ntdll.dll overflow actively exploited through WebDAV on IIS 5.0"}
+      - {"date": "2003-07-16", "label": "MS03-026 fixes the DCOM RPC overrun, 26 days before CERT/CC's Blaster advisory"}
+      - {"date": "2003-08-11", "label": "CA-2003-20: W32/Blaster"}
+      - {"date": "2003-08-13", "label": "CA-2003-21 announces the root compromise of the server behind GNU's primary FTP sites, reportedly from March"}
+      - {"date": "2003-08-14", "label": "The Northeast blackout; the US-Canada task force later finds no evidence of a malicious cause"}
+      - {"date": "2003-08-22", "label": "IN-2003-03: W32/Sobig.F"}
+      - {"date": "2003-10-15", "label": "MS03-041 to MS03-045 published together, Microsoft's first monthly batch"}
+      - {"date": "2003-11-19", "label": "Four Debian project machines compromised with a sniffed password and the do_brk() kernel flaw"}
+      - {"date": "2003-12-16", "label": "CAN-SPAM approved (Pub. L. 108-187)"}
   case-studies/CHRONICLE_2004.md:
     kind: "era"
     title: "The Year 2004 in Intrusions: A Dated Record"

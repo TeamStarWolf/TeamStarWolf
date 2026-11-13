@@ -2630,6 +2630,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the intrusion at FireEye](#part-1-the-intrusion-at-fireeye), [Part 9: the defender view](#part-9-the-defender-view)"
     pairs_with: "[Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Red Team Reference](/RED_TEAM_REFERENCE.md), [SolarWinds and SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md)"
     reviewed: null
+  case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md:
+    audience: "Desktop and Microsoft 365 administrators, email security and vulnerability management teams, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run Microsoft Office or Microsoft 365 Apps, you need the dated record of CVE-2026-21509 and the APT28 campaigns that exploited it, or you want to decide how to patch Office by build and hunt a COM-hijack chain"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Email Security Reference](/EMAIL_SECURITY_REFERENCE.md), [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Russia-Attributed Threat Actors](/case-studies/THREAT_ACTORS_RUSSIA.md)"
+    reviewed: null
   case-studies/MITNICK_INTRUSIONS.md:
     audience: "Security awareness leads, help desk and identity managers, threat intelligence analysts and anyone who has read Ghost in the Wires or The Art of Intrusion and wants the primary record behind them"
     level: "Beginner"

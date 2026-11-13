@@ -2525,6 +2525,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [The client-path exposure gap](#the-client-path-exposure-gap), [Remediation by platform and capability](#remediation-by-platform-and-capability)"
     pairs_with: "[Certificate Trust Incident Response](/CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md), [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)"
     reviewed: null
+  case-studies/EUROPEAN_COMMISSION_CLOUD_BREACH_2026.md:
+    audience: "Cloud and platform security engineers, DevOps teams who run CI/CD pipelines, incident responders, vulnerability management leads and public-sector security teams"
+    level: "Intermediate"
+    read_when: "You need the dated record of the 2026 European Commission cloud breach, how a poisoned Trivy scanner led to stolen AWS keys and a public leak, or which pipeline, cloud-key and detection controls the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[The TeamPCP Supply-Chain Campaign of 2026](/case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md), [The Year 2026 in Intrusions](/case-studies/CHRONICLE_2026.md)"
+    reviewed: null
   case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md:
     audience: "OT and facilities security engineers, vulnerability management leads, retail and healthcare defenders, and the contractors who run refrigeration supervision"
     level: "Intermediate"

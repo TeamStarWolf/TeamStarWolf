@@ -2026,6 +2026,32 @@ studies:
       - {"date": "2017-11-09", "label": "WikiLeaks begins Vault 8 with source code for the CIA Hive tool"}
       - {"date": "2022-07-13", "label": "Joshua Schulte convicted on eight counts at retrial over the Vault 7 theft"}
       - {"date": "2024-02-01", "label": "Schulte sentenced to 40 years"}
+  case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026.md:
+    kind: "campaign"
+    title: "Oracle PeopleSoft CVE-2026-35273 and the ShinyHunters Mass Exploitation of 2026: A Case Study"
+    start: "2026-04"
+    end: "2026-11"
+    core_start: "2026-05-27"
+    core_end: "2026-09-25"
+    sectors: ["education", "government", "technology", "healthcare", "transport"]
+    cves: ["CVE-2024-21182", "CVE-2026-21962", "CVE-2026-35273", "CVE-2026-46817"]
+    actors: ["G1057"]
+    tags: ["Oracle", "PeopleSoft", "PeopleTools", "ShinyHunters", "UNC6240", "zero-day", "WAF bypass", "web shells", "higher education", "data extortion", "FBI"]
+    pdf: "Oracle_PeopleSoft_ShinyHunters_2026_Case_Study.pdf"
+    pptx: "Oracle_PeopleSoft_ShinyHunters_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-04-01", "label": "Oracle's CNA reserves CVE-2026-35273"}
+      - {"date": "2026-05-15", "label": "FBI IC3 PSA warns about ShinyHunters extortion, with educational institutions at elevated risk"}
+      - {"date": "2026-05-27", "label": "27 May to 9 June: UNC6240 (ShinyHunters) exploits the PeopleSoft PSEMHUB flaw as a zero-day"}
+      - {"date": "2026-06-09", "label": "Stolen data published on the ShinyHunters leak site; the zero-day window closes"}
+      - {"date": "2026-06-10", "label": "Oracle out-of-band Security Alert for PeopleTools 8.61 and 8.62; University of Nottingham notice to students"}
+      - {"date": "2026-06-11", "label": "CVE record published; CISA SSVC records exploitation as active; GTIG has notified more than 100 organizations"}
+      - {"date": "2026-06-12", "label": "CISA adds CVE-2026-35273 to KEV with a 15 June due date and known ransomware campaign use"}
+      - {"date": "2026-09", "label": "Renewed n-day mass exploitation: WAF rules bypassed with an encoded path, JSP web shells planted"}
+      - {"date": "2026-09-22", "label": "FBI jobs site defaced; the actor claims data on FBI employees and applicants (Reported)"}
+      - {"date": "2026-09-25", "label": "GTIG publishes its report on the renewed campaign"}
+      - {"date": "2026-10-09", "label": "FBI announces another arrest tied to the FBI jobs incident (Reported)"}
+      - {"date": "2026-10-20", "label": "ZDI publishes the three-flaw chain behind the CVE (URL dated 20 October, page dated 27 October)"}
   case-studies/PALO_ALTO_PAN_OS_CVE_2026_0257.md:
     kind: "vulnerability"
     title: "The PAN-OS GlobalProtect Authentication Bypass of 2026 (CVE-2026-0257), Qilin and INC Ransomware: A Case Study"

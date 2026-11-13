@@ -2679,6 +2679,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 10: the vulnerability-management view](#part-10-the-vulnerability-management-view), [Part 11: the defender view](#part-11-the-defender-view)"
     pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Insider Threat Reference](/INSIDER_THREAT_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md)"
     reviewed: null
+  case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026.md:
+    audience: "Higher education and public-sector IT and security leaders, ERP and PeopleSoft administrators, vulnerability management leads, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want the dated record of the 2026 PeopleSoft CVE-2026-35273 zero-day and September WAF-bypass waves, what the vendor, KEV and GTIG each said, or which patch and hunt steps the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [The Instructure Canvas Breach and ShinyHunters Extortion of 2026: A Case Study](/case-studies/INSTRUCTURE_CANVAS_BREACH_2026.md)"
+    reviewed: null
   case-studies/PALO_ALTO_PAN_OS_CVE_2026_0257.md:
     audience: "Firewall and remote-access teams that run Palo Alto Networks GlobalProtect or another VPN gateway, vulnerability management leads, incident responders and threat intelligence analysts"
     level: "Intermediate"

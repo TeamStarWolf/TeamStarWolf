@@ -251,7 +251,8 @@
         ["The dot-com era, cyber events from 1994 to 2003: a case study", "/case-studies/DOTCOM_ERA_CYBER_EVENTS.md"],
         ["Before the Internet, computer threats from 1960 to 1990: a case study", "/case-studies/PRE_INTERNET_THREATS.md"],
         ["E-commerce threats: the public record, 1999 to 2026", "/case-studies/ECOMMERCE_THREATS.md"],
-        ["The year 2026 in intrusions: a dated record", "/case-studies/CHRONICLE_2026.md"]
+        ["The year 2026 in intrusions: a dated record", "/case-studies/CHRONICLE_2026.md"],
+        ["The ConnectWise Cloud Backup compromise of October 2026: a case study", "/case-studies/CONNECTWISE_STORM_0940_2026.md"]
       ]
     },
     {

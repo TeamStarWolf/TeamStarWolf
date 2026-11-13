@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 106 min (24,333 words at 230 words a minute)
+About 106 min (24,348 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -300,7 +300,7 @@ The China-attributed record of 2026 is told in [the China-attributed actors stud
 
 **QTFY's platforms.** On 26 August the DOJ and FBI seized by court order the QScan and QTRouter platforms of QTFY, which the DOJ calls PRC state-sponsored and employed by Nanjing Xinjiuwei Network Technology; the FBI, NSA and CNMF advisory JCSA-20260826-01 describes their use against the defense industrial base, communications, government and higher education (Confirmed [76][77]).
 
-**Storm-0940 and ConnectWise.** Microsoft assesses that Storm-0940, "a China-state aligned actor", was responsible for the ConnectWise Cloud Backup (formerly SkyKick) supply-chain compromise, attempted sign-ins to more than 2,250 downstream tenants with the agentic ARTEX framework, and ran a 10 to 14 October password spray that hit 327 accounts in eight organisations with more than 151,000 failed logons and no observed success (Confirmed [120]). ConnectWise's advisory, first published on 16 October and updated to 4 November, describes phased restoration and re-authorization of the Microsoft 365 app (Confirmed [109]). The library has no ATT&CK group object for Storm-0940.
+**Storm-0940 and ConnectWise.** Microsoft assesses that Storm-0940, "a China-state aligned actor", was responsible for the ConnectWise Cloud Backup (formerly SkyKick) supply-chain compromise, attempted sign-ins to more than 2,250 downstream tenants with the agentic ARTEX framework, and ran a 10 to 14 October password spray that hit 327 accounts in eight organisations with more than 151,000 failed logons and no observed success (Confirmed [120]). ConnectWise's advisory, first published on 16 October and updated to 4 November, describes phased restoration and re-authorization of the Microsoft 365 app (Confirmed [109]). The library has no ATT&CK group object for Storm-0940. The home study for this compromise is [The ConnectWise Cloud Backup Compromise of October 2026](/case-studies/CONNECTWISE_STORM_0940_2026.md).
 
 **APT41 and APT31.** Kaspersky attributes the BlackX UEFI bootkit, used against diplomatic agencies in Tajikistan, Uzbekistan and Turkmenistan in early 2026, to APT41 with medium confidence; the group's longer record is in [the APT41 study](/case-studies/APT41_PUBLIC_RECORD.md) (Confirmed [123]). Volexity's JungleBamboo, which it equates with APT31 and Violet Typhoon, is ATT&CK's [ZIRCONIUM](/mitre/groups/G0128.md) (Confirmed [85][171]).
 

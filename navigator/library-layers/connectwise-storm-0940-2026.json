@@ -1,0 +1,180 @@
+{
+  "name": "TeamStarWolf - ConnectWise Cloud Backup Compromise October 2026 Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the ConnectWise Cloud Backup compromise case study, from Storm-0940's 10 to 14 October 2026 password spray through the 15 October sign-ins as ConnectWise's multi-tenant Microsoft 365 apps, the role self-assignment and the secrets planted on other apps, to the Graph and Key Vault activity Microsoft reported on 21 October. Score 100: Microsoft lists the technique id for this activity and a primary describes the dated behavior. Score 60: a primary describes the behavior and the id is the study's own mapping (T1110.003 only). Scores measure the strength of the tie to this record, not severity. Each technique appears under every tactic ATT&CK gives it. Comments carry the study's source numbers.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: Microsoft lists the id; a primary describes the behavior",
+      "color": "#15803d"
+    },
+    {
+      "label": "60: a primary describes the behavior; the id is the study's mapping",
+      "color": "#86efac"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/CONNECTWISE_STORM_0940_2026.md; ATT&CK v20.0 technique data"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 = Microsoft lists the id for this activity and a primary describes the dated behavior; 60 = a primary describes the behavior and the id is the study's mapping. No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The ConnectWise Cloud Backup Compromise of October 2026: A Case Study",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/CONNECTWISE_STORM_0940_2026"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1595",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "ARTEX used to speed scanning, from as early as September 2026 (Microsoft, 21 Oct 2026). Microsoft lists the id. Sources: [2].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 60,
+      "comment": "Password spray from 144.172.64[.]99 against 327 accounts at eight organizations, 10 to 14 Oct 2026, over 151,000 failed logons and no success; law-firm spray from 144.172.64[.]128, 13 to 14 Oct. The id is the study's mapping (Inferred). Sources: [2] [3].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1195",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "A vendor's multi-tenant app credential used to enter customer tenants, 15 Oct 2026. Microsoft lists the id; no product code was altered. Sources: [2].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Access rode on permissions customers had granted the ConnectWise Cloud Backup app, 15 Oct 2026. Microsoft lists the id. Sources: [2] [3].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "The Cloud Backup app authenticated from 144.172.64[.]128, 06:13 to 08:44 UTC on 15 Oct 2026. Microsoft lists the id. Sources: [2] [3].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "The Cloud Backup app authenticated from 144.172.64[.]128, 06:13 to 08:44 UTC on 15 Oct 2026. Microsoft lists the id. Sources: [2] [3].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "The Cloud Backup app authenticated from 144.172.64[.]128, 06:13 to 08:44 UTC on 15 Oct 2026. Microsoft lists the id. Sources: [2] [3].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "The Cloud Backup app authenticated from 144.172.64[.]128, 06:13 to 08:44 UTC on 15 Oct 2026. Microsoft lists the id. Sources: [2] [3].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1528",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Microsoft Graph tokens obtained as the vendor app, 06:13 to 08:34 UTC on 15 Oct 2026. Microsoft lists the id. Sources: [2] [3].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1098.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Global Administrator self-assigned at 03:44 and 03:48 UTC on 15 Oct 2026; directory roles in about 50 tenants from 01:58 UTC (vendor automation not ruled out). Microsoft lists the id. Sources: [2] [3].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1098.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Global Administrator self-assigned at 03:44 and 03:48 UTC on 15 Oct 2026; directory roles in about 50 tenants from 01:58 UTC (vendor automation not ruled out). Microsoft lists the id. Sources: [2] [3].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Client secrets valid to 2028 added to two other apps, 15 Oct 2026. Microsoft lists the id. Sources: [2] [3].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1098.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Client secrets valid to 2028 added to two other apps, 15 Oct 2026. Microsoft lists the id. Sources: [2] [3].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1087.004",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Graph reconnaissance of identities and groups (Microsoft, 21 Oct 2026). Microsoft lists the id. Sources: [2].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1580",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Key enumeration across Azure Key Vaults (Microsoft, 21 Oct 2026). Microsoft lists the id. Sources: [2].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1555.006",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Bulk secret reads across multiple Key Vaults and a key-unwrap operation (Microsoft, 21 Oct 2026). Microsoft lists the id. Sources: [2].",
+      "enabled": true
+    }
+  ]
+}

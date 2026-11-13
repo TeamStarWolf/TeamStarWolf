@@ -2329,6 +2329,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 4: exploited vulnerabilities](#part-4-exploited-vulnerabilities), [Part 7: the defender view](#part-7-the-defender-view)"
     pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
     reviewed: null
+  case-studies/BINANCE_HEIST_2026.md:
+    audience: "Security engineers and leads at exchanges, custodians and other crypto firms, detection engineers, threat intelligence analysts and vulnerability management leads"
+    level: "Intermediate"
+    read_when: "You want the dated record of the October 2026 Binance theft, how a fake job assignment and an internal AI tool led to the hot wallets, or which controls the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md), [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md), [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md), [North Korea-attributed threat actors](/case-studies/THREAT_ACTORS_NORTH_KOREA.md)"
+    reviewed: null
   case-studies/CHANGE_HEALTHCARE_2024.md:
     audience: "Healthcare security leaders, incident responders and identity and vulnerability management teams"
     level: "Intermediate"

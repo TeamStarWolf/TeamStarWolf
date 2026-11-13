@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 106 min (24,399 words at 230 words a minute)
+About 106 min (24,413 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -348,7 +348,7 @@ Iran's actors are traced across years in [the Iran-attributed actors study](/cas
 
 North Korea's actors are traced across years in [the North Korea-attributed actors study](/case-studies/THREAT_ACTORS_NORTH_KOREA.md).
 
-**Binance.** The Record reports that Binance said hackers stole about US$6.3 billion in a Thursday-evening attack on 29 October traced to a compromised engineer's laptop, with about US$3 billion frozen by other platforms (Reported [135]). BleepingComputer, quoting an FBI alert, and The Hacker News report that the FBI, with the USSS and IRS-CI, attributed the theft to TraderTraitor (also tracked as Jade Sleet and UNC4899) and published laundering wallets, giving US$6.43 billion stolen and US$2.85 billion frozen; the FBI page returned 403 (Reported [136][137]). Chainalysis says the compromise began with a DPRK fake job-interview scheme against a Binance employee and attributes US$14.3 million of earlier Binance losses over 18 months to similar schemes (Confirmed [138]). The library has no ATT&CK group object for TraderTraitor, and this study does not bind the theft to [Lazarus Group](/mitre/groups/G0032.md) or [APT38](/mitre/groups/G0082.md), because the reported attribution names TraderTraitor (Demonstrated [171]; Inferred for the decision).
+**Binance.** The Record reports that Binance said hackers stole about US$6.3 billion in a Thursday-evening attack on 29 October traced to a compromised engineer's laptop, with about US$3 billion frozen by other platforms (Reported [135]). BleepingComputer, quoting an FBI alert, and The Hacker News report that the FBI, with the USSS and IRS-CI, attributed the theft to TraderTraitor (also tracked as Jade Sleet and UNC4899) and published laundering wallets, giving US$6.43 billion stolen and US$2.85 billion frozen; the FBI page returned 403 (Reported [136][137]). Chainalysis says the compromise began with a DPRK fake job-interview scheme against a Binance employee and attributes US$14.3 million of earlier Binance losses over 18 months to similar schemes (Confirmed [138]). The library has no ATT&CK group object for TraderTraitor, and this study does not bind the theft to [Lazarus Group](/mitre/groups/G0032.md) or [APT38](/mitre/groups/G0082.md), because the reported attribution names TraderTraitor (Demonstrated [171]; Inferred for the decision). The home study for this theft is [The Binance Hot-Wallet Theft of October 2026](/case-studies/BINANCE_HEIST_2026.md).
 
 **IT workers.** On 13 October the DOJ announced coordinated actions against DPRK remote IT-worker schemes "to fund its regime": an indictment in the Northern District of Ohio naming 10 China-based defendants, two US facilitators arrested, more than 40 laptop-farm searches in Texas from 21 to 25 September and about 187 devices seized; more than 70 US employers were affected and the scheme raised about US$3 million (Confirmed [87]).
 

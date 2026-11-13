@@ -53,6 +53,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The European Commission Cloud Breach of 2026: AWS Data Theft Through the Poisoned Trivy Scanner](/case-studies/EUROPEAN_COMMISSION_CLOUD_BREACH_2026.md)
 - [The TeamPCP Supply-Chain Campaign of 2026: Trivy, Checkmarx and the Bitwarden CLI (CVE-2026-33634)](/case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md)
 - [The Trojanized Claude Code Extension on Cursor's Marketplace (October 2026)](/case-studies/CURSOR_EXTENSION_TROJAN_2026.md)
+- [The Year 1994 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1994.md)
 - [The Year 2024 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2024.md)
 - [The Year 2025 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2025.md)
 - [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)

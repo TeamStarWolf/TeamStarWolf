@@ -35,6 +35,7 @@ Hand-written pages in this library that link to this page or to this object's en
 
 - [The Boston Scientific Network Outage of August 2026: A Case Study](/case-studies/BOSTON_SCIENTIFIC_ATTACK_2026.md)
 - [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md)
+- [The Year 1994 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1994.md)
 
 <!-- library-refs:end -->
 

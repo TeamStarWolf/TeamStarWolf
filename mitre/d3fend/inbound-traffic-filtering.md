@@ -77,6 +77,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Ransomware Ecosystem: The Public Record, 2019 to 2026](/case-studies/RANSOMWARE_ECOSYSTEM.md)
 - [The SharePoint Server Exploitation Waves of 2026 (CVE-2026-45659 and Successors): A Case Study](/case-studies/SHAREPOINT_2026_EXPLOITATION.md)
 - [The Year 1993 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1993.md)
+- [The Year 1994 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1994.md)
 - [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md)
 - [The Year 2017 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2017.md)
 - [The Year 2018 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2018.md)

@@ -1,0 +1,240 @@
+{
+  "name": "TeamStarWolf - The Year 1994 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 1994 record supports: the fifteen CERT/CC advisories CA-94:01 to CA-94:15 and the boundary advisory CA-95:01, GAO/AIMD-96-84 and the June 1996 Senate staff statement on the Rome Laboratory intrusions, the FBI history of the 1994 bank transfers, Shimomura's own account of the 25 December intrusion, F-Secure on One_Half, the KAOS4 record and the WildList of 1 September 1994. No 1994 source prints an ATT&CK id: every entry is this study's later mapping. Each comment names source numbers from case-studies/CHRONICLE_1994.md. Scores: 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "CA-94:01, 3 Feb 1994; Rome Laboratory sniffer found 28 Mar; Naval Academy sniffers on eight servers, Dec (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [1][3][24][22] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "CA-94:01, 3 Feb 1994; Rome Laboratory sniffer found 28 Mar; Naval Academy sniffers on eight servers, Dec (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [1][3][24][22] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Bank cash-management transfers, late Jun to Oct, through compromised valid user IDs and passwords; Rome intruders use captured credentials on an aerospace contractor (Apr) and masquerade as a trusted Rome user (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [27][24][23] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Bank cash-management transfers, late Jun to Oct, through compromised valid user IDs and passwords; Rome intruders use captured credentials on an aerospace contractor (Apr) and masquerade as a trusted Rome user (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [27][24][23] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Bank cash-management transfers, late Jun to Oct, through compromised valid user IDs and passwords; Rome intruders use captured credentials on an aerospace contractor (Apr) and masquerade as a trusted Rome user (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [27][24][23] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Bank cash-management transfers, late Jun to Oct, through compromised valid user IDs and passwords; Rome intruders use captured credentials on an aerospace contractor (Apr) and masquerade as a trusted Rome user (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [27][24][23] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1110.002",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Rome intruders' scanning tool locates and copies password files; a password-file theft attempted at Wright-Patterson, 14 Apr (cracking is the Senate record's general explanation, not an observed act) (basis: Inferred; a later mapping, since no 1994 source prints an ATT&CK id). Sources [24] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Rome intruders route through South American phone switches and US commercial sites; NASA Goddard reached via Seattle and Latvia, 14 Apr (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [22][24] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1595",
+      "tactic": "reconnaissance",
+      "score": 70,
+      "comment": "Rome intruders scan Brookhaven (12 Apr) and NATO HQ (15 Apr) (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [24] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "The same scans; the record does not say which services were probed (basis: Inferred; a later mapping, since no 1994 source prints an ATT&CK id). Sources [24] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Rome battlefield simulation and air tasking order research data copied; Korean Atomic Research Institute data moved to Rome, Apr (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [24][22] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "CA-94:07 wuarchive ftpd source, 6 Apr; CA-94:14 ircII 2.2.9 source, 19 Oct (corrupt since May); later grouped in CVE-1999-0661 (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [8][17][1][85] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1554",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "CA-94:01 Trojan horse system programs; CA-94:05, 18 Mar, Trojans built to match the \"sum\" checksum (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [3][6] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "CA-94:03 (24 Feb), CA-94:04 (17 Mar), CA-94:06 (21 Mar), CA-94:08 race (14 Apr), CA-94:12 (14 Jul), CA-94:13 (11 Aug) (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [1][5][7][9][14][16] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "CA-94:02 mountd (14 Feb), CA-94:08 SITE EXEC (14 Apr), CA-94:09 login (23 May), CA-94:10 bsh (3 Jun), CA-94:11 Majordomo (9 Jun), CA-94:15 NFS (19 Dec) (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [4][9][11][12][13][18] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 40,
+      "comment": "CA-94:15 NFS tools; CERT notes border filtering does not protect against inside attacks (basis: Inferred; a later mapping, since no 1994 source prints an ATT&CK id). Sources [18] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1563",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "25 Dec intrusion: an existing session hijacked after root; CA-95:01 (boundary). The Mitnick study binds it too (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [54][19][112] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1547.006",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "25 Dec: a loadable kernel STREAMS module; CA-95:01: dynamic kernel modification on SunOS 4.1.x (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [54][19] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1547.006",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "25 Dec: a loadable kernel STREAMS module; CA-95:01: dynamic kernel modification on SunOS 4.1.x (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [54][19] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "KAOS4, posted 24 Jul, spreads only when an infected file is run (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [73] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1542.003",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "One_Half infects the master boot record (May per F-Secure); boot viruses such as Form.A on the 1 Sep WildList (that tie is Inferred) (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [74][75] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1542.003",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "One_Half infects the master boot record (May per F-Secure); boot viruses such as Form.A on the 1 Sep WildList (that tie is Inferred) (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [74][75] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1027.014",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "One_Half is polymorphic (Confirmed); Pathogen and the SMEG engine (Reported) (basis: Described; a later mapping, since no 1994 source prints an ATT&CK id). Sources [74][69] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "lateral-movement",
+      "score": 40,
+      "comment": "Boot-sector and file viruses on the 1 Sep WildList (basis: Inferred; a later mapping, since no 1994 source prints an ATT&CK id). Sources [75] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Boot-sector and file viruses on the 1 Sep WildList (basis: Inferred; a later mapping, since no 1994 source prints an ATT&CK id). Sources [75] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "One_Half encrypts two more disk cylinders on each boot; a stretch, since it decrypts on the fly and makes no demand (basis: Inferred; a later mapping, since no 1994 source prints an ATT&CK id). Sources [74] refer to the Sources table of case-studies/CHRONICLE_1994.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8"
+    ],
+    "minValue": 40,
+    "maxValue": 70
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_1994.md (sources opened 12 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "19"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "26"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 1994 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_1994.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

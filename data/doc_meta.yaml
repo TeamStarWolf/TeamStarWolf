@@ -2480,6 +2480,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 4: the compromised project servers](#part-4-the-compromised-project-servers)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md), [Supply Chain Security](/SUPPLY_CHAIN_SECURITY.md), [The Year 2002 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2002.md)"
     reviewed: null
+  case-studies/CHRONICLE_2004.md:
+    audience: "Threat intelligence analysts, security historians, email and endpoint defenders and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2004, you need the year's mass mailers, Witty, Sasser and the browser attacks side by side with the later records that date Snake, APT1 and Equation to 2004, the year's prosecutions and the new identity theft law, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 3: the worms, the mass mailers and the web](#part-3-the-worms-the-mass-mailers-and-the-web), [Part 7: the defender view](#part-7-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Four Books on Cybercrime](/case-studies/CYBERCRIME_FOUR_BOOKS.md), [Email Security](/EMAIL_SECURITY_REFERENCE.md), [The Year 2002 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2002.md)"
+    reviewed: null
   case-studies/CHRONICLE_2016.md:
     audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
     level: "Intermediate"

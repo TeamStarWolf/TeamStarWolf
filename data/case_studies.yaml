@@ -605,6 +605,30 @@ studies:
       - {"date": "2003-10-15", "label": "MS03-041 to MS03-045 published together, Microsoft's first monthly batch"}
       - {"date": "2003-11-19", "label": "Four Debian project machines compromised with a sniffed password and the do_brk() kernel flaw"}
       - {"date": "2003-12-16", "label": "CAN-SPAM approved (Pub. L. 108-187)"}
+  case-studies/CHRONICLE_2004.md:
+    kind: "era"
+    title: "The Year 2004 in Intrusions: A Dated Record"
+    start: "2004-01"
+    end: "2004-12"
+    sectors: ["cross-sector", "technology", "government", "defense", "finance", "retail", "telecommunications"]
+    cves: ["CVE-2003-0533", "CVE-2003-0719", "CVE-2003-0818", "CVE-2003-0819", "CVE-2004-0200", "CVE-2004-0362", "CVE-2004-0549", "CVE-2004-0597", "CVE-2004-1050", "CVE-2004-1315"]
+    actors: ["G0006", "G0007", "G0010", "G0012", "G0020"]
+    tags: ["MyDoom", "Bagle", "Witty", "Sasser", "Download.Ject", "Santy", "CAN-SPAM", "Shadowcrew", "Snake", "APT1", "XP SP2", "802.11i"]
+    pdf: "Chronicle_2004_Case_Study.pdf"
+    pptx: "Chronicle_2004_Case_Study.pptx"
+    events:
+      - {"date": "2004-01-13", "label": "CA-2004-01: multiple H.323 message flaws across VoIP, video conferencing, routers and firewalls (with NISCC)"}
+      - {"date": "2004-01-28", "label": "MyDoom.B detected; US-CERT SA04-028A and the first alert of DHS's new cyber alert system"}
+      - {"date": "2004-03-19", "label": "Witty begins at about 20:45 PST against ISS security software, the day after its flaw was announced"}
+      - {"date": "2004-04-13", "label": "MS04-011 fixes 14 flaws, the LSASS overrun later used by Sasser among them"}
+      - {"date": "2004-04-29", "label": "First criminal CAN-SPAM charges and the FTC's first CAN-SPAM cases"}
+      - {"date": "2004-05-07", "label": "German police arrest the alleged Sasser author after informants use Microsoft's reward program"}
+      - {"date": "2004-06-24", "label": "Download.Ject: Microsoft responds to compromised IIS 5.0 servers pushing code to visitors' browsers"}
+      - {"date": "2004-08-06", "label": "Windows XP SP2 released to manufacturing, with Windows Firewall on and DEP"}
+      - {"date": "2004-08-26", "label": "Operation Web Snare announced: more than 160 investigations, hired DDoS among them"}
+      - {"date": "2004-10-25", "label": "hugesoft.org, the first APT1 zone Mandiant knew, registered"}
+      - {"date": "2004-12-15", "label": "Brian Salcedo sentenced to 108 months in the Lowe's wireless card-capture case"}
+      - {"date": "2004-12-21", "label": "TA04-356A: the Santy.A worm exploits phpBB, finding targets through search engines"}
   case-studies/CHRONICLE_2016.md:
     kind: "era"
     title: "The Year 2016 in Intrusions: A Dated Record"

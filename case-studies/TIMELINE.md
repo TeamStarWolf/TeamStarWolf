@@ -177,6 +177,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 24 October 2026: Sansec ties the deepveindrilling CMS-block loader campaign to earlier PolyShell uploads
   - 27 October 2026: CISA adds CVE-2026-48356 to KEV, due 10 November
   - 4 November 2026: TeamStarWolf lab run on Magento Open Source 2.4.8-p5
+- [The Cisco Catalyst SD-WAN Authentication Bypass of 2026 (CVE-2026-20127) and UAT-8616: A Case Study](/case-studies/CISCO_SDWAN_CVE_2026_20127.md). Vulnerability, September 2022 to October 2026 (core: 25 February 2026 to 14 May 2026). Sectors: government, telecommunications, defense, technology. CVEs: CVE-2026-20127, CVE-2022-20775, CVE-2026-20182, CVE-2026-20122, CVE-2026-20128, CVE-2026-20133 and 3 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cisco_SD_WAN_CVE_2026_20127_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Cisco_SD_WAN_CVE_2026_20127_Case_Study.pptx).
+  - 28 September 2022: Cisco discloses CVE-2022-20775, an SD-WAN CLI path traversal to root
+  - 2023: Earliest malicious activity Talos ties to UAT-8616; CISA says activity likely began in 2023
+  - 25 February 2026: Cisco discloses CVE-2026-20127; Talos names UAT-8616; KEV adds it with CVE-2022-20775; CISA issues ED 26-03
+  - 27 February 2026: ED 26-03 patch deadline; Censys counts about 600 internet-facing SD-WAN Managers
+  - March 2026: A public proof of concept appears, which Talos says is wrongly attributed to CVE-2026-20127
+  - 3 March 2026: The earliest of ten other clusters exploiting sibling Manager flaws is first seen (through 25 Mar)
+  - 20 April 2026: KEV adds CVE-2026-20133, CVE-2026-20122 and CVE-2026-20128
+  - 14 May 2026: Cisco discloses CVE-2026-20182; Talos attributes its exploitation to UAT-8616; KEV adds it
+  - 16 June 2026: Cisco adds Validator to the affected products; Rapid7 publishes a root-cause analysis
+  - 24 June 2026: Mandiant reports zero-day exploitation of CVE-2026-20245 in SD-WAN Manager
+  - 30 September 2026: KEV adds CVE-2026-76504, the platform's ninth 2026 KEV entry
+  - 28 October 2026: Talos names UAT-11473 and its KeyDrift framework; Cisco revision 2.1 links the post
 - [Node.js, CVE-2026-111497: Version Check and Fix in the Lab](/case-studies/NODEJS_CVE_2026_111497.md). Vulnerability, February to November 2026. Sectors: technology. CVEs: CVE-2026-111497, CVE-2026-105481, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Nodejs_CVE_2026_111497_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Nodejs_CVE_2026_111497_Case_Study.pptx).
   - 27 February 2026: Brotli fix commit 0ed4268 lands on the default branch with no release
   - 14 October 2026: Node.js pre-announces a security release for 21 October

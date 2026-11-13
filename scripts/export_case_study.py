@@ -148,6 +148,7 @@ EXPORT_NAMES = {
     "NABLE_NCENTRAL_ABLE2SHELL_2026": "Nable_Ncentral_Able2Shell_2026",
     "EXCHANGE_MARAUDER_2021": "Exchange_Marauder_2021",
     "THREAT_ACTORS_CHINA": "Threat_Actors_China",
+    "CISCO_SDWAN_CVE_2026_20127": "Cisco_SD_WAN_CVE_2026_20127",
 }
 
 

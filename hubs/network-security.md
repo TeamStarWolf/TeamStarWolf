@@ -49,5 +49,6 @@ Part of the [domain hubs](/hubs/README.md). 11 reference documents in this domai
 - [Network forensics](/NETWORK_FORENSICS_REFERENCE.md)
 - [ProFTPD mod_copy (CVE-2015-3306): a lab case study](/case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md)
 - [The Ivanti Connect Secure zero-day chain (October 2026): a case study](/case-studies/IVANTI_CONNECT_SECURE_2026.md)
+- [The Cisco Catalyst SD-WAN authentication bypass (CVE-2026-20127): a case study](/case-studies/CISCO_SDWAN_CVE_2026_20127.md)
 
 <!-- hub:end -->

@@ -2420,6 +2420,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the year at a glance](#part-1-the-year-at-a-glance), [Part 15: the defender view](#part-15-the-defender-view)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [AI Threats in the Cybersecurity Industry: A 2026 Case Study](/case-studies/AI_THREATS_2026.md), [The Year 2025 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2025.md)"
     reviewed: null
+  case-studies/CISCO_SDWAN_CVE_2026_20127.md:
+    audience: "Network teams that run Cisco Catalyst SD-WAN or another SD-WAN or edge controller, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run Cisco Catalyst SD-WAN, you need the facts of CVE-2026-20127, UAT-8616 and Emergency Directive 26-03, or you want to decide how to patch, hunt back to 2023 and rebuild an SD-WAN controller"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)"
+    reviewed: null
   case-studies/CL0P_FILE_TRANSFER_2023.md:
     audience: "Vulnerability management leads, incident responders and owners of managed file transfer systems"
     level: "Intermediate"

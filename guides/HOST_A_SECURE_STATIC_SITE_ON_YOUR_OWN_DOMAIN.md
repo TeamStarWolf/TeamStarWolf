@@ -25,7 +25,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 12 min (2,776 words at 230 words a minute)
+About 12 min (2,854 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -35,7 +35,7 @@ You own or are about to buy a domain for a GitHub Pages site, you want Cloudflar
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Start at</th><td>
 
-[Step 2: Add the records that point at GitHub Pages](#step-2-add-the-records-that-point-at-github-pages), [Step 6: Add the response headers GitHub Pages cannot send](#step-6-add-the-response-headers-github-pages-cannot-send), [Verification checklist](#verification-checklist)
+[Step 3: Add the records that point at GitHub Pages](#step-3-add-the-records-that-point-at-github-pages), [Step 6: Add the response headers GitHub Pages cannot send](#step-6-add-the-response-headers-github-pages-cannot-send), [Verification checklist](#verification-checklist)
 
 </td></tr>
 </table>
@@ -83,7 +83,17 @@ No review recorded yet
 
 What success looks like: the page says the zone is active, and DNS, Records shows an empty record list for a newly registered domain. For a moved domain, Cloudflare imports the existing records: check that the MX, TXT and other service records match what the old provider served before you change the nameservers, or mail and other services break.
 
-## Step 2: Add the records that point at GitHub Pages
+## Step 2: Verify the domain on your GitHub account
+
+GitHub recommends verifying the domain before adding it to a repository, to avoid takeover attacks [1]. Do it before the records in Step 3 exist: once the domain resolves to GitHub, an unverified name can be claimed by any Pages site until you associate it with yours. Without verification, if your repository is ever deleted or Pages is turned off while the DNS records still point at GitHub, someone else can create a Pages site that claims your domain. Verification closes that.
+
+1. GitHub: your profile or organization **Settings**, **Pages**, **Add a domain**: enter `example.com`. GitHub shows a TXT record: name `_github-pages-challenge-ACCOUNT`, value a long token.
+2. Cloudflare: DNS, Records, **Add record**: type TXT, name `_github-pages-challenge-ACCOUNT`, content the token, **Save**.
+3. Back in GitHub, **Verify**. The domain shows as verified; it also covers the domain's immediate subdomains, such as `www.example.com` and `docs.example.com` [3].
+
+Check: `nslookup -type=TXT _github-pages-challenge-ACCOUNT.example.com 1.1.1.1` shows the token.
+
+## Step 3: Add the records that point at GitHub Pages
 
 GitHub documents four IPv4 and four IPv6 addresses for apex domains and a CNAME for `www`. Add them with **Proxy status OFF** (grey cloud, "DNS only") for now: GitHub must see your domain resolve to its own addresses to issue the certificate in Step 4.
 
@@ -103,16 +113,6 @@ In the dashboard: DNS, Records, **Add record**, pick the type, type `@` or `www`
 
 Check: `nslookup example.com 1.1.1.1` returns the four A records; `nslookup -type=CNAME www.example.com 1.1.1.1` returns `your-account.github.io`. Public DNS usually shows them within ten minutes.
 
-## Step 3: Verify the domain on your GitHub account
-
-GitHub recommends verifying the domain before adding it to a repository, to avoid takeover attacks [1]. Without verification, if your repository is ever deleted or Pages is turned off while the DNS records still point at GitHub, someone else can create a Pages site that claims your domain. Verification closes that.
-
-1. GitHub: your profile or organization **Settings**, **Pages**, **Add a domain**: enter `example.com`. GitHub shows a TXT record: name `_github-pages-challenge-ACCOUNT`, value a long token.
-2. Cloudflare: DNS, Records, **Add record**: type TXT, name `_github-pages-challenge-ACCOUNT`, content the token, **Save**.
-3. Back in GitHub, **Verify**. The domain shows as verified; it also covers the domain's immediate subdomains, such as `www.example.com` and `docs.example.com` [3].
-
-Check: `nslookup -type=TXT _github-pages-challenge-ACCOUNT.example.com 1.1.1.1` shows the token.
-
 ## Step 4: Set the custom domain on GitHub Pages and enforce HTTPS
 
 1. In the repository: **Settings**, **Pages**, **Custom domain**: enter `example.com` and **Save**. GitHub runs a DNS check, then requests a certificate from Let's Encrypt for the apex and, if the `www` record already exists, for `www` as well.
@@ -121,7 +121,7 @@ Check: `nslookup -type=TXT _github-pages-challenge-ACCOUNT.example.com 1.1.1.1` 
 4. Tick **Enforce HTTPS**, or run `gh api -X PUT repos/OWNER/REPO/pages -F https_enforced=true`.
 5. Checks: `curl -sI https://example.com/` returns `HTTP/2 200` with `server: GitHub.com`; `curl -sI https://your-account.github.io/REPO/` returns `301` with `location: https://example.com/`; `curl -sI http://example.com/` returns `301` to HTTPS.
 
-Two things to know. If you add the `www` record after GitHub issued the certificate, the certificate covers only the apex; re-save the custom domain to make GitHub request one that covers both. And for a **project** site, the custom domain serves the site at the domain root: `https://example.com/` now shows what `https://your-account.github.io/REPO/` showed, and the old address redirects. Any absolute links in your content that still name the old address keep working through that redirect, and deserve a cleanup commit.
+Two things to know. If you add the `www` record after GitHub issued the certificate, the certificate covers only the apex; re-save the custom domain to make GitHub request one that covers both. And for a **project** site, the custom domain serves the site at the domain root: `https://example.com/` now shows what `https://your-account.github.io/REPO/` showed, and the old address redirects. Any absolute links in your content that still name the old address keep working through that redirect, and deserve a cleanup commit. If the site is built with a base path of `/REPO/` (a static-site generator's base URL, or asset links written as `/REPO/...`), rebuild it with base `/` before or at the switch: the homepage returns 200 at the apex while scripts and styles requested from `/REPO/` return 404.
 
 What success looks like: the site opens on your domain with a valid padlock, and the old address bounces to it.
 
@@ -189,7 +189,7 @@ When you need a little server-side logic (a form endpoint, an API that reads a d
 
 - **Proxy on before the certificate.** GitHub's DNS check sees Cloudflare's addresses, not its own, and never issues the certificate. Keep the records DNS only until Step 4 passes.
 - **`www` added late.** The origin certificate covers only the apex; re-save the custom domain.
-- **Forgetting verification.** Step 3 is five minutes and prevents a takeover that is otherwise silent.
+- **Forgetting verification.** Step 2 is five minutes and prevents a takeover that is otherwise silent.
 - **HSTS with preload on day one.** If a subdomain is not on HTTPS, it becomes unreachable for the full max-age, and preload lists are slow to leave.
 - **A CSP copied from a blog.** Start closed, open one directive at a time, and read the console.
 - **Scanning the wrong thing.** The servers behind your domain belong to GitHub and Cloudflare. Passive checks (TLS, headers, DNS) are fine; port scans, active exploitation tools and load tests against them are not yours to run.

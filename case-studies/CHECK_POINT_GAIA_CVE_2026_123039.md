@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 48 min (11,090 words at 230 words a minute)
+About 48 min (11,103 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -438,7 +438,7 @@ Assembled from the primaries, with no commands (**Inferred** as an assembly; eac
 - **Overstated: the zero-day-gives-root headline.** The flaw is local (AV:L, PR:L) and needs prior code execution [1] [3] (**Confirmed**). It mattered because PHP2Shell first gave that execution on Mobile Access portals left unpatched about a week after a fix [5] (**Confirmed**). The headline is accurate about exploitation before disclosure and misleading about reach (**Inferred**).
 - **Overstated: a firm China attribution.** CPR declines a high-confidence call and lists four scenarios [5] (**Confirmed**). "Armory Castle" appears in news reports and in Google's naming recorded in the library [50], not in ESET's report or CPR's [12] [44] [45] (**Confirmed** for the absence; the name **Reported**). CPR's gloss of AA25-022A as about "Chinese-nexus" actors goes beyond CISA's text, which names no country [34] (**Confirmed**).
 - **Understated: the 7.8 score.** In this chain the local precondition was supplied remotely (**Inferred** from [1] [3] [5]).
-- **Understated: the KEV gap.** Exploited, vendor-confirmed and absent from the catalog version current on 13 November [3] [7] (**Confirmed**).
+- **Understated: the KEV lag.** Exploited and vendor-confirmed on 12 November, absent from catalog version 2026.11.10 and added only in 2026.11.13 the next day, with a three-day due date [3] [6] [7] (**Confirmed**).
 - **Understated: the fleet problem.** R81 and R81.10 are past end of support and have no fixed Take [3] [20] (**Confirmed**).
 - **Understated: the hypervisor hop.** One gateway with SSH reach to ESXi and a vpxuser credential turned an edge compromise into destruction [5] (**Confirmed** facts; the weighting **Inferred**).
 - **Understated: the non-destructive wave.** The 2 November wave was global and showed no destruction, but TSGA's backup and snapshot persistence means a quiet compromise can outlive a restore [5] (**Inferred** from **Confirmed** capabilities).

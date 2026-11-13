@@ -115,7 +115,7 @@ Notes: KEV [7]. Records [23][25][26][29]. CVE-2026-50751 has its own study [51].
 ## PART 6 | Score the chain, not the CVE
 
 - The 7.8 local score understates a flaw that PHP2Shell made remote.
-- A KEV-only queue would not have surfaced it on 13 November.
+- A KEV-only queue would have surfaced it a day after the vendor did, with three days to act.
 - NVD had no CPE configuration, so scanners read the ranges their own way.
 - Management servers and Maestro are in scope, not only gateways.
 - Patch the same-day sibling, CVE-2026-107484, as well.
@@ -143,7 +143,7 @@ Left: Overstated
 - A firm China attribution.
 Right: Understated
 - The 7.8 score in a remote chain.
-- The KEV gap for a vendor-confirmed flaw.
+- The one-day KEV lag for a vendor-confirmed flaw.
 - End-of-support releases with no fix.
 - One hop from the firewall to ESXi.
 Notes: Overstated [1][3][5][12][44]. Understated [3][5][7][20]. Readings Inferred.

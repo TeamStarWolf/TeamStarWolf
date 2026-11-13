@@ -112,6 +112,30 @@ studies:
       - {"date": "2024-07-18", "label": "APT41 DUST (C0040) reported: prolonged access at shipping and logistics organizations"}
       - {"date": "2026-07-24", "label": "Google renames APT41 to SPIRE CASTLE"}
       - {"date": "2026-10-22", "label": "BlackX UEFI bootkit reported at diplomatic agencies in Tajikistan, Uzbekistan and Turkmenistan"}
+  case-studies/BINANCE_HEIST_2026.md:
+    kind: "incident"
+    title: "The Binance Hot-Wallet Theft of October 2026: A Case Study"
+    start: "2026-06"
+    end: "2026-11"
+    core_start: "2026-10-29"
+    core_end: "2026-11-01"
+    sectors: ["finance"]
+    cves: []
+    actors: []
+    tags: ["Binance", "TraderTraitor", "North Korea", "cryptocurrency", "hot wallet", "EIP-7702", "fake job interview", "deployment token"]
+    pdf: "Binance_Heist_2026_Case_Study.pdf"
+    pptx: "Binance_Heist_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-06", "label": "A wallet developer downloads a tampered Homebrew installer; it is caught, but the engineer's role and colleagues are exposed"}
+      - {"date": "2026-09", "label": "A second engineer's fake job assignment swaps a pyenv component; endpoint tools do not detect it"}
+      - {"date": "2026-10-13", "label": "IC3 warns that North Korean remote IT workers use facilitators and fraudulent hiring tradecraft (context)"}
+      - {"date": "2026-10-20", "label": "An internal AI tool takes over two more engineers' devices; one holds a container deployment token"}
+      - {"date": "2026-10-29", "label": "A container deployed with the stolen token abuses the signing service; hot wallets on ten chains drained from about 20:05 UTC"}
+      - {"date": "2026-10-30", "label": "Binance clears the EIP-7702 delegation at 00:10 UTC; Chainalysis names TraderTraitor; Update #2 gives about $6.3 billion"}
+      - {"date": "2026-10-31", "label": "FBI alert: North Korea responsible, TraderTraitor, 628 laundering addresses; Binance reports 98% of assets replenished"}
+      - {"date": "2026-11-01", "label": "Phase-one withdrawals resume on 15 networks"}
+      - {"date": "2026-11-02", "label": "Kim Yo Jong denies North Korea's role (Reported)"}
+      - {"date": "2026-11-03", "label": "Binance publishes its preliminary post-mortem; Chainalysis and TRM publish follow-ups"}
   case-studies/CHANGE_HEALTHCARE_2024.md:
     kind: "incident"
     title: "The Change Healthcare Attack of 2024: The Largest Healthcare Breach on Record"

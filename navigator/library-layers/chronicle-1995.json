@@ -1,0 +1,246 @@
+{
+  "name": "TeamStarWolf - The Year 1995 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 1995 record supports: the eighteen CERT/CC advisories CA-95:01 to CA-95:18 and the June 1995 CERT heads-up on IP spoofing, CIAC bulletin F-20 and the SATAN authors' summary, Shimomura's own account of the Christmas Day 1994 intrusion, the Justice Department releases on the Harvard intruder, the Monmouth mail-bomb release, the Net'Strike call and Virus Bulletin on Concept. No 1995 source prints an ATT&CK id: every entry is this study's later mapping. Each comment names source numbers from case-studies/CHRONICLE_1995.md. Scores: 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "CA-95:18 packet sniffers, 18 Dec; the Harvard intruder's password-intercepting programs, Aug to Dec (basis: Described; a later mapping, since no 1995 source prints an ATT&CK id). Sources [1][16] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "CA-95:18 packet sniffers, 18 Dec; the Harvard intruder's password-intercepting programs, Aug to Dec (basis: Described; a later mapping, since no 1995 source prints an ATT&CK id). Sources [1][16] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "SATAN probes finger, NFS, NIS, ftp and rexd (CA-95:06, 3 Apr); CA-95:18 scanning (basis: Described; a later mapping, since no 1995 source prints an ATT&CK id). Sources [1][70] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "CA-95:02 /bin/mail (26 Jan), CA-95:09 ps (29 Aug), CA-95:11 sendmail -oR (19 Sep), CA-95:12 loadmodule (18 Oct), CA-95:13 syslog (19 Oct) (basis: Described; a later mapping, since no 1995 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Stolen Harvard FAS accounts used against Navy, NASA and Los Alamos systems, Aug to Dec; the 1994 cash-management transfers through compromised user IDs (arrest Mar 1995) (basis: Described; a later mapping, since no 1995 source prints an ATT&CK id). Sources [16][10] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Stolen Harvard FAS accounts used against Navy, NASA and Los Alamos systems, Aug to Dec; the 1994 cash-management transfers through compromised user IDs (arrest Mar 1995) (basis: Described; a later mapping, since no 1995 source prints an ATT&CK id). Sources [16][10] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Stolen Harvard FAS accounts used against Navy, NASA and Los Alamos systems, Aug to Dec; the 1994 cash-management transfers through compromised user IDs (arrest Mar 1995) (basis: Described; a later mapping, since no 1995 source prints an ATT&CK id). Sources [16][10] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Stolen Harvard FAS accounts used against Navy, NASA and Los Alamos systems, Aug to Dec; the 1994 cash-management transfers through compromised user IDs (arrest Mar 1995) (basis: Described; a later mapping, since no 1995 source prints an ATT&CK id). Sources [16][10] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "CA-95:15, 8 Nov: SGI IRIX lp and other accounts shipped without passwords, known to intruders (basis: Described; a later mapping, since no 1995 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "CA-95:15, 8 Nov: SGI IRIX lp and other accounts shipped without passwords, known to intruders (basis: Described; a later mapping, since no 1995 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "CA-95:15, 8 Nov: SGI IRIX lp and other accounts shipped without passwords, known to intruders (basis: Described; a later mapping, since no 1995 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "CA-95:15, 8 Nov: SGI IRIX lp and other accounts shipped without passwords, known to intruders (basis: Described; a later mapping, since no 1995 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 40,
+      "comment": "The Harvard host used as a base for intrusions elsewhere (a weak tie: the record describes staging, not a proxy chain) (basis: Inferred; a later mapping, since no 1995 source prints an ATT&CK id). Sources [16] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1137.001",
+      "tactic": "persistence",
+      "score": 50,
+      "comment": "Concept adds itself to Word templates, including NORMAL.DOT, through auto-run macros, Sep (basis: Reported; a later mapping, since no 1995 source prints an ATT&CK id). Sources [18] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "CA-95:04 NCSA httpd (17 Feb), CA-95:05 sendmail IDENT (22 Feb), CA-95:08 sendmail v5 (17 Aug), CA-95:16 wu-ftpd (30 Nov), CA-95:17 rpc.ypupdated (12 Dec) (basis: Described; a later mapping, since no 1995 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "CA-95:10, 31 Aug: a booby-trapped PostScript file executes commands through ghostscript (basis: Described; a later mapping, since no 1995 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "Concept runs when a user opens an infected document, including documents on shipped CDs and disks, Sep (basis: Reported; a later mapping, since no 1995 source prints an ATT&CK id). Sources [18][19][20] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 40,
+      "comment": "rpc.ypupdated and NFS weaknesses exploited across sites in the December wave (basis: Inferred; a later mapping, since no 1995 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "Net'Strike call for repeated loading of French government sites, 21 Dec (effect not verified) (basis: Inferred; a later mapping, since no 1995 source prints an ATT&CK id). Sources [46] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "About 24,000 e-mail messages crash Monmouth University's mail system, 20 Nov (basis: Inferred; a later mapping, since no 1995 source prints an ATT&CK id). Sources [26] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1547.006",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "CA-95:01: the session tool modifies the SunOS 4.1.x kernel; Shimomura's loadable kernel STREAMS module (basis: Described; a later mapping, since no 1995 source prints an ATT&CK id). Sources [3][4] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1547.006",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "CA-95:01: the session tool modifies the SunOS 4.1.x kernel; Shimomura's loadable kernel STREAMS module (basis: Described; a later mapping, since no 1995 source prints an ATT&CK id). Sources [3][4] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1554",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "CA-95:18 Trojan horse programs installed after root (basis: Described; a later mapping, since no 1995 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1563",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "CA-95:01, 23 Jan: tool takes over open terminal and login sessions; the 25 Dec 1994 hijack published 25 Jan. The Mitnick study binds it too (basis: Described; a later mapping, since no 1995 source prints an ATT&CK id). Sources [3][4] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1574.006",
+      "tactic": "execution",
+      "score": 40,
+      "comment": "CA-95:14, 1 Nov: telnetd environment option on systems with shared libraries (the advisory text opened does not spell out the linker mechanism) (basis: Inferred; a later mapping, since no 1995 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1574.006",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "CA-95:14, 1 Nov: telnetd environment option on systems with shared libraries (the advisory text opened does not spell out the linker mechanism) (basis: Inferred; a later mapping, since no 1995 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 70,
+      "comment": "CA-95:18 automated scanning for NFS and NIS weaknesses, 18 Dec; SATAN released 5 Apr, which CERT expected to be used to find vulnerable hosts (basis: Described; a later mapping, since no 1995 source prints an ATT&CK id). Sources [1][69] refer to the Sources table of case-studies/CHRONICLE_1995.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8"
+    ],
+    "minValue": 40,
+    "maxValue": 70
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_1995.md (sources opened 12 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "18"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "27"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 1995 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_1995.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

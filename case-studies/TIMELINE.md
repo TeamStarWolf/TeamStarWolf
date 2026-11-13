@@ -1144,6 +1144,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 14 December 1996: A SYN flood takes more than 3,000 sites hosted by WebCom off the air for 40 hours
   - 18 December 1996: CA-96.26: oversized ping packets crash, freeze or reboot systems
 
+### 1995 <!-- {docsify-ignore} -->
+
+- [The Year 1995 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1995.md). Period record, January to December 1995. Sectors: cross-sector, defense, government, education, finance, technology, telecommunications. CVEs: CVE-1999-0073, CVE-1999-0077, CVE-1999-0080, CVE-1999-0099, CVE-1999-0151, CVE-1999-0155 and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_1995_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_1995_Case_Study.pptx).
+  - 23 January 1995: CA-95:01: forged source addresses beat address-based trust; a kernel tool hijacks open terminal and login sessions
+  - 15 February 1995: FBI and the Raleigh-Durham Fugitive Task Force arrest Kevin Mitnick after a two-week electronic manhunt
+  - 15 February 1995: BSI publishes BS 7799-1:1995, an information security management code of practice
+  - 5 April 1995: SATAN released; CIAC bulletin F-20 records the release and announces the Courtney detector
+  - 29 June 1995: CERT heads-up: 170 IP spoofing attacks in a few weeks, at least 80 against name servers, routers and network systems
+  - 12 July 1995: Tatu Ylonen announces SSH 1.0 as a replacement for rlogin, rsh and rcp
+  - August 1995: Navy NCCOSC detects an intrusion traced to Harvard's FAS host (late August)
+  - 15 August 1995: Export-grade 40-bit SSL challenge broken by brute force
+  - September 1995: Virus Bulletin analyses Winword.Concept, the first Word macro virus seen spreading
+  - 11 October 1995: Netscape Bugs Bounty: $1,000 to the first finder of a major security bug in its browser beta (Reported)
+  - 18 December 1995: CA-95:18 Widespread Attacks: hundreds of sites hit through automated scanning of already-advised flaws
+  - 28 December 1995: Argentine authorities seize the Harvard intruder's equipment in Buenos Aires
+
 ### 1994 <!-- {docsify-ignore} -->
 
 - [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md). Period record, 1978 to January 2005 (core: 1994 to 2003). Sectors: cross-sector, finance, government, defense, retail, technology, education. CVEs: CVE-2000-0884, CVE-2001-0154, CVE-2001-0500, CVE-2002-0649, CVE-2003-0352. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Dotcom_Era_Cyber_Events_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Dotcom_Era_Cyber_Events_Case_Study.pptx).

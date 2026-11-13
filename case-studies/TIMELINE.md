@@ -326,6 +326,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 October 2026: CISA adds the CVE to KEV as Google Brotli Unchecked Return Value Vulnerability
   - 4 November 2026: TeamStarWolf lab run: 24.22.0 flagged, 24.22.1 not, both report Brotli 1.2.0
   - 10 November 2026: KEV due date
+- [The Microsoft Office Security Feature Bypass of 2026 (CVE-2026-21509) and APT28: A Case Study](/case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md). Vulnerability, December 2025 to March 2026 (core: 26 January 2026 to 2 February 2026). Sectors: government. CVEs: CVE-2026-21509, CVE-2026-21514, CVE-2022-30190, CVE-2023-23397, CVE-2018-14634, CVE-2025-52691 and 2 more. ATT&CK groups: G0007 APT28. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Microsoft_Office_CVE_2026_21509_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Microsoft_Office_CVE_2026_21509_Case_Study.pptx).
+  - July 2025: APT28's Covenant begins using the Filen cloud storage service for command and control, per ESET (Reported)
+  - 16 September 2025: Sekoia publishes Operation Phantom Net Voxel with the same building blocks (Reported)
+  - 30 December 2025: Microsoft reserves CVE-2026-21509
+  - 12 January 2026: Two domains later used in the chain are registered
+  - 26 January 2026: MSRC publishes the Office security feature bypass out of band, Exploited = Yes; KEV adds it, due 16 Feb
+  - 27 January 2026: COREPER-themed lure document created, per its metadata
+  - 29 January 2026: CERT-UA receives reports of mail posing as Ukraine's Hydrometeorological Center sent to more than 60 addresses
+  - 1 February 2026: CERT-UA#19542 attributes the activity to UAC-0001 (APT28)
+  - 2 February 2026: Zscaler publishes Operation Neusploit (Reported)
+  - 10 February 2026: KEV adds CVE-2026-21514, a Word flaw with the same CWE-807
+  - 16 February 2026: KEV due date for federal agencies
+  - 10 March 2026: ESET ties the January campaigns to Sednit's Covenant (Reported)
 - [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md). Period record, January to November 2026. Sectors: cross-sector, government, technology, energy, healthcare, finance, retail, education, defense, transport. CVEs: CVE-2008-0015, CVE-2008-4128, CVE-2008-4250, CVE-2015-3306, CVE-2015-5477, CVE-2016-3081 and 65 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2026_Case_Study.pptx).
   - 23 January 2026: ESET ties DynoWiper, used against a Polish energy company on 29 Dec 2025, to Sandworm with medium confidence
   - 25 February 2026: Talos: Cisco Catalyst SD-WAN CVE-2026-20127 exploited as a zero-day back to at least 2023; CISA issues ED 26-03

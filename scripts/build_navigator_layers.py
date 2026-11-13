@@ -535,7 +535,10 @@ CATALOG = [
        "[European refrigeration attacks case study](/case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md)"),
       ("case-studies/chronicle-2000-ics.json", "The Year 2000 in Intrusions (ICS)",
        "The 12 ATT&CK for ICS techniques that campaign C0020, Maroochy Water Breach, lists for the February to April 2000 attack on the Maroochy Shire sewerage control system, from the "
-       "[2000 chronicle case study](/case-studies/CHRONICLE_2000.md)")]),
+       "[2000 chronicle case study](/case-studies/CHRONICLE_2000.md)"),
+      ("case-studies/chronicle-2001-ics.json", "The Year 2001 in Intrusions (ICS)",
+       "The 12 ATT&CK for ICS techniques that campaign C0020, Maroochy Water Breach, lists for the February to April 2000 attack on the Maroochy Shire sewerage control system, sentenced on 31 October 2001, from the "
+       "[2001 chronicle case study](/case-studies/CHRONICLE_2001.md)")]),
 ]
 
 

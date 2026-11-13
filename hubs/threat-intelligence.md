@@ -80,5 +80,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [Before the Internet, computer threats from 1960 to 1990: a case study](/case-studies/PRE_INTERNET_THREATS.md)
 - [E-commerce threats: the public record, 1999 to 2026](/case-studies/ECOMMERCE_THREATS.md)
 - [The year 2026 in intrusions: a dated record](/case-studies/CHRONICLE_2026.md)
+- [Refrigeration-controller attacks on European supermarkets and blood services, 2026](/case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md)
 
 <!-- hub:end -->

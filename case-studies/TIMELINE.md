@@ -53,6 +53,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 October 2026: Chrome Root Store removal reaches devices; Chrome Root Program posts its review on the incident bug
   - 7 November 2026: Eight RSA G2B and G2C intermediates from the same ceremony revoked, cessationOfOperation
   - 10 November 2026: eMudhra posts its Full Incident Report to the Mozilla bug
+- [Refrigeration-Controller Attacks on European Supermarkets and Blood Services, 2026: A Case Study](/case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md). Campaign, May 2025 to November 2026 (core: 11 October 2026 to 10 November 2026). Sectors: retail, healthcare, energy. CVEs: CVE-2025-41450, CVE-2025-41451, CVE-2025-41452, CVE-2026-25085, CVE-2026-21718, CVE-2026-24663 and 1 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/European_Refrigeration_Attacks_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/European_Refrigeration_Attacks_2026_Case_Study.pptx).
+  - May 2025: Danfoss AK-SM 8xxA flaws disclosed, May to Aug 2025: CVE-2025-41450 and CISA ICSA-25-140-03, then CVE-2025-41451 and CVE-2025-41452
+  - 26 February 2026: CISA ICSA-26-057-10 lists 23 CVEs in Copeland XWEB Pro 1.12.1 and earlier
+  - 9 August 2026: Claroty Team82 publishes its Copeland XWEB Pro research; fixed firmware 1.13
+  - 11 October 2026: About 700 French retail sites compromised overnight 11 to 12 Oct: defrost set high, goods lost, at least 15 fire starts
+  - 12 October 2026: CERT-FR alert CERTFR-2026-ALE-012 names Danfoss AK-SM and AK-SC controllers; Paris prosecutor opens an investigation
+  - 14 October 2026: Copeland bulletin on XWEB supervisors, including the end-of-life XWEB EVO line
+  - 1 November 2026: Second wave, night of 1 to 2 Nov: stores in several European countries and the UK, and three French blood-service (EFS) sites
+  - 3 November 2026: NCSC Ireland advisory and CSIRTs Network CNW-2026-05; NoName057(16) and Z-Pentest claim on Telegram, unverified
+  - 4 November 2026: ENISA, the Commission, Europol EC3, the CSIRTs Network and EU-CyCLONe issue a joint statement
+  - 5 November 2026: CISA, FBI, HHS, USDA and DOT joint fact sheet on refrigeration and cold-chain monitoring systems
+  - 9 November 2026: France attributes the October wave to the IRGC's Shahid Kaveh unit; CERT-FR publishes CERTFR-2026-CTI-009
+  - 10 November 2026: KEV catalogVersion 2026.11.10 holds no Danfoss, Copeland or Dixell CVE
 - [PHP2Shell and the October 2026 Attack Wave: A Case Study](/case-studies/PHP2SHELL_OCTOBER_2026.md). Vulnerability, October 2026. Sectors: technology, finance. CVEs: CVE-2026-109618, CVE-2026-109619. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/PHP2Shell_October_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/PHP2Shell_October_2026_Case_Study.pptx).
   - 14 October 2026: ConnectWise identifies the Cloud Backup issue
   - 17 October 2026: Amazon MadPot sees PHP2Shell attempts four days before disclosure

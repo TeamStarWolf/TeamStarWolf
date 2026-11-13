@@ -98,5 +98,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [The CareCloud medical-records breach of March 2026: a case study](/case-studies/CARECLOUD_BREACH_2026.md)
 - [The year 1993 in intrusions: a dated record](/case-studies/CHRONICLE_1993.md)
 - [The year 1995 in intrusions: a dated record](/case-studies/CHRONICLE_1995.md)
+- [The year 1997 in intrusions: a dated record](/case-studies/CHRONICLE_1997.md)
 
 <!-- hub:end -->

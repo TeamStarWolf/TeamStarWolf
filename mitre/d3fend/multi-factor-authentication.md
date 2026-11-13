@@ -82,6 +82,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Stryker Device-Wipe Attack of March 2026: A Case Study](/case-studies/STRYKER_HANDALA_WIPER_2026.md)
 - [The Year 1993 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1993.md)
 - [The Year 1994 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1994.md)
+- [The Year 1997 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1997.md)
 - [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md)
 - [The Year 2017 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2017.md)
 - [The Year 2018 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2018.md)

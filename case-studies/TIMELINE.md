@@ -1128,6 +1128,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 22 October 2025: SessionReaper (CVE-2025-54236) attacks begin (Reported); KEV entry on 24 Oct
   - 27 October 2026: PolyShell (CVE-2026-48356) added to KEV
 
+### 1997 <!-- {docsify-ignore} -->
+
+- [The Year 1997 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1997.md). Period record, January to December 1997. Sectors: cross-sector, defense, government, technology, telecommunications, finance, media, retail. CVEs: CVE-1999-0015, CVE-1999-0016, CVE-1999-0017, CVE-1999-0018, CVE-1999-0021, CVE-1999-0024 and 12 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_1997_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_1997_Case_Study.pptx).
+  - 16 January 1997: Office 97 reaches North American shops with VBA5 in every application
+  - 28 January 1997: CA-97.05: sendmail 8.8.3 and 8.8.4 MIME conversion overflow, exploitable despite firewalls
+  - 20 February 1997: CA-97.08: INN runs attacker commands from crafted control messages
+  - 7 April 1997: CA-97.09: IMAP and POP login overflow gives remote root; large-scale automated scans all year
+  - 21 May 1997: Card data on more than 100,000 accounts sold to undercover FBI agents; arrest at San Francisco Airport (Reported)
+  - 10 June 1997: Eligible Receiver 97: Joint Chiefs of Staff J-5 tasking for the exercise scenario
+  - 26 June 1997: Reno v. ACLU: the Communications Decency Act's indecency provisions struck down
+  - 13 August 1997: CA-97.22: BIND cache poisoning now being exploited
+  - 1 September 1997: Phrack 51 publishes The Art of Port Scanning, introducing nmap
+  - October 1997: PCCIP issues Critical Foundations: Protecting America's Infrastructures
+  - 10 November 1997: CA-97.25: sanitizing user-supplied data in CGI scripts
+  - 16 December 1997: CA-97.28 Teardrop and Land; the No Electronic Theft Act becomes law
+
 ### 1996 <!-- {docsify-ignore} -->
 
 - [The Year 1996 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1996.md). Period record, January to December 1996. Sectors: cross-sector, defense, government, technology, telecommunications, manufacturing, education, healthcare. CVEs: CVE-1999-0022, CVE-1999-0043, CVE-1999-0067, CVE-1999-0103, CVE-1999-0116, CVE-1999-0128 and 7 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_1996_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_1996_Case_Study.pptx).

@@ -65,6 +65,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Citrix NetScaler Zero-Days of September and October 2026 (CVE-2026-88771, CVE-2026-88772, CVE-2026-88779): A Case Study](/case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md)
 - [The Year 1994 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1994.md)
 - [The Year 1996 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1996.md)
+- [The Year 1997 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1997.md)
 - [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md)
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)
 - [The Year 2021 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2021.md)

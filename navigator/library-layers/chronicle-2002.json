@@ -1,0 +1,294 @@
+{
+  "name": "TeamStarWolf - The Year 2002 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2002 record supports: the CERT/CC advisories CA-2002-01 to CA-2002-37 (the trojaned OpenSSH, Sendmail and tcpdump/libpcap distributions, the exploited dtspcd and kadmind flaws, the Apache/mod_ssl worm Slapper), the incident notes IN-2002-01 to IN-2002-05 (Myparty, Gibe, chat-borne denial-of-service agents, Spida and Frethem), F-Secure's records of Scalper, Opaserv and Bugbear, the root server operators' report on the 21 October flood, and the Justice Department releases on Lamo, McKinnon, Cummings and Jiang. No 2002 source prints an ATT&CK id: every entry is this study's later mapping. Equation's four group techniques and the ATT&CK for ICS techniques of campaign C0020 are not in this layer. Each comment names source numbers from case-studies/CHRONICLE_2002.md. Scores: 70 the source describes the behavior and the study assigns the id, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1003",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "McKinnon copies password files; the nearest fit (basis: Inferred; a later mapping, since no 2002 source prints an ATT&CK id). Sources [40] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1027.004",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Slapper compiles its source on the victim (CA-2002-27) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "McKinnon scans .mil networks and, once inside a network, uses the hacked computer to find further military and NASA victims (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [40] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Bugbear's keylogging component (30 Sep); Jiang's password-recording software at a Kinko's (arrested 20 Dec) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [30][44] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Bugbear's keylogging component (30 Sep); Jiang's password-recording software at a Kinko's (arrested 20 Dec) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [30][44] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "The OpenSSH trojan opens a shell as the building user (CA-2002-24); the tcpdump configure script fetches and runs a shell script (CA-2002-30) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "Flaw classes, no exploitation stated: the OpenSSH challenge-response flaw (26 Jun) and SQL Server VU#796313 (29 Jul) (basis: Inferred; a later mapping, since no 2002 source prints an ATT&CK id). Sources [25][1] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Cummings scheme uses client passwords and subscriber codes (from early 2000; charged 25 Nov); McKinnon gains administrative rights (Mar 2001 to Mar 2002; the account path is Inferred) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [42][40] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Cummings scheme uses client passwords and subscriber codes (from early 2000; charged 25 Nov); McKinnon gains administrative rights (Mar 2001 to Mar 2002; the account path is Inferred) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [42][40] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Cummings scheme uses client passwords and subscriber codes (from early 2000; charged 25 Nov); McKinnon gains administrative rights (Mar 2001 to Mar 2002; the account path is Inferred) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [42][40] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Cummings scheme uses client passwords and subscriber codes (from early 2000; charged 25 Nov); McKinnon gains administrative rights (Mar 2001 to Mar 2002; the account path is Inferred) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [42][40] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Spida through null or weak default sa passwords (IN-2002-04, 22 May) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [4] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Spida through null or weak default sa passwords (IN-2002-04, 22 May) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [4] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Spida through null or weak default sa passwords (IN-2002-04, 22 May) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [4] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Spida through null or weak default sa passwords (IN-2002-04, 22 May) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [4] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1095",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Slapper's UDP peer network on 2002, 1978 and 4156 (CA-2002-27) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Spida enables the guest account and adds it to Administrators and Domain Admins (22 May) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [4] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1098",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Spida enables the guest account and adds it to Administrators and Domain Admins (22 May) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [4] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "The tcpdump trojan fetches a script from a fixed host (13 Nov); Slapper places its source on the victim (14 Sep) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1110.001",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Opaserv's use of the Windows 9x share-level password flaw (end of Sep); the closest fit for a flaw in password checking (basis: Inferred; a later mapping, since no 2002 source prints an ATT&CK id). Sources [31][19] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1136",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Lamo sets up five fictitious LexisNexis user IDs (from 26 Feb) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [35] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "dtspcd on Solaris (CA-2002-01, 14 Jan); Slapper against Apache with mod_ssl (CA-2002-27, 14 Sep); Scalper against Apache (June) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [1][28][29] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Trojaned OpenSSH (30 or 31 Jul; CA-2002-24, 1 Aug), Sendmail 8.12.6 (from about 28 Sep; CA-2002-28, 8 Oct), tcpdump and libpcap (11 to 13 Nov; CA-2002-30) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [1][23][84] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Frethem runs through unpatched IE rendering (17 Jul); Klez runs through the IE flaw MS01-020 (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [4][26] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Myparty spreads by social engineering (28 Jan); Gibe poses as a Microsoft patch (12 Mar); IRC and instant-messaging users tricked into running agents (19 Mar) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [4] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "Slapper host to host (14 Sep); Scalper between FreeBSD systems; Opaserv over Windows file sharing through the MS00-072 flaw (end of Sep) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [1][29][31][19][85] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1213",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Lamo reaches the New York Times Op-Ed contributor database (26 Feb) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [35] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "McKinnon installs a remote administration tool (Mar 2001 to Mar 2002); Jiang takes control of a GoToMyPC subscriber's computer (20 Dec) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [40][44] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "McKinnon deletes critical system files; a network loses internet and email for about 2,000 users for three days (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [40] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1498.001",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "ICMP, TCP SYN, fragmented TCP and UDP floods against all thirteen root servers (21 Oct) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [45][57] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1531",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "McKinnon deletes user accounts (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [40] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1565.001",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Lamo adds an entry about himself to the database (26 Feb) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [35] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Mass-mailed attachments, not targeted, so the targeted-delivery technique is the closest fit only: Myparty (28 Jan), Gibe (12 Mar), Klez.H (17 Apr), Frethem (17 Jul), Bugbear (30 Sep) (basis: Inferred; a later mapping, since no 2002 source prints an ATT&CK id). Sources [4][27][30] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1584.005",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "Users tricked over IRC and instant messaging into running denial-of-service agents on tens of thousands of systems (IN-2002-03, 19 Mar); Slapper's peer network usable for denial of service (14 Sep) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [4][1] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 70,
+      "comment": "Slapper scans 80/tcp with an invalid GET request before delivering its exploit over 443/tcp (CA-2002-27) (basis: Described; a later mapping, since no 2002 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2002.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8"
+    ],
+    "minValue": 40,
+    "maxValue": 70
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2002.md (sources opened 12 and 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "27"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "35"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2002 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2002.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

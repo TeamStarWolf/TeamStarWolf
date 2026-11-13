@@ -144,6 +144,7 @@ EXPORT_NAMES = {
     "CONNECTWISE_STORM_0940_2026": "ConnectWise_Storm_0940_2026",
     "STRYKER_HANDALA_WIPER_2026": "Stryker_Handala_Wiper_2026",
     "BINANCE_HEIST_2026": "Binance_Heist_2026",
+    "DENTAQUEST_BREACH_2026": "DentaQuest_Breach_2026",
     "NSA_CIA_TOOL_LEAKS": "NSA_CIA_Tool_Leaks_2016_2017",
     "RANSOMWARE_ECOSYSTEM": "Ransomware_Ecosystem_2019_2026",
     "NABLE_NCENTRAL_ABLE2SHELL_2026": "Nable_Ncentral_Able2Shell_2026",

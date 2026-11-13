@@ -1214,6 +1214,32 @@ studies:
       - {"date": "2026-10-28", "label": "M365 backup restoration begins through a new app; partners must re-authorize each tenant"}
       - {"date": "2026-11-04", "label": "Last advisory update: billing and some notifications still being restored"}
       - {"date": "2026-11-06", "label": "Microsoft reports Storm-3358, a financially motivated cluster, also using ARTEX"}
+  case-studies/CPANEL_WHM_CVE_2026_41940.md:
+    kind: "vulnerability"
+    title: "The cPanel and WHM Authentication Bypass of 2026 (CVE-2026-41940): A Case Study"
+    start: "2026-02"
+    end: "2026-11"
+    core_start: "2026-04-28"
+    core_end: "2026-05-05"
+    sectors: ["technology", "cross-sector"]
+    cves: ["CVE-2026-41940", "CVE-2026-48172", "CVE-2026-54420", "CVE-2026-87886"]
+    actors: []
+    tags: ["cPanel", "WHM", "WP Squared", "web hosting", "control panel", "authentication bypass", "Sorry ransomware", "GitHub Actions", "Shai-Hulud", "KEV"]
+    pdf: "cPanel_WHM_CVE_2026_41940_Case_Study.pdf"
+    pptx: "cPanel_WHM_CVE_2026_41940_Case_Study.pptx"
+    events:
+      - {"date": "2026-02-23", "label": "Earliest execution attempts KnownHost says it saw; Rapid7 calls the date speculation (Reported)"}
+      - {"date": "2026-04-22", "label": "CVE-2026-41940 reserved by VulnCheck"}
+      - {"date": "2026-04-28", "label": "Namecheap blocks the panel ports; vendor advisory and fixed builds for six tiers and WP Squared 136.1.7 follow"}
+      - {"date": "2026-04-29", "label": "CVE record and NVD entry published; CISA ADP grades exploitation active; watchTowr publishes analysis and proof of concept"}
+      - {"date": "2026-04-30", "label": "KEV adds CVE-2026-41940, due 3 May; mass exploitation dropping the \"Sorry\" encryptor reported from about this day"}
+      - {"date": "2026-05-01", "label": "Detection script withdrawn for false positives and replaced; 11.124 patch added"}
+      - {"date": "2026-05-02", "label": "News cites Shadowserver for at least 44,000 compromised cPanel IP addresses (Reported)"}
+      - {"date": "2026-05-05", "label": "Advisory adds patches for the 11.94 and 11.102 tiers"}
+      - {"date": "2026-07-12", "label": "12 to 13 Jul: malicious dev versions of 10 Packagist packages carry 583 workflow files (Reported)"}
+      - {"date": "2026-07-22", "label": "Socket reports GitHub Actions workflows scanning for and attempting CVE-2026-41940 (Reported)"}
+      - {"date": "2026-10-26", "label": "JFrog ties Shellpanel artifacts to 42 hijacked repositories, one scanning cPanel-related ports (Reported)"}
+      - {"date": "2026-11-10", "label": "KEV catalog 2026.11.10 still lists ransomware use as Known"}
   case-studies/CUCKOOS_EGG_1986.md:
     kind: "incident"
     title: "The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986"

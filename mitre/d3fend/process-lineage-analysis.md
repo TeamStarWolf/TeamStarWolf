@@ -59,6 +59,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
 - [The FireEye Mandiant Intrusion of 2020: The Public Record](/case-studies/MANDIANT_INTRUSION_2020.md)
 - [The Microsoft Office Security Feature Bypass of 2026 (CVE-2026-21509) and APT28: A Case Study](/case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md)
+- [The Notepad++ Update-Channel Hijack (CVE-2025-15556): A Case Study](/case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md)
 - [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md)
 - [The Year 2017 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2017.md)
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)

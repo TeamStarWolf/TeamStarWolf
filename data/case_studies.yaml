@@ -2236,6 +2236,32 @@ studies:
       - {"date": "2026-10-27", "label": "CISA adds the CVE to KEV as Google Brotli Unchecked Return Value Vulnerability"}
       - {"date": "2026-11-04", "label": "TeamStarWolf lab run: 24.22.0 flagged, 24.22.1 not, both report Brotli 1.2.0"}
       - {"date": "2026-11-10", "label": "KEV due date"}
+  case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md:
+    kind: "incident"
+    title: "The Notepad++ Update-Channel Hijack (CVE-2025-15556): A Case Study"
+    start: "2025-06"
+    end: "2026-11"
+    core_start: "2025-06"
+    core_end: "2026-02"
+    sectors: ["technology", "government", "finance"]
+    cves: ["CVE-2025-15556"]
+    actors: ["G0030"]
+    tags: ["Notepad++", "WinGUp", "software update", "update hijack", "supply chain", "code signing", "Lotus Blossom", "Chrysalis", "DLL sideloading"]
+    pdf: "Notepad_Plus_Plus_Update_Hijack_2026_Case_Study.pdf"
+    pptx: "Notepad_Plus_Plus_Update_Hijack_2026_Case_Study.pptx"
+    events:
+      - {"date": "2025-06", "label": "Incident begins, per the vendor's estimate (Reported)"}
+      - {"date": "2025-07", "label": "Late July to early August: Kaspersky chain 1, an update launched by the updater leads to Cobalt Strike (Reported)"}
+      - {"date": "2025-09-02", "label": "Hosting provider says attackers lost access to the shared server (Reported)"}
+      - {"date": "2025-10", "label": "Kaspersky chain 3: DLL sideloading delivers the Chrysalis backdoor (Reported)"}
+      - {"date": "2025-11-18", "label": "v8.8.8 addresses a potential WinGUp hijacking issue and advises a manual upgrade"}
+      - {"date": "2025-12-02", "label": "Attacker-held credentials stop working; the vendor's estimated end of the compromise (Reported)"}
+      - {"date": "2025-12-09", "label": "v8.8.9 aborts updates whose installer fails certificate and signature checks"}
+      - {"date": "2026-02-02", "label": "Vendor incident post, VulnCheck advisory and Rapid7 report (Lotus Blossom, moderate confidence)"}
+      - {"date": "2026-02-03", "label": "CVE-2025-15556 published and in NVD; Kaspersky report"}
+      - {"date": "2026-02-05", "label": "Vendor clarification: Notepad++ itself was not hacked"}
+      - {"date": "2026-02-12", "label": "CISA adds CVE-2025-15556 to KEV, due 5 March 2026"}
+      - {"date": "2026-02-16", "label": "v8.9.2 signs and verifies the update metadata"}
   case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md:
     kind: "reference"
     title: "npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses"

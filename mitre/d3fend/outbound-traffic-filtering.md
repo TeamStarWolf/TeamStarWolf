@@ -85,6 +85,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Dell RecoverPoint for Virtual Machines Hard-Coded Credential Zero-Day of 2026 (CVE-2026-22769): A Case Study](/case-studies/DELL_RECOVERPOINT_CVE_2026_22769.md)
 - [The European Commission Cloud Breach of 2026: AWS Data Theft Through the Poisoned Trivy Scanner](/case-studies/EUROPEAN_COMMISSION_CLOUD_BREACH_2026.md)
 - [The Microsoft Office Security Feature Bypass of 2026 (CVE-2026-21509) and APT28: A Case Study](/case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md)
+- [The Notepad++ Update-Channel Hijack (CVE-2025-15556): A Case Study](/case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md)
 - [The PAN-OS GlobalProtect Authentication Bypass of 2026 (CVE-2026-0257), Qilin and INC Ransomware: A Case Study](/case-studies/PALO_ALTO_PAN_OS_CVE_2026_0257.md)
 - [The Ransomware Ecosystem: The Public Record, 2019 to 2026](/case-studies/RANSOMWARE_ECOSYSTEM.md)
 - [The TeamPCP Supply-Chain Campaign of 2026: Trivy, Checkmarx and the Bitwarden CLI (CVE-2026-33634)](/case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md)

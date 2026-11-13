@@ -339,6 +339,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 October 2026: CISA adds the CVE to KEV as Google Brotli Unchecked Return Value Vulnerability
   - 4 November 2026: TeamStarWolf lab run: 24.22.0 flagged, 24.22.1 not, both report Brotli 1.2.0
   - 10 November 2026: KEV due date
+- [The BeyondTrust Remote Support and PRA Command Injection of 2026 (CVE-2026-1731): A Case Study](/case-studies/BEYONDTRUST_REMOTE_SUPPORT_CVE_2026_1731.md). Vulnerability, December 2024 to November 2026 (core: 31 January 2026 to 19 February 2026). Sectors: cross-sector, finance, technology, education, retail, healthcare. CVEs: CVE-2026-1731, CVE-2024-12356, CVE-2024-12686, CVE-2026-102764. ATT&CK groups: G1051 Medusa Group. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/BeyondTrust_Remote_Support_CVE_2026_1731_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/BeyondTrust_Remote_Support_CVE_2026_1731_Case_Study.pptx).
+  - 16 December 2024: Advisory BT24-10 discloses CVE-2024-12356, an unauthenticated command injection in RS and PRA; KEV adds it on 19 Dec
+  - 31 January 2026: BeyondTrust detects anomalous activity on one RS appliance; Hacktron reports the flaw; CVE-2026-1731 reserved
+  - 2 February 2026: Patches BT26-02-RS and BT26-02-PRA pushed to auto-updating appliances; RS and PRA SaaS fully patched
+  - 6 February 2026: Advisory BT26-02 and the CVE record published
+  - 10 February 2026: BeyondTrust records its first observed exploitation attempt and emails customers again
+  - 11 February 2026: Public proof-of-concept repository created; reconnaissance surges (GreyNoise, Reported)
+  - 13 February 2026: KEV adds CVE-2026-1731, due 16 Feb; Arctic Wolf reports suspected exploitation (Reported)
+  - 18 February 2026: 18 to 19 Feb: KEV ransomware flag changes from Unknown to Known
+  - 19 February 2026: Unit 42 reports a multi-sector campaign with VShell and SparkRAT (Reported)
+  - 18 August 2026: AA25-071A update lists CVE-2026-1731 among the flaws Medusa actors exploit
+  - 30 September 2026: Google calls the discovery an early indicator of AI-assisted vulnerability discovery (Reported)
+  - 15 October 2026: 15 to 16 Oct: a separate RS flaw, CVE-2026-102764, is disclosed and added to KEV
 - [The Microsoft Office Security Feature Bypass of 2026 (CVE-2026-21509) and APT28: A Case Study](/case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md). Vulnerability, December 2025 to March 2026 (core: 26 January 2026 to 2 February 2026). Sectors: government. CVEs: CVE-2026-21509, CVE-2026-21514, CVE-2022-30190, CVE-2023-23397, CVE-2018-14634, CVE-2025-52691 and 2 more. ATT&CK groups: G0007 APT28. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Microsoft_Office_CVE_2026_21509_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Microsoft_Office_CVE_2026_21509_Case_Study.pptx).
   - July 2025: APT28's Covenant begins using the Filen cloud storage service for command and control, per ESET (Reported)
   - 16 September 2025: Sekoia publishes Operation Phantom Net Voxel with the same building blocks (Reported)

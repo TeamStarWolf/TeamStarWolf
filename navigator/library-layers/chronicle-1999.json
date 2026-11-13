@@ -39,7 +39,7 @@
       "techniqueID": "T1048",
       "tactic": "exfiltration",
       "score": 70,
-      "comment": "Moonlight Maze bundles moved by FTP to staging servers (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [36] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+      "comment": "Moonlight Maze bundles moved by FTP to staging servers (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [37] refer to the Sources table of case-studies/CHRONICLE_1999.md."
     },
     {
       "techniqueID": "T1059.005",
@@ -51,25 +51,25 @@
       "techniqueID": "T1078",
       "tactic": "initial-access",
       "score": 70,
-      "comment": "Darkside members use root passwords from Miffleton's list (Feb); Moonlight Maze scripts using harvested passwords (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [20][36] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+      "comment": "Darkside members use root passwords from Miffleton's list (Feb); Moonlight Maze scripts using harvested passwords (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [20][37] refer to the Sources table of case-studies/CHRONICLE_1999.md."
     },
     {
       "techniqueID": "T1078",
       "tactic": "persistence",
       "score": 70,
-      "comment": "Darkside members use root passwords from Miffleton's list (Feb); Moonlight Maze scripts using harvested passwords (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [20][36] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+      "comment": "Darkside members use root passwords from Miffleton's list (Feb); Moonlight Maze scripts using harvested passwords (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [20][37] refer to the Sources table of case-studies/CHRONICLE_1999.md."
     },
     {
       "techniqueID": "T1078",
       "tactic": "privilege-escalation",
       "score": 70,
-      "comment": "Darkside members use root passwords from Miffleton's list (Feb); Moonlight Maze scripts using harvested passwords (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [20][36] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+      "comment": "Darkside members use root passwords from Miffleton's list (Feb); Moonlight Maze scripts using harvested passwords (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [20][37] refer to the Sources table of case-studies/CHRONICLE_1999.md."
     },
     {
       "techniqueID": "T1078",
       "tactic": "stealth",
       "score": 70,
-      "comment": "Darkside members use root passwords from Miffleton's list (Feb); Moonlight Maze scripts using harvested passwords (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [20][36] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+      "comment": "Darkside members use root passwords from Miffleton's list (Feb); Moonlight Maze scripts using harvested passwords (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [20][37] refer to the Sources table of case-studies/CHRONICLE_1999.md."
     },
     {
       "techniqueID": "T1080",
@@ -87,7 +87,7 @@
       "techniqueID": "T1095",
       "tactic": "command-and-control",
       "score": 70,
-      "comment": "LOKI2 tunnelling over ICMP (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [36] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+      "comment": "LOKI2 tunnelling over ICMP (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [36][37] refer to the Sources table of case-studies/CHRONICLE_1999.md."
     },
     {
       "techniqueID": "T1105",
@@ -231,7 +231,7 @@
       "techniqueID": "T1560",
       "tactic": "collection",
       "score": 70,
-      "comment": "Moonlight Maze TGZ bundles (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [36] refer to the Sources table of case-studies/CHRONICLE_1999.md."
+      "comment": "Moonlight Maze TGZ bundles (basis: Described; a later mapping, since no 1999 source prints an ATT&CK id). Sources [37] refer to the Sources table of case-studies/CHRONICLE_1999.md."
     },
     {
       "techniqueID": "T1561.001",

@@ -102,6 +102,7 @@ Time and difficulty are quoted in full from each guide's header table.
 - [The year 1998 in intrusions: a dated record](/case-studies/CHRONICLE_1998.md)
 - [The year 2000 in intrusions: a dated record](/case-studies/CHRONICLE_2000.md)
 - [The year 1999 in intrusions: a dated record](/case-studies/CHRONICLE_1999.md)
+- [The year 2002 in intrusions: a dated record](/case-studies/CHRONICLE_2002.md)
 - [The year 2001 in intrusions: a dated record](/case-studies/CHRONICLE_2001.md)
 
 <!-- hub:end -->

@@ -1096,6 +1096,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - March 2025: Stealth Falcon uses CVE-2025-33053 as a zero-day against a defense organization in Türkiye (Reported)
   - 10 June 2025: CVE-2025-33053 added to KEV and published by NVD
 
+### 2002 <!-- {docsify-ignore} -->
+
+- [The Year 2002 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2002.md). Period record, January to December 2002. Sectors: cross-sector, technology, government, defense, finance, media, healthcare, telecommunications. CVEs: CVE-2000-0979, CVE-2001-0154, CVE-2001-0803, CVE-2002-0012, CVE-2002-0013, CVE-2002-0059 and 9 more. ATT&CK groups: G0020 Equation. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2002_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2002_Case_Study.pptx).
+  - 14 January 2002: CA-2002-01: active exploitation of the CDE dtspcd overflow on Solaris, confirmed with Honeynet Project traces
+  - 12 February 2002: CA-2002-03: SNMPv1 flaws across many vendors, found with the PROTOS c06-snmpv1 suite
+  - 26 February 2002: Adrian Lamo gets into the New York Times internal network and its Op-Ed contributor database
+  - 22 May 2002: IN-2002-04: the Spida worm spreads through null or weak sa passwords on SQL Server and MSDE
+  - 26 June 2002: OpenSSH challenge-response advisory and CA-2002-18, five days after 3.3 turned on privilege separation
+  - 30 July 2002: OpenSSH 3.4p1, 3.4 and 3.2.2p1 tarballs trojaned on the OpenBSD FTP server (30 or 31 July; CA-2002-24, 1 August)
+  - 14 September 2002: CA-2002-27: the Apache/mod_ssl worm Slapper; thousands of systems, at least three variants
+  - 25 September 2002: California SB 1386, the breach-notification law, approved by the Governor (operative 1 July 2003)
+  - 28 September 2002: Trojaned Sendmail 8.12.6 tarballs appear on ftp.sendmail.org from about 28 September (CA-2002-28, 8 October)
+  - 21 October 2002: Flood against all thirteen DNS root name servers, about 20:45 to 22:00 UTC
+  - 11 November 2002: Trojaned tcpdump and libpcap on www.tcpdump.org, 11 to 13 November (CA-2002-30)
+  - 17 December 2002: E-Government Act approved; Title III is the Federal Information Security Management Act
+
 ### 2001 <!-- {docsify-ignore} -->
 
 - [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md). Threat actor, 2001 to October 2025. Sectors: government, telecommunications, energy, finance, technology, healthcare. CVEs: CVE-2010-2568, CVE-2010-2729, CVE-2012-1723, CVE-2012-4681, CVE-2013-3918, CVE-2014-4148 and 12 more. ATT&CK groups: G0020 Equation. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_United_States_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_United_States_Case_Study.pptx).

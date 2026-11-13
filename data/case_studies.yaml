@@ -533,6 +533,30 @@ studies:
       - {"date": "1999-11-12", "label": "Gramm-Leach-Bliley Act puts a security and confidentiality obligation on financial institutions"}
       - {"date": "1999-11-18", "label": "IN-99-07: trinoo and Tribe Flood Network installed on hosts taken through RPC flaws"}
       - {"date": "1999-12-28", "label": "CA-1999-17: Tribe FloodNet 2K, with spoofed sources and MacOS 9 amplification"}
+  case-studies/CHRONICLE_2002.md:
+    kind: "era"
+    title: "The Year 2002 in Intrusions: A Dated Record"
+    start: "2002-01"
+    end: "2002-12"
+    sectors: ["cross-sector", "technology", "government", "defense", "finance", "media", "healthcare", "telecommunications"]
+    cves: ["CVE-2000-0979", "CVE-2001-0154", "CVE-2001-0803", "CVE-2002-0012", "CVE-2002-0013", "CVE-2002-0059", "CVE-2002-0367", "CVE-2002-0391", "CVE-2002-0392", "CVE-2002-0639", "CVE-2002-0640", "CVE-2002-0649", "CVE-2002-0656", "CVE-2002-1219", "CVE-2002-1235"]
+    actors: ["G0020"]
+    tags: ["CERT advisories", "supply chain", "OpenSSH", "Sendmail", "tcpdump", "Slapper", "Spida", "root servers", "McKinnon", "SB 1386", "FISMA", "SHA-256"]
+    pdf: "Chronicle_2002_Case_Study.pdf"
+    pptx: "Chronicle_2002_Case_Study.pptx"
+    events:
+      - {"date": "2002-01-14", "label": "CA-2002-01: active exploitation of the CDE dtspcd overflow on Solaris, confirmed with Honeynet Project traces"}
+      - {"date": "2002-02-12", "label": "CA-2002-03: SNMPv1 flaws across many vendors, found with the PROTOS c06-snmpv1 suite"}
+      - {"date": "2002-02-26", "label": "Adrian Lamo gets into the New York Times internal network and its Op-Ed contributor database"}
+      - {"date": "2002-05-22", "label": "IN-2002-04: the Spida worm spreads through null or weak sa passwords on SQL Server and MSDE"}
+      - {"date": "2002-06-26", "label": "OpenSSH challenge-response advisory and CA-2002-18, five days after 3.3 turned on privilege separation"}
+      - {"date": "2002-07-30", "label": "OpenSSH 3.4p1, 3.4 and 3.2.2p1 tarballs trojaned on the OpenBSD FTP server (30 or 31 July; CA-2002-24, 1 August)"}
+      - {"date": "2002-09-14", "label": "CA-2002-27: the Apache/mod_ssl worm Slapper; thousands of systems, at least three variants"}
+      - {"date": "2002-09-25", "label": "California SB 1386, the breach-notification law, approved by the Governor (operative 1 July 2003)"}
+      - {"date": "2002-09-28", "label": "Trojaned Sendmail 8.12.6 tarballs appear on ftp.sendmail.org from about 28 September (CA-2002-28, 8 October)"}
+      - {"date": "2002-10-21", "label": "Flood against all thirteen DNS root name servers, about 20:45 to 22:00 UTC"}
+      - {"date": "2002-11-11", "label": "Trojaned tcpdump and libpcap on www.tcpdump.org, 11 to 13 November (CA-2002-30)"}
+      - {"date": "2002-12-17", "label": "E-Government Act approved; Title III is the Federal Information Security Management Act"}
   case-studies/CHRONICLE_2001.md:
     kind: "era"
     title: "The Year 2001 in Intrusions: A Dated Record"

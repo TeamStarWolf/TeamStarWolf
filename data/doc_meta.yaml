@@ -2460,6 +2460,12 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 10: the defender view](#part-10-the-defender-view)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md), [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md), [The Year 1998 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1998.md)"
     reviewed: null
+  case-studies/CHRONICLE_2002.md:
+    audience: "Threat intelligence analysts, security historians, supply-chain defenders and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2002, you need the year's CERT advisories, the trojaned OpenSSH, Sendmail and tcpdump distributions and the worms that followed the fixes side by side with the root server flood, the year's prosecutions and the new security law, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 3: the trojaned distributions](#part-3-the-trojaned-distributions), [Part 10: the defender view](#part-10-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md), [Supply Chain Security](/SUPPLY_CHAIN_SECURITY.md), [The Year 2000 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2000.md)"
   case-studies/CHRONICLE_2001.md:
     audience: "Threat intelligence analysts, security historians and defenders who want the history behind current threats"
     level: "Beginner to intermediate"

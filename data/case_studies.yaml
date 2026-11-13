@@ -112,6 +112,32 @@ studies:
       - {"date": "2024-07-18", "label": "APT41 DUST (C0040) reported: prolonged access at shipping and logistics organizations"}
       - {"date": "2026-07-24", "label": "Google renames APT41 to SPIRE CASTLE"}
       - {"date": "2026-10-22", "label": "BlackX UEFI bootkit reported at diplomatic agencies in Tajikistan, Uzbekistan and Turkmenistan"}
+  case-studies/BEYONDTRUST_REMOTE_SUPPORT_CVE_2026_1731.md:
+    kind: "vulnerability"
+    title: "The BeyondTrust Remote Support and PRA Command Injection of 2026 (CVE-2026-1731): A Case Study"
+    start: "2024-12"
+    end: "2026-11"
+    core_start: "2026-01-31"
+    core_end: "2026-02-19"
+    sectors: ["cross-sector", "finance", "technology", "education", "retail", "healthcare"]
+    cves: ["CVE-2026-1731", "CVE-2024-12356", "CVE-2024-12686", "CVE-2026-102764"]
+    actors: ["G1051"]
+    tags: ["BeyondTrust", "Remote Support", "Privileged Remote Access", "command injection", "remote access", "edge device", "Medusa", "ransomware", "AI-assisted discovery", "KEV"]
+    pdf: "BeyondTrust_Remote_Support_CVE_2026_1731_Case_Study.pdf"
+    pptx: "BeyondTrust_Remote_Support_CVE_2026_1731_Case_Study.pptx"
+    events:
+      - {"date": "2024-12-16", "label": "Advisory BT24-10 discloses CVE-2024-12356, an unauthenticated command injection in RS and PRA; KEV adds it on 19 Dec"}
+      - {"date": "2026-01-31", "label": "BeyondTrust detects anomalous activity on one RS appliance; Hacktron reports the flaw; CVE-2026-1731 reserved"}
+      - {"date": "2026-02-02", "label": "Patches BT26-02-RS and BT26-02-PRA pushed to auto-updating appliances; RS and PRA SaaS fully patched"}
+      - {"date": "2026-02-06", "label": "Advisory BT26-02 and the CVE record published"}
+      - {"date": "2026-02-10", "label": "BeyondTrust records its first observed exploitation attempt and emails customers again"}
+      - {"date": "2026-02-11", "label": "Public proof-of-concept repository created; reconnaissance surges (GreyNoise, Reported)"}
+      - {"date": "2026-02-13", "label": "KEV adds CVE-2026-1731, due 16 Feb; Arctic Wolf reports suspected exploitation (Reported)"}
+      - {"date": "2026-02-18", "label": "18 to 19 Feb: KEV ransomware flag changes from Unknown to Known"}
+      - {"date": "2026-02-19", "label": "Unit 42 reports a multi-sector campaign with VShell and SparkRAT (Reported)"}
+      - {"date": "2026-08-18", "label": "AA25-071A update lists CVE-2026-1731 among the flaws Medusa actors exploit"}
+      - {"date": "2026-09-30", "label": "Google calls the discovery an early indicator of AI-assisted vulnerability discovery (Reported)"}
+      - {"date": "2026-10-15", "label": "15 to 16 Oct: a separate RS flaw, CVE-2026-102764, is disclosed and added to KEV"}
   case-studies/BINANCE_HEIST_2026.md:
     kind: "incident"
     title: "The Binance Hot-Wallet Theft of October 2026: A Case Study"

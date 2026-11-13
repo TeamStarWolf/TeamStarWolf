@@ -1,0 +1,177 @@
+{
+  "name": "TeamStarWolf - Citrix NetScaler Zero-Days (September and October 2026) Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the case study of the Citrix NetScaler ADC and Gateway zero-days of September and October 2026 (CVE-2026-88771, CVE-2026-88772, CVE-2026-88779). No source names ATT&CK ids, so every binding is the study's own. Score 75: a vendor bulletin, CVE record or government advisory describes the behavior. Score 50: a security vendor's report describes it. Score 25: a capability or a close-but-inexact fit. Comments carry the study's source numbers.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "75: described in a vendor bulletin, CVE record or government advisory",
+      "color": "#15803d"
+    },
+    {
+      "label": "50: described in a security vendor's report",
+      "color": "#86efac"
+    },
+    {
+      "label": "25: capability or inexact fit, labelled in the comment",
+      "color": "#d1fae5"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md; ATT&CK v20.0 technique data"
+    },
+    {
+      "name": "score_meaning",
+      "value": "75 = vendor bulletin, CVE record or government advisory; 50 = security vendor's report; 25 = capability or inexact fit. No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Citrix NetScaler Zero-Days of September and October 2026 (CVE-2026-88771, CVE-2026-88772, CVE-2026-88779): A Case Study",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/CITRIX_NETSCALER_SEPTEMBER_2026"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 50,
+      "comment": "Version fingerprinting of more than 100 systems on 21 and 22 Aug 2026 (Unit 42); wide-scale scanning after the public proof of concept on 29 Sep 2026. Sources: [26] [45].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1587.001",
+      "tactic": "resource-development",
+      "score": 50,
+      "comment": "Custom WHIPSHOT PHP web shell and SLAPSHOT Python tunneler (GTIG and Mandiant, 29 Sep 2026). Sources: [25].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 75,
+      "comment": "Exploits of CVE-2026-88771 and CVE-2026-88772 against unmitigated NetScaler ADC and Gateway appliances (Citrix CTX697096 and KEV, 27 Sep 2026); activity from early Sep 2026. Sources: [1] [11] [13] [25].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "Root shell in the playbook GreyNoise saw on 24 Sep 2026; command-injection web shell on 21 Sep 2026 (Unit 42). Sources: [26] [28].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059.006",
+      "tactic": "execution",
+      "score": 25,
+      "comment": "Capability: SLAPSHOT is described as a Python tunneler; no interpreter run is described (GTIG, 29 Sep 2026). Sources: [25].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 50,
+      "comment": "DTLS web shells 4 to 24 Sep 2026, a three-stage web shell on 21 Sep, a web shell at a Rapid7 victim on 24 Sep, and WHIPSHOT. Sources: [25] [26] [27] [49].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Hidden PHP web shell behind a fake stylesheet path (GreyNoise, 24 Sep 2026). Sources: [28].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 50,
+      "comment": "Files staged on appliances 4 to 24 Sep 2026 (Unit 42); crafted SAML usernames carrying download attempts (2 Oct 2026, press). Sources: [26] [34].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 50,
+      "comment": "WHIPSHOT hides command and control in native HTTP headers (GTIG, 29 Sep 2026). Sources: [25].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 50,
+      "comment": "Actor tunnelled in through SLAPSHOT for manual internal reconnaissance (GTIG, 29 Sep 2026). Sources: [25].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1552.001",
+      "tactic": "credential-access",
+      "score": 50,
+      "comment": "Appliance configuration exposing encrypted admin passwords and LDAP, RADIUS and TACACS bind secrets (Rapid7, 28 Sep 2026); credential harvesting (GTIG). Sources: [25] [27].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1552.004",
+      "tactic": "credential-access",
+      "score": 50,
+      "comment": "TLS private keys in the staged appliance configuration (Rapid7, 28 Sep 2026). Sources: [27].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1074.001",
+      "tactic": "collection",
+      "score": 50,
+      "comment": "Appliance configuration staged for unauthenticated retrieval (Rapid7, 28 Sep 2026). Sources: [27].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Access-log scrubbing; bound at the parent because the logs are web-server logs (GTIG, 29 Sep 2026). Sources: [25].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1499.004",
+      "tactic": "impact",
+      "score": 75,
+      "comment": "CVE-2026-88779 crashes the SAML service and forces reboots (2 to 4 Oct 2026); KEV DoS entry 4 Oct; CISA on reboot as an accelerator for CVE-2026-88771 (9 Oct 2026). Sources: [11] [13] [27] [34].",
+      "enabled": true
+    }
+  ]
+}

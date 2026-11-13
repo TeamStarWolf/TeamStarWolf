@@ -406,5 +406,11 @@
     "name": "TeamStarWolf - Refrigeration-Controller Attacks on European Supermarkets and Blood Services, 2026",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified record of the 2026 refrigeration-controller attacks on European supermarkets and blood services supports: the reconnaissance France's C4 describes (Modbus scanning, the FOFA service), the access classes the US joint fact sheet lists, Sekoia's honeypot telemetry, the default credentials at the Ransom-ISAC site and the supplier path to the French blood service. Each comment names source numbers from case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md. The mappings are this study's reading.",
     "blurb": "Techniques from the 2026 refrigeration-controller attacks in Europe: Modbus scanning and the FOFA service, exposed and end-of-life controllers, default accounts and password spraying, and the supplier path to the French blood service. A curated layer for the European refrigeration attacks case study."
+  },
+  {
+    "file": "citrix-netscaler-september-2026.json",
+    "name": "TeamStarWolf - Citrix NetScaler Zero-Days (September and October 2026) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the September and October 2026 Citrix NetScaler zero-days supports: Citrix's bulletins, the CVE and KEV records and CISA's alert for the exploitation and the denial of service, and the GTIG and Mandiant, Unit 42, Rapid7 and GreyNoise reports of the web shells, tunneling, configuration theft and log scrubbing. Each comment names source numbers from case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md. Scores: 75 is a vendor bulletin, CVE record or government advisory, 50 is a security vendor's report, 25 is a capability or an inexact fit.",
+    "blurb": "Techniques from the Citrix NetScaler zero-days of September and October 2026, from the August fingerprinting and the pre-authentication exploits to the web shells, the Python tunneler, the theft of bind secrets and TLS keys from the appliance configuration, and the SAML denial of service. A curated layer for the Citrix NetScaler case study."
   }
 ]

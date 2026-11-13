@@ -2512,6 +2512,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 7: the defender view](#part-7-the-defender-view)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Honeypot and Deception Reference](/HONEYPOT_DECEPTION_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md)"
     reviewed: null
+  case-studies/CURSOR_EXTENSION_TROJAN_2026.md:
+    audience: "Developers and engineering leads who use Cursor or other VS Code-based editors, endpoint and detection engineers, incident responders, vulnerability management leads and supply chain security teams"
+    level: "Intermediate"
+    read_when: "You run Cursor or manage developer workstations, you need the dated record of the tampered Claude Code extension of 29 October 2026 and its indicators, or you want to decide how to inventory, restrict and hunt editor extensions when there is no CVE to track"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Supply Chain Security](/SUPPLY_CHAIN_SECURITY.md), [AI Security Reference](/AI_SECURITY_REFERENCE.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [npm Supply-Chain Attacks](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md)"
+    reviewed: null
   case-studies/CYBERCRIME_FOUR_BOOKS.md:
     audience: "Threat intelligence analysts, incident responders, investigators and anyone who has read Kingpin, Fatal System Error, We Are Anonymous or The Hacker Crackdown and wants the primary record behind them"
     level: "Beginner"

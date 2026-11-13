@@ -1095,6 +1095,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 15 October 2024: Kaspersky reports SideWinder using CVE-2017-11882 and StealerBot
   - March 2025: Stealth Falcon uses CVE-2025-33053 as a zero-day against a defense organization in Türkiye (Reported)
   - 10 June 2025: CVE-2025-33053 added to KEV and published by NVD
+- [The Year 2004 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2004.md). Period record, January to December 2004. Sectors: cross-sector, technology, government, defense, finance, retail, telecommunications. CVEs: CVE-2003-0533, CVE-2003-0719, CVE-2003-0818, CVE-2003-0819, CVE-2004-0200, CVE-2004-0362 and 4 more. ATT&CK groups: G0006 APT1, G0007 APT28, G0010 Turla, G0012 Darkhotel, G0020 Equation. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2004_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2004_Case_Study.pptx).
+  - 13 January 2004: CA-2004-01: multiple H.323 message flaws across VoIP, video conferencing, routers and firewalls (with NISCC)
+  - 28 January 2004: MyDoom.B detected; US-CERT SA04-028A and the first alert of DHS's new cyber alert system
+  - 19 March 2004: Witty begins at about 20:45 PST against ISS security software, the day after its flaw was announced
+  - 13 April 2004: MS04-011 fixes 14 flaws, the LSASS overrun later used by Sasser among them
+  - 29 April 2004: First criminal CAN-SPAM charges and the FTC's first CAN-SPAM cases
+  - 7 May 2004: German police arrest the alleged Sasser author after informants use Microsoft's reward program
+  - 24 June 2004: Download.Ject: Microsoft responds to compromised IIS 5.0 servers pushing code to visitors' browsers
+  - 6 August 2004: Windows XP SP2 released to manufacturing, with Windows Firewall on and DEP
+  - 26 August 2004: Operation Web Snare announced: more than 160 investigations, hired DDoS among them
+  - 25 October 2004: hugesoft.org, the first APT1 zone Mandiant knew, registered
+  - 15 December 2004: Brian Salcedo sentenced to 108 months in the Lowe's wireless card-capture case
+  - 21 December 2004: TA04-356A: the Santy.A worm exploits phpBB, finding targets through search engines
 
 ### 2002 <!-- {docsify-ignore} -->
 

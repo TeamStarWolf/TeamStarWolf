@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 17 min (3,908 words at 230 words a minute)
+About 17 min (3,923 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -244,14 +244,14 @@ The study's techniques are saved as an ATT&CK Navigator layer, [`navigator/libra
 
 ## Cross-cutting themes
 
-- **The update channel is the product's most trusted code path.** The same pattern runs through [SolarWinds](/case-studies/SOLARWINDS_SUNBURST.md), the CCleaner and ASUS Live Update compromises in [APT41: The Public Record](/case-studies/APT41_PUBLIC_RECORD.md), NotPetya's M.E.Doc updater in [Sandworm](/case-studies/SANDWORM_OPERATIONS.md), and 3CX in [npm Supply-Chain Attacks](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md) [20] [21] [22] [23] (**Confirmed** in those studies).
+- **The update channel is the product's most trusted code path.** The same pattern runs through [SolarWinds](/case-studies/SOLARWINDS_SUNBURST.md), the CCleaner and ASUS Live Update compromises in [APT41: The Public Record](/case-studies/APT41_PUBLIC_RECORD.md), NotPetya's M.E.Doc updater in [Sandworm](/case-studies/SANDWORM_OPERATIONS.md), and 3CX in [The Year 2023 in Intrusions](/case-studies/CHRONICLE_2023.md) [20] [21] [22] [23] (**Confirmed** in those studies).
 - **Hosting is part of the supply chain.** Here the vendor places the compromise at the hosting provider, not in Notepad++ code; a shared host was enough [1] [2] (**Inferred**). Compare the build-side compromise in [The XZ Utils Backdoor](/case-studies/XZ_UTILS_BACKDOOR_2024.md).
 - **Sign the instructions as well as the package.** Signed installers left the metadata that told the updater what to fetch unverified by the client until 8.9.2 [1] [6] (**Inferred**).
 - **Small, selective and long.** A dozen machines over six months [1] [15] is a pattern that mass-exploitation telemetry misses (**Inferred**).
 
 ## Sources
 
-All sources were opened on 11 November 2026.
+All sources were opened on 11 November 2026, except [10] and [13], which were re-opened on 13 November 2026.
 
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|
@@ -264,10 +264,10 @@ All sources were opened on 11 November 2026.
 | 7 | Notepad++ GitHub releases (publish times) | [github.com/notepad-plus-plus/notepad-plus-plus/releases](https://github.com/notepad-plus-plus/notepad-plus-plus/releases) | 2026-11-11 | Confirmed |
 | 8 | Notepad++ commit bcf2aa68, 1 Dec 2025 | [github.com/notepad-plus-plus/notepad-plus-plus/commit/bcf2aa68...](https://github.com/notepad-plus-plus/notepad-plus-plus/commit/bcf2aa68ef414338d717e20e059459570ed6c5ab) | 2026-11-11 | Demonstrated |
 | 9 | WinGUp commit ce003754, 30 Nov 2025 | [github.com/notepad-plus-plus/wingup/commit/ce003754...](https://github.com/notepad-plus-plus/wingup/commit/ce0037549995ed0396cc363544d14b3425614fdb) | 2026-11-11 | Demonstrated |
-| 10 | CVE Program record CVE-2025-15556 (CNA VulnCheck, with CISA-ADP) | [cveawg.mitre.org/api/cve/CVE-2025-15556](https://cveawg.mitre.org/api/cve/CVE-2025-15556) | 2026-11-11 | Confirmed |
+| 10 | CVE Program record CVE-2025-15556 (CNA VulnCheck, with CISA-ADP) | [cveawg.mitre.org/api/cve/CVE-2025-15556](https://cveawg.mitre.org/api/cve/CVE-2025-15556) | 2026-11-13 | Confirmed |
 | 11 | NVD, CVE-2025-15556 | [nvd.nist.gov/vuln/detail/CVE-2025-15556](https://nvd.nist.gov/vuln/detail/CVE-2025-15556) | 2026-11-11 | Confirmed |
 | 12 | VulnCheck advisory, WinGUp updater lacks update integrity verification, 2 Feb 2026 | [vulncheck.com/advisories/notepad-plus-plus-wingup-...](https://www.vulncheck.com/advisories/notepad-plus-plus-wingup-updater-lacks-update-integrity-verification) | 2026-11-11 | Confirmed |
-| 13 | CISA, Known Exploited Vulnerabilities catalog JSON, version 2026.11.10 | [cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 2026-11-11 | Confirmed |
+| 13 | CISA, Known Exploited Vulnerabilities catalog JSON, version 2026.11.10 | [cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 2026-11-13 | Confirmed |
 | 14 | Rapid7, Chrysalis backdoor and Lotus Blossom's toolkit, 2 Feb 2026, updated 9 Feb | [rapid7.com/blog/post/tr-chrysalis-backdoor-...](https://www.rapid7.com/blog/post/tr-chrysalis-backdoor-dive-into-lotus-blossoms-toolkit/) | 2026-11-11 | Reported |
 | 15 | Kaspersky Securelist, Notepad++ supply chain attack, 3 Feb 2026, updated 11 Feb | [securelist.com/notepad-supply-chain-attack/118708/](https://securelist.com/notepad-supply-chain-attack/118708/) | 2026-11-11 | Reported |
 | 16 | MITRE ATT&CK, Lotus Blossom G0030 (version 4.0, modified 31 Jul 2026) | [attack.mitre.org/groups/G0030/](https://attack.mitre.org/groups/G0030/) | 2026-11-11 | Confirmed |
@@ -277,7 +277,7 @@ All sources were opened on 11 November 2026.
 | 20 | TeamStarWolf, SolarWinds and SUNBURST | [/case-studies/SOLARWINDS_SUNBURST.md](/case-studies/SOLARWINDS_SUNBURST.md) | 2026-11-11 | Confirmed |
 | 21 | TeamStarWolf, APT41: The Public Record | [/case-studies/APT41_PUBLIC_RECORD.md](/case-studies/APT41_PUBLIC_RECORD.md) | 2026-11-11 | Confirmed |
 | 22 | TeamStarWolf, Sandworm: The Operations in the Public Record | [/case-studies/SANDWORM_OPERATIONS.md](/case-studies/SANDWORM_OPERATIONS.md) | 2026-11-11 | Confirmed |
-| 23 | TeamStarWolf, npm Supply-Chain Attacks, 2018 to 2026 | [/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md) | 2026-11-11 | Confirmed |
+| 23 | TeamStarWolf, The Year 2023 in Intrusions: A Dated Record | [/case-studies/CHRONICLE_2023.md](/case-studies/CHRONICLE_2023.md) | 2026-11-11 | Confirmed |
 
 Not opened, so not cited as sources: the hosting provider's own statement, any CISA or joint advisory beyond KEV, national CERT advisories and the Symantec research Rapid7 cites.
 

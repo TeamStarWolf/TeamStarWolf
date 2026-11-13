@@ -2000,6 +2000,32 @@ studies:
       - {"date": "2017-11-09", "label": "WikiLeaks begins Vault 8 with source code for the CIA Hive tool"}
       - {"date": "2022-07-13", "label": "Joshua Schulte convicted on eight counts at retrial over the Vault 7 theft"}
       - {"date": "2024-02-01", "label": "Schulte sentenced to 40 years"}
+  case-studies/PALO_ALTO_PAN_OS_CVE_2026_0257.md:
+    kind: "vulnerability"
+    title: "The PAN-OS GlobalProtect Authentication Bypass of 2026 (CVE-2026-0257), Qilin and INC Ransomware: A Case Study"
+    start: "2025-11"
+    end: "2026-11"
+    core_start: "2026-05-13"
+    core_end: "2026-10-20"
+    sectors: ["cross-sector", "education", "finance", "healthcare", "technology", "manufacturing", "government", "transport", "energy", "retail"]
+    cves: ["CVE-2026-0257", "CVE-2023-27532"]
+    actors: ["G1032", "G1050"]
+    tags: ["Palo Alto Networks", "PAN-OS", "GlobalProtect", "VPN", "authentication bypass", "edge device", "Qilin", "INC Ransom", "ransomware", "KEV"]
+    pdf: "Palo_Alto_PAN_OS_CVE_2026_0257_Case_Study.pdf"
+    pptx: "Palo_Alto_PAN_OS_CVE_2026_0257_Case_Study.pptx"
+    events:
+      - {"date": "2025-11-03", "label": "Palo Alto Networks reserves CVE-2026-0257"}
+      - {"date": "2026-05-13", "label": "Advisory published for the GlobalProtect authentication bypass; CVE record and NVD entry published"}
+      - {"date": "2026-05-17", "label": "Earliest exploitation Rapid7 MDR observed, from Vultr hosting; first alert on 18 May"}
+      - {"date": "2026-05-21", "label": "Second wave from Dromatics Systems hosting, likely the same actor (Rapid7)"}
+      - {"date": "2026-05-28", "label": "Fix-release timeline updated; CISA SSVC decision: exploitation active, technical impact total"}
+      - {"date": "2026-05-29", "label": "KEV adds the CVE, due 1 Jun; vendor status limited exploit attempts; Rapid7 analysis and public checker"}
+      - {"date": "2026-06", "label": "Several intrusions with CVE-2026-0257 as initial access end in Qilin ransomware (Arctic Wolf)"}
+      - {"date": "2026-06-09", "label": "Siemens SSA-967325 V1.1 adds the CVE for RUGGEDCOM APE1808"}
+      - {"date": "2026-07-20", "label": "Arctic Wolf Labs report links the CVE to Qilin"}
+      - {"date": "2026-10-09", "label": "ReliaQuest says on X that Qilin and Settra are exploiting the flaw (Reported)"}
+      - {"date": "2026-10-19", "label": "Unit 42 reports attempted exploitation by Spikey Scorpius (Qilin) and Tarnished Scorpius (INC)"}
+      - {"date": "2026-11-10", "label": "Kaspersky ranks Qilin first by share of leak-site victims in Q3 2026"}
   case-studies/PHP2SHELL_OCTOBER_2026.md:
     kind: "vulnerability"
     title: "PHP2Shell and the October 2026 Attack Wave: A Case Study"

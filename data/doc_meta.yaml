@@ -2672,6 +2672,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 10: the vulnerability-management view](#part-10-the-vulnerability-management-view), [Part 11: the defender view](#part-11-the-defender-view)"
     pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Insider Threat Reference](/INSIDER_THREAT_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md)"
     reviewed: null
+  case-studies/PALO_ALTO_PAN_OS_CVE_2026_0257.md:
+    audience: "Firewall and remote-access teams that run Palo Alto Networks GlobalProtect or another VPN gateway, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run GlobalProtect, you need the dated record of CVE-2026-0257 and the Qilin and INC ransomware activity tied to it, or you want to decide how to patch, evict and hunt after a VPN authentication bypass"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [The Ransomware Ecosystem: The Public Record, 2019 to 2026](/case-studies/RANSOMWARE_ECOSYSTEM.md)"
+    reviewed: null
   case-studies/PHP2SHELL_OCTOBER_2026.md:
     audience: "Vulnerability management leads, incident responders and web platform owners"
     level: "Intermediate"

@@ -1092,6 +1092,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 1 June 2012: New York Times Olympic Games account, relayed by the Guardian
   - 24 June 2012: Coded infection stop date for Stuxnet 1.x
   - 26 February 2013: Symantec publishes Stuxnet 0.5: The Missing Link
+- [The Year 2005 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2005.md). Period record, January to December 2005. Sectors: cross-sector, retail, finance, technology, government, defense, telecommunications, media. CVEs: CVE-2005-0773, CVE-2005-1983, CVE-2005-3650, CVE-2005-4560. ATT&CK groups: G0010 Turla, G0020 Equation. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2005_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2005_Case_Study.pptx).
+  - February 2005: ChoicePoint notifies about 35,000 California consumers under a California law; later rounds follow
+  - 8 March 2005: Retail Ventures announces the DSW card-data theft, 103 stores (108 by 18 April)
+  - 9 March 2005: Reed Elsevier reports fraudulent access at LexisNexis's Seisint unit through misused customer credentials
+  - 16 June 2005: FTC settles with BJ's Wholesale Club, treating weak security as an unfair practice
+  - 29 June 2005: TA05-180A: the VERITAS Backup Exec Remote Agent flaw actively exploited, scanning on 10000/tcp up
+  - July 2005: TJX's intruder first gets in, not found until December 2006
+  - 8 July 2005: TA05-189A, Targeted Trojan Email Attacks; Sven Jaschan convicted for Sasser
+  - 9 August 2005: MS05-039 fixes the Plug and Play flaw that Zotob exploits within days
+  - 25 August 2005: Zotob and Mytob suspects arrested in Morocco and Turkey (FBI release, 26 Aug)
+  - 3 November 2005: Jeanson James Ancheta arrested on a 17-count botnet indictment, which DOJ called the first of its kind
+  - 15 November 2005: VU#312073: Sony BMG's XCP software hides files with rootkit techniques; its uninstaller is unsafe
+  - 28 December 2005: TA05-362A: the Windows Metafile flaw exploited against patched XP SP2 before any patch
 
 ### 2004 <!-- {docsify-ignore} -->
 

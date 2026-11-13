@@ -269,7 +269,7 @@ studies:
     start: "2019-01"
     end: "2026-11"
     core_start: "2026-10-30"
-    core_end: "2026-11-12"
+    core_end: "2026-11-13"
     sectors: ["cross-sector", "technology"]
     cves: ["CVE-2026-123039", "CVE-2026-107484", "CVE-2026-109618", "CVE-2026-109619", "CVE-2026-50751", "CVE-2024-24919", "CVE-2026-16232", "CVE-2026-85102", "CVE-2026-85103", "CVE-2026-93616", "CVE-2026-91843", "CVE-2026-46300", "CVE-2026-41709", "CVE-2023-20867", "CVE-2026-1281", "CVE-2026-1340", "CVE-2026-0257", "CVE-2026-24858", "CVE-2026-18577", "CVE-2026-18556", "CVE-2026-86218", "CVE-2026-88771", "CVE-2026-88772", "CVE-2026-88779", "CVE-2026-104935", "CVE-2026-111357", "CVE-2026-118527", "CVE-2026-1731"]
     actors: []
@@ -278,7 +278,6 @@ studies:
     pptx: "Check_Point_Gaia_CVE_2026_123039_Case_Study.pptx"
     events:
       - {"date": "2019-01-08", "label": "sk144112 documents Dynamic CLI, the Gaia feature served by the vulnerable daemon"}
-      - {"date": "2026-02-25", "label": "A PhiliKit sample named philistine is uploaded to VirusTotal from South Korea"}
       - {"date": "2026-05-28", "label": "ESET's APT Activity Report assesses PhiliKit as part of UNC5221's SPAWN toolset"}
       - {"date": "2026-10-21", "label": "PHP2Shell patches released (Reported); GreyNoise's PHP2Shell sensor data starts"}
       - {"date": "2026-10-26", "label": "KEV adds CVE-2026-109618 and CVE-2026-109619, due 29 Oct, with forensic triage required"}
@@ -289,6 +288,7 @@ studies:
       - {"date": "2026-11-08", "label": "Check Point creates support article sk1000362"}
       - {"date": "2026-11-09", "label": "CSIRT Italia alert on Check Point PHP2Shell updates marks exploitation present"}
       - {"date": "2026-11-12", "label": "CVE-2026-107484 and CVE-2026-123039 published; Check Point Research report; Canadian Centre AV26-1154"}
+      - {"date": "2026-11-13", "label": "CISA adds CVE-2026-123039 to KEV, due 16 Nov under BOD 26-04"}
   case-studies/CHECK_POINT_VPN_CVE_2026_50751.md:
     kind: "vulnerability"
     title: "The Check Point Remote Access VPN IKEv1 Authentication Bypass of 2026 (CVE-2026-50751): A Case Study"

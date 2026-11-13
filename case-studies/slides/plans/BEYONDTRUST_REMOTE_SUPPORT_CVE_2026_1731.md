@@ -54,7 +54,7 @@ Notes: Precedent [18][19][6]. Attribution of 2024 [18][20]. Variant, Reported [8
 
 - Specially crafted requests let an unauthenticated attacker run OS commands.
 - CISA's SSVC record: exploitation active, automatable, total technical impact.
-- Unit 42: earlier fixes added checks that were not fully comprehensive.
+- Unit 42: earlier fixes added checks that did not cover every case.
 - The 2024 and 2026 flaws sit in different code paths.
 Caption: No exploit detail is reproduced; the public proof of concept is cited without a link.
 Notes: Mechanism [2]. SSVC [2]. Code paths, Reported [14].

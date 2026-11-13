@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 21 min (4,869 words at 230 words a minute)
+About 21 min (4,870 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -151,7 +151,7 @@ All sources were opened on 11 November 2026. BeyondTrust's 3 February knowledge 
 | CVE-2024-12686 | OS command injection needing admin rights; CWE-78 | not checked | Added 13 Jan 2025 [6] |
 | CVE-2026-102764 | RS authentication bypass by spoofing; CWE-290; advisory BT26-05 | not checked | Added 16 Oct 2026, due 19 Oct 2026 [6] |
 
-**The mechanism, at advisory level.** The CNA describes a critical pre-authentication remote code execution flaw: with specially crafted requests, an unauthenticated remote attacker may run operating-system commands in the context of the site user [2] (**Confirmed**). CISA's decision record calls it automatable with total technical impact [2] (**Confirmed**). Unit 42 says earlier patches for the component reportedly added numeric checks that were not fully comprehensive, and it places the 2024 and 2026 flaws in different execution paths: third-party PostgreSQL handling for CVE-2024-12356 and BeyondTrust's own code for CVE-2026-1731 [14] (**Reported**).
+**The mechanism, at advisory level.** The CNA describes a critical pre-authentication remote code execution flaw: with specially crafted requests, an unauthenticated remote attacker may run operating-system commands in the context of the site user [2] (**Confirmed**). CISA's decision record calls it automatable with total technical impact [2] (**Confirmed**). Unit 42 says earlier patches for the component reportedly added numeric checks that did not cover every case, and it places the 2024 and 2026 flaws in different execution paths: third-party PostgreSQL handling for CVE-2024-12356 and BeyondTrust's own code for CVE-2026-1731 [14] (**Reported**).
 
 **What the attackers did after.** In activity it ties to suspected exploitation, Arctic Wolf saw renamed SimpleHelp remote-management binaries started by Bomgar processes as SYSTEM, new domain accounts added to Domain Admins and Enterprise Admins, Active Directory computer discovery, PsExec used to push SimpleHelp, and Impacket SMB session setup on appliances confirmed to run vulnerable versions [13] (**Reported**). Unit 42 adds SparkRAT and VShell backdoors, attempted installs of SimpleHelp, AnyDesk and Cloudflare tunnels, PHP web shells in the China Chopper or AntSword style, out-of-band DNS callbacks to confirm code execution, and staging and theft of configuration files and a PostgreSQL dump [14] (**Reported**). Google lists privilege escalation, data exfiltration, SNOWLIGHT, SPARKRAT and cryptominers [15] (**Reported**).
 

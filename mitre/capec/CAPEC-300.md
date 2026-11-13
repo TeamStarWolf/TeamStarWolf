@@ -46,6 +46,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 - [CVE-2026-123039 and Root on the Check Point Gateway: The PHP2Shell Chain, the TSGA Implant and the ESXi Wiper of October and November 2026](/case-studies/CHECK_POINT_GAIA_CVE_2026_123039.md)
 - [Healthcare Threat Actor Watchlist, 2023 to 2026: Who Hits Hospitals, How They Get In, and What the Record Says](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md)
+- [The Year 1993 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1993.md)
 
 <!-- library-refs:end -->
 

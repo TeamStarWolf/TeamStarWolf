@@ -556,5 +556,11 @@
     "name": "TeamStarWolf - Citrix NetScaler CVE-2026-3055 Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the 2026 NetScaler SAML IdP memory overread (CVE-2026-3055) supports: the Citrix bulletin, the CVE, NVD and KEV records, the CISA alert, CERT-EU Advisory 2026-003 and watchTowr's lab reproductions. No source names ATT&CK ids; every binding is the study's own. Score 75: a KEV entry or government record describes the behavior. Score 50: public research demonstrates it. Score 25: a capability rather than an observed act. Comments carry source numbers from case-studies/CITRIX_NETSCALER_CVE_2026_3055.md.",
     "blurb": "Techniques from the 2026 exploitation of the NetScaler SAML IdP memory overread CVE-2026-3055, from the unauthenticated overread on the internet-facing appliance to an administrative session ID in leaked memory and the reuse of a stolen session that CERT-EU's session-termination step guards against. A curated layer for the CVE-2026-3055 case study."
+  },
+  {
+    "file": "chronicle-1993.json",
+    "name": "TeamStarWolf - The Year 1993 in Intrusions",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK did not exist in 1993, so every id is a later mapping made by the study from the 1993 record: the CERT/CC advisories CA-93:01 to CA-93:19 (with CA-94:01 of February 1994 as a boundary record), press reports of the UK Computer Misuse Act trial, Virus Bulletin and the CARO WILDList. No ATT&CK group, software or campaign object covers a 1993 actor or tool. Each comment names source numbers from case-studies/CHRONICLE_1993.md.",
+    "blurb": "Techniques from the dated 1993 record: the Internet Security Scanner CERT warned about, default accounts and password guessing, the sendmail, gopher and FTP server flaws CERT said attackers were using, setuid privilege escalation, anonymous FTP disk filling, the sniffing reported in February 1994, and the year's polymorphic and boot-sector viruses. A curated layer for the 1993 chronicle."
   }
 ]

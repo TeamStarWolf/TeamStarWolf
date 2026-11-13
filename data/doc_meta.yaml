@@ -2406,6 +2406,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 3: the 2026 vulnerability record](#part-3-the-2026-vulnerability-record), [Part 8: the defender view](#part-8-the-defender-view)"
     pairs_with: "[Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md), [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [npm Supply-Chain Attacks](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md)"
     reviewed: null
+  case-studies/CHRONICLE_1993.md:
+    audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
+    level: "Intermediate"
+    read_when: "You want a dated record of 1993, you need the CERT advisories, the first Computer Misuse Act trials, the polymorphic virus record and the Clipper debate side by side, or you want to see which defender lessons were already on the record before CVE and ATT&CK existed"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 7: the defender view](#part-7-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md), [Before the Internet: Computer Threats, 1960 to 1990](/case-studies/PRE_INTERNET_THREATS.md)"
+    reviewed: null
   case-studies/CHRONICLE_2016.md:
     audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
     level: "Intermediate"

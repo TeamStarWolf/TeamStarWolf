@@ -94,5 +94,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [The ATF major incident of 2026: a case study](/case-studies/ATF_MAJOR_INCIDENT_2026.md)
 - [The Notepad++ update-channel hijack (CVE-2025-15556): a case study](/case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md)
 - [The CareCloud medical-records breach of March 2026: a case study](/case-studies/CARECLOUD_BREACH_2026.md)
+- [The year 1993 in intrusions: a dated record](/case-studies/CHRONICLE_1993.md)
 
 <!-- hub:end -->

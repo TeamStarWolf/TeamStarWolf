@@ -1157,6 +1157,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - December 1994: US Naval Academy penetrated from three countries and two US universities; more than 12,000 passwords changed
   - 25 December 1994: IP spoofing attack on Tsutomu Shimomura's systems begins
 
+### 1993 <!-- {docsify-ignore} -->
+
+- [The Year 1993 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1993.md). Period record, January to December 1993. Sectors: cross-sector, government, defense, technology, finance, telecommunications, energy, education. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_1993_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_1993_Case_Study.pptx).
+  - 3 February 1993: CA-93:03: SunOS default file permissions give local root; CERT sees an increasing number of attackers exploiting them
+  - 12 March 1993: Steve Jackson Games v. US Secret Service decided: Privacy Protection Act and Stored Communications Act violated
+  - 17 March 1993: Paul Bedworth acquitted at Southwark Crown Court after a four-week Computer Misuse Act trial
+  - 16 April 1993: White House announces the voluntary Clipper Chip key-escrow initiative
+  - 14 May 1993: Channel Videodat broadcasts a Tremor-infected PKUNZIP to a claimed 60,000 subscribers
+  - 14 July 1993: CA-93:10 Anonymous FTP Activity: compromise, disk-filling denial of service, trading of pirated software
+  - 4 August 1993: Senate hearing "Auditing the Auditors": IRS staff browsing taxpayer records
+  - 10 September 1993: The Air Force Electronic Warfare Center is redesignated the Air Force Information Warfare Center
+  - 30 September 1993: CA-93:14: the Internet Security Scanner is posted to comp.sources.misc; CERT expects malicious use
+  - 21 October 1993: CA-93:15: the Sun sendmail flaw is being actively exploited
+  - 3 November 1993: Mark Abene (Phiber Optik) sentenced to a year and a day in federal court in Manhattan
+  - 16 November 1993: The seclists.org Bugtraq archive opens with a thread on CA-93:17
+
 ### 1992 <!-- {docsify-ignore} -->
 
 - [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md). Threat actor, 1981 to April 2024 (core: 1992 to 2000). Sectors: telecommunications, technology, government, education, media, healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Mitnick_Intrusions_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Mitnick_Intrusions_Case_Study.pptx).

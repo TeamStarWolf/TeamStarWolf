@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 15 min (3,546 words at 230 words a minute)
+About 16 min (3,569 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -147,11 +147,11 @@ Attribution stops at a seller.
 
 **The people.** The vendor gives no count of affected individuals [1] (**Confirmed**). The seller's figures (153M+ licenses and the rest) are the seller's [4] (**Reported**). Krebs's blank search returned about 11.5 million pages at about 15 results a page, consistent with the claim [4] (**Demonstrated**). A record count is not a count of unique people, and nobody has deduplicated it (**Inferred**). Risky Business estimates the US licenses in the set at about 63 percent of all US licenses [10] (**Reported**, author's calculation).
 
-**The customers.** IDScan.net listed Hertz, Target, FedEx, Motorola Solutions, Jack Henry and Caesars among its clients [4] (**Reported**). Caesars and Target fell off that list (see the timeline) and Hertz did not reply [4] [6] (**Reported**).
+**The customers.** IDScan.net listed Hertz, Target, FedEx, Motorola Solutions, Jack Henry and Caesars among its clients [4] (**Reported**). Caesars says it had not used VeriScan since February 2025 and had no active accounts at the time [4], and Techlicious removed Target from its own list of IDScan.net users on 3 September [6] (**Reported**); Hertz did not reply [4] [6] (**Reported**).
 
 **The vendor.** IDScan.net says it secured its systems, engaged unnamed third-party specialists, is adding security enhancements, is cooperating with regulators and law enforcement, says the notice has not been delayed by law enforcement, is not aware of misuse, and offers free credit monitoring and identity protection to US and Canadian individuals [1] (**Confirmed**). Its spokesperson called the reporting helpful to the investigation [6] (**Reported**).
 
-**Government and regulators.** The FBI New Orleans field office opened an official investigation into an apparent breach involving idscan.net on 1 September [4], and the FBI told Reuters on 2 September it was looking into the incident [8] (**Reported**; Reuters not opened). The California AG list shows no IDScan filing as of 11 November under three spellings, while a control search returned entries [14] (**Confirmed**). No regulator or state AG enforcement action appears in any source opened; Risky Business calls for FTC attention [10] (**Reported**).
+**Government and regulators.** The FBI New Orleans field office opened an official investigation into an apparent breach involving idscan.net on 1 September [4], and on 2 September an FBI spokesperson told TechCrunch the bureau was looking into the incident [5] (**Reported**). The California AG list shows no IDScan filing as of 11 November under three spellings, while a control search returned entries [14] (**Confirmed**). No regulator or state AG enforcement action appears in any source opened; Risky Business calls for FTC attention [10] (**Reported**).
 
 **Courts.** Nine putative class actions, per the timeline [12] (**Reported**; the dockets returned HTTP 403).
 

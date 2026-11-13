@@ -145,6 +145,7 @@ EXPORT_NAMES = {
     "STRYKER_HANDALA_WIPER_2026": "Stryker_Handala_Wiper_2026",
     "BINANCE_HEIST_2026": "Binance_Heist_2026",
     "DENTAQUEST_BREACH_2026": "DentaQuest_Breach_2026",
+    "INSTRUCTURE_CANVAS_BREACH_2026": "Instructure_Canvas_Breach_2026",
     "FBI_SURVEILLANCE_SYSTEM_BREACH_2026": "FBI_Surveillance_System_Breach_2026",
     "NSA_CIA_TOOL_LEAKS": "NSA_CIA_Tool_Leaks_2016_2017",
     "RANSOMWARE_ECOSYSTEM": "Ransomware_Ecosystem_2019_2026",

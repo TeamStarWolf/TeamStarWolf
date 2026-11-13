@@ -2378,6 +2378,12 @@ pages:
     read_when: "You want the dated record of the March 2026 CareCloud breach, how its SEC, HHS and state disclosures fit together, or which cloud identity and detection controls the case argues for"
     start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
     pairs_with: "[Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Healthcare Threat Watchlist](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md)"
+  case-studies/CHECK_POINT_GAIA_CVE_2026_123039.md:
+    audience: "Firewall, network and edge-device teams that run Check Point gateways, management servers or Maestro, virtualization and VMware ESXi administrators, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run Check Point Gaia or Mobile Access, you need the dated record of CVE-2026-123039 and the PHP2Shell campaign against Check Point gateways, or you want to decide how to patch, hunt, rebuild and cut the path from the firewall to the hypervisor"
+    start_at: "[Executive summary](#executive-summary), [Part 7: the defender view](#part-7-the-defender-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Check Point](/platforms/check-point.md), [VMware ESXi](/operating-systems/vmware-esxi.md)"
     reviewed: null
   case-studies/CHECK_POINT_VPN_CVE_2026_50751.md:
     audience: "Firewall, network and edge-device teams that run Check Point gateways or Spark appliances, remote-access VPN owners, vulnerability management leads, incident responders and threat intelligence analysts"

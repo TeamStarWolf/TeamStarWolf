@@ -546,6 +546,12 @@
     "blurb": "Techniques from the CareCloud breach record of March 2026: the cloud account an unauthorized third party used inside one EHR environment for six days, and the patient data taken from its databases. A curated layer for the CareCloud case study."
   },
   {
+    "file": "check-point-gaia-cve-2026-123039.json",
+    "name": "TeamStarWolf - Check Point Gaia CVE-2026-123039, the PHP2Shell Chain, TSGA and the ESXi Wiper (2026) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the case study of CVE-2026-123039, the Check Point Gaia OS DynamicCLI local privilege escalation to root (CWE-862, CWE-732), and the campaign Check Point Research reported on 12 November 2026: PHP2Shell on unpatched Mobile Access portals from 30 October, root through CVE-2026-123039, web shells, the TSGA and TSProxy implants, gogo scanning, SSH to VMware ESXi as vpxuser and the destroy_v6 wiper. No source lists ATT&CK ids; every binding is the study's own. Score 75: the CVE record, sk1000362 or the Check Point Research report describes the behavior. Score 50: the study's Inferred mapping. Comments carry the study's source numbers.",
+    "blurb": "Techniques from the 2026 Check Point gateway campaign, from PHP2Shell on unpatched Mobile Access portals and root through the Gaia DynamicCLI flaw CVE-2026-123039 to web shells, the TSGA and TSProxy implants, gogo scanning, SSH to VMware ESXi as vpxuser and the destroy_v6 wiper. A curated layer for the CVE-2026-123039 case study."
+  },
+  {
     "file": "citrix-netscaler-cve-2026-3055.json",
     "name": "TeamStarWolf - Citrix NetScaler CVE-2026-3055 Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the 2026 NetScaler SAML IdP memory overread (CVE-2026-3055) supports: the Citrix bulletin, the CVE, NVD and KEV records, the CISA alert, CERT-EU Advisory 2026-003 and watchTowr's lab reproductions. No source names ATT&CK ids; every binding is the study's own. Score 75: a KEV entry or government record describes the behavior. Score 50: public research demonstrates it. Score 25: a capability rather than an observed act. Comments carry source numbers from case-studies/CITRIX_NETSCALER_CVE_2026_3055.md.",

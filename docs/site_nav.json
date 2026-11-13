@@ -316,7 +316,8 @@
         ["The BeyondTrust Remote Support and PRA command injection (CVE-2026-1731): a case study", "/case-studies/BEYONDTRUST_REMOTE_SUPPORT_CVE_2026_1731.md"],
         ["The FortiCloud SSO authentication bypass (CVE-2026-24858): a case study", "/case-studies/FORTINET_FORTICLOUD_SSO_CVE_2026_24858.md"],
         ["The Check Point Remote Access VPN IKEv1 authentication bypass (CVE-2026-50751): a case study", "/case-studies/CHECK_POINT_VPN_CVE_2026_50751.md"],
-        ["The Dell RecoverPoint for Virtual Machines hard-coded credential zero-day (CVE-2026-22769): a case study", "/case-studies/DELL_RECOVERPOINT_CVE_2026_22769.md"]
+        ["The Dell RecoverPoint for Virtual Machines hard-coded credential zero-day (CVE-2026-22769): a case study", "/case-studies/DELL_RECOVERPOINT_CVE_2026_22769.md"],
+        ["The Check Point Gaia DynamicCLI root flaw, the PHP2Shell chain and the ESXi wiper (CVE-2026-123039): a case study", "/case-studies/CHECK_POINT_GAIA_CVE_2026_123039.md"]
       ]
     },
     {

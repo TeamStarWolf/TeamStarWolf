@@ -32,6 +32,7 @@ Hand-written pages in this library that link to this page or to this object's en
 
 - [APT41: The Public Record, 2012 to 2026](/case-studies/APT41_PUBLIC_RECORD.md)
 - [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md)
+- [The Trojanized Claude Code Extension on Cursor's Marketplace (October 2026)](/case-studies/CURSOR_EXTENSION_TROJAN_2026.md)
 
 <!-- library-refs:end -->
 

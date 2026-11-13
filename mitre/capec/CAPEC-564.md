@@ -41,6 +41,7 @@ Operating system allows logon scripts to be run whenever a specific user or user
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [The Trojanized Claude Code Extension on Cursor's Marketplace (October 2026)](/case-studies/CURSOR_EXTENSION_TROJAN_2026.md)
 
 <!-- library-refs:end -->
 

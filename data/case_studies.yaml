@@ -1438,6 +1438,30 @@ studies:
       - {"date": "2016-10-21", "label": "The Dyn attack, which the USENIX paper attributes to Mirai cluster 6, not the original cluster 1"}
       - {"date": "2017-12-05", "label": "Informations and plea agreements against three Mirai and clickfraud defendants filed in Alaska"}
       - {"date": "2018-07-13", "label": "Twelve GRU officers indicted in the District of Columbia over the 2016 intrusions and leaks"}
+  case-studies/FBI_SURVEILLANCE_SYSTEM_BREACH_2026.md:
+    kind: "incident"
+    title: "The FBI Surveillance System Breach of 2026: A Case Study"
+    start: "2026-02"
+    end: "2026-11"
+    core_start: "2026-02-17"
+    core_end: "2026-04-06"
+    sectors: ["government"]
+    cves: []
+    actors: []
+    tags: ["FBI", "surveillance data", "pen register", "lawful intercept", "third party", "FISMA major incident", "China", "Salt Typhoon"]
+    pdf: "FBI_Surveillance_System_Breach_2026_Case_Study.pdf"
+    pptx: "FBI_Surveillance_System_Breach_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-02-17", "label": "The FBI begins investigating abnormal log information on an unclassified system on its network (Reported)"}
+      - {"date": "2026-03-04", "label": "The FBI first tells Congress of suspicious activity on a system holding law enforcement sensitive information (Reported)"}
+      - {"date": "2026-03-05", "label": "The FBI says it identified and addressed suspicious activities on FBI networks (Reported)"}
+      - {"date": "2026-03-06", "label": "WSJ: US investigators believe Chinese-government-affiliated hackers are responsible; any Salt Typhoon link unclear (Reported)"}
+      - {"date": "2026-03-10", "label": "Malwarebytes calls the system DCSNet, a name not found in any quoted notice wording (Reported)"}
+      - {"date": "2026-03-23", "label": "Senior DOJ officials determine the intrusion is a FISMA major incident (Reported)"}
+      - {"date": "2026-04-01", "label": "Politico publishes the major-incident designation (Reported)"}
+      - {"date": "2026-04-03", "label": "FBI spokesperson: access was obtained through a third party; target phone numbers likely exposed (Reported)"}
+      - {"date": "2026-04-06", "label": "Later notice per Bloomberg: forensics and remediation ongoing, a working group created, no actor named (Reported)"}
+      - {"date": "2026-11-11", "label": "No hearing, IG report, formal attribution or joint advisory found; the Intelligence Hub feed has no row for the incident"}
   case-studies/GHOSTCAT_CVE_2020_1938.md:
     kind: "vulnerability"
     title: "Ghostcat, CVE-2020-1938: The Tomcat AJP File Read in the Lab"

@@ -85,5 +85,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [The Binance hot-wallet theft of October 2026: a case study](/case-studies/BINANCE_HEIST_2026.md)
 - [Refrigeration-controller attacks on European supermarkets and blood services, 2026](/case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md)
 - [The DentaQuest health-data breach of May 2026: a case study](/case-studies/DENTAQUEST_BREACH_2026.md)
+- [The FBI surveillance system breach of 2026: a case study](/case-studies/FBI_SURVEILLANCE_SYSTEM_BREACH_2026.md)
 
 <!-- hub:end -->

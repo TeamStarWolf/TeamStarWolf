@@ -1,0 +1,82 @@
+{
+  "name": "TeamStarWolf - FBI Surveillance System Breach 2026 Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the FBI surveillance system breach case study, from the third-party path the FBI described on 3 April 2026 and the early-March notice's commercial ISP vendor infrastructure to the reported exposure of monitored targets' phone numbers. The notices to Congress are unpublished and no source names ATT&CK ids, so every binding is the study's own reading of Reported sources. Score 60: official words, as outlets quote them, state the behavior and the technique fits directly. Score 30: the fit is partly the study's inference. Scores measure the strength of the tie to this record, not severity. No malware, exfiltration channel or sub-technique is in the record, so none is bound. Comments carry the study's source numbers.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 60
+  },
+  "legendItems": [
+    {
+      "label": "60: official words as quoted, direct fit",
+      "color": "#15803d"
+    },
+    {
+      "label": "30: fit partly the study's inference",
+      "color": "#86efac"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/FBI_SURVEILLANCE_SYSTEM_BREACH_2026.md; ATT&CK v20.0 technique data"
+    },
+    {
+      "name": "score_meaning",
+      "value": "60 = official words, as outlets quote them, state the behavior and the technique fits directly; 30 = the fit is partly the study's inference. No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The FBI Surveillance System Breach of 2026: A Case Study",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/FBI_SURVEILLANCE_SYSTEM_BREACH_2026"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 60,
+      "comment": "Trusted Relationship. Early-March 2026 DOJ and FBI notice: use of a commercial ISP vendor's infrastructure to exploit FBI network security controls; 3 Apr 2026 FBI spokesperson: access \"obtained through a third party\". Sources: [11] [13].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1213",
+      "tactic": "collection",
+      "score": 30,
+      "comment": "Data from Information Repositories. Phone numbers of monitored targets reported exposed from a system holding surveillance returns and PII, reported 3 Apr 2026; a partial fit, since the record does not say how data was taken. Sources: [11] [13].",
+      "enabled": true
+    }
+  ]
+}

@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 106 min (24,477 words at 230 words a minute)
+About 106 min (24,491 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -306,7 +306,7 @@ The China-attributed record of 2026 is told in [the China-attributed actors stud
 
 **ARMORY CASTLE.** The BeyondTrust zero-day of late August is GTIG's, attributed to a suspected PRC-nexus actor (Part 2) (Confirmed [105]).
 
-**The FBI surveillance system.** Politico, citing a congressional aide and two officials, reports that the FBI deemed a suspected China-linked intrusion into a sensitive surveillance system a "major incident" and first told Congress on 4 March; Nextgov, on anonymous sources, reports that the breach likely exposed monitored targets' phone numbers and that DOJ assessed it a FISMA major incident (Reported [12][13]). No primary record was found, so the event stays Reported.
+**The FBI surveillance system.** Politico, citing a congressional aide and two officials, reports that the FBI deemed a suspected China-linked intrusion into a sensitive surveillance system a "major incident" and first told Congress on 4 March; Nextgov, on anonymous sources, reports that the breach likely exposed monitored targets' phone numbers and that DOJ assessed it a FISMA major incident (Reported [12][13]). No primary record was found, so the event stays Reported. The home study for this breach is [The FBI Surveillance System Breach of 2026](/case-studies/FBI_SURVEILLANCE_SYSTEM_BREACH_2026.md).
 
 **AI distillation.** AA26-251A of 8 September says DeepSeek, Moonshot AI, Alibaba, MiniMax, StepFun and Z.AI extracted billions of tokens from US frontier models through industrial-scale distillation since at least late 2024, "Likely with Chinese government awareness", and maps the activity entirely to MITRE ATLAS (Confirmed [83]). These are commercial companies, not a state operation; [the AI threats study](/case-studies/AI_THREATS_2026.md) is the home.
 

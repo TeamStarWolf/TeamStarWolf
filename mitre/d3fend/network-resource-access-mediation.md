@@ -39,6 +39,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The ATF Major Incident of 2026: A Case Study](/case-studies/ATF_MAJOR_INCIDENT_2026.md)
 - [The DentaQuest Health-Data Breach of May 2026: A Case Study](/case-studies/DENTAQUEST_BREACH_2026.md)
 - [The Shadow Brokers and Vault 7: The NSA and CIA Tool Leaks, 2016 to 2017](/case-studies/NSA_CIA_TOOL_LEAKS.md)
+- [The Year 1996 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1996.md)
 
 <!-- library-refs:end -->
 

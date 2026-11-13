@@ -42,6 +42,7 @@ An adversary may execute an amplification where the size of a response is far gr
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [The Year 1996 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1996.md)
 
 <!-- library-refs:end -->
 

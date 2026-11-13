@@ -105,7 +105,7 @@ Notes: French retail and hydro [2][3]. Second wave [22][29] Reported. UK [30] Re
 | EU CSIRTs Network | CNW-2026-05 indexes national alerts; names no CVE |
 | EU joint statement | No actor named; CRA and NIS2 reporting urged |
 | US joint fact sheet | No actor, vendor or CVE named |
-| Danfoss | Limited number affected, mostly legacy products |
+| Danfoss | Most affected units are end-of-life AK-SM 800 and AK-SC 355 |
 | Copeland | Some XWEB solutions affected; guidance re-sent |
 Caption: Manufacturer reporting under the Cyber Resilience Act applies from 11 September 2026.
 Notes: CERT-FR [1]. CNW-2026-05 [14]. EU statement [13]. US fact sheet [11]. Danfoss [21] Reported. Copeland [21][32] Reported.
@@ -121,7 +121,7 @@ Right: Understated
 - Re-compromise of reset end-of-life units.
 - The same infrastructure scanned energy and water equipment.
 Caption: Ahold Delhaize's reported revenue hit concerns a separate October incident.
-Notes: Overstated [3][28][32][18][19]. Understated [1][4][25][2]. Ahold Delhaize [35] Inferred.
+Notes: Overstated [3][28][31][18][19]. Understated [1][4][25][2]. Ahold Delhaize [35] Inferred.
 
 ## DEFENDER VIEW | Take the controllers off the internet
 

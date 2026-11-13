@@ -98,7 +98,7 @@ Stat: 3h | Under three hours, targeting to privileged access, in multiple cases
 - Microsoft says Storm-0940 used it to speed scanning, spraying and OAuth app abuse.
 - Many actors use ARTEX; by 6 November a financially motivated cluster, Storm-3358, did too.
 - Huntress rates LLM involvement low-to-medium on its own telemetry alone.
-Notes: Figures and ARTEX [2]. Not a fingerprint [2]; Storm-3358 [7]. Huntress confidence [4].
+Notes: Figures and ARTEX [2]. Not a fingerprint [2][5]; Storm-3358 [7]. Huntress confidence [4].
 
 ## PART 4 | Restoration took weeks
 

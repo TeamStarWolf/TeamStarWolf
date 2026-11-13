@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 21 min (4,791 words at 230 words a minute)
+About 21 min (4,803 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -162,7 +162,7 @@ How the vendor-tenant credential was first obtained is not public; on 20 October
 
 **Huntress** says its observations are consistent with Microsoft's account but do not independently verify the attribution or the ARTEX use, and notes that Microsoft does not say how it identified ARTEX [4] [5] (**Confirmed**).
 
-**ARTEX is not a fingerprint.** Microsoft says many actors across multiple regions use ARTEX, so its use alone does not indicate Storm-0940 [2]. By 6 November Microsoft was reporting Storm-3358, a financially motivated Cambodia-based cluster, using it against financial organizations, mainly in Southeast Asia [7] (**Confirmed**).
+**ARTEX is not a fingerprint.** Microsoft has identified threat actors across multiple geographic regions using ARTEX [2]; Huntress, reading Microsoft, concludes that ARTEX use alone is not a reliable indicator of Storm-0940 involvement [5] (**Confirmed**). By 6 November Microsoft was reporting Storm-3358, a financially motivated Cambodia-based cluster, using it against financial organizations, mainly in Southeast Asia [7] (**Confirmed**).
 
 **Why.** Microsoft lists Storm-0940's targets as aerospace and defense, automotive, chemicals, energy, financial services, government, legal, manufacturing, media, military, semiconductor, software, technology, and think tanks and non-profits [2] (**Confirmed**). The second wave on 15 October went to policy, national security, trade and critical-minerals tenants [3] (**Confirmed**). That profile reads as intelligence collection rather than extortion (**Inferred**). This study's own domain-restricted search found no government advisory or attribution (none found; not checked exhaustively).
 

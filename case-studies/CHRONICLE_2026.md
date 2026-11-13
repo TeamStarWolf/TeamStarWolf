@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 107 min (24,712 words at 230 words a minute)
+About 108 min (24,727 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -364,7 +364,7 @@ North Korea's actors are traced across years in [the North Korea-attributed acto
 
 **Cloud destruction.** Microsoft tracks the operation Sysdig called JADEPUFFER as Storm-3168 and documents Azure destruction through compromised service principals: more than 150 destructive or credential operations in 35 minutes and more than 100 storage-account deletion attempts, some of which resource locks and deletion protection blocked (Confirmed [90]). Microsoft maps T1190, T1078.004, T1526, T1485 and T1490, and the "agentic" characterization rests on vendor telemetry (Reported [90]).
 
-**Long exposures.** DigiCert's incident report says a business system archiving customer identity-validation data became externally accessible after a migration on 4 February 2025 and was accessed around 27 June 2026, with CA operations unaffected (Confirmed [55]). IDScan.net says an unauthorized third party reached part of its VeriScan cloud environment from 4 April to 2 September, and KrebsOnSecurity reports the FBI probing a service selling more than 153 million driver's licences linked to IDScan's dispensary customers (Confirmed [80]; Reported [81]). Cloudflare fixed a cross-tenant residual-disk flaw in Containers reported on 4 September and found no evidence of malicious exploitation (Demonstrated [82]).
+**Long exposures.** DigiCert's incident report says a business system archiving customer identity-validation data became externally accessible after a migration on 4 February 2025 and was accessed around 27 June 2026, with CA operations unaffected (Confirmed [55]). IDScan.net says an unauthorized third party reached part of its VeriScan cloud environment from 4 April to 2 September, and KrebsOnSecurity reports the FBI probing a service selling more than 153 million driver's licences linked to IDScan's dispensary customers (Confirmed [80]; Reported [81]). The home study for the IDScan.net breach is [The IDScan.net Driver's License Breach of 2026](/case-studies/IDSCAN_DRIVERS_LICENSE_BREACH_2026.md). Cloudflare fixed a cross-tenant residual-disk flaw in Containers reported on 4 September and found no evidence of malicious exploitation (Demonstrated [82]).
 
 **Platforms and consumer services.** Vercel disclosed unauthorized access to certain internal systems on 19 April (Confirmed [30]). ASOS customers received an unauthorised push notification on 6 October (Confirmed [96]). Capcom confirmed a breach of its CAPCOM ID service exposing more than 11.7 million email addresses and login metadata (Reported [122]). Moldova's e-government agency took down more than 80 public services after data on 750,000 citizens was stolen through an exposed, unauthenticated logging service (Reported [129]).
 

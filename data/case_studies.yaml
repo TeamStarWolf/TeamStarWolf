@@ -1811,6 +1811,31 @@ studies:
       - {"date": "2026-05-15", "label": "FBI PSA: ShinyHunters claimed an attack that interrupted an unnamed learning management system"}
       - {"date": "2026-07-26", "label": "Delivery of API provisioning records and user reports to institutions begins; Kroll handles notification"}
       - {"date": "2026-09-29", "label": "Forensic review complete; final delivery phase begins"}
+  case-studies/IDSCAN_DRIVERS_LICENSE_BREACH_2026.md:
+    kind: "incident"
+    title: "The IDScan.net Driver's License Breach of 2026: A Case Study"
+    start: "2025-02"
+    end: "2026-11"
+    core_start: "2026-04-04"
+    core_end: "2026-09-02"
+    sectors: ["technology", "cross-sector"]
+    cves: []
+    actors: []
+    tags: ["IDScan.net", "VeriScan", "Nexus", "driver's licenses", "identity verification", "ID scanning", "third-party risk", "data retention"]
+    pdf: "IDScan_Drivers_License_Breach_2026_Case_Study.pdf"
+    pptx: "IDScan_Drivers_License_Breach_2026_Case_Study.pptx"
+    events:
+      - {"date": "2025-02", "label": "Caesars says it has not used VeriScan since February 2025 and had no active VeriScan accounts at the time of the incident (Reported)"}
+      - {"date": "2025-06", "label": "Earliest scan timestamps seen in the Nexus records, June 2025 (Demonstrated); read here as scan dates, not theft dates (Inferred)"}
+      - {"date": "2026-04-04", "label": "4 April to 2 September: an unauthorized third party accesses part of IDScan.net's cloud environment (VeriScan)"}
+      - {"date": "2026-08-31", "label": "A source alerts KrebsOnSecurity to the Nexus listing on the Exploit forum (Reported)"}
+      - {"date": "2026-09-01", "label": "Nearly 400,000 records added to Nexus in 24 hours; the FBI New Orleans field office opens an investigation (Reported)"}
+      - {"date": "2026-09-01", "label": "IDScan.net receives information that data may have been accessed; Nexus goes offline that evening"}
+      - {"date": "2026-09-02", "label": "End of the vendor-stated access window; 2 to 4 September: nine putative class actions docketed (Reported)"}
+      - {"date": "2026-09-04", "label": "IDScan.net posts its notification of data security incident"}
+      - {"date": "2026-09-10", "label": "Risky Business frames the breach as a national security problem (Reported)"}
+      - {"date": "2026-09-29", "label": "Notice updated: the event was limited to the VeriScan platform"}
+      - {"date": "2026-11-11", "label": "No IDScan filing on the California Attorney General's breach list"}
   case-studies/IVANTI_CONNECT_SECURE_2026.md:
     kind: "vulnerability"
     title: "The Ivanti Connect Secure Zero-Day Chain of October 2026 (CVE-2026-104935, CVE-2026-111357, CVE-2026-118527): A Case Study"

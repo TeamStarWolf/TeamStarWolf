@@ -1,0 +1,243 @@
+{
+  "name": "TeamStarWolf - Notepad++ Update-Channel Hijack CVE-2025-15556 Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK techniques that the verified record of the 2025 Notepad++ update-channel hijack (CVE-2025-15556) supports: the Notepad++ posts, the CVE, NVD and KEV records, and Reported research from Rapid7 and Kaspersky. Each comment names source numbers from case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md. Scores: 75 the vendor, CVE or KEV record describes the behavior; 50 vendor research describes it. Rapid7's published ids are bound to ATT&CK v20.0 (T1574.002 maps to T1574.001); T1195.002 is this study's mapping.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "75: described in the vendor, CVE or KEV record",
+      "color": "#15803d"
+    },
+    {
+      "label": "50: from vendor research (Rapid7, Kaspersky)",
+      "color": "#86efac"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md; ATT&CK v20.0 technique data"
+    },
+    {
+      "name": "score_meaning",
+      "value": "75 = the vendor, CVE or KEV record describes the behavior; 50 = vendor research (Rapid7, Kaspersky) describes it. No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Notepad++ Update-Channel Hijack (CVE-2025-15556): A Case Study",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 75,
+      "comment": "Compromise Software Supply Chain: delivery through the hijacked Notepad++ update channel: selected users' update traffic redirected to serve compromised updates, June to December 2025 (vendor, 2 Feb 2026) [1]; CVE-2025-15556 (3 Feb 2026) [10]. This study's mapping; Rapid7 does not list it. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "Malicious File: malicious update installer run after Notepad++ and its updater (Rapid7, 2 Feb 2026) [14]; update file launched by the updater in all three Kaspersky chains (3 Feb 2026) [15]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1036",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Masquerading: renamed Bitdefender Submission Wizard used as the sideloading host; listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "DLL: DLL sideloading to the Chrysalis backdoor (Rapid7) [14] and Kaspersky chain 3, October 2025 [15]. Rapid7 lists the revoked T1574.002, which data/attack/superseded_by.jsonl maps here. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "DLL: DLL sideloading to the Chrysalis backdoor (Rapid7) [14] and Kaspersky chain 3, October 2025 [15]. Rapid7 lists the revoked T1574.002, which data/attack/superseded_by.jsonl maps here. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Deobfuscate/Decode Files or Information: sideloaded DLL decrypts shellcode; listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Obfuscated Files or Information: listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1027.007",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Dynamic API Resolution: listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1106",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "Native API: listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Process Injection: listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "privilege-escalation",
+      "score": 50,
+      "comment": "Process Injection: listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1620",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Reflective Code Loading: listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "Windows Command Shell: listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 50,
+      "comment": "File and Directory Discovery: listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 50,
+      "comment": "Data from Local System: listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 50,
+      "comment": "Ingress Tool Transfer: downloaders leading to Cobalt Strike: Rapid7 [14]; Kaspersky chains 1 and 2, late July to October 2025 [15]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 50,
+      "comment": "Exfiltration Over C2 Channel: listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 50,
+      "comment": "Web Protocols: listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1573",
+      "tactic": "command-and-control",
+      "score": 50,
+      "comment": "Encrypted Channel: listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 50,
+      "comment": "Registry Run Keys / Startup Folder: listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]; Kaspersky advises hunting Run keys pointing to temp folders (updated 11 Feb 2026) [15]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "privilege-escalation",
+      "score": 50,
+      "comment": "Registry Run Keys / Startup Folder: listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]; Kaspersky advises hunting Run keys pointing to temp folders (updated 11 Feb 2026) [15]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 50,
+      "comment": "Windows Service: listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 50,
+      "comment": "Windows Service: listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1480.002",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Mutual Exclusion: listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "File Deletion: listed by Rapid7 for the Chrysalis chain (2 Feb 2026, updated 9 Feb; activity June to November 2025) [14]. Source numbers refer to the Sources table of case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md.",
+      "enabled": true
+    }
+  ]
+}

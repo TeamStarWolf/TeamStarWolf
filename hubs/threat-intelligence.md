@@ -92,5 +92,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [The IDScan.net driver's license breach of 2026: a case study](/case-studies/IDSCAN_DRIVERS_LICENSE_BREACH_2026.md)
 - [The European Commission cloud breach of 2026 (Trivy): a case study](/case-studies/EUROPEAN_COMMISSION_CLOUD_BREACH_2026.md)
 - [The ATF major incident of 2026: a case study](/case-studies/ATF_MAJOR_INCIDENT_2026.md)
+- [The Notepad++ update-channel hijack (CVE-2025-15556): a case study](/case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md)
 
 <!-- hub:end -->

@@ -46,7 +46,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 29 October 2026: About 20:35 UTC: window ends; Cursor removes the version and shuts its marketplace down
   - 29 October 2026: Cursor's security notice published; its first version named only 2.1.313 (Reported)
   - 30 October 2026: Anthropic publishes 2.1.314 to npm, GitHub and Open VSX
-  - 30 October 2026: Phorion's advisory names Open VSX, then corrects the affected marketplace to Cursor
+  - 30 October 2026: Phorion's advisory, then its correction of the affected marketplace to Cursor
   - 30 October 2026: Socket finds no Open VSX change-feed event for 2.1.313
   - 30 October 2026: Cursor updates its indicators and clarifies the affected versions
   - 31 October 2026: Microsoft Threat Intelligence publishes its analysis of the SSH backdoor

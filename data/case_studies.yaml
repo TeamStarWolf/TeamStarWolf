@@ -1309,7 +1309,7 @@ studies:
       - {"date": "2026-10-29", "label": "About 20:35 UTC: window ends; Cursor removes the version and shuts its marketplace down"}
       - {"date": "2026-10-29", "label": "Cursor's security notice published; its first version named only 2.1.313 (Reported)"}
       - {"date": "2026-10-30", "label": "Anthropic publishes 2.1.314 to npm, GitHub and Open VSX"}
-      - {"date": "2026-10-30", "label": "Phorion's advisory names Open VSX, then corrects the affected marketplace to Cursor"}
+      - {"date": "2026-10-30", "label": "Phorion's advisory, then its correction of the affected marketplace to Cursor"}
       - {"date": "2026-10-30", "label": "Socket finds no Open VSX change-feed event for 2.1.313"}
       - {"date": "2026-10-30", "label": "Cursor updates its indicators and clarifies the affected versions"}
       - {"date": "2026-10-31", "label": "Microsoft Threat Intelligence publishes its analysis of the SSH backdoor"}

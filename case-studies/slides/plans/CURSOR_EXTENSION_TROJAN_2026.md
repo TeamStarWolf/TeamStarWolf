@@ -36,7 +36,7 @@ Notes: Window 09:27 to 20:35 UTC [1]. Channel [2][4][6][7][8]. KEV 2026.11.10 [9
 | 29 Oct, 09:27 UTC | Malicious builds live on Cursor |
 | 29 Oct, 20:35 UTC | Cursor pulls them, shuts marketplace |
 | 30 Oct | Anthropic ships 2.1.314 |
-| 30 Oct | Phorion corrects Open VSX to Cursor |
+| 30 Oct | Phorion's advisory, then its marketplace correction to Cursor |
 | 30 Oct | Cursor updates IOCs and versions |
 | 31 Oct | Microsoft publishes its analysis |
 | 10 Nov | KEV has no entry |

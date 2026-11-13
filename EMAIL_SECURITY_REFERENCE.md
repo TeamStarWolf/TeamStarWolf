@@ -1253,5 +1253,6 @@ opendkim-testkey -d domain.com -s selector1 -vvv
 - [Fight Fraud Framework (MITRE F3)](/FRAUD_FRAMEWORK_REFERENCE.md)
 - [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)
 - [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md)
+- [File Types and Extensions Reference](/FILE_TYPES_REFERENCE.md)
 
 <!-- related:end -->

@@ -216,6 +216,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 October 2026: ReliaQuest says on X that Qilin and Settra are exploiting the flaw (Reported)
   - 19 October 2026: Unit 42 reports attempted exploitation by Spikey Scorpius (Qilin) and Tarnished Scorpius (INC)
   - 10 November 2026: Kaspersky ranks Qilin first by share of leak-site victims in Q3 2026
+- [The Instructure Canvas Breach and ShinyHunters Extortion of 2026: A Case Study](/case-studies/INSTRUCTURE_CANVAS_BREACH_2026.md). Incident, September 2025 to September 2026 (core: 25 April 2026 to 11 May 2026). Sectors: education, technology. ATT&CK groups: G1057 ShinyHunters. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Instructure_Canvas_Breach_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Instructure_Canvas_Breach_2026_Case_Study.pptx).
+  - 21 September 2025: Instructure discloses a social-engineering compromise of its Salesforce instance; no product data exposed
+  - 25 April 2026: 25 to 30 April: institution logs may show the actor using Canvas customer support representative accounts
+  - 29 April 2026: Instructure detects unauthorized activity in Canvas, revokes access and engages outside forensic experts
+  - 1 May 2026: Confirmed Security Incident posted: a criminal threat actor; Canvas Data 2, Beta and Test in maintenance
+  - 2 May 2026: Incident believed contained: privileged credentials and tokens revoked, patches deployed, keys rotated
+  - 3 May 2026: ShinyHunters lists Instructure on its leak site, claiming 3.65 TB on 275 million people (Reported)
+  - 7 May 2026: The actor returns through a second XSS flaw; ransom note on login pages of about 300 organizations
+  - 8 May 2026: CEO apology names a support-ticket flaw in the Free-for-Teacher environment and disables it
+  - 11 May 2026: Agreement with the actor: data returned, shred logs; House Homeland Security letter to the CEO
+  - 15 May 2026: FBI PSA: ShinyHunters claimed an attack that interrupted an unnamed learning management system
+  - 26 July 2026: Delivery of API provisioning records and user reports to institutions begins; Kroll handles notification
+  - 29 September 2026: Forensic review complete; final delivery phase begins
 - [The TeamPCP Supply-Chain Campaign of 2026: Trivy, Checkmarx and the Bitwarden CLI (CVE-2026-33634)](/case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md). Campaign, September 2025 to August 2026 (core: 19 March 2026 to 10 May 2026). Sectors: technology, government. CVEs: CVE-2026-33634, CVE-2026-42994, CVE-2025-55182. ATT&CK groups: G1056 TeamPCP. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Teampcp_Trivy_Supply_Chain_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Teampcp_Trivy_Supply_Chain_2026_Case_Study.pptx).
   - 28 February 2026: About 28 Feb: a pull_request_target workflow at Trivy yields a token and releases are deleted (Reported)
   - 1 March 2026: Aqua's first disclosure; the credential rotation that follows is not atomic

@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 17 min (4,007 words at 230 words a minute)
+About 18 min (4,029 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -74,7 +74,7 @@ The vendor was a victim too. SmarterTools says its own unpatched SmarterMail VM 
 ### Key findings
 
 - **Attackers moved within two days of the patch.** watchTowr reported the password-reset bypass on 8 January, the fix shipped on 15 January, and a forum post on 17 January described a successful attack, before any CVE was published [15] (**Reported**).
-- **The vendor's notes never said "exploited".** The release notes for Builds 9413, 9511 and 9518 read only "IMPORTANT: Critical security fixes." and name no CVE [13] (**Confirmed**). The exploitation record comes from CISA and researchers [9] [15] [18] (**Confirmed** and **Reported**).
+- **The vendor's notes never said "exploited".** The release notes for Builds 9413, 9511 and 9518 carry the line "IMPORTANT: Critical security fixes." (9518 adds a strong recommendation to update) and name no CVE or exploitation [13] (**Confirmed**). The exploitation record comes from CISA and researchers [9] [15] [18] (**Confirmed** and **Reported**).
 - **Patching did not evict attackers.** The vendor says attackers planted files and waited 6 to 7 days, so some customers were compromised even after updating, because the access predated the update [14] (**Confirmed** as the vendor's statement).
 
 ### Top recommendations
@@ -128,7 +128,7 @@ All sources were opened on 11 November 2026. KEV ransomware-flag dates come from
 
 **Why an admin password is a shell.** The CVE-2026-23760 record notes that system administrator rights allow operating system commands through built-in management functions [4], which NVD notes amounts to SYSTEM or root on the host [5] (**Confirmed**). Huntress saw the System Events feature used this way, exploitation across multiple customers and a separate campaign against CVE-2025-52691 [18] (**Demonstrated** and **Reported**); ReliaQuest saw a volume-mount admin feature used to run commands [20] (**Reported**). An authentication bypass here is remote code execution in two steps (**Inferred**).
 
-**Public exploit material.** watchTowr's public repository for CVE-2025-52691 is tagged by NVD as an exploit reference [2] [16] (**Demonstrated**), and Flare reports PoC material in Telegram channels [25] (**Reported**). watchTowr's title, "Attackers with decompilers strike again", points to patch diffing; reading the two-day gap between the 9511 fix and the first reported attack that way is this study's inference [15] (**Inferred**). CODE WHITE lists a further flaw, CVE-2026-40514, a partial authentication bypass fixed below Build 9610 (25 March 2026), not in KEV as of 10 November [9] [17] (**Confirmed**).
+**Public exploit material.** watchTowr's public repository for CVE-2025-52691 is tagged by NVD as an exploit reference [2] [16] (**Demonstrated**), and Flare reports PoC material in Telegram channels [25] (**Reported**). watchTowr's title, "Attackers with decompilers strike again", points to patch diffing; reading the two-day gap between the 9511 fix and the first reported attack that way is this study's inference [15] (**Inferred**). CODE WHITE lists a further flaw, CVE-2026-40514, a partial authentication bypass affecting builds below 9610 (listed 25 March 2026; the release notes date Build 9610 to 24 April 2026), not in KEV as of 10 November [9] [13] [17] (**Confirmed**).
 
 ## Part 3: who and why
 
@@ -138,7 +138,7 @@ CSA credits Chua Meng Han of CSIT with CVE-2025-52691 [3]; the CVE records credi
 - **ReliaQuest says Storm-2603**, with moderate-to-high confidence, because the installer and command-and-control tooling matched confirmed Warlock attacks; probes for CVE-2026-24423 hit the same server from different infrastructure it cannot attribute [20] (**Reported**). News recalls that Halcyon linked Warlock to Storm-2603 in October 2025 [24] (**Reported**; not opened).
 - **Everyone else made no attribution.** Huntress saw 28 source IPs [18], and F5's single source sat in ASN 200593 in St. Petersburg [21] (**Demonstrated**). Flare saw Telegram channels trading PoC material and admin credentials [25] (**Reported**).
 
-Storm-2603 deployed Warlock through SharePoint ToolShell in 2025 [27] (**Confirmed** in the library). The vendor says the attackers aimed to take Active Directory, create users and run encryptors [14] (**Confirmed** as the vendor's statement): ransomware, as KEV's flags agree [9] (**Confirmed**).
+Storm-2603 deployed Warlock through [SharePoint ToolShell in 2025](/case-studies/SHAREPOINT_TOOLSHELL_2025.md) [27] (**Confirmed** in the library). The vendor says the attackers aimed to take Active Directory, create users and run encryptors [14] (**Confirmed** as the vendor's statement): ransomware, as KEV's flags agree [9] (**Confirmed**).
 
 ## Part 4: impact and response
 

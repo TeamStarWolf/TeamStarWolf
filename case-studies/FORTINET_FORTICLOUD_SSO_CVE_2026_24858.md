@@ -158,9 +158,9 @@ Not checked: national CERT pages (CERT-FR, the Canadian Centre for Cyber Securit
 
 Not affected: FortiAnalyzer 6.4, FortiManager 8.0 and 6.4, FortiNAC-F 7.4 and 7.2, FortiOS 8.0 and 6.4, and FortiWeb 7.2 and 7.0 [1] (**Confirmed**).
 
-**What the intruder did.** Fortinet says the main operations were downloading the customer configuration file and adding an administrator account for persistence, with a local administrator created in almost all cases [1] [2] (**Confirmed**). The observed account names include audit, backup, itadmin, secadmin, support, backupadmin, deploy, remoteadmin, security, svcadmin and system; the list changed during analysis, so Fortinet advises reviewing every administrator account [1] (**Confirmed**). CISA's alert relays Fortinet's observation of unauthorized firewall configuration changes, unauthorized account creation and VPN configuration changes that gave the new accounts access [7] (**Confirmed**).
+**What the intruder did.** Fortinet says the main operations were downloading the customer configuration file and adding an administrator account for persistence, with a local administrator created in almost all cases [1] [2] (**Confirmed**). The observed account names include audit, backup, itadmin, secadmin, support, backupadmin, deploy, remoteadmin, security, svcadmin, system and adccount (as Fortinet spells it); the list changed during analysis, so Fortinet advises reviewing every administrator account [1] (**Confirmed**). CISA's alert relays Fortinet's observation of unauthorized firewall configuration changes, unauthorized account creation and VPN configuration changes that gave the new accounts access [7] (**Confirmed**).
 
-**The trail it left.** Fortinet points to three FortiOS system events: an administrator login with method sso (logid 0100032001), a configuration download from the GUI (logid 0100032095) and creation of a system.admin object (logid 0100044547) [2] (**Confirmed**).
+**The trail it left.** Fortinet's blog gives two FortiOS system events: an administrator login with method sso (logid 0100032001) and creation of a system.admin object (logid 0100044547) [2] (**Confirmed**). Arctic Wolf adds a third, a configuration download from the GUI (logid 0100032095) [9] (**Reported**).
 
 ## Part 3: who and why
 

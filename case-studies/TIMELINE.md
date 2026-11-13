@@ -1111,6 +1111,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 15 November 2017: The White House publishes the unclassified VEP charter
   - 1 June 2023: Kaspersky discloses Operation Triangulation; the FSB blames US intelligence the same day
   - 19 October 2025: China's Ministry of State Security alleges an NSA campaign against the National Time Service Center
+- [The Year 2001 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2001.md). Period record, January to December 2001. Sectors: cross-sector, government, defense, technology, finance, retail, telecommunications. CVEs: CVE-2000-0884, CVE-2001-0008, CVE-2001-0010, CVE-2001-0144, CVE-2001-0154, CVE-2001-0241 and 3 more. ATT&CK groups: G0020 Equation. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2001_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2001_Case_Study.pptx).
+  - 18 January 2001: IN-2001-01: the self-propagating ramen toolkit roots Linux hosts through wu-ftpd, rpc.statd and LPRng flaws
+  - 29 January 2001: 29 and 30 January: VeriSign issues two "Microsoft Corporation" code-signing certificates to an impostor
+  - 12 February 2001: CA-2001-03: VBS/OnTheFly ("Anna Kournikova") mails itself through Outlook
+  - 8 May 2001: CA-2001-11: the sadmind/IIS worm crosses from Solaris to IIS
+  - 18 June 2001: MS01-033: the idq.dll overflow later used by Code Red, about four weeks before the worm
+  - 19 July 2001: CAIDA: Code-Red v2 infects 359,104 hosts in under 14 hours
+  - 18 September 2001: CA-2001-26: Nimda spreads by five paths, including the back doors earlier worms left
+  - 9 October 2001: Seattle jury convicts Vasiliy Gorshkov on 20 counts
+  - 26 October 2001: USA PATRIOT Act amends the computer fraud and surveillance statutes
+  - 31 October 2001: Vitek Boden sentenced over the Maroochy Shire sewerage intrusion (ATT&CK campaign C0020)
+  - 23 November 2001: Council of Europe Convention on Cybercrime done at Budapest
+  - 20 December 2001: MS01-059 and CA-2001-37: UPnP overflow leaves Windows XP vulnerable in its default configuration
 
 ### 2000 <!-- {docsify-ignore} -->
 

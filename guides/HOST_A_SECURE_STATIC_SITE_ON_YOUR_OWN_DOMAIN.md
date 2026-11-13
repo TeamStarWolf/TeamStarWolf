@@ -227,9 +227,9 @@ When you need a little server-side logic (a form endpoint, an API that reads a d
 | 9 | Cloudflare Docs, Modify response headers with Transform Rules: https://developers.cloudflare.com/rules/transform/response-header-modification/ | 2026-11-12 | Confirmed |
 | 10 | Cloudflare Docs, DNSSEC: https://developers.cloudflare.com/dns/dnssec/ | 2026-11-12 | Confirmed |
 | 11 | Cloudflare Docs, Workers pricing and limits (free plan requests): https://developers.cloudflare.com/workers/platform/pricing/ | 2026-11-12 | Confirmed |
+| 12 | The procedure as performed on 2026-11-11 for this library's domain: certificate approved about one minute after the custom domain was set, the old address redirecting 301, the `www` certificate missing because its record was added after issuance | 2026-11-11 | Confirmed |
 | 13 | Cloudflare Docs, Enable Universal SSL certificates: https://developers.cloudflare.com/ssl/edge-certificates/universal-ssl/enable-universal-ssl/ | 2026-11-13 | Confirmed |
 | 14 | Cloudflare Docs, Edge and Browser Cache TTL: https://developers.cloudflare.com/cache/how-to/edge-browser-cache-ttl/ | 2026-11-13 | Confirmed |
-| 12 | The procedure as performed on 2026-11-11 for this library's domain: certificate approved about one minute after the custom domain was set, the old address redirecting 301, the `www` certificate missing because its record was added after issuance | 2026-11-11 | Confirmed |
 
 ## Related references
 

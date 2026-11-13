@@ -44,6 +44,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 - [Five Hacks and Why They Worked: The Cases in Fancy Bear Goes Phishing](/case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md)
 - [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md)
+- [The IDScan.net Driver's License Breach of 2026: A Case Study](/case-studies/IDSCAN_DRIVERS_LICENSE_BREACH_2026.md)
 
 <!-- library-refs:end -->
 

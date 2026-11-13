@@ -2608,6 +2608,12 @@ pages:
     read_when: "You want the dated record of the 2026 Canvas breach and extortion, why it never reached a CVE queue, or which SaaS support-access and token controls the case argues for"
     start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
     pairs_with: "[SaaS Security Reference](/SAAS_SECURITY_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [The DentaQuest Health-Data Breach of May 2026: A Case Study](/case-studies/DENTAQUEST_BREACH_2026.md)"
+  case-studies/IDSCAN_DRIVERS_LICENSE_BREACH_2026.md:
+    audience: "Third-party risk and privacy teams, identity and access teams, detection engineers, fraud and help-desk leads and vulnerability management leads"
+    level: "Intermediate"
+    read_when: "You want the dated record of the 2026 IDScan.net breach and the Nexus driver's license service, why the vendor's notice and the reporting disagree, or which vendor, retention and monitoring controls the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Privacy Engineering Reference](/PRIVACY_ENGINEERING_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [The Year 2026 in Intrusions](/case-studies/CHRONICLE_2026.md)"
     reviewed: null
   case-studies/IVANTI_CONNECT_SECURE_2026.md:
     audience: "Teams that run Ivanti Connect Secure or another remote-access VPN appliance, vulnerability management leads, incident responders and threat intelligence analysts"

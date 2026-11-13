@@ -1,0 +1,89 @@
+{
+  "name": "TeamStarWolf - IDScan.net Driver's License Breach 2026 Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the IDScan.net driver's license breach case study: the unauthorized access to a portion of the vendor's cloud environment (the VeriScan platform) from 4 April to 2 September 2026, and the Nexus search service that offered the records to buyers from 31 August. No source names ATT&CK ids, so every binding is the study's own reading. Score 60: a primary states the behavior and the fit is partial. Score 40: not observed; the technique describes what the records enabled for buyers, known only from Reported sources. Scores measure the strength of the tie to this record, not severity. No initial access, credential or exfiltration technique is in the record, so none is bound. Comments carry the study's source numbers.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "60: stated in a primary, partial fit",
+      "color": "#86efac"
+    },
+    {
+      "label": "40: not observed, Reported context only",
+      "color": "#d1fae5"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/IDSCAN_DRIVERS_LICENSE_BREACH_2026.md; ATT&CK v20.0 technique data"
+    },
+    {
+      "name": "score_meaning",
+      "value": "60 = stated in a primary, partial fit; 40 = not observed, Reported context only (what the records enabled for buyers). No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The IDScan.net Driver's License Breach of 2026: A Case Study",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/IDSCAN_DRIVERS_LICENSE_BREACH_2026"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1530",
+      "tactic": "collection",
+      "score": 60,
+      "comment": "Data from Cloud Storage. Unauthorized access to a portion of IDScan.net's cloud environment, limited to the VeriScan platform, 4 Apr to 2 Sep 2026; scans later offered in Nexus. A partial fit: the vendor says cloud environment and names no storage service. Sources: [1] [4].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1589",
+      "tactic": "reconnaissance",
+      "score": 40,
+      "comment": "Gather Victim Identity Information. Not observed: the records on offer in Nexus (seen 1 Sep 2026) are identity information a buyer could gather; no buyer activity is in the record. Reported context only. Sources: [1] [4].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1597",
+      "tactic": "reconnaissance",
+      "score": 40,
+      "comment": "Search Closed Sources. Not observed: Nexus offered buyers search access to the records on a closed forum (listing flagged 31 Aug 2026), enabling this technique for buyers. Reported context only. Sources: [4] [5].",
+      "enabled": true
+    }
+  ]
+}

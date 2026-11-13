@@ -156,7 +156,7 @@
       "techniqueID": "T1552.004",
       "tactic": "credential-access",
       "score": 60,
-      "comment": "Private Keys. SSH keys swept from runners (19 Mar 2026); ATT&CK lists it for S9041. Sources: [3] [18].",
+      "comment": "Private Keys. SSH keys swept from runners (19 Mar 2026); ATT&CK lists it for G1056 and S9041. Sources: [3] [18].",
       "enabled": true
     },
     {

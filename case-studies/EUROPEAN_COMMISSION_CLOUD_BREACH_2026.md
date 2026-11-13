@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 25 min (5,640 words at 230 words a minute)
+About 25 min (5,646 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -231,7 +231,7 @@ Tactic names follow ATT&CK v20.0, which splits the former Defense Evasion tactic
 | [T1195.001](/mitre/techniques/T1195-001.md) | Compromise Software Dependencies and Development Tools | Initial Access | Poisoned trivy-action and setup-trivy tags, 19 Mar | [3] | G1056 |
 | [T1583.001](/mitre/techniques/T1583-001.md) | Domains | Resource Development | Typosquatted exfiltration domain, 19 Mar | [3] | G1056 |
 | [T1003.007](/mitre/techniques/T1003-007.md) | Proc Filesystem | Credential Access | `Runner.Worker` process memory read, 19 Mar | [3] | S9041 |
-| [T1552.004](/mitre/techniques/T1552-004.md) | Private Keys | Credential Access | SSH keys swept, 19 Mar | [3] | S9041 |
+| [T1552.004](/mitre/techniques/T1552-004.md) | Private Keys | Credential Access | SSH keys swept, 19 Mar | [3] | G1056, S9041 |
 | [T1560.001](/mitre/techniques/T1560-001.md) | Archive via Utility | Collection | Haul encrypted with AES-256-CBC and RSA-4096 before exfiltration, 19 Mar | [3] | S9041 |
 | [T1041](/mitre/techniques/T1041.md) | Exfiltration Over C2 Channel | Exfiltration | Data sent to attacker infrastructure, 19 Mar | [3] | S9041 |
 | [T1567.001](/mitre/techniques/T1567-001.md) | Exfiltration to Code Repository | Exfiltration | Fallback to a public `tpcp-docs` repository, 19 Mar | [3] | S9041 |
@@ -265,9 +265,9 @@ The library also relates [T1195.002](/mitre/techniques/T1195-002.md) to [CAPEC-1
 
 | Countermeasure | Id | Library mappings to this study's techniques | Guidance it matches | Source |
 |---|---|---|---|---|
-| [Software Update](/mitre/d3fend/software-update.md) | D3-SU | T1195.002 | Upgrade to a known-safe Trivy | [1] [18] |
-| [Software Inventory](/mitre/d3fend/software-inventory.md) | D3-SWI | T1195.002 | Audit Trivy versions in all environments | [1] [18] |
-| [Restore Software](/mitre/d3fend/restore-software.md) | D3-RS | T1195.002 | Malicious artifacts removed and safe tags re-issued | [3] [7] [18] |
+| [Software Update](/mitre/d3fend/software-update.md) | D3-SU | T1195.001, T1195.002 | Upgrade to a known-safe Trivy | [1] [18] |
+| [Software Inventory](/mitre/d3fend/software-inventory.md) | D3-SWI | T1195.001, T1195.002 | Audit Trivy versions in all environments | [1] [18] |
+| [Restore Software](/mitre/d3fend/restore-software.md) | D3-RS | T1195.001, T1195.002 | Malicious artifacts removed and safe tags re-issued | [3] [7] [18] |
 | [Credential Revocation](/mitre/d3fend/credential-revocation.md) | D3-CR | T1098.001, T1528 | New keys disabled and account rights revoked | [1] [18] |
 | [Credential Rotation](/mitre/d3fend/credential-rotation.md) | D3-CRO | T1098.001, T1528 | Rotate every secret exposed to Trivy | [1] [8] [18] |
 | [Credential Compromise Scope Analysis](/mitre/d3fend/credential-compromise-scope-analysis.md) | D3-CCSA | T1098.001, T1528 | Treat all reachable secrets as exposed | [4] [18] |
@@ -275,8 +275,8 @@ The library also relates [T1195.002](/mitre/techniques/T1195-002.md) to [CAPEC-1
 | [User Account Permissions](/mitre/d3fend/user-account-permissions.md) | D3-UAP | T1078.004 | Least-privilege CI/CD credentials and SCPs | [1] [18] |
 | [Access Modeling](/mitre/d3fend/access-modeling.md) | D3-AM | T1078.004 | Knowing which keys reach which accounts | [1] [18] |
 | [Multi-factor Authentication](/mitre/d3fend/multi-factor-authentication.md) | D3-MFA | T1098.001, T1528 | Phishing-resistant MFA on publishing accounts | [8] [18] |
-| [Outbound Traffic Filtering](/mitre/d3fend/outbound-traffic-filtering.md) | D3-OTF | T1567.001 | Runtime egress monitoring of runners | [8] [18] |
-| [Network Traffic Community Deviation](/mitre/d3fend/network-traffic-community-deviation.md) | D3-NTCD | T1041, T1098.001, T1567.001 | The abnormal-traffic alert that started the response | [1] [18] |
+| [Outbound Traffic Filtering](/mitre/d3fend/outbound-traffic-filtering.md) | D3-OTF | T1008, T1567.001 | Runtime egress monitoring of runners | [8] [18] |
+| [Network Traffic Community Deviation](/mitre/d3fend/network-traffic-community-deviation.md) | D3-NTCD | T1008, T1041, T1098.001, T1567.001 | The abnormal-traffic alert that started the response | [1] [18] |
 
 The technique mappings in the third column are the library's `d3fend_countermeasures.jsonl` (**Confirmed** for the data [18]); pairing each countermeasure with the cited guidance is this study's reading (**Inferred**).
 

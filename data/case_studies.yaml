@@ -1868,6 +1868,32 @@ studies:
       - {"date": "2021-10-04", "label": "FireEye, Inc. becomes Mandiant, Inc.; the products business sale closes on 8 October"}
       - {"date": "2022-04-27", "label": "Mandiant merges UNC2452 into APT29"}
       - {"date": "2022-09-12", "label": "Google completes its acquisition of Mandiant"}
+  case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md:
+    kind: "vulnerability"
+    title: "The Microsoft Office Security Feature Bypass of 2026 (CVE-2026-21509) and APT28: A Case Study"
+    start: "2025-12"
+    end: "2026-03"
+    core_start: "2026-01-26"
+    core_end: "2026-02-02"
+    sectors: ["government"]
+    cves: ["CVE-2026-21509", "CVE-2026-21514", "CVE-2022-30190", "CVE-2023-23397", "CVE-2018-14634", "CVE-2025-52691", "CVE-2026-23760", "CVE-2026-24061"]
+    actors: ["G0007"]
+    tags: ["Microsoft Office", "OLE", "COM", "security feature bypass", "spearphishing", "APT28", "Covenant", "Filen", "Ukraine", "KEV"]
+    pdf: "Microsoft_Office_CVE_2026_21509_Case_Study.pdf"
+    pptx: "Microsoft_Office_CVE_2026_21509_Case_Study.pptx"
+    events:
+      - {"date": "2025-07", "label": "APT28's Covenant begins using the Filen cloud storage service for command and control, per ESET (Reported)"}
+      - {"date": "2025-09-16", "label": "Sekoia publishes Operation Phantom Net Voxel with the same building blocks (Reported)"}
+      - {"date": "2025-12-30", "label": "Microsoft reserves CVE-2026-21509"}
+      - {"date": "2026-01-12", "label": "Two domains later used in the chain are registered"}
+      - {"date": "2026-01-26", "label": "MSRC publishes the Office security feature bypass out of band, Exploited = Yes; KEV adds it, due 16 Feb"}
+      - {"date": "2026-01-27", "label": "COREPER-themed lure document created, per its metadata"}
+      - {"date": "2026-01-29", "label": "CERT-UA receives reports of mail posing as Ukraine's Hydrometeorological Center sent to more than 60 addresses"}
+      - {"date": "2026-02-01", "label": "CERT-UA#19542 attributes the activity to UAC-0001 (APT28)"}
+      - {"date": "2026-02-02", "label": "Zscaler publishes Operation Neusploit (Reported)"}
+      - {"date": "2026-02-10", "label": "KEV adds CVE-2026-21514, a Word flaw with the same CWE-807"}
+      - {"date": "2026-02-16", "label": "KEV due date for federal agencies"}
+      - {"date": "2026-03-10", "label": "ESET ties the January campaigns to Sednit's Covenant (Reported)"}
   case-studies/MITNICK_INTRUSIONS.md:
     kind: "actor"
     title: "Kevin Mitnick: Ghost in the Wires and The Art of Intrusion"

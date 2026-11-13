@@ -80,6 +80,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [Other State-Linked Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_OTHER_STATES.md)
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
 - [The Binance Hot-Wallet Theft of October 2026: A Case Study](/case-studies/BINANCE_HEIST_2026.md)
+- [The Microsoft Office Security Feature Bypass of 2026 (CVE-2026-21509) and APT28: A Case Study](/case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md)
 
 <!-- library-refs:end -->
 

@@ -1557,6 +1557,32 @@ studies:
       - {"date": "2026-04-07", "label": "AA26-097A on the Iranian-affiliated campaign disrupting exposed Rockwell PLCs"}
       - {"date": "2026-07-26", "label": "Coordinated attack on OT at more than 30 Minnesota community water systems"}
       - {"date": "2026-10-20", "label": "Siemens Software Center CVE-2026-110936 added to KEV"}
+  case-studies/IVANTI_CONNECT_SECURE_2026.md:
+    kind: "vulnerability"
+    title: "The Ivanti Connect Secure Zero-Day Chain of October 2026 (CVE-2026-104935, CVE-2026-111357, CVE-2026-118527): A Case Study"
+    start: "2026-07"
+    end: "2026-11"
+    core_start: "2026-10-03"
+    core_end: "2026-10-30"
+    sectors: ["technology"]
+    cves: ["CVE-2026-104935", "CVE-2026-111357", "CVE-2026-118527", "CVE-2023-46805", "CVE-2024-21887", "CVE-2024-21893", "CVE-2025-0282", "CVE-2025-22457"]
+    actors: []
+    tags: ["Ivanti", "Connect Secure", "VPN", "edge device", "zero-day", "UTA0576", "KEV", "BOD 26-04"]
+    pdf: "Ivanti_Connect_Secure_2026_Case_Study.pdf"
+    pptx: "Ivanti_Connect_Secure_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-07", "label": "A portion of the CVE-2026-104935 flaw is patched in the 25.1.3.0 release (Reported)"}
+      - {"date": "2026-09-30", "label": "30 Sep to 7 Oct: an attacker virtual private server runs an OpenVPN server"}
+      - {"date": "2026-10-01", "label": "Defused says it first saw the activity on public honeypots and customer instances (Reported)"}
+      - {"date": "2026-10-03", "label": "Exploitation of the victim appliance, Connect Secure 22.8R2.4 (Build 19097), begins"}
+      - {"date": "2026-10-05", "label": "5 to 10 Oct: Volexity investigates at a customer and shares indicators with its customers on 10 Oct"}
+      - {"date": "2026-10-13", "label": "Ivanti discloses CVE-2026-104935 under limited exploitation; KEV lists it, due 16 Oct; Volexity publishes"}
+      - {"date": "2026-10-14", "label": "INCIBE-CERT publishes INCIBE-2026-737"}
+      - {"date": "2026-10-15", "label": "The MITRE CNA publishes CVE-2026-111357, the root escalation, as exploited in the wild; no vendor fix yet"}
+      - {"date": "2026-10-29", "label": "Ivanti ships 25.1.1.3 and 22.8R2.6, fixing CVE-2026-111357 and CVE-2026-118527"}
+      - {"date": "2026-10-30", "label": "KEV adds CVE-2026-111357 (due 2 Nov) and CVE-2026-118527 (due 13 Nov); CISA revises its alert"}
+      - {"date": "2026-11-03", "label": "CVE-2026-118527 record published, four days after its KEV listing"}
+      - {"date": "2026-11-10", "label": "Ivanti's November Security Update does not mention Connect Secure"}
   case-studies/LINUX_TCP_UAF_2026.md:
     kind: "vulnerability"
     title: "The CVE-2026-98432 Linux Kernel Flaw and an AI-Written Exploit: A 2026 Case Study"

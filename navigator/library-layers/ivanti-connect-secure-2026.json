@@ -1,0 +1,233 @@
+{
+  "name": "TeamStarWolf - Ivanti Connect Secure Zero-Day Chain (October 2026) Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the case study of the October 2026 Ivanti Connect Secure zero-day chain (CVE-2026-104935, CVE-2026-111357, CVE-2026-118527). No source names ATT&CK ids, so every binding is the study's own. Score 75: a CVE record or government advisory describes the behavior. Score 50: Volexity's report describes it. Score 25: a capability, an assessment or a close-but-inexact fit. Comments carry the study's source numbers.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "75: described in a CVE record or government advisory",
+      "color": "#15803d"
+    },
+    {
+      "label": "50: described in Volexity's report",
+      "color": "#86efac"
+    },
+    {
+      "label": "25: capability, assessment or inexact fit, labelled in the comment",
+      "color": "#d1fae5"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/IVANTI_CONNECT_SECURE_2026.md; ATT&CK v20.0 technique data"
+    },
+    {
+      "name": "score_meaning",
+      "value": "75 = CVE record or government advisory; 50 = Volexity's report; 25 = capability, assessment or inexact fit. No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Ivanti Connect Secure Zero-Day Chain of October 2026 (CVE-2026-104935, CVE-2026-111357, CVE-2026-118527): A Case Study",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/IVANTI_CONNECT_SECURE_2026"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 75,
+      "comment": "Authentication bypass and code execution against the internet-facing appliance from 3 Oct 2026, CVE-2026-104935 (CVE record 13 Oct; Volexity 13 Oct). Sources: [3] [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 75,
+      "comment": "Root through the dsinvoked broker trusting DSCache configuration data, CVE-2026-111357 (CVE record 15 Oct 2026; Volexity 13 Oct). Sources: [4] [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 75,
+      "comment": "Data returned in the exploit's own responses with no separate channel (Volexity, 13 Oct 2026); CISA's revised alert cites data exfiltration (30 Oct 2026). Sources: [10] [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Ivanti debug log tampered with (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1685.006",
+      "tactic": "defense-impairment",
+      "score": 50,
+      "comment": "Recent entries selectively removed from the Linux audit log (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1036.003",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Renamed packet-capture tool run on the appliance (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1552",
+      "tactic": "credential-access",
+      "score": 50,
+      "comment": "Stored LDAP credentials extracted; LDAP queries for LAPS passwords and BitLocker recovery keys (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 50,
+      "comment": "LDAP and HTTP Basic credentials and NTLM hashes harvested from traffic (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 50,
+      "comment": "LDAP and HTTP Basic credentials and NTLM hashes harvested from traffic (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 50,
+      "comment": "Password spraying against directory accounts (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1654",
+      "tactic": "discovery",
+      "score": 50,
+      "comment": "Logs reviewed for valid usernames (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 50,
+      "comment": "Commands and results carried in the exploit chain's own HTTPS requests and responses (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1587.004",
+      "tactic": "resource-development",
+      "score": 25,
+      "comment": "Assessment: a zero-day chain developed for the appliance, with medium-confidence LLM use in exploit development (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1588.007",
+      "tactic": "resource-development",
+      "score": 25,
+      "comment": "Assessment: medium-confidence use of large language models for exploit development and post-exploitation (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1601.001",
+      "tactic": "defense-impairment",
+      "score": 25,
+      "comment": "Close but inexact fit: library code patched only in memory during exploitation and then restored, which the Integrity Checker Tool could not see (Volexity, 13 Oct 2026). Sources: [10] [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "Uploaded Perl script runs a Bash script, which runs the next stage (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059.006",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "In-memory Python script, run by the Bash stage, carries the privilege escalation exploit (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1140",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Python stage delivered Base64-encoded and zlib-compressed, then decoded on the appliance (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "LDAP and Kerberos helper scripts deleted after use; the root-stage payload unlinks its own file (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1564.001",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Renamed packet-capture tool and its capture files kept in a hidden dot-directory (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1087.002",
+      "tactic": "discovery",
+      "score": 50,
+      "comment": "Active Directory queried through a compromised service account and the results exported (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 50,
+      "comment": "DNS resolver configuration exfiltrated and the victim's internal domains resolved (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 50,
+      "comment": "Appliance configuration and authentication data collected for exfiltration (Volexity, 13 Oct 2026). Sources: [12].",
+      "enabled": true
+    }
+  ]
+}

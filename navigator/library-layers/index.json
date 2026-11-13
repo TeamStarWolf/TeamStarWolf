@@ -370,5 +370,47 @@
     "name": "TeamStarWolf - The Year 2026 in Intrusions",
     "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2026 record supports, from 1 January to 11 November 2026: the technique tables of the CISA and partner joint advisories of the year (AA26-097A, AA26-113A, AA26-194A, AA26-204A, AA26-222A, AA26-231A, AA26-237A, AA26-281A and AA26-293A), Microsoft's Storm-0940 and Storm-3168 reports, GTIG's PeopleSoft report, ESET's DynoWiper analysis, and the behaviors the year's vendor, victim and government records describe (Cisco SD-WAN, PAN-OS, Citrix, Ivanti, BeyondTrust, Trivy, LiteLLM, axios and the other supply-chain compromises). Each comment names source numbers from case-studies/CHRONICLE_2026.md. Scores: 100 an opened source prints the id, 70 the source describes the behavior and the study assigns the id, 40 the mapping is Inferred.",
     "blurb": "Techniques from the dated 2026 record: the Trivy, LiteLLM and axios supply-chain compromises, the exploited edge appliances (Cisco SD-WAN, PAN-OS, Citrix, Ivanti, BeyondTrust), compromised routers in covert networks, MFA tampering and stolen sessions, the year's #StopRansomware advisories and the first advisories that print AI resource development. A curated layer for the 2026 chronicle."
+  },
+  {
+    "file": "ivanti-connect-secure-2026.json",
+    "name": "TeamStarWolf - Ivanti Connect Secure Zero-Day Chain (October 2026) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the October 2026 Ivanti Connect Secure zero-day chain supports: the CVE records and CISA's alert for the exploitation, privilege escalation and data theft, and Volexity's report of UTA0576's work on the appliance. Each comment names source numbers from case-studies/IVANTI_CONNECT_SECURE_2026.md. Scores: 75 is a CVE record or government advisory, 50 is Volexity's report, 25 is a capability, an assessment or an inexact fit.",
+    "blurb": "Techniques from the Ivanti Connect Secure zero-day chain of October 2026, from the authentication bypass and root escalation on a fully patched appliance to the in-memory patching, log tampering and directory-credential theft Volexity described. A curated layer for the Ivanti Connect Secure case study."
+  },
+  {
+    "file": "connectwise-storm-0940-2026.json",
+    "name": "TeamStarWolf - ConnectWise Cloud Backup Compromise October 2026 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the ConnectWise Cloud Backup compromise case study, from Storm-0940's 10 to 14 October 2026 password spray through the 15 October sign-ins as ConnectWise's multi-tenant Microsoft 365 apps, the role self-assignment and the secrets planted on other apps, to the Graph and Key Vault activity Microsoft reported on 21 October. Score 100: Microsoft lists the technique id for this activity and a primary describes the dated behavior. Score 60: a primary describes the behavior and the id is the study's own mapping (T1110.003 only). Scores measure the strength of the tie to this record, not severity. Comments carry the study's source numbers.",
+    "blurb": "Techniques from the ConnectWise Cloud Backup record: the password spray, sign-ins as a trusted vendor's multi-tenant app, stolen Graph tokens, a self-assigned Global Administrator role, secrets added to other apps, and Graph and Key Vault discovery and secret reads. A curated layer for the ConnectWise October 2026 case study."
+  },
+  {
+    "file": "cisco-sdwan-cve-2026-20127.json",
+    "name": "TeamStarWolf - Cisco Catalyst SD-WAN Authentication Bypass (CVE-2026-20127) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the 2026 Cisco Catalyst SD-WAN authentication bypass (CVE-2026-20127) supports: Cisco's advisories and the CISA and partner notices for the exploitation, root escalation and log tampering, and the Talos and Mandiant reports on UAT-8616, UAT-11473 and the other clusters. Each comment names source numbers from case-studies/CISCO_SDWAN_CVE_2026_20127.md. Scores: 75 is a vendor advisory or government notice, 50 is a vendor threat-intelligence report, 25 is an inexact fit or other clusters' activity.",
+    "blurb": "Techniques from the Cisco Catalyst SD-WAN authentication bypass of 2026, from the peering bypass and the downgrade route to root to the SSH keys, account churn and log clearing Talos and CISA described. A curated layer for the Cisco SD-WAN case study."
+  },
+  {
+    "file": "stryker-handala-wiper-2026.json",
+    "name": "TeamStarWolf - Stryker Device-Wipe Attack March 2026 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the Stryker device-wipe case study, from the MOIS persona domains seized on 19 March 2026 through the compromised cloud administrator path to the remote wipe of managed devices on 11 March 2026. Scores of 100, 60 and 40 measure the tie to the record. Each comment names source numbers from case-studies/STRYKER_HANDALA_WIPER_2026.md.",
+    "blurb": "Techniques from the Stryker device-wipe record of March 2026: the Handala persona domains, a compromised Entra ID administrator path, a new Global Administrator and the built-in remote wipe that erased managed devices. A curated layer for the Stryker case study."
+  },
+  {
+    "file": "binance-heist-2026.json",
+    "name": "TeamStarWolf - Binance Hot-Wallet Theft October 2026 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the Binance hot-wallet theft case study, from the June 2026 tampered installer and the September fake job process to the 29 October container deployment and theft. No source names ATT&CK ids, so every binding is the study's own reading. Score 100: Binance's own record states the behavior and the technique fits directly. Score 60: Binance's record states the behavior and the fit is the study's inference. Score 40: the behavior, or the detail the technique turns on, is known only from Reported sources. Scores measure the strength of the tie to this record, not severity. The signing-service abuse, the EIP-7702 delegations and the laundering have no ATT&CK technique and are left out. Comments carry the study's source numbers.",
+    "blurb": "Techniques from the Binance theft record, from the tampered installer and the fake job assignment through the internal AI tool, the stolen deployment token and the container deployment to the hot-wallet theft. A curated layer for the Binance October 2026 case study."
+  },
+  {
+    "file": "european-refrigeration-attacks-2026-enterprise.json",
+    "name": "TeamStarWolf - Refrigeration-Controller Attacks on European Supermarkets and Blood Services, 2026",
+    "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified record of the 2026 refrigeration-controller attacks on European supermarkets and blood services supports: the reconnaissance France's C4 describes (Modbus scanning, the FOFA service), the access classes the US joint fact sheet lists, Sekoia's honeypot telemetry, the default credentials at the Ransom-ISAC site and the supplier path to the French blood service. Each comment names source numbers from case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md. The mappings are this study's reading.",
+    "blurb": "Techniques from the 2026 refrigeration-controller attacks in Europe: Modbus scanning and the FOFA service, exposed and end-of-life controllers, default accounts and password spraying, and the supplier path to the French blood service. A curated layer for the European refrigeration attacks case study."
+  },
+  {
+    "file": "citrix-netscaler-september-2026.json",
+    "name": "TeamStarWolf - Citrix NetScaler Zero-Days (September and October 2026) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the September and October 2026 Citrix NetScaler zero-days supports: Citrix's bulletins, the CVE and KEV records and CISA's alert for the exploitation and the denial of service, and the GTIG and Mandiant, Unit 42, Rapid7 and GreyNoise reports of the web shells, tunneling, configuration theft and log scrubbing. Each comment names source numbers from case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md. Scores: 75 is a vendor bulletin, CVE record or government advisory, 50 is a security vendor's report, 25 is a capability or an inexact fit.",
+    "blurb": "Techniques from the Citrix NetScaler zero-days of September and October 2026, from the August fingerprinting and the pre-authentication exploits to the web shells, the Python tunneler, the theft of bind secrets and TLS keys from the appliance configuration, and the SAML denial of service. A curated layer for the Citrix NetScaler case study."
   }
 ]

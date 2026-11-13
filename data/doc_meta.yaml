@@ -2329,6 +2329,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 4: exploited vulnerabilities](#part-4-exploited-vulnerabilities), [Part 7: the defender view](#part-7-the-defender-view)"
     pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
     reviewed: null
+  case-studies/BINANCE_HEIST_2026.md:
+    audience: "Security engineers and leads at exchanges, custodians and other crypto firms, detection engineers, threat intelligence analysts and vulnerability management leads"
+    level: "Intermediate"
+    read_when: "You want the dated record of the October 2026 Binance theft, how a fake job assignment and an internal AI tool led to the hot wallets, or which controls the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md), [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md), [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md), [North Korea-attributed threat actors](/case-studies/THREAT_ACTORS_NORTH_KOREA.md)"
+    reviewed: null
   case-studies/CHANGE_HEALTHCARE_2024.md:
     audience: "Healthcare security leaders, incident responders and identity and vulnerability management teams"
     level: "Intermediate"
@@ -2420,6 +2427,20 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the year at a glance](#part-1-the-year-at-a-glance), [Part 15: the defender view](#part-15-the-defender-view)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [AI Threats in the Cybersecurity Industry: A 2026 Case Study](/case-studies/AI_THREATS_2026.md), [The Year 2025 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2025.md)"
     reviewed: null
+  case-studies/CISCO_SDWAN_CVE_2026_20127.md:
+    audience: "Network teams that run Cisco Catalyst SD-WAN or another SD-WAN or edge controller, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run Cisco Catalyst SD-WAN, you need the facts of CVE-2026-20127, UAT-8616 and Emergency Directive 26-03, or you want to decide how to patch, hunt back to 2023 and rebuild an SD-WAN controller"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)"
+    reviewed: null
+  case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md:
+    audience: "Teams that run NetScaler ADC or NetScaler Gateway or another remote-access appliance, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run NetScaler, you need the facts of the September and October 2026 zero-days and their three KEV-listed CVEs, or you want to decide how to preserve evidence, patch, hunt and recover an edge appliance that was exposed before the fix"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)"
+    reviewed: null
   case-studies/CL0P_FILE_TRANSFER_2023.md:
     audience: "Vulnerability management leads, incident responders and owners of managed file transfer systems"
     level: "Intermediate"
@@ -2433,6 +2454,13 @@ pages:
     read_when: "You want the public record of cloud incidents from 2011 to 2026 in one place, you need to tell the customer's share of a cloud breach from the provider's, or you want to know which controls the record says matter most"
     start_at: "[Executive summary](#executive-summary), [Part 1: whose job is it? Shared responsibility as the providers state it](#part-1-whose-job-is-it-shared-responsibility-as-the-providers-state-it), [Part 7: the defender view](#part-7-the-defender-view)"
     pairs_with: "[Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Investigate a Cloud Compromise](/guides/INVESTIGATE_A_CLOUD_COMPROMISE.md)"
+    reviewed: null
+  case-studies/CONNECTWISE_STORM_0940_2026.md:
+    audience: "Microsoft 365 and Entra administrators, managed service providers, detection engineers, incident responders and vulnerability management leads"
+    level: "Intermediate"
+    read_when: "You want the dated record of the October 2026 ConnectWise Cloud Backup compromise, you need to tell tenants targeted from tenants compromised, or you want the controls for vendor apps with standing Microsoft Graph permissions"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [SaaS Security Reference](/SAAS_SECURITY_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Major Cloud Security Incidents](/case-studies/CLOUD_SECURITY_INCIDENTS.md)"
     reviewed: null
   case-studies/CUCKOOS_EGG_1986.md:
     audience: "Incident responders, detection engineers, threat intelligence analysts and anyone who has read The Cuckoo's Egg and wants the primary record behind it"
@@ -2468,6 +2496,13 @@ pages:
     read_when: "You need the facts of the eMudhra intermediate CA key compromise, you are checking whether your clients still trust the affected certificates, or you want the remediation steps by platform"
     start_at: "[Executive summary](#executive-summary), [The client-path exposure gap](#the-client-path-exposure-gap), [Remediation by platform and capability](#remediation-by-platform-and-capability)"
     pairs_with: "[Certificate Trust Incident Response](/CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md), [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)"
+    reviewed: null
+  case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md:
+    audience: "OT and facilities security engineers, vulnerability management leads, retail and healthcare defenders, and the contractors who run refrigeration supervision"
+    level: "Intermediate"
+    read_when: "You need the facts of the 2026 attacks on supermarket and blood-service refrigeration controllers in Europe, you run or contract out Danfoss, Copeland or Dixell supervisors, or you want to know what France's attribution covers and what it does not"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[ICS Attacks and Advisories, 2024 to 2026](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md), [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [Iran-attributed threat actors](/case-studies/THREAT_ACTORS_IRAN.md), [The Year 2026 in Intrusions](/case-studies/CHRONICLE_2026.md)"
     reviewed: null
   case-studies/EXCHANGE_MARAUDER_2021.md:
     audience: "Vulnerability management leads, incident responders and Exchange Server administrators"
@@ -2531,6 +2566,13 @@ pages:
     read_when: "You need the record of industrial control system incidents and advisories from 2024 to 2026, you want to know how the attacks and the published CVEs relate, or you need the attribution and the defender view for OT networks"
     start_at: "[Executive summary](#executive-summary), [Part 3: how the attacks and the CVEs relate](#part-3-how-the-attacks-and-the-cves-relate), [Part 5: the defender view](#part-5-the-defender-view)"
     pairs_with: "[ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Stuxnet: The Case Study](/case-studies/STUXNET.md)"
+    reviewed: null
+  case-studies/IVANTI_CONNECT_SECURE_2026.md:
+    audience: "Teams that run Ivanti Connect Secure or another remote-access VPN appliance, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run Ivanti Connect Secure, you need the facts of the October 2026 zero-day chain and its three CVEs, or you want to decide how to patch, hunt and recover an edge appliance whose integrity check came back clean"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)"
     reviewed: null
   case-studies/LINUX_TCP_UAF_2026.md:
     audience: "Linux administrators, vulnerability management leads and security engineers"
@@ -2678,6 +2720,13 @@ pages:
     read_when: "You run OpenSSH on Alpine Linux or another musl-based build, you need the facts of CVE-2026-123158 and its KEV deadline, or you want to decide exposure, fix it and triage a host where a login cannot be ruled out"
     start_at: "[Executive summary](#executive-summary), [Part 4: Exposure](#part-4-exposure), [Part 6: The defender view](#part-6-the-defender-view)"
     pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md), [The XZ Utils Backdoor](/case-studies/XZ_UTILS_BACKDOOR_2024.md)"
+    reviewed: null
+  case-studies/STRYKER_HANDALA_WIPER_2026.md:
+    audience: "Microsoft Intune and Entra administrators, healthcare and medical-technology security teams, incident responders, threat intelligence analysts and vulnerability management leads"
+    level: "Intermediate"
+    read_when: "You want the dated record of the March 2026 Stryker device-wipe attack, you need to separate the Handala persona's claims from what Stryker and the US government confirmed, or you want the controls that stop a compromised administrator from wiping every managed device"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md), [Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Iran-Attributed Threat Actors](/case-studies/THREAT_ACTORS_IRAN.md)"
     reviewed: null
   case-studies/STUXNET.md:
     audience: "ICS and OT security engineers, threat intelligence analysts and students of cyber conflict"

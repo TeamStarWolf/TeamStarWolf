@@ -40,6 +40,17 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 10 November 2026: N-central 2026.4 Hotfix 2 (2026.4.1.26) posted; N-able publishes seven CVE records, two at CVSS v4.0 9.3
   - 11 November 2026: All hosted N-central servers upgraded (status update, 01:04 dashboard time)
   - 11 November 2026: N-able blog: unauthenticated paths fixed, more hotfixes to come, calls claims it ignored disclosure inaccurate
+- [The Binance Hot-Wallet Theft of October 2026: A Case Study](/case-studies/BINANCE_HEIST_2026.md). Incident, June to November 2026 (core: 29 October 2026 to 1 November 2026). Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Binance_Heist_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Binance_Heist_2026_Case_Study.pptx).
+  - June 2026: A wallet developer downloads a tampered Homebrew installer; it is caught, but the engineer's role and colleagues are exposed
+  - September 2026: A second engineer's fake job assignment swaps a pyenv component; endpoint tools do not detect it
+  - 13 October 2026: IC3 warns that North Korean remote IT workers use facilitators and fraudulent hiring tradecraft (context)
+  - 20 October 2026: An internal AI tool takes over two more engineers' devices; one holds a container deployment token
+  - 29 October 2026: A container deployed with the stolen token abuses the signing service; hot wallets on ten chains drained from about 20:05 UTC
+  - 30 October 2026: Binance clears the EIP-7702 delegation at 00:10 UTC; Chainalysis names TraderTraitor; Update #2 gives about $6.3 billion
+  - 31 October 2026: FBI alert: North Korea responsible, TraderTraitor, 628 laundering addresses; Binance reports 98% of assets replenished
+  - 1 November 2026: Phase-one withdrawals resume on 15 networks
+  - 2 November 2026: Kim Yo Jong denies North Korea's role (Reported)
+  - 3 November 2026: Binance publishes its preliminary post-mortem; Chainalysis and TRM publish follow-ups
 - [The eMudhra Certificate Authority Key Compromise: A 2026 Case Study](/case-studies/EMUDHRA_CA_COMPROMISE_2026.md). Incident, April 2025 to November 2026 (core: 17 October 2026 to 10 November 2026). Sectors: technology. CVEs: CVE-2026-111943, CVE-2026-113470, CVE-2026-114406, CVE-2026-91403, CVE-2026-113812. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/eMudhra_CA_Compromise_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/eMudhra_CA_Compromise_2026_Case_Study.pptx).
   - 30 April 2025: Key ceremony produces 16 B and C series subordinate keys; a custom script re-creates weak ECDSA key objects
   - 29 May 2025: Invalid CRL signatures on the six G3B and G3C TLS intermediates, 29 May to 6 June 2025 (Bug 1970728)
@@ -53,6 +64,44 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 October 2026: Chrome Root Store removal reaches devices; Chrome Root Program posts its review on the incident bug
   - 7 November 2026: Eight RSA G2B and G2C intermediates from the same ceremony revoked, cessationOfOperation
   - 10 November 2026: eMudhra posts its Full Incident Report to the Mozilla bug
+- [The ConnectWise Cloud Backup Compromise of October 2026: A Case Study](/case-studies/CONNECTWISE_STORM_0940_2026.md). Incident, September to November 2026 (core: 15 October 2026 to 21 October 2026). Sectors: technology, cross-sector. CVEs: CVE-2024-1709, CVE-2025-3935, CVE-2024-1708, CVE-2026-84869. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ConnectWise_Storm_0940_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/ConnectWise_Storm_0940_2026_Case_Study.pptx).
+  - September 2026: Storm-0940 is using the ARTEX agentic framework against organizations from as early as September 2026, per Microsoft
+  - 10 October 2026: Password spray against 327 accounts at eight organizations: over 151,000 failed logons, no success (10 to 14 October)
+  - 15 October 2026: A ConnectWise app self-assigns Global Administrator in one tenant; client secrets valid to 2028 added to two other apps
+  - 15 October 2026: The Cloud Backup app signs in to customer tenants from 144.172.64[.]128 and obtains Graph tokens (06:13 to 08:44 UTC)
+  - 16 October 2026: Huntress confirms unauthorized sign-ins in 162 tenants; ConnectWise publishes its advisory
+  - 17 October 2026: ConnectWise confirms unauthorized access to application identities, disables seven, and revokes certificates
+  - 19 October 2026: Full credential reset completed; Huntress finds post-compromise activity in two of more than 10,000 tenants reviewed
+  - 21 October 2026: Microsoft assesses that Storm-0940, China-state aligned, was responsible, using ARTEX; phased restoration begins
+  - 28 October 2026: M365 backup restoration begins through a new app; partners must re-authorize each tenant
+  - 4 November 2026: Last advisory update: billing and some notifications still being restored
+  - 6 November 2026: Microsoft reports Storm-3358, a financially motivated cluster, also using ARTEX
+- [Refrigeration-Controller Attacks on European Supermarkets and Blood Services, 2026: A Case Study](/case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md). Campaign, May 2025 to November 2026 (core: 11 October 2026 to 10 November 2026). Sectors: retail, healthcare, energy. CVEs: CVE-2025-41450, CVE-2025-41451, CVE-2025-41452, CVE-2026-25085, CVE-2026-21718, CVE-2026-24663 and 1 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/European_Refrigeration_Attacks_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/European_Refrigeration_Attacks_2026_Case_Study.pptx).
+  - May 2025: Danfoss AK-SM 8xxA flaws disclosed, May to Aug 2025: CVE-2025-41450 and CISA ICSA-25-140-03, then CVE-2025-41451 and CVE-2025-41452
+  - 26 February 2026: CISA ICSA-26-057-10 lists 23 CVEs in Copeland XWEB Pro 1.12.1 and earlier
+  - 9 August 2026: Claroty Team82 publishes its Copeland XWEB Pro research; fixed firmware 1.13
+  - 11 October 2026: About 700 French retail sites compromised overnight 11 to 12 Oct: defrost set high, goods lost, at least 15 fire starts
+  - 12 October 2026: CERT-FR alert CERTFR-2026-ALE-012 names Danfoss AK-SM and AK-SC controllers; Paris prosecutor opens an investigation
+  - 14 October 2026: Copeland bulletin on XWEB supervisors, including the end-of-life XWEB EVO line
+  - 1 November 2026: Second wave, night of 1 to 2 Nov: stores in several European countries and the UK, and three French blood-service (EFS) sites
+  - 3 November 2026: NCSC Ireland advisory and CSIRTs Network CNW-2026-05; NoName057(16) and Z-Pentest claim on Telegram, unverified
+  - 4 November 2026: ENISA, the Commission, Europol EC3, the CSIRTs Network and EU-CyCLONe issue a joint statement
+  - 5 November 2026: CISA, FBI, HHS, USDA and DOT joint fact sheet on refrigeration and cold-chain monitoring systems
+  - 9 November 2026: France attributes the October wave to the IRGC's Shahid Kaveh unit; CERT-FR publishes CERTFR-2026-CTI-009
+  - 10 November 2026: KEV catalogVersion 2026.11.10 holds no Danfoss, Copeland or Dixell CVE
+- [The Ivanti Connect Secure Zero-Day Chain of October 2026 (CVE-2026-104935, CVE-2026-111357, CVE-2026-118527): A Case Study](/case-studies/IVANTI_CONNECT_SECURE_2026.md). Vulnerability, July to November 2026 (core: 3 October 2026 to 30 October 2026). Sectors: technology. CVEs: CVE-2026-104935, CVE-2026-111357, CVE-2026-118527, CVE-2023-46805, CVE-2024-21887, CVE-2024-21893 and 2 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ivanti_Connect_Secure_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Ivanti_Connect_Secure_2026_Case_Study.pptx).
+  - July 2026: A portion of the CVE-2026-104935 flaw is patched in the 25.1.3.0 release (Reported)
+  - 30 September 2026: 30 Sep to 7 Oct: an attacker virtual private server runs an OpenVPN server
+  - 1 October 2026: Defused says it first saw the activity on public honeypots and customer instances (Reported)
+  - 3 October 2026: Exploitation of the victim appliance, Connect Secure 22.8R2.4 (Build 19097), begins
+  - 5 October 2026: 5 to 10 Oct: Volexity investigates at a customer and shares indicators with its customers on 10 Oct
+  - 13 October 2026: Ivanti discloses CVE-2026-104935 under limited exploitation; KEV lists it, due 16 Oct; Volexity publishes
+  - 14 October 2026: INCIBE-CERT publishes INCIBE-2026-737
+  - 15 October 2026: The MITRE CNA publishes CVE-2026-111357, the root escalation, as exploited in the wild; no vendor fix yet
+  - 29 October 2026: Ivanti ships 25.1.1.3 and 22.8R2.6, fixing CVE-2026-111357 and CVE-2026-118527
+  - 30 October 2026: KEV adds CVE-2026-111357 (due 2 Nov) and CVE-2026-118527 (due 13 Nov); CISA revises its alert
+  - 3 November 2026: CVE-2026-118527 record published, four days after its KEV listing
+  - 10 November 2026: Ivanti's November Security Update does not mention Connect Secure
 - [PHP2Shell and the October 2026 Attack Wave: A Case Study](/case-studies/PHP2SHELL_OCTOBER_2026.md). Vulnerability, October 2026. Sectors: technology, finance. CVEs: CVE-2026-109618, CVE-2026-109619. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/PHP2Shell_October_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/PHP2Shell_October_2026_Case_Study.pptx).
   - 14 October 2026: ConnectWise identifies the Cloud Backup issue
   - 17 October 2026: Amazon MadPot sees PHP2Shell attempts four days before disclosure
@@ -80,6 +129,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 31 October 2026: NVD publishes WordPress CVE-2026-119977 with no CPE configuration yet
   - 3 November 2026: CISA lists CVE-2026-119977, due 6 November; 34 KEV additions in the thirty-day window
   - 3 November 2026: TeamStarWolf lab run, 3 to 4 November 2026: version and configuration checks on matched pairs and real hosts
+- [The Citrix NetScaler Zero-Days of September and October 2026 (CVE-2026-88771, CVE-2026-88772, CVE-2026-88779): A Case Study](/case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md). Vulnerability, August to November 2026 (core: 4 September 2026 to 9 October 2026). Sectors: government, finance, technology, education, healthcare. CVEs: CVE-2026-88771, CVE-2026-88772, CVE-2026-88779, CVE-2026-88773, CVE-2026-88774, CVE-2026-88775 and 11 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Citrix_Netscaler_September_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Citrix_Netscaler_September_2026_Case_Study.pptx).
+  - 19 August 2026: Citrix CTX696939 fixes the authentication bypass CVE-2026-19490, with no exploitation statement
+  - 21 August 2026: 21 to 22 Aug: version-fingerprinting requests to more than 100 systems (Reported)
+  - September 2026: Early Sep to 27 Sep: the CVE-2026-88772 campaign; DTLS web shell activity 4 to 24 Sep (Reported)
+  - 9 September 2026: KEV adds CVE-2026-19490, due 12 Sep, forensic triage Yes
+  - 10 September 2026: The NetScaler CNA reserves CVE-2026-88771, CVE-2026-88772 and CVE-2026-88779
+  - 20 September 2026: Earliest CVE-2026-88771 attempts; a command-injection web shell against a US organization on 21 Sep (Reported)
+  - 26 September 2026: watchTowr publicly confirms the rumours; NCSC-NL sends a TLP:AMBER pre-notification (Reported)
+  - 27 September 2026: Citrix CTX697096; KEV adds CVE-2026-88771 and CVE-2026-88772, due 30 Sep; CISA, CERT-EU and NCSC-NL advisories
+  - 27 September 2026: Dutch central government disconnects its Citrix environments; hospital patient portals unavailable (Reported)
+  - 29 September 2026: GTIG and Mandiant describe WHIPSHOT and SLAPSHOT; mass scanning follows the public proof of concept (Reported)
+  - 3 October 2026: Citrix CTX697174 for the SAML denial of service CVE-2026-88779; KEV adds it on 4 Oct, due 7 Oct
+  - 9 October 2026: NCSC-NL covers CVE-2026-107406; CISA's alert adds CVE-2026-88779 and CVE-2026-107406
 - [GitLab, CVE-2026-97229: Lab-Verified Exposure and Fix](/case-studies/GITLAB_CVE_2026_97229.md). Vulnerability, September to November 2026. Sectors: technology. CVEs: CVE-2026-97229, CVE-2026-93577, CVE-2026-110264, CVE-2026-89078. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/GitLab_CVE_2026_97229_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/GitLab_CVE_2026_97229_Case_Study.pptx).
   - 23 September 2026: GitLab 19.4.1, 19.3.3 and 19.2.7 fix the authenticated CVE-2026-93577 (CVSS 9.9), an incomplete fix
   - 25 September 2026: Ruby PR #19020 merged upstream, fixing the compiled-pattern size overflow in Onigmo
@@ -130,6 +192,17 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 31 October 2026: The fixed php:8.4.27-apache Docker tag is last pushed
   - 2 November 2026: NVD last modifies both records
   - 4 November 2026: TeamStarWolf lab run: 8.4.26 and 8.4.27 told apart; both interim workarounds take effect
+- [The Stryker Device-Wipe Attack of March 2026: A Case Study](/case-studies/STRYKER_HANDALA_WIPER_2026.md). Incident, March to November 2026 (core: 11 March 2026 to 1 April 2026). Sectors: healthcare, manufacturing. ATT&CK groups: G1055 VOID MANTICORE. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Stryker_Handala_Wiper_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Stryker_Handala_Wiper_2026_Case_Study.pptx).
+  - 6 March 2026: Persona domains claim 851 GB stolen from a Hasidic community and post data on about 190 people tied to the IDF (6 to 9 March)
+  - 11 March 2026: Managed devices wiped in the US, Ireland, Costa Rica and Australia; the Entra login page shows the Handala logo (Reported)
+  - 11 March 2026: Stryker 8-K: a global disruption to its Microsoft environment, with no indication of ransomware or malware
+  - 12 March 2026: Stryker 8-K: order processing, manufacturing and shipping disrupted
+  - 18 March 2026: CISA alert on endpoint management hardening names the Stryker attack
+  - 19 March 2026: DOJ announces the seizure of four domains, two Handala-branded, used by Iran's MOIS
+  - 23 March 2026: Stryker 8-K revises the no-malware view: a malicious file ran commands to hide activity
+  - 1 April 2026: Stryker is fully operational across global manufacturing
+  - 9 April 2026: 8-K/A Item 1.05: material impact on operations and first-quarter results, not on full-year guidance
+  - 20 April 2026: ATT&CK creates G1055 VOID MANTICORE; its current description names the Stryker attack
 - [Magento and Adobe Commerce, CVE-2026-48356: Lab-Verified Exposure and Fix](/case-studies/MAGENTO_CVE_2026_48356.md). Vulnerability, March to November 2026. Sectors: retail, technology. CVEs: CVE-2015-3306, CVE-2020-1938, CVE-2026-48356, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Magento_CVE_2026_48356_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Magento_CVE_2026_48356_Case_Study.pptx).
   - 17 March 2026: Sansec publishes the PolyShell advisory
   - 19 March 2026: First attacks in the wild, per Sansec (Reported)
@@ -141,6 +214,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 24 October 2026: Sansec ties the deepveindrilling CMS-block loader campaign to earlier PolyShell uploads
   - 27 October 2026: CISA adds CVE-2026-48356 to KEV, due 10 November
   - 4 November 2026: TeamStarWolf lab run on Magento Open Source 2.4.8-p5
+- [The Cisco Catalyst SD-WAN Authentication Bypass of 2026 (CVE-2026-20127) and UAT-8616: A Case Study](/case-studies/CISCO_SDWAN_CVE_2026_20127.md). Vulnerability, September 2022 to October 2026 (core: 25 February 2026 to 14 May 2026). Sectors: government, telecommunications, defense, technology. CVEs: CVE-2026-20127, CVE-2022-20775, CVE-2026-20182, CVE-2026-20122, CVE-2026-20128, CVE-2026-20133 and 3 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cisco_SD_WAN_CVE_2026_20127_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Cisco_SD_WAN_CVE_2026_20127_Case_Study.pptx).
+  - 28 September 2022: Cisco discloses CVE-2022-20775, an SD-WAN CLI path traversal to root
+  - 2023: Earliest malicious activity Talos ties to UAT-8616; CISA says activity likely began in 2023
+  - 25 February 2026: Cisco discloses CVE-2026-20127; Talos names UAT-8616; KEV adds it with CVE-2022-20775; CISA issues ED 26-03
+  - 27 February 2026: ED 26-03 patch deadline; Censys counts about 600 internet-facing SD-WAN Managers
+  - March 2026: A public proof of concept appears, which Talos says is wrongly attributed to CVE-2026-20127
+  - 3 March 2026: The earliest of ten other clusters exploiting sibling Manager flaws is first seen (through 25 Mar)
+  - 20 April 2026: KEV adds CVE-2026-20133, CVE-2026-20122 and CVE-2026-20128
+  - 14 May 2026: Cisco discloses CVE-2026-20182; Talos attributes its exploitation to UAT-8616; KEV adds it
+  - 16 June 2026: Cisco adds Validator to the affected products; Rapid7 publishes a root-cause analysis
+  - 24 June 2026: Mandiant reports zero-day exploitation of CVE-2026-20245 in SD-WAN Manager
+  - 30 September 2026: KEV adds CVE-2026-76504, the platform's ninth 2026 KEV entry
+  - 28 October 2026: Talos names UAT-11473 and its KeyDrift framework; Cisco revision 2.1 links the post
 - [Node.js, CVE-2026-111497: Version Check and Fix in the Lab](/case-studies/NODEJS_CVE_2026_111497.md). Vulnerability, February to November 2026. Sectors: technology. CVEs: CVE-2026-111497, CVE-2026-105481, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Nodejs_CVE_2026_111497_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Nodejs_CVE_2026_111497_Case_Study.pptx).
   - 27 February 2026: Brotli fix commit 0ed4268 lands on the default branch with no release
   - 14 October 2026: Node.js pre-announces a security release for 21 October

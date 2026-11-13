@@ -52,6 +52,7 @@ Issue a new credential to a user which supersedes their old credential.
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [Ivanti EPMM Code Injection (CVE-2026-1281 and CVE-2026-1340): A Case Study](/case-studies/IVANTI_EPMM_CVE_2026_1281.md)
 - [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md)
 - [The ConnectWise Cloud Backup Compromise of October 2026: A Case Study](/case-studies/CONNECTWISE_STORM_0940_2026.md)
 - [The FireEye Mandiant Intrusion of 2020: The Public Record](/case-studies/MANDIANT_INTRUSION_2020.md)

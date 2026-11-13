@@ -2016,6 +2016,32 @@ studies:
       - {"date": "2026-10-30", "label": "KEV adds CVE-2026-111357 (due 2 Nov) and CVE-2026-118527 (due 13 Nov); CISA revises its alert"}
       - {"date": "2026-11-03", "label": "CVE-2026-118527 record published, four days after its KEV listing"}
       - {"date": "2026-11-10", "label": "Ivanti's November Security Update does not mention Connect Secure"}
+  case-studies/IVANTI_EPMM_CVE_2026_1281.md:
+    kind: "vulnerability"
+    title: "Ivanti EPMM Code Injection (CVE-2026-1281 and CVE-2026-1340): A Case Study"
+    start: "2026-01"
+    end: "2026-11"
+    core_start: "2026-01-29"
+    core_end: "2026-04-08"
+    sectors: ["government", "technology", "cross-sector"]
+    cves: ["CVE-2026-1281", "CVE-2026-1340", "CVE-2026-6973", "CVE-2023-35078", "CVE-2023-35081", "CVE-2025-4427", "CVE-2025-4428", "CVE-2025-0282", "CVE-2023-35082", "CVE-2023-38035", "CVE-2026-10520", "CVE-2021-44228"]
+    actors: []
+    tags: ["Ivanti", "Endpoint Manager Mobile", "EPMM", "MDM", "mobile device management", "code injection", "zero-day", "NCSC-NL", "Office365 tokens", "Ivanti Sentry", "KEV"]
+    pdf: "Ivanti_EPMM_CVE_2026_1281_Case_Study.pdf"
+    pptx: "Ivanti_EPMM_CVE_2026_1281_Case_Study.pptx"
+    events:
+      - {"date": "2026-01-21", "label": "Ivanti reserves CVE-2026-1281; CVE-2026-1340 follows on 22 Jan"}
+      - {"date": "2026-01-29", "label": "Ivanti discloses both flaws with a very limited number of customers exploited; KEV adds CVE-2026-1281, due 1 Feb"}
+      - {"date": "2026-01-30", "label": "CERT-EU says one flaw was exploited; Rapid7 and watchTowr publish; the European Commission finds traces of an MDM attack"}
+      - {"date": "2026-02-02", "label": "NCSC-NL tells EPMM users to assume breach and to report even after patching"}
+      - {"date": "2026-02-06", "label": "Dutch government letter names the Data Protection Authority and the Council for the Judiciary"}
+      - {"date": "2026-02-09", "label": "NCSC-NL: misuse at several organisations, the MIFS database copied, multiple actors plausible"}
+      - {"date": "2026-02-17", "label": "Unit 42 reports widespread, mostly automated exploitation attempts (Reported)"}
+      - {"date": "2026-02-20", "label": "NCSC-2026-0043 rev 1.0.2: a compromised EPMM can reach Ivanti Sentry through the EPMM keystore"}
+      - {"date": "2026-02-27", "label": "Dutch letter lists six public bodies and a municipality; police reports filed"}
+      - {"date": "2026-04-08", "label": "KEV adds CVE-2026-1340, due 11 Apr; Canada relays that Ivanti says both were exploited"}
+      - {"date": "2026-05-20", "label": "Justice and Security annual report records that the prison service DJI was hit via the Ivanti hack"}
+      - {"date": "2026-06-25", "label": "Dutch parliamentary Digital Affairs committee debates the two government letters"}
   case-studies/LINUX_TCP_UAF_2026.md:
     kind: "vulnerability"
     title: "The CVE-2026-98432 Linux Kernel Flaw and an AI-Written Exploit: A 2026 Case Study"

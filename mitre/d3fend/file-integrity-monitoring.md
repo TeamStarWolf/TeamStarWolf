@@ -143,6 +143,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [E-Commerce Threats: The Public Record, 1999 to 2026](/case-studies/ECOMMERCE_THREATS.md)
 - [File Types and Extensions Reference](/FILE_TYPES_REFERENCE.md)
 - [Ghostcat, CVE-2020-1938: The Tomcat AJP File Read in the Lab](/case-studies/GHOSTCAT_CVE_2020_1938.md)
+- [Ivanti EPMM Code Injection (CVE-2026-1281 and CVE-2026-1340): A Case Study](/case-studies/IVANTI_EPMM_CVE_2026_1281.md)
 - [Magento and Adobe Commerce, CVE-2026-48356: Lab-Verified Exposure and Fix](/case-studies/MAGENTO_CVE_2026_48356.md)
 - [npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md)
 - [Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation](/case-studies/EXCHANGE_MARAUDER_2021.md)

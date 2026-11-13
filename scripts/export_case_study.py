@@ -168,6 +168,7 @@ EXPORT_NAMES = {
     "ATF_MAJOR_INCIDENT_2026": "ATF_Major_Incident_2026",
     "CURSOR_EXTENSION_TROJAN_2026": "Cursor_Extension_Trojan_2026",
     "NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026": "Notepad_Plus_Plus_Update_Hijack_2026",
+    "IVANTI_EPMM_CVE_2026_1281": "Ivanti_EPMM_CVE_2026_1281",
 }
 
 

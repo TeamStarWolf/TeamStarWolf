@@ -52,6 +52,7 @@ Determining which credentials may have been compromised by analyzing the user lo
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [Ivanti EPMM Code Injection (CVE-2026-1281 and CVE-2026-1340): A Case Study](/case-studies/IVANTI_EPMM_CVE_2026_1281.md)
 - [Major Cloud Security Incidents: The Public Record, 2011 to 2026](/case-studies/CLOUD_SECURITY_INCIDENTS.md)
 - [The Binance Hot-Wallet Theft of October 2026: A Case Study](/case-studies/BINANCE_HEIST_2026.md)
 - [The ConnectWise Cloud Backup Compromise of October 2026: A Case Study](/case-studies/CONNECTWISE_STORM_0940_2026.md)

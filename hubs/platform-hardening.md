@@ -51,5 +51,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [Endpoint security](/ENDPOINT_SECURITY_REFERENCE.md)
 - [Active Directory security](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md)
 - [SSHole, the OpenSSH authentication bypass (CVE-2026-123158): a case study](/case-studies/SSHOLE_CVE_2026_123158.md)
+- [The Ivanti EPMM code injection (CVE-2026-1281 and CVE-2026-1340): a case study](/case-studies/IVANTI_EPMM_CVE_2026_1281.md)
 
 <!-- hub:end -->

@@ -155,4 +155,4 @@ Notes: ICS [1][15][19][25][2][23][11][3]. Enterprise [2][19][11][25][23][31]. ©
 - **KEV is silent here:** national-scale sabotage with nothing listed.
 - **Attribution arrives late and narrow:** four weeks, one wave of two.
 Caption: Overstated: Iran hit 700 sites and the blood bank. Understated: exposure and end of life, not a named CVE.
-Notes: Settings [2][11]. End of life [1][4][21]. Outsourcing [23] Inferred. KEV [10]. Attribution [3]. Overstated and understated [3][28][32][18][19][1][4][25].
+Notes: Settings [2][11]. End of life [1][4][21]. Outsourcing [23] Inferred. KEV [10]. Attribution [3]. Overstated and understated [3][28][31][18][19][1][4][25].

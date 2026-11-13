@@ -8,7 +8,7 @@
 
 This guide is for anyone who publishes a static site from a repository and wants it on their own name without giving up the free hosting: a personal site, documentation, a project page, a reference library. It is the procedure this library's own front door was set up with, generalized to placeholders. Replace `example.com` with your domain, `your-account.github.io` with your GitHub Pages host, and `OWNER/REPO` with the repository that publishes the site.
 
-Two ideas carry the whole guide. GitHub Pages stays the **origin**: it builds and serves the files, and it issues the certificate for your domain. Cloudflare holds the **zone**: it answers DNS for the name and, once you turn the proxy on, sits between visitors and the origin, which is where TLS policy, caching and response headers come from. You can stop after Step 3 with a working HTTPS site, or continue through Step 6 for the headers GitHub Pages cannot send.
+Two ideas carry the whole guide. GitHub Pages stays the **origin**: it builds and serves the files, and it issues the certificate for your domain. Cloudflare holds the **zone**: it answers DNS for the name and, once you turn the proxy on, sits between visitors and the origin, which is where TLS policy, caching and response headers come from. You can stop after Step 4 with a working HTTPS site, or continue through Step 6 for the headers GitHub Pages cannot send.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -25,7 +25,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 12 min (2,688 words at 230 words a minute)
+About 12 min (2,776 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -78,14 +78,14 @@ No review recorded yet
 ## Step 1: Register the domain and put the zone on Cloudflare
 
 1. Sign in to Cloudflare, open **Domain Registration**, search the name and register it. Registrar pricing is at cost, usually about $10 a year for a `.com`. Registration creates the zone on the Free plan with Cloudflare's nameservers assigned.
-2. If the name is registered elsewhere, add it as a site in Cloudflare instead, then change the nameservers at the current registrar to the two Cloudflare gives you. Propagation takes minutes to a day.
+2. If the name is registered elsewhere, add it as a site in Cloudflare instead. If DNSSEC is on at the current provider, turn it off (remove the DS record at the registrar) and wait for the DS record's TTL to expire before changing nameservers, or the domain fails to resolve during the move [10]; you re-enable it on Cloudflare in Step 5. Then change the nameservers at the current registrar to the two Cloudflare gives you. Propagation takes minutes to a day.
 3. Check: `nslookup -type=NS example.com` shows two names ending in `ns.cloudflare.com`. The zone's **Overview** page says **Active**.
 
-What success looks like: DNS, Records shows an empty record list and the page says the zone is active.
+What success looks like: the page says the zone is active, and DNS, Records shows an empty record list for a newly registered domain. For a moved domain, Cloudflare imports the existing records: check that the MX, TXT and other service records match what the old provider served before you change the nameservers, or mail and other services break.
 
 ## Step 2: Add the records that point at GitHub Pages
 
-GitHub documents four IPv4 and four IPv6 addresses for apex domains and a CNAME for `www`. Add them with **Proxy status OFF** (grey cloud, "DNS only") for now: GitHub must see your domain resolve to its own addresses to issue the certificate in Step 3.
+GitHub documents four IPv4 and four IPv6 addresses for apex domains and a CNAME for `www`. Add them with **Proxy status OFF** (grey cloud, "DNS only") for now: GitHub must see your domain resolve to its own addresses to issue the certificate in Step 4.
 
 | Type | Name | Content | Proxy |
 |---|---|---|---|

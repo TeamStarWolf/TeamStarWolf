@@ -56,6 +56,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [APT41: The Public Record, 2012 to 2026](/case-studies/APT41_PUBLIC_RECORD.md)
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 - [Cyber Operations as Statecraft: The Cases in The Hacker and the State](/case-studies/HACKER_AND_THE_STATE_CASES.md)
+- [The Microsoft Office Security Feature Bypass of 2026 (CVE-2026-21509) and APT28: A Case Study](/case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md)
 
 <!-- library-refs:end -->
 

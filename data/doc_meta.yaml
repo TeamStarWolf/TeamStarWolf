@@ -2532,6 +2532,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 4: the DNC and the Clinton campaign, 2015 to 2017](#part-4-the-dnc-and-the-clinton-campaign-2015-to-2017), [Part 7: the defender view](#part-7-the-defender-view)"
     pairs_with: "[Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md)"
     reviewed: null
+  case-studies/FBI_SURVEILLANCE_SYSTEM_BREACH_2026.md:
+    audience: "Government and public-sector security leaders, third-party and supplier risk teams, detection engineers, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You want the dated record of the 2026 breach of an FBI system holding surveillance returns, how much of it rests on anonymous sources, or which third-party and logging controls the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Telecom and 5G Security Reference](/TELECOM_5G_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Threat Actors: China](/case-studies/THREAT_ACTORS_CHINA.md)"
+    reviewed: null
   case-studies/GHOSTCAT_CVE_2020_1938.md:
     audience: "Vulnerability management leads, Apache Tomcat administrators and security engineers"
     level: "Intermediate"

@@ -2497,6 +2497,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [The client-path exposure gap](#the-client-path-exposure-gap), [Remediation by platform and capability](#remediation-by-platform-and-capability)"
     pairs_with: "[Certificate Trust Incident Response](/CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md), [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)"
     reviewed: null
+  case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md:
+    audience: "OT and facilities security engineers, vulnerability management leads, retail and healthcare defenders, and the contractors who run refrigeration supervision"
+    level: "Intermediate"
+    read_when: "You need the facts of the 2026 attacks on supermarket and blood-service refrigeration controllers in Europe, you run or contract out Danfoss, Copeland or Dixell supervisors, or you want to know what France's attribution covers and what it does not"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[ICS Attacks and Advisories, 2024 to 2026](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md), [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [Iran-attributed threat actors](/case-studies/THREAT_ACTORS_IRAN.md), [The Year 2026 in Intrusions](/case-studies/CHRONICLE_2026.md)"
+    reviewed: null
   case-studies/EXCHANGE_MARAUDER_2021.md:
     audience: "Vulnerability management leads, incident responders and Exchange Server administrators"
     level: "Intermediate"

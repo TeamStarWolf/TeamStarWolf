@@ -1,0 +1,221 @@
+{
+  "name": "TeamStarWolf - The Year 2004 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2004 record supports: CERT/CC's CA-2004-01 and CA-2004-02 (the H.323 flaws, Bagle and MyDoom), the US-CERT alerts on MyDoom.B, Phatbot, MyDoom.M/O, the IE flaws behind Download.Ject and Bofra, and Santy.A against phpBB, F-Secure's records of Bagle, MyDoom and Sasser, CAIDA's analysis of the destructive Witty worm, Microsoft's bulletins and Download.Ject statement, the FTC's spyware case and the Justice Department releases on CAN-SPAM, Hill, Tereshchuk, Web Snare, Ingram Micro, Shadowcrew and the Lowe's wireless intrusion, plus APT1's domain registrations, which ATT&CK lists for G0006 and Mandiant dates to 2004. Apart from T1583.001, no 2004 source prints an ATT&CK id: every other entry is this study's later mapping. The object-level techniques of Uroburos, WEBC2 and Equation are not in this layer. Each comment names source numbers from case-studies/CHRONICLE_2004.md. Scores: 100 ATT&CK lists the id for the group, 70 the source describes the behavior and the study assigns the id, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "Sasser scans random addresses on TCP 445 (basis: Described; a later mapping, since no 2004 source prints an ATT&CK id). Sources [43] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1087.003",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "Address harvesting from address books and files (CA-2004-02); MyDoom.M/O searches on harvested addresses (26 Jul) (basis: Described; a later mapping, since no 2004 source prints an ATT&CK id). Sources [1][46] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "MyDoom's backdoor can act as a proxy (F-Secure) (basis: Described; a later mapping, since no 2004 source prints an ATT&CK id). Sources [35] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Bagle's backdoor downloads and runs programs (18 Jan); backdoors used to download DDoS tools (CA-2004-02) (basis: Described; a later mapping, since no 2004 source prints an ATT&CK id). Sources [34][1] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Download.Ject's compromised servers deliver code to visitors (Jun); Bofra (Nov); spyware installed through an IE feature (FTC, 12 Oct, alleged) (basis: Described; a later mapping, since no 2004 source prints an ATT&CK id). Sources [44][45][23][70] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Witty's single UDP packet to ISS PAM (19 Mar); Download.Ject on IIS 5.0 servers without MS04-011 (24 Jun); Santy.A on phpBB (21 Dec) (basis: Described; a later mapping, since no 2004 source prints an ATT&CK id). Sources [37][38][44][28] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "CAN-2004-0549 exploited (TA04-163A, 11 Jun; MS04-025); CAN-2004-1050 exploited (MS04-040, 1 Dec) (basis: Described; a later mapping, since no 2004 source prints an ATT&CK id). Sources [17][18][25] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "CA-2004-02: the mailers spread through social engineering and human action (27 Jan) (basis: Described; a later mapping, since no 2004 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "Sasser through LSASS (about 1 May); Phatbot through unpatched Windows flaws (19 Mar); Witty host to host (19 Mar) (basis: Described; a later mapping, since no 2004 source prints an ATT&CK id). Sources [43][36][37][38] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1491.002",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Santy.A defaces web files (21 Dec) (basis: Described; a later mapping, since no 2004 source prints an ATT&CK id). Sources [28] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "MyDoom's scheduled SCO flood (from 1 Feb); MyDoom.B designed to attack microsoft.com; Echouafni's hired DDoS (Web Snare, 26 Aug, alleged); the bookmaker attacks (Reported) (basis: Described; a later mapping, since no 2004 source prints an ATT&CK id). Sources [35][33][69][64][119] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1561.001",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Witty writes data to random disk locations and overwrites sections of the hard drive (19 Mar) (basis: Described; a later mapping, since no 2004 source prints an ATT&CK id). Sources [37][38] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Mass-mailed, not targeted, so the closest fit only: Bagle and Novarg attachments (CA-2004-02, 27 Jan); MyDoom.B (SA04-028A, 28 Jan) (basis: Inferred; a later mapping, since no 2004 source prints an ATT&CK id). Sources [1][32] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Bofra spread through links in e-mail (TA04-315A, 10 Nov) (basis: Described; a later mapping, since no 2004 source prints an ATT&CK id). Sources [24] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "ATT&CK lists it for APT1 (G0006); Mandiant dates the first APT1 zone, hugesoft.org, to 25 Oct 2004 (basis: Listed (group); ATT&CK lists the id for APT1 (G0006)). Sources [108][107] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1584.005",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "Phatbot controls large numbers of systems (SA04-079A, 19 Mar); compromised home machines used for DDoS and spam (CA-2004-02) (basis: Described; a later mapping, since no 2004 source prints an ATT&CK id). Sources [36][1] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1593.002",
+      "tactic": "reconnaissance",
+      "score": 70,
+      "comment": "Santy.A finds targets through search-engine keyword queries (21 Dec) (basis: Described; a later mapping, since no 2004 source prints an ATT&CK id). Sources [28] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1598.003",
+      "tactic": "reconnaissance",
+      "score": 70,
+      "comment": "Hill's spam posing as AOL and PayPal sent victims to a look-alike billing page (sentenced 17 May); CA-2004-02's definition of phishing (basis: Described; a later mapping, since no 2004 source prints an ATT&CK id). Sources [63][1] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Hill's phishing fraud (17 May); Tereshchuk's $17 million demand (from 3 Feb); Ingram Micro orders (4 Aug, alleged); Shadowcrew card trafficking (28 Oct, alleged) (basis: Described; a later mapping, since no 2004 source prints an ATT&CK id). Sources [63][61][67][71] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1669",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "The Lowe's store wireless network (2003 conduct; sentence 15 Dec 2004); Tereshchuk's mail through unsecured wireless networks (plea 8 Jun) is a weaker fit (basis: Described; a later mapping, since no 2004 source prints an ATT&CK id). Sources [74][61][118] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1684.002",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "MyDoom.B spoofs From addresses (28 Jan); the first CAN-SPAM charges and FTC cases over false headers and forged sender addresses (29 Apr, alleged). T1672 is revoked and superseded by T1684.002 (basis: Described; a later mapping, since no 2004 source prints an ATT&CK id). Sources [32][57][58][122] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 40,
+      "comment": "MyDoom.B blocks anti-virus vendor sites and may stop anti-virus updates (28 and 29 Jan); blocking updates is a loose fit. T1562.001 is revoked and superseded by T1685 (basis: Inferred; a later mapping, since no 2004 source prints an ATT&CK id). Sources [33][32][122] refer to the Sources table of case-studies/CHRONICLE_2004.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: the source or ATT&CK object prints the ATT&CK id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2004.md (sources opened 12 and 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "22"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "22"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2004 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2004.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

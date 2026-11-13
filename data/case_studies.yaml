@@ -2161,8 +2161,8 @@ studies:
       - {"date": "2026-03-25", "label": "CERT-EU issues Security Advisory 2026-004"}
       - {"date": "2026-04-14", "label": "Microsoft fixes CVE-2026-32201 as Exploitation Detected; KEV adds it the same day"}
       - {"date": "2026-05-21", "label": "Microsoft publishes CVE-2026-45659, whose fix had shipped in the May updates"}
-      - {"date": "2026-07-14", "label": "July updates list CVE-2026-56164 (exploited), 58644, 50522 and 55040; CISA issues its SharePoint hardening alert"}
-      - {"date": "2026-07-15", "label": "SharePoint Server 2016 and 2019 reach end of extended support; Canada issues AL26-017"}
+      - {"date": "2026-07-14", "label": "July updates list CVE-2026-56164 (exploited), 58644, 50522 and 55040; CISA issues its hardening alert; SharePoint Server 2016 and 2019 reach end of support"}
+      - {"date": "2026-07-15", "label": "Canada issues AL26-017"}
       - {"date": "2026-07-22", "label": "CERT-EU issues 2026-009 on exploitation of CVE-2026-50522; KEV adds it"}
       - {"date": "2026-07-22", "label": "22 to 31 Jul: a Warlock intrusion runs from a SharePoint web shell to ransomware (Reported)"}
       - {"date": "2026-08-11", "label": "August updates fix CVE-2026-65660"}

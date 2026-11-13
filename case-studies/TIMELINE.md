@@ -222,8 +222,8 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 25 March 2026: CERT-EU issues Security Advisory 2026-004
   - 14 April 2026: Microsoft fixes CVE-2026-32201 as Exploitation Detected; KEV adds it the same day
   - 21 May 2026: Microsoft publishes CVE-2026-45659, whose fix had shipped in the May updates
-  - 14 July 2026: July updates list CVE-2026-56164 (exploited), 58644, 50522 and 55040; CISA issues its SharePoint hardening alert
-  - 15 July 2026: SharePoint Server 2016 and 2019 reach end of extended support; Canada issues AL26-017
+  - 14 July 2026: July updates list CVE-2026-56164 (exploited), 58644, 50522 and 55040; CISA issues its hardening alert; SharePoint Server 2016 and 2019 reach end of support
+  - 15 July 2026: Canada issues AL26-017
   - 22 July 2026: CERT-EU issues 2026-009 on exploitation of CVE-2026-50522; KEV adds it
   - 22 July 2026: 22 to 31 Jul: a Warlock intrusion runs from a SharePoint web shell to ransomware (Reported)
   - 11 August 2026: August updates fix CVE-2026-65660

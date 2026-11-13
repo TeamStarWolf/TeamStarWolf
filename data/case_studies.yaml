@@ -162,6 +162,32 @@ studies:
       - {"date": "2026-11-01", "label": "Phase-one withdrawals resume on 15 networks"}
       - {"date": "2026-11-02", "label": "Kim Yo Jong denies North Korea's role (Reported)"}
       - {"date": "2026-11-03", "label": "Binance publishes its preliminary post-mortem; Chainalysis and TRM publish follow-ups"}
+  case-studies/BOSTON_SCIENTIFIC_ATTACK_2026.md:
+    kind: "incident"
+    title: "The Boston Scientific Network Outage of August 2026: A Case Study"
+    start: "2026-07"
+    end: "2026-11"
+    core_start: "2026-08-25"
+    core_end: "2026-09-09"
+    sectors: ["healthcare", "manufacturing"]
+    cves: []
+    actors: []
+    tags: ["Boston Scientific", "CrowdStrike", "network management device", "edge device", "SEC Item 1.05", "8-K", "medical technology", "LATITUDE", "remote monitoring", "outage"]
+    pdf: "Boston_Scientific_Attack_2026_Case_Study.pdf"
+    pptx: "Boston_Scientific_Attack_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-08-25", "label": "System availability issues traced to an unauthorized third party; containment begins and CrowdStrike's investigation starts"}
+      - {"date": "2026-08-26", "label": "Form 8-K Item 8.01: a global disruption, including the ability to process and ship orders"}
+      - {"date": "2026-08-27", "label": "Orders queued through EDI; implanted device function unaffected; new remote-monitoring activations impaired"}
+      - {"date": "2026-08-29", "label": "CrowdStrike named as responder; cloud systems not affected; manufacturing also impacted"}
+      - {"date": "2026-08-30", "label": "No unauthorized activity seen since 25 August; partial restoration of shipping planned"}
+      - {"date": "2026-09-03", "label": "Access believed limited to select internal-facing IT; shipping restored for most products at major distribution centers"}
+      - {"date": "2026-09-05", "label": "Distribution substantially restored; all sterilization facilities operational; manufacturing resumed at most sites"}
+      - {"date": "2026-09-07", "label": "Form 8-K Item 1.05 (filed 8 September): likely material to Q3 and full-year 2026 results"}
+      - {"date": "2026-09-08", "label": "Remote-monitoring activation restored for LATITUDE NXT communicators and LATITUDE Clarity ICMs"}
+      - {"date": "2026-09-09", "label": "Manufacturing, order fulfillment and shipping fully restored"}
+      - {"date": "2026-10-28", "label": "Q3 results: net sales $5.138 billion (+1.5%) against 3 to 5% guidance; full-year guidance cut"}
+      - {"date": "2026-11-02", "label": "Q3 10-Q: material effect on Q3, a 1.7-point gross margin hit and civil legal claims filed"}
   case-studies/CHANGE_HEALTHCARE_2024.md:
     kind: "incident"
     title: "The Change Healthcare Attack of 2024: The Largest Healthcare Breach on Record"

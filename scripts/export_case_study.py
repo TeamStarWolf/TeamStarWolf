@@ -146,6 +146,7 @@ EXPORT_NAMES = {
     "BINANCE_HEIST_2026": "Binance_Heist_2026",
     "DENTAQUEST_BREACH_2026": "DentaQuest_Breach_2026",
     "INSTRUCTURE_CANVAS_BREACH_2026": "Instructure_Canvas_Breach_2026",
+    "BOSTON_SCIENTIFIC_ATTACK_2026": "Boston_Scientific_Attack_2026",
     "ORACLE_PEOPLESOFT_SHINYHUNTERS_2026": "Oracle_PeopleSoft_ShinyHunters_2026",
     "FBI_SURVEILLANCE_SYSTEM_BREACH_2026": "FBI_Surveillance_System_Breach_2026",
     "NSA_CIA_TOOL_LEAKS": "NSA_CIA_Tool_Leaks_2016_2017",

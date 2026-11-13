@@ -51,6 +51,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Microsoft Office Security Feature Bypass of 2026 (CVE-2026-21509) and APT28: A Case Study](/case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md)
 - [The Year 1993 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1993.md)
 - [The Year 1996 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1996.md)
+- [The Year 1997 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1997.md)
 - [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)
 
 <!-- library-refs:end -->

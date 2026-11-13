@@ -1,0 +1,228 @@
+{
+  "name": "TeamStarWolf - The Year 1997 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 1997 record supports: the 28 CERT/CC advisories CA-97.01 to CA-97.28 and CERT/CC's 1997 annual report (the IMAP and POP scans, INN, sendmail, talkd and statd, the set-uid local root advisories, the CGI scripts, BIND cache poisoning, the JavaScript flaw, FTP bounce, Teardrop and Land), Cisco's Land advisory, the nmap article in Phrack 51, Virus Bulletin on ShareFun and the macro virus prevalence table, and the press record of the year's defacements, card-data theft and AOL phishing e-mail. No 1997 source prints an ATT&CK id: every entry is this study's later mapping. Each comment names source numbers from case-studies/CHRONICLE_1997.md. Scores: 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 50,
+      "comment": "Card data reportedly taken in part by sniffing a San Diego provider (arrest 21 May) (basis: Reported; a later mapping, since no 1997 source prints an ATT&CK id). Sources [69] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 50,
+      "comment": "Card data reportedly taken in part by sniffing a San Diego provider (arrest 21 May) (basis: Reported; a later mapping, since no 1997 source prints an ATT&CK id). Sources [69] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "nmap published in Phrack 51, 1 Sep (a tool's publication, not a dated intrusion) (basis: Inferred; a later mapping, since no 1997 source prints an ATT&CK id). Sources [13] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Commands run on news and web servers through INN control messages, webdist.cgi and unsanitized CGI input (basis: Described; a later mapping, since no 1997 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "newgrp (7 Jan), rlogin (6 Feb), xlock (7 May), suidperl (29 May), at (12 Jun), lpr (25 Jun), the IRIX set (16 Jul), statd (5 Dec) (basis: Described; a later mapping, since no 1997 source prints an ATT&CK id). Sources [1][3] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 40,
+      "comment": "FTP bounce: a server opens connections the attacker cannot make directly (10 Dec; a loose fit) (basis: Inferred; a later mapping, since no 1997 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 40,
+      "comment": "IRC clients or servers installed after root compromise (basis: Inferred; a later mapping, since no 1997 source prints an ATT&CK id). Sources [3] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1137.001",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "Word macro viruses led by WM/CAP.A (October table; the template mechanism is not described in the sources opened) (basis: Inferred; a later mapping, since no 1997 source prints an ATT&CK id). Sources [24] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1185",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "CA-97.20: URLs visited and form data read outside the page's context (basis: Inferred; a later mapping, since no 1997 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "A visited page's script watches the user (CA-97.20, 8 Jul); the hostile ActiveX demonstration (Feb, Reported) (basis: Inferred; a later mapping, since no 1997 source prints an ATT&CK id). Sources [1][64] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "sendmail MIME (28 Jan), nph-test-cgi (18 Feb), INN (20 Feb), IMAP and POP (7 Apr), webdist.cgi (6 May), Count.cgi (5 Nov), CGI input (10 Nov); phf still exploited (basis: Described; a later mapping, since no 1997 source prints an ATT&CK id). Sources [1][3] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "metamail runs a command chosen by the sender (21 May) (basis: Described; a later mapping, since no 1997 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "ShareFun spreads through infected attachments (Feb); WM/CAP in the wild (basis: Described; a later mapping, since no 1997 source prints an ATT&CK id). Sources [14][17] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 40,
+      "comment": "talkd (27 Jan) and statd (5 Dec) give remote root (the record names no lateral movement) (basis: Inferred; a later mapping, since no 1997 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1491.002",
+      "tactic": "impact",
+      "score": 50,
+      "comment": "NASA (4 to 5 Mar), Yahoo (early Dec) (basis: Reported; a later mapping, since no 1997 source prints an ATT&CK id). Sources [65][77] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1498.001",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "UDP packet storms and spoofed denial-of-service reports through the year (basis: Described; a later mapping, since no 1997 source prints an ATT&CK id). Sources [3] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1499.004",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Land against Cisco devices (21 Nov); Teardrop and Land (16 Dec); WinNuke (NVD record dated 1 Jul) (basis: Described; a later mapping, since no 1997 source prints an ATT&CK id). Sources [5][1][8] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1539",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "CA-97.20: cookie values read outside the page's context (basis: Inferred; a later mapping, since no 1997 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1548.001",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "Set-uid root programs abused, and CERT's fallback of removing the bits (libXt, 1 May) (basis: Inferred; a later mapping, since no 1997 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "BIND cache poisoning, so traffic may be inspected, captured or corrupted (13 Aug; a loose fit at the parent) (basis: Inferred; a later mapping, since no 1997 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "BIND cache poisoning, so traffic may be inspected, captured or corrupted (13 Aug; a loose fit at the parent) (basis: Inferred; a later mapping, since no 1997 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1595.001",
+      "tactic": "reconnaissance",
+      "score": 40,
+      "comment": "The same scans, run \"against many networks\" (basis: Inferred; a later mapping, since no 1997 source prints an ATT&CK id). Sources [3] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 70,
+      "comment": "Large-scale automated scans for the IMAP and POP flaw, all year (CA-97.09, 7 Apr; CS-97.04) (basis: Described; a later mapping, since no 1997 source prints an ATT&CK id). Sources [3][1] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    },
+    {
+      "techniqueID": "T1598",
+      "tactic": "reconnaissance",
+      "score": 50,
+      "comment": "E-mail posing as AOL Member Services asks for card numbers (Aug) (basis: Reported; a later mapping, since no 1997 source prints an ATT&CK id). Sources [73] refer to the Sources table of case-studies/CHRONICLE_1997.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8"
+    ],
+    "minValue": 40,
+    "maxValue": 70
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_1997.md (sources opened 12 and 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "22"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "24"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 1997 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_1997.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

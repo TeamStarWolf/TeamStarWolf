@@ -251,6 +251,17 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 24 June 2026: Mandiant reports zero-day exploitation of CVE-2026-20245 in SD-WAN Manager
   - 30 September 2026: KEV adds CVE-2026-76504, the platform's ninth 2026 KEV entry
   - 28 October 2026: Talos names UAT-11473 and its KeyDrift framework; Cisco revision 2.1 links the post
+- [The FBI Surveillance System Breach of 2026: A Case Study](/case-studies/FBI_SURVEILLANCE_SYSTEM_BREACH_2026.md). Incident, February to November 2026 (core: 17 February 2026 to 6 April 2026). Sectors: government. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/FBI_Surveillance_System_Breach_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/FBI_Surveillance_System_Breach_2026_Case_Study.pptx).
+  - 17 February 2026: The FBI begins investigating abnormal log information on an unclassified system on its network (Reported)
+  - 4 March 2026: The FBI first tells Congress of suspicious activity on a system holding law enforcement sensitive information (Reported)
+  - 5 March 2026: The FBI says it identified and addressed suspicious activities on FBI networks (Reported)
+  - 6 March 2026: WSJ: US investigators believe Chinese-government-affiliated hackers are responsible; any Salt Typhoon link unclear (Reported)
+  - 10 March 2026: Malwarebytes calls the system DCSNet, a name not found in any quoted notice wording (Reported)
+  - 23 March 2026: Senior DOJ officials determine the intrusion is a FISMA major incident (Reported)
+  - 1 April 2026: Politico publishes the major-incident designation (Reported)
+  - 3 April 2026: FBI spokesperson: access was obtained through a third party; target phone numbers likely exposed (Reported)
+  - 6 April 2026: Later notice per Bloomberg: forensics and remediation ongoing, a working group created, no actor named (Reported)
+  - 11 November 2026: No hearing, IG report, formal attribution or joint advisory found; the Intelligence Hub feed has no row for the incident
 - [Node.js, CVE-2026-111497: Version Check and Fix in the Lab](/case-studies/NODEJS_CVE_2026_111497.md). Vulnerability, February to November 2026. Sectors: technology. CVEs: CVE-2026-111497, CVE-2026-105481, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Nodejs_CVE_2026_111497_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Nodejs_CVE_2026_111497_Case_Study.pptx).
   - 27 February 2026: Brotli fix commit 0ed4268 lands on the default branch with no release
   - 14 October 2026: Node.js pre-announces a security release for 21 October

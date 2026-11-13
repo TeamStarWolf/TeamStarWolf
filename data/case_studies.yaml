@@ -1707,6 +1707,32 @@ studies:
       - {"date": "2026-04-07", "label": "AA26-097A on the Iranian-affiliated campaign disrupting exposed Rockwell PLCs"}
       - {"date": "2026-07-26", "label": "Coordinated attack on OT at more than 30 Minnesota community water systems"}
       - {"date": "2026-10-20", "label": "Siemens Software Center CVE-2026-110936 added to KEV"}
+  case-studies/INSTRUCTURE_CANVAS_BREACH_2026.md:
+    kind: "incident"
+    title: "The Instructure Canvas Breach and ShinyHunters Extortion of 2026: A Case Study"
+    start: "2025-09"
+    end: "2026-09"
+    core_start: "2026-04-25"
+    core_end: "2026-05-11"
+    sectors: ["education", "technology"]
+    cves: []
+    actors: ["G1057"]
+    tags: ["Instructure", "Canvas", "ShinyHunters", "learning management system", "cross-site scripting", "support access", "access tokens", "data extortion", "defacement"]
+    pdf: "Instructure_Canvas_Breach_2026_Case_Study.pdf"
+    pptx: "Instructure_Canvas_Breach_2026_Case_Study.pptx"
+    events:
+      - {"date": "2025-09-21", "label": "Instructure discloses a social-engineering compromise of its Salesforce instance; no product data exposed"}
+      - {"date": "2026-04-25", "label": "25 to 30 April: institution logs may show the actor using Canvas customer support representative accounts"}
+      - {"date": "2026-04-29", "label": "Instructure detects unauthorized activity in Canvas, revokes access and engages outside forensic experts"}
+      - {"date": "2026-05-01", "label": "Confirmed Security Incident posted: a criminal threat actor; Canvas Data 2, Beta and Test in maintenance"}
+      - {"date": "2026-05-02", "label": "Incident believed contained: privileged credentials and tokens revoked, patches deployed, keys rotated"}
+      - {"date": "2026-05-03", "label": "ShinyHunters lists Instructure on its leak site, claiming 3.65 TB on 275 million people (Reported)"}
+      - {"date": "2026-05-07", "label": "The actor returns through a second XSS flaw; ransom note on login pages of about 300 organizations"}
+      - {"date": "2026-05-08", "label": "CEO apology names a support-ticket flaw in the Free-for-Teacher environment and disables it"}
+      - {"date": "2026-05-11", "label": "Agreement with the actor: data returned, shred logs; House Homeland Security letter to the CEO"}
+      - {"date": "2026-05-15", "label": "FBI PSA: ShinyHunters claimed an attack that interrupted an unnamed learning management system"}
+      - {"date": "2026-07-26", "label": "Delivery of API provisioning records and user reports to institutions begins; Kroll handles notification"}
+      - {"date": "2026-09-29", "label": "Forensic review complete; final delivery phase begins"}
   case-studies/IVANTI_CONNECT_SECURE_2026.md:
     kind: "vulnerability"
     title: "The Ivanti Connect Secure Zero-Day Chain of October 2026 (CVE-2026-104935, CVE-2026-111357, CVE-2026-118527): A Case Study"

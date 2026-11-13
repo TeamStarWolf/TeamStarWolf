@@ -2735,6 +2735,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 4: the defender view and legacy](#part-4-the-defender-view-and-legacy)"
     pairs_with: "[ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md), [Malware Families](/MALWARE_FAMILIES.md), [Industrial Control System Attacks and Advisories, 2024 to 2026: Incidents, CVEs and Attribution](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md)"
     reviewed: null
+  case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md:
+    audience: "Platform and DevOps engineers who run CI/CD pipelines, supply chain security engineers, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run Trivy, Checkmarx actions, LiteLLM or the Bitwarden CLI in a pipeline, you need the dated facts of the 2026 TeamPCP campaign and CVE-2026-33634, or you want to decide how to pin, rotate and hunt after a CI tool you trust is compromised"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [DevSecOps Reference](/DEVSECOPS_REFERENCE.md), [npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md), [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)"
+    reviewed: null
   case-studies/THREAT_ACTORS_CHINA.md:
     audience: "Threat intelligence analysts, threat hunters, defenders of critical infrastructure and healthcare security teams"
     level: "Intermediate"

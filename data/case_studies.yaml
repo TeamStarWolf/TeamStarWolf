@@ -485,6 +485,30 @@ studies:
       - {"date": "1998-10-12", "label": "CA-1998-12: NFS mountd overflow, mainly on Linux, actively exploited with large-scale scanning"}
       - {"date": "1998-10-28", "label": "Digital Millennium Copyright Act, Pub. L. 105-304"}
       - {"date": "1998-12-09", "label": "IN-98-06: scripted tools scan the portmapper, exploit mountd on Linux and add a passwordless privileged account"}
+  case-studies/CHRONICLE_2000.md:
+    kind: "era"
+    title: "The Year 2000 in Intrusions: A Dated Record"
+    start: "2000-01"
+    end: "2000-12"
+    sectors: ["cross-sector", "government", "defense", "technology", "retail", "finance", "media", "manufacturing"]
+    cves: ["CVE-2000-0573", "CVE-2000-0621", "CVE-2000-0666", "CVE-2000-0770", "CVE-2000-0884", "CVE-2000-0887", "CVE-2000-0888", "CVE-2000-0917", "CVE-2000-1039"]
+    actors: []
+    tags: ["Love Letter", "ILOVEYOU", "DDoS", "Stacheldraht", "Maroochy", "C0020", "rpc.statd", "wu-ftpd", "Carnivore", "ECHELON", "AES", "BCP 38"]
+    pdf: "Chronicle_2000_Case_Study.pdf"
+    pptx: "Chronicle_2000_Case_Study.pptx"
+    events:
+      - {"date": "2000-01-03", "label": "CA-2000-01: Stacheldraht DDoS agents found on multiple compromised hosts"}
+      - {"date": "2000-01-07", "label": "The President announces the national plan to defend America's cyberspace"}
+      - {"date": "2000-02-07", "label": "Yahoo unreachable for about three hours; Amazon.com, eBay, Buy.com and CNN hit the next day (press reports)"}
+      - {"date": "2000-02-09", "label": "Maroochy Shire: Boden alters pumping-station data from 9 February to 23 April (ATT&CK campaign C0020)"}
+      - {"date": "2000-04-15", "label": "RCMP arrests 'mafia boy' in Montreal over the attack on CNN's site"}
+      - {"date": "2000-05-04", "label": "Love Letter: first reported in Asia; CERT/CC advisory CA-2000-04 that night"}
+      - {"date": "2000-07-07", "label": "CA-2000-13: wu-ftpd site exec format string flaw exploited for remote root"}
+      - {"date": "2000-07-11", "label": "Carnivore widely reported, per EPIC; EPIC files a FOIA request the next day"}
+      - {"date": "2000-09-15", "label": "IN-2000-10: automated exploitation of rpc.statd and wu-ftpd, hundreds of hosts in single incidents"}
+      - {"date": "2000-10-02", "label": "NIST announces Rijndael as the proposed Advanced Encryption Standard"}
+      - {"date": "2000-10-30", "label": "Government Information Security Reform Act enacted in Pub. L. 106-398"}
+      - {"date": "2000-11-10", "label": "Gorshkov and Ivanov arrested in Seattle after a recorded meeting with the FBI's undercover company"}
   case-studies/CHRONICLE_2016.md:
     kind: "era"
     title: "The Year 2016 in Intrusions: A Dated Record"

@@ -52,6 +52,7 @@ This attack targets applications and software that uses the syslog() function in
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [The Year 2000 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2000.md)
 
 <!-- library-refs:end -->
 

@@ -72,7 +72,7 @@ Notes: Vendor fields, Confirmed [1]. Images, Demonstrated by the reporter's quer
 | Account | What it says |
 |---|---|
 | Vendor | Access 4 April to 2 September 2026 |
-| Barracuda | June 2025 to 1 September 2026, from scan dates |
+| Barracuda | June 2025 to 1 September 2026, from record timestamps it reads as theft dates |
 | Seller | "Over a year" of continuous exfiltration |
 | Notice dates | 4 Sep on the notice, 8 Sep per Krebs, 11 Sep on the homepage |
 Caption: This study uses the vendor's window and the notice's own date.

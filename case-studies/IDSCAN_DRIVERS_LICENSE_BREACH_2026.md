@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 15 min (3,511 words at 230 words a minute)
+About 15 min (3,546 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -67,7 +67,7 @@ No source states how the attacker got in. No CVE, KEV entry or government adviso
 |---|---|
 | Vendor | IDScan.net; Metairie, LA mailing address in its notice [1] (**Confirmed**); markets 21M+ verifications a month at 20,000+ locations [4] (**Reported**, company marketing) |
 | System affected | "A portion of" the cloud environment, limited to the VeriScan platform; no other product identified (update of 29 Sep 2026) [1] [2] (**Confirmed**) |
-| Access window | 4 Apr to 2 Sep 2026 per the vendor [1] (**Confirmed**); June 2025 to 1 Sep 2026 per Barracuda from record timestamps (scan dates) [13] (**Reported**); "over a year" per the seller [4] (**Reported**) |
+| Access window | 4 Apr to 2 Sep 2026 per the vendor [1] (**Confirmed**); June 2025 to 1 Sep 2026 per Barracuda, which reads the record timestamps as theft dates [13] (**Reported**); "over a year" per the seller [4] (**Reported**) |
 | How the vendor learned | Information received on or around 1 Sep 2026 [1] (**Confirmed**); a journalist's source flagged the forum listing on 31 Aug [4] (**Reported**) |
 | Entry vector | Not stated by the vendor or any report opened [1] [4] [5] [10] (**Inferred** from the absence) |
 | Data per the vendor | Full name, contact information, date of birth, driver's license, passport and other government ID numbers, varying by customer configuration; no images listed; no count [1] (**Confirmed**) |
@@ -107,7 +107,7 @@ This brief covers the VeriScan intrusion, the Nexus resale service, attribution 
 | Date | Event | Sources | Grade |
 |---|---|---|---|
 | Feb 2025 | Caesars Entertainment says it stopped using IDScan in February 2025 and had no active accounts at the time of the incident | [4] | Reported |
-| Jun 2025 | Earliest scan timestamps seen: Krebs's own record, and Barracuda's reading of the data (scan dates, not theft dates) | [4] [13] | Demonstrated [4], Reported [13] |
+| Jun 2025 | Earliest scan timestamps seen: Krebs's own record [4] (Demonstrated); Barracuda reads the timestamps as when each license was taken and advises anyone scanned from June 2025 to 1 Sep 2026 to treat their data as exposed [13] (Reported); this study reads them as scan dates, not theft dates (Inferred) | [4] [13] | Demonstrated [4], Reported [13], Inferred |
 | 4 Apr 2026 | Start of the vendor-stated window of unauthorized access to a portion of its cloud environment | [1] [2] | Confirmed |
 | 31 Aug 2026 | A source alerts Krebs to a Nexus listing on the Exploit forum, posted by a new user, offering Krebs's own Virginia license as a free sample | [4] | Reported |
 | 1 Sep 2026 | Krebs observes nearly 400,000 records added in 24 hours and about 1.1 million Canadian results (473,673 from Ontario) | [4] | Demonstrated |

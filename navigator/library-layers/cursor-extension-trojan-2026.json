@@ -1,0 +1,191 @@
+{
+  "name": "TeamStarWolf - The Trojanized Claude Code Extension on Cursor's Marketplace (October 2026) Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the case study of the tampered Anthropic.claude-code 2.1.312 and 2.1.313 builds that Cursor's VS Code extension marketplace served for about 11 hours on 29 October 2026: the marketplace upload, the loader in extension.js, host profiling and the HTTP beacon, the planted SSH key, LaunchAgent, scheduled task, Startup-folder and cron persistence, and the reverse SSH tunnel. Microsoft maps T1098.004, T1572, T1053.003 and T1053.005; every other binding is the study's own. No actor, malware family or campaign is bound. Score 75: Cursor's notice or Microsoft's analysis describes the behavior. Score 50: researcher analysis of the sample. Score 25: an inexact fit or behavior that mostly failed. Comments carry the study's source numbers.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "75: described in Cursor's notice or Microsoft's analysis",
+      "color": "#15803d"
+    },
+    {
+      "label": "50: from researcher analysis of the sample",
+      "color": "#86efac"
+    },
+    {
+      "label": "25: inexact fit or behavior that mostly failed",
+      "color": "#e5e7eb"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/CURSOR_EXTENSION_TROJAN_2026.md; ATT&CK v20.0 technique data"
+    },
+    {
+      "name": "score_meaning",
+      "value": "75 = Cursor's notice or Microsoft's analysis; 50 = researcher analysis of the sample; 25 = inexact fit or mostly failed. No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Trojanized Claude Code Extension on Cursor's Marketplace (October 2026)",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/CURSOR_EXTENSION_TROJAN_2026"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1195.001",
+      "tactic": "initial-access",
+      "score": 75,
+      "comment": "Tampered IDE extension served by Cursor's marketplace, about 09:27 to 20:35 UTC on 29 Oct 2026 (Cursor notice; Microsoft, 31 Oct 2026). Sources: [1] [2].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1608.001",
+      "tactic": "resource-development",
+      "score": 75,
+      "comment": "Malicious 2.1.312 and 2.1.313 builds uploaded to Cursor's marketplace (Cursor notice, 29 Oct 2026). Sources: [1].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1176.002",
+      "tactic": "persistence",
+      "score": 25,
+      "comment": "Loader runs inside the editor's extension host on load; here mainly the delivery route (Cursor notice, 29 Oct 2026; Phorion, 30 Oct 2026). Sources: [1] [3].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059.007",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "Injected immediately invoked function prepended to extension.js, run before activate (Phorion, 30 Oct 2026; OSM, 30 Oct 2026). Sources: [3] [5].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 75,
+      "comment": "Hostname, OS, architecture, directories and environment variable names collected (Cursor notice, 29 Oct 2026; Phorion, 30 Oct 2026). Sources: [1] [3].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1033",
+      "tactic": "discovery",
+      "score": 75,
+      "comment": "Username and Git email collected (Cursor notice, 29 Oct 2026). Sources: [1].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 75,
+      "comment": "Public IP collected (Cursor notice, 29 Oct 2026). Sources: [1].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 75,
+      "comment": "HTTP POST beacon to port 8099 (Cursor notice, 29 Oct 2026). Sources: [1].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 75,
+      "comment": "Host profile sent in the beacon (Cursor notice, 29 Oct 2026; Microsoft, 31 Oct 2026). Sources: [1] [2].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1098.004",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "Attacker key with comment svc-telemetry added to authorized_keys (Cursor notice, 29 Oct 2026; mapped by Microsoft, 31 Oct 2026). Sources: [1] [2].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 75,
+      "comment": "Reverse SSH tunnel to the attacker server on TCP 22 (Cursor notice, 29 Oct 2026; mapped by Microsoft, 31 Oct 2026). Sources: [1] [2].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1543.001",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "LaunchAgent com.apple.sysmond.plist on macOS (Cursor notice, 29 Oct 2026; Microsoft, 31 Oct 2026). Sources: [1] [2].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "Scheduled task SysMon requesting SYSTEM on Windows (Cursor notice, 29 Oct 2026; mapped by Microsoft, 31 Oct 2026). Sources: [1] [2].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1053.003",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "Cron persistence mapped by Microsoft (31 Oct 2026); Phorion's Linux crontab flaw (30 Oct 2026). Sources: [2] [3].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 75,
+      "comment": "Startup-folder fallback sysmon.cmd on Windows (Cursor notice, 29 Oct 2026). Sources: [1].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1036.004",
+      "tactic": "stealth",
+      "score": 25,
+      "comment": "System-monitor names SysMon and com.apple.sysmond; the study's reading, sources do not call it masquerading (Cursor notice, 29 Oct 2026; Phorion, 30 Oct 2026). Sources: [1] [3].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1021.004",
+      "tactic": "lateral-movement",
+      "score": 25,
+      "comment": "Intended login through the tunnel, blocked on most macOS and Windows hosts without admin rights (Cursor notice, 29 Oct 2026; Phorion, 30 Oct 2026). Sources: [1] [3].",
+      "enabled": true
+    }
+  ]
+}

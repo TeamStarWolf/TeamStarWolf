@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 19 min (4,338 words at 230 words a minute)
+About 19 min (4,355 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -55,7 +55,7 @@ No review recorded yet
 
 ## Executive summary
 
-The people in this story are students, alumni and job applicants. On 10 June 2026 the University of Nottingham told its students that a significant amount of data in its student record system had been accessed by an outside party, affecting current students and alumni [10] (**Confirmed**). Have I Been Pwned later loaded 454,635 unique email addresses from that breach, with passport numbers, ethnicities, disabilities and academic records among the data classes [11] (**Confirmed** as HIBP's record). In September ShinyHunters defaced the FBI's recruitment site and claimed data on FBI employees and applicants. An FBI spokesperson told 404 Media a PeopleSoft zero-day was exploited [15], and a later FBI statement relayed by Krebs named CVE-2026-35273, by then a patched n-day [16] (**Reported**).
+The people in this story are students, alumni and job applicants. On 10 June 2026 the University of Nottingham told its students that a significant amount of data in its student record system had been accessed by an outside party, affecting current students and alumni [10] (**Confirmed**). Have I Been Pwned later loaded 454,635 unique email addresses from that breach, with passport numbers, ethnicities, disabilities and academic records among the data classes [11] (**Confirmed** as HIBP's record). In September ShinyHunters defaced the FBI's recruitment site and claimed data on FBI employees and applicants. An FBI spokesperson told 404 Media a PeopleSoft zero-day was exploited [15]. Krebs reported a brief FBI statement confirming the hack, and ShinyHunters said it got in through CVE-2026-35273, by then a patched n-day [16] (**Reported**).
 
 News reports tie both to one flaw in Oracle PeopleSoft, the suite that holds HR, payroll and student records [8] [13] [16] (**Reported**). Mandiant and Google Threat Intelligence Group (GTIG) saw UNC6240, which they track as ShinyHunters, exploit CVE-2026-35273 as a zero-day from 27 May to 9 June 2026 [7] (**Confirmed**). Oracle published an out-of-band Security Alert on 10 June [1] and CISA added the CVE to KEV on 12 June with a three-day deadline [4] (**Confirmed**). Three months later the actor came back against organizations that had blocked the vulnerable path with WAF rules instead of patching, and walked around those rules with an encoded path [8] (**Confirmed**).
 
@@ -121,8 +121,8 @@ This brief covers CVE-2026-35273 from its reservation on 1 April 2026 to the KEV
 | 15 to 16 Sep | Dutch police arrest a 24-year-old in the ShinyHunters investigation (confirmed 28 Sep) | [16] | Reported |
 | 22 Sep | FBI jobs site defaced; actor claims data on FBI employees and applicants | [15] | Reported |
 | 25 Sep | GTIG publishes the renewed-campaign report | [8] | Confirmed |
-| 28 Sep | Krebs reports an FBI statement confirming the jobs-site compromise through CVE-2026-35273 | [16] | Reported |
-| 29 Sep to 3 Oct | Jordanian authorities detain an alleged member, reportedly cooperating with the FBI (Risky Bulletin dates it about 29 Sep, Krebs 3 Oct) | [17] [20] | Reported |
+| 28 Sep | Krebs reports a brief FBI statement confirming the jobs-site hack; ShinyHunters says it used CVE-2026-35273 | [16] | Reported |
+| By 3 Oct | Jordanian authorities detain an alleged member, reportedly cooperating with the FBI (Reuters reported the detention on 3 Oct, as relayed by Krebs [17]; Risky Bulletin [20] gives no date) | [17] [20] | Reported |
 | 30 Sep | ShinyHunters leak site goes offline | [17] | Reported |
 | 5 Oct | Reuters: more than 5,000 FBI personnel exposed; the FBI drops a contractor that had not patched | [17] [20] | Reported |
 | 9 Oct | FBI announces another arrest tied to the FBI jobs incident | [19] | Reported |

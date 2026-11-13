@@ -129,6 +129,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 31 October 2026: NVD publishes WordPress CVE-2026-119977 with no CPE configuration yet
   - 3 November 2026: CISA lists CVE-2026-119977, due 6 November; 34 KEV additions in the thirty-day window
   - 3 November 2026: TeamStarWolf lab run, 3 to 4 November 2026: version and configuration checks on matched pairs and real hosts
+- [The Citrix NetScaler Zero-Days of September and October 2026 (CVE-2026-88771, CVE-2026-88772, CVE-2026-88779): A Case Study](/case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md). Vulnerability, August to November 2026 (core: 4 September 2026 to 9 October 2026). Sectors: government, finance, technology, education, healthcare. CVEs: CVE-2026-88771, CVE-2026-88772, CVE-2026-88779, CVE-2026-88773, CVE-2026-88774, CVE-2026-88775 and 11 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Citrix_Netscaler_September_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Citrix_Netscaler_September_2026_Case_Study.pptx).
+  - 19 August 2026: Citrix CTX696939 fixes the authentication bypass CVE-2026-19490, with no exploitation statement
+  - 21 August 2026: 21 to 22 Aug: version-fingerprinting requests to more than 100 systems (Reported)
+  - September 2026: Early Sep to 27 Sep: the CVE-2026-88772 campaign; DTLS web shell activity 4 to 24 Sep (Reported)
+  - 9 September 2026: KEV adds CVE-2026-19490, due 12 Sep, forensic triage Yes
+  - 10 September 2026: The NetScaler CNA reserves CVE-2026-88771, CVE-2026-88772 and CVE-2026-88779
+  - 20 September 2026: Earliest CVE-2026-88771 attempts; a command-injection web shell against a US organization on 21 Sep (Reported)
+  - 26 September 2026: watchTowr publicly confirms the rumours; NCSC-NL sends a TLP:AMBER pre-notification (Reported)
+  - 27 September 2026: Citrix CTX697096; KEV adds CVE-2026-88771 and CVE-2026-88772, due 30 Sep; CISA, CERT-EU and NCSC-NL advisories
+  - 27 September 2026: Dutch central government disconnects its Citrix environments; hospital patient portals unavailable (Reported)
+  - 29 September 2026: GTIG and Mandiant describe WHIPSHOT and SLAPSHOT; mass scanning follows the public proof of concept (Reported)
+  - 3 October 2026: Citrix CTX697174 for the SAML denial of service CVE-2026-88779; KEV adds it on 4 Oct, due 7 Oct
+  - 9 October 2026: NCSC-NL covers CVE-2026-107406; CISA's alert adds CVE-2026-88779 and CVE-2026-107406
 - [GitLab, CVE-2026-97229: Lab-Verified Exposure and Fix](/case-studies/GITLAB_CVE_2026_97229.md). Vulnerability, September to November 2026. Sectors: technology. CVEs: CVE-2026-97229, CVE-2026-93577, CVE-2026-110264, CVE-2026-89078. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/GitLab_CVE_2026_97229_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/GitLab_CVE_2026_97229_Case_Study.pptx).
   - 23 September 2026: GitLab 19.4.1, 19.3.3 and 19.2.7 fix the authenticated CVE-2026-93577 (CVSS 9.9), an incomplete fix
   - 25 September 2026: Ruby PR #19020 merged upstream, fixing the compiled-pattern size overflow in Onigmo
@@ -179,19 +192,30 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 31 October 2026: The fixed php:8.4.27-apache Docker tag is last pushed
   - 2 November 2026: NVD last modifies both records
   - 4 November 2026: TeamStarWolf lab run: 8.4.26 and 8.4.27 told apart; both interim workarounds take effect
-- [The SharePoint Server Exploitation Waves of 2026 (CVE-2026-45659 and Successors): A Case Study](/case-studies/SHAREPOINT_2026_EXPLOITATION.md). Campaign, January to November 2026 (core: 18 March 2026 to 25 September 2026). Sectors: cross-sector, government, telecommunications, education. CVEs: CVE-2026-20963, CVE-2026-32201, CVE-2026-45659, CVE-2026-58644, CVE-2026-56164, CVE-2026-50522 and 4 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SharePoint_2026_Exploitation_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/SharePoint_2026_Exploitation_Case_Study.pptx).
-  - 13 January 2026: Microsoft fixes CVE-2026-20963 in the January updates, marked not exploited
-  - 17 March 2026: Microsoft re-scores CVE-2026-20963 to an unauthenticated 9.8; KEV adds it on 18 Mar
-  - 25 March 2026: CERT-EU issues Security Advisory 2026-004
-  - 14 April 2026: Microsoft fixes CVE-2026-32201 as Exploitation Detected; KEV adds it the same day
-  - 21 May 2026: Microsoft publishes CVE-2026-45659, whose fix had shipped in the May updates
-  - 14 July 2026: July updates list CVE-2026-56164 (exploited), 58644, 50522 and 55040; CISA issues its SharePoint hardening alert
-  - 15 July 2026: SharePoint Server 2016 and 2019 reach end of extended support; Canada issues AL26-017
-  - 22 July 2026: CERT-EU issues 2026-009 on exploitation of CVE-2026-50522; KEV adds it
-  - 22 July 2026: 22 to 31 Jul: a Warlock intrusion runs from a SharePoint web shell to ransomware (Reported)
-  - 11 August 2026: August updates fix CVE-2026-65660
-  - 24 September 2026: 24 to 25 Sep: Previdian honeypot attempt and Canada's AL26-023; KEV adds CVE-2026-65660 on 25 Sep
-  - 1 October 2026: Symantec reports Warlock attacks on at least four organizations after SharePoint exploitation (Reported)
+- [The DentaQuest Health-Data Breach of May 2026: A Case Study](/case-studies/DENTAQUEST_BREACH_2026.md). Incident, May to November 2026 (core: 17 May 2026 to 20 May 2026). Sectors: healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DentaQuest_Breach_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/DentaQuest_Breach_2026_Case_Study.pptx).
+  - 17 May 2026: 17 to 19 May: one employee socially engineered out of credentials and an MFA code; data taken from a network file share
+  - 20 May 2026: DentaQuest learns a third party claims to hold its data; containment the same day
+  - 29 May 2026: DentaQuest learns the data was posted on the dark web
+  - 30 May 2026: ShinyHunters leak-site post last updated: about 234 GB, says DentaQuest failed to reach an agreement (Reported)
+  - 3 June 2026: Have I Been Pwned adds 2.6 million unique email addresses (Reported)
+  - 29 June 2026: Kroll gives DentaQuest initial information on impacted individuals
+  - 16 July 2026: Notice to the Rhode Island AG of more than 15 million people; HHS OCR lists 15,000,000, with California and Oregon filings
+  - 17 July 2026: Individual notification by mail begins
+  - 23 July 2026: 23 to 27 July: trade press reports a 23 million estimate, a dedupe of name and birth-date pairs (Reported)
+  - 11 November 2026: HHS export: 15,000,000 is the largest 2026 entry, ahead of Aesto and iRhythm Technologies
+- [The TeamPCP Supply-Chain Campaign of 2026: Trivy, Checkmarx and the Bitwarden CLI (CVE-2026-33634)](/case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md). Campaign, September 2025 to August 2026 (core: 19 March 2026 to 10 May 2026). Sectors: technology, government. CVEs: CVE-2026-33634, CVE-2026-42994, CVE-2025-55182. ATT&CK groups: G1056 TeamPCP. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Teampcp_Trivy_Supply_Chain_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Teampcp_Trivy_Supply_Chain_2026_Case_Study.pptx).
+  - 28 February 2026: About 28 Feb: a pull_request_target workflow at Trivy yields a token and releases are deleted (Reported)
+  - 1 March 2026: Aqua's first disclosure; the credential rotation that follows is not atomic
+  - 19 March 2026: Malicious Trivy v0.69.4 published; trivy-action and setup-trivy tags moved to a credential stealer
+  - 22 March 2026: Malicious Trivy images 0.69.5 and 0.69.6 pushed to Docker Hub with separately stolen credentials
+  - 23 March 2026: Malicious Checkmarx GitHub Actions and Open VSX extensions; NVD publishes CVE-2026-33634
+  - 24 March 2026: litellm 1.82.7 and 1.82.8 on PyPI; the European Commission SOC alerts on AWS API misuse
+  - 26 March 2026: CISA adds CVE-2026-33634 to KEV, due 9 Apr
+  - 27 March 2026: telnyx 4.87.1 and 4.87.2 published with stolen PyPI credentials; Commission press release IP/26/748
+  - 22 April 2026: Checkmarx second wave and the malicious Bitwarden CLI 2026.4.0 on npm (CVE-2026-42994)
+  - 9 May 2026: 9 to 10 May: malicious Checkmarx Jenkins AST plugin published with access obtained in March
+  - 6 July 2026: Checkmarx declares the incident fully contained
+  - 26 August 2026: 26 and 27 Aug: the AFP arrests two Western Australian men the FBI alleges are TeamPCP members
 - [The Stryker Device-Wipe Attack of March 2026: A Case Study](/case-studies/STRYKER_HANDALA_WIPER_2026.md). Incident, March to November 2026 (core: 11 March 2026 to 1 April 2026). Sectors: healthcare, manufacturing. ATT&CK groups: G1055 VOID MANTICORE. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Stryker_Handala_Wiper_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Stryker_Handala_Wiper_2026_Case_Study.pptx).
   - 6 March 2026: Persona domains claim 851 GB stolen from a Hasidic community and post data on about 190 people tied to the IDF (6 to 9 March)
   - 11 March 2026: Managed devices wiped in the US, Ireland, Costa Rica and Australia; the Entra login page shows the Handala logo (Reported)

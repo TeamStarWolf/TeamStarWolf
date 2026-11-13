@@ -2434,6 +2434,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
     pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)"
     reviewed: null
+  case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md:
+    audience: "Teams that run NetScaler ADC or NetScaler Gateway or another remote-access appliance, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run NetScaler, you need the facts of the September and October 2026 zero-days and their three KEV-listed CVEs, or you want to decide how to preserve evidence, patch, hunt and recover an edge appliance that was exposed before the fix"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)"
+    reviewed: null
   case-studies/CL0P_FILE_TRANSFER_2023.md:
     audience: "Vulnerability management leads, incident responders and owners of managed file transfer systems"
     level: "Intermediate"
@@ -2468,6 +2475,13 @@ pages:
     read_when: "You want the carding markets, DDoS extortion, Anonymous and LulzSec, or the 1990 crackdown as the court and government record tells them, you need to know which numbers in the books differ from the record, or you want the defender lessons on DDoS extortion, the HBGary chain and card fraud at the merchant edge"
     start_at: "[Executive summary](#executive-summary), [Part 5: the combined timeline](#part-5-the-combined-timeline), [Part 6: the defender view](#part-6-the-defender-view)"
     pairs_with: "[Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md), [Threat Actors](/THREAT_ACTORS.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md)"
+    reviewed: null
+  case-studies/DENTAQUEST_BREACH_2026.md:
+    audience: "Healthcare and health-plan security leaders, identity and access teams, detection engineers, privacy and breach-response staff and vulnerability management leads"
+    level: "Intermediate"
+    read_when: "You want the dated record of the May 2026 DentaQuest breach, why its counts disagree, or which identity and data controls the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Healthcare Threat Watchlist](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md)"
     reviewed: null
   case-studies/DOTCOM_ERA_CYBER_EVENTS.md:
     audience: "Vulnerability management leads, threat intelligence analysts, security historians and anyone who started their career between Melissa and Blaster and wants the primary record behind it"
@@ -2734,6 +2748,13 @@ pages:
     read_when: "You want the evidence-graded record of how Stuxnet worked and what it targeted, you defend industrial control systems, or you need the attribution and policy record and the legacy it left"
     start_at: "[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 4: the defender view and legacy](#part-4-the-defender-view-and-legacy)"
     pairs_with: "[ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md), [Malware Families](/MALWARE_FAMILIES.md), [Industrial Control System Attacks and Advisories, 2024 to 2026: Incidents, CVEs and Attribution](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md)"
+    reviewed: null
+  case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md:
+    audience: "Platform and DevOps engineers who run CI/CD pipelines, supply chain security engineers, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run Trivy, Checkmarx actions, LiteLLM or the Bitwarden CLI in a pipeline, you need the dated facts of the 2026 TeamPCP campaign and CVE-2026-33634, or you want to decide how to pin, rotate and hunt after a CI tool you trust is compromised"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [DevSecOps Reference](/DEVSECOPS_REFERENCE.md), [npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md), [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)"
     reviewed: null
   case-studies/THREAT_ACTORS_CHINA.md:
     audience: "Threat intelligence analysts, threat hunters, defenders of critical infrastructure and healthcare security teams"

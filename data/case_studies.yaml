@@ -1057,6 +1057,32 @@ studies:
       - {"date": "2026-06-24", "label": "Mandiant reports zero-day exploitation of CVE-2026-20245 in SD-WAN Manager"}
       - {"date": "2026-09-30", "label": "KEV adds CVE-2026-76504, the platform's ninth 2026 KEV entry"}
       - {"date": "2026-10-28", "label": "Talos names UAT-11473 and its KeyDrift framework; Cisco revision 2.1 links the post"}
+  case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md:
+    kind: "vulnerability"
+    title: "The Citrix NetScaler Zero-Days of September and October 2026 (CVE-2026-88771, CVE-2026-88772, CVE-2026-88779): A Case Study"
+    start: "2026-08"
+    end: "2026-11"
+    core_start: "2026-09-04"
+    core_end: "2026-10-09"
+    sectors: ["government", "finance", "technology", "education", "healthcare"]
+    cves: ["CVE-2026-88771", "CVE-2026-88772", "CVE-2026-88779", "CVE-2026-88773", "CVE-2026-88774", "CVE-2026-88775", "CVE-2026-88777", "CVE-2026-88778", "CVE-2026-19489", "CVE-2026-19490", "CVE-2026-107406", "CVE-2026-3055", "CVE-2026-8452", "CVE-2019-19781", "CVE-2023-3519", "CVE-2023-4966", "CVE-2025-5777"]
+    actors: []
+    tags: ["Citrix", "NetScaler", "NetScaler ADC", "NetScaler Gateway", "edge device", "zero-day", "WHIPSHOT", "SLAPSHOT", "KEV", "BOD 26-04"]
+    pdf: "Citrix_Netscaler_September_2026_Case_Study.pdf"
+    pptx: "Citrix_Netscaler_September_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-08-19", "label": "Citrix CTX696939 fixes the authentication bypass CVE-2026-19490, with no exploitation statement"}
+      - {"date": "2026-08-21", "label": "21 to 22 Aug: version-fingerprinting requests to more than 100 systems (Reported)"}
+      - {"date": "2026-09", "label": "Early Sep to 27 Sep: the CVE-2026-88772 campaign; DTLS web shell activity 4 to 24 Sep (Reported)"}
+      - {"date": "2026-09-09", "label": "KEV adds CVE-2026-19490, due 12 Sep, forensic triage Yes"}
+      - {"date": "2026-09-10", "label": "The NetScaler CNA reserves CVE-2026-88771, CVE-2026-88772 and CVE-2026-88779"}
+      - {"date": "2026-09-20", "label": "Earliest CVE-2026-88771 attempts; a command-injection web shell against a US organization on 21 Sep (Reported)"}
+      - {"date": "2026-09-26", "label": "watchTowr publicly confirms the rumours; NCSC-NL sends a TLP:AMBER pre-notification (Reported)"}
+      - {"date": "2026-09-27", "label": "Citrix CTX697096; KEV adds CVE-2026-88771 and CVE-2026-88772, due 30 Sep; CISA, CERT-EU and NCSC-NL advisories"}
+      - {"date": "2026-09-27", "label": "Dutch central government disconnects its Citrix environments; hospital patient portals unavailable (Reported)"}
+      - {"date": "2026-09-29", "label": "GTIG and Mandiant describe WHIPSHOT and SLAPSHOT; mass scanning follows the public proof of concept (Reported)"}
+      - {"date": "2026-10-03", "label": "Citrix CTX697174 for the SAML denial of service CVE-2026-88779; KEV adds it on 4 Oct, due 7 Oct"}
+      - {"date": "2026-10-09", "label": "NCSC-NL covers CVE-2026-107406; CISA's alert adds CVE-2026-88779 and CVE-2026-107406"}
   case-studies/CL0P_FILE_TRANSFER_2023.md:
     kind: "campaign"
     title: "The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study"
@@ -1184,6 +1210,30 @@ studies:
       - {"date": "2011-06-07", "label": "FBI approaches Monsegur, who agrees to cooperate that night (about this date)"}
       - {"date": "2013-11-15", "label": "Jeremy Hammond sentenced to 10 years for computer hacking conspiracy"}
       - {"date": "2014-05-27", "label": "Monsegur sentenced to time served"}
+  case-studies/DENTAQUEST_BREACH_2026.md:
+    kind: "incident"
+    title: "The DentaQuest Health-Data Breach of May 2026: A Case Study"
+    start: "2026-05"
+    end: "2026-11"
+    core_start: "2026-05-17"
+    core_end: "2026-05-20"
+    sectors: ["healthcare"]
+    cves: []
+    actors: []
+    tags: ["DentaQuest", "ShinyHunters", "health data", "social engineering", "MFA", "file share", "data extortion", "HIPAA"]
+    pdf: "DentaQuest_Breach_2026_Case_Study.pdf"
+    pptx: "DentaQuest_Breach_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-05-17", "label": "17 to 19 May: one employee socially engineered out of credentials and an MFA code; data taken from a network file share"}
+      - {"date": "2026-05-20", "label": "DentaQuest learns a third party claims to hold its data; containment the same day"}
+      - {"date": "2026-05-29", "label": "DentaQuest learns the data was posted on the dark web"}
+      - {"date": "2026-05-30", "label": "ShinyHunters leak-site post last updated: about 234 GB, says DentaQuest failed to reach an agreement (Reported)"}
+      - {"date": "2026-06-03", "label": "Have I Been Pwned adds 2.6 million unique email addresses (Reported)"}
+      - {"date": "2026-06-29", "label": "Kroll gives DentaQuest initial information on impacted individuals"}
+      - {"date": "2026-07-16", "label": "Notice to the Rhode Island AG of more than 15 million people; HHS OCR lists 15,000,000, with California and Oregon filings"}
+      - {"date": "2026-07-17", "label": "Individual notification by mail begins"}
+      - {"date": "2026-07-23", "label": "23 to 27 July: trade press reports a 23 million estimate, a dedupe of name and birth-date pairs (Reported)"}
+      - {"date": "2026-11-11", "label": "HHS export: 15,000,000 is the largest 2026 entry, ahead of Aesto and iRhythm Technologies"}
   case-studies/DOTCOM_ERA_CYBER_EVENTS.md:
     kind: "era"
     title: "The Dot-Com Era: Cyber Events, 1994 to 2003"
@@ -2253,6 +2303,32 @@ studies:
       - {"date": "2012-06-01", "label": "New York Times Olympic Games account, relayed by the Guardian"}
       - {"date": "2012-06-24", "label": "Coded infection stop date for Stuxnet 1.x"}
       - {"date": "2013-02-26", "label": "Symantec publishes Stuxnet 0.5: The Missing Link"}
+  case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md:
+    kind: "campaign"
+    title: "The TeamPCP Supply-Chain Campaign of 2026: Trivy, Checkmarx and the Bitwarden CLI (CVE-2026-33634)"
+    start: "2025-09"
+    end: "2026-08"
+    core_start: "2026-03-19"
+    core_end: "2026-05-10"
+    sectors: ["technology", "government"]
+    cves: ["CVE-2026-33634", "CVE-2026-42994", "CVE-2025-55182"]
+    actors: ["G1056"]
+    tags: ["TeamPCP", "Trivy", "GitHub Actions", "CI/CD", "supply chain", "Checkmarx", "LiteLLM", "Bitwarden CLI", "European Commission", "KEV"]
+    pdf: "Teampcp_Trivy_Supply_Chain_2026_Case_Study.pdf"
+    pptx: "Teampcp_Trivy_Supply_Chain_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-02-28", "label": "About 28 Feb: a pull_request_target workflow at Trivy yields a token and releases are deleted (Reported)"}
+      - {"date": "2026-03-01", "label": "Aqua's first disclosure; the credential rotation that follows is not atomic"}
+      - {"date": "2026-03-19", "label": "Malicious Trivy v0.69.4 published; trivy-action and setup-trivy tags moved to a credential stealer"}
+      - {"date": "2026-03-22", "label": "Malicious Trivy images 0.69.5 and 0.69.6 pushed to Docker Hub with separately stolen credentials"}
+      - {"date": "2026-03-23", "label": "Malicious Checkmarx GitHub Actions and Open VSX extensions; NVD publishes CVE-2026-33634"}
+      - {"date": "2026-03-24", "label": "litellm 1.82.7 and 1.82.8 on PyPI; the European Commission SOC alerts on AWS API misuse"}
+      - {"date": "2026-03-26", "label": "CISA adds CVE-2026-33634 to KEV, due 9 Apr"}
+      - {"date": "2026-03-27", "label": "telnyx 4.87.1 and 4.87.2 published with stolen PyPI credentials; Commission press release IP/26/748"}
+      - {"date": "2026-04-22", "label": "Checkmarx second wave and the malicious Bitwarden CLI 2026.4.0 on npm (CVE-2026-42994)"}
+      - {"date": "2026-05-09", "label": "9 to 10 May: malicious Checkmarx Jenkins AST plugin published with access obtained in March"}
+      - {"date": "2026-07-06", "label": "Checkmarx declares the incident fully contained"}
+      - {"date": "2026-08-26", "label": "26 and 27 Aug: the AFP arrests two Western Australian men the FBI alleges are TeamPCP members"}
   case-studies/THREAT_ACTORS_CHINA.md:
     kind: "actor"
     title: "China-Attributed Threat Actors: The Public Record"

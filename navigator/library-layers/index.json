@@ -408,6 +408,24 @@
     "blurb": "Techniques from the 2026 refrigeration-controller attacks in Europe: Modbus scanning and the FOFA service, exposed and end-of-life controllers, default accounts and password spraying, and the supplier path to the French blood service. A curated layer for the European refrigeration attacks case study."
   },
   {
+    "file": "citrix-netscaler-september-2026.json",
+    "name": "TeamStarWolf - Citrix NetScaler Zero-Days (September and October 2026) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the September and October 2026 Citrix NetScaler zero-days supports: Citrix's bulletins, the CVE and KEV records and CISA's alert for the exploitation and the denial of service, and the GTIG and Mandiant, Unit 42, Rapid7 and GreyNoise reports of the web shells, tunneling, configuration theft and log scrubbing. Each comment names source numbers from case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md. Scores: 75 is a vendor bulletin, CVE record or government advisory, 50 is a security vendor's report, 25 is a capability or an inexact fit.",
+    "blurb": "Techniques from the Citrix NetScaler zero-days of September and October 2026, from the August fingerprinting and the pre-authentication exploits to the web shells, the Python tunneler, the theft of bind secrets and TLS keys from the appliance configuration, and the SAML denial of service. A curated layer for the Citrix NetScaler case study."
+  },
+  {
+    "file": "teampcp-trivy-supply-chain-2026.json",
+    "name": "TeamStarWolf - TeamPCP Supply-Chain Campaign of 2026 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the 2026 TeamPCP supply-chain campaign supports: Aqua's advisory, the CVE, NVD and KEV records, the Checkmarx, LiteLLM, PyPA, Telnyx and Bitwarden statements and CERT-EU's report on the European Commission breach, with Wiz, JFrog, StepSecurity and Microsoft research for the post-theft activity. Each comment names source numbers from case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md. Scores: 75 is a vendor advisory, CVE record or government release, 50 is third-party research, 25 is an inexact fit or the unattributed February intrusion.",
+    "blurb": "Techniques from the 2026 TeamPCP supply-chain campaign, from the poisoned Trivy release and moved GitHub Actions tags to the runner secret theft, the stolen tokens that republished Checkmarx, LiteLLM, Telnyx and Bitwarden CLI packages, and the cloud keys used against the European Commission. A curated layer for the TeamPCP case study."
+  },
+  {
+    "file": "dentaquest-breach-2026.json",
+    "name": "TeamStarWolf - DentaQuest Health-Data Breach May 2026 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the DentaQuest health-data breach case study, from the social engineering of one employee for credentials and an MFA code on 17 May 2026 through the file-share theft to 19 May and the extortion claim. No source names ATT&CK ids, so every binding is the study's own reading. Score 100: a primary states the behavior and the technique fits directly. Score 60: a primary states the behavior and the fit is partial. Score 40: the behavior is known only from the actor's claim or Reported sources. Scores measure the strength of the tie to this record, not severity. No malware, exfiltration channel or lure sub-technique is in the record, so none is bound. Comments carry the study's source numbers.",
+    "blurb": "Techniques from the DentaQuest breach record of May 2026: one employee socially engineered out of credentials and an MFA code, the valid account that reached a network file share of member data, and the extortion claim. A curated layer for the DentaQuest case study."
+  },
+  {
     "file": "sharepoint-2026-exploitation.json",
     "name": "TeamStarWolf - SharePoint Server Exploitation Waves (2026) Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the 2026 on-premises SharePoint Server exploitation waves supports: CISA's alert and the KEV catalog for the exploitation and machine-key theft, and the Symantec and press reports of the Warlock intrusions that began with SharePoint exploitation. Each comment names source numbers from case-studies/SHAREPOINT_2026_EXPLOITATION.md. Scores: 75 is CISA's alert or the KEV catalog, 50 is a vendor or researcher report, 25 is a capability, an attempt or an inexact fit.",

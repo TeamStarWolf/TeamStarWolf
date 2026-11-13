@@ -36,6 +36,7 @@ Deploying a network resource for the purposes of deceiving an adversary.
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md)
+- [The DentaQuest Health-Data Breach of May 2026: A Case Study](/case-studies/DENTAQUEST_BREACH_2026.md)
 - [The Year 2022 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2022.md)
 
 <!-- library-refs:end -->

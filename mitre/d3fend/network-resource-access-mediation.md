@@ -36,6 +36,7 @@ Control of access to organizational systems and services by users or processes o
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [Before the Internet: Computer Threats, 1960 to 1990](/case-studies/PRE_INTERNET_THREATS.md)
+- [The DentaQuest Health-Data Breach of May 2026: A Case Study](/case-studies/DENTAQUEST_BREACH_2026.md)
 - [The Shadow Brokers and Vault 7: The NSA and CIA Tool Leaks, 2016 to 2017](/case-studies/NSA_CIA_TOOL_LEAKS.md)
 
 <!-- library-refs:end -->

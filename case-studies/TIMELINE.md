@@ -129,6 +129,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 31 October 2026: NVD publishes WordPress CVE-2026-119977 with no CPE configuration yet
   - 3 November 2026: CISA lists CVE-2026-119977, due 6 November; 34 KEV additions in the thirty-day window
   - 3 November 2026: TeamStarWolf lab run, 3 to 4 November 2026: version and configuration checks on matched pairs and real hosts
+- [The Citrix NetScaler Zero-Days of September and October 2026 (CVE-2026-88771, CVE-2026-88772, CVE-2026-88779): A Case Study](/case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md). Vulnerability, August to November 2026 (core: 4 September 2026 to 9 October 2026). Sectors: government, finance, technology, education, healthcare. CVEs: CVE-2026-88771, CVE-2026-88772, CVE-2026-88779, CVE-2026-88773, CVE-2026-88774, CVE-2026-88775 and 11 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Citrix_Netscaler_September_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Citrix_Netscaler_September_2026_Case_Study.pptx).
+  - 19 August 2026: Citrix CTX696939 fixes the authentication bypass CVE-2026-19490, with no exploitation statement
+  - 21 August 2026: 21 to 22 Aug: version-fingerprinting requests to more than 100 systems (Reported)
+  - September 2026: Early Sep to 27 Sep: the CVE-2026-88772 campaign; DTLS web shell activity 4 to 24 Sep (Reported)
+  - 9 September 2026: KEV adds CVE-2026-19490, due 12 Sep, forensic triage Yes
+  - 10 September 2026: The NetScaler CNA reserves CVE-2026-88771, CVE-2026-88772 and CVE-2026-88779
+  - 20 September 2026: Earliest CVE-2026-88771 attempts; a command-injection web shell against a US organization on 21 Sep (Reported)
+  - 26 September 2026: watchTowr publicly confirms the rumours; NCSC-NL sends a TLP:AMBER pre-notification (Reported)
+  - 27 September 2026: Citrix CTX697096; KEV adds CVE-2026-88771 and CVE-2026-88772, due 30 Sep; CISA, CERT-EU and NCSC-NL advisories
+  - 27 September 2026: Dutch central government disconnects its Citrix environments; hospital patient portals unavailable (Reported)
+  - 29 September 2026: GTIG and Mandiant describe WHIPSHOT and SLAPSHOT; mass scanning follows the public proof of concept (Reported)
+  - 3 October 2026: Citrix CTX697174 for the SAML denial of service CVE-2026-88779; KEV adds it on 4 Oct, due 7 Oct
+  - 9 October 2026: NCSC-NL covers CVE-2026-107406; CISA's alert adds CVE-2026-88779 and CVE-2026-107406
 - [GitLab, CVE-2026-97229: Lab-Verified Exposure and Fix](/case-studies/GITLAB_CVE_2026_97229.md). Vulnerability, September to November 2026. Sectors: technology. CVEs: CVE-2026-97229, CVE-2026-93577, CVE-2026-110264, CVE-2026-89078. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/GitLab_CVE_2026_97229_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/GitLab_CVE_2026_97229_Case_Study.pptx).
   - 23 September 2026: GitLab 19.4.1, 19.3.3 and 19.2.7 fix the authenticated CVE-2026-93577 (CVSS 9.9), an incomplete fix
   - 25 September 2026: Ruby PR #19020 merged upstream, fixing the compiled-pattern size overflow in Onigmo

@@ -1057,6 +1057,32 @@ studies:
       - {"date": "2026-06-24", "label": "Mandiant reports zero-day exploitation of CVE-2026-20245 in SD-WAN Manager"}
       - {"date": "2026-09-30", "label": "KEV adds CVE-2026-76504, the platform's ninth 2026 KEV entry"}
       - {"date": "2026-10-28", "label": "Talos names UAT-11473 and its KeyDrift framework; Cisco revision 2.1 links the post"}
+  case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md:
+    kind: "vulnerability"
+    title: "The Citrix NetScaler Zero-Days of September and October 2026 (CVE-2026-88771, CVE-2026-88772, CVE-2026-88779): A Case Study"
+    start: "2026-08"
+    end: "2026-11"
+    core_start: "2026-09-04"
+    core_end: "2026-10-09"
+    sectors: ["government", "finance", "technology", "education", "healthcare"]
+    cves: ["CVE-2026-88771", "CVE-2026-88772", "CVE-2026-88779", "CVE-2026-88773", "CVE-2026-88774", "CVE-2026-88775", "CVE-2026-88777", "CVE-2026-88778", "CVE-2026-19489", "CVE-2026-19490", "CVE-2026-107406", "CVE-2026-3055", "CVE-2026-8452", "CVE-2019-19781", "CVE-2023-3519", "CVE-2023-4966", "CVE-2025-5777"]
+    actors: []
+    tags: ["Citrix", "NetScaler", "NetScaler ADC", "NetScaler Gateway", "edge device", "zero-day", "WHIPSHOT", "SLAPSHOT", "KEV", "BOD 26-04"]
+    pdf: "Citrix_Netscaler_September_2026_Case_Study.pdf"
+    pptx: "Citrix_Netscaler_September_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-08-19", "label": "Citrix CTX696939 fixes the authentication bypass CVE-2026-19490, with no exploitation statement"}
+      - {"date": "2026-08-21", "label": "21 to 22 Aug: version-fingerprinting requests to more than 100 systems (Reported)"}
+      - {"date": "2026-09", "label": "Early Sep to 27 Sep: the CVE-2026-88772 campaign; DTLS web shell activity 4 to 24 Sep (Reported)"}
+      - {"date": "2026-09-09", "label": "KEV adds CVE-2026-19490, due 12 Sep, forensic triage Yes"}
+      - {"date": "2026-09-10", "label": "The NetScaler CNA reserves CVE-2026-88771, CVE-2026-88772 and CVE-2026-88779"}
+      - {"date": "2026-09-20", "label": "Earliest CVE-2026-88771 attempts; a command-injection web shell against a US organization on 21 Sep (Reported)"}
+      - {"date": "2026-09-26", "label": "watchTowr publicly confirms the rumours; NCSC-NL sends a TLP:AMBER pre-notification (Reported)"}
+      - {"date": "2026-09-27", "label": "Citrix CTX697096; KEV adds CVE-2026-88771 and CVE-2026-88772, due 30 Sep; CISA, CERT-EU and NCSC-NL advisories"}
+      - {"date": "2026-09-27", "label": "Dutch central government disconnects its Citrix environments; hospital patient portals unavailable (Reported)"}
+      - {"date": "2026-09-29", "label": "GTIG and Mandiant describe WHIPSHOT and SLAPSHOT; mass scanning follows the public proof of concept (Reported)"}
+      - {"date": "2026-10-03", "label": "Citrix CTX697174 for the SAML denial of service CVE-2026-88779; KEV adds it on 4 Oct, due 7 Oct"}
+      - {"date": "2026-10-09", "label": "NCSC-NL covers CVE-2026-107406; CISA's alert adds CVE-2026-88779 and CVE-2026-107406"}
   case-studies/CL0P_FILE_TRANSFER_2023.md:
     kind: "campaign"
     title: "The Cl0p MOVEit Breach and the File-Transfer Extortion Playbook: A 2023 Case Study"

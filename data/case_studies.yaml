@@ -112,6 +112,32 @@ studies:
       - {"date": "2024-07-18", "label": "APT41 DUST (C0040) reported: prolonged access at shipping and logistics organizations"}
       - {"date": "2026-07-24", "label": "Google renames APT41 to SPIRE CASTLE"}
       - {"date": "2026-10-22", "label": "BlackX UEFI bootkit reported at diplomatic agencies in Tajikistan, Uzbekistan and Turkmenistan"}
+  case-studies/BEYONDTRUST_REMOTE_SUPPORT_CVE_2026_1731.md:
+    kind: "vulnerability"
+    title: "The BeyondTrust Remote Support and PRA Command Injection of 2026 (CVE-2026-1731): A Case Study"
+    start: "2024-12"
+    end: "2026-11"
+    core_start: "2026-01-31"
+    core_end: "2026-02-19"
+    sectors: ["cross-sector", "finance", "technology", "education", "retail", "healthcare"]
+    cves: ["CVE-2026-1731", "CVE-2024-12356", "CVE-2024-12686", "CVE-2026-102764"]
+    actors: ["G1051"]
+    tags: ["BeyondTrust", "Remote Support", "Privileged Remote Access", "command injection", "remote access", "edge device", "Medusa", "ransomware", "AI-assisted discovery", "KEV"]
+    pdf: "BeyondTrust_Remote_Support_CVE_2026_1731_Case_Study.pdf"
+    pptx: "BeyondTrust_Remote_Support_CVE_2026_1731_Case_Study.pptx"
+    events:
+      - {"date": "2024-12-16", "label": "Advisory BT24-10 discloses CVE-2024-12356, an unauthenticated command injection in RS and PRA; KEV adds it on 19 Dec"}
+      - {"date": "2026-01-31", "label": "BeyondTrust detects anomalous activity on one RS appliance; Hacktron reports the flaw; CVE-2026-1731 reserved"}
+      - {"date": "2026-02-02", "label": "Patches BT26-02-RS and BT26-02-PRA pushed to auto-updating appliances; RS and PRA SaaS fully patched"}
+      - {"date": "2026-02-06", "label": "Advisory BT26-02 and the CVE record published"}
+      - {"date": "2026-02-10", "label": "BeyondTrust records its first observed exploitation attempt and emails customers again"}
+      - {"date": "2026-02-11", "label": "Public proof-of-concept repository created; reconnaissance surges (GreyNoise, Reported)"}
+      - {"date": "2026-02-13", "label": "KEV adds CVE-2026-1731, due 16 Feb; Arctic Wolf reports suspected exploitation (Reported)"}
+      - {"date": "2026-02-18", "label": "18 to 19 Feb: KEV ransomware flag changes from Unknown to Known"}
+      - {"date": "2026-02-19", "label": "Unit 42 reports a multi-sector campaign with VShell and SparkRAT (Reported)"}
+      - {"date": "2026-08-18", "label": "AA25-071A update lists CVE-2026-1731 among the flaws Medusa actors exploit"}
+      - {"date": "2026-09-30", "label": "Google calls the discovery an early indicator of AI-assisted vulnerability discovery (Reported)"}
+      - {"date": "2026-10-15", "label": "15 to 16 Oct: a separate RS flaw, CVE-2026-102764, is disclosed and added to KEV"}
   case-studies/BINANCE_HEIST_2026.md:
     kind: "incident"
     title: "The Binance Hot-Wallet Theft of October 2026: A Case Study"
@@ -136,6 +162,32 @@ studies:
       - {"date": "2026-11-01", "label": "Phase-one withdrawals resume on 15 networks"}
       - {"date": "2026-11-02", "label": "Kim Yo Jong denies North Korea's role (Reported)"}
       - {"date": "2026-11-03", "label": "Binance publishes its preliminary post-mortem; Chainalysis and TRM publish follow-ups"}
+  case-studies/BOSTON_SCIENTIFIC_ATTACK_2026.md:
+    kind: "incident"
+    title: "The Boston Scientific Network Outage of August 2026: A Case Study"
+    start: "2026-07"
+    end: "2026-11"
+    core_start: "2026-08-25"
+    core_end: "2026-09-09"
+    sectors: ["healthcare", "manufacturing"]
+    cves: []
+    actors: []
+    tags: ["Boston Scientific", "CrowdStrike", "network management device", "edge device", "SEC Item 1.05", "8-K", "medical technology", "LATITUDE", "remote monitoring", "outage"]
+    pdf: "Boston_Scientific_Attack_2026_Case_Study.pdf"
+    pptx: "Boston_Scientific_Attack_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-08-25", "label": "System availability issues traced to an unauthorized third party; containment begins and CrowdStrike's investigation starts"}
+      - {"date": "2026-08-26", "label": "Form 8-K Item 8.01: a global disruption, including the ability to process and ship orders"}
+      - {"date": "2026-08-27", "label": "Orders queued through EDI; implanted device function unaffected; new remote-monitoring activations impaired"}
+      - {"date": "2026-08-29", "label": "CrowdStrike named as responder; cloud systems not affected; manufacturing also impacted"}
+      - {"date": "2026-08-30", "label": "No unauthorized activity seen since 25 August; partial restoration of shipping planned"}
+      - {"date": "2026-09-03", "label": "Access believed limited to select internal-facing IT; shipping restored for most products at major distribution centers"}
+      - {"date": "2026-09-05", "label": "Distribution substantially restored; all sterilization facilities operational; manufacturing resumed at most sites"}
+      - {"date": "2026-09-07", "label": "Form 8-K Item 1.05 (filed 8 September): likely material to Q3 and full-year 2026 results"}
+      - {"date": "2026-09-08", "label": "Remote-monitoring activation restored for LATITUDE NXT communicators and LATITUDE Clarity ICMs"}
+      - {"date": "2026-09-09", "label": "Manufacturing, order fulfillment and shipping fully restored"}
+      - {"date": "2026-10-28", "label": "Q3 results: net sales $5.138 billion (+1.5%) against 3 to 5% guidance; full-year guidance cut"}
+      - {"date": "2026-11-02", "label": "Q3 10-Q: material effect on Q3, a 1.7-point gross margin hit and civil legal claims filed"}
   case-studies/CHANGE_HEALTHCARE_2024.md:
     kind: "incident"
     title: "The Change Healthcare Attack of 2024: The Largest Healthcare Breach on Record"
@@ -1893,6 +1945,32 @@ studies:
       - {"date": "2021-10-04", "label": "FireEye, Inc. becomes Mandiant, Inc.; the products business sale closes on 8 October"}
       - {"date": "2022-04-27", "label": "Mandiant merges UNC2452 into APT29"}
       - {"date": "2022-09-12", "label": "Google completes its acquisition of Mandiant"}
+  case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md:
+    kind: "vulnerability"
+    title: "The Microsoft Office Security Feature Bypass of 2026 (CVE-2026-21509) and APT28: A Case Study"
+    start: "2025-12"
+    end: "2026-03"
+    core_start: "2026-01-26"
+    core_end: "2026-02-02"
+    sectors: ["government"]
+    cves: ["CVE-2026-21509", "CVE-2026-21514", "CVE-2022-30190", "CVE-2023-23397", "CVE-2018-14634", "CVE-2025-52691", "CVE-2026-23760", "CVE-2026-24061"]
+    actors: ["G0007"]
+    tags: ["Microsoft Office", "OLE", "COM", "security feature bypass", "spearphishing", "APT28", "Covenant", "Filen", "Ukraine", "KEV"]
+    pdf: "Microsoft_Office_CVE_2026_21509_Case_Study.pdf"
+    pptx: "Microsoft_Office_CVE_2026_21509_Case_Study.pptx"
+    events:
+      - {"date": "2025-07", "label": "APT28's Covenant begins using the Filen cloud storage service for command and control, per ESET (Reported)"}
+      - {"date": "2025-09-16", "label": "Sekoia publishes Operation Phantom Net Voxel with the same building blocks (Reported)"}
+      - {"date": "2025-12-30", "label": "Microsoft reserves CVE-2026-21509"}
+      - {"date": "2026-01-12", "label": "Two domains later used in the chain are registered"}
+      - {"date": "2026-01-26", "label": "MSRC publishes the Office security feature bypass out of band, Exploited = Yes; KEV adds it, due 16 Feb"}
+      - {"date": "2026-01-27", "label": "COREPER-themed lure document created, per its metadata"}
+      - {"date": "2026-01-29", "label": "CERT-UA receives reports of mail posing as Ukraine's Hydrometeorological Center sent to more than 60 addresses"}
+      - {"date": "2026-02-01", "label": "CERT-UA#19542 attributes the activity to UAC-0001 (APT28)"}
+      - {"date": "2026-02-02", "label": "Zscaler publishes Operation Neusploit (Reported)"}
+      - {"date": "2026-02-10", "label": "KEV adds CVE-2026-21514, a Word flaw with the same CWE-807"}
+      - {"date": "2026-02-16", "label": "KEV due date for federal agencies"}
+      - {"date": "2026-03-10", "label": "ESET ties the January campaigns to Sednit's Covenant (Reported)"}
   case-studies/MITNICK_INTRUSIONS.md:
     kind: "actor"
     title: "Kevin Mitnick: Ghost in the Wires and The Art of Intrusion"
@@ -2051,6 +2129,32 @@ studies:
       - {"date": "2017-11-09", "label": "WikiLeaks begins Vault 8 with source code for the CIA Hive tool"}
       - {"date": "2022-07-13", "label": "Joshua Schulte convicted on eight counts at retrial over the Vault 7 theft"}
       - {"date": "2024-02-01", "label": "Schulte sentenced to 40 years"}
+  case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026.md:
+    kind: "campaign"
+    title: "Oracle PeopleSoft CVE-2026-35273 and the ShinyHunters Mass Exploitation of 2026: A Case Study"
+    start: "2026-04"
+    end: "2026-11"
+    core_start: "2026-05-27"
+    core_end: "2026-09-25"
+    sectors: ["education", "government", "technology", "healthcare", "transport"]
+    cves: ["CVE-2024-21182", "CVE-2026-21962", "CVE-2026-35273", "CVE-2026-46817"]
+    actors: ["G1057"]
+    tags: ["Oracle", "PeopleSoft", "PeopleTools", "ShinyHunters", "UNC6240", "zero-day", "WAF bypass", "web shells", "higher education", "data extortion", "FBI"]
+    pdf: "Oracle_PeopleSoft_ShinyHunters_2026_Case_Study.pdf"
+    pptx: "Oracle_PeopleSoft_ShinyHunters_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-04-01", "label": "Oracle's CNA reserves CVE-2026-35273"}
+      - {"date": "2026-05-15", "label": "FBI IC3 PSA warns about ShinyHunters extortion, with educational institutions at elevated risk"}
+      - {"date": "2026-05-27", "label": "27 May to 9 June: UNC6240 (ShinyHunters) exploits the PeopleSoft PSEMHUB flaw as a zero-day"}
+      - {"date": "2026-06-09", "label": "Stolen data published on the ShinyHunters leak site; the zero-day window closes"}
+      - {"date": "2026-06-10", "label": "Oracle out-of-band Security Alert for PeopleTools 8.61 and 8.62; University of Nottingham notice to students"}
+      - {"date": "2026-06-11", "label": "CVE record published; CISA SSVC records exploitation as active; GTIG has notified more than 100 organizations"}
+      - {"date": "2026-06-12", "label": "CISA adds CVE-2026-35273 to KEV with a 15 June due date and known ransomware campaign use"}
+      - {"date": "2026-09", "label": "Renewed n-day mass exploitation: WAF rules bypassed with an encoded path, JSP web shells planted"}
+      - {"date": "2026-09-22", "label": "FBI jobs site defaced; the actor claims data on FBI employees and applicants (Reported)"}
+      - {"date": "2026-09-25", "label": "GTIG publishes its report on the renewed campaign"}
+      - {"date": "2026-10-09", "label": "FBI announces another arrest tied to the FBI jobs incident (Reported)"}
+      - {"date": "2026-10-20", "label": "ZDI publishes the three-flaw chain behind the CVE (URL dated 20 October, page dated 27 October)"}
   case-studies/PALO_ALTO_PAN_OS_CVE_2026_0257.md:
     kind: "vulnerability"
     title: "The PAN-OS GlobalProtect Authentication Bypass of 2026 (CVE-2026-0257), Qilin and INC Ransomware: A Case Study"

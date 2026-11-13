@@ -154,6 +154,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 29 October 2026: CISA adds CVE-2026-97229 to KEV with forensic triage required, due 1 November
   - 30 October 2026: Metasploit module merged; press reports exploitation attempts against self-managed instances
   - 4 November 2026: TeamStarWolf lab run: 19.4.1 and 19.4.2 differ in GitLab version, not in ruby -v
+- [The Boston Scientific Network Outage of August 2026: A Case Study](/case-studies/BOSTON_SCIENTIFIC_ATTACK_2026.md). Incident, July to November 2026 (core: 25 August 2026 to 9 September 2026). Sectors: healthcare, manufacturing. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Boston_Scientific_Attack_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Boston_Scientific_Attack_2026_Case_Study.pptx).
+  - 25 August 2026: System availability issues traced to an unauthorized third party; containment begins and CrowdStrike's investigation starts
+  - 26 August 2026: Form 8-K Item 8.01: a global disruption, including the ability to process and ship orders
+  - 27 August 2026: Orders queued through EDI; implanted device function unaffected; new remote-monitoring activations impaired
+  - 29 August 2026: CrowdStrike named as responder; cloud systems not affected; manufacturing also impacted
+  - 30 August 2026: No unauthorized activity seen since 25 August; partial restoration of shipping planned
+  - 3 September 2026: Access believed limited to select internal-facing IT; shipping restored for most products at major distribution centers
+  - 5 September 2026: Distribution substantially restored; all sterilization facilities operational; manufacturing resumed at most sites
+  - 7 September 2026: Form 8-K Item 1.05 (filed 8 September): likely material to Q3 and full-year 2026 results
+  - 8 September 2026: Remote-monitoring activation restored for LATITUDE NXT communicators and LATITUDE Clarity ICMs
+  - 9 September 2026: Manufacturing, order fulfillment and shipping fully restored
+  - 28 October 2026: Q3 results: net sales $5.138 billion (+1.5%) against 3 to 5% guidance; full-year guidance cut
+  - 2 November 2026: Q3 10-Q: material effect on Q3, a 1.7-point gross margin hit and civil legal claims filed
 - [Collabora Built-in CODE Server (richdocumentscode), CVE-2026-110447: Lab-Verified Exposure and Fix](/case-studies/NEXTCLOUD_RICHDOCUMENTS_CVE_2026_110447.md). Vulnerability, August to November 2026. Sectors: technology. CVEs: CVE-2026-110447, CVE-2025-66208, CVE-2026-67400. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Nextcloud_Richdocuments_CVE_2026_110447_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Nextcloud_Richdocuments_CVE_2026_110447_Case_Study.pptx).
   - 20 August 2026: Fix commit 6cc8dae authored, titled as a tidy-up of the coolwsd launch command
   - 31 August 2026: richdocumentscode 26.4.302 released, still vulnerable
@@ -192,6 +205,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 31 October 2026: The fixed php:8.4.27-apache Docker tag is last pushed
   - 2 November 2026: NVD last modifies both records
   - 4 November 2026: TeamStarWolf lab run: 8.4.26 and 8.4.27 told apart; both interim workarounds take effect
+- [Oracle PeopleSoft CVE-2026-35273 and the ShinyHunters Mass Exploitation of 2026: A Case Study](/case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026.md). Campaign, April to November 2026 (core: 27 May 2026 to 25 September 2026). Sectors: education, government, technology, healthcare, transport. CVEs: CVE-2024-21182, CVE-2026-21962, CVE-2026-35273, CVE-2026-46817. ATT&CK groups: G1057 ShinyHunters. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Oracle_PeopleSoft_ShinyHunters_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Oracle_PeopleSoft_ShinyHunters_2026_Case_Study.pptx).
+  - 1 April 2026: Oracle's CNA reserves CVE-2026-35273
+  - 15 May 2026: FBI IC3 PSA warns about ShinyHunters extortion, with educational institutions at elevated risk
+  - 27 May 2026: 27 May to 9 June: UNC6240 (ShinyHunters) exploits the PeopleSoft PSEMHUB flaw as a zero-day
+  - 9 June 2026: Stolen data published on the ShinyHunters leak site; the zero-day window closes
+  - 10 June 2026: Oracle out-of-band Security Alert for PeopleTools 8.61 and 8.62; University of Nottingham notice to students
+  - 11 June 2026: CVE record published; CISA SSVC records exploitation as active; GTIG has notified more than 100 organizations
+  - 12 June 2026: CISA adds CVE-2026-35273 to KEV with a 15 June due date and known ransomware campaign use
+  - September 2026: Renewed n-day mass exploitation: WAF rules bypassed with an encoded path, JSP web shells planted
+  - 22 September 2026: FBI jobs site defaced; the actor claims data on FBI employees and applicants (Reported)
+  - 25 September 2026: GTIG publishes its report on the renewed campaign
+  - 9 October 2026: FBI announces another arrest tied to the FBI jobs incident (Reported)
+  - 20 October 2026: ZDI publishes the three-flaw chain behind the CVE (URL dated 20 October, page dated 27 October)
 - [The DentaQuest Health-Data Breach of May 2026: A Case Study](/case-studies/DENTAQUEST_BREACH_2026.md). Incident, May to November 2026 (core: 17 May 2026 to 20 May 2026). Sectors: healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DentaQuest_Breach_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/DentaQuest_Breach_2026_Case_Study.pptx).
   - 17 May 2026: 17 to 19 May: one employee socially engineered out of credentials and an MFA code; data taken from a network file share
   - 20 May 2026: DentaQuest learns a third party claims to hold its data; containment the same day
@@ -325,6 +351,32 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 October 2026: CISA adds the CVE to KEV as Google Brotli Unchecked Return Value Vulnerability
   - 4 November 2026: TeamStarWolf lab run: 24.22.0 flagged, 24.22.1 not, both report Brotli 1.2.0
   - 10 November 2026: KEV due date
+- [The BeyondTrust Remote Support and PRA Command Injection of 2026 (CVE-2026-1731): A Case Study](/case-studies/BEYONDTRUST_REMOTE_SUPPORT_CVE_2026_1731.md). Vulnerability, December 2024 to November 2026 (core: 31 January 2026 to 19 February 2026). Sectors: cross-sector, finance, technology, education, retail, healthcare. CVEs: CVE-2026-1731, CVE-2024-12356, CVE-2024-12686, CVE-2026-102764. ATT&CK groups: G1051 Medusa Group. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/BeyondTrust_Remote_Support_CVE_2026_1731_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/BeyondTrust_Remote_Support_CVE_2026_1731_Case_Study.pptx).
+  - 16 December 2024: Advisory BT24-10 discloses CVE-2024-12356, an unauthenticated command injection in RS and PRA; KEV adds it on 19 Dec
+  - 31 January 2026: BeyondTrust detects anomalous activity on one RS appliance; Hacktron reports the flaw; CVE-2026-1731 reserved
+  - 2 February 2026: Patches BT26-02-RS and BT26-02-PRA pushed to auto-updating appliances; RS and PRA SaaS fully patched
+  - 6 February 2026: Advisory BT26-02 and the CVE record published
+  - 10 February 2026: BeyondTrust records its first observed exploitation attempt and emails customers again
+  - 11 February 2026: Public proof-of-concept repository created; reconnaissance surges (GreyNoise, Reported)
+  - 13 February 2026: KEV adds CVE-2026-1731, due 16 Feb; Arctic Wolf reports suspected exploitation (Reported)
+  - 18 February 2026: 18 to 19 Feb: KEV ransomware flag changes from Unknown to Known
+  - 19 February 2026: Unit 42 reports a multi-sector campaign with VShell and SparkRAT (Reported)
+  - 18 August 2026: AA25-071A update lists CVE-2026-1731 among the flaws Medusa actors exploit
+  - 30 September 2026: Google calls the discovery an early indicator of AI-assisted vulnerability discovery (Reported)
+  - 15 October 2026: 15 to 16 Oct: a separate RS flaw, CVE-2026-102764, is disclosed and added to KEV
+- [The Microsoft Office Security Feature Bypass of 2026 (CVE-2026-21509) and APT28: A Case Study](/case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md). Vulnerability, December 2025 to March 2026 (core: 26 January 2026 to 2 February 2026). Sectors: government. CVEs: CVE-2026-21509, CVE-2026-21514, CVE-2022-30190, CVE-2023-23397, CVE-2018-14634, CVE-2025-52691 and 2 more. ATT&CK groups: G0007 APT28. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Microsoft_Office_CVE_2026_21509_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Microsoft_Office_CVE_2026_21509_Case_Study.pptx).
+  - July 2025: APT28's Covenant begins using the Filen cloud storage service for command and control, per ESET (Reported)
+  - 16 September 2025: Sekoia publishes Operation Phantom Net Voxel with the same building blocks (Reported)
+  - 30 December 2025: Microsoft reserves CVE-2026-21509
+  - 12 January 2026: Two domains later used in the chain are registered
+  - 26 January 2026: MSRC publishes the Office security feature bypass out of band, Exploited = Yes; KEV adds it, due 16 Feb
+  - 27 January 2026: COREPER-themed lure document created, per its metadata
+  - 29 January 2026: CERT-UA receives reports of mail posing as Ukraine's Hydrometeorological Center sent to more than 60 addresses
+  - 1 February 2026: CERT-UA#19542 attributes the activity to UAC-0001 (APT28)
+  - 2 February 2026: Zscaler publishes Operation Neusploit (Reported)
+  - 10 February 2026: KEV adds CVE-2026-21514, a Word flaw with the same CWE-807
+  - 16 February 2026: KEV due date for federal agencies
+  - 10 March 2026: ESET ties the January campaigns to Sednit's Covenant (Reported)
 - [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md). Period record, January to November 2026. Sectors: cross-sector, government, technology, energy, healthcare, finance, retail, education, defense, transport. CVEs: CVE-2008-0015, CVE-2008-4128, CVE-2008-4250, CVE-2015-3306, CVE-2015-5477, CVE-2016-3081 and 65 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2026_Case_Study.pptx).
   - 23 January 2026: ESET ties DynoWiper, used against a Polish energy company on 29 Dec 2025, to Sandworm with medium confidence
   - 25 February 2026: Talos: Cisco Catalyst SD-WAN CVE-2026-20127 exploited as a zero-day back to at least 2023; CISA issues ED 26-03

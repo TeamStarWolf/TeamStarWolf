@@ -2372,6 +2372,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 10: the vulnerability-management view](#part-10-the-vulnerability-management-view)"
     pairs_with: "[Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md)"
     reviewed: null
+  case-studies/CARECLOUD_BREACH_2026.md:
+    audience: "Healthcare and health-technology security leaders, cloud and identity teams, detection engineers, vendor-risk and breach-response staff and vulnerability management leads"
+    level: "Intermediate"
+    read_when: "You want the dated record of the March 2026 CareCloud breach, how its SEC, HHS and state disclosures fit together, or which cloud identity and detection controls the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Healthcare Threat Watchlist](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md)"
+    reviewed: null
   case-studies/CHECK_POINT_VPN_CVE_2026_50751.md:
     audience: "Firewall, network and edge-device teams that run Check Point gateways or Spark appliances, remote-access VPN owners, vulnerability management leads, incident responders and threat intelligence analysts"
     level: "Intermediate"

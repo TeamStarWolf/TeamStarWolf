@@ -4,7 +4,7 @@
 
 > Collecting telemetry, writing and tuning detections, hunting, and responding to and investigating incidents.
 
-Part of the [domain hubs](/hubs/README.md). 24 reference documents in this domain; reading time is the page's words at 230 words a minute.
+Part of the [domain hubs](/hubs/README.md). 25 reference documents in this domain; reading time is the page's words at 230 words a minute.
 
 ## Detection, monitoring, and hunting
 
@@ -22,6 +22,7 @@ Part of the [domain hubs](/hubs/README.md). 24 reference documents in this domai
 | [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md) | Suricata, Zeek, Security Onion, Arkime, DNS security, nDPI, NAC, DDoS protection, NSM operations | 17 min |
 | [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md) | Zeek logs/scripts, Suricata rules, JA3/JARM, NetFlow/SiLK, beaconing detection, DGA hunting, Security Onion | 8 min |
 | [Email Security Reference](/EMAIL_SECURITY_REFERENCE.md) | SPF/DKIM/DMARC deep dive, phishing analysis, HTML smuggling, BEC, M365 Defender config, SMTP hardening, email forensics | 12 min |
+| [File Types and Extensions Reference](/FILE_TYPES_REFERENCE.md) | Common and uncommon file types and extensions by family: how a type is decided (extension, magic number, handler, Mark of the Web), what opens each one, why it matters, the dated exploitation record, the vendor block lists, the detections and the MITRE mappings | 104 min |
 | [Deception Technology](/DECEPTION_TECHNOLOGY_REFERENCE.md) | Honeypots, honeytokens, canary tokens, deception platforms, breadcrumb strategy, and detection rules | 10 min |
 | [Honeypot & Deception Reference](/HONEYPOT_DECEPTION_REFERENCE.md) | OpenCanary, Cowrie, Dionaea, T-Pot, Canarytokens, MITRE D3FEND/ATT&CK deception mapping | 27 min |
 | [Vendor Prevention Policies](/VENDOR_PREVENTION_POLICIES.md) | Authoritative policy settings from Microsoft (ASR/MDE), CrowdStrike, SentinelOne, Palo Alto, Proofpoint, Zscaler, CISA, NSA, Elastic, and Splunk | 15 min |

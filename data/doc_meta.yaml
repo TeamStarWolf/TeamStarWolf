@@ -692,6 +692,14 @@ pages:
     learning_path:
       - "disciplines/exploit-development.md"
     reviewed: null
+  FILE_TYPES_REFERENCE.md:
+    audience: "SOC analysts, incident responders, email and endpoint administrators, and detection engineers"
+    level: "Intermediate"
+    read_when: "You are deciding whether an attachment or download type should be blocked, inspected or allowed, you are triaging a file by its extension, magic number or handler, or you are writing a detection or a mail and endpoint policy for a rarely seen file type"
+    start_at: "[How a file type is decided](#how-a-file-type-is-decided), [The catalog](#the-catalog) for the family tables, [Uncommon and dangerous](#uncommon-and-dangerous) for the rarely seen types with an exploitation record"
+    pairs_with: "[Email Security Reference](EMAIL_SECURITY_REFERENCE.md), [Endpoint Security Reference](ENDPOINT_SECURITY_REFERENCE.md), [Malware Analysis Reference](MALWARE_ANALYSIS_REFERENCE.md), [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
   FIRMWARE_IOT_SECURITY_REFERENCE.md:
     audience: "Hardware and IoT security testers, embedded engineers, and OT defenders"
     level: "Intermediate to advanced"

@@ -30,6 +30,7 @@ Identifying and extracting files from network application protocols through the 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md)
+- [File Types and Extensions Reference](/FILE_TYPES_REFERENCE.md)
 
 <!-- library-refs:end -->
 

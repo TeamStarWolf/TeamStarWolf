@@ -603,6 +603,7 @@ For a SOC that has a SIEM and "some forwarders" but has never treated the pipeli
 - [SIEM Reference](/SIEM_REFERENCE.md)
 - [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md)
 - [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md)
+- [File Types and Extensions Reference](/FILE_TYPES_REFERENCE.md)
 
 <!-- related:end -->
 

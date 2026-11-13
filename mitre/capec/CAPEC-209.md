@@ -37,6 +37,7 @@ An adversary creates a file with scripting content but where the specified MIME 
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [File Types and Extensions Reference](/FILE_TYPES_REFERENCE.md)
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
 
 <!-- library-refs:end -->

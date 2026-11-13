@@ -64,6 +64,7 @@ This attack targets the encoding of the URL. An adversary can take advantage of 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [Oracle PeopleSoft CVE-2026-35273 and the ShinyHunters Mass Exploitation of 2026: A Case Study](/case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026.md)
 
 <!-- library-refs:end -->
 

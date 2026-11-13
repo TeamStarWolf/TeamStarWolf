@@ -67,6 +67,7 @@ An adversary leverages the possibility to encode potentially harmful input or co
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [Oracle PeopleSoft CVE-2026-35273 and the ShinyHunters Mass Exploitation of 2026: A Case Study](/case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026.md)
 
 <!-- library-refs:end -->
 

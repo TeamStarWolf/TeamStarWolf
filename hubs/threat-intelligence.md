@@ -87,5 +87,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [The DentaQuest health-data breach of May 2026: a case study](/case-studies/DENTAQUEST_BREACH_2026.md)
 - [The FBI surveillance system breach of 2026: a case study](/case-studies/FBI_SURVEILLANCE_SYSTEM_BREACH_2026.md)
 - [The Instructure Canvas breach and ShinyHunters extortion of 2026: a case study](/case-studies/INSTRUCTURE_CANVAS_BREACH_2026.md)
+- [Oracle PeopleSoft CVE-2026-35273 and the ShinyHunters mass exploitation of 2026: a case study](/case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026.md)
 
 <!-- hub:end -->

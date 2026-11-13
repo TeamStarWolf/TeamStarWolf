@@ -454,5 +454,11 @@
     "name": "TeamStarWolf - Microsoft Office Security Feature Bypass of 2026 (CVE-2026-21509) and APT28 Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the Microsoft Office security feature bypass CVE-2026-21509 supports: Microsoft's advisory for the exploitation and the user-opened file, CERT-UA#19542 for the spearphishing, WebDAV fetch, COM hijack, scheduled task, image-hidden shellcode and Filen command and control, and Zscaler's report of the MiniDoor and PixyNetLoader payloads. Each comment names source numbers from case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md. Scores: 75 is Microsoft's advisory or a government record, 50 is a security vendor's research report, 25 is an inexact fit.",
     "blurb": "Techniques from the APT28 campaigns that exploited the Office security feature bypass CVE-2026-21509 in January 2026, from the spearphishing attachment and client exploitation to the COM hijack, scheduled task, steganography and Covenant over Filen cloud storage. A curated layer for the CVE-2026-21509 case study."
+  },
+  {
+    "file": "oracle-peoplesoft-shinyhunters-2026.json",
+    "name": "TeamStarWolf - Oracle PeopleSoft CVE-2026-35273 and ShinyHunters 2026 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the Oracle PeopleSoft CVE-2026-35273 case study: the ShinyHunters (UNC6240) zero-day wave of 27 May to 9 June 2026 against PeopleSoft PeopleTools, mostly in higher education, and the September 2026 n-day wave that got past WAF rules with an encoded path and planted JSP web shells. Score 100: a primary (Mandiant and GTIG, or ATT&CK's G1057 entry) states the behavior or lists the technique and the fit is direct. Score 60: the fit is partly inferred from a tool the primary names. Score 40: only a Reported source supports it. Scores measure the strength of the tie to this record, not severity. Comments carry the study's source numbers.",
+    "blurb": "Techniques from the Oracle PeopleSoft CVE-2026-35273 campaign of 2026, from the ShinyHunters zero-day wave against universities to the September WAF bypass, JSP web shells, remote-access tools, tunnels and data-theft extortion. A curated layer for the Oracle PeopleSoft case study."
   }
 ]

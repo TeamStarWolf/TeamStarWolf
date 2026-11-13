@@ -192,6 +192,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 31 October 2026: The fixed php:8.4.27-apache Docker tag is last pushed
   - 2 November 2026: NVD last modifies both records
   - 4 November 2026: TeamStarWolf lab run: 8.4.26 and 8.4.27 told apart; both interim workarounds take effect
+- [Oracle PeopleSoft CVE-2026-35273 and the ShinyHunters Mass Exploitation of 2026: A Case Study](/case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026.md). Campaign, April to November 2026 (core: 27 May 2026 to 25 September 2026). Sectors: education, government, technology, healthcare, transport. CVEs: CVE-2024-21182, CVE-2026-21962, CVE-2026-35273, CVE-2026-46817. ATT&CK groups: G1057 ShinyHunters. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Oracle_PeopleSoft_ShinyHunters_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Oracle_PeopleSoft_ShinyHunters_2026_Case_Study.pptx).
+  - 1 April 2026: Oracle's CNA reserves CVE-2026-35273
+  - 15 May 2026: FBI IC3 PSA warns about ShinyHunters extortion, with educational institutions at elevated risk
+  - 27 May 2026: 27 May to 9 June: UNC6240 (ShinyHunters) exploits the PeopleSoft PSEMHUB flaw as a zero-day
+  - 9 June 2026: Stolen data published on the ShinyHunters leak site; the zero-day window closes
+  - 10 June 2026: Oracle out-of-band Security Alert for PeopleTools 8.61 and 8.62; University of Nottingham notice to students
+  - 11 June 2026: CVE record published; CISA SSVC records exploitation as active; GTIG has notified more than 100 organizations
+  - 12 June 2026: CISA adds CVE-2026-35273 to KEV with a 15 June due date and known ransomware campaign use
+  - September 2026: Renewed n-day mass exploitation: WAF rules bypassed with an encoded path, JSP web shells planted
+  - 22 September 2026: FBI jobs site defaced; the actor claims data on FBI employees and applicants (Reported)
+  - 25 September 2026: GTIG publishes its report on the renewed campaign
+  - 9 October 2026: FBI announces another arrest tied to the FBI jobs incident (Reported)
+  - 20 October 2026: ZDI publishes the three-flaw chain behind the CVE (URL dated 20 October, page dated 27 October)
 - [The DentaQuest Health-Data Breach of May 2026: A Case Study](/case-studies/DENTAQUEST_BREACH_2026.md). Incident, May to November 2026 (core: 17 May 2026 to 20 May 2026). Sectors: healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DentaQuest_Breach_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/DentaQuest_Breach_2026_Case_Study.pptx).
   - 17 May 2026: 17 to 19 May: one employee socially engineered out of credentials and an MFA code; data taken from a network file share
   - 20 May 2026: DentaQuest learns a third party claims to hold its data; containment the same day

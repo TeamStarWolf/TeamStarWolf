@@ -1127,6 +1127,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 31 March 2025: PCI DSS 6.4.3 and 11.6.1 on payment page scripts become required
   - 22 October 2025: SessionReaper (CVE-2025-54236) attacks begin (Reported); KEV entry on 24 Oct
   - 27 October 2026: PolyShell (CVE-2026-48356) added to KEV
+- [The Year 1999 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1999.md). Period record, January to December 1999. Sectors: cross-sector, defense, government, technology, telecommunications, finance, healthcare, energy, retail, media. CVEs: CVE-1999-0018, CVE-1999-0668, CVE-1999-0696, CVE-1999-0704, CVE-1999-0833, CVE-1999-0834 and 4 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_1999_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_1999_Case_Study.pptx).
+  - 18 January 1999: DES Challenge III: distributed.net and the EFF DES Cracker find the key in 22 hours 15 minutes
+  - 21 January 1999: CA-1999-01: trojaned TCP Wrappers 7.6 source on a number of FTP servers
+  - 23 February 1999: Deputy Secretary of Defense Hamre tells Congress DoD detects 80 to 100 events a day
+  - 27 March 1999: CA-1999-04: Melissa, a Word macro virus spreading by email; over 100,000 computers by 29 March
+  - 22 April 1999: IN-99-03: CIH can erase the hard drive and overwrite the system BIOS
+  - 10 June 1999: CA-1999-06: ExploreZip zeroes Office and source-code files and spreads to shares
+  - 22 July 1999: IN-99-04: scripted attacks chain the cmsd, statd/automountd and ToolTalk flaws
+  - 9 August 1999: Kevin Mitnick sentenced to 46 months
+  - September 1999: The CVE List launches publicly with 321 records
+  - 12 November 1999: Gramm-Leach-Bliley Act puts a security and confidentiality obligation on financial institutions
+  - 18 November 1999: IN-99-07: trinoo and Tribe Flood Network installed on hosts taken through RPC flaws
+  - 28 December 1999: CA-1999-17: Tribe FloodNet 2K, with spoofed sources and MacOS 9 amplification
 
 ### 1998 <!-- {docsify-ignore} -->
 

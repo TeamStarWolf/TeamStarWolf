@@ -1,6 +1,6 @@
 # The Binance Hot-Wallet Theft of October 2026: A Case Study
 
-*A TeamStarWolf case study. Published 12 November 2026; sources checked 11 November 2026, and the FBI alert opened 12 November 2026.*
+*A TeamStarWolf case study. Published 12 November 2026; sources checked 11 November 2026; the FBI alert and two library studies opened 12 November 2026.*
 
 [All case studies](/case-studies/README.md) · Related: [North Korea-Attributed Threat Actors](/case-studies/THREAT_ACTORS_NORTH_KOREA.md), [The Year 2026 in Intrusions](/case-studies/CHRONICLE_2026.md), [npm Supply Chain Attacks](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md), [PHP2Shell and October 2026](/case-studies/PHP2SHELL_OCTOBER_2026.md), [Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)
 
@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 25 min (5,640 words at 230 words a minute)
+About 25 min (5,659 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -121,7 +121,7 @@ The FBI alert returned HTTP 403 when this brief was researched on 11 November an
 | 29 Oct, 20:05 to 20:09 | Five hot wallets send 233.46 million XRP; Solana and Optimism hot wallets send about 970,500 SOL and 44.2 million OP; 18,270 BTC follows | [1] | Confirmed |
 | 29 Oct, 20:20 (16:20 ET) | Ethereum sweeper authorizations submitted (TRM); 50 signed EIP-7702 transactions delegate partial execution rights over affected wallets to an attacker contract (Binance). Chainalysis dates the first outflows to about this time | [1] [9] [12] | Confirmed; Reported for TRM's time |
 | 29 Oct, 21:14 (17:14 ET) | Freezes begin, per Chainalysis | [12] | Reported |
-| 29 Oct, 22:27 (15:27 PDT) | TechCrunch reports withdrawals halted on multiple networks; founder Changpeng Zhao says on X the exchange was likely hacked | [15] | Reported |
+| 29 Oct, 22:27 (15:27 PDT) | TechCrunch reports withdrawals halted on multiple networks; it notes founder Changpeng Zhao had said on X hours earlier that the exchange was likely hacked | [15] | Reported |
 | 29 Oct, 6:45 p.m. ET as published | BleepingComputer reports a potential breach of up to $5.8 billion from Arkham-tracked wallets and a spokesperson saying user funds are safe | [16] | Reported |
 | 29 Oct, about 23:05 | Second wave from Avalanche and Polygon hot wallets | [9] | Reported |
 | 29 Oct, 23:56 | Final unauthorized transfer, 2,961.9 ETH | [1] [2] | Confirmed |
@@ -228,7 +228,7 @@ ATT&CK has no TraderTraitor, Jade Sleet or UNC4899 object in the library's data 
 | Lazarus Group | [G0032](/mitre/groups/G0032.md) | An industry name AA22-108A gives for TraderTraitor [5]. Overlap only (**Inferred**) |
 | Contagious Interview | [G1052](/mitre/groups/G1052.md) | A separate North Korea-aligned group ATT&CK records as targeting software developers and cryptocurrency work [27]. Comparison only; no source links it to Binance |
 | Operation Dream Job | [C0022](/mitre/campaigns/C0022.md) | An ATT&CK campaign whose tradecraft includes fake job lures [27]. Comparison only; no source links it to Binance |
-| AppleJeus | [S0584](/mitre/software/S0584.md) | Malware AA22-108A ties to TraderTraitor [5]. Comparison only; no source names it in the Binance record |
+| AppleJeus | [S0584](/mitre/software/S0584.md) | Lazarus Group malware (trojanized cryptocurrency trading applications) whose tactics AA22-108A says the TraderTraitor actors resemble [5]. Comparison only; no source names it in the Binance record |
 
 No software object is bound: the record names neither the tampered installer's payload nor the malicious pyenv component [1].
 

@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 20 min (4,502 words at 230 words a minute)
+About 20 min (4,508 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -181,7 +181,7 @@ A vulnerability programme keyed on CVE and version will not see this. There is n
 | Rotate credentials from a clean system; treat env-var names as a target list | Beacon contents [1] [3] |
 | Back up user crontabs before cleanup on Linux (**Inferred**) | Crontab flaw [3] |
 
-Microsoft Defender for Endpoint alerts that cover the chain include suspicious activity from a code editor, SSH key addition, launchctl activity, scheduled tasks, plist changes and SSH tunneling [2] (**Confirmed**). Analysts quoted by CSO call an extension marketplace another software supply chain and recommend publisher verification, allowlisting, controlled updates and egress restriction [16] (**Reported**).
+Microsoft Defender for Endpoint alerts that cover the chain include suspicious activity from a code editor, SSH key addition, launchctl activity, scheduled tasks, plist changes and SSH tunneling [2] (**Confirmed**). Yash Kadakia of Security Brigade, quoted by CSO, calls an extension marketplace another software supply chain and recommends publisher verification, allowlisting, controlled updates and restrictions on outbound connections [16] (**Reported**).
 
 ### What is overstated and what is understated
 

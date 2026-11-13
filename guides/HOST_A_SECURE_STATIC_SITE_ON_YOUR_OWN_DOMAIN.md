@@ -25,7 +25,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 13 min (2,886 words at 230 words a minute)
+About 13 min (2,994 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -109,7 +109,7 @@ GitHub documents four IPv4 and four IPv6 addresses for apex domains and a CNAME 
 | AAAA | @ | 2606:50c0:8003::153 | DNS only |
 | CNAME | www | your-account.github.io | DNS only |
 
-In the dashboard: DNS, Records, **Add record**, pick the type, type `@` or `www` as the name, paste the content, switch the proxy toggle off, **Save**. Nine times. The dashboard will warn that proxying is recommended; ignore it until Step 5.
+In the dashboard: DNS, Records, **Add record**, pick the type, type `@` or `www` as the name, paste the content, switch the proxy toggle off, **Save**. Nine times. For a domain moved in Step 1, first delete the imported apex `A` and `AAAA` records and any `www` record that point at the previous host: the apex must resolve only to GitHub's four addresses, or the DNS check in Step 4 fails and visitors split between the old host and the new one. The dashboard will warn that proxying is recommended; ignore it until Step 5.
 
 Check: `nslookup example.com 1.1.1.1` returns the four A records; `nslookup -type=CNAME www.example.com 1.1.1.1` returns `your-account.github.io`. Public DNS usually shows them within ten minutes.
 
@@ -132,7 +132,7 @@ Now that the origin holds a valid certificate, let Cloudflare sit in front.
 1. DNS, Records: edit each of the nine records and switch **Proxy status** to **Proxied** (orange cloud). Cloudflare issues its own edge certificate for `example.com` and `www.example.com` within minutes (Universal SSL).
 2. **SSL/TLS**, **Overview**: encryption mode **Full (strict)**. This makes Cloudflare validate the origin's certificate, which GitHub has just issued, so there is no plaintext hop and no unvalidated hop.
 3. **SSL/TLS**, **Edge Certificates**: **Always Use HTTPS** on; **Minimum TLS Version** 1.2; **Automatic HTTPS Rewrites** on if your content ever had `http://` links.
-4. **HSTS**: do not enable it on the first day. Run the site over HTTPS for a week, check that every subdomain you use also serves HTTPS, then enable HSTS with a short `max-age` (a day), and raise it to a year only when you are sure. `includeSubDomains` and preload are commitments that are hard to undo: a wrong one can make a subdomain unreachable for the whole max-age.
+4. **HSTS**: do not enable it on the first day. Run the site over HTTPS for a week, check that every subdomain you use also serves HTTPS, then enable HSTS with a short `max-age`, and raise it to a year only when you are sure. The dashboard setting offers one to twelve months, so its shortest trial is one month [8]; for a one-day trial (`max-age=86400`), set the `Strict-Transport-Security` header yourself in the Transform Rule of Step 6 instead, and leave the dashboard setting off until you commit. `includeSubDomains` and preload are commitments that are hard to undo: a wrong one can make a subdomain unreachable for the whole max-age, and preload lists require a max-age of at least twelve months [8].
 5. **DNS**, **Settings**: enable **DNSSEC**. With Cloudflare Registrar the DS record is set for you; with another registrar, copy the DS record there.
 6. CAA: optional. If you add CAA records, they must allow the authorities GitHub and Cloudflare use (Let's Encrypt for the origin; Cloudflare's own authorities for the edge certificate, listed in its documentation), or renewals fail silently later.
 

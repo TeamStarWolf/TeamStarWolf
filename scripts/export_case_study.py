@@ -142,6 +142,7 @@ EXPORT_NAMES = {
     "CHROME_ISOLATED_WEB_APPS_2026": "Chrome_Isolated_Web_Apps_2026",
     "MANDIANT_INTRUSION_2020": "FireEye_Mandiant_Intrusion_2020",
     "CONNECTWISE_STORM_0940_2026": "ConnectWise_Storm_0940_2026",
+    "STRYKER_HANDALA_WIPER_2026": "Stryker_Handala_Wiper_2026",
     "NSA_CIA_TOOL_LEAKS": "NSA_CIA_Tool_Leaks_2016_2017",
     "RANSOMWARE_ECOSYSTEM": "Ransomware_Ecosystem_2019_2026",
     "NABLE_NCENTRAL_ABLE2SHELL_2026": "Nable_Ncentral_Able2Shell_2026",

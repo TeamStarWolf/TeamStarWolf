@@ -424,5 +424,11 @@
     "name": "TeamStarWolf - DentaQuest Health-Data Breach May 2026 Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the DentaQuest health-data breach case study, from the social engineering of one employee for credentials and an MFA code on 17 May 2026 through the file-share theft to 19 May and the extortion claim. No source names ATT&CK ids, so every binding is the study's own reading. Score 100: a primary states the behavior and the technique fits directly. Score 60: a primary states the behavior and the fit is partial. Score 40: the behavior is known only from the actor's claim or Reported sources. Scores measure the strength of the tie to this record, not severity. No malware, exfiltration channel or lure sub-technique is in the record, so none is bound. Comments carry the study's source numbers.",
     "blurb": "Techniques from the DentaQuest breach record of May 2026: one employee socially engineered out of credentials and an MFA code, the valid account that reached a network file share of member data, and the extortion claim. A curated layer for the DentaQuest case study."
+  },
+  {
+    "file": "palo-alto-pan-os-cve-2026-0257.json",
+    "name": "TeamStarWolf - PAN-OS GlobalProtect Authentication Bypass of 2026 (CVE-2026-0257) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the PAN-OS GlobalProtect authentication bypass CVE-2026-0257 supports: the Palo Alto Networks advisory and the KEV record for the exploitation and the VPN access, and the Rapid7, Arctic Wolf and Unit 42 reports of the forged cookie and the Qilin and INC ransomware intrusions that followed. Each comment names source numbers from case-studies/PALO_ALTO_PAN_OS_CVE_2026_0257.md. Scores: 75 is the vendor advisory or the KEV record, 50 is a security vendor's report, 25 is an inexact fit.",
+    "blurb": "Techniques from the PAN-OS GlobalProtect authentication bypass of 2026, from the forged authentication override cookie and the unauthorized VPN session to the remote-access tools, credential dumping, lateral movement, cleared logs, cloud exfiltration and Qilin encryption that followed. A curated layer for the PAN-OS CVE-2026-0257 case study."
   }
 ]

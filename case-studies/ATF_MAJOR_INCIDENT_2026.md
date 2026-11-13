@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 18 min (4,164 words at 230 words a minute)
+About 19 min (4,281 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -59,7 +59,7 @@ The victim is ATF, the US federal regulatory and law-enforcement agency that enf
 
 ATF published a statement on its website the same day [1] (**Reported**). It said one standalone system, which operates separately from the ATF enterprise network, was affected; that on discovery it "immediately terminated connections to the affected environment" and began incident response and forensic work; that senior Department officials had designated the event a "major incident" under applicable federal guidelines and the required notifications were complete; that it was investigating with the Justice Department; and that its ability to perform its missions was not affected [1] [2] (**Reported**). ATF's own page returned HTTP 403 when opened for this study, so its words reach this brief through two publishers who link the release and quote overlapping passages that agree where they overlap.
 
-The record stops there. ATF did not confirm ransomware or encryption, did not say whether data was taken, and gave no discovery date, access vector or name for the system [1] [2] (**Reported**). No government source names an actor [2] (**Reported**). No CVE, KEV entry or advisory is tied to the intrusion [1] [2] (**Confirmed** absence within the sources opened; the wider record is not checked), and the Intelligence Hub has no ATF or Qilin row [13] (**Confirmed**).
+The record stops there. ATF did not confirm ransomware or encryption, did not say whether data was taken, and gave no discovery date, access vector or name for the system [1] [2] (**Reported**). No government source names an actor [2] (**Reported**). No CVE, KEV entry or advisory is tied to the intrusion [1] [2] (**Confirmed** absence within the sources opened; the wider record is not checked), and the Intelligence Hub has no ATF row; its Qilin rows (20 to 22 Oct 2026) cover the PAN-OS CVE-2026-0257 campaign, not ATF [13] (**Confirmed**).
 
 ### Key facts at a glance
 
@@ -78,7 +78,7 @@ The record stops there. ATF did not confirm ransomware or encryption, did not sa
 | Ransomware or encryption | Not confirmed by ATF [1] (**Reported**) |
 | Data taken, volume, ransom | Not stated in any source opened [1] [2] (**Confirmed** absence) |
 | Access vector, CVE, KEV | None named; no source ties a vulnerability to ATF [1] [2] (**Confirmed** absence within the sources opened; the wider record is not checked) |
-| Intelligence Hub | No ATF or Qilin row in the feed or the 2026 v7 shards [13] (**Confirmed**) |
+| Intelligence Hub | No ATF row in the feed or the 2026 v7 shards; its Qilin rows (20 to 22 Oct 2026) cover the PAN-OS CVE-2026-0257 campaign, not ATF [13] (**Confirmed**) |
 
 ### Key findings
 
@@ -125,8 +125,8 @@ This brief covers the incident from Qilin's 26 August 2026 listing to what could
 | 26 Aug 2026 | ATF publishes its statement, the same day as the listing per BleepingComputer | [1] [2] | Reported |
 | 27 Aug 2026 | BleepingComputer reports; an ATF spokesperson had not responded by publication | [1] | Reported |
 | 28 Aug 2026 | SecurityWeek reports the statement, including the major-incident designation and no effect on ATF's missions | [2] | Reported |
-| 11 Nov 2026 | The ATF tag pages at both outlets list only the one incident article, and no source opened shows Qilin publishing data; this does not prove none exists | [11] [12] | Reported |
-| 11 Nov 2026 | The Intelligence Hub feed and its 2026 v7 shards contain no ATF or Qilin row | [13] | Confirmed |
+| 11 Nov 2026 | BleepingComputer's ATF tag page lists only the one incident article (SecurityWeek's /tag/atf/ URL redirects to its 28 Aug article [2], so it gives no follow-up listing), and no source opened shows Qilin publishing data; this does not prove none exists | [11] [12] | Reported |
+| 11 Nov 2026 | The Intelligence Hub feed and its 2026 v7 shards contain no ATF row; its Qilin rows (20 to 22 Oct 2026) cover the PAN-OS CVE-2026-0257 campaign, not ATF | [13] | Confirmed |
 
 The listing and the statement fall on the same day [1] (**Reported**). The record does not say whether ATF found the intrusion itself or learned of it from the listing, or how long before 26 August discovery came (**Inferred**).
 
@@ -160,7 +160,7 @@ No source states a motive for ATF. Check Point's 2026 assessment judges with med
 
 **CVE and KEV.** No CVE or KEV entry is tied to ATF [1] [2] (**Confirmed** absence). The KEV entries that matter for Qilin in 2026 belong to the lineage: CVE-2026-50751 (KEV 8 June, due 11 June, ransomware use "Known") [7] and CVE-2026-0257 (KEV 29 May, ransomware use "Known") [15] (**Confirmed**).
 
-**Follow-up.** As of 11 November 2026 neither outlet's ATF tag page lists a second incident article, and no source opened shows Qilin publishing ATF data [11] [12] (**Reported**). That is not proof that nothing followed.
+**Follow-up.** As of 11 November 2026 BleepingComputer's ATF tag page lists no second incident article, and no source opened shows Qilin publishing ATF data [11] (**Reported**). SecurityWeek's /tag/atf/ URL redirects to its 28 August article [2] [12], so it gives no follow-up listing. That is not proof that nothing followed.
 
 ## Part 5: the defender and vulnerability-management view
 
@@ -250,8 +250,8 @@ All sources were opened on 11 November 2026.
 | 9 | BleepingComputer (Sergiu Gatlan), FBI investigates breach of surveillance and wiretap systems, Mar 2026 (context) | [bleepingcomputer.com/news/security/fbi-investigates-breach-...](https://www.bleepingcomputer.com/news/security/fbi-investigates-breach-of-surveillance-and-wiretap-systems/) | 2026-11-11 | Reported |
 | 10 | BleepingComputer (Lawrence Abrams), DHS confirms hackers breached HSIN info-sharing platform, 1 Jul 2026 (context) | [bleepingcomputer.com/news/security/dhs-confirms-hackers-breached-...](https://www.bleepingcomputer.com/news/security/dhs-confirms-hackers-breached-hsin-info-sharing-platform/) | 2026-11-11 | Reported |
 | 11 | BleepingComputer, ATF tag page | [bleepingcomputer.com/tag/atf/](https://www.bleepingcomputer.com/tag/atf/) | 2026-11-11 | Reported |
-| 12 | SecurityWeek, ATF tag page | [securityweek.com/tag/atf/](https://www.securityweek.com/tag/atf/) | 2026-11-11 | Reported |
-| 13 | Team Star Wolf Intelligence Hub, feed.json and the 2026 v7 index, live, history and article shards (no ATF or Qilin row) | [teamstarwolf.github.io/intelligence-hub/data/v7/index.json](https://teamstarwolf.github.io/intelligence-hub/data/v7/index.json) | 2026-11-11 | Confirmed |
+| 12 | SecurityWeek, /tag/atf/ URL (not a tag listing: it returns 301 to the 28 Aug article [2], so it gives no follow-up listing) | [securityweek.com/tag/atf/](https://www.securityweek.com/tag/atf/) | 2026-11-13 | Reported |
+| 13 | Team Star Wolf Intelligence Hub, feed.json and the 2026 v7 index, live, history and article shards (no ATF row; its Qilin rows of 20 to 22 Oct 2026 cover the PAN-OS CVE-2026-0257 campaign, not ATF, and its 11 and 12 Nov 2026 rows profile who runs Qilin without naming ATF) | [teamstarwolf.github.io/intelligence-hub/data/v7/index.json](https://teamstarwolf.github.io/intelligence-hub/data/v7/index.json) | 2026-11-13 | Confirmed |
 | 14 | TeamStarWolf library data and pages: `data/attack/software_profiles.jsonl`, `groups.jsonl`, `technique_profiles.jsonl`, `technique_to_d3fend.jsonl`, `d3fend_countermeasures.jsonl`, and the `mitre/` tree including the S1242 and G1050 pages | [github.com/TeamStarWolf/TeamStarWolf/tree/main/data](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data) | 2026-11-11 | Confirmed |
 | 15 | CISA, Known Exploited Vulnerabilities Catalog (JSON feed), entries for CVE-2026-0257 and CVE-2026-50751 | [cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 2026-11-11 | Confirmed |
 

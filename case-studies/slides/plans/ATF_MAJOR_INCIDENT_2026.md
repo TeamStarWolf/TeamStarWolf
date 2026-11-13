@@ -49,7 +49,7 @@ Notes: Compromise [1][2]. Segmentation [1][2]. Major incident [3]. Edges [6][8].
 | 28 August | SecurityWeek reports the major incident |
 | 11 November | No sign of Qilin publishing ATF data |
 Caption: All rows Reported. Whether ATF found the intrusion itself is not on the record (Inferred).
-Notes: Discovery and containment [1][2]. Listing [1][2]. Statement [1][2]. Coverage [1][2]. Follow-up [11][12].
+Notes: Discovery and containment [1][2]. Listing [1][2]. Statement [1][2]. Coverage [1][2]. Follow-up [11].
 
 ## PART 2 | What the record says, and what it leaves out
 

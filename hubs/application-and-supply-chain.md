@@ -65,5 +65,6 @@ Time and difficulty are quoted in full from each guide's header table.
 - [npm supply-chain attacks: a case study](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md)
 - [Hugging Face supply chain: a case study](/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md)
 - [Chrome Isolated Web Apps, vulnerabilities and abuse in 2026: a case study](/case-studies/CHROME_ISOLATED_WEB_APPS_2026.md)
+- [The SharePoint Server exploitation waves of 2026 (CVE-2026-45659 and successors): a case study](/case-studies/SHAREPOINT_2026_EXPLOITATION.md)
 
 <!-- hub:end -->

@@ -166,6 +166,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 31 October 2026: The fixed php:8.4.27-apache Docker tag is last pushed
   - 2 November 2026: NVD last modifies both records
   - 4 November 2026: TeamStarWolf lab run: 8.4.26 and 8.4.27 told apart; both interim workarounds take effect
+- [The SharePoint Server Exploitation Waves of 2026 (CVE-2026-45659 and Successors): A Case Study](/case-studies/SHAREPOINT_2026_EXPLOITATION.md). Campaign, January to November 2026 (core: 18 March 2026 to 25 September 2026). Sectors: cross-sector, government, telecommunications, education. CVEs: CVE-2026-20963, CVE-2026-32201, CVE-2026-45659, CVE-2026-58644, CVE-2026-56164, CVE-2026-50522 and 4 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SharePoint_2026_Exploitation_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/SharePoint_2026_Exploitation_Case_Study.pptx).
+  - 13 January 2026: Microsoft fixes CVE-2026-20963 in the January updates, marked not exploited
+  - 17 March 2026: Microsoft re-scores CVE-2026-20963 to an unauthenticated 9.8; KEV adds it on 18 Mar
+  - 25 March 2026: CERT-EU issues Security Advisory 2026-004
+  - 14 April 2026: Microsoft fixes CVE-2026-32201 as Exploitation Detected; KEV adds it the same day
+  - 21 May 2026: Microsoft publishes CVE-2026-45659, whose fix had shipped in the May updates
+  - 14 July 2026: July updates list CVE-2026-56164 (exploited), 58644, 50522 and 55040; CISA issues its SharePoint hardening alert
+  - 15 July 2026: SharePoint Server 2016 and 2019 reach end of extended support; Canada issues AL26-017
+  - 22 July 2026: CERT-EU issues 2026-009 on exploitation of CVE-2026-50522; KEV adds it
+  - 22 July 2026: 22 to 31 Jul: a Warlock intrusion runs from a SharePoint web shell to ransomware (Reported)
+  - 11 August 2026: August updates fix CVE-2026-65660
+  - 24 September 2026: 24 to 25 Sep: Previdian honeypot attempt and Canada's AL26-023; KEV adds CVE-2026-65660 on 25 Sep
+  - 1 October 2026: Symantec reports Warlock attacks on at least four organizations after SharePoint exploitation (Reported)
 - [The Stryker Device-Wipe Attack of March 2026: A Case Study](/case-studies/STRYKER_HANDALA_WIPER_2026.md). Incident, March to November 2026 (core: 11 March 2026 to 1 April 2026). Sectors: healthcare, manufacturing. ATT&CK groups: G1055 VOID MANTICORE. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Stryker_Handala_Wiper_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Stryker_Handala_Wiper_2026_Case_Study.pptx).
   - 6 March 2026: Persona domains claim 851 GB stolen from a Hasidic community and post data on about 190 people tied to the IDF (6 to 9 March)
   - 11 March 2026: Managed devices wiped in the US, Ireland, Costa Rica and Australia; the Entra login page shows the Handala logo (Reported)

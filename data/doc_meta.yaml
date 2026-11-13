@@ -2434,6 +2434,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: whose job is it? Shared responsibility as the providers state it](#part-1-whose-job-is-it-shared-responsibility-as-the-providers-state-it), [Part 7: the defender view](#part-7-the-defender-view)"
     pairs_with: "[Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Investigate a Cloud Compromise](/guides/INVESTIGATE_A_CLOUD_COMPROMISE.md)"
     reviewed: null
+  case-studies/CONNECTWISE_STORM_0940_2026.md:
+    audience: "Microsoft 365 and Entra administrators, managed service providers, detection engineers, incident responders and vulnerability management leads"
+    level: "Intermediate"
+    read_when: "You want the dated record of the October 2026 ConnectWise Cloud Backup compromise, you need to tell tenants targeted from tenants compromised, or you want the controls for vendor apps with standing Microsoft Graph permissions"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [SaaS Security Reference](/SAAS_SECURITY_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Major Cloud Security Incidents](/case-studies/CLOUD_SECURITY_INCIDENTS.md)"
+    reviewed: null
   case-studies/CUCKOOS_EGG_1986.md:
     audience: "Incident responders, detection engineers, threat intelligence analysts and anyone who has read The Cuckoo's Egg and wants the primary record behind it"
     level: "Beginner"

@@ -1112,6 +1112,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 1 June 2023: Kaspersky discloses Operation Triangulation; the FSB blames US intelligence the same day
   - 19 October 2025: China's Ministry of State Security alleges an NSA campaign against the National Time Service Center
 
+### 2000 <!-- {docsify-ignore} -->
+
+- [The Year 2000 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2000.md). Period record, January to December 2000. Sectors: cross-sector, government, defense, technology, retail, finance, media, manufacturing. CVEs: CVE-2000-0573, CVE-2000-0621, CVE-2000-0666, CVE-2000-0770, CVE-2000-0884, CVE-2000-0887 and 3 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2000_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2000_Case_Study.pptx).
+  - 3 January 2000: CA-2000-01: Stacheldraht DDoS agents found on multiple compromised hosts
+  - 7 January 2000: The President announces the national plan to defend America's cyberspace
+  - 7 February 2000: Yahoo unreachable for about three hours; Amazon.com, eBay, Buy.com and CNN hit the next day (press reports)
+  - 9 February 2000: Maroochy Shire: Boden alters pumping-station data from 9 February to 23 April (ATT&CK campaign C0020)
+  - 15 April 2000: RCMP arrests 'mafia boy' in Montreal over the attack on CNN's site
+  - 4 May 2000: Love Letter: first reported in Asia; CERT/CC advisory CA-2000-04 that night
+  - 7 July 2000: CA-2000-13: wu-ftpd site exec format string flaw exploited for remote root
+  - 11 July 2000: Carnivore widely reported, per EPIC; EPIC files a FOIA request the next day
+  - 15 September 2000: IN-2000-10: automated exploitation of rpc.statd and wu-ftpd, hundreds of hosts in single incidents
+  - 2 October 2000: NIST announces Rijndael as the proposed Advanced Encryption Standard
+  - 30 October 2000: Government Information Security Reform Act enacted in Pub. L. 106-398
+  - 10 November 2000: Gorshkov and Ivanov arrested in Seattle after a recorded meeting with the FBI's undercover company
+
 ### 1999 <!-- {docsify-ignore} -->
 
 - [E-Commerce Threats: The Public Record, 1999 to 2026](/case-studies/ECOMMERCE_THREATS.md). Attack surface, December 1999 to November 2026. Sectors: retail, finance, technology, transport. CVEs: CVE-2019-0344, CVE-2022-24086, CVE-2022-31181, CVE-2022-36408, CVE-2023-28121, CVE-2024-34102 and 10 more. ATT&CK groups: G0037 FIN6, G0046 FIN7, G0061 FIN8, G0053 FIN5. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ecommerce_Threats_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Ecommerce_Threats_Case_Study.pptx).

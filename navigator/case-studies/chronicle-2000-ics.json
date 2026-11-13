@@ -1,0 +1,169 @@
+{
+  "name": "TeamStarWolf - The Year 2000 in Intrusions (ICS)",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "ics-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK for ICS techniques for the February to April 2000 Maroochy Shire sewerage control system attack: the 12 techniques ATT&CK lists for campaign C0020, Maroochy Water Breach, with the Queensland Court of Appeal's judgment in R v Boden for the dated events. T1692.001 and T1692.002 supersede the revoked T0855 and T0856. Each comment names source numbers from case-studies/CHRONICLE_2000.md. Scores: 100 the ATT&CK object prints the id.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T0813",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "The investigator's computer shut out of the network (16 Mar) (basis: Listed; ATT&CK lists the id for campaign C0020, Maroochy Water Breach). Sources [51][50] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T0815",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "ATT&CK's listing (basis: Listed; ATT&CK lists the id for campaign C0020, Maroochy Water Breach). Sources [51] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T0822",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "ATT&CK's listing; the judgment passages read do not describe it (basis: Listed; ATT&CK lists the id for campaign C0020, Maroochy Water Breach). Sources [51] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T0836",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "Data altered for pumping stations (9 Feb to 23 Apr) (basis: Listed; ATT&CK lists the id for campaign C0020, Maroochy Water Breach). Sources [51][50] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T0838",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "Alarms disabled at four pumping stations (23 Apr) (basis: Listed; ATT&CK lists the id for campaign C0020, Maroochy Water Breach). Sources [51][50] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T0848",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "A bogus \"pump station 14\" (16 Mar); station 4's identity used to disable alarms (23 Apr) (basis: Listed; ATT&CK lists the id for campaign C0020, Maroochy Water Breach). Sources [51][50] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T0860",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "The private two-way radio network linking the stations (completed mid-Jan 2000) (basis: Listed; ATT&CK lists the id for campaign C0020, Maroochy Water Breach). Sources [51][50] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T0864",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Laptop with configuration software re-installed on 29 Feb, and a PDS Compact 500, in Boden's car (23 Apr) (basis: Listed; ATT&CK lists the id for campaign C0020, Maroochy Water Breach). Sources [51][50] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T0878",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "Alarms disabled at four pumping stations (23 Apr) (basis: Listed; ATT&CK lists the id for campaign C0020, Maroochy Water Breach). Sources [51][50] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T0879",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "A pumping station overflowed and raw sewage escaped (count 45) (basis: Listed; ATT&CK lists the id for campaign C0020, Maroochy Water Breach). Sources [51][50] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1692.001",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "Data altered for pumping stations (9 Feb to 23 Apr); ATT&CK's listing (basis: Listed; ATT&CK lists the id for campaign C0020, Maroochy Water Breach). Sources [51][50] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1692.001",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "Data altered for pumping stations (9 Feb to 23 Apr); ATT&CK's listing (basis: Listed; ATT&CK lists the id for campaign C0020, Maroochy Water Breach). Sources [51][50] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1692.002",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "ATT&CK's listing (basis: Listed; ATT&CK lists the id for campaign C0020, Maroochy Water Breach). Sources [51] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1692.002",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "ATT&CK's listing (basis: Listed; ATT&CK lists the id for campaign C0020, Maroochy Water Breach). Sources [51] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: the source or ATT&CK object prints the ATT&CK id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2000.md (sources opened 12 and 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "12"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "14"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/ics/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/ics/technique_profiles.jsonl"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2000 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2000.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

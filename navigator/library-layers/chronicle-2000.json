@@ -1,0 +1,306 @@
+{
+  "name": "TeamStarWolf - The Year 2000 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2000 record supports: the 22 CERT/CC advisories CA-2000-01 to CA-2000-22 (Stacheldraht, Love Letter, the BIND, wu-ftpd, rpc.statd and LPRng server flaws, Naptha) and the incident notes IN-2000-01 to IN-2000-10 (Windows trinoo, network.vbs, the 911 worm, nameserver amplification, mstream, BubbleBoy and kak, double file extensions, IRIX telnetd and the automated rpc.statd and wu-ftpd attacks), Microsoft's MS00-078, the press record of the February denial-of-service attacks, the Justice Department's 2000 prosecutions (Iffih, Lloyd, Diekman, Torricelli, c0mrade, HV2K, the Bloomberg extortion, Gorshkov and Ivanov) and the 2017 Moonlight Maze research on the relays. No 2000 source prints an ATT&CK id: every entry is this study's later mapping. The Maroochy Shire techniques are in the separate ATT&CK for ICS layer navigator/case-studies/chronicle-2000-ics.json. Each comment names source numbers from case-studies/CHRONICLE_2000.md. Scores: 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 40,
+      "comment": "The 911 worm spreads through unprotected Windows 98 shares (4 Apr); these are open shares, not admin shares reached with credentials (basis: Inferred; a later mapping, since no 2000 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1036.007",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Love Letter, Timofonica, CoolNote and a downloader (IN-2000-07, 19 Jun) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Iffih's sniffer on a NASA server (May to Aug 1999; charged 23 Feb 2000); Diekman's alleged password interception (charged 26 Jul); c0mrade's DTRA router backdoor (1999; sentenced 21 Sep); Torricelli's interception of usernames and passwords on a San Jose State University computer (1998 conduct; plea 1 Dec); Moonlight Maze relay sniffers (1998 to 1999) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [18][24][27][22][52] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "Iffih's sniffer on a NASA server (May to Aug 1999; charged 23 Feb 2000); Diekman's alleged password interception (charged 26 Jul); c0mrade's DTRA router backdoor (1999; sentenced 21 Sep); Torricelli's interception of usernames and passwords on a San Jose State University computer (1998 conduct; plea 1 Dec); Moonlight Maze relay sniffers (1998 to 1999) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [18][24][27][22][52] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "The 911 batch-file worm (IN-2000-03, 4 Apr) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1059.005",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Love Letter (4 May); network.vbs (3 Mar); BubbleBoy and kak (6 Jun) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Iffih's hijacked corporate internet account (Apr 1999; charged 23 Feb 2000) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [18] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Iffih's hijacked corporate internet account (Apr 1999; charged 23 Feb 2000) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [18] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Iffih's hijacked corporate internet account (Apr 1999; charged 23 Feb 2000) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [18] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Iffih's hijacked corporate internet account (Apr 1999; charged 23 Feb 2000) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [18] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1080",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "network.vbs copies itself to open C shares (3 Mar); Love Letter spreads through shared file systems (4 May) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [2][1] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "Love Letter finds script, image and music files to overwrite or hide; the advisory does not describe the search (basis: Inferred; a later mapping, since no 2000 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1087.003",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "Love Letter reads every Outlook address-book entry (CA-2000-04) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Moonlight Maze operators relay through hacked servers (1998 to 1999); the library's home study maps the same id (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [52][102] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Love Letter points IE at a further executable to download (CA-2000-04) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1110.002",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Torricelli's plea allocution (1998 conduct; plea 1 Dec 2000) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [22] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 70,
+      "comment": "Love Letter registry keys and IE start page change (CA-2000-04) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Love Letter registry keys and IE start page change (CA-2000-04) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "network.vbs scans random /24 blocks for open shares (IN-2000-02, 3 Mar) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "BIND NXT (CA-2000-03, 26 Apr); wu-ftpd (CA-2000-13, 7 Jul); rpc.statd (CA-2000-17, 18 Aug); IRIX telnetd (IN-2000-09, 31 Aug); IIS folder traversal (MS00-078, 17 Oct) (flaw class; no exploitation stated); LPRng (CA-2000-22, 12 Dec) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [1][2][14] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "BubbleBoy and kak through Scriptlet.Typelib in HTML mail (IN-2000-06, 6 Jun) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Love Letter needs Windows Scripting Host to run; hidden extensions disguise script attachments as other files (IN-2000-07) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Back Orifice and other remote administration tools on the same machines as Windows trinoo (IN-2000-01) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Love Letter overwrites script and image files (4 May); Lloyd's timebomb deletes Omega's manufacturing programs (30 Jul 1996; verdict 9 May 2000) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [1][21] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1491.002",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "HV2K defacements of USPS, Texas, Canadian Defence and Glinn Publishing systems (Nov 1999 to Jan 2000) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [16] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 50,
+      "comment": "Yahoo (7 Feb); Amazon.com, eBay, Buy.com and CNN (8 Feb) (basis: Reported; a later mapping, since no 2000 source prints an ATT&CK id). Sources [45][46] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1498.001",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "mstream (IN-2000-05); Stacheldraht (CA-2000-01); Windows trinoo (IN-2000-01) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [2][1] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1498.002",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Spoofed DNS requests amplified by nameservers (IN-2000-04, 28 Apr) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "BIND DoS bugs (CA-2000-20, 13 Nov); Naptha resource exhaustion (CA-2000-21, 30 Nov); no exploitation stated (basis: Inferred; a later mapping, since no 2000 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Love Letter writes Run and RunServices keys (CA-2000-04) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Love Letter writes Run and RunServices keys (CA-2000-04) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1564.001",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Love Letter sets mp3 and mp2 originals hidden (CA-2000-04) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Love Letter mails itself to the Outlook address book (CA-2000-04, 4 May); double-extension attachments (IN-2000-07, 19 Jun) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1584.004",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "Moonlight Maze's compromised relay servers, including HRTest (1998 to 1999) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [52][102] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1584.005",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "Stacheldraht agents on compromised hosts (CA-2000-01, 3 Jan); Windows trinoo (IN-2000-01, from 16 Feb); mstream agents (late Apr) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 70,
+      "comment": "Scans of ports 111 and 21 (IN-2000-10, 15 Sep); probing of 515/tcp (CA-2000-22) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [2][1] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Bloomberg extortion demand (arrests 10 Aug); Gorshkov and Ivanov card theft and extortion (arrests 10 Nov); CD Universe extortion (Jan, Reported) (basis: Described; a later mapping, since no 2000 source prints an ATT&CK id). Sources [26][29][48] refer to the Sources table of case-studies/CHRONICLE_2000.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8"
+    ],
+    "minValue": 40,
+    "maxValue": 70
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2000.md (sources opened 12 and 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "31"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "37"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2000 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2000.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

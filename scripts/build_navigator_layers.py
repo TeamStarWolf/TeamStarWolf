@@ -532,7 +532,10 @@ CATALOG = [
        "[ransomware ecosystem case study](/case-studies/RANSOMWARE_ECOSYSTEM.md)"),
       ("case-studies/european-refrigeration-attacks-2026-ics.json", "European Refrigeration Attacks, 2026 (ICS)",
        "The 8 ATT&CK for ICS techniques bound to the October and November 2026 attacks on supermarket and blood-service refrigeration controllers (CERT-FR, France's attribution, NCSC Ireland and the US joint fact sheet), from the "
-       "[European refrigeration attacks case study](/case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md)")]),
+       "[European refrigeration attacks case study](/case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md)"),
+      ("case-studies/chronicle-2000-ics.json", "The Year 2000 in Intrusions (ICS)",
+       "The 12 ATT&CK for ICS techniques that campaign C0020, Maroochy Water Breach, lists for the February to April 2000 attack on the Maroochy Shire sewerage control system, from the "
+       "[2000 chronicle case study](/case-studies/CHRONICLE_2000.md)")]),
 ]
 
 

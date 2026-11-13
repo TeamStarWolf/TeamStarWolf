@@ -2447,6 +2447,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 10: the defender view](#part-10-the-defender-view)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md), [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md), [The Year 1997 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1997.md)"
     reviewed: null
+  case-studies/CHRONICLE_2000.md:
+    audience: "Threat intelligence analysts, security historians, ICS defenders and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2000, you need the year's CERT advisories and incident notes, the DDoS agent pools and Love Letter side by side with the Maroochy Shire attack, ECHELON, Carnivore and the year's new law, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 9: the industrial record](#part-9-the-industrial-record)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md), [ICS ATT&CK Atlas](/ICS_ATTACK_ATLAS.md), [The Year 1998 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1998.md)"
+    reviewed: null
   case-studies/CHRONICLE_2016.md:
     audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
     level: "Intermediate"

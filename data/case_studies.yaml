@@ -1438,6 +1438,30 @@ studies:
       - {"date": "2016-10-21", "label": "The Dyn attack, which the USENIX paper attributes to Mirai cluster 6, not the original cluster 1"}
       - {"date": "2017-12-05", "label": "Informations and plea agreements against three Mirai and clickfraud defendants filed in Alaska"}
       - {"date": "2018-07-13", "label": "Twelve GRU officers indicted in the District of Columbia over the 2016 intrusions and leaks"}
+  case-studies/FBI_SURVEILLANCE_SYSTEM_BREACH_2026.md:
+    kind: "incident"
+    title: "The FBI Surveillance System Breach of 2026: A Case Study"
+    start: "2026-02"
+    end: "2026-11"
+    core_start: "2026-02-17"
+    core_end: "2026-04-06"
+    sectors: ["government"]
+    cves: []
+    actors: []
+    tags: ["FBI", "surveillance data", "pen register", "lawful intercept", "third party", "FISMA major incident", "China", "Salt Typhoon"]
+    pdf: "FBI_Surveillance_System_Breach_2026_Case_Study.pdf"
+    pptx: "FBI_Surveillance_System_Breach_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-02-17", "label": "The FBI begins investigating abnormal log information on an unclassified system on its network (Reported)"}
+      - {"date": "2026-03-04", "label": "The FBI first tells Congress of suspicious activity on a system holding law enforcement sensitive information (Reported)"}
+      - {"date": "2026-03-05", "label": "The FBI says it identified and addressed suspicious activities on FBI networks (Reported)"}
+      - {"date": "2026-03-06", "label": "WSJ: US investigators believe Chinese-government-affiliated hackers are responsible; any Salt Typhoon link unclear (Reported)"}
+      - {"date": "2026-03-10", "label": "Malwarebytes calls the system DCSNet, a name not found in any quoted notice wording (Reported)"}
+      - {"date": "2026-03-23", "label": "Senior DOJ officials determine the intrusion is a FISMA major incident (Reported)"}
+      - {"date": "2026-04-01", "label": "Politico publishes the major-incident designation (Reported)"}
+      - {"date": "2026-04-03", "label": "FBI spokesperson: access was obtained through a third party; target phone numbers likely exposed (Reported)"}
+      - {"date": "2026-04-06", "label": "Later notice per Bloomberg: forensics and remediation ongoing, a working group created, no actor named (Reported)"}
+      - {"date": "2026-11-11", "label": "No hearing, IG report, formal attribution or joint advisory found; the Intelligence Hub feed has no row for the incident"}
   case-studies/GHOSTCAT_CVE_2020_1938.md:
     kind: "vulnerability"
     title: "Ghostcat, CVE-2020-1938: The Tomcat AJP File Read in the Lab"
@@ -2168,6 +2192,32 @@ studies:
       - {"date": "2022-04-08", "label": "Industroyer2 planned against high-voltage substations; CERT-UA says it was prevented"}
       - {"date": "2022-10-10", "label": "Third Ukrainian blackout, 10 to 12 October"}
       - {"date": "2024-04-17", "label": "Mandiant designates APT44"}
+  case-studies/SHAREPOINT_2026_EXPLOITATION.md:
+    kind: "campaign"
+    title: "The SharePoint Server Exploitation Waves of 2026 (CVE-2026-45659 and Successors): A Case Study"
+    start: "2026-01"
+    end: "2026-11"
+    core_start: "2026-03-18"
+    core_end: "2026-09-25"
+    sectors: ["cross-sector", "government", "telecommunications", "education"]
+    cves: ["CVE-2026-20963", "CVE-2026-32201", "CVE-2026-45659", "CVE-2026-58644", "CVE-2026-56164", "CVE-2026-50522", "CVE-2026-55040", "CVE-2026-65660", "CVE-2025-53770", "CVE-2025-53771"]
+    actors: []
+    tags: ["SharePoint", "on-premises", "machine keys", "KEV", "end of support", "Warlock", "ransomware", "deserialization"]
+    pdf: "SharePoint_2026_Exploitation_Case_Study.pdf"
+    pptx: "SharePoint_2026_Exploitation_Case_Study.pptx"
+    events:
+      - {"date": "2026-01-13", "label": "Microsoft fixes CVE-2026-20963 in the January updates, marked not exploited"}
+      - {"date": "2026-03-17", "label": "Microsoft re-scores CVE-2026-20963 to an unauthenticated 9.8; KEV adds it on 18 Mar"}
+      - {"date": "2026-03-25", "label": "CERT-EU issues Security Advisory 2026-004"}
+      - {"date": "2026-04-14", "label": "Microsoft fixes CVE-2026-32201 as Exploitation Detected; KEV adds it the same day"}
+      - {"date": "2026-05-21", "label": "Microsoft publishes CVE-2026-45659, whose fix had shipped in the May updates"}
+      - {"date": "2026-07-14", "label": "July updates list CVE-2026-56164 (exploited), 58644, 50522 and 55040; CISA issues its hardening alert; SharePoint Server 2016 and 2019 reach end of support"}
+      - {"date": "2026-07-15", "label": "Canada issues AL26-017"}
+      - {"date": "2026-07-22", "label": "CERT-EU issues 2026-009 on exploitation of CVE-2026-50522; KEV adds it"}
+      - {"date": "2026-07-22", "label": "22 to 31 Jul: a Warlock intrusion runs from a SharePoint web shell to ransomware (Reported)"}
+      - {"date": "2026-08-11", "label": "August updates fix CVE-2026-65660"}
+      - {"date": "2026-09-24", "label": "24 to 25 Sep: Previdian honeypot attempt and Canada's AL26-023; KEV adds CVE-2026-65660 on 25 Sep"}
+      - {"date": "2026-10-01", "label": "Symantec reports Warlock attacks on at least four organizations after SharePoint exploitation (Reported)"}
   case-studies/SHAREPOINT_TOOLSHELL_2025.md:
     kind: "vulnerability"
     title: "The SharePoint ToolShell Mass Exploitation: A 2025 Case Study"

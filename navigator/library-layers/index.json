@@ -426,6 +426,18 @@
     "blurb": "Techniques from the DentaQuest breach record of May 2026: one employee socially engineered out of credentials and an MFA code, the valid account that reached a network file share of member data, and the extortion claim. A curated layer for the DentaQuest case study."
   },
   {
+    "file": "fbi-surveillance-system-breach-2026.json",
+    "name": "TeamStarWolf - FBI Surveillance System Breach 2026 Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the FBI surveillance system breach case study, from the third-party path the FBI described on 3 April 2026 and the early-March notice's commercial ISP vendor infrastructure to the reported exposure of monitored targets' phone numbers. The notices to Congress are unpublished and no source names ATT&CK ids, so every binding is the study's own reading of Reported sources. Score 60: official words, as outlets quote them, state the behavior and the technique fits directly. Score 30: the fit is partly the study's inference. Scores measure the strength of the tie to this record, not severity. No malware, exfiltration channel or sub-technique is in the record, so none is bound. Comments carry the study's source numbers.",
+    "blurb": "Techniques from the 2026 breach of an FBI system holding surveillance returns: the third-party path through a commercial ISP vendor's infrastructure and the reported exposure of monitored targets' phone numbers. A curated layer for the FBI surveillance system breach case study."
+  },
+  {
+    "file": "sharepoint-2026-exploitation.json",
+    "name": "TeamStarWolf - SharePoint Server Exploitation Waves (2026) Case Study",
+    "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the 2026 on-premises SharePoint Server exploitation waves supports: CISA's alert and the KEV catalog for the exploitation and machine-key theft, and the Symantec and press reports of the Warlock intrusions that began with SharePoint exploitation. Each comment names source numbers from case-studies/SHAREPOINT_2026_EXPLOITATION.md. Scores: 75 is CISA's alert or the KEV catalog, 50 is a vendor or researcher report, 25 is a capability, an attempt or an inexact fit.",
+    "blurb": "Techniques from the 2026 SharePoint Server exploitation waves, from the eight KEV-listed CVEs and IIS machine-key theft to the web shells, tool tampering and Warlock encryption in the intrusions Symantec described. A curated layer for the SharePoint 2026 case study."
+  },
+  {
     "file": "palo-alto-pan-os-cve-2026-0257.json",
     "name": "TeamStarWolf - PAN-OS GlobalProtect Authentication Bypass of 2026 (CVE-2026-0257) Case Study",
     "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques that the verified record of the PAN-OS GlobalProtect authentication bypass CVE-2026-0257 supports: the Palo Alto Networks advisory and the KEV record for the exploitation and the VPN access, and the Rapid7, Arctic Wolf and Unit 42 reports of the forged cookie and the Qilin and INC ransomware intrusions that followed. Each comment names source numbers from case-studies/PALO_ALTO_PAN_OS_CVE_2026_0257.md. Scores: 75 is the vendor advisory or the KEV record, 50 is a security vendor's report, 25 is an inexact fit.",

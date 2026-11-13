@@ -66,6 +66,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Year 1994 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1994.md)
 - [The Year 1995 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1995.md)
 - [The Year 1998 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1998.md)
+- [The Year 1999 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1999.md)
 - [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)
 
 <!-- library-refs:end -->

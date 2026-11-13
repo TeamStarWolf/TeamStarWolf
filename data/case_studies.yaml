@@ -509,6 +509,30 @@ studies:
       - {"date": "2000-10-02", "label": "NIST announces Rijndael as the proposed Advanced Encryption Standard"}
       - {"date": "2000-10-30", "label": "Government Information Security Reform Act enacted in Pub. L. 106-398"}
       - {"date": "2000-11-10", "label": "Gorshkov and Ivanov arrested in Seattle after a recorded meeting with the FBI's undercover company"}
+  case-studies/CHRONICLE_1999.md:
+    kind: "era"
+    title: "The Year 1999 in Intrusions: A Dated Record"
+    start: "1999-01"
+    end: "1999-12"
+    sectors: ["cross-sector", "defense", "government", "technology", "telecommunications", "finance", "healthcare", "energy", "retail", "media"]
+    cves: ["CVE-1999-0018", "CVE-1999-0668", "CVE-1999-0696", "CVE-1999-0704", "CVE-1999-0833", "CVE-1999-0834", "CVE-1999-0874", "CVE-1999-0878", "CVE-1999-0977", "CVE-1999-1011"]
+    actors: []
+    tags: ["CERT advisories", "supply chain", "TCP Wrappers", "Melissa", "ExploreZip", "CIH", "Moonlight Maze", "trinoo", "TFN2K", "CVE launch", "Gramm-Leach-Bliley", "DES Challenge III"]
+    pdf: "Chronicle_1999_Case_Study.pdf"
+    pptx: "Chronicle_1999_Case_Study.pptx"
+    events:
+      - {"date": "1999-01-18", "label": "DES Challenge III: distributed.net and the EFF DES Cracker find the key in 22 hours 15 minutes"}
+      - {"date": "1999-01-21", "label": "CA-1999-01: trojaned TCP Wrappers 7.6 source on a number of FTP servers"}
+      - {"date": "1999-02-23", "label": "Deputy Secretary of Defense Hamre tells Congress DoD detects 80 to 100 events a day"}
+      - {"date": "1999-03-27", "label": "CA-1999-04: Melissa, a Word macro virus spreading by email; over 100,000 computers by 29 March"}
+      - {"date": "1999-04-22", "label": "IN-99-03: CIH can erase the hard drive and overwrite the system BIOS"}
+      - {"date": "1999-06-10", "label": "CA-1999-06: ExploreZip zeroes Office and source-code files and spreads to shares"}
+      - {"date": "1999-07-22", "label": "IN-99-04: scripted attacks chain the cmsd, statd/automountd and ToolTalk flaws"}
+      - {"date": "1999-08-09", "label": "Kevin Mitnick sentenced to 46 months"}
+      - {"date": "1999-09", "label": "The CVE List launches publicly with 321 records"}
+      - {"date": "1999-11-12", "label": "Gramm-Leach-Bliley Act puts a security and confidentiality obligation on financial institutions"}
+      - {"date": "1999-11-18", "label": "IN-99-07: trinoo and Tribe Flood Network installed on hosts taken through RPC flaws"}
+      - {"date": "1999-12-28", "label": "CA-1999-17: Tribe FloodNet 2K, with spoofed sources and MacOS 9 amplification"}
   case-studies/CHRONICLE_2016.md:
     kind: "era"
     title: "The Year 2016 in Intrusions: A Dated Record"

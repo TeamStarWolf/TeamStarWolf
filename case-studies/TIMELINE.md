@@ -1132,7 +1132,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 - [The Year 1998 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1998.md). Period record, January to December 1998. Sectors: cross-sector, defense, government, technology, telecommunications, finance, healthcare, media. CVEs: CVE-1999-0001, CVE-1999-0002, CVE-1999-0003, CVE-1999-0004, CVE-1999-0005, CVE-1999-0006 and 10 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_1998_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_1998_Case_Study.pptx).
   - 5 January 1998: CA-1998-01: continuing smurf floods through IP broadcast addresses congest or knock out NSPs, ISPs and other sites
-  - 1 February 1998: Solar Sunrise: attacks on Air Force, Navy and Marine Corps unclassified systems (1 to 26 February)
+  - 1 February 1998: Solar Sunrise: attacks on Air Force, Navy and Marine Corps unclassified systems (1 to 26 February) (Reported)
   - 27 February 1998: Attorney General Reno unveils the National Infrastructure Protection Center
   - 18 March 1998: DOJ announces an arrest in Israel and searches of two California teenagers' homes; no sign of a state-sponsored campaign
   - 13 May 1998: IN-98.01: TCP port 1 sweeps for IRIX hosts and automated logins to default accounts with no passwords
@@ -1143,6 +1143,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 12 October 1998: CA-1998-12: NFS mountd overflow, mainly on Linux, actively exploited with large-scale scanning
   - 28 October 1998: Digital Millennium Copyright Act, Pub. L. 105-304
   - 9 December 1998: IN-98-06: scripted tools scan the portmapper, exploit mountd on Linux and add a passwordless privileged account
+
+### 1997 <!-- {docsify-ignore} -->
+
+- [The Year 1997 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1997.md). Period record, January to December 1997. Sectors: cross-sector, defense, government, technology, telecommunications, finance, media, retail. CVEs: CVE-1999-0015, CVE-1999-0016, CVE-1999-0017, CVE-1999-0018, CVE-1999-0021, CVE-1999-0024 and 12 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_1997_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_1997_Case_Study.pptx).
+  - 16 January 1997: Office 97 reaches North American shops with VBA5 in every application
+  - 28 January 1997: CA-97.05: sendmail 8.8.3 and 8.8.4 MIME conversion overflow, exploitable despite firewalls
+  - 20 February 1997: CA-97.08: INN runs attacker commands from crafted control messages
+  - 7 April 1997: CA-97.09: IMAP and POP login overflow gives remote root; large-scale automated scans all year
+  - 21 May 1997: Card data on more than 100,000 accounts sold to undercover FBI agents; arrest at San Francisco Airport (Reported)
+  - 10 June 1997: Eligible Receiver 97: Joint Chiefs of Staff J-5 tasking for the exercise scenario
+  - 26 June 1997: Reno v. ACLU: the Communications Decency Act's indecency provisions struck down
+  - 13 August 1997: CA-97.22: BIND cache poisoning now being exploited
+  - 1 September 1997: Phrack 51 publishes The Art of Port Scanning, introducing nmap
+  - October 1997: PCCIP issues Critical Foundations: Protecting America's Infrastructures
+  - 10 November 1997: CA-97.25: sanitizing user-supplied data in CGI scripts
+  - 16 December 1997: CA-97.28 Teardrop and Land; the No Electronic Theft Act becomes law
 
 ### 1996 <!-- {docsify-ignore} -->
 

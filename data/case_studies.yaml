@@ -437,6 +437,30 @@ studies:
       - {"date": "1995-10-11", "label": "Netscape Bugs Bounty: $1,000 to the first finder of a major security bug in its browser beta (Reported)"}
       - {"date": "1995-12-18", "label": "CA-95:18 Widespread Attacks: hundreds of sites hit through automated scanning of already-advised flaws"}
       - {"date": "1995-12-28", "label": "Argentine authorities seize the Harvard intruder's equipment in Buenos Aires"}
+  case-studies/CHRONICLE_1997.md:
+    kind: "era"
+    title: "The Year 1997 in Intrusions: A Dated Record"
+    start: "1997-01"
+    end: "1997-12"
+    sectors: ["cross-sector", "defense", "government", "technology", "telecommunications", "finance", "media", "retail"]
+    cves: ["CVE-1999-0015", "CVE-1999-0016", "CVE-1999-0017", "CVE-1999-0018", "CVE-1999-0021", "CVE-1999-0024", "CVE-1999-0031", "CVE-1999-0032", "CVE-1999-0034", "CVE-1999-0039", "CVE-1999-0041", "CVE-1999-0042", "CVE-1999-0043", "CVE-1999-0045", "CVE-1999-0046", "CVE-1999-0047", "CVE-1999-0048", "CVE-1999-0153"]
+    actors: []
+    tags: ["CERT advisories", "IMAP scans", "sendmail", "INN", "CGI", "BIND cache poisoning", "Teardrop", "Land", "nmap", "Office 97", "macro viruses", "Eligible Receiver", "Critical Foundations"]
+    pdf: "Chronicle_1997_Case_Study.pdf"
+    pptx: "Chronicle_1997_Case_Study.pptx"
+    events:
+      - {"date": "1997-01-16", "label": "Office 97 reaches North American shops with VBA5 in every application"}
+      - {"date": "1997-01-28", "label": "CA-97.05: sendmail 8.8.3 and 8.8.4 MIME conversion overflow, exploitable despite firewalls"}
+      - {"date": "1997-02-20", "label": "CA-97.08: INN runs attacker commands from crafted control messages"}
+      - {"date": "1997-04-07", "label": "CA-97.09: IMAP and POP login overflow gives remote root; large-scale automated scans all year"}
+      - {"date": "1997-05-21", "label": "Card data on more than 100,000 accounts sold to undercover FBI agents; arrest at San Francisco Airport (Reported)"}
+      - {"date": "1997-06-10", "label": "Eligible Receiver 97: Joint Chiefs of Staff J-5 tasking for the exercise scenario"}
+      - {"date": "1997-06-26", "label": "Reno v. ACLU: the Communications Decency Act's indecency provisions struck down"}
+      - {"date": "1997-08-13", "label": "CA-97.22: BIND cache poisoning now being exploited"}
+      - {"date": "1997-09-01", "label": "Phrack 51 publishes The Art of Port Scanning, introducing nmap"}
+      - {"date": "1997-10", "label": "PCCIP issues Critical Foundations: Protecting America's Infrastructures"}
+      - {"date": "1997-11-10", "label": "CA-97.25: sanitizing user-supplied data in CGI scripts"}
+      - {"date": "1997-12-16", "label": "CA-97.28 Teardrop and Land; the No Electronic Theft Act becomes law"}
   case-studies/CHRONICLE_1998.md:
     kind: "era"
     title: "The Year 1998 in Intrusions: A Dated Record"
@@ -450,7 +474,7 @@ studies:
     pptx: "Chronicle_1998_Case_Study.pptx"
     events:
       - {"date": "1998-01-05", "label": "CA-1998-01: continuing smurf floods through IP broadcast addresses congest or knock out NSPs, ISPs and other sites"}
-      - {"date": "1998-02-01", "label": "Solar Sunrise: attacks on Air Force, Navy and Marine Corps unclassified systems (1 to 26 February)"}
+      - {"date": "1998-02-01", "label": "Solar Sunrise: attacks on Air Force, Navy and Marine Corps unclassified systems (1 to 26 February) (Reported)"}
       - {"date": "1998-02-27", "label": "Attorney General Reno unveils the National Infrastructure Protection Center"}
       - {"date": "1998-03-18", "label": "DOJ announces an arrest in Israel and searches of two California teenagers' homes; no sign of a state-sponsored campaign"}
       - {"date": "1998-05-13", "label": "IN-98.01: TCP port 1 sweeps for IRIX hosts and automated logins to default accounts with no passwords"}

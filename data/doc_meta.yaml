@@ -2336,6 +2336,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
     pairs_with: "[Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md), [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md), [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md), [North Korea-attributed threat actors](/case-studies/THREAT_ACTORS_NORTH_KOREA.md)"
     reviewed: null
+  case-studies/BOSTON_SCIENTIFIC_ATTACK_2026.md:
+    audience: "Medical-technology and manufacturing security teams, network and edge-device owners, incident responders, business continuity leads and vulnerability management leads"
+    level: "Intermediate"
+    read_when: "You want the dated record of the August 2026 Boston Scientific outage, what the CrowdStrike summary found and did not find, or which edge-device, segmentation and continuity controls the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [The Year 2026 in Intrusions](/case-studies/CHRONICLE_2026.md)"
+    reviewed: null
   case-studies/CHANGE_HEALTHCARE_2024.md:
     audience: "Healthcare security leaders, incident responders and identity and vulnerability management teams"
     level: "Intermediate"

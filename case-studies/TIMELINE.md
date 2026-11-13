@@ -154,6 +154,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 29 October 2026: CISA adds CVE-2026-97229 to KEV with forensic triage required, due 1 November
   - 30 October 2026: Metasploit module merged; press reports exploitation attempts against self-managed instances
   - 4 November 2026: TeamStarWolf lab run: 19.4.1 and 19.4.2 differ in GitLab version, not in ruby -v
+- [The Boston Scientific Network Outage of August 2026: A Case Study](/case-studies/BOSTON_SCIENTIFIC_ATTACK_2026.md). Incident, July to November 2026 (core: 25 August 2026 to 9 September 2026). Sectors: healthcare, manufacturing. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Boston_Scientific_Attack_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Boston_Scientific_Attack_2026_Case_Study.pptx).
+  - 25 August 2026: System availability issues traced to an unauthorized third party; containment begins and CrowdStrike's investigation starts
+  - 26 August 2026: Form 8-K Item 8.01: a global disruption, including the ability to process and ship orders
+  - 27 August 2026: Orders queued through EDI; implanted device function unaffected; new remote-monitoring activations impaired
+  - 29 August 2026: CrowdStrike named as responder; cloud systems not affected; manufacturing also impacted
+  - 30 August 2026: No unauthorized activity seen since 25 August; partial restoration of shipping planned
+  - 3 September 2026: Access believed limited to select internal-facing IT; shipping restored for most products at major distribution centers
+  - 5 September 2026: Distribution substantially restored; all sterilization facilities operational; manufacturing resumed at most sites
+  - 7 September 2026: Form 8-K Item 1.05 (filed 8 September): likely material to Q3 and full-year 2026 results
+  - 8 September 2026: Remote-monitoring activation restored for LATITUDE NXT communicators and LATITUDE Clarity ICMs
+  - 9 September 2026: Manufacturing, order fulfillment and shipping fully restored
+  - 28 October 2026: Q3 results: net sales $5.138 billion (+1.5%) against 3 to 5% guidance; full-year guidance cut
+  - 2 November 2026: Q3 10-Q: material effect on Q3, a 1.7-point gross margin hit and civil legal claims filed
 - [Collabora Built-in CODE Server (richdocumentscode), CVE-2026-110447: Lab-Verified Exposure and Fix](/case-studies/NEXTCLOUD_RICHDOCUMENTS_CVE_2026_110447.md). Vulnerability, August to November 2026. Sectors: technology. CVEs: CVE-2026-110447, CVE-2025-66208, CVE-2026-67400. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Nextcloud_Richdocuments_CVE_2026_110447_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Nextcloud_Richdocuments_CVE_2026_110447_Case_Study.pptx).
   - 20 August 2026: Fix commit 6cc8dae authored, titled as a tidy-up of the coolwsd launch command
   - 31 August 2026: richdocumentscode 26.4.302 released, still vulnerable

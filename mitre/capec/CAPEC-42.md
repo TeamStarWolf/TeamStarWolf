@@ -59,6 +59,7 @@ An attacker exploits a weakness in the MIME conversion routine to cause a buffer
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [The Year 1997 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1997.md)
 
 <!-- library-refs:end -->
 

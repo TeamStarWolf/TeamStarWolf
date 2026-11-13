@@ -53,6 +53,7 @@ An attacker, armed with the cipher text and the encryption algorithm used, perfo
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [The Year 1995 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1995.md)
+- [The Year 1998 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1998.md)
 
 <!-- library-refs:end -->
 

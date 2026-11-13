@@ -125,6 +125,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [Log4Shell (CVE-2021-44228): The Case Study](/case-studies/LOG4SHELL.md)
 - [Magento and Adobe Commerce, CVE-2026-48356: Lab-Verified Exposure and Fix](/case-studies/MAGENTO_CVE_2026_48356.md)
 - [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md)
+- [The Year 1998 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1998.md)
 
 <!-- library-refs:end -->
 

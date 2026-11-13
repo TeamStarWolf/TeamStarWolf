@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 12 min (2,712 words at 230 words a minute)
+About 12 min (2,823 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -109,6 +109,8 @@ The flaws affect PHP 5.4 through 8.5, which is effectively the entire supported 
 Why PHP2Shell was so alarming is PHP's ubiquity. PHP still runs a large share of the web, from bespoke applications to the content-management systems, forums and admin panels that sit on the internet edge, and it is embedded inside countless vendor appliances and container images where operators may not even think of it as "their" PHP. A pre-authentication memory-corruption flaw in the interpreter itself therefore does not have a tidy asset list; the attack surface is "anything serving PHP," which is why the advisories reached for the blunt instruction to patch or take the server offline.
 
 The timeline is the lesson. Amazon Threat Intelligence observed exploitation attempts in its MadPot honeypots on 17 October, four days before public disclosure (**Confirmed**: Amazon). watchTowr reported in-the-wild exploitation of both CVEs (**Reported**). Cloudflare measured tens of thousands of attempts within about 45 minutes of the announcement, climbing to millions by 22 October (**Confirmed**: Cloudflare telemetry). Observed payloads included a Mirai botnet fork (Nokia Deepfield) and attempts to drop a web shell through a server-side session file from a China-based address (**Reported**). As of CISA's advisory, no successful compromise had been confirmed, which separates mass scanning from mass breach, and is the distinction a defender has to hold onto when the attempt count runs to the millions.
+
+**Update, 13 November 2026: PHP2Shell on Check Point gateways.** On 12 November 2026 Check Point Research reported that attackers exploited PHP2Shell on unpatched Check Point Mobile Access portals in two waves, on 30 October against Israeli organizations and on 2 November across multiple countries. On the gateways it investigated, the attackers then became root through CVE-2026-123039, a local privilege escalation in the Gaia OS DynamicCLI daemon, planted the TSGA and TSProxy implants, and in the first wave reached VMware ESXi hosts with a wiper (**Confirmed**: Check Point Research). The chain, the implants, the wiper and the attribution discussion are told, with their primary sources, in [the Check Point Gaia CVE-2026-123039 study](/case-studies/CHECK_POINT_GAIA_CVE_2026_123039.md).
 
 ### October 2026 timeline
 

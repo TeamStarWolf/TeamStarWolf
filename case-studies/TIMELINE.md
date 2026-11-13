@@ -40,6 +40,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 10 November 2026: N-central 2026.4 Hotfix 2 (2026.4.1.26) posted; N-able publishes seven CVE records, two at CVSS v4.0 9.3
   - 11 November 2026: All hosted N-central servers upgraded (status update, 01:04 dashboard time)
   - 11 November 2026: N-able blog: unauthenticated paths fixed, more hotfixes to come, calls claims it ignored disclosure inaccurate
+- [CVE-2026-123039 and Root on the Check Point Gateway: The PHP2Shell Chain, the TSGA Implant and the ESXi Wiper of October and November 2026](/case-studies/CHECK_POINT_GAIA_CVE_2026_123039.md). Vulnerability, January 2019 to November 2026 (core: 30 October 2026 to 12 November 2026). Sectors: cross-sector, technology. CVEs: CVE-2026-123039, CVE-2026-107484, CVE-2026-109618, CVE-2026-109619, CVE-2026-50751, CVE-2024-24919 and 22 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Check_Point_Gaia_CVE_2026_123039_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Check_Point_Gaia_CVE_2026_123039_Case_Study.pptx).
+  - 8 January 2019: sk144112 documents Dynamic CLI, the Gaia feature served by the vulnerable daemon
+  - 25 February 2026: A PhiliKit sample named philistine is uploaded to VirusTotal from South Korea
+  - 28 May 2026: ESET's APT Activity Report assesses PhiliKit as part of UNC5221's SPAWN toolset
+  - 21 October 2026: PHP2Shell patches released (Reported); GreyNoise's PHP2Shell sensor data starts
+  - 26 October 2026: KEV adds CVE-2026-109618 and CVE-2026-109619, due 29 Oct, with forensic triage required
+  - 28 October 2026: GreyNoise records its first successful PHP2Shell exploitation of a vulnerable sensor
+  - 30 October 2026: First wave against unpatched Mobile Access portals of Israeli organizations; root, TSGA and the destroy_v6 wiper on ESXi follow
+  - 2 November 2026: Second, broader wave across multiple countries and sectors; no destruction reported
+  - 5 November 2026: CVE-2026-123039 reserved
+  - 8 November 2026: Check Point creates support article sk1000362
+  - 9 November 2026: CSIRT Italia alert on Check Point PHP2Shell updates marks exploitation present
+  - 12 November 2026: CVE-2026-107484 and CVE-2026-123039 published; Check Point Research report; Canadian Centre AV26-1154
 - [The Trojanized Claude Code Extension on Cursor's Marketplace (October 2026)](/case-studies/CURSOR_EXTENSION_TROJAN_2026.md). Incident, 27 October 2026 to 11 November 2026 (core: 29 October 2026 to 31 October 2026). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cursor_Extension_Trojan_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Cursor_Extension_Trojan_2026_Case_Study.pptx).
   - 27 October 2026: Legitimate Claude Code 2.1.312 published to npm, GitHub and Open VSX
   - 29 October 2026: About 09:27 UTC: malicious 2.1.312 and 2.1.313 become available in Cursor's marketplace

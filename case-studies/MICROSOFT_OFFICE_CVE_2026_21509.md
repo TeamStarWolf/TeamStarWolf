@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 16 min (3,737 words at 230 words a minute)
+About 16 min (3,744 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -193,7 +193,7 @@ This Part binds the record to ATT&CK v20.0 Enterprise, CWE, CAPEC and D3FEND. Na
 | Object | ATT&CK id | Relationship to this record |
 |---|---|---|
 | APT28 | [G0007](/mitre/groups/G0007.md) | Attributed by CERT-UA (1 Feb), Zscaler (2 Feb) and ESET (10 Mar) [9] [10] [11] |
-| Covenant | [S1155](/mitre/software/S1155.md) | The final payload [9] [10]; ATT&CK links it only to [HAFNIUM](/mitre/groups/G0125.md) (G0125) [13] |
+| Covenant | [S1155](/mitre/software/S1155.md) | The final payload [9] [10]; ATT&CK links it only to [HAFNIUM](/mitre/groups/G0125.md) (G0125; see [Operation Exchange Marauder](/case-studies/EXCHANGE_MARAUDER_2021.md)) [13] |
 | APT28 Nearest Neighbor Campaign | [C0051](/mitre/campaigns/C0051.md) | Lineage only: APT28's sole ATT&CK campaign [14] |
 
 ATT&CK has no object for MiniDoor, PixyNetLoader, NotDoor, BeardShell, Operation Neusploit or Phantom Net Voxel [14] (**Confirmed** against the MITRE data), so none is bound.
@@ -297,7 +297,7 @@ Not opened, so not cited as sources: Lab52's NotDoor report (connection failed),
 
 ## Related references
 
-- [Threat Actors: Russia](/case-studies/THREAT_ACTORS_RUSSIA.md), [Fancy Bear Goes Phishing: the cases](/case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md), [Sandworm Operations](/case-studies/SANDWORM_OPERATIONS.md), [The Year 2026 in Intrusions](/case-studies/CHRONICLE_2026.md), [Timeline](/case-studies/TIMELINE.md)
+- [Threat Actors: Russia](/case-studies/THREAT_ACTORS_RUSSIA.md), [Fancy Bear Goes Phishing: the cases](/case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md), [Sandworm Operations](/case-studies/SANDWORM_OPERATIONS.md), [Operation Exchange Marauder](/case-studies/EXCHANGE_MARAUDER_2021.md), [The Year 2026 in Intrusions](/case-studies/CHRONICLE_2026.md), [Timeline](/case-studies/TIMELINE.md)
 - Other 2026 Microsoft studies: [The SharePoint Server exploitation waves of 2026](/case-studies/SHAREPOINT_2026_EXPLOITATION.md)
 - [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)
 - [CVE Reference](/CVE_REFERENCE.md), [CWE Reference](/CWE_REFERENCE.md), [CAPEC Reference](/CAPEC_REFERENCE.md), [D3FEND Reference](/D3FEND_REFERENCE.md)

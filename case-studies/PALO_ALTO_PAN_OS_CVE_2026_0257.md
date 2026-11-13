@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 20 min (4,647 words at 230 words a minute)
+About 20 min (4,653 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -294,8 +294,8 @@ All sources were opened on 11 November 2026.
 | 10 | Unit 42, Threat actor groups tracked by Palo Alto Networks Unit 42 | [unit42.paloaltonetworks.com/threat-actor-groups-...](https://unit42.paloaltonetworks.com/threat-actor-groups-tracked-by-palo-alto-networks-unit-42.md) | 2026-11-11 | Confirmed |
 | 11 | Cybersecurity Dive, report on ransomware groups targeting the Palo Alto Networks flaw, 20 Oct 2026 | [cybersecuritydive.com/news/ransomware-targeting-...](https://www.cybersecuritydive.com/news/ransomware-targeting-palo-alto-networks-vulnerability/833474/) | 2026-11-11 | Reported |
 | 12 | Infosecurity Magazine, report on ReliaQuest's warning about the GlobalProtect flaw, 12 Oct 2026 | [infosecurity-magazine.com/news/palo-alto-vpn-vulnerability-target](https://www.infosecurity-magazine.com/news/palo-alto-vpn-vulnerability-target) | 2026-11-11 | Reported |
-| 13 | The Hacker News, Qilin and INC ransomware groups exploit the PAN-OS flaw, 20 Oct 2026 | [thehackernews.com/2026/10/qilin-and-inc-ransomware-groups-exploit.html](https://thehackernews.com/2026/10/qilin-and-inc-ransomware-groups-exploit.html) | 2026-11-11 | Reported |
-| 14 | BleepingComputer, Critical GlobalProtect VPN bug now exploited in ransomware attacks, 21 Jul 2026 | [bleepingcomputer.com/news/security/critical-globalprotect-vpn-bug-...](https://www.bleepingcomputer.com/news/security/critical-globalprotect-vpn-bug-now-exploited-in-ransomware-attacks/) | 2026-11-11 | Reported |
+| 13 | The Hacker News, Qilin and INC Ransomware Groups Exploit Palo Alto Networks Flaw to Bypass MFA, 20 Oct 2026 | [thehackernews.com/2026/10/qilin-and-inc-ransomware-groups-exploit.html](https://thehackernews.com/2026/10/qilin-and-inc-ransomware-groups-exploit.html) | 2026-11-11 | Reported |
+| 14 | BleepingComputer, Critical Palo Alto VPN bug now exploited by Qilin ransomware gang, 21 Jul 2026 | [bleepingcomputer.com/news/security/critical-globalprotect-vpn-bug-...](https://www.bleepingcomputer.com/news/security/critical-globalprotect-vpn-bug-now-exploited-in-ransomware-attacks/) | 2026-11-11 | Reported |
 | 15 | Kaspersky Securelist, Q3 2026 PC and IoT malware statistics, 10 Nov 2026 | [securelist.com/malware-report-q3-2026-pc-iot-statistics/121843/](https://securelist.com/malware-report-q3-2026-pc-iot-statistics/121843/) | 2026-11-11 | Confirmed |
 | 16 | TeamStarWolf library data: `data/attack/technique_profiles.jsonl`, `groups.jsonl`, `software.jsonl`, `superseded_by.jsonl`, `technique_to_d3fend.jsonl` (ATT&CK v20.0), and `data/weaknesses/cwe.jsonl` and `capec.jsonl` | [github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack) | 2026-11-11 | Demonstrated |
 | 17 | TeamStarWolf, Change Healthcare 2024 and Healthcare Threat Watchlist case studies | [/case-studies/HEALTHCARE_THREAT_WATCHLIST.md](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md) | 2026-11-11 | Confirmed |

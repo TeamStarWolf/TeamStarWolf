@@ -389,6 +389,30 @@ studies:
       - {"date": "1994-10-19", "label": "CA-94:14: Trojaned ircII 2.2.9 source, on FTP sites since May, is actively exploited"}
       - {"date": "1994-12", "label": "US Naval Academy penetrated from three countries and two US universities; more than 12,000 passwords changed"}
       - {"date": "1994-12-25", "label": "IP spoofing attack on Tsutomu Shimomura's systems begins"}
+  case-studies/CHRONICLE_1996.md:
+    kind: "era"
+    title: "The Year 1996 in Intrusions: A Dated Record"
+    start: "1996-01"
+    end: "1996-12"
+    sectors: ["cross-sector", "defense", "government", "technology", "telecommunications", "manufacturing", "education", "healthcare"]
+    cves: ["CVE-1999-0022", "CVE-1999-0043", "CVE-1999-0067", "CVE-1999-0103", "CVE-1999-0116", "CVE-1999-0128", "CVE-1999-0141", "CVE-1999-0142", "CVE-1999-0143", "CVE-1999-0335", "CVE-1999-0509", "CVE-1999-1309", "CVE-1999-1383"]
+    actors: []
+    tags: ["SYN flooding", "phf", "CGI", "Java applets", "Harvard intruder", "GAO/AIMD-96-84", "web defacements", "Omega Engineering", "Laroux", "macro viruses", "Smashing the Stack", "EO 13010"]
+    pdf: "Chronicle_1996_Case_Study.pdf"
+    pptx: "Chronicle_1996_Case_Study.pptx"
+    events:
+      - {"date": "1996-02-08", "label": "CA-96.01: UDP packet storms between chargen and echo, typically with IP spoofing"}
+      - {"date": "1996-03-20", "label": "CA-96.06: the phf example CGI program in NCSA httpd and Apache is actively exploited"}
+      - {"date": "1996-03-29", "label": "Justice Department charges the Harvard intruder after the first court-ordered wiretap on a computer network"}
+      - {"date": "1996-05-22", "label": "GAO/AIMD-96-84: as many as 250,000 attacks on Defense systems in 1995, about 4 percent of test attacks detected"}
+      - {"date": "1996-07-15", "label": "Executive Order 13010 creates the President's Commission on Critical Infrastructure Protection"}
+      - {"date": "1996-07-30", "label": "Omega Engineering: an insider's time bomb deletes the company's manufacturing programs"}
+      - {"date": "1996-08-16", "label": "Justice Department web site altered and shut down (16 or 17 August)"}
+      - {"date": "1996-09-19", "label": "CA-96.21: TCP SYN flooding and IP spoofing, with no complete solution yet"}
+      - {"date": "1996-10-11", "label": "Pub. L. 104-294: the Economic Espionage Act and the National Information Infrastructure Protection Act"}
+      - {"date": "1996-11-08", "label": "Phrack 49 publishes Aleph One's Smashing The Stack For Fun And Profit"}
+      - {"date": "1996-12-14", "label": "A SYN flood takes more than 3,000 sites hosted by WebCom off the air for 40 hours"}
+      - {"date": "1996-12-18", "label": "CA-96.26: oversized ping packets crash, freeze or reboot systems"}
   case-studies/CHRONICLE_2016.md:
     kind: "era"
     title: "The Year 2016 in Intrusions: A Dated Record"

@@ -1,0 +1,234 @@
+{
+  "name": "TeamStarWolf - The Year 1996 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 1996 record supports: the 27 CERT/CC advisories CA-96.01 to CA-96.27 (UDP packet storms, phf and CGI interpreters, Java applets, the set-uid local root advisories, SYN flooding and the oversized ping), the Harvard intruder complaint, the Omega Engineering sabotage record, the BerkshireNet case, the year's web defacements and the Virus Bulletin record of Hare, Laroux and the macro viruses. No 1996 source prints an ATT&CK id: every entry is this study's later mapping. Each comment names source numbers from case-studies/CHRONICLE_1996.md. Scores: 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1499.001",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "CA-96.21 SYN flooding, 19 Sep (the library's text names SYN floods); Panix, early Sep; WebCom, 14 Dec (basis: Described; a later mapping, since no 1996 source prints an ATT&CK id). Sources [1][57][63][95] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1498.001",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "CA-96.01 UDP packet storm, 8 Feb (basis: Described; a later mapping, since no 1996 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1498.002",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "CA-96.01: two services answering each other with spoofed sources (a stretch) (basis: Inferred; a later mapping, since no 1996 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1499.004",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "CA-96.26 oversized ping crashes, freezes or reboots systems, 18 Dec (basis: Described; a later mapping, since no 1996 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1491.002",
+      "tactic": "impact",
+      "score": 50,
+      "comment": "Justice Department, 16 or 17 Aug; CIA, 18 or 19 Sep; Air Force placeholder site, 29 Dec (basis: Reported; a later mapping, since no 1996 source prints an ATT&CK id). Sources [55][58][64][75][76][79] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "CA-96.06 phf and example CGI code, actively exploited, 20 Mar; CA-96.11 interpreters in CGI directories, 29 May (basis: Described; a later mapping, since no 1996 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 40,
+      "comment": "Commands run through the shell on web servers via phf and interpreters in CGI directories (basis: Inferred; a later mapping, since no 1996 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "CA-96.12 to CA-96.19 (26 Jun to 15 Aug), CA-96.20 and CA-96.24 sendmail (18 Sep, 21 Nov), CA-96.22 bash (8 Oct), CA-96.27 SD-UX (19 Dec); Phrack 49, 8 Nov (basis: Described; a later mapping, since no 1996 source prints an ATT&CK id). Sources [1][74] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1548.001",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "Abuse of setuid programs: fm_fls (14 Aug), WorkMan (28 Oct) (basis: Inferred; a later mapping, since no 1996 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Stolen Harvard FAS accounts used against Navy, NASA and Los Alamos systems (complaint 29 Mar); BerkshireNet intruder masquerading as the administrator, 27 Feb (basis: Described; a later mapping, since no 1996 source prints an ATT&CK id). Sources [4][5][50] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Stolen Harvard FAS accounts used against Navy, NASA and Los Alamos systems (complaint 29 Mar); BerkshireNet intruder masquerading as the administrator, 27 Feb (basis: Described; a later mapping, since no 1996 source prints an ATT&CK id). Sources [4][5][50] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Stolen Harvard FAS accounts used against Navy, NASA and Los Alamos systems (complaint 29 Mar); BerkshireNet intruder masquerading as the administrator, 27 Feb (basis: Described; a later mapping, since no 1996 source prints an ATT&CK id). Sources [4][5][50] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Stolen Harvard FAS accounts used against Navy, NASA and Los Alamos systems (complaint 29 Mar); BerkshireNet intruder masquerading as the administrator, 27 Feb (basis: Described; a later mapping, since no 1996 source prints an ATT&CK id). Sources [4][5][50] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "The Harvard intruder's password-intercepting programs; sniffers in 7.5 percent of CERT's Q1 1996 closed incidents (with spoofing and infrastructure attacks); Rome Laboratory sniffers (1994, reported 22 May and 5 Jun) (basis: Described; a later mapping, since no 1996 source prints an ATT&CK id). Sources [4][16][7][14] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "The Harvard intruder's password-intercepting programs; sniffers in 7.5 percent of CERT's Q1 1996 closed incidents (with spoofing and infrastructure attacks); Rome Laboratory sniffers (1994, reported 22 May and 5 Jun) (basis: Described; a later mapping, since no 1996 source prints an ATT&CK id). Sources [4][16][7][14] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1090.003",
+      "tactic": "command-and-control",
+      "score": 40,
+      "comment": "The Harvard host used as a staging point into other networks (a weak tie: the record describes staging, not a proxy chain) (basis: Inferred; a later mapping, since no 1996 source prints an ATT&CK id). Sources [4][5] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "CA-96.07: a booby-trapped page compromises visitors through the bytecode verifier, 29 Mar (no exploitation reported); the Princeton demonstration, 18 Feb (basis: Described; a later mapping, since no 1996 source prints an ATT&CK id). Sources [1][49] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "CA-96.07: a malicious applet can do anything the user can, 29 Mar (basis: Described; a later mapping, since no 1996 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1137.001",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "Concept, Wazzu and Laroux among the year's prevalent macro viruses (their template mechanism is not described in the sources opened) (basis: Inferred; a later mapping, since no 1996 source prints an ATT&CK id). Sources [69][72] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 40,
+      "comment": "Macro viruses spread through shared and shipped documents, including Wazzu on Microsoft and ORBIT CDs (basis: Inferred; a later mapping, since no 1996 source prints an ATT&CK id). Sources [71][60] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1059.005",
+      "tactic": "execution",
+      "score": 50,
+      "comment": "Laroux written in VBA, Jul to Aug (basis: Reported; a later mapping, since no 1996 source prints an ATT&CK id). Sources [69] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1542.003",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "Hare.7610, a multipartite virus (multipartite implies boot-record infection; the sources opened do not spell it out) (basis: Inferred; a later mapping, since no 1996 source prints an ATT&CK id). Sources [69] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1542.003",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "Hare.7610, a multipartite virus (multipartite implies boot-record infection; the sources opened do not spell it out) (basis: Inferred; a later mapping, since no 1996 source prints an ATT&CK id). Sources [69] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1561.001",
+      "tactic": "impact",
+      "score": 50,
+      "comment": "Hare.7610 set to overwrite hard drives on 22 Aug and 22 Sep (basis: Reported; a later mapping, since no 1996 source prints an ATT&CK id). Sources [69] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Omega Engineering time bomb deletes manufacturing programs, 30 Jul; BerkshireNet data erased, 27 Feb (basis: Described; a later mapping, since no 1996 source prints an ATT&CK id). Sources [38][50] refer to the Sources table of case-studies/CHRONICLE_1996.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8"
+    ],
+    "minValue": 40,
+    "maxValue": 70
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_1996.md (sources opened 12 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "20"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "25"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 1996 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_1996.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

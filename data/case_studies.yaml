@@ -413,6 +413,30 @@ studies:
       - {"date": "1996-11-08", "label": "Phrack 49 publishes Aleph One's Smashing The Stack For Fun And Profit"}
       - {"date": "1996-12-14", "label": "A SYN flood takes more than 3,000 sites hosted by WebCom off the air for 40 hours"}
       - {"date": "1996-12-18", "label": "CA-96.26: oversized ping packets crash, freeze or reboot systems"}
+  case-studies/CHRONICLE_1995.md:
+    kind: "era"
+    title: "The Year 1995 in Intrusions: A Dated Record"
+    start: "1995-01"
+    end: "1995-12"
+    sectors: ["cross-sector", "defense", "government", "education", "finance", "technology", "telecommunications"]
+    cves: ["CVE-1999-0073", "CVE-1999-0077", "CVE-1999-0080", "CVE-1999-0099", "CVE-1999-0151", "CVE-1999-0155", "CVE-1999-0164", "CVE-1999-0203", "CVE-1999-0208", "CVE-1999-0235", "CVE-1999-1080", "CVE-1999-1098"]
+    actors: []
+    tags: ["IP spoofing", "session hijacking", "SATAN", "CERT advisories", "Harvard wiretap", "Concept macro virus", "SSL breaks", "Bugs Bounty", "SSH", "BS 7799"]
+    pdf: "Chronicle_1995_Case_Study.pdf"
+    pptx: "Chronicle_1995_Case_Study.pptx"
+    events:
+      - {"date": "1995-01-23", "label": "CA-95:01: forged source addresses beat address-based trust; a kernel tool hijacks open terminal and login sessions"}
+      - {"date": "1995-02-15", "label": "FBI and the Raleigh-Durham Fugitive Task Force arrest Kevin Mitnick after a two-week electronic manhunt"}
+      - {"date": "1995-02-15", "label": "BSI publishes BS 7799-1:1995, an information security management code of practice"}
+      - {"date": "1995-04-05", "label": "SATAN released; CIAC bulletin F-20 records the release and announces the Courtney detector"}
+      - {"date": "1995-06-29", "label": "CERT heads-up: 170 IP spoofing attacks in a few weeks, at least 80 against name servers, routers and network systems"}
+      - {"date": "1995-07-12", "label": "Tatu Ylonen announces SSH 1.0 as a replacement for rlogin, rsh and rcp"}
+      - {"date": "1995-08", "label": "Navy NCCOSC detects an intrusion traced to Harvard's FAS host (late August)"}
+      - {"date": "1995-08-15", "label": "Export-grade 40-bit SSL challenge broken by brute force"}
+      - {"date": "1995-09", "label": "Virus Bulletin analyses Winword.Concept, the first Word macro virus seen spreading"}
+      - {"date": "1995-10-11", "label": "Netscape Bugs Bounty: $1,000 to the first finder of a major security bug in its browser beta (Reported)"}
+      - {"date": "1995-12-18", "label": "CA-95:18 Widespread Attacks: hundreds of sites hit through automated scanning of already-advised flaws"}
+      - {"date": "1995-12-28", "label": "Argentine authorities seize the Harvard intruder's equipment in Buenos Aires"}
   case-studies/CHRONICLE_2016.md:
     kind: "era"
     title: "The Year 2016 in Intrusions: A Dated Record"

@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 21 min (4,933 words at 230 words a minute)
+About 21 min (4,930 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -157,7 +157,7 @@ C4 says Shahid Kaveh is led by Reza Salarvand and Mahdi Lashgarian. It names Ham
 
 **What it does not cover.** The statements address only the October French wave [3] (**Inferred**); Infosecurity reports the attribution expressly excludes EFS [28] (**Reported**).
 
-**Other claims.** NoName057(16) and Z-Pentest claimed responsibility on Telegram on 3 November. Unit 42 calls the claims unverified, at low confidence [18], and Sekoia judges them unsubstantiated [19] (**Reported**). Before the attribution, Lupovis honeypots saw probing from bulletproof hosting used before in Russian-linked operations. SentinelLabs called Russian involvement one credible hypothesis and warned against assuming a single campaign [32] (**Reported**). Sekoia says similarities in timing, infrastructure, targeting and tradecraft suggest both waves may share one actor, and calls the French attribution consistent with an Iran-nexus hypothesis it gave clients on 15 October [19] (**Reported**). Belgium's CCB said it may never be possible to identify the perpetrators [29] (**Reported**).
+**Other claims.** NoName057(16) and Z-Pentest claimed responsibility on Telegram on 3 November. Unit 42 calls the claims unverified [18], and Sekoia judges them unsubstantiated [19] (**Reported**). Before the attribution, Lupovis honeypots saw probing from bulletproof hosting used before in Russian-linked operations. SentinelLabs called Russian involvement one credible hypothesis and warned against assuming a single campaign [32] (**Reported**). Sekoia says similarities in timing, infrastructure, targeting and tradecraft suggest both waves may share one actor, and calls the French attribution consistent with an Iran-nexus hypothesis it gave clients on 15 October [19] (**Reported**). Belgium's CCB said it may never be possible to identify the perpetrators [29] (**Reported**).
 
 **Lineage.** The 2023 Unitronics wave, the 2024 US Treasury sanctions on IRGC-CEC officials and the 2026 Iranian-affiliated PLC campaign are covered in [ICS Attacks and Advisories, 2024 to 2026](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md) [37]; the wider record of Iran's state-linked operators is in [Iran-attributed threat actors](/case-studies/THREAT_ACTORS_IRAN.md).
 

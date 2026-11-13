@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 19 min (4,458 words at 230 words a minute)
+About 19 min (4,481 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -77,7 +77,7 @@ The flaw, CVE-2026-50751, is a logic weakness in how Remote Access and Mobile Ac
 ### Key findings
 
 - **The exposure window opened a month before the fix.** Exploitation began on 7 May; the hotfix shipped on 8 June [1] (**Confirmed**). The vendor's hunting window starts on 7 May for that reason [1] [2] (**Confirmed**).
-- **Configuration decided exposure.** A vulnerable version was only exposed if all four conditions held [2] (**Confirmed**). Any one of the three documented configuration changes breaks the chain, though on locally managed Spark the machine certificate option does not apply and IKEv2 on Spark R81.10.X needs the StrongSWAN client (**Inferred** from [2]).
+- **Configuration decided exposure.** A vulnerable version was only exposed if all four conditions held [2] (**Confirmed**). Any one of the three documented configuration changes breaks the chain, though on locally managed Spark neither the older-clients option nor the machine certificate option applies, so IKEv2-only is the only configuration control there, and IKEv2 on Spark R81.10.X needs the StrongSWAN client (**Inferred** from [2]).
 - **A third party reproduced it within four days.** watchTowr Labs reproduced the bypass on R82.10 JHF Take 19 on 12 June and confirmed that the hotfix rejects it [8] (**Demonstrated**).
 - **Filtering the IKE ports is not enough.** watchTowr reports that the bypass also works over TCP 443 when UDP 500 and 4500 are filtered [8] (**Demonstrated**).
 - **The ransomware link is narrow but real.** One case with confirmed post-compromise activity tied to a Qilin affiliate; the actor-level Qilin link is a medium-confidence vendor assessment [1] (**Reported**). Even so, CISA's KEV entry marks ransomware use as Known [7] (**Confirmed**).
@@ -86,7 +86,7 @@ The flaw, CVE-2026-50751, is a logic weakness in how Remote Access and Mobile Ac
 ### Top recommendations
 
 1. Install the recommended Jumbo Hotfix Accumulator, or the standalone hotfix for your take, on every gateway running Remote Access or Mobile Access. For centrally managed Spark appliances, update the management server with sk184766 first [2] (**Confirmed** as the vendor's direction).
-2. Where you cannot patch today, close the chain in configuration. Clear "Allow older clients to connect", set remote access to IKEv2 only, or make machine certificate authentication mandatory [2] (**Confirmed**). On locally managed Spark, the machine certificate option does not apply, and IKEv2 on R81.10.X needs the StrongSWAN client [2] (**Confirmed**).
+2. Where you cannot patch today, close the chain in configuration. Clear "Allow older clients to connect", set remote access to IKEv2 only, or make machine certificate authentication mandatory [2] (**Confirmed**). On locally managed Spark, neither the older-clients option nor the machine certificate option applies, so IKEv2-only is the only configuration control there, and IKEv2 on R81.10.X needs the StrongSWAN client [2] (**Confirmed**).
 3. Do not count the IPS protection named for this CVE as a fix. Check Point says it gives visibility only [2] (**Confirmed**).
 4. Hunt back to 7 May 2026. Look for completed IKEv1 Quick Mode exchanges ("Key Install" events) from users or source addresses you do not recognize, from before you patched, and check the vendor's indicator list [1] [2] (**Confirmed**).
 5. Plan the exit from R80.40, R81 and Spark R80.20.X, which have no listed fix [2] (**Confirmed**), and treat a hit as a possible ransomware precursor [1] [7] (**Inferred**).
@@ -161,7 +161,7 @@ Source for the table: sk185033 [2] (**Confirmed**). Centrally managed Spark appl
 
 **What the bypass gives.** Check Point says an attacker who gets in still needs more activity to reach internal resources or escalate privileges [1] (**Confirmed**). The flaw opens a VPN session; it does not by itself hand over the gateway or the network behind it (**Inferred** from [1]).
 
-**The companion flaw.** CVE-2026-50752 (sk185035) is an IKEv1 site-to-site certificate validation weakness. Where certificate authentication is used, a man-in-the-middle may be able to intercept or modify tunnel traffic. It is rated CWE-295, CVSS 7.4. Check Point found it in an extended internal review with its BLAST platform. It has the same affected versions and fixes, is mitigated by IKEv2-only communities, and has not been exploited or added to KEV [3] [10] (**Confirmed**).
+**The companion flaw.** CVE-2026-50752 (sk185035) is an IKEv1 site-to-site certificate validation weakness. Where certificate authentication is used, a man-in-the-middle may be able to intercept or modify tunnel traffic. It is rated CWE-295, CVSS 7.4. Check Point found it in an extended internal review with its BLAST platform [1]. It has the same affected versions and fixes, is mitigated by IKEv2-only communities, and has not been exploited or added to KEV [3] [10] (**Confirmed**).
 
 ## Part 3: who and why
 

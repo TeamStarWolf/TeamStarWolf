@@ -70,7 +70,7 @@ Right: Any one change breaks the chain
 - Clear "Allow older clients to connect".
 - Set remote access to IKEv2 only.
 - Make machine certificates mandatory.
-- Locally managed Spark: certificate option does not apply.
+- Locally managed Spark: only IKEv2-only applies.
 Caption: Confirmed from sk185033.
 Notes: Conditions and changes [2]. Spark IKEv2 on R81.10.X needs the StrongSWAN client [2].
 

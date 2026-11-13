@@ -293,6 +293,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 May 2026: 9 to 10 May: malicious Checkmarx Jenkins AST plugin published with access obtained in March
   - 6 July 2026: Checkmarx declares the incident fully contained
   - 26 August 2026: 26 and 27 Aug: the AFP arrests two Western Australian men the FBI alleges are TeamPCP members
+- [The European Commission Cloud Breach of 2026: AWS Data Theft Through the Poisoned Trivy Scanner](/case-studies/EUROPEAN_COMMISSION_CLOUD_BREACH_2026.md). Incident, February to August 2026 (core: 19 March 2026 to 28 March 2026). Sectors: government, technology. CVEs: CVE-2026-33634. ATT&CK groups: G1056 TeamPCP, G1057 ShinyHunters. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/European_Commission_Cloud_Breach_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/European_Commission_Cloud_Breach_2026_Case_Study.pptx).
+  - February 2026: Late February: attackers abuse a misconfigured Trivy GitHub Actions environment and extract a privileged access token
+  - 1 March 2026: The Trivy team discloses the first incident and rotates credentials; the rotation is not atomic
+  - 19 March 2026: Malicious Trivy v0.69.4 pushed; 76 of 77 trivy-action tags and all 7 setup-trivy tags moved to credential-stealing commits
+  - 19 March 2026: The attacker obtains a Commission AWS secret through the Trivy compromise, searches for more secrets and begins reconnaissance
+  - 24 March 2026: Commission CSOC alerts on Amazon API misuse, possible account compromise and abnormal traffic; incident response begins
+  - 25 March 2026: The Commission notifies CERT-EU, secures the AWS secret and disables the new access keys
+  - 26 March 2026: CISA adds CVE-2026-33634 to KEV
+  - 27 March 2026: Commission press release IP/26/748
+  - 28 March 2026: ShinyHunters publishes the dataset on its leak site: about 91.7 GB compressed, 340 GB uncompressed
+  - 2 April 2026: CERT-EU publishes its post-incident report
+  - 2 July 2026: FBI FLASH-20260702-01 on TeamPCP
+  - 26 August 2026: Two Western Australian men charged with 14 offences; the FBI calls them alleged TeamPCP members
 - [The SharePoint Server Exploitation Waves of 2026 (CVE-2026-45659 and Successors): A Case Study](/case-studies/SHAREPOINT_2026_EXPLOITATION.md). Campaign, January to November 2026 (core: 18 March 2026 to 25 September 2026). Sectors: cross-sector, government, telecommunications, education. CVEs: CVE-2026-20963, CVE-2026-32201, CVE-2026-45659, CVE-2026-58644, CVE-2026-56164, CVE-2026-50522 and 4 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SharePoint_2026_Exploitation_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/SharePoint_2026_Exploitation_Case_Study.pptx).
   - 13 January 2026: Microsoft fixes CVE-2026-20963 in the January updates, marked not exploited
   - 17 March 2026: Microsoft re-scores CVE-2026-20963 to an unauthenticated 9.8; KEV adds it on 18 Mar

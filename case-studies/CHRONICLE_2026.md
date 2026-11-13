@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 108 min (24,758 words at 230 words a minute)
+About 108 min (24,768 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -390,7 +390,7 @@ North Korea's actors are traced across years in [the North Korea-attributed acto
 
 ## Part 10: supply chain and the build pipeline
 
-[The npm supply-chain study](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md) is the home for the npm events and [the AI threats study](/case-studies/AI_THREATS_2026.md) for the AI tooling, and [the TeamPCP supply-chain study](/case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md) is the home for the Trivy, Checkmarx, LiteLLM, Telnyx and Bitwarden CLI chain and the European Commission breach. [SolarWinds and SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md) is the earlier reference point for a vendor's build turned against its customers.
+[The npm supply-chain study](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md) is the home for the npm events and [the AI threats study](/case-studies/AI_THREATS_2026.md) for the AI tooling, and [the TeamPCP supply-chain study](/case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md) is the home for the Trivy, Checkmarx, LiteLLM, Telnyx and Bitwarden CLI chain, and [the European Commission cloud breach study](/case-studies/EUROPEAN_COMMISSION_CLOUD_BREACH_2026.md) is the home for the European Commission breach. [SolarWinds and SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md) is the earlier reference point for a vendor's build turned against its customers.
 
 **The March chain.** Aqua's advisory says that on 19 March compromised credentials were used to publish a malicious Trivy v0.69.4, force-push 76 of 77 trivy-action tags and replace all 7 setup-trivy tags with credential-stealing code, with malicious Docker images following on 22 March; it is CVE-2026-33634, CWE-506 (Confirmed [19]). LiteLLM 1.82.7 and 1.82.8 were live on PyPI for about 40 minutes from 10:39 UTC on 24 March; LiteLLM believes the compromise came from the Trivy dependency in its CI scanning workflow, and its proxy Docker image was not affected (Confirmed [20]). PyPI's report says an API token exposed through the exploited Trivy dependency let attackers publish litellm and telnyx releases with install-time credential-harvesting code, and that both projects then adopted Trusted Publishers (Confirmed [21]). axios followed on 31 March (Confirmed [23][24]).
 

@@ -145,7 +145,7 @@ Ivanti's security advisory and its Analysis Guidance page could not be opened (t
 | CVE-2026-1281 | Ivanti, 29 Jan 21:31 | CWE-94, code injection; CAPEC-242 | 9.8, AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H | 12.x.0.x and 12.x.1.x hotfix RPMs; KEV notes cite build 1.0.0 (AB1771634) | Active, automatable, total | 29 Jan, due 1 Feb |
 | CVE-2026-1340 | Ivanti, 29 Jan 21:33 | CWE-94, code injection; CAPEC-242 | 9.8, same vector | Same RPM lines; KEV notes cite build 1.1.0 (AB1786671) | Active, automatable, total | 8 Apr, due 11 Apr |
 
-Sources: the CVE records [2] [3], NVD [4] [5] and the KEV catalog [6] (**Confirmed**). The CVE records list the finder as UNKNOWN for both [2] [3] (**Confirmed**).
+Sources: the CVE records [2] [3], NVD [4] [5] and the KEV catalog [6] (**Confirmed**). The CVE records name no finder (no credits entry), and their discovery-source field reads UNKNOWN for both [2] [3] (**Confirmed**).
 
 **The flaw, at advisory level.** Ivanti's records describe both CVEs as code injection in EPMM that lets an attacker achieve remote code execution without authentication [2] [3] (**Confirmed**). watchTowr places the flaws in the web tier's app store and file transfer handling, reachable without authentication [22] (**Demonstrated**). This study does not reproduce request details.
 

@@ -1128,6 +1128,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 22 October 2025: SessionReaper (CVE-2025-54236) attacks begin (Reported); KEV entry on 24 Oct
   - 27 October 2026: PolyShell (CVE-2026-48356) added to KEV
 
+### 1998 <!-- {docsify-ignore} -->
+
+- [The Year 1998 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1998.md). Period record, January to December 1998. Sectors: cross-sector, defense, government, technology, telecommunications, finance, healthcare, media. CVEs: CVE-1999-0001, CVE-1999-0002, CVE-1999-0003, CVE-1999-0004, CVE-1999-0005, CVE-1999-0006 and 10 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_1998_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_1998_Case_Study.pptx).
+  - 5 January 1998: CA-1998-01: continuing smurf floods through IP broadcast addresses congest or knock out NSPs, ISPs and other sites
+  - 1 February 1998: Solar Sunrise: attacks on Air Force, Navy and Marine Corps unclassified systems (1 to 26 February)
+  - 27 February 1998: Attorney General Reno unveils the National Infrastructure Protection Center
+  - 18 March 1998: DOJ announces an arrest in Israel and searches of two California teenagers' homes; no sign of a state-sponsored campaign
+  - 13 May 1998: IN-98.01: TCP port 1 sweeps for IRIX hosts and automated logins to default accounts with no passwords
+  - 22 May 1998: PDD-63, Critical Infrastructure Protection, and PDD-62 on unconventional threats to the homeland
+  - 26 June 1998: CA-1998-07 and MS98-002: Bleichenbacher's PKCS #1 attack can recover information from SSL sessions
+  - 16 July 1998: IN-98.03: a compromised host holds 186,126 accounts with encrypted passwords, 47,642 already cracked
+  - 1 August 1998: Back Orifice released at DEF CON VI; MS98-010 follows on 4 August
+  - 12 October 1998: CA-1998-12: NFS mountd overflow, mainly on Linux, actively exploited with large-scale scanning
+  - 28 October 1998: Digital Millennium Copyright Act, Pub. L. 105-304
+  - 9 December 1998: IN-98-06: scripted tools scan the portmapper, exploit mountd on Linux and add a passwordless privileged account
+
 ### 1996 <!-- {docsify-ignore} -->
 
 - [The Year 1996 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1996.md). Period record, January to December 1996. Sectors: cross-sector, defense, government, technology, telecommunications, manufacturing, education, healthcare. CVEs: CVE-1999-0022, CVE-1999-0043, CVE-1999-0067, CVE-1999-0103, CVE-1999-0116, CVE-1999-0128 and 7 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_1996_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_1996_Case_Study.pptx).

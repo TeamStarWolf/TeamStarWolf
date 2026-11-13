@@ -52,6 +52,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [Other State-Linked Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_OTHER_STATES.md)
 - [The Year 1995 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1995.md)
 - [The Year 1996 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1996.md)
+- [The Year 1998 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1998.md)
 - [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md)
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)
 - [The Year 2022 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2022.md)

@@ -437,6 +437,30 @@ studies:
       - {"date": "1995-10-11", "label": "Netscape Bugs Bounty: $1,000 to the first finder of a major security bug in its browser beta (Reported)"}
       - {"date": "1995-12-18", "label": "CA-95:18 Widespread Attacks: hundreds of sites hit through automated scanning of already-advised flaws"}
       - {"date": "1995-12-28", "label": "Argentine authorities seize the Harvard intruder's equipment in Buenos Aires"}
+  case-studies/CHRONICLE_1998.md:
+    kind: "era"
+    title: "The Year 1998 in Intrusions: A Dated Record"
+    start: "1998-01"
+    end: "1998-12"
+    sectors: ["cross-sector", "defense", "government", "technology", "telecommunications", "finance", "healthcare", "media"]
+    cves: ["CVE-1999-0001", "CVE-1999-0002", "CVE-1999-0003", "CVE-1999-0004", "CVE-1999-0005", "CVE-1999-0006", "CVE-1999-0007", "CVE-1999-0008", "CVE-1999-0009", "CVE-1999-0010", "CVE-1999-0012", "CVE-1999-0013", "CVE-1999-0278", "CVE-1999-0513", "CVE-1999-1011", "CVE-1999-1087"]
+    actors: []
+    tags: ["smurf", "CERT advisories", "mscan", "mountd", "Back Orifice", "CIH", "Solar Sunrise", "Moonlight Maze", "PDD-63", "Bleichenbacher", "DES Cracker", "StackGuard"]
+    pdf: "Chronicle_1998_Case_Study.pdf"
+    pptx: "Chronicle_1998_Case_Study.pptx"
+    events:
+      - {"date": "1998-01-05", "label": "CA-1998-01: continuing smurf floods through IP broadcast addresses congest or knock out NSPs, ISPs and other sites"}
+      - {"date": "1998-02-01", "label": "Solar Sunrise: attacks on Air Force, Navy and Marine Corps unclassified systems (1 to 26 February)"}
+      - {"date": "1998-02-27", "label": "Attorney General Reno unveils the National Infrastructure Protection Center"}
+      - {"date": "1998-03-18", "label": "DOJ announces an arrest in Israel and searches of two California teenagers' homes; no sign of a state-sponsored campaign"}
+      - {"date": "1998-05-13", "label": "IN-98.01: TCP port 1 sweeps for IRIX hosts and automated logins to default accounts with no passwords"}
+      - {"date": "1998-05-22", "label": "PDD-63, Critical Infrastructure Protection, and PDD-62 on unconventional threats to the homeland"}
+      - {"date": "1998-06-26", "label": "CA-1998-07 and MS98-002: Bleichenbacher's PKCS #1 attack can recover information from SSL sessions"}
+      - {"date": "1998-07-16", "label": "IN-98.03: a compromised host holds 186,126 accounts with encrypted passwords, 47,642 already cracked"}
+      - {"date": "1998-08-01", "label": "Back Orifice released at DEF CON VI; MS98-010 follows on 4 August"}
+      - {"date": "1998-10-12", "label": "CA-1998-12: NFS mountd overflow, mainly on Linux, actively exploited with large-scale scanning"}
+      - {"date": "1998-10-28", "label": "Digital Millennium Copyright Act, Pub. L. 105-304"}
+      - {"date": "1998-12-09", "label": "IN-98-06: scripted tools scan the portmapper, exploit mountd on Linux and add a passwordless privileged account"}
   case-studies/CHRONICLE_2016.md:
     kind: "era"
     title: "The Year 2016 in Intrusions: A Dated Record"

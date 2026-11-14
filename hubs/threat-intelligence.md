@@ -113,5 +113,10 @@ Time and difficulty are quoted in full from each guide's header table.
 - [The year 2012 in intrusions: a dated record](/case-studies/CHRONICLE_2012.md)
 - [The year 2014 in intrusions: a dated record](/case-studies/CHRONICLE_2014.md)
 - [The year 2011 in intrusions: a dated record](/case-studies/CHRONICLE_2011.md)
+- [The year 2009 in intrusions: a dated record](/case-studies/CHRONICLE_2009.md)
+- [The year 2013 in intrusions: a dated record](/case-studies/CHRONICLE_2013.md)
+- [The year 2008 in intrusions: a dated record](/case-studies/CHRONICLE_2008.md)
+- [The year 2015 in intrusions: a dated record](/case-studies/CHRONICLE_2015.md)
+- [The record and the window: a thesis on cybersecurity in 2026 and the decade ahead](/case-studies/THE_RECORD_AND_THE_WINDOW.md)
 
 <!-- hub:end -->

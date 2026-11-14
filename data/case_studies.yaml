@@ -797,6 +797,102 @@ studies:
       - {"date": "2014-10-14", "label": "Google discloses POODLE in SSL 3.0; MS14-060 fixes the OLE flaw CVE-2014-4114 used in targeted attacks"}
       - {"date": "2014-11-24", "label": "Symantec and Kaspersky publish Regin, with samples timestamped back to 2003"}
       - {"date": "2014-12-19", "label": "FBI attributes the destructive attack on Sony Pictures to North Korea; US-CERT TA14-353A"}
+  case-studies/CHRONICLE_2009.md:
+    kind: "era"
+    title: "The Year 2009 in Intrusions: A Dated Record"
+    start: "2009-01"
+    end: "2009-12"
+    sectors: ["cross-sector", "finance", "retail", "government", "defense", "energy", "technology", "healthcare", "education", "media", "telecommunications"]
+    cves: ["CVE-2008-0015", "CVE-2008-4114", "CVE-2008-4250", "CVE-2008-4834", "CVE-2008-4835", "CVE-2009-0238", "CVE-2009-0556", "CVE-2009-0658", "CVE-2009-0927", "CVE-2009-1123", "CVE-2009-1136", "CVE-2009-1151", "CVE-2009-1537", "CVE-2009-1862", "CVE-2009-2055", "CVE-2009-2408", "CVE-2009-2477", "CVE-2009-2521", "CVE-2009-2526", "CVE-2009-2532", "CVE-2009-2990", "CVE-2009-3023", "CVE-2009-3103", "CVE-2009-3459", "CVE-2009-3555", "CVE-2009-3672", "CVE-2009-3960", "CVE-2009-4324", "CVE-2010-0249"]
+    actors: ["G0066"]
+    tags: ["Conficker", "MS08-067", "AutoRun", "Heartland", "GhostNet", "Shadow Network", "Night Dragon", "Operation Aurora", "Phish Phry", "HITECH", "US Cyber Command", "TLS renegotiation"]
+    pdf: "Chronicle_2009_Case_Study.pdf"
+    pptx: "Chronicle_2009_Case_Study.pptx"
+    events:
+      - {"date": "2009-01-20", "label": "Heartland discloses a 2008 breach of its processing system; US-CERT TA09-020A says AutoRun cannot be reliably disabled"}
+      - {"date": "2009-02-12", "label": "Microsoft announces the Conficker coalition with ICANN and DNS operators and a USD 250,000 reward"}
+      - {"date": "2009-02-17", "label": "ARRA enacted, including the HITECH Act's breach notification sections for health data"}
+      - {"date": "2009-02-19", "label": "Adobe APSA09-01: the Reader and Acrobat JBIG2 flaw is being exploited (CVE-2009-0658)"}
+      - {"date": "2009-03-28", "label": "Information Warfare Monitor publishes Tracking GhostNet: more than 1,295 infected hosts in 103 countries"}
+      - {"date": "2009-03-29", "label": "US-CERT TA09-088A: Conficker spreads to hosts lacking MS08-067 by thumb drives, shares and networks"}
+      - {"date": "2009-05-29", "label": "The President announces a White House cybersecurity office and discloses the 2008 campaign intrusion"}
+      - {"date": "2009-06-23", "label": "Stuxnet attack wave 1 infects its first target; the Secretary of Defense directs creation of US Cyber Command"}
+      - {"date": "2009-10-07", "label": "FBI announces Operation Phish Phry: nearly 100 charged in the United States and Egypt"}
+      - {"date": "2009-11", "label": "Night Dragon campaign against oil, energy and petrochemical companies first seen, per ATT&CK"}
+      - {"date": "2009-11-05", "label": "TLS renegotiation flaw CVE-2009-3555 made public; fixed in protocol by RFC 5746 in February 2010"}
+      - {"date": "2009-12", "label": "Google detects the targeted attack it disclosed in January 2010, now known as Operation Aurora"}
+  case-studies/CHRONICLE_2013.md:
+    kind: "era"
+    title: "The Year 2013 in Intrusions: A Dated Record"
+    start: "2013-01"
+    end: "2013-12"
+    sectors: ["cross-sector", "government", "finance", "technology", "media", "retail", "energy", "defense", "telecommunications"]
+    cves: ["CVE-2009-0927", "CVE-2010-0188", "CVE-2010-3333", "CVE-2012-0158", "CVE-2013-0074", "CVE-2013-0155", "CVE-2013-0156", "CVE-2013-0169", "CVE-2013-0422", "CVE-2013-0431", "CVE-2013-0625", "CVE-2013-0629", "CVE-2013-0640", "CVE-2013-0641", "CVE-2013-1347", "CVE-2013-2094", "CVE-2013-2251", "CVE-2013-2465", "CVE-2013-2551", "CVE-2013-2566", "CVE-2013-3893", "CVE-2013-3897", "CVE-2013-3900", "CVE-2013-3906", "CVE-2013-3918", "CVE-2013-3993", "CVE-2013-4786", "CVE-2013-5065", "CVE-2013-5223"]
+    actors: ["G0006", "G0044", "G0094", "G0021"]
+    tags: ["APT1", "Target", "Adobe", "Spamhaus", "Red October", "Kimsuky", "Winnti", "CryptoLocker", "Citadel", "ZeroAccess", "Silk Road", "Executive Order 13636"]
+    pdf: "Chronicle_2013_Case_Study.pdf"
+    pptx: "Chronicle_2013_Case_Study.pptx"
+    events:
+      - {"date": "2013-01-10", "label": "US-CERT TA13-010A: Java 7 Security Manager bypass CVE-2013-0422 actively exploited; Blackhole and Nuclear Pack use it"}
+      - {"date": "2013-01-14", "label": "Kaspersky publishes Red October (Rocra), with activity traced back to May 2007"}
+      - {"date": "2013-02-12", "label": "Executive Order 13636 and Presidential Policy Directive 21 issued"}
+      - {"date": "2013-02-19", "label": "Mandiant's APT1 report: 141 victim organizations since 2006 and evidence it links to PLA Unit 61398"}
+      - {"date": "2013-03-19", "label": "Spamhaus DDoS peaks at 120 Gbps at Cloudflare's network on 22 March, with DNS reflection as its largest source (19 to 22 Mar)"}
+      - {"date": "2013-04-11", "label": "Kaspersky publishes Winnti"}
+      - {"date": "2013-05-24", "label": "Liberty Reserve: five arrests, then the SDNY indictment and Treasury's Section 311 finding (24 to 28 May)"}
+      - {"date": "2013-06-05", "label": "Microsoft and partners disrupt Citadel (Operation b54), 1,462 botnets"}
+      - {"date": "2013-07-25", "label": "D.N.J. makes public the Drinkman indictment (160 million+ card numbers)"}
+      - {"date": "2013-10-03", "label": "Adobe discloses that data on 2.9 million customers was removed and source code accessed"}
+      - {"date": "2013-11-05", "label": "US-CERT TA13-309A warns of CryptoLocker, which encrypts local, network, USB and some cloud-synced files"}
+      - {"date": "2013-11-27", "label": "Cards used in Target's US stores exposed (27 Nov to 18 Dec); Target confirms about 40 million card accounts on 19 Dec"}
+  case-studies/CHRONICLE_2008.md:
+    kind: "era"
+    title: "The Year 2008 in Intrusions: A Dated Record"
+    start: "2008-01"
+    end: "2008-12"
+    sectors: ["cross-sector", "retail", "finance", "government", "defense", "technology", "telecommunications", "energy", "media"]
+    cves: ["CVE-2008-0015", "CVE-2008-0166", "CVE-2008-0655", "CVE-2008-1447", "CVE-2008-1454", "CVE-2008-2992", "CVE-2008-3431", "CVE-2008-4128", "CVE-2008-4250", "CVE-2008-4844"]
+    actors: ["G0020", "G0016", "G0001", "G0060", "G0053"]
+    tags: ["MS08-067", "Conficker", "Debian OpenSSL", "DNS cache poisoning", "SQL injection", "MD5 rogue CA", "Hannaford", "Gonzalez ring", "Heartland", "Buckshot Yankee", "Georgia", "CWE 1.0"]
+    pdf: "Chronicle_2008_Case_Study.pdf"
+    pptx: "Chronicle_2008_Case_Study.pptx"
+    events:
+      - {"date": "2008-02-24", "label": "Pakistan Telecom announces part of YouTube's address space; PCCW propagates it until withdrawing it at 21:01 UTC"}
+      - {"date": "2008-03-17", "label": "Hannaford announces a card breach after Visa's notice of 27 Feb, as the First Circuit recites the allegations"}
+      - {"date": "2008-05-13", "label": "Debian DSA-1571-1: OpenSSL's random number generator predictable; regenerate all key material (CVE-2008-0166)"}
+      - {"date": "2008-06-24", "label": "Microsoft Advisory 954462: a wave of SQL injection against ASP and ASP.NET sites, not a product flaw"}
+      - {"date": "2008-07-08", "label": "CERT/CC VU#800113 and MS08-037: coordinated multi-vendor DNS cache poisoning fixes (CVE-2008-1447)"}
+      - {"date": "2008-08-05", "label": "Eleven charged, Albert Gonzalez among them, over nine US retailers and more than 40 million card numbers"}
+      - {"date": "2008-08-08", "label": "Cyber attacks on Georgia begin alongside the armed conflict and run to 28 Aug, per CCDCOE"}
+      - {"date": "2008-09-09", "label": "CWE Version 1.0 posted"}
+      - {"date": "2008-10-01", "label": "PCI DSS v1.2 generally available"}
+      - {"date": "2008-10-20", "label": "FBI ends its two-year DarkMarket undercover operation with 56 arrests worldwide"}
+      - {"date": "2008-10-23", "label": "MS08-067 out of band for the wormable Server service flaw; CERT/CC reports exploitation (CVE-2008-4250)"}
+      - {"date": "2008-12-17", "label": "MS08-078 out of band for the exploited Internet Explorer data binding flaw (CVE-2008-4844)"}
+  case-studies/CHRONICLE_2015.md:
+    kind: "era"
+    title: "The Year 2015 in Intrusions: A Dated Record"
+    start: "2015-01"
+    end: "2015-12"
+    sectors: ["cross-sector", "government", "healthcare", "energy", "finance", "technology", "telecommunications", "media", "transport"]
+    cves: ["CVE-2015-0204", "CVE-2015-0235", "CVE-2015-1538", "CVE-2015-1635", "CVE-2015-1641", "CVE-2015-1701", "CVE-2015-2360", "CVE-2015-2387", "CVE-2015-2426", "CVE-2015-2502", "CVE-2015-3306", "CVE-2015-3456", "CVE-2015-4000", "CVE-2015-4852", "CVE-2015-5119", "CVE-2015-5122", "CVE-2015-7755", "CVE-2015-7756", "CVE-2015-8562"]
+    actors: ["G0034", "G0020", "G0016", "G0007", "G0008", "G0027", "G0010", "G0013", "G0019", "G0030", "G0119"]
+    tags: ["OPM", "Anthem", "Ukrainian blackout", "Equation", "Duqu 2.0", "Carbanak", "Hacking Team", "Ashley Madison", "SYNful Knock", "Juniper ScreenOS", "Cybersecurity Act of 2015", "ATT&CK public release"]
+    pdf: "Chronicle_2015_Case_Study.pdf"
+    pptx: "Chronicle_2015_Case_Study.pptx"
+    events:
+      - {"date": "2015-01-02", "label": "Treasury announces sanctions on North Korea's government and Workers' Party, citing the Sony Pictures attack"}
+      - {"date": "2015-02-16", "label": "Kaspersky names the Equation group, with a module that could reprogram hard-drive firmware"}
+      - {"date": "2015-02-17", "label": "Kaspersky, with INTERPOL and Europol, announces Carbanak against up to 100 financial institutions"}
+      - {"date": "2015-02-24", "label": "Anthem's 10-K describes a sophisticated external cyber attack on member and employee data"}
+      - {"date": "2015-04-14", "label": "MS15-034 fixes the HTTP.sys remote code execution flaw (CVE-2015-1635)"}
+      - {"date": "2015-06-04", "label": "OPM gives public notice that personnel records of 4.2 million people were compromised"}
+      - {"date": "2015-07-09", "label": "OPM gives public notice of background-investigation data on more than 20 million people"}
+      - {"date": "2015-08-18", "label": "Ashley Madison files covering about 36 million accounts begin to be published"}
+      - {"date": "2015-09-25", "label": "US-China commitment that neither will conduct or knowingly support cyber-enabled theft of IP"}
+      - {"date": "2015-12-17", "label": "Juniper's out-of-band advisory on unauthorized code in ScreenOS (CVE-2015-7755, CVE-2015-7756)"}
+      - {"date": "2015-12-18", "label": "Public Law 114-113 enacted, carrying the Cybersecurity Act of 2015"}
+      - {"date": "2015-12-23", "label": "Intrusions at three Ukrainian distribution companies cut power to about 225,000 customers"}
   case-studies/CHRONICLE_2016.md:
     kind: "era"
     title: "The Year 2016 in Intrusions: A Dated Record"
@@ -3325,6 +3421,32 @@ studies:
       - {"date": "2026-05-09", "label": "9 to 10 May: malicious Checkmarx Jenkins AST plugin published with access obtained in March"}
       - {"date": "2026-07-06", "label": "Checkmarx declares the incident fully contained"}
       - {"date": "2026-08-26", "label": "26 and 27 Aug: the AFP arrests two Western Australian men the FBI alleges are TeamPCP members"}
+  case-studies/THE_RECORD_AND_THE_WINDOW.md:
+    kind: "reference"
+    title: "The Record and the Window: A Thesis on Cybersecurity in 2026 and the Decade Ahead"
+    start: "1986-08"
+    end: "2026-11"
+    core_start: "2026-01-01"
+    core_end: "2026-11-13"
+    sectors: ["cross-sector"]
+    cves: ["CVE-2026-20127", "CVE-2026-22769", "CVE-2026-50751", "CVE-2026-88772", "CVE-2026-24858", "CVE-2026-104935", "CVE-2026-0257", "CVE-2026-1731", "CVE-2026-123158", "CVE-2026-98432", "CVE-2026-109618", "CVE-2026-123039"]
+    actors: []
+    tags: ["thesis", "forecast", "exposure window", "edge device", "supply chain", "artificial intelligence", "regulation", "measurement"]
+    pdf: "The_Record_And_The_Window_Case_Study.pdf"
+    pptx: "The_Record_And_The_Window_Case_Study.pptx"
+    events:
+      - {"date": "1986-08", "label": "The Cuckoo's Egg intrusion: an intruder uses Lawrence Berkeley Laboratory as a way station into ARPANET and MILNET"}
+      - {"date": "1988-11-02", "label": "The Morris worm guesses passwords with a 432-word list and moves through host trust files"}
+      - {"date": "2003", "label": "The first Patch Tuesday: the vendor's fix, applied on a schedule, becomes the unit of defensive work"}
+      - {"date": "2026-02-17", "label": "Dell discloses RecoverPoint for Virtual Machines hard-coded credential CVE-2026-22769, exploited from mid-2024 as reported"}
+      - {"date": "2026-02-25", "label": "Cisco scores SD-WAN bypass CVE-2026-20127 at CVSS 10.0; Talos traces UAT-8616 to 2023; CISA issues Emergency Directive 26-03"}
+      - {"date": "2026-06-08", "label": "Check Point's hotfix for VPN flaw CVE-2026-50751, exploited from 7 May; KEV lists it the same day"}
+      - {"date": "2026-09-27", "label": "Citrix bulletin: exploits of CVE-2026-88772 and a second flaw observed, from early September as reported; KEV lists both that day"}
+      - {"date": "2026-10-13", "label": "Ivanti discloses CVE-2026-104935 under limited exploitation, ten days after exploitation began on 3 October"}
+      - {"date": "2026-10-30", "label": "First wave of the Check Point gateway chain: a wiper on a VMware ESXi host deletes files at Israeli organizations"}
+      - {"date": "2026-11-05", "label": "SSHole, CVE-2026-123158, published at 15:46 UTC; attempts follow within hours and KEV lists it on 9 November"}
+      - {"date": "2026-11-08", "label": "Able2Shell: a researcher publishes 33 alleged N-able N-central flaws with proof-of-concept code and no notice to the vendor"}
+      - {"date": "2026-11-12", "label": "CVE-2026-123039 published two weeks after the first wave; KEV lists it on 13 November, due 16 November"}
   case-studies/THREAT_ACTORS_CHINA.md:
     kind: "actor"
     title: "China-Attributed Threat Actors: The Public Record"

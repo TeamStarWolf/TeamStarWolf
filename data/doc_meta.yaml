@@ -2536,6 +2536,33 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 2: the shared-code vulnerabilities](#part-2-the-shared-code-vulnerabilities), [Part 7: breaches and data loss](#part-7-breaches-and-data-loss)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [E-Commerce Threats](/case-studies/ECOMMERCE_THREATS.md), [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md), [The Year 2012 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2012.md)"
     reviewed: null
+  case-studies/CHRONICLE_2009.md:
+    audience: "Threat intelligence analysts, security historians, vulnerability management, payment-card and policy teams and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2009, you need the Conficker response, the document and plug-in flaws exploited at release and the trust-layer flaws side by side with Heartland, the ATM cash-out, GhostNet, Night Dragon and Aurora, the offices and rules governments created that year, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 2: the vulnerability record](#part-2-the-vulnerability-record), [Part 4: the state and espionage record](#part-4-the-state-and-espionage-record)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [E-Commerce Threats](/case-studies/ECOMMERCE_THREATS.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [The Year 2007 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2007.md)"
+  case-studies/CHRONICLE_2013.md:
+    audience: "Threat intelligence analysts, security historians, vulnerability management, payment-card, finance and ICS teams and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2013, you need APT1, Red October, MiniDuke, Winnti, NetTraveler, Kimsuky and Icefog side by side with the Spamhaus reflection attack, the Target, Adobe and Yahoo breaches, the year's exploited Java, Internet Explorer, Reader and Office flaws, the Citadel, ZeroAccess, Liberty Reserve and Silk Road actions, CryptoLocker, the executive order and the standards that followed, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 2: China-attributed espionage](#part-2-china-attributed-espionage), [Part 6: the vulnerability record](#part-6-the-vulnerability-record)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md), [E-Commerce Threats](/case-studies/ECOMMERCE_THREATS.md), [The Year 2012 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2012.md)"
+    reviewed: null
+  case-studies/CHRONICLE_2008.md:
+    audience: "Threat intelligence analysts, security historians, vulnerability management, payment-card and network teams and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2008, you need MS08-067, the Debian, DNS and MD5 foundation flaws, the SQL injection wave and the card-theft cases side by side with Buckshot Yankee, Georgia and the operations later reports date to 2008, the policy and standards that followed, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 2: the vulnerability record](#part-2-the-vulnerability-record), [Part 4: the state record](#part-4-the-state-record)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [E-Commerce Threats](/case-studies/ECOMMERCE_THREATS.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [The Year 2005 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2005.md)"
+    reviewed: null
+  case-studies/CHRONICLE_2015.md:
+    audience: "Threat intelligence analysts, security historians, vulnerability management, ICS, privacy and policy teams and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2015, you need OPM, Anthem and the Ukrainian blackout side by side with the year's espionage reports, the implants below the operating system, the exploited Win32k and Flash flaws, the breaches and takedowns that went to court, the laws, norms and standards that followed, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 2: the state record](#part-2-the-state-record), [Part 4: below the operating system and into the supply chain](#part-4-below-the-operating-system-and-into-the-supply-chain)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md), [The Hacker and the State](/case-studies/HACKER_AND_THE_STATE_CASES.md), [The Year 2014 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2014.md)"
+    reviewed: null
   case-studies/CHRONICLE_2016.md:
     audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
     level: "Intermediate"
@@ -3038,6 +3065,14 @@ pages:
     read_when: "You run Trivy, Checkmarx actions, LiteLLM or the Bitwarden CLI in a pipeline, you need the dated facts of the 2026 TeamPCP campaign and CVE-2026-33634, or you want to decide how to pin, rotate and hunt after a CI tool you trust is compromised"
     start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
     pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [DevSecOps Reference](/DEVSECOPS_REFERENCE.md), [npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md), [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)"
+    reviewed: null
+  case-studies/THE_RECORD_AND_THE_WINDOW.md:
+    audience: "Security leaders, vulnerability management and exposure owners, threat intelligence analysts, policy teams and anyone planning security for the decade ahead"
+    level: "Intermediate"
+    read_when: "You want one argument that reads the whole case-study library together, you need the evidence that the exposure window on edge devices went negative in 2026, or you are deciding what to build and measure for the years 2027 to 2036"
+    start_at: "[Executive summary](#executive-summary), [Chapter 12: The Next Decade](#chapter-12-the-next-decade), [Chapter 13: What the Paper Would Do](#chapter-13-what-the-paper-would-do)"
+    pairs_with: "[The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md), [Vulnerability Root Causes](/VULNERABILITY_ROOT_CAUSES.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md)"
+    learning_path: []
     reviewed: null
   case-studies/THREAT_ACTORS_CHINA.md:
     audience: "Threat intelligence analysts, threat hunters, defenders of critical infrastructure and healthcare security teams"

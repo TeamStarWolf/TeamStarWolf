@@ -530,6 +530,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 30 January 2026: Advisory updated with the last release updates; KEV due date for federal civilian agencies
   - 10 March 2026: Siemens SSA-975644 lists the CVE for the Fortinet NGFW on RUGGEDCOM APE1808
   - 12 May 2026: SSA-975644 V1.1 adds two other Fortinet CVEs on the same platform
+- [The Record and the Window: A Thesis on Cybersecurity in 2026 and the Decade Ahead](/case-studies/THE_RECORD_AND_THE_WINDOW.md). Attack surface, August 1986 to November 2026 (core: 1 January 2026 to 13 November 2026). Sectors: cross-sector. CVEs: CVE-2026-20127, CVE-2026-22769, CVE-2026-50751, CVE-2026-88772, CVE-2026-24858, CVE-2026-104935 and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/The_Record_And_The_Window_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/The_Record_And_The_Window_Case_Study.pptx).
+  - August 1986: The Cuckoo's Egg intrusion: an intruder uses Lawrence Berkeley Laboratory as a way station into ARPANET and MILNET
+  - 2 November 1988: The Morris worm guesses passwords with a 432-word list and moves through host trust files
+  - 2003: The first Patch Tuesday: the vendor's fix, applied on a schedule, becomes the unit of defensive work
+  - 17 February 2026: Dell discloses RecoverPoint for Virtual Machines hard-coded credential CVE-2026-22769, exploited from mid-2024 as reported
+  - 25 February 2026: Cisco scores SD-WAN bypass CVE-2026-20127 at CVSS 10.0; Talos traces UAT-8616 to 2023; CISA issues Emergency Directive 26-03
+  - 8 June 2026: Check Point's hotfix for VPN flaw CVE-2026-50751, exploited from 7 May; KEV lists it the same day
+  - 27 September 2026: Citrix bulletin: exploits of CVE-2026-88772 and a second flaw observed, from early September as reported; KEV lists both that day
+  - 13 October 2026: Ivanti discloses CVE-2026-104935 under limited exploitation, ten days after exploitation began on 3 October
+  - 30 October 2026: First wave of the Check Point gateway chain: a wiper on a VMware ESXi host deletes files at Israeli organizations
+  - 5 November 2026: SSHole, CVE-2026-123158, published at 15:46 UTC; attempts follow within hours and KEV lists it on 9 November
+  - 8 November 2026: Able2Shell: a researcher publishes 33 alleged N-able N-central flaws with proof-of-concept code and no notice to the vendor
+  - 12 November 2026: CVE-2026-123039 published two weeks after the first wave; KEV lists it on 13 November, due 16 November
 - [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md). Period record, January to November 2026. Sectors: cross-sector, government, technology, energy, healthcare, finance, retail, education, defense, transport. CVEs: CVE-2008-0015, CVE-2008-4128, CVE-2008-4250, CVE-2015-3306, CVE-2015-5477, CVE-2016-3081 and 65 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2026_Case_Study.pptx).
   - 23 January 2026: ESET ties DynoWiper, used against a Polish energy company on 29 Dec 2025, to Sandworm with medium confidence
   - 25 February 2026: Talos: Cisco Catalyst SD-WAN CVE-2026-20127 exploited as a zero-day back to at least 2023; CISA issues ED 26-03
@@ -931,6 +944,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 19 July 2019: Related flaw CVE-2019-12815 published
   - 8 October 2026: CISA adds CVE-2015-3306 to KEV; joint advisory AA26-281A lists it
   - 4 November 2026: Lab run: the vulnerable build copies a file without login; the fixed build refuses
+- [The Year 2015 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2015.md). Period record, January to December 2015. Sectors: cross-sector, government, healthcare, energy, finance, technology, telecommunications, media, transport. CVEs: CVE-2015-0204, CVE-2015-0235, CVE-2015-1538, CVE-2015-1635, CVE-2015-1641, CVE-2015-1701 and 13 more. ATT&CK groups: G0034 Sandworm Team, G0020 Equation, G0016 APT29, G0007 APT28, G0008 Carbanak, G0027 Threat Group-3390 and 5 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2015_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2015_Case_Study.pptx).
+  - 2 January 2015: Treasury announces sanctions on North Korea's government and Workers' Party, citing the Sony Pictures attack
+  - 16 February 2015: Kaspersky names the Equation group, with a module that could reprogram hard-drive firmware
+  - 17 February 2015: Kaspersky, with INTERPOL and Europol, announces Carbanak against up to 100 financial institutions
+  - 24 February 2015: Anthem's 10-K describes a sophisticated external cyber attack on member and employee data
+  - 14 April 2015: MS15-034 fixes the HTTP.sys remote code execution flaw (CVE-2015-1635)
+  - 4 June 2015: OPM gives public notice that personnel records of 4.2 million people were compromised
+  - 9 July 2015: OPM gives public notice of background-investigation data on more than 20 million people
+  - 18 August 2015: Ashley Madison files covering about 36 million accounts begin to be published
+  - 25 September 2015: US-China commitment that neither will conduct or knowingly support cyber-enabled theft of IP
+  - 17 December 2015: Juniper's out-of-band advisory on unauthorized code in ScreenOS (CVE-2015-7755, CVE-2015-7756)
+  - 18 December 2015: Public Law 114-113 enacted, carrying the Cybersecurity Act of 2015
+  - 23 December 2015: Intrusions at three Ukrainian distribution companies cut power to about 225,000 customers
 
 ### 2014 <!-- {docsify-ignore} -->
 
@@ -960,6 +986,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 14 October 2014: Google discloses POODLE in SSL 3.0; MS14-060 fixes the OLE flaw CVE-2014-4114 used in targeted attacks
   - 24 November 2014: Symantec and Kaspersky publish Regin, with samples timestamped back to 2003
   - 19 December 2014: FBI attributes the destructive attack on Sony Pictures to North Korea; US-CERT TA14-353A
+
+### 2013 <!-- {docsify-ignore} -->
+
+- [The Year 2013 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2013.md). Period record, January to December 2013. Sectors: cross-sector, government, finance, technology, media, retail, energy, defense, telecommunications. CVEs: CVE-2009-0927, CVE-2010-0188, CVE-2010-3333, CVE-2012-0158, CVE-2013-0074, CVE-2013-0155 and 23 more. ATT&CK groups: G0006 APT1, G0044 Winnti Group, G0094 Kimsuky, G0021 Molerats. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2013_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2013_Case_Study.pptx).
+  - 10 January 2013: US-CERT TA13-010A: Java 7 Security Manager bypass CVE-2013-0422 actively exploited; Blackhole and Nuclear Pack use it
+  - 14 January 2013: Kaspersky publishes Red October (Rocra), with activity traced back to May 2007
+  - 12 February 2013: Executive Order 13636 and Presidential Policy Directive 21 issued
+  - 19 February 2013: Mandiant's APT1 report: 141 victim organizations since 2006 and evidence it links to PLA Unit 61398
+  - 19 March 2013: Spamhaus DDoS peaks at 120 Gbps at Cloudflare's network on 22 March, with DNS reflection as its largest source (19 to 22 Mar)
+  - 11 April 2013: Kaspersky publishes Winnti
+  - 24 May 2013: Liberty Reserve: five arrests, then the SDNY indictment and Treasury's Section 311 finding (24 to 28 May)
+  - 5 June 2013: Microsoft and partners disrupt Citadel (Operation b54), 1,462 botnets
+  - 25 July 2013: D.N.J. makes public the Drinkman indictment (160 million+ card numbers)
+  - 3 October 2013: Adobe discloses that data on 2.9 million customers was removed and source code accessed
+  - 5 November 2013: US-CERT TA13-309A warns of CryptoLocker, which encrypts local, network, USB and some cloud-synced files
+  - 27 November 2013: Cards used in Target's US stores exposed (27 Nov to 18 Dec); Target confirms about 40 million card accounts on 19 Dec
 
 ### 2012 <!-- {docsify-ignore} -->
 
@@ -1102,6 +1144,35 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 21 February 2025: Bybit theft, about $1.5 billion; the FBI names TraderTraitor on 26 February 2025
   - 21 September 2026: Operation Lonestar Roundup searches of Texas laptop farms (21 to 25 September), announced 13 October 2026
   - 29 October 2026: Binance theft, more than $6 billion; the FBI names TraderTraitor on 31 October 2026, an attribution disputed in press
+- [The Year 2009 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2009.md). Period record, January to December 2009. Sectors: cross-sector, finance, retail, government, defense, energy, technology, healthcare, education, media, telecommunications. CVEs: CVE-2008-0015, CVE-2008-4114, CVE-2008-4250, CVE-2008-4834, CVE-2008-4835, CVE-2009-0238 and 23 more. ATT&CK groups: G0066 Elderwood. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2009_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2009_Case_Study.pptx).
+  - 20 January 2009: Heartland discloses a 2008 breach of its processing system; US-CERT TA09-020A says AutoRun cannot be reliably disabled
+  - 12 February 2009: Microsoft announces the Conficker coalition with ICANN and DNS operators and a USD 250,000 reward
+  - 17 February 2009: ARRA enacted, including the HITECH Act's breach notification sections for health data
+  - 19 February 2009: Adobe APSA09-01: the Reader and Acrobat JBIG2 flaw is being exploited (CVE-2009-0658)
+  - 28 March 2009: Information Warfare Monitor publishes Tracking GhostNet: more than 1,295 infected hosts in 103 countries
+  - 29 March 2009: US-CERT TA09-088A: Conficker spreads to hosts lacking MS08-067 by thumb drives, shares and networks
+  - 29 May 2009: The President announces a White House cybersecurity office and discloses the 2008 campaign intrusion
+  - 23 June 2009: Stuxnet attack wave 1 infects its first target; the Secretary of Defense directs creation of US Cyber Command
+  - 7 October 2009: FBI announces Operation Phish Phry: nearly 100 charged in the United States and Egypt
+  - November 2009: Night Dragon campaign against oil, energy and petrochemical companies first seen, per ATT&CK
+  - 5 November 2009: TLS renegotiation flaw CVE-2009-3555 made public; fixed in protocol by RFC 5746 in February 2010
+  - December 2009: Google detects the targeted attack it disclosed in January 2010, now known as Operation Aurora
+
+### 2008 <!-- {docsify-ignore} -->
+
+- [The Year 2008 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2008.md). Period record, January to December 2008. Sectors: cross-sector, retail, finance, government, defense, technology, telecommunications, energy, media. CVEs: CVE-2008-0015, CVE-2008-0166, CVE-2008-0655, CVE-2008-1447, CVE-2008-1454, CVE-2008-2992 and 4 more. ATT&CK groups: G0020 Equation, G0016 APT29, G0001 Axiom, G0060 BRONZE BUTLER, G0053 FIN5. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2008_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2008_Case_Study.pptx).
+  - 24 February 2008: Pakistan Telecom announces part of YouTube's address space; PCCW propagates it until withdrawing it at 21:01 UTC
+  - 17 March 2008: Hannaford announces a card breach after Visa's notice of 27 Feb, as the First Circuit recites the allegations
+  - 13 May 2008: Debian DSA-1571-1: OpenSSL's random number generator predictable; regenerate all key material (CVE-2008-0166)
+  - 24 June 2008: Microsoft Advisory 954462: a wave of SQL injection against ASP and ASP.NET sites, not a product flaw
+  - 8 July 2008: CERT/CC VU#800113 and MS08-037: coordinated multi-vendor DNS cache poisoning fixes (CVE-2008-1447)
+  - 5 August 2008: Eleven charged, Albert Gonzalez among them, over nine US retailers and more than 40 million card numbers
+  - 8 August 2008: Cyber attacks on Georgia begin alongside the armed conflict and run to 28 Aug, per CCDCOE
+  - 9 September 2008: CWE Version 1.0 posted
+  - 1 October 2008: PCI DSS v1.2 generally available
+  - 20 October 2008: FBI ends its two-year DarkMarket undercover operation with 56 arrests worldwide
+  - 23 October 2008: MS08-067 out of band for the wormable Server service flaw; CERT/CC reports exploitation (CVE-2008-4250)
+  - 17 December 2008: MS08-078 out of band for the exploited Internet Explorer data binding flaw (CVE-2008-4844)
 
 ### 2007 <!-- {docsify-ignore} -->
 

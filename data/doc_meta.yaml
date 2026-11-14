@@ -3725,6 +3725,13 @@ pages:
     start_at: "[Before you start](#before-you-start), [Step 1: Pick your baseline standard](#step-1-pick-your-baseline-standard), [Step 8: Verify with a scanner and document exceptions](#step-8-verify-with-a-scanner-and-document-exceptions)"
     pairs_with: "[Windows Hardening](/WINDOWS_HARDENING.md), [Windows Hardening GPO Reference](/WINDOWS_HARDENING_GPO.md), [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md), [Enterprise Security Controls](/ENTERPRISE_SECURITY_CONTROLS.md)"
     reviewed: null
+  guides/HOST_A_SECURE_STATIC_SITE_ON_YOUR_OWN_DOMAIN.md:
+    audience: "Anyone who publishes a static site from a repository and wants it on their own domain with HTTPS, security headers and a rollback"
+    level: "Beginner to intermediate"
+    read_when: "You own or are about to buy a domain for a GitHub Pages site, you want Cloudflare in front of it for TLS policy and response headers, or you need to know which step breaks the certificate and how to undo each change"
+    start_at: "[Step 3: Add the records that point at GitHub Pages](#step-3-add-the-records-that-point-at-github-pages), [Step 6: Add the response headers GitHub Pages cannot send](#step-6-add-the-response-headers-github-pages-cannot-send), [Verification checklist](#verification-checklist)"
+    pairs_with: "[Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Cloud Network Security](/CLOUD_NETWORK_SECURITY.md), [Threat Model an Application](/guides/THREAT_MODEL_AN_APPLICATION.md)"
+    reviewed: null
   guides/HOW_TO_USE_THIS_LIBRARY.md:
     audience: "Anyone opening the library for the first time: students, SOC analysts and security leads"
     level: "Beginner"

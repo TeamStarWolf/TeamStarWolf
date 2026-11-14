@@ -77,6 +77,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Year 1999 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1999.md)
 - [The Year 2005 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2005.md)
 - [The Year 2013 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2013.md)
+- [The Year 2014 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2014.md)
 - [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md)
 - [The Year 2017 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2017.md)
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)

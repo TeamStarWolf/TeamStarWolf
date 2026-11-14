@@ -84,6 +84,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Trojanized Claude Code Extension on Cursor's Marketplace (October 2026)](/case-studies/CURSOR_EXTENSION_TROJAN_2026.md)
 - [The Year 1994 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1994.md)
 - [The Year 2013 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2013.md)
+- [The Year 2014 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2014.md)
 - [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md)
 - [The Year 2017 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2017.md)
 - [The Year 2018 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2018.md)

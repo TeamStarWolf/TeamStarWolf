@@ -3421,6 +3421,32 @@ studies:
       - {"date": "2026-05-09", "label": "9 to 10 May: malicious Checkmarx Jenkins AST plugin published with access obtained in March"}
       - {"date": "2026-07-06", "label": "Checkmarx declares the incident fully contained"}
       - {"date": "2026-08-26", "label": "26 and 27 Aug: the AFP arrests two Western Australian men the FBI alleges are TeamPCP members"}
+  case-studies/THE_RECORD_AND_THE_WINDOW.md:
+    kind: "reference"
+    title: "The Record and the Window: A Thesis on Cybersecurity in 2026 and the Decade Ahead"
+    start: "1986-08"
+    end: "2026-11"
+    core_start: "2026-01-01"
+    core_end: "2026-11-13"
+    sectors: ["cross-sector"]
+    cves: ["CVE-2026-20127", "CVE-2026-22769", "CVE-2026-50751", "CVE-2026-88772", "CVE-2026-24858", "CVE-2026-104935", "CVE-2026-0257", "CVE-2026-1731", "CVE-2026-123158", "CVE-2026-98432", "CVE-2026-109618", "CVE-2026-123039"]
+    actors: []
+    tags: ["thesis", "forecast", "exposure window", "edge device", "supply chain", "artificial intelligence", "regulation", "measurement"]
+    pdf: "The_Record_And_The_Window_Case_Study.pdf"
+    pptx: "The_Record_And_The_Window_Case_Study.pptx"
+    events:
+      - {"date": "1986-08", "label": "The Cuckoo's Egg intrusion: an intruder uses Lawrence Berkeley Laboratory as a way station into ARPANET and MILNET"}
+      - {"date": "1988-11-02", "label": "The Morris worm guesses passwords with a 432-word list and moves through host trust files"}
+      - {"date": "2003", "label": "The first Patch Tuesday: the vendor's fix, applied on a schedule, becomes the unit of defensive work"}
+      - {"date": "2026-02-17", "label": "Dell discloses RecoverPoint for Virtual Machines hard-coded credential CVE-2026-22769, exploited from mid-2024 as reported"}
+      - {"date": "2026-02-25", "label": "Cisco scores SD-WAN bypass CVE-2026-20127 at CVSS 10.0; Talos traces UAT-8616 to 2023; CISA issues Emergency Directive 26-03"}
+      - {"date": "2026-06-08", "label": "Check Point's hotfix for VPN flaw CVE-2026-50751, exploited from 7 May; KEV lists it the same day"}
+      - {"date": "2026-09-27", "label": "Citrix bulletin: exploits of CVE-2026-88772 and a second flaw observed, from early September as reported; KEV lists both that day"}
+      - {"date": "2026-10-13", "label": "Ivanti discloses CVE-2026-104935 under limited exploitation, ten days after exploitation began on 3 October"}
+      - {"date": "2026-10-30", "label": "First wave of the Check Point gateway chain: a wiper on a VMware ESXi host deletes files at Israeli organizations"}
+      - {"date": "2026-11-05", "label": "SSHole, CVE-2026-123158, published at 15:46 UTC; attempts follow within hours and KEV lists it on 9 November"}
+      - {"date": "2026-11-08", "label": "Able2Shell: a researcher publishes 33 alleged N-able N-central flaws with proof-of-concept code and no notice to the vendor"}
+      - {"date": "2026-11-12", "label": "CVE-2026-123039 published two weeks after the first wave; KEV lists it on 13 November, due 16 November"}
   case-studies/THREAT_ACTORS_CHINA.md:
     kind: "actor"
     title: "China-Attributed Threat Actors: The Public Record"

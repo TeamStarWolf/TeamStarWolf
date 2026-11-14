@@ -701,6 +701,102 @@ studies:
       - {"date": "2006-09-06", "label": "HP 8-K: a third party working for its outside investigators used pretexting to get phone records"}
       - {"date": "2006-09-26", "label": "MS06-055 fixes the exploited VML flaw out of cycle"}
       - {"date": "2006-12-18", "label": "TJX finds suspicious software, then confirms an intruder and stolen customer data (18 to 27 Dec)"}
+  case-studies/CHRONICLE_2010.md:
+    kind: "era"
+    title: "The Year 2010 in Intrusions: A Dated Record"
+    start: "2010-01"
+    end: "2010-12"
+    sectors: ["cross-sector", "technology", "energy", "manufacturing", "government", "defense", "finance", "retail", "telecommunications", "media"]
+    cves: ["CVE-2010-0188", "CVE-2010-0232", "CVE-2010-0249", "CVE-2010-0738", "CVE-2010-0806", "CVE-2010-0840", "CVE-2010-1297", "CVE-2010-1428", "CVE-2010-1871", "CVE-2010-1885", "CVE-2010-2568", "CVE-2010-2572", "CVE-2010-2729", "CVE-2010-2743", "CVE-2010-2772", "CVE-2010-2861", "CVE-2010-2883", "CVE-2010-3035", "CVE-2010-3332", "CVE-2010-3333", "CVE-2010-3338", "CVE-2010-3654", "CVE-2010-3765", "CVE-2010-3904", "CVE-2010-3962", "CVE-2010-4344", "CVE-2010-4345", "CVE-2010-4398", "CVE-2010-5326", "CVE-2010-5330"]
+    actors: ["G0066", "G0001"]
+    tags: ["Operation Aurora", "Stuxnet", "Windows shortcut flaw", "Night Dragon", "Shadows in the Cloud", "China Telecom routes", "Buckshot Yankee", "Zeus", "Waledac", "Mariposa", "Firesheep", "HTTPS by default"]
+    pdf: "Chronicle_2010_Case_Study.pdf"
+    pptx: "Chronicle_2010_Case_Study.pptx"
+    events:
+      - {"date": "2010-01-12", "label": "Google discloses a targeted attack originating from China, detected in mid-December 2009; Gmail turns on HTTPS by default"}
+      - {"date": "2010-01-21", "label": "MS10-002 fixes the Internet Explorer flaw exploited during Operation Aurora (CVE-2010-0249)"}
+      - {"date": "2010-02-22", "label": "A federal court grants Microsoft's restraining order cutting off 277 Waledac botnet domains"}
+      - {"date": "2010-03-25", "label": "Albert Gonzalez of the TJX card-theft ring sentenced to 20 years in Massachusetts"}
+      - {"date": "2010-04-06", "label": "Shadows in the Cloud documents espionage against India, the Dalai Lama's office and the UN"}
+      - {"date": "2010-04-08", "label": "China Telecom advertises erroneous routes for about 18 minutes, per the US-China Commission"}
+      - {"date": "2010-06-17", "label": "VirusBlokAda reports the malware later named Stuxnet; HTTPS Everywhere released"}
+      - {"date": "2010-07-16", "label": "Microsoft Advisory 2286198 and a US-CERT alert on the Windows shortcut flaw (CVE-2010-2568)"}
+      - {"date": "2010-08-02", "label": "Out-of-band MS10-046 fixes the shortcut flaw, already exploited by a number of malware families"}
+      - {"date": "2010-09-01", "label": "Deputy Secretary of Defense discloses the 2008 CENTCOM flash-drive compromise (Buckshot Yankee)"}
+      - {"date": "2010-09-30", "label": "Symantec's Stuxnet dossier; SDNY charges 37 defendants over Zeus-enabled bank fraud"}
+      - {"date": "2010-10-24", "label": "Firesheep shows session cookies taken over open Wi-Fi"}
+  case-studies/CHRONICLE_2012.md:
+    kind: "era"
+    title: "The Year 2012 in Intrusions: A Dated Record"
+    start: "2012-01"
+    end: "2012-12"
+    sectors: ["cross-sector", "finance", "energy", "government", "technology", "media", "retail", "telecommunications", "defense", "manufacturing"]
+    cves: ["CVE-2008-5353", "CVE-2010-2568", "CVE-2011-3402", "CVE-2011-3544", "CVE-2012-0002", "CVE-2012-0152", "CVE-2012-0158", "CVE-2012-0391", "CVE-2012-0394", "CVE-2012-0507", "CVE-2012-0754", "CVE-2012-0779", "CVE-2012-1535", "CVE-2012-1710", "CVE-2012-1723", "CVE-2012-1823", "CVE-2012-1875", "CVE-2012-1889", "CVE-2012-2311", "CVE-2012-2549", "CVE-2012-4681", "CVE-2012-4792", "CVE-2012-4929", "CVE-2012-4969"]
+    actors: ["G0066", "G0006"]
+    tags: ["Flame", "Gauss", "Microsoft certificates", "Shamoon", "Wiper", "Bank DDoS", "Elderwood", "APT1", "Global Payments", "Dropbox", "Java", "Megaupload"]
+    pdf: "Chronicle_2012_Case_Study.pdf"
+    pptx: "Chronicle_2012_Case_Study.pptx"
+    events:
+      - {"date": "2012-01-19", "label": "Megaupload arrests in Auckland and more than 20 search warrants in the US and eight countries; DHS and FBI advise on recovering erased files"}
+      - {"date": "2012-03-23", "label": "Microsoft's Operation b71 seizes Zeus-family command servers under a civil court order"}
+      - {"date": "2012-03-30", "label": "Global Payments 8-K: unauthorized access to a portion of its processing system, self-reported"}
+      - {"date": "2012-04-10", "label": "MS12-027 fixes Office common controls flaw CVE-2012-0158, already used in limited targeted attacks"}
+      - {"date": "2012-05-28", "label": "Kaspersky publishes Flame, found while looking for the malware that wiped systems in Iran in April"}
+      - {"date": "2012-06-03", "label": "Microsoft Advisory 2718704 revokes trust in three of its intermediate CAs after unauthorized certificates were used in attacks"}
+      - {"date": "2012-07-31", "label": "Dropbox says passwords stolen from other websites opened user accounts and an employee's account"}
+      - {"date": "2012-08-09", "label": "Kaspersky publishes Gauss, built on the Flame platform; the FBI warns of Reveton ransomware"}
+      - {"date": "2012-08-16", "label": "Kaspersky analyses Shamoon, a wiper that overwrites the master boot record through a signed raw-disk driver"}
+      - {"date": "2012-08-27", "label": "US-CERT TA12-240A advises disabling Java in browsers for the exploited Java 7 flaw CVE-2012-4681"}
+      - {"date": "2012-09-06", "label": "Symantec's Elderwood Project ties the Aurora attackers to four 2012 zero-days and watering-hole attacks"}
+      - {"date": "2012-09", "label": "DDoS on US banks becomes near-weekly, as alleged in the 2016 indictment of seven Iranians"}
+  case-studies/CHRONICLE_2011.md:
+    kind: "era"
+    title: "The Year 2011 in Intrusions: A Dated Record"
+    start: "2011-01"
+    end: "2011-12"
+    sectors: ["cross-sector", "technology", "energy", "government", "defense", "finance", "retail", "media", "telecommunications", "manufacturing"]
+    cves: ["CVE-2011-0609", "CVE-2011-0611", "CVE-2011-1823", "CVE-2011-1889", "CVE-2011-2005", "CVE-2011-2462", "CVE-2011-3192", "CVE-2011-3389", "CVE-2011-3402", "CVE-2011-3414", "CVE-2011-3544", "CVE-2011-4723", "CVE-2011-4862", "CVE-2011-4885"]
+    actors: ["G0006"]
+    tags: ["Comodo", "DigiNotar", "RSA SecurID", "Duqu", "Night Dragon", "Sony PlayStation Network", "LulzSec", "Rustock", "Coreflood", "Kelihos", "DNSChanger", "SEC disclosure guidance"]
+    pdf: "Chronicle_2011_Case_Study.pdf"
+    pptx: "Chronicle_2011_Case_Study.pptx"
+    events:
+      - {"date": "2011-02-10", "label": "McAfee publishes Night Dragon, the espionage campaign against oil, energy and petrochemical companies"}
+      - {"date": "2011-03-15", "label": "A compromised Comodo RA account issues nine fraudulent certificates for seven domains"}
+      - {"date": "2011-03-16", "label": "Microsoft's civil action takes down the Rustock botnet"}
+      - {"date": "2011-03-17", "label": "EMC files RSA's open letter: an attack extracted information related to SecurID"}
+      - {"date": "2011-04-13", "label": "The Justice Department sends court-ordered stop commands to Coreflood-infected computers"}
+      - {"date": "2011-04-17", "label": "Intruders reach PlayStation Network and Qriocity account data (17 to 19 Apr)"}
+      - {"date": "2011-06-01", "label": "Google reports a phishing campaign that stole Gmail passwords and changed forwarding settings"}
+      - {"date": "2011-07-19", "label": "FBI arrests 16 people over the PayPal attacks and related intrusions; DigiNotar detects its intrusion"}
+      - {"date": "2011-08-29", "label": "Google reports man-in-the-middle attempts on users in Iran with a fraudulent DigiNotar certificate"}
+      - {"date": "2011-10-13", "label": "The SEC issues its cybersecurity disclosure guidance, CF Topic No. 2"}
+      - {"date": "2011-10-14", "label": "CrySyS Lab reports Duqu, a Stuxnet-like malware with a signed driver"}
+      - {"date": "2011-11-09", "label": "Operation Ghost Click charges seven over the DNSChanger scheme"}
+  case-studies/CHRONICLE_2014.md:
+    kind: "era"
+    title: "The Year 2014 in Intrusions: A Dated Record"
+    start: "2014-01"
+    end: "2014-12"
+    sectors: ["cross-sector", "technology", "retail", "finance", "government", "defense", "energy", "healthcare", "manufacturing", "media", "telecommunications"]
+    cves: ["CVE-2013-3346", "CVE-2013-5065", "CVE-2013-5211", "CVE-2014-0160", "CVE-2014-0224", "CVE-2014-0322", "CVE-2014-0346", "CVE-2014-0751", "CVE-2014-1266", "CVE-2014-1776", "CVE-2014-1812", "CVE-2014-3120", "CVE-2014-3153", "CVE-2014-3566", "CVE-2014-3704", "CVE-2014-4113", "CVE-2014-4114", "CVE-2014-4148", "CVE-2014-6271", "CVE-2014-6277", "CVE-2014-6278", "CVE-2014-6287", "CVE-2014-6321", "CVE-2014-6324", "CVE-2014-6352", "CVE-2014-7169", "CVE-2014-7186", "CVE-2014-7187", "CVE-2014-8361", "CVE-2014-8730"]
+    actors: ["G0001", "G0010", "G0012", "G0022", "G0024", "G0027", "G0032", "G0034", "G0035", "G0059", "G0095", "G0130"]
+    tags: ["Heartbleed", "Shellshock", "POODLE", "MS14-068", "Unit 61398 indictment", "Sony Pictures", "Home Depot", "Target", "Backoff", "Havex", "Regin", "GameOver Zeus"]
+    pdf: "Chronicle_2014_Case_Study.pdf"
+    pptx: "Chronicle_2014_Case_Study.pptx"
+    events:
+      - {"date": "2014-01-13", "label": "US-CERT alert on NTP amplification DDoS using the monlist feature, CVE-2013-5211"}
+      - {"date": "2014-02-12", "label": "NIST publishes Cybersecurity Framework 1.0"}
+      - {"date": "2014-04-07", "label": "OpenSSL discloses Heartbleed, CVE-2014-0160; US-CERT later tells victims to regenerate keys after patching"}
+      - {"date": "2014-05-19", "label": "Indictment of five PLA Unit 61398 officers on 31 counts announced; Blackshades takedown"}
+      - {"date": "2014-06-02", "label": "GameOver Zeus botnet and CryptoLocker disrupted; charges against the alleged administrator unsealed"}
+      - {"date": "2014-06-25", "label": "ICS-CERT alert on Havex: phishing, watering holes and trojanized installers on ICS vendor sites"}
+      - {"date": "2014-07-31", "label": "US-CERT TA14-212A on Backoff point-of-sale malware, deployed after brute-forced remote-desktop logins"}
+      - {"date": "2014-09-18", "label": "Home Depot: custom-built malware put about 56 million payment cards at risk"}
+      - {"date": "2014-09-24", "label": "NVD publishes Shellshock, CVE-2014-6271; US-CERT lists five follow-on Bash CVEs"}
+      - {"date": "2014-10-14", "label": "Google discloses POODLE in SSL 3.0; MS14-060 fixes the OLE flaw CVE-2014-4114 used in targeted attacks"}
+      - {"date": "2014-11-24", "label": "Symantec and Kaspersky publish Regin, with samples timestamped back to 2003"}
+      - {"date": "2014-12-19", "label": "FBI attributes the destructive attack on Sony Pictures to North Korea; US-CERT TA14-353A"}
   case-studies/CHRONICLE_2009.md:
     kind: "era"
     title: "The Year 2009 in Intrusions: A Dated Record"

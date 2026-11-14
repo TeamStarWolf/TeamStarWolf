@@ -19,7 +19,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 67 min (15,487 words at 230 words a minute)
+About 67 min (15,489 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -361,7 +361,7 @@ Fidelity National Information Services announced on 3 July 2007 that its subsidi
 
 ### TD Ameritrade
 
-TD Ameritrade's 10-K for fiscal 2007, filed 26 November, restates its 14 September announcement that it had found and removed unauthorized code giving access to an internal database (Confirmed [51]). The discovery came during an internal investigation of stock-related spam. Client e-mail addresses, names, addresses and phone numbers were retrieved; account numbers, dates of birth and Social Security numbers were stored in the same database, but the company found no evidence they were taken (Confirmed [51]). A class action (Elvey) filed on 31 May had alleged that account holders' e-mail addresses reached spammers, and another followed on 26 September (Confirmed [51]). The filing, as read here, describes no intrusion vector [51].
+TD Ameritrade's 10-K for fiscal 2007, filed 26 November, restates its 14 September announcement that it had found and removed unauthorized code giving access to an internal database (Confirmed [51]). The discovery came during an internal investigation of stock-related spam. Client e-mail addresses, names, addresses and phone numbers were retrieved; account numbers, dates of birth and Social Security numbers were stored in the same database, but the company found no evidence they were taken (Confirmed [51]). A class action (Elvey) filed on 31 May had alleged that account holders' e-mail addresses reached spammers, and another followed on 26 September (Confirmed [51]). The filing, as read here, describes no intrusion vector (Inferred [51]).
 
 ### HMRC's lost discs
 
@@ -477,7 +477,7 @@ The Basis column says how strong each tie is, as in the [2016 chronicle](/case-s
 | [`T1669`](/mitre/techniques/T1669.md) | Wi-Fi Networks | initial-access | Described | TJX: intruder may have entered through store wireless networks (Canadian commissioners, 25 Sep); wardriving into retailers' wireless networks (DOJ, 2008, alleged); FTC alleges wireless access was not limited | [5][10][8] |
 | [`T1040`](/mitre/techniques/T1040.md) | Network Sniffing | credential-access, discovery | Described | TJX: 2006 tooling could capture card data sent unencrypted during approval (10-K, 28 Mar); the Gonzalez ring's sniffers (DOJ, 2008, alleged) | [4][10] |
 
-Left out on purpose: T1059.004 Unix Shell for the Solaris worm's backdoor shell, because US-CERT does not describe the shell (Confirmed [14]). T1078 Valid Accounts for the worm's logins as adm and lp, because the logins came through argument injection, not through credentials (Confirmed [14][15]; Inferred). T1583.005 Botnet (Acquire Infrastructure) for Estonia, because Ottis records only forum discussion of renting botnets (Reported [41]). Exploitation of router software in Estonia, because Ottis names no product or flaw (Reported [41]). A technique for the TD Ameritrade code, because the filing, as read here, describes no intrusion vector or exfiltration path [51]. T1056.001 Keylogging for the spoofed FTC mail, because US-CERT says the attachments "could" install a keystroke logger (Confirmed [32]). Certegy and HMRC, which were an insider's physical removal and a lost parcel with no ATT&CK technique (Confirmed [50][53]). The QuickTime RTSP flaw, because US-CERT reports public exploit code, not attacks (Confirmed [33]). The 2007 espionage press reports, whose only sources are Reported and describe no technique (Reported [54][56][57][58]).
+Left out on purpose: T1059.004 Unix Shell for the Solaris worm's backdoor shell, because US-CERT does not describe the shell (Confirmed [14]). T1078 Valid Accounts for the worm's logins as adm and lp, because the logins came through argument injection, not through credentials (Confirmed [14][15]; Inferred). T1583.005 Botnet (Acquire Infrastructure) for Estonia, because Ottis records only forum discussion of renting botnets (Reported [41]). Exploitation of router software in Estonia, because Ottis names no product or flaw (Reported [41]). A technique for the TD Ameritrade code, because the filing, as read here, describes no intrusion vector or exfiltration path (Inferred [51]). T1056.001 Keylogging for the spoofed FTC mail, because US-CERT says the attachments "could" install a keystroke logger (Confirmed [32]). Certegy and HMRC, which were an insider's physical removal and a lost parcel with no ATT&CK technique (Confirmed [50][53]). The QuickTime RTSP flaw, because US-CERT reports public exploit code, not attacks (Confirmed [33]). The 2007 espionage press reports, whose only sources are Reported and describe no technique (Reported [54][56][57][58]).
 
 ### Techniques ATT&CK lists for APT1, a group later records date to 2007
 

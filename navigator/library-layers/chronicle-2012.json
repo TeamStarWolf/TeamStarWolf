@@ -1,0 +1,330 @@
+{
+  "name": "TeamStarWolf - The Year 2012 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2012 record supports: the techniques ATT&CK lists for the objects it ties to 2012, S0143 Flame (published by Kaspersky on 28 May), S0140 Shamoon (only the two ids that cite the 2012 report), G0066 Elderwood (Symantec's Elderwood Project, 6 September) and G0006 APT1 (the April 2012 phishing Mandiant describes), and behavior described by Microsoft's Advisory 2718704 and MSRC's certificate posts, US-CERT's alerts on Anonymous DDoS activity (TA12-024A), web content management exploitation and Adobe's code-signing certificate, Kaspersky's Gauss and Madi reports, Dropbox's July 2012 post, Microsoft's Nitol action and the 2016 indictment over the bank DDoS. No 2012 source prints an ATT&CK id. The two ATT&CK for ICS techniques listed for Flame are in the study's table, not in this layer. Each comment names source numbers from case-studies/CHRONICLE_2012.md. Scores: 100 an ATT&CK object prints the id, 70 the source describes the behavior and the study assigns the id, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1011.001",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Flame (28 May) (basis: Listed (S0143); ATT&CK lists the id for S0143 Flame; Flame's techniques come from ATT&CK's software record; Kaspersky published Flame on 28 May 2012). Sources [22] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1027.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Elderwood (6 Sep) (basis: Listed (G0066); ATT&CK lists the id for G0066 Elderwood; Elderwood's techniques come from ATT&CK's group record, which cites Symantec's Elderwood Project paper of 6 September 2012). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1027.013",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Elderwood (6 Sep) (basis: Listed (G0066); ATT&CK lists the id for G0066 Elderwood; Elderwood's techniques come from ATT&CK's group record, which cites Symantec's Elderwood Project paper of 6 September 2012). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1036.002",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Madi's right-to-left-override filenames (17 Jul) (basis: Described; a later mapping, since no 2012 source prints an ATT&CK id). Sources [34] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1036.010",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Flame (28 May) (basis: Listed (S0143); ATT&CK lists the id for S0143 Flame; Flame's techniques come from ATT&CK's software record; Kaspersky published Flame on 28 May 2012). Sources [22] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "A stolen password opened a Dropbox employee's account (31 Jul) (basis: Described; a later mapping, since no 2012 source prints an ATT&CK id). Sources [35] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "A stolen password opened a Dropbox employee's account (31 Jul) (basis: Described; a later mapping, since no 2012 source prints an ATT&CK id). Sources [35] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "A stolen password opened a Dropbox employee's account (31 Jul) (basis: Described; a later mapping, since no 2012 source prints an ATT&CK id). Sources [35] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "A stolen password opened a Dropbox employee's account (31 Jul) (basis: Described; a later mapping, since no 2012 source prints an ATT&CK id). Sources [35] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Flame (28 May); Gauss's USB module (9 Aug) (basis: Listed (S0143); Described; ATT&CK lists the id for S0143 Flame; Flame's techniques come from ATT&CK's software record; Kaspersky published Flame on 28 May 2012). Sources [22][20][37] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Flame (28 May); Gauss's USB module (9 Aug) (basis: Listed (S0143); Described; ATT&CK lists the id for S0143 Flame; Flame's techniques come from ATT&CK's software record; Kaspersky published Flame on 28 May 2012). Sources [22][20][37] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Elderwood (6 Sep) (basis: Listed (G0066); ATT&CK lists the id for G0066 Elderwood; Elderwood's techniques come from ATT&CK's group record, which cites Symantec's Elderwood Project paper of 6 September 2012). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1110.004",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Passwords stolen from other websites used to sign in to Dropbox accounts (31 Jul) (basis: Described; a later mapping, since no 2012 source prints an ATT&CK id). Sources [35][115] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Flame (28 May) (basis: Listed (S0143); ATT&CK lists the id for S0143 Flame; Flame's techniques come from ATT&CK's software record; Kaspersky published Flame on 28 May 2012). Sources [22][20] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "USW e-mails (31 Jan) and SolarWorld executives' e-mails (3 May), as alleged (basis: Listed (G0006); 2012 binding Inferred; ATT&CK lists the id for G0006 APT1, but tying it to the 2012 events rests on this study's reading of the indictment). Sources [61][60] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1123",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Flame (28 May) (basis: Listed (S0143); ATT&CK lists the id for S0143 Flame; Flame's techniques come from ATT&CK's software record; Kaspersky published Flame on 28 May 2012). Sources [22][20] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1136.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Flame (28 May) (basis: Listed (S0143); ATT&CK lists the id for S0143 Flame; Flame's techniques come from ATT&CK's software record; Kaspersky published Flame on 28 May 2012). Sources [22] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Elderwood (6 Sep); Reveton by drive-by download (9 Aug); IE CVE-2012-4969 and Java CVE-2012-4681 exploited (Aug and Sep; match Inferred) (basis: Listed (G0066); Described; ATT&CK lists the id for G0066 Elderwood; Elderwood's techniques come from ATT&CK's group record, which cites Symantec's Elderwood Project paper of 6 September 2012). Sources [45][46][77][41][49][111] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Increased exploitation of WordPress and Joomla (21 Sep); PHP-CGI CVE-2012-1823 and Struts CVE-2012-0391 in KEV (match Inferred) (basis: Described; a later mapping, since no 2012 source prints an ATT&CK id). Sources [50][74][76][55] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1195",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "New PCs sold with counterfeit Windows carrying malware (Nitol, Operation b70, 13 Sep) (basis: Described; a later mapping, since no 2012 source prints an ATT&CK id). Sources [13] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Elderwood's zero-days (6 Sep); CVE-2012-0158 (Apr), CVE-2012-1889 (Jun), CVE-2012-1535 in a Word document (Aug), CVE-2012-4681 (Aug), CVE-2012-4969 (Sep); Flashback through Java (Mar, per Dr.Web) (basis: Listed (G0066); Described; Reported; ATT&CK lists the id for G0066 Elderwood; Elderwood's techniques come from ATT&CK's group record, which cites Symantec's Elderwood Project paper of 6 September 2012). Sources [45][46][14][30][38][41][49][16] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1204.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Elderwood (6 Sep) (basis: Listed (G0066); ATT&CK lists the id for G0066 Elderwood; Elderwood's techniques come from ATT&CK's group record, which cites Symantec's Elderwood Project paper of 6 September 2012). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Elderwood (6 Sep) (basis: Listed (G0066); ATT&CK lists the id for G0066 Elderwood; Elderwood's techniques come from ATT&CK's group record, which cites Symantec's Elderwood Project paper of 6 September 2012). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Flame's spread through MS10-061 (28 May) (basis: Listed (S0143); ATT&CK lists the id for S0143 Flame; Flame's techniques come from ATT&CK's software record; Kaspersky published Flame on 28 May 2012). Sources [22][20] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1218.011",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Flame (28 May) (basis: Listed (S0143); ATT&CK lists the id for S0143 Flame; Flame's techniques come from ATT&CK's software record; Kaspersky published Flame on 28 May 2012). Sources [22] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Shamoon (Kaspersky, 16 Aug; Symantec, 16 Aug, as ATT&CK cites) (basis: Listed (S0140, 2012 source); ATT&CK lists the id for S0140 Shamoon; ATT&CK's Shamoon record covers Shamoon 1 to 3, and only the two ids that cite the 2012 report are bound). Sources [40][39] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "The bank DDoS, as alleged (sporadic from Dec 2011, near-weekly from Sep 2012); the AT&T attacks (Aug, as alleged); Nitol performs DDoS (13 Sep) (basis: Described; a later mapping, since no 2012 source prints an ATT&CK id). Sources [57][56][13] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1498.001",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "UDP flood against government and entertainment sites (TA12-024A, 24 Jan) (basis: Described; a later mapping, since no 2012 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1499.002",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "HTTP GET flood against the same sites (TA12-024A, 24 Jan) (basis: Described; a later mapping, since no 2012 source prints an ATT&CK id). Sources [2] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1518.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Flame (28 May) (basis: Listed (S0143); ATT&CK lists the id for S0143 Flame; Flame's techniques come from ATT&CK's software record; Kaspersky published Flame on 28 May 2012). Sources [22] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1547.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Flame (28 May) (basis: Listed (S0143); ATT&CK lists the id for S0143 Flame; Flame's techniques come from ATT&CK's software record; Kaspersky published Flame on 28 May 2012). Sources [22] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1547.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Flame (28 May) (basis: Listed (S0143); ATT&CK lists the id for S0143 Flame; Flame's techniques come from ATT&CK's software record; Kaspersky published Flame on 28 May 2012). Sources [22] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-impairment",
+      "score": 70,
+      "comment": "Licensing certificates that could sign code as Microsoft (3 and 6 Jun); an Adobe certificate used to sign malicious code (28 Sep); not in S0143's ATT&CK mapping (basis: Described; a later mapping, since no 2012 source prints an ATT&CK id). Sources [25][26][51] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1555.003",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Gauss takes browser data (9 Aug) (basis: Inferred; a later mapping, since no 2012 source prints an ATT&CK id). Sources [37] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1561.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Shamoon overwrites the master boot record (16 Aug) (basis: Listed (S0140, 2012 source); ATT&CK lists the id for S0140 Shamoon; ATT&CK's Shamoon record covers Shamoon 1 to 3, and only the two ids that cite the 2012 report are bound). Sources [40][39] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Elderwood (6 Sep); Madi's spearphishing slideshows (17 Jul); CVE-2012-0158 targeted attacks (10 Apr; vector Inferred) (basis: Listed (G0066); Described; ATT&CK lists the id for G0066 Elderwood; Elderwood's techniques come from ATT&CK's group record, which cites Symantec's Elderwood Project paper of 6 September 2012). Sources [45][34][14] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Elderwood (6 Sep); APT1's link to a ZIP sent to Mandiant staff (18 Apr) (basis: Listed (G0066, G0006); Described; ATT&CK lists the id for G0066 Elderwood, G0006 APT1; Elderwood's techniques come from ATT&CK's group record, which cites Symantec's Elderwood Project paper of 6 September 2012; APT1's record spans years of reporting; the id is bound for the April 2012 phishing that Mandiant's account describes). Sources [45][61][58] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1584.005",
+      "tactic": "resource-development",
+      "score": 40,
+      "comment": "The 2011 to 2013 bank DDoS, as alleged (near-weekly from Sep 2012) (basis: Inferred; a later mapping, since no 2012 source prints an ATT&CK id). Sources [57] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1585.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "APT1's free-webmail account impersonating Mandiant's CEO (18 Apr) (basis: Listed (G0006); Described; ATT&CK lists the id for G0006 APT1; APT1's record spans years of reporting; the id is bound for the April 2012 phishing that Mandiant's account describes). Sources [61][58] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1588.004",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "Unauthorized certificates derived from a Microsoft CA (Advisory 2718704, 3 Jun; collision post, 6 Jun) (basis: Described; a later mapping, since no 2012 source prints an ATT&CK id). Sources [23][25][26] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    },
+    {
+      "techniqueID": "T1608.004",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "Elderwood's renewed compromise of a website its targets visited (6 Sep); compromised WordPress and Joomla sites hosting content that infected visitors (21 Sep) (basis: Described; a later mapping, since no 2012 source prints an ATT&CK id). Sources [46][50] refer to the Sources table of case-studies/CHRONICLE_2012.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: an ATT&CK object prints the id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2012.md (sources opened 12 and 13 November 2026, library checks 12 and 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "36"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "41"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2012 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2012.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

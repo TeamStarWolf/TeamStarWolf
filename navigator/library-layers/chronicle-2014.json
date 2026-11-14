@@ -1,0 +1,425 @@
+{
+  "name": "TeamStarWolf - The Year 2014 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2014 record supports: the techniques ATT&CK lists for the objects it ties to 2014 reports and events (G0001 Axiom, G0012 Darkhotel, G0022 APT3, G0027 Threat Group-3390, G0032 Lazarus Group for the Sony attack, G0034 Sandworm Team for CVE-2014-4114, G0035 Dragonfly, G0130 Ajax Security Team, S0016 P2P ZeuS, S0019 Regin, S0022 Uroburos, S0089 BlackEnergy and S0409 Machete) and the 2014 examples on the T1190 and T1212 pages, and behavior described by OpenSSL's, Microsoft's and Drupal's advisories, US-CERT's alerts on Shellshock, Backoff, Sony's toolset, crypto ransomware and NTP amplification, ICS-CERT's Havex and BlackEnergy alerts, Home Depot's and eBay's filings and Apple's statement, with Newscaster graded Reported. No 2014 source prints an ATT&CK id: ATT&CK was released publicly in May 2015. The 14 ATT&CK for ICS techniques are in the separate layer navigator/case-studies/chronicle-2014-ics.json. Each comment names source numbers from case-studies/CHRONICLE_2014.md. Scores: 100 an ATT&CK object prints the id, 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1001.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "GameOver Zeus, disrupted 2 Jun (basis: Listed (S0016); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [121][88] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1014",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Snake/Uroburos in Epic Turla (7 Aug) (basis: Listed (S0022); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [57][121] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Regin's admin shares (24 Nov); Sony's SMB worm (19 Dec) (basis: Listed (G0032, S0019); Described; ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [63][65][72][71] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Regin (24 Nov) (basis: Listed (S0019); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [65] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Regin (24 Nov) (basis: Listed (S0019); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [65] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1052.001",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "El Machete copies files to USB (20 Aug) (basis: Listed (S0409); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Darkhotel (10 Nov); El Machete (20 Aug); Backoff (31 Jul) (basis: Listed (G0012, S0409); Described; ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [61][60][85] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Darkhotel (10 Nov); El Machete (20 Aug); Backoff (31 Jul) (basis: Listed (G0012, S0409); Described; ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [61][60][85] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 40,
+      "comment": "Shellshock's injected Bash commands (24 Sep) (basis: Inferred; the mapping rests on the study's reading; a later mapping, since no 2014 source prints an ATT&CK id). Sources [28][122] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "CVE-2014-6324 (MS14-068, 18 Nov); Epic Turla's CVE-2013-5065 zero-day (7 Aug) (basis: Listed (G0027); Described; ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [118][121][25][57] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Backoff's HTTP POST command and control (31 Jul) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2014 source prints an ATT&CK id). Sources [85] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "eBay employee credentials (Feb to Mar); Home Depot vendor user name and password (6 Nov) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2014 source prints an ATT&CK id). Sources [73][79] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "eBay employee credentials (Feb to Mar); Home Depot vendor user name and password (6 Nov) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2014 source prints an ATT&CK id). Sources [73][79] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "eBay employee credentials (Feb to Mar); Home Depot vendor user name and password (6 Nov) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2014 source prints an ATT&CK id). Sources [73][79] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "eBay employee credentials (Feb to Mar); Home Depot vendor user name and password (6 Nov) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2014 source prints an ATT&CK id). Sources [73][79] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Celebrity Apple accounts taken through user names, passwords and security questions (2 Sep) (basis: Inferred; the mapping rests on the study's reading; a later mapping, since no 2014 source prints an ATT&CK id). Sources [75] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "Celebrity Apple accounts taken through user names, passwords and security questions (2 Sep) (basis: Inferred; the mapping rests on the study's reading; a later mapping, since no 2014 source prints an ATT&CK id). Sources [75] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "Celebrity Apple accounts taken through user names, passwords and security questions (2 Sep) (basis: Inferred; the mapping rests on the study's reading; a later mapping, since no 2014 source prints an ATT&CK id). Sources [75] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1078.004",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "Celebrity Apple accounts taken through user names, passwords and security questions (2 Sep) (basis: Inferred; the mapping rests on the study's reading; a later mapping, since no 2014 source prints an ATT&CK id). Sources [75] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Backoff's brute-forced remote-desktop logins (31 Jul) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2014 source prints an ATT&CK id). Sources [85] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Sony's SMB worm guessing passwords (TA14-353A, 19 Dec) (basis: Listed (G0032); Described; ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [72][71] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "El Machete (20 Aug) (basis: Listed (S0409); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1115",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "El Machete (20 Aug) (basis: Listed (S0409); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1123",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "El Machete (20 Aug) (basis: Listed (S0409); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1125",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "El Machete's webcam photos (20 Aug) (basis: Listed (S0409); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [60] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Backoff actors log in through remote-desktop applications (TA14-212A, 31 Jul) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2014 source prints an ATT&CK id). Sources [85] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Backoff actors log in through remote-desktop applications (TA14-212A, 31 Jul) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2014 source prints an ATT&CK id). Sources [85] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Group 72 (14 Oct); Darkhotel (10 Nov); Havex watering holes (Jun); Dragonfly's Lightsout kit (30 Jun); Epic Turla watering holes (7 Aug); drive-by ransomware (TA14-295A) (basis: Listed (G0001, G0012, G0035); Described; ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [46][61][51][52][57][91] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Shellshock (24 to 25 Sep); Drupal CVE-2014-3704 attacks within hours (15 Oct); BlackEnergy against internet-connected HMIs through CVE-2014-0751 (8 Oct) (basis: Listed (technique page cites CVE-2014-7169); Described; ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [30][29][39][54] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Havex installers trojanized on three ICS vendor sites (25 to 27 Jun); Dragonfly's compromised update sites (30 Jun) (basis: Listed (G0035); Described; ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [51][52][121] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Home Depot, through a third-party vendor's account (6 Nov); Target's HVAC vendor (Reported) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2014 source prints an ATT&CK id). Sources [79][2] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "CVE-2014-4114 (G0034); CVE-2014-1776 (G0022, Reported; MS14-021, 1 May); IE CVE-2014-0322 (14 Feb); Putter Panda's Reader and Office exploits (9 Jun) (basis: Listed (G0034, G0022); Described; ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [21][48][18][5][44] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1212",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "MS14-068 (18 Nov) (basis: Listed (technique page cites MS14-068); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [118][25] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Sony's destructive malware (late Nov; 19 Dec) (basis: Listed (G0032); Described; ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [72][70][71] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "CryptoLocker (disrupted 2 Jun); crypto ransomware (TA14-295A, 22 Oct) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2014 source prints an ATT&CK id). Sources [88][91] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1491.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Sony (Nov), per ATT&CK's later citations (basis: Listed (G0032); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [72] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1498.002",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "NTP monlist amplification (13 Jan) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2014 source prints an ATT&CK id). Sources [4] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Sony toolset (19 Dec), per ATT&CK's later citations (basis: Listed (G0032); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [72][71] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Sony toolset (19 Dec), per ATT&CK's later citations (basis: Listed (G0032); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [72][71] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1548.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "BlackEnergy 3 (F-Secure, summer 2014) (basis: Listed (S0089); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [55][56] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1552.006",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "GPP passwords under targeted attack (MS14-025, 13 May) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2014 source prints an ATT&CK id). Sources [19] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Darkhotel's abuse of at least ten CAs (10 Nov) (basis: Listed (G0012); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [61] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1553.006",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "BlackEnergy 3's driver-signing bypass (summer 2014) (basis: Listed (S0089); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [55][56] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "CVE-2014-0224 (5 Jun); POODLE (14 Oct) (basis: Described (CCS injection); Inferred (POODLE); a primary source describes the behavior and the study assigns the id; a later mapping, since no 2014 source prints an ATT&CK id). Sources [37][119][34] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "CVE-2014-0224 (5 Jun); POODLE (14 Oct) (basis: Described (CCS injection); Inferred (POODLE); a primary source describes the behavior and the study assigns the id; a later mapping, since no 2014 source prints an ATT&CK id). Sources [37][119][34] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1558",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Forged Kerberos ticket accepted as domain admin (MS14-068, 18 Nov) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2014 source prints an ATT&CK id). Sources [25] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1561.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Hard-drive tool overwriting up to four drives (TA14-353A) (basis: Listed (G0032); Described; ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [72][71] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1561.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Master boot record overwritten (TA14-353A) (basis: Listed (G0032); Described; ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [72][71] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1564.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Regin (24 Nov) (basis: Listed (S0019); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [65] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1564.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Regin (24 Nov) (basis: Listed (S0019); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [63][65] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Group 72 (Talos, 14 Oct); Havex phishing (Jun); GameOver Zeus spam and phishing (TA14-150A, 2 Jun); the steel mill's spear-phishing (BSI; Inferred for the mapping) (basis: Listed (G0001); Described; ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [47][46][51][90][94] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Sandworm's CVE-2014-4114 PowerPoint files (Jun to Oct; MS14-060, 14 Oct); Havex phishing (Jun); Putter Panda's targeted email (9 Jun); ransomware attachments (TA14-295A, 22 Oct) (basis: Listed (G0034, G0035); Described; ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [21][20][51][121][44][91] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1566.003",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Saffron Rose (13 May) (basis: Listed (G0130); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [66][121] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1571",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Sony toolset (19 Dec), per ATT&CK's later citations (basis: Listed (G0032); ATT&CK lists the id for the object or prints the 2014 example on the technique page; a later mapping, since no 2014 source prints an ATT&CK id). Sources [72] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1585.001",
+      "tactic": "resource-development",
+      "score": 50,
+      "comment": "Newscaster's fake personas (28 May) (basis: Reported (G0059 lists it; the 2014 tie rests on eWeek); only a Reported source ties the behavior to 2014; a later mapping, since no 2014 source prints an ATT&CK id). Sources [67][121] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    },
+    {
+      "techniqueID": "T1600",
+      "tactic": "defense-impairment",
+      "score": 40,
+      "comment": "POODLE's protocol downgrade, through CAPEC-620 (14 Oct) (basis: Inferred; the mapping rests on the study's reading; a later mapping, since no 2014 source prints an ATT&CK id). Sources [31][122] refer to the Sources table of case-studies/CHRONICLE_2014.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: an ATT&CK object prints the id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2014.md (sources opened 12 November 2026, library checks 12 and 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "45"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "56"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2014 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2014.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

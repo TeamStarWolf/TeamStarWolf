@@ -547,7 +547,10 @@ CATALOG = [
        "[2007 chronicle case study](/case-studies/CHRONICLE_2007.md)"),
       ("case-studies/chronicle-2010-ics.json", "The Year 2010 in Intrusions (ICS)",
        "The ten ATT&CK for ICS techniques that ATT&CK lists for Stuxnet and that the 2010 record most directly supports, from its USB spread to the reported PLC code injection, from the "
-       "[2010 chronicle case study](/case-studies/CHRONICLE_2010.md)")]),
+       "[2010 chronicle case study](/case-studies/CHRONICLE_2010.md)"),
+      ("case-studies/chronicle-2014-ics.json", "The Year 2014 in Intrusions (ICS)",
+       "The 14 ATT&CK for ICS techniques bound to the 2014 record: the Havex campaign's trojanized vendor installers and OPC scanning as ATT&CK lists them for Backdoor.Oldrea and Dragonfly, ICS-CERT's alert on BlackEnergy against internet-connected HMIs, and BSI's German steel mill case, from the "
+       "[2014 chronicle case study](/case-studies/CHRONICLE_2014.md)")]),
 ]
 
 

@@ -931,6 +931,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 19 July 2019: Related flaw CVE-2019-12815 published
   - 8 October 2026: CISA adds CVE-2015-3306 to KEV; joint advisory AA26-281A lists it
   - 4 November 2026: Lab run: the vulnerable build copies a file without login; the fixed build refuses
+- [The Year 2015 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2015.md). Period record, January to December 2015. Sectors: cross-sector, government, healthcare, energy, finance, technology, telecommunications, media, transport. CVEs: CVE-2015-0204, CVE-2015-0235, CVE-2015-1538, CVE-2015-1635, CVE-2015-1641, CVE-2015-1701 and 13 more. ATT&CK groups: G0034 Sandworm Team, G0020 Equation, G0016 APT29, G0007 APT28, G0008 Carbanak, G0027 Threat Group-3390 and 5 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2015_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2015_Case_Study.pptx).
+  - 2 January 2015: Treasury announces sanctions on North Korea's government and Workers' Party, citing the Sony Pictures attack
+  - 16 February 2015: Kaspersky names the Equation group, with a module that could reprogram hard-drive firmware
+  - 17 February 2015: Kaspersky, with INTERPOL and Europol, announces Carbanak against up to 100 financial institutions
+  - 24 February 2015: Anthem's 10-K describes a sophisticated external cyber attack on member and employee data
+  - 14 April 2015: MS15-034 fixes the HTTP.sys remote code execution flaw (CVE-2015-1635)
+  - 4 June 2015: OPM gives public notice that personnel records of 4.2 million people were compromised
+  - 9 July 2015: OPM gives public notice of background-investigation data on more than 20 million people
+  - 18 August 2015: Ashley Madison files covering about 36 million accounts begin to be published
+  - 25 September 2015: US-China commitment that neither will conduct or knowingly support cyber-enabled theft of IP
+  - 17 December 2015: Juniper's out-of-band advisory on unauthorized code in ScreenOS (CVE-2015-7755, CVE-2015-7756)
+  - 18 December 2015: Public Law 114-113 enacted, carrying the Cybersecurity Act of 2015
+  - 23 December 2015: Intrusions at three Ukrainian distribution companies cut power to about 225,000 customers
 
 ### 2014 <!-- {docsify-ignore} -->
 

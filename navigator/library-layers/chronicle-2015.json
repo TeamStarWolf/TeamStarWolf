@@ -1,0 +1,534 @@
+{
+  "name": "TeamStarWolf - The Year 2015 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2015 record supports: the techniques ATT&CK lists for the objects it ties to 2015 reports and events (campaign C0028, the 2015 Ukraine Electric Power Attack; G0020 Equation; G0016 APT29 and S0037 HAMMERTOSS; G0007 APT28 and S0044 JHUHUGIT for CVE-2015-1701; S0038 Duqu for Duqu 2.0; S0047 Hacking Team UEFI Rootkit; S0519 SYNful Knock; S0030 Carbanak; S0384 Dridex; S0607 KillDisk; G0027 Threat Group-3390) and the procedure rows on the T1203 and T1068 pages that name 2015 CVEs, and behavior described by the primary records the study cites: US-CERT's alerts on Cisco ROMMON images, web shells and the IC3's CryptoWall and DDoS extortion notices, ICS-CERT's alert on the Ukrainian blackout, Oracle's WebLogic alert, the ICO's TalkTalk account, Unit 42's XcodeGhost report, the GRIZZLY STEPPE report, GitHub's and Citizen Lab's accounts of the Great Cannon and Kaspersky's Carbanak release; the Juniper ScreenOS, FREAK and Logjam rows are Inferred. No 2015 source prints an ATT&CK id: ATT&CK was released publicly in May 2015 and no 2015 event was mapped to it at the time. The 20 ATT&CK for ICS techniques of C0028 are in the separate layer navigator/case-studies/chronicle-2015-ics.json. Each comment names source numbers from case-studies/CHRONICLE_2015.md. Scores: 100 an ATT&CK object prints the id, 70 the source describes the behavior and the study assigns the id, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1001.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "HAMMERTOSS's image-borne commands (Jul) (basis: Listed (S0037); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [59][58] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1014",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Hacking Team UEFI rootkit (13 Jul) (basis: Listed (S0047); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [102] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Ukraine (Dec) (basis: Listed (C0028); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Carbanak; OPM's RDP session (June 2014, recorded in the 2016 timeline) (basis: Listed (S0030); Described; ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [131][26] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Ukraine (Dec) (basis: Listed (C0028); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Ukraine (Dec) (basis: Listed (C0028); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Ukraine (Dec) (basis: Listed (C0028); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Ukraine (Dec) (basis: Listed (C0028); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Ukraine (Dec); Carbanak; Dridex keystroke logging (13 Oct) (basis: Listed (C0028, S0030); Described; ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79][131][67] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Ukraine (Dec); Carbanak; Dridex keystroke logging (13 Oct) (basis: Listed (C0028, S0030); Described; ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79][131][67] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1059.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "HAMMERTOSS (Jul) (basis: Listed (S0037); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [59][58] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1059.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Ukraine (Dec) (basis: Listed (C0028); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "CVE-2015-1701 and CVE-2015-2387 (Win32k exploited Apr) (basis: Listed (technique page rows for G0007 and S0044); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [33][31] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1070",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Ashley Madison attacker deleted logs (Jul) (basis: Described; the source describes the behavior and the study assigns the id; a later mapping, since no 2015 source prints an ATT&CK id). Sources [46] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Ukraine (Dec) (basis: Listed (C0028); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Ukraine (Dec); HAMMERTOSS (Jul) (basis: Listed (C0028, S0037, S0030, S0384); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79][59] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Likely legitimate credentials in Ukraine (23 Dec); Ashley Madison employee credentials (Jul); OPM contractor credentials (2014 foothold) (basis: Listed (C0028); Described; ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79][78][46][26] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Likely legitimate credentials in Ukraine (23 Dec); Ashley Madison employee credentials (Jul); OPM contractor credentials (2014 foothold) (basis: Listed (C0028); Described; ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79][78][46][26] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Likely legitimate credentials in Ukraine (23 Dec); Ashley Madison employee credentials (Jul); OPM contractor credentials (2014 foothold) (basis: Listed (C0028); Described; ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79][78][46][26] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Likely legitimate credentials in Ukraine (23 Dec); Ashley Madison employee credentials (Jul); OPM contractor credentials (2014 foothold) (basis: Listed (C0028); Described; ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79][78][46][26] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1087.002",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "APT29 enumerated Active Directory accounts (summer) (basis: Described; the source describes the behavior and the study assigns the id; a later mapping, since no 2015 source prints an ATT&CK id). Sources [56] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1102.003",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "HAMMERTOSS's Twitter handles (Jul) (basis: Listed (S0037); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [59][58] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Ukraine (Dec) (basis: Listed (C0028); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Ukraine (Dec) (basis: Listed (C0028); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Ukraine (Dec) (basis: Listed (C0028); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Carbanak watched administrators (17 Feb) (basis: Listed (S0030); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [131][10] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1120",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Equation (16 Feb) (basis: Listed (G0020); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [9] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Ukrainian operators over VPN (23 Dec); Ashley Madison's single-factor VPN (Jul) (basis: Listed (C0028); Described; ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79][78][46] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Ukrainian operators over VPN (23 Dec); Ashley Madison's single-factor VPN (Jul) (basis: Listed (C0028); Described; ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79][78][46] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Duqu 2.0 (10 Jun) (basis: Listed (S0038); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [39][38] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Duqu 2.0 (10 Jun) (basis: Listed (S0038); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [39][38] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "CVE-2015-1701 (basis: Listed (G0007); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [34] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1134.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "CVE-2015-1701 (basis: Listed (G0007); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [34] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1136.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Ukraine (Dec) (basis: Listed (C0028); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1185",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Dridex web injects (13 Oct) (basis: Listed (S0384); Described; ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [131][67] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "TG-3390's strategic web compromises (Secureworks, 5 Aug) (basis: Listed (G0027); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [90][131] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "TalkTalk SQL injection (15 to 21 Oct); WebLogic CVE-2015-4852 (Nov); Joomla CVE-2015-8562 exploited (Dec) (basis: Described; the source describes the behavior and the study assigns the id; a later mapping, since no 2015 source prints an ATT&CK id). Sources [69][72][100] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1195.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "XcodeGhost (17 Sep) (basis: Described; the source describes the behavior and the study assigns the id; a later mapping, since no 2015 source prints an ATT&CK id). Sources [65] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Unauthorized code in ScreenOS (17 Dec); entry path not established (basis: Inferred (tentative); the mapping rests on the study's reading; a later mapping, since no 2015 source prints an ATT&CK id). Sources [75][76] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Flash zero-days exploited in the wild (Jul); Office and Java bugs later in KEV (basis: Listed (technique page rows for G0096, G0040, G0142 with CVE-2015-1641, G0012 with CVE-2015-8651, G0098 with CVE-2015-5119, G0022 with CVE-2015-3113); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [103][43][100] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "BlackEnergy attachments (Dec); Dridex documents (13 Oct) (basis: Listed (C0028, S0384); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79][131][67] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1205",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "SYNful Knock (15 Sep) (basis: Listed (S0519); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [64] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1205",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "SYNful Knock (15 Sep) (basis: Listed (S0519); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [64] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1205",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "SYNful Knock (15 Sep) (basis: Listed (S0519); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [64] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1218.007",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Duqu 2.0 (10 Jun) (basis: Listed (S0038); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [39][38] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1218.011",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Ukraine (Dec) (basis: Listed (C0028); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Carbanak (17 Feb); Dridex (basis: Listed (S0030, S0384); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [131][10] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1480.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Equation (16 Feb) (basis: Listed (G0020); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [9] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "KillDisk wiped files in Ukraine (23 Dec) (basis: Listed (S0607); Described; ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [131][78] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "CryptoWall (IC3, 23 Jun) (basis: Described; the source describes the behavior and the study assigns the id; a later mapping, since no 2015 source prints an ATT&CK id). Sources [40] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "GitHub DDoS (26 Mar); DDoS extortion (31 Jul) (basis: Described; the source describes the behavior and the study assigns the id; a later mapping, since no 2015 source prints an ATT&CK id). Sources [15][16][55] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "TA15-314A (10 Nov) (basis: Described; the source describes the behavior and the study assigns the id; a later mapping, since no 2015 source prints an ATT&CK id). Sources [70] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1542.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Hacking Team UEFI rootkit (Trend Micro, 13 Jul) (basis: Listed (S0047); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [102] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1542.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Hacking Team UEFI rootkit (Trend Micro, 13 Jul) (basis: Listed (S0047); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [102] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1542.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Equation's hard-drive firmware module (16 Feb) (basis: Listed (G0020); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [9][8] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1542.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Equation's hard-drive firmware module (16 Feb) (basis: Listed (G0020); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [9][8] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1542.004",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Malicious ROMMON images on Cisco IOS (12 Aug) (basis: Described; the source describes the behavior and the study assigns the id; a later mapping, since no 2015 source prints an ATT&CK id). Sources [62] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1542.004",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "Malicious ROMMON images on Cisco IOS (12 Aug) (basis: Described; the source describes the behavior and the study assigns the id; a later mapping, since no 2015 source prints an ATT&CK id). Sources [62] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1556.004",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "SYNful Knock (15 Sep) (basis: Listed (S0519); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [64][63] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1556.004",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "SYNful Knock (15 Sep) (basis: Listed (S0519); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [64][63] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1556.004",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "SYNful Knock (15 Sep) (basis: Listed (S0519); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [64][63] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "FREAK and Logjam require a man-in-the-middle position (basis: Inferred; the mapping rests on the study's reading; a later mapping, since no 2015 source prints an ATT&CK id). Sources [13][37] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "FREAK and Logjam require a man-in-the-middle position (basis: Inferred; the mapping rests on the study's reading; a later mapping, since no 2015 source prints an ATT&CK id). Sources [13][37] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1561.002",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "KillDisk wiped master boot records (23 Dec) (basis: Listed (S0607); Described; ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [131][78] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1564.003",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "HAMMERTOSS (Jul) (basis: Listed (S0037); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [59] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1564.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Equation (16 Feb) (basis: Listed (G0020); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [9][8] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "BlackEnergy's malicious Office attachments (Ukraine, Dec); Carbanak's spear phishing (17 Feb); Dridex macro documents (TA15-286A, 13 Oct) (basis: Listed (C0028); Described; ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79][78][10][67] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "APT29's malicious link to over 1,000 recipients (summer) (basis: Listed (G0016); Described; ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [57][56] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1567.002",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "HAMMERTOSS (Jul) (basis: Listed (S0037); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [59] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1570",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Ukraine (Dec) (basis: Listed (C0028); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1573.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "HAMMERTOSS (Jul) (basis: Listed (S0037); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [59] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1600",
+      "tactic": "defense-impairment",
+      "score": 40,
+      "comment": "FREAK (Mar) and Logjam (20 May) downgrades; ScreenOS VPN decryption CVE-2015-7756 (17 Dec) (basis: Inferred; the mapping rests on the study's reading; a later mapping, since no 2015 source prints an ATT&CK id). Sources [13][37][76] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1601.001",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "SYNful Knock (15 Sep) (basis: Listed (S0519); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [64][63] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Carbanak's fraudulent transfers and ATM cash-out (17 Feb) (basis: Described; the source describes the behavior and the study assigns the id; a later mapping, since no 2015 source prints an ATT&CK id). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Ukraine (Dec) (basis: Listed (C0028); ATT&CK lists the id for the object or prints the 2015 example on the technique page; a later mapping, since no 2015 source prints an ATT&CK id). Sources [79] refer to the Sources table of case-studies/CHRONICLE_2015.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: an ATT&CK object prints the id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2015.md (sources opened 12 and 13 November 2026, library checks 12 and 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "57"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "75"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2015 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2015.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

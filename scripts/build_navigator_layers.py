@@ -550,7 +550,10 @@ CATALOG = [
        "[2010 chronicle case study](/case-studies/CHRONICLE_2010.md)"),
       ("case-studies/chronicle-2014-ics.json", "The Year 2014 in Intrusions (ICS)",
        "The 14 ATT&CK for ICS techniques bound to the 2014 record: the Havex campaign's trojanized vendor installers and OPC scanning as ATT&CK lists them for Backdoor.Oldrea and Dragonfly, ICS-CERT's alert on BlackEnergy against internet-connected HMIs, and BSI's German steel mill case, from the "
-       "[2014 chronicle case study](/case-studies/CHRONICLE_2014.md)")]),
+       "[2014 chronicle case study](/case-studies/CHRONICLE_2014.md)"),
+      ("case-studies/chronicle-2015-ics.json", "The Year 2015 in Intrusions (ICS)",
+       "The 20 ATT&CK for ICS techniques that ATT&CK lists for campaign C0028, the 2015 Ukraine Electric Power Attack: VPN access with likely legitimate credentials, breakers opened through the operators' own ICS client software, corrupted serial-to-Ethernet firmware and the loss of power to about 225,000 customers, from the "
+       "[2015 chronicle case study](/case-studies/CHRONICLE_2015.md)")]),
 ]
 
 

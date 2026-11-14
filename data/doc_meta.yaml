@@ -2536,6 +2536,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 2: the shared-code vulnerabilities](#part-2-the-shared-code-vulnerabilities), [Part 7: breaches and data loss](#part-7-breaches-and-data-loss)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [E-Commerce Threats](/case-studies/ECOMMERCE_THREATS.md), [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md), [The Year 2012 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2012.md)"
     reviewed: null
+  case-studies/CHRONICLE_2009.md:
+    audience: "Threat intelligence analysts, security historians, vulnerability management, payment-card and policy teams and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2009, you need the Conficker response, the document and plug-in flaws exploited at release and the trust-layer flaws side by side with Heartland, the ATM cash-out, GhostNet, Night Dragon and Aurora, the offices and rules governments created that year, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 2: the vulnerability record](#part-2-the-vulnerability-record), [Part 4: the state and espionage record](#part-4-the-state-and-espionage-record)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [E-Commerce Threats](/case-studies/ECOMMERCE_THREATS.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [The Year 2007 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2007.md)"
+    reviewed: null
   case-studies/CHRONICLE_2016.md:
     audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
     level: "Intermediate"

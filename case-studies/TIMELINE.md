@@ -961,6 +961,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 24 November 2014: Symantec and Kaspersky publish Regin, with samples timestamped back to 2003
   - 19 December 2014: FBI attributes the destructive attack on Sony Pictures to North Korea; US-CERT TA14-353A
 
+### 2013 <!-- {docsify-ignore} -->
+
+- [The Year 2013 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2013.md). Period record, January to December 2013. Sectors: cross-sector, government, finance, technology, media, retail, energy, defense, telecommunications. CVEs: CVE-2009-0927, CVE-2010-0188, CVE-2010-3333, CVE-2012-0158, CVE-2013-0074, CVE-2013-0155 and 23 more. ATT&CK groups: G0006 APT1, G0044 Winnti Group, G0094 Kimsuky, G0021 Molerats. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2013_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2013_Case_Study.pptx).
+  - 10 January 2013: US-CERT TA13-010A: Java 7 Security Manager bypass CVE-2013-0422 actively exploited; Blackhole and Nuclear Pack use it
+  - 14 January 2013: Kaspersky publishes Red October (Rocra), with activity traced back to May 2007
+  - 12 February 2013: Executive Order 13636 and Presidential Policy Directive 21 issued
+  - 19 February 2013: Mandiant's APT1 report: 141 victim organizations since 2006 and evidence it links to PLA Unit 61398
+  - 19 March 2013: Spamhaus DDoS peaks at 120 Gbps at Cloudflare's network on 22 March, with DNS reflection as its largest source (19 to 22 Mar)
+  - 11 April 2013: Kaspersky publishes Winnti
+  - 24 May 2013: Liberty Reserve: five arrests, then the SDNY indictment and Treasury's Section 311 finding (24 to 28 May)
+  - 5 June 2013: Microsoft and partners disrupt Citadel (Operation b54), 1,462 botnets
+  - 25 July 2013: D.N.J. makes public the Drinkman indictment (160 million+ card numbers)
+  - 3 October 2013: Adobe discloses that data on 2.9 million customers was removed and source code accessed
+  - 5 November 2013: US-CERT TA13-309A warns of CryptoLocker, which encrypts local, network, USB and some cloud-synced files
+  - 27 November 2013: Cards used in Target's US stores exposed (27 Nov to 18 Dec); Target confirms about 40 million card accounts on 19 Dec
+
 ### 2012 <!-- {docsify-ignore} -->
 
 - [Cyber Operations as Statecraft: The Cases in The Hacker and the State](/case-studies/HACKER_AND_THE_STATE_CASES.md). Period record, 2006 to December 2020 (core: 2012 to 2018). Sectors: government, media, energy, finance, telecommunications, healthcare, cross-sector. CVEs: CVE-2017-0143, CVE-2017-0144, CVE-2017-0148. ATT&CK groups: G0006 APT1, G0007 APT28, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0082 APT38. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Hacker_And_The_State_Cases_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Hacker_And_The_State_Cases_Case_Study.pptx).
@@ -1102,6 +1118,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 21 February 2025: Bybit theft, about $1.5 billion; the FBI names TraderTraitor on 26 February 2025
   - 21 September 2026: Operation Lonestar Roundup searches of Texas laptop farms (21 to 25 September), announced 13 October 2026
   - 29 October 2026: Binance theft, more than $6 billion; the FBI names TraderTraitor on 31 October 2026, an attribution disputed in press
+- [The Year 2009 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2009.md). Period record, January to December 2009. Sectors: cross-sector, finance, retail, government, defense, energy, technology, healthcare, education, media, telecommunications. CVEs: CVE-2008-0015, CVE-2008-4114, CVE-2008-4250, CVE-2008-4834, CVE-2008-4835, CVE-2009-0238 and 23 more. ATT&CK groups: G0066 Elderwood. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2009_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2009_Case_Study.pptx).
+  - 20 January 2009: Heartland discloses a 2008 breach of its processing system; US-CERT TA09-020A says AutoRun cannot be reliably disabled
+  - 12 February 2009: Microsoft announces the Conficker coalition with ICANN and DNS operators and a USD 250,000 reward
+  - 17 February 2009: ARRA enacted, including the HITECH Act's breach notification sections for health data
+  - 19 February 2009: Adobe APSA09-01: the Reader and Acrobat JBIG2 flaw is being exploited (CVE-2009-0658)
+  - 28 March 2009: Information Warfare Monitor publishes Tracking GhostNet: more than 1,295 infected hosts in 103 countries
+  - 29 March 2009: US-CERT TA09-088A: Conficker spreads to hosts lacking MS08-067 by thumb drives, shares and networks
+  - 29 May 2009: The President announces a White House cybersecurity office and discloses the 2008 campaign intrusion
+  - 23 June 2009: Stuxnet attack wave 1 infects its first target; the Secretary of Defense directs creation of US Cyber Command
+  - 7 October 2009: FBI announces Operation Phish Phry: nearly 100 charged in the United States and Egypt
+  - November 2009: Night Dragon campaign against oil, energy and petrochemical companies first seen, per ATT&CK
+  - 5 November 2009: TLS renegotiation flaw CVE-2009-3555 made public; fixed in protocol by RFC 5746 in February 2010
+  - December 2009: Google detects the targeted attack it disclosed in January 2010, now known as Operation Aurora
 
 ### 2008 <!-- {docsify-ignore} -->
 

@@ -69,6 +69,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Shadow Brokers and Vault 7: The NSA and CIA Tool Leaks, 2016 to 2017](/case-studies/NSA_CIA_TOOL_LEAKS.md)
 - [The Year 2003 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2003.md)
 - [The Year 2006 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2006.md)
+- [The Year 2009 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2009.md)
 - [The Year 2010 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2010.md)
 - [The Year 2011 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2011.md)
 - [The Year 2014 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2014.md)

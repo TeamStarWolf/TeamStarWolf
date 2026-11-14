@@ -46,6 +46,7 @@ _D3FEND also maps T0807, deprecated in ATT&CK with no successor; not counted abo
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [Healthcare Threat Actor Watchlist, 2023 to 2026: Who Hits Hospitals, How They Get In, and What the Record Says](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md)
+- [Water and Wastewater Networks: The Control Systems, the Chemistry and the Attacks on Them](/case-studies/WATER_TREATMENT_NETWORKS.md)
 
 <!-- library-refs:end -->
 

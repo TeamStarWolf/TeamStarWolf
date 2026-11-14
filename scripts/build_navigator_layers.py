@@ -553,7 +553,10 @@ CATALOG = [
        "[2014 chronicle case study](/case-studies/CHRONICLE_2014.md)"),
       ("case-studies/chronicle-2015-ics.json", "The Year 2015 in Intrusions (ICS)",
        "The 20 ATT&CK for ICS techniques that ATT&CK lists for campaign C0028, the 2015 Ukraine Electric Power Attack: VPN access with likely legitimate credentials, breakers opened through the operators' own ICS client software, corrupted serial-to-Ethernet firmware and the loss of power to about 225,000 customers, from the "
-       "[2015 chronicle case study](/case-studies/CHRONICLE_2015.md)")]),
+       "[2015 chronicle case study](/case-studies/CHRONICLE_2015.md)"),
+      ("case-studies/water-treatment-networks-ics.json", "Water and Wastewater Networks (ICS)",
+       "The 32 ATT&CK for ICS techniques the verified water record supports: the Maroochy Water Breach (C0020), the Unitronics Defacement Campaign (C0031) and CyberAv3ngers (G1027) as ATT&CK lists them, and the hacktivist, IRGC-affiliated and 2026 PLC advisories as CISA lists or describes them, from the "
+       "[water and wastewater networks case study](/case-studies/WATER_TREATMENT_NETWORKS.md)")]),
 ]
 
 

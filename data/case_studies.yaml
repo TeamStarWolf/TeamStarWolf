@@ -3840,6 +3840,72 @@ studies:
       - {"date": "2017-11-15", "label": "The White House publishes the unclassified VEP charter"}
       - {"date": "2023-06-01", "label": "Kaspersky discloses Operation Triangulation; the FSB blames US intelligence the same day"}
       - {"date": "2025-10-19", "label": "China's Ministry of State Security alleges an NSA campaign against the National Time Service Center"}
+  case-studies/WATER_TREATMENT_NETWORKS.md:
+    kind: "reference"
+    title: "Water and Wastewater Networks: The Control Systems, the Chemistry and the Attacks on Them"
+    start: "2000-02"
+    end: "2026-11"
+    sectors: ["government"]
+    cves:
+      - "CVE-2016-4510"
+      - "CVE-2016-4523"
+      - "CVE-2016-4532"
+      - "CVE-2018-4061"
+      - "CVE-2018-4062"
+      - "CVE-2018-4063"
+      - "CVE-2018-19282"
+      - "CVE-2019-18988"
+      - "CVE-2020-15782"
+      - "CVE-2021-22644"
+      - "CVE-2021-22646"
+      - "CVE-2021-22648"
+      - "CVE-2021-22681"
+      - "CVE-2021-22779"
+      - "CVE-2021-26828"
+      - "CVE-2021-26829"
+      - "CVE-2022-1161"
+      - "CVE-2022-1704"
+      - "CVE-2022-3181"
+      - "CVE-2022-23854"
+      - "CVE-2022-38465"
+      - "CVE-2022-46670"
+      - "CVE-2023-0598"
+      - "CVE-2023-2586"
+      - "CVE-2023-6448"
+      - "CVE-2023-39475"
+      - "CVE-2023-39476"
+      - "CVE-2023-40458"
+      - "CVE-2023-40463"
+      - "CVE-2024-1480"
+      - "CVE-2024-2425"
+      - "CVE-2024-2426"
+      - "CVE-2024-2427"
+      - "CVE-2024-5947"
+      - "CVE-2024-5948"
+      - "CVE-2024-5950"
+      - "CVE-2024-9124"
+      - "CVE-2024-27767"
+      - "CVE-2024-38434"
+      - "CVE-2024-38435"
+      - "CVE-2025-13911"
+      - "CVE-2025-29270"
+    actors: ["G0034", "G1017"]
+    tags: ["water", "wastewater", "SCADA", "PLC", "HMI", "Modbus", "DNP3"]
+    pdf: "Water_Treatment_Networks_Case_Study.pdf"
+    pptx: "Water_Treatment_Networks_Case_Study.pptx"
+    events:
+      - {"date": "2000-02", "label": "Maroochy Water Breach (Feb to Apr 2000): a wastewater control system is misused and about 800,000 litres of raw sewage released"}
+      - {"date": "2019-03", "label": "Kansas: a former employee's unrevoked credentials reach a water facility computer remotely; the attempt fails"}
+      - {"date": "2021-02-05", "label": "SCADA used to raise sodium hydroxide dosing at a US drinking water facility; an operator reverses it"}
+      - {"date": "2021-10-14", "label": "AA21-287A warns of ongoing threats to water, including ransomware on SCADA hosts in Nevada, Maine and California"}
+      - {"date": "2023-11-22", "label": "CyberAv3ngers begin defacing Unitronics PLCs: at least 75 devices, at least 34 in US water and wastewater"}
+      - {"date": "2024-01", "label": "Water storage tanks overflow in Abernathy and Muleshoe, Texas; CARR claims it"}
+      - {"date": "2024-02-07", "label": "AA24-038A: Volt Typhoon held access to a water utility's IT network for about nine months"}
+      - {"date": "2024-05", "label": "EPA enforcement alert: over 70% of inspected water systems violate basic Section 1433 requirements"}
+      - {"date": "2024-10-03", "label": "American Water Works detects unauthorized activity and disconnects systems"}
+      - {"date": "2025-12-09", "label": "AA25-343A: CARR, NoName057(16), Z-Pentest and Sector16 tamper with water HMIs through VNC"}
+      - {"date": "2026-04-07", "label": "AA26-097A: Iranian-affiliated actors extract and modify project files on internet-facing PLCs"}
+      - {"date": "2026-07-27", "label": "MicroLogix PLC wave reaches utilities in at least seven states; boil water notices and manual operations"}
   case-studies/XZ_UTILS_BACKDOOR_2024.md:
     kind: "incident"
     title: "The XZ Utils Backdoor: A 2024 Supply-Chain Case Study"

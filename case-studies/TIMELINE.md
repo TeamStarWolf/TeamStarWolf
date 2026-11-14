@@ -948,6 +948,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 29 December 2025: Poland energy attack: RTUs damaged at more than 30 wind and PV farms
   - 13 July 2026: UK and EU formally attribute the Poland attack to FSB Centre 16; first joint cyber sanctions
 
+### 2013 <!-- {docsify-ignore} -->
+
+- [The Year 2013 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2013.md). Period record, January to December 2013. Sectors: cross-sector, government, finance, technology, media, retail, energy, defense, telecommunications. CVEs: CVE-2009-0927, CVE-2010-0188, CVE-2010-3333, CVE-2012-0158, CVE-2013-0074, CVE-2013-0155 and 23 more. ATT&CK groups: G0006 APT1, G0044 Winnti Group, G0094 Kimsuky, G0021 Molerats. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2013_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2013_Case_Study.pptx).
+  - 10 January 2013: US-CERT TA13-010A: Java 7 Security Manager bypass CVE-2013-0422 actively exploited; Blackhole and Nuclear Pack use it
+  - 14 January 2013: Kaspersky publishes Red October (Rocra), with activity traced back to May 2007
+  - 12 February 2013: Executive Order 13636 and Presidential Policy Directive 21 issued
+  - 19 February 2013: Mandiant's APT1 report: 141 victim organizations since 2006 and evidence it links to PLA Unit 61398
+  - 19 March 2013: Spamhaus DDoS peaks at 120 Gbps at Cloudflare's network on 22 March, with DNS reflection as its largest source (19 to 22 Mar)
+  - 11 April 2013: Kaspersky publishes Winnti
+  - 24 May 2013: Liberty Reserve: five arrests, then the SDNY indictment and Treasury's Section 311 finding (24 to 28 May)
+  - 5 June 2013: Microsoft and partners disrupt Citadel (Operation b54), 1,462 botnets
+  - 25 July 2013: D.N.J. makes public the Drinkman indictment (160 million+ card numbers)
+  - 3 October 2013: Adobe discloses that data on 2.9 million customers was removed and source code accessed
+  - 5 November 2013: US-CERT TA13-309A warns of CryptoLocker, which encrypts local, network, USB and some cloud-synced files
+  - 27 November 2013: Cards used in Target's US stores exposed (27 Nov to 18 Dec); Target confirms about 40 million card accounts on 19 Dec
+
 ### 2012 <!-- {docsify-ignore} -->
 
 - [Cyber Operations as Statecraft: The Cases in The Hacker and the State](/case-studies/HACKER_AND_THE_STATE_CASES.md). Period record, 2006 to December 2020 (core: 2012 to 2018). Sectors: government, media, energy, finance, telecommunications, healthcare, cross-sector. CVEs: CVE-2017-0143, CVE-2017-0144, CVE-2017-0148. ATT&CK groups: G0006 APT1, G0007 APT28, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0082 APT38. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Hacker_And_The_State_Cases_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Hacker_And_The_State_Cases_Case_Study.pptx).

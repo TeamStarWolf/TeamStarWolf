@@ -773,6 +773,30 @@ studies:
       - {"date": "2011-10-13", "label": "The SEC issues its cybersecurity disclosure guidance, CF Topic No. 2"}
       - {"date": "2011-10-14", "label": "CrySyS Lab reports Duqu, a Stuxnet-like malware with a signed driver"}
       - {"date": "2011-11-09", "label": "Operation Ghost Click charges seven over the DNSChanger scheme"}
+  case-studies/CHRONICLE_2013.md:
+    kind: "era"
+    title: "The Year 2013 in Intrusions: A Dated Record"
+    start: "2013-01"
+    end: "2013-12"
+    sectors: ["cross-sector", "government", "finance", "technology", "media", "retail", "energy", "defense", "telecommunications"]
+    cves: ["CVE-2009-0927", "CVE-2010-0188", "CVE-2010-3333", "CVE-2012-0158", "CVE-2013-0074", "CVE-2013-0155", "CVE-2013-0156", "CVE-2013-0169", "CVE-2013-0422", "CVE-2013-0431", "CVE-2013-0625", "CVE-2013-0629", "CVE-2013-0640", "CVE-2013-0641", "CVE-2013-1347", "CVE-2013-2094", "CVE-2013-2251", "CVE-2013-2465", "CVE-2013-2551", "CVE-2013-2566", "CVE-2013-3893", "CVE-2013-3897", "CVE-2013-3900", "CVE-2013-3906", "CVE-2013-3918", "CVE-2013-3993", "CVE-2013-4786", "CVE-2013-5065", "CVE-2013-5223"]
+    actors: ["G0006", "G0044", "G0094", "G0021"]
+    tags: ["APT1", "Target", "Adobe", "Spamhaus", "Red October", "Kimsuky", "Winnti", "CryptoLocker", "Citadel", "ZeroAccess", "Silk Road", "Executive Order 13636"]
+    pdf: "Chronicle_2013_Case_Study.pdf"
+    pptx: "Chronicle_2013_Case_Study.pptx"
+    events:
+      - {"date": "2013-01-10", "label": "US-CERT TA13-010A: Java 7 Security Manager bypass CVE-2013-0422 actively exploited; Blackhole and Nuclear Pack use it"}
+      - {"date": "2013-01-14", "label": "Kaspersky publishes Red October (Rocra), with activity traced back to May 2007"}
+      - {"date": "2013-02-12", "label": "Executive Order 13636 and Presidential Policy Directive 21 issued"}
+      - {"date": "2013-02-19", "label": "Mandiant's APT1 report: 141 victim organizations since 2006 and evidence it links to PLA Unit 61398"}
+      - {"date": "2013-03-19", "label": "Spamhaus DDoS peaks at 120 Gbps at Cloudflare's network on 22 March, with DNS reflection as its largest source (19 to 22 Mar)"}
+      - {"date": "2013-04-11", "label": "Kaspersky publishes Winnti"}
+      - {"date": "2013-05-24", "label": "Liberty Reserve: five arrests, then the SDNY indictment and Treasury's Section 311 finding (24 to 28 May)"}
+      - {"date": "2013-06-05", "label": "Microsoft and partners disrupt Citadel (Operation b54), 1,462 botnets"}
+      - {"date": "2013-07-25", "label": "D.N.J. makes public the Drinkman indictment (160 million+ card numbers)"}
+      - {"date": "2013-10-03", "label": "Adobe discloses that data on 2.9 million customers was removed and source code accessed"}
+      - {"date": "2013-11-05", "label": "US-CERT TA13-309A warns of CryptoLocker, which encrypts local, network, USB and some cloud-synced files"}
+      - {"date": "2013-11-27", "label": "Cards used in Target's US stores exposed (27 Nov to 18 Dec); Target confirms about 40 million card accounts on 19 Dec"}
   case-studies/CHRONICLE_2016.md:
     kind: "era"
     title: "The Year 2016 in Intrusions: A Dated Record"

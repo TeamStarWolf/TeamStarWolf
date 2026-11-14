@@ -653,6 +653,30 @@ studies:
       - {"date": "2005-11-03", "label": "Jeanson James Ancheta arrested on a 17-count botnet indictment, which DOJ called the first of its kind"}
       - {"date": "2005-11-15", "label": "VU#312073: Sony BMG's XCP software hides files with rootkit techniques; its uninstaller is unsafe"}
       - {"date": "2005-12-28", "label": "TA05-362A: the Windows Metafile flaw exploited against patched XP SP2 before any patch"}
+  case-studies/CHRONICLE_2008.md:
+    kind: "era"
+    title: "The Year 2008 in Intrusions: A Dated Record"
+    start: "2008-01"
+    end: "2008-12"
+    sectors: ["cross-sector", "retail", "finance", "government", "defense", "technology", "telecommunications", "energy", "media"]
+    cves: ["CVE-2008-0015", "CVE-2008-0166", "CVE-2008-0655", "CVE-2008-1447", "CVE-2008-1454", "CVE-2008-2992", "CVE-2008-3431", "CVE-2008-4128", "CVE-2008-4250", "CVE-2008-4844"]
+    actors: ["G0020", "G0016", "G0001", "G0060", "G0053"]
+    tags: ["MS08-067", "Conficker", "Debian OpenSSL", "DNS cache poisoning", "SQL injection", "MD5 rogue CA", "Hannaford", "Gonzalez ring", "Heartland", "Buckshot Yankee", "Georgia", "CWE 1.0"]
+    pdf: "Chronicle_2008_Case_Study.pdf"
+    pptx: "Chronicle_2008_Case_Study.pptx"
+    events:
+      - {"date": "2008-02-24", "label": "Pakistan Telecom announces part of YouTube's address space; PCCW propagates it until withdrawing it at 21:01 UTC"}
+      - {"date": "2008-03-17", "label": "Hannaford announces a card breach after Visa's notice of 27 Feb, as the First Circuit recites the allegations"}
+      - {"date": "2008-05-13", "label": "Debian DSA-1571-1: OpenSSL's random number generator predictable; regenerate all key material (CVE-2008-0166)"}
+      - {"date": "2008-06-24", "label": "Microsoft Advisory 954462: a wave of SQL injection against ASP and ASP.NET sites, not a product flaw"}
+      - {"date": "2008-07-08", "label": "CERT/CC VU#800113 and MS08-037: coordinated multi-vendor DNS cache poisoning fixes (CVE-2008-1447)"}
+      - {"date": "2008-08-05", "label": "Eleven charged, Albert Gonzalez among them, over nine US retailers and more than 40 million card numbers"}
+      - {"date": "2008-08-08", "label": "Cyber attacks on Georgia begin alongside the armed conflict and run to 28 Aug, per CCDCOE"}
+      - {"date": "2008-09-09", "label": "CWE Version 1.0 posted"}
+      - {"date": "2008-10-01", "label": "PCI DSS v1.2 generally available"}
+      - {"date": "2008-10-20", "label": "FBI ends its two-year DarkMarket undercover operation with 56 arrests worldwide"}
+      - {"date": "2008-10-23", "label": "MS08-067 out of band for the wormable Server service flaw; CERT/CC reports exploitation (CVE-2008-4250)"}
+      - {"date": "2008-12-17", "label": "MS08-078 out of band for the exploited Internet Explorer data binding flaw (CVE-2008-4844)"}
   case-studies/CHRONICLE_2016.md:
     kind: "era"
     title: "The Year 2016 in Intrusions: A Dated Record"

@@ -2494,6 +2494,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 2: the data-broker and card-data breaches](#part-2-the-data-broker-and-card-data-breaches), [Part 8: the defender view](#part-8-the-defender-view)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [E-Commerce Threats](/case-studies/ECOMMERCE_THREATS.md), [Database Security](/DATABASE_SECURITY_REFERENCE.md), [The Year 2004 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2004.md)"
     reviewed: null
+  case-studies/CHRONICLE_2008.md:
+    audience: "Threat intelligence analysts, security historians, vulnerability management, payment-card and network teams and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2008, you need MS08-067, the Debian, DNS and MD5 foundation flaws, the SQL injection wave and the card-theft cases side by side with Buckshot Yankee, Georgia and the operations later reports date to 2008, the policy and standards that followed, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 2: the vulnerability record](#part-2-the-vulnerability-record), [Part 4: the state record](#part-4-the-state-record)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [E-Commerce Threats](/case-studies/ECOMMERCE_THREATS.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [The Year 2005 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2005.md)"
+    reviewed: null
   case-studies/CHRONICLE_2016.md:
     audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
     level: "Intermediate"

@@ -1048,6 +1048,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 21 September 2026: Operation Lonestar Roundup searches of Texas laptop farms (21 to 25 September), announced 13 October 2026
   - 29 October 2026: Binance theft, more than $6 billion; the FBI names TraderTraitor on 31 October 2026, an attribution disputed in press
 
+### 2008 <!-- {docsify-ignore} -->
+
+- [The Year 2008 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2008.md). Period record, January to December 2008. Sectors: cross-sector, retail, finance, government, defense, technology, telecommunications, energy, media. CVEs: CVE-2008-0015, CVE-2008-0166, CVE-2008-0655, CVE-2008-1447, CVE-2008-1454, CVE-2008-2992 and 4 more. ATT&CK groups: G0020 Equation, G0016 APT29, G0001 Axiom, G0060 BRONZE BUTLER, G0053 FIN5. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2008_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2008_Case_Study.pptx).
+  - 24 February 2008: Pakistan Telecom announces part of YouTube's address space; PCCW propagates it until withdrawing it at 21:01 UTC
+  - 17 March 2008: Hannaford announces a card breach after Visa's notice of 27 Feb, as the First Circuit recites the allegations
+  - 13 May 2008: Debian DSA-1571-1: OpenSSL's random number generator predictable; regenerate all key material (CVE-2008-0166)
+  - 24 June 2008: Microsoft Advisory 954462: a wave of SQL injection against ASP and ASP.NET sites, not a product flaw
+  - 8 July 2008: CERT/CC VU#800113 and MS08-037: coordinated multi-vendor DNS cache poisoning fixes (CVE-2008-1447)
+  - 5 August 2008: Eleven charged, Albert Gonzalez among them, over nine US retailers and more than 40 million card numbers
+  - 8 August 2008: Cyber attacks on Georgia begin alongside the armed conflict and run to 28 Aug, per CCDCOE
+  - 9 September 2008: CWE Version 1.0 posted
+  - 1 October 2008: PCI DSS v1.2 generally available
+  - 20 October 2008: FBI ends its two-year DarkMarket undercover operation with 56 arrests worldwide
+  - 23 October 2008: MS08-067 out of band for the wormable Server service flaw; CERT/CC reports exploitation (CVE-2008-4250)
+  - 17 December 2008: MS08-078 out of band for the exploited Internet Explorer data binding flaw (CVE-2008-4844)
+
 ### 2006 <!-- {docsify-ignore} -->
 
 - [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md). Threat actor, 2006 to October 2026. Sectors: government, healthcare, telecommunications, technology, defense. CVEs: CVE-2017-6862, CVE-2018-0171, CVE-2018-13382, CVE-2018-14847, CVE-2019-1652, CVE-2019-7192 and 44 more. ATT&CK groups: G0001 Axiom, G0002 Moafee, G0004 Ke3chang, G0005 APT12, G0006 APT1, G0009 Deep Panda and 41 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_China_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_China_Case_Study.pptx).

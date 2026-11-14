@@ -1,0 +1,227 @@
+{
+  "name": "TeamStarWolf - The Year 2006 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2006 record supports: Microsoft's bulletins for the flaws exploited at release (the Windows Metafile flaw, Internet Explorer, Word, Excel, PowerPoint, the Server service, Vector Markup Language and WebViewFolderIcon), Microsoft's advisory on Mywife.E (Nyxem), F-Secure's record of IRCBot.ST, the Justice Department releases on the Ancheta and Maxwell botnets, the FTC's TJX complaint, Mandiant's APT1 report with ATT&CK's WEBC2 entry, the 2018 APT10 indictment with ATT&CK's menuPass entry, and McAfee's Operation Shady RAT paper. No 2006 source prints an ATT&CK id: every entry is this study's later mapping. The group-level techniques ATT&CK lists for APT1 and menuPass without a 2006 event are not in this layer. Each comment names source numbers from case-studies/CHRONICLE_2006.md. Scores: 70 the source describes the behavior and the study assigns the id (including the three ids ATT&CK lists for WEBC2), 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 40,
+      "comment": "Mywife.E spreads over writable shares and blank Administrator passwords; the advisory does not name the share type (basis: Inferred; a later mapping, since no 2006 source prints an ATT&CK id). Sources [6] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "TJX: card authorization requests intercepted in transit, May to Dec 2006 (FTC complaint) (basis: Described; a later mapping, since no 2006 source prints an ATT&CK id). Sources [56] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "TJX: card authorization requests intercepted in transit, May to Dec 2006 (FTC complaint) (basis: Described; a later mapping, since no 2006 source prints an ATT&CK id). Sources [56] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "APT10 keyloggers that stole credentials (alleged, campaign from about 2006) (basis: Described; a later mapping, since no 2006 source prints an ATT&CK id). Sources [66][67] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "APT10 keyloggers that stole credentials (alleged, campaign from about 2006) (basis: Described; a later mapping, since no 2006 source prints an ATT&CK id). Sources [66][67] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "WEBC2, as above (basis: ATT&CK lists the id for WEBC2 (S0109), which APT1 used as early as July 2006; tying the id to the 2006 instance is this study's later mapping, so it scores 70). Sources [64][61] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1071",
+      "tactic": "command-and-control",
+      "score": 50,
+      "comment": "IRCBot.ST is an IRC-controlled backdoor-worm (Aug) (basis: Reported; a later mapping, since no 2006 source prints an ATT&CK id). Sources [38] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1074",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "TJX: intercepted data stored in files on the network before transfer (FTC complaint) (basis: Described; a later mapping, since no 2006 source prints an ATT&CK id). Sources [56] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "WEBC2, used by APT1 as early as July 2006; tying the id to the 2006 instance is Inferred (basis: ATT&CK lists the id for WEBC2 (S0109), which APT1 used as early as July 2006; tying the id to the 2006 instance is this study's later mapping, so it scores 70). Sources [64][61] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "MS06-001 lists a malicious web page as a vector of the exploited WMF flaw (5 Jan); the VML flaw exploited through Internet Explorer (19 Sep) (basis: Described; a later mapping, since no 2006 source prints an ATT&CK id). Sources [3][40][41] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "WMF (5 Jan), IE createTextRange (11 Apr), Word (19 May to 13 Jun), Excel (11 Jul), PowerPoint (8 Aug, 10 Oct), VML (19 to 26 Sep) and WebViewFolderIcon (10 Oct), each exploited at release (basis: Described; a later mapping, since no 2006 source prints an ATT&CK id). Sources [3][18][28][34][39][41][43][44] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "MS06-027 needs a user to open a crafted Word document (13 Jun); the APT10 campaign (alleged) (basis: Described; a later mapping, since no 2006 source prints an ATT&CK id). Sources [28][66][67] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "MS06-040 Server service flaw exploited at release (8 Aug); IRCBot.ST spreading through it (13 Aug, Reported) (basis: Described; a later mapping, since no 2006 source prints an ATT&CK id). Sources [35][36][38] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1485",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Mywife.E corrupts common document files on the 3rd of each month, first on 3 Feb (basis: Described; a later mapping, since no 2006 source prints an ATT&CK id). Sources [6][7] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Botnet access sold for DDoS (Ancheta, 8 May); the Russian bookmaker extortion (Oct, Reported) (basis: Described; a later mapping, since no 2006 source prints an ATT&CK id). Sources [26][59] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1560",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "APT10 exfiltration in encrypted archives (alleged) (basis: Described; a later mapping, since no 2006 source prints an ATT&CK id). Sources [66][67] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "The APT10 \"Technology Theft Campaign\" from about 2006 (alleged); Shady RAT from mid-2006; APT1, most common way in, 2006 to 2013; the targeted Word attack (21 May, Reported) (basis: Described; a later mapping, since no 2006 source prints an ATT&CK id). Sources [66][68][61][30] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1568.001",
+      "tactic": "command-and-control",
+      "score": 40,
+      "comment": "APT10 command servers on dynamic DNS (alleged); the v20 name differs from the behavior, and the menuPass procedure under this id covers dynamic DNS (basis: Inferred; a later mapping, since no 2006 source prints an ATT&CK id). Sources [66][67] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "WEBC2, as above (basis: ATT&CK lists the id for WEBC2 (S0109), which APT1 used as early as July 2006; tying the id to the 2006 instance is this study's later mapping, so it scores 70). Sources [64][61] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "WEBC2, as above (basis: ATT&CK lists the id for WEBC2 (S0109), which APT1 used as early as July 2006; tying the id to the 2006 instance is this study's later mapping, so it scores 70). Sources [64][61] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "APT1's sb.hugesoft.org registered to the UglyGorilla persona, in the 2006 Symantec Japan writeup Mandiant cites; ATT&CK lists the id for G0006 and G0045 (basis: Described; a later mapping, since no 2006 source prints an ATT&CK id). Sources [61][63][67] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1584.005",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "Ancheta's botnets sold for DDoS and spam (sentenced 8 May); Maxwell's adware botnet (indicted 10 Feb, plea 4 May) (basis: Described; a later mapping, since no 2006 source prints an ATT&CK id). Sources [26][14][15] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 70,
+      "comment": "Mywife.E disables security software (Advisory 904420, 30 Jan) (basis: Described; a later mapping, since no 2006 source prints an ATT&CK id). Sources [6] refer to the Sources table of case-studies/CHRONICLE_2006.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: the source or ATT&CK object prints the ATT&CK id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2006.md (sources opened 12 and 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "20"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "23"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2006 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2006.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

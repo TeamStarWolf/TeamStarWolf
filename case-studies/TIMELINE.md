@@ -947,6 +947,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 April 2024: Mandiant graduates Sandworm to APT44
   - 29 December 2025: Poland energy attack: RTUs damaged at more than 30 wind and PV farms
   - 13 July 2026: UK and EU formally attribute the Poland attack to FSB Centre 16; first joint cyber sanctions
+- [The Year 2014 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2014.md). Period record, January to December 2014. Sectors: cross-sector, technology, retail, finance, government, defense, energy, healthcare, manufacturing, media, telecommunications. CVEs: CVE-2013-3346, CVE-2013-5065, CVE-2013-5211, CVE-2014-0160, CVE-2014-0224, CVE-2014-0322 and 24 more. ATT&CK groups: G0001 Axiom, G0010 Turla, G0012 Darkhotel, G0022 APT3, G0024 Putter Panda, G0027 Threat Group-3390 and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2014_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2014_Case_Study.pptx).
+  - 13 January 2014: US-CERT alert on NTP amplification DDoS using the monlist feature, CVE-2013-5211
+  - 12 February 2014: NIST publishes Cybersecurity Framework 1.0
+  - 7 April 2014: OpenSSL discloses Heartbleed, CVE-2014-0160; US-CERT later tells victims to regenerate keys after patching
+  - 19 May 2014: Indictment of five PLA Unit 61398 officers on 31 counts announced; Blackshades takedown
+  - 2 June 2014: GameOver Zeus botnet and CryptoLocker disrupted; charges against the alleged administrator unsealed
+  - 25 June 2014: ICS-CERT alert on Havex: phishing, watering holes and trojanized installers on ICS vendor sites
+  - 31 July 2014: US-CERT TA14-212A on Backoff point-of-sale malware, deployed after brute-forced remote-desktop logins
+  - 18 September 2014: Home Depot: custom-built malware put about 56 million payment cards at risk
+  - 24 September 2014: NVD publishes Shellshock, CVE-2014-6271; US-CERT lists five follow-on Bash CVEs
+  - 14 October 2014: Google discloses POODLE in SSL 3.0; MS14-060 fixes the OLE flaw CVE-2014-4114 used in targeted attacks
+  - 24 November 2014: Symantec and Kaspersky publish Regin, with samples timestamped back to 2003
+  - 19 December 2014: FBI attributes the destructive attack on Sony Pictures to North Korea; US-CERT TA14-353A
 
 ### 2012 <!-- {docsify-ignore} -->
 
@@ -963,6 +976,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 3 April 2017: 3 April to 3 May 2017: GRU spearphishing of the French presidential campaign
   - 19 December 2017: The US and five partner governments attribute WannaCry to North Korea
   - 13 July 2018: Twelve GRU officers indicted over the 2016 election hacking
+- [The Year 2012 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2012.md). Period record, January to December 2012. Sectors: cross-sector, finance, energy, government, technology, media, retail, telecommunications, defense, manufacturing. CVEs: CVE-2008-5353, CVE-2010-2568, CVE-2011-3402, CVE-2011-3544, CVE-2012-0002, CVE-2012-0152 and 18 more. ATT&CK groups: G0066 Elderwood, G0006 APT1. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2012_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2012_Case_Study.pptx).
+  - 19 January 2012: Megaupload arrests in Auckland and more than 20 search warrants in the US and eight countries; DHS and FBI advise on recovering erased files
+  - 23 March 2012: Microsoft's Operation b71 seizes Zeus-family command servers under a civil court order
+  - 30 March 2012: Global Payments 8-K: unauthorized access to a portion of its processing system, self-reported
+  - 10 April 2012: MS12-027 fixes Office common controls flaw CVE-2012-0158, already used in limited targeted attacks
+  - 28 May 2012: Kaspersky publishes Flame, found while looking for the malware that wiped systems in Iran in April
+  - 3 June 2012: Microsoft Advisory 2718704 revokes trust in three of its intermediate CAs after unauthorized certificates were used in attacks
+  - 31 July 2012: Dropbox says passwords stolen from other websites opened user accounts and an employee's account
+  - 9 August 2012: Kaspersky publishes Gauss, built on the Flame platform; the FBI warns of Reveton ransomware
+  - 16 August 2012: Kaspersky analyses Shamoon, a wiper that overwrites the master boot record through a signed raw-disk driver
+  - 27 August 2012: US-CERT TA12-240A advises disabling Java in browsers for the exploited Java 7 flaw CVE-2012-4681
+  - 6 September 2012: Symantec's Elderwood Project ties the Aurora attackers to four 2012 zero-days and watering-hole attacks
+  - September 2012: DDoS on US banks becomes near-weekly, as alleged in the 2016 indictment of seven Iranians
 - [APT41: The Public Record, 2012 to 2026](/case-studies/APT41_PUBLIC_RECORD.md). Threat actor, 2012 to 2026. Sectors: technology, government, healthcare, telecommunications, education. CVEs: CVE-2012-0158, CVE-2015-1641, CVE-2017-0199, CVE-2017-11882, CVE-2019-1652, CVE-2019-1653 and 12 more. ATT&CK groups: G0096 APT41. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/APT41_Public_Record_2012_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/APT41_Public_Record_2012_2026_Case_Study.pptx).
   - 2012: FireEye traces APT41 activity to 2012, when members targeted the video game industry
   - July 2017: NetSarang's nssock2.dll backdoored in five software packages
@@ -1018,6 +1044,35 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 8 August 2025: UNC6395 uses stolen Salesloft Drift OAuth tokens to export data from many Salesforce instances (8 to 18 August)
   - 15 October 2026: Storm-0940 signs in to customer tenants as ConnectWise multi-tenant apps and tries more than 2,250 tenants
   - 1 November 2026: Todyl: one operator signs in as victims' own Entra apps with stolen secrets and reaches 27 organizations (to 6 November)
+- [The Year 2011 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2011.md). Period record, January to December 2011. Sectors: cross-sector, technology, energy, government, defense, finance, retail, media, telecommunications, manufacturing. CVEs: CVE-2011-0609, CVE-2011-0611, CVE-2011-1823, CVE-2011-1889, CVE-2011-2005, CVE-2011-2462 and 8 more. ATT&CK groups: G0006 APT1. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2011_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2011_Case_Study.pptx).
+  - 10 February 2011: McAfee publishes Night Dragon, the espionage campaign against oil, energy and petrochemical companies
+  - 15 March 2011: A compromised Comodo RA account issues nine fraudulent certificates for seven domains
+  - 16 March 2011: Microsoft's civil action takes down the Rustock botnet
+  - 17 March 2011: EMC files RSA's open letter: an attack extracted information related to SecurID
+  - 13 April 2011: The Justice Department sends court-ordered stop commands to Coreflood-infected computers
+  - 17 April 2011: Intruders reach PlayStation Network and Qriocity account data (17 to 19 Apr)
+  - 1 June 2011: Google reports a phishing campaign that stole Gmail passwords and changed forwarding settings
+  - 19 July 2011: FBI arrests 16 people over the PayPal attacks and related intrusions; DigiNotar detects its intrusion
+  - 29 August 2011: Google reports man-in-the-middle attempts on users in Iran with a fraudulent DigiNotar certificate
+  - 13 October 2011: The SEC issues its cybersecurity disclosure guidance, CF Topic No. 2
+  - 14 October 2011: CrySyS Lab reports Duqu, a Stuxnet-like malware with a signed driver
+  - 9 November 2011: Operation Ghost Click charges seven over the DNSChanger scheme
+
+### 2010 <!-- {docsify-ignore} -->
+
+- [The Year 2010 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2010.md). Period record, January to December 2010. Sectors: cross-sector, technology, energy, manufacturing, government, defense, finance, retail, telecommunications, media. CVEs: CVE-2010-0188, CVE-2010-0232, CVE-2010-0249, CVE-2010-0738, CVE-2010-0806, CVE-2010-0840 and 24 more. ATT&CK groups: G0066 Elderwood, G0001 Axiom. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2010_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2010_Case_Study.pptx).
+  - 12 January 2010: Google discloses a targeted attack originating from China, detected in mid-December 2009; Gmail turns on HTTPS by default
+  - 21 January 2010: MS10-002 fixes the Internet Explorer flaw exploited during Operation Aurora (CVE-2010-0249)
+  - 22 February 2010: A federal court grants Microsoft's restraining order cutting off 277 Waledac botnet domains
+  - 25 March 2010: Albert Gonzalez of the TJX card-theft ring sentenced to 20 years in Massachusetts
+  - 6 April 2010: Shadows in the Cloud documents espionage against India, the Dalai Lama's office and the UN
+  - 8 April 2010: China Telecom advertises erroneous routes for about 18 minutes, per the US-China Commission
+  - 17 June 2010: VirusBlokAda reports the malware later named Stuxnet; HTTPS Everywhere released
+  - 16 July 2010: Microsoft Advisory 2286198 and a US-CERT alert on the Windows shortcut flaw (CVE-2010-2568)
+  - 2 August 2010: Out-of-band MS10-046 fixes the shortcut flaw, already exploited by a number of malware families
+  - 1 September 2010: Deputy Secretary of Defense discloses the 2008 CENTCOM flash-drive compromise (Buckshot Yankee)
+  - 30 September 2010: Symantec's Stuxnet dossier; SDNY charges 37 defendants over Zeus-enabled bank fraud
+  - 24 October 2010: Firesheep shows session cookies taken over open Wi-Fi
 
 ### 2009 <!-- {docsify-ignore} -->
 
@@ -1064,6 +1119,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 23 October 2008: MS08-067 out of band for the wormable Server service flaw; CERT/CC reports exploitation (CVE-2008-4250)
   - 17 December 2008: MS08-078 out of band for the exploited Internet Explorer data binding flaw (CVE-2008-4844)
 
+### 2007 <!-- {docsify-ignore} -->
+
+- [The Year 2007 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2007.md). Period record, January to December 2007. Sectors: cross-sector, government, defense, retail, finance, technology, telecommunications, energy, media, education. CVEs: CVE-2006-3877, CVE-2006-5994, CVE-2006-6456, CVE-2006-6561, CVE-2007-0015, CVE-2007-0038 and 14 more. ATT&CK groups: G0006 APT1, G0007 APT28, G1023 APT5, G0012 Darkhotel. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2007_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2007_Case_Study.pptx).
+  - 12 January 2007: Storm Worm floods several anti-spam sites; Spamhaus is hit on 30 January
+  - 17 January 2007: TJX announces an intrusion into its systems that handle customer transaction data
+  - 13 February 2007: MS07-014 (Word) and MS07-015 (Excel), both exploited at release
+  - 28 February 2007: US-CERT TA07-059A: a worm exploits the Solaris telnet daemon
+  - 3 April 2007: MS07-017 fixes the exploited animated cursor flaw a week before the monthly release
+  - 27 April 2007: DDoS attacks on Estonian government websites begin after the Bronze Soldier relocation (to 18 May)
+  - 8 May 2007: MS07-029 fixes the DNS Server RPC flaw, exploited since April
+  - 22 May 2007: OMB M-07-16: one-hour reporting of PII incidents
+  - 13 June 2007: Operation Bot Roast announced: over 1 million victim IP addresses
+  - 20 June 2007: FIRST releases CVSS v2
+  - 15 November 2007: Stuxnet 0.5 submitted to a public scanning service
+  - 20 November 2007: Chancellor tells the Commons that HMRC's child benefit discs are missing
+
 ### 2006 <!-- {docsify-ignore} -->
 
 - [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md). Threat actor, 2006 to October 2026. Sectors: government, healthcare, telecommunications, technology, defense. CVEs: CVE-2017-6862, CVE-2018-0171, CVE-2018-13382, CVE-2018-14847, CVE-2019-1652, CVE-2019-7192 and 44 more. ATT&CK groups: G0001 Axiom, G0002 Moafee, G0004 Ke3chang, G0005 APT12, G0006 APT1, G0009 Deep Panda and 41 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_China_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_China_Case_Study.pptx).
@@ -1079,6 +1150,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - October 2024: Media first report Salt Typhoon in US telecoms
   - 5 March 2025: 12 people charged, including eight i-Soon employees and APT27 actors
   - 27 August 2025: AA25-239A: 23 agencies in 13 countries on Salt Typhoon
+- [The Year 2006 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2006.md). Period record, January to December 2006. Sectors: cross-sector, government, defense, healthcare, technology, retail, finance, telecommunications, energy, education. CVEs: CVE-2005-4560, CVE-2006-0003, CVE-2006-0058, CVE-2006-1301, CVE-2006-1359, CVE-2006-1547 and 8 more. ATT&CK groups: G0006 APT1, G0045 menuPass. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2006_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2006_Case_Study.pptx).
+  - 5 January 2006: MS06-001 fixes the Windows Metafile flaw out of cycle, exploited before any patch; US-CERT alert
+  - 26 January 2006: FTC announces the ChoicePoint settlement: $10 million civil penalty and $5 million consumer redress
+  - 3 February 2006: Mywife.E (Nyxem) runs its first scheduled corruption of document files
+  - 3 May 2006: VA analyst's home burglarized; laptop and drive with data on up to 26.5 million veterans stolen
+  - 8 May 2006: Jeanson James Ancheta sentenced to 57 months for selling botnet access for DDoS and spam
+  - 19 May 2006: Word zero-day: CERT/CC VU#446012 and a US-CERT alert; ISC first reports the targeted attack
+  - 23 June 2006: OMB M-06-16: encrypt mobile devices and require two-factor remote access
+  - July 2006: Mandiant first observes APT1 using WEBC2 backdoors; Shady RAT logs its first victims
+  - 8 August 2006: MS06-040 (Server service) and MS06-048 (PowerPoint), both exploited at release
+  - 6 September 2006: HP 8-K: a third party working for its outside investigators used pretexting to get phone records
+  - 26 September 2006: MS06-055 fixes the exploited VML flaw out of cycle
+  - 18 December 2006: TJX finds suspicious software, then confirms an intruder and stolen customer data (18 to 27 Dec)
 
 ### 2005 <!-- {docsify-ignore} -->
 

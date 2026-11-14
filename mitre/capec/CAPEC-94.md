@@ -72,6 +72,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Check Point Remote Access VPN IKEv1 Authentication Bypass of 2026 (CVE-2026-50751): A Case Study](/case-studies/CHECK_POINT_VPN_CVE_2026_50751.md)
 - [The eMudhra Certificate Authority Key Compromise: A 2026 Case Study](/case-studies/EMUDHRA_CA_COMPROMISE_2026.md)
 - [The Year 1995 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1995.md)
+- [The Year 2009 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2009.md)
 - [The Year 2010 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2010.md)
 - [The Year 2011 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2011.md)
 - [The Year 2014 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2014.md)

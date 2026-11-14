@@ -39,6 +39,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The FireEye Mandiant Intrusion of 2020: The Public Record](/case-studies/MANDIANT_INTRUSION_2020.md)
 - [The Notepad++ Update-Channel Hijack (CVE-2025-15556): A Case Study](/case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md)
 - [The Year 2001 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2001.md)
+- [The Year 2009 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2009.md)
 - [The Year 2010 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2010.md)
 - [The Year 2011 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2011.md)
 - [The Year 2012 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2012.md)

@@ -58,6 +58,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Change Healthcare Attack of 2024: The Largest Healthcare Breach on Record](/case-studies/CHANGE_HEALTHCARE_2024.md)
 - [The FireEye Mandiant Intrusion of 2020: The Public Record](/case-studies/MANDIANT_INTRUSION_2020.md)
 - [The Ransomware Ecosystem: The Public Record, 2019 to 2026](/case-studies/RANSOMWARE_ECOSYSTEM.md)
+- [The Year 2009 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2009.md)
 - [The Year 2010 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2010.md)
 - [The Year 2011 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2011.md)
 - [The Year 2012 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2012.md)

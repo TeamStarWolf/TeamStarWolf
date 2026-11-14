@@ -55,6 +55,7 @@ In this pattern the adversary is able to load and execute arbitrary code remotel
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [The Year 2007 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2007.md)
 
 <!-- library-refs:end -->
 

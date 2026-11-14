@@ -1,0 +1,92 @@
+{
+  "name": "TeamStarWolf - The Year 2007 in Intrusions (ICS)",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "ics-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK for ICS techniques for Stuxnet 0.5, which Symantec's 2013 analysis dates to November 2007 and which spread only through infected Siemens Step 7 project files. No 2007 source prints an ATT&CK id, and ATT&CK lists T0873.001 for Stuxnet (S0603) from the 1.x analysis, so tying both entries to the 0.5 version is this study's later mapping. Each comment names source numbers from case-studies/CHRONICLE_2007.md. Scores: 70 the source describes the behavior and the study assigns the id.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T0873",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Stuxnet 0.5 spread only through infected Step 7 projects; in the wild by November 2007, submitted 15 Nov 2007 (Symantec, 2013) (basis: Described; a later mapping, since no 2007 source prints an ATT&CK id). Sources [62] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T0873.001",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Stuxnet 0.5 spread only through infected Siemens Step 7 project files; in the wild by November 2007 (Symantec, 2013). ATT&CK lists T0873.001 for S0603 from the 1.x analysis, so tying it to the 0.5 version is this study's reading (basis: Described; a later mapping, since no 2007 source prints an ATT&CK id). Sources [62][63] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8"
+    ],
+    "minValue": 40,
+    "maxValue": 70
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2007.md (sources opened 12 November 2026, library checks 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "2"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "2"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/ics/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/ics/technique_profiles.jsonl"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2007 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2007.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

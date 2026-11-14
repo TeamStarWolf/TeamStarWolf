@@ -541,7 +541,10 @@ CATALOG = [
        "[2001 chronicle case study](/case-studies/CHRONICLE_2001.md)"),
       ("case-studies/chronicle-2003-ics.json", "The Year 2003 in Intrusions (ICS)",
        "The two ATT&CK for ICS techniques this study maps for the January 2003 Slammer infection at the idled Davis-Besse nuclear plant, from the "
-       "[2003 chronicle case study](/case-studies/CHRONICLE_2003.md)")]),
+       "[2003 chronicle case study](/case-studies/CHRONICLE_2003.md)"),
+      ("case-studies/chronicle-2007-ics.json", "The Year 2007 in Intrusions (ICS)",
+       "The two ATT&CK for ICS techniques this study maps for Stuxnet 0.5, which Symantec dates to November 2007 and which spread only through infected Step 7 project files, from the "
+       "[2007 chronicle case study](/case-studies/CHRONICLE_2007.md)")]),
 ]
 
 

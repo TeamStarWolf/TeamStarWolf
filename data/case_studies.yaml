@@ -653,6 +653,30 @@ studies:
       - {"date": "2005-11-03", "label": "Jeanson James Ancheta arrested on a 17-count botnet indictment, which DOJ called the first of its kind"}
       - {"date": "2005-11-15", "label": "VU#312073: Sony BMG's XCP software hides files with rootkit techniques; its uninstaller is unsafe"}
       - {"date": "2005-12-28", "label": "TA05-362A: the Windows Metafile flaw exploited against patched XP SP2 before any patch"}
+  case-studies/CHRONICLE_2007.md:
+    kind: "era"
+    title: "The Year 2007 in Intrusions: A Dated Record"
+    start: "2007-01"
+    end: "2007-12"
+    sectors: ["cross-sector", "government", "defense", "retail", "finance", "technology", "telecommunications", "energy", "media", "education"]
+    cves: ["CVE-2006-3877", "CVE-2006-5994", "CVE-2006-6456", "CVE-2006-6561", "CVE-2007-0015", "CVE-2007-0038", "CVE-2007-0515", "CVE-2007-0671", "CVE-2007-0882", "CVE-2007-1748", "CVE-2007-2175", "CVE-2007-3010", "CVE-2007-3896", "CVE-2007-4559", "CVE-2007-5020", "CVE-2007-5659", "CVE-2007-6166", "CVE-2009-3129", "CVE-2010-3333", "CVE-2012-0158"]
+    actors: ["G0006", "G0007", "G1023", "G0012"]
+    tags: ["Storm Worm", "Estonia", "Operation Bot Roast", "TJX", "Certegy", "HMRC", "animated cursor", "Office zero-days", "Stuxnet 0.5", "APT1", "APT28", "CVSS v2"]
+    pdf: "Chronicle_2007_Case_Study.pdf"
+    pptx: "Chronicle_2007_Case_Study.pptx"
+    events:
+      - {"date": "2007-01-12", "label": "Storm Worm floods several anti-spam sites; Spamhaus is hit on 30 January"}
+      - {"date": "2007-01-17", "label": "TJX announces an intrusion into its systems that handle customer transaction data"}
+      - {"date": "2007-02-13", "label": "MS07-014 (Word) and MS07-015 (Excel), both exploited at release"}
+      - {"date": "2007-02-28", "label": "US-CERT TA07-059A: a worm exploits the Solaris telnet daemon"}
+      - {"date": "2007-04-03", "label": "MS07-017 fixes the exploited animated cursor flaw a week before the monthly release"}
+      - {"date": "2007-04-27", "label": "DDoS attacks on Estonian government websites begin after the Bronze Soldier relocation (to 18 May)"}
+      - {"date": "2007-05-08", "label": "MS07-029 fixes the DNS Server RPC flaw, exploited since April"}
+      - {"date": "2007-05-22", "label": "OMB M-07-16: one-hour reporting of PII incidents"}
+      - {"date": "2007-06-13", "label": "Operation Bot Roast announced: over 1 million victim IP addresses"}
+      - {"date": "2007-06-20", "label": "FIRST releases CVSS v2"}
+      - {"date": "2007-11-15", "label": "Stuxnet 0.5 submitted to a public scanning service"}
+      - {"date": "2007-11-20", "label": "Chancellor tells the Commons that HMRC's child benefit discs are missing"}
   case-studies/CHRONICLE_2016.md:
     kind: "era"
     title: "The Year 2016 in Intrusions: A Dated Record"

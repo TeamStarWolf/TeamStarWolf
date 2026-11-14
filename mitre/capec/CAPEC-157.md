@@ -44,6 +44,7 @@ In this attack pattern, the adversary intercepts information transmitted between
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [The Year 1993 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1993.md)
+- [The Year 2007 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2007.md)
 
 <!-- library-refs:end -->
 

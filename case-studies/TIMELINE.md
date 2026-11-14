@@ -1048,6 +1048,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 21 September 2026: Operation Lonestar Roundup searches of Texas laptop farms (21 to 25 September), announced 13 October 2026
   - 29 October 2026: Binance theft, more than $6 billion; the FBI names TraderTraitor on 31 October 2026, an attribution disputed in press
 
+### 2007 <!-- {docsify-ignore} -->
+
+- [The Year 2007 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2007.md). Period record, January to December 2007. Sectors: cross-sector, government, defense, retail, finance, technology, telecommunications, energy, media, education. CVEs: CVE-2006-3877, CVE-2006-5994, CVE-2006-6456, CVE-2006-6561, CVE-2007-0015, CVE-2007-0038 and 14 more. ATT&CK groups: G0006 APT1, G0007 APT28, G1023 APT5, G0012 Darkhotel. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2007_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2007_Case_Study.pptx).
+  - 12 January 2007: Storm Worm floods several anti-spam sites; Spamhaus is hit on 30 January
+  - 17 January 2007: TJX announces an intrusion into its systems that handle customer transaction data
+  - 13 February 2007: MS07-014 (Word) and MS07-015 (Excel), both exploited at release
+  - 28 February 2007: US-CERT TA07-059A: a worm exploits the Solaris telnet daemon
+  - 3 April 2007: MS07-017 fixes the exploited animated cursor flaw a week before the monthly release
+  - 27 April 2007: DDoS attacks on Estonian government websites begin after the Bronze Soldier relocation (to 18 May)
+  - 8 May 2007: MS07-029 fixes the DNS Server RPC flaw, exploited since April
+  - 22 May 2007: OMB M-07-16: one-hour reporting of PII incidents
+  - 13 June 2007: Operation Bot Roast announced: over 1 million victim IP addresses
+  - 20 June 2007: FIRST releases CVSS v2
+  - 15 November 2007: Stuxnet 0.5 submitted to a public scanning service
+  - 20 November 2007: Chancellor tells the Commons that HMRC's child benefit discs are missing
+
 ### 2006 <!-- {docsify-ignore} -->
 
 - [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md). Threat actor, 2006 to October 2026. Sectors: government, healthcare, telecommunications, technology, defense. CVEs: CVE-2017-6862, CVE-2018-0171, CVE-2018-13382, CVE-2018-14847, CVE-2019-1652, CVE-2019-7192 and 44 more. ATT&CK groups: G0001 Axiom, G0002 Moafee, G0004 Ke3chang, G0005 APT12, G0006 APT1, G0009 Deep Panda and 41 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_China_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_China_Case_Study.pptx).

@@ -1031,6 +1031,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 8 August 2025: UNC6395 uses stolen Salesloft Drift OAuth tokens to export data from many Salesforce instances (8 to 18 August)
   - 15 October 2026: Storm-0940 signs in to customer tenants as ConnectWise multi-tenant apps and tries more than 2,250 tenants
   - 1 November 2026: Todyl: one operator signs in as victims' own Entra apps with stolen secrets and reaches 27 organizations (to 6 November)
+- [The Year 2011 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2011.md). Period record, January to December 2011. Sectors: cross-sector, technology, energy, government, defense, finance, retail, media, telecommunications, manufacturing. CVEs: CVE-2011-0609, CVE-2011-0611, CVE-2011-1823, CVE-2011-1889, CVE-2011-2005, CVE-2011-2462 and 8 more. ATT&CK groups: G0006 APT1. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2011_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2011_Case_Study.pptx).
+  - 10 February 2011: McAfee publishes Night Dragon, the espionage campaign against oil, energy and petrochemical companies
+  - 15 March 2011: A compromised Comodo RA account issues nine fraudulent certificates for seven domains
+  - 16 March 2011: Microsoft's civil action takes down the Rustock botnet
+  - 17 March 2011: EMC files RSA's open letter: an attack extracted information related to SecurID
+  - 13 April 2011: The Justice Department sends court-ordered stop commands to Coreflood-infected computers
+  - 17 April 2011: Intruders reach PlayStation Network and Qriocity account data (17 to 19 Apr)
+  - 1 June 2011: Google reports a phishing campaign that stole Gmail passwords and changed forwarding settings
+  - 19 July 2011: FBI arrests 16 people over the PayPal attacks and related intrusions; DigiNotar detects its intrusion
+  - 29 August 2011: Google reports man-in-the-middle attempts on users in Iran with a fraudulent DigiNotar certificate
+  - 13 October 2011: The SEC issues its cybersecurity disclosure guidance, CF Topic No. 2
+  - 14 October 2011: CrySyS Lab reports Duqu, a Stuxnet-like malware with a signed driver
+  - 9 November 2011: Operation Ghost Click charges seven over the DNSChanger scheme
 
 ### 2010 <!-- {docsify-ignore} -->
 

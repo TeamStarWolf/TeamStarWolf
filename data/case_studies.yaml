@@ -749,6 +749,30 @@ studies:
       - {"date": "2012-08-27", "label": "US-CERT TA12-240A advises disabling Java in browsers for the exploited Java 7 flaw CVE-2012-4681"}
       - {"date": "2012-09-06", "label": "Symantec's Elderwood Project ties the Aurora attackers to four 2012 zero-days and watering-hole attacks"}
       - {"date": "2012-09", "label": "DDoS on US banks becomes near-weekly, as alleged in the 2016 indictment of seven Iranians"}
+  case-studies/CHRONICLE_2011.md:
+    kind: "era"
+    title: "The Year 2011 in Intrusions: A Dated Record"
+    start: "2011-01"
+    end: "2011-12"
+    sectors: ["cross-sector", "technology", "energy", "government", "defense", "finance", "retail", "media", "telecommunications", "manufacturing"]
+    cves: ["CVE-2011-0609", "CVE-2011-0611", "CVE-2011-1823", "CVE-2011-1889", "CVE-2011-2005", "CVE-2011-2462", "CVE-2011-3192", "CVE-2011-3389", "CVE-2011-3402", "CVE-2011-3414", "CVE-2011-3544", "CVE-2011-4723", "CVE-2011-4862", "CVE-2011-4885"]
+    actors: ["G0006"]
+    tags: ["Comodo", "DigiNotar", "RSA SecurID", "Duqu", "Night Dragon", "Sony PlayStation Network", "LulzSec", "Rustock", "Coreflood", "Kelihos", "DNSChanger", "SEC disclosure guidance"]
+    pdf: "Chronicle_2011_Case_Study.pdf"
+    pptx: "Chronicle_2011_Case_Study.pptx"
+    events:
+      - {"date": "2011-02-10", "label": "McAfee publishes Night Dragon, the espionage campaign against oil, energy and petrochemical companies"}
+      - {"date": "2011-03-15", "label": "A compromised Comodo RA account issues nine fraudulent certificates for seven domains"}
+      - {"date": "2011-03-16", "label": "Microsoft's civil action takes down the Rustock botnet"}
+      - {"date": "2011-03-17", "label": "EMC files RSA's open letter: an attack extracted information related to SecurID"}
+      - {"date": "2011-04-13", "label": "The Justice Department sends court-ordered stop commands to Coreflood-infected computers"}
+      - {"date": "2011-04-17", "label": "Intruders reach PlayStation Network and Qriocity account data (17 to 19 Apr)"}
+      - {"date": "2011-06-01", "label": "Google reports a phishing campaign that stole Gmail passwords and changed forwarding settings"}
+      - {"date": "2011-07-19", "label": "FBI arrests 16 people over the PayPal attacks and related intrusions; DigiNotar detects its intrusion"}
+      - {"date": "2011-08-29", "label": "Google reports man-in-the-middle attempts on users in Iran with a fraudulent DigiNotar certificate"}
+      - {"date": "2011-10-13", "label": "The SEC issues its cybersecurity disclosure guidance, CF Topic No. 2"}
+      - {"date": "2011-10-14", "label": "CrySyS Lab reports Duqu, a Stuxnet-like malware with a signed driver"}
+      - {"date": "2011-11-09", "label": "Operation Ghost Click charges seven over the DNSChanger scheme"}
   case-studies/CHRONICLE_2016.md:
     kind: "era"
     title: "The Year 2016 in Intrusions: A Dated Record"

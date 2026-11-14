@@ -49,6 +49,15 @@ DASH = "\N{EN DASH}"
 ARROW = "\N{RIGHTWARDS ARROW}"
 STAR = "\N{WHITE MEDIUM STAR}"
 
+# ATTACK-Navi is the companion interactive matrix (separate GitHub Pages deployment). An
+# Enterprise technique page deep-links to it with the technique pre-selected (?tech=<id>);
+# Navi then shows that technique's live CVE-to-ATT&CK mappings (CTID), KEV/EPSS priority,
+# detection analytics and candidate defenses. The library does not duplicate that data: it
+# links to the single source. The id is URL-safe as-is (T####[.###]); the hash fragment is
+# Navi's own router, not consumed by the server.
+NAVI_SITE = "https://teamstarwolf.github.io/ATTACK-Navi"
+NAVI_TECHNIQUE = NAVI_SITE + "/#/matrix?tech="
+
 FOOTER = (
     "---\n\n"
     "*Source: MITRE ATT&CK\N{REGISTERED SIGN} (" + ATTACK_VER + ") " + DASH + " ATT&CK\N{REGISTERED SIGN}, "
@@ -697,6 +706,14 @@ def render_technique(db, tid):
         hdr.append("**Sub-technique of:** [" + par + " " + DASH + " " + pname +
                    "](/mitre/techniques/" + tslug(par) + ".md)  ")
     out.append("\n".join(hdr) + "\n")
+
+    # Live-exposure deep link into ATTACK-Navi (Enterprise only: Navi auto-selects a technique
+    # within its active domain, and the CTID CVE-to-ATT&CK mappings are Enterprise-centric).
+    # Revoked and deprecated techniques are left out: they carry a retirement banner instead.
+    if db.attack_domain(tid) == "enterprise" and not p.get("revoked") and not p.get("deprecated"):
+        out.append("**Live exposure:** [Open " + tid + " in ATTACK-Navi](" + NAVI_TECHNIQUE + tid +
+                   ") for its CVEs (CTID CVE-to-ATT&CK mappings), KEV/EPSS priority, detection "
+                   "analytics and candidate defenses.\n")
 
     if p.get("revoked"):
         sup = p.get("superseded_by")

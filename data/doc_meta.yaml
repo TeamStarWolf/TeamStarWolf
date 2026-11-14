@@ -2556,6 +2556,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 2: the vulnerability record](#part-2-the-vulnerability-record), [Part 4: the state record](#part-4-the-state-record)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [E-Commerce Threats](/case-studies/ECOMMERCE_THREATS.md), [Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [The Year 2005 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2005.md)"
     reviewed: null
+  case-studies/CHRONICLE_2015.md:
+    audience: "Threat intelligence analysts, security historians, vulnerability management, ICS, privacy and policy teams and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2015, you need OPM, Anthem and the Ukrainian blackout side by side with the year's espionage reports, the implants below the operating system, the exploited Win32k and Flash flaws, the breaches and takedowns that went to court, the laws, norms and standards that followed, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 2: the state record](#part-2-the-state-record), [Part 4: below the operating system and into the supply chain](#part-4-below-the-operating-system-and-into-the-supply-chain)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md), [The Hacker and the State](/case-studies/HACKER_AND_THE_STATE_CASES.md), [The Year 2014 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2014.md)"
+    reviewed: null
   case-studies/CHRONICLE_2016.md:
     audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
     level: "Intermediate"

@@ -19,7 +19,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 73 min (16,864 words at 230 words a minute)
+About 73 min (16,874 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -484,7 +484,7 @@ Left out on purpose: Anthem, the Bundestag, TV5Monde, OPM's exfiltration, VTech 
 
 ### ATT&CK for ICS
 
-The live C0028 page lists 20 ATT&CK for ICS techniques, all present in the library's ICS technique data; the library's `superseded_by.jsonl` maps the revoked ids T0803, T0804, T0855 and T0857 to the T1691, T1692 and T1693 sub-techniques, so current ids are used (Confirmed [79]; Demonstrated [131]). The library has no generated pages for ICS techniques, so the ids are plain text, with names and tactics from `data/attack/ics/` (Demonstrated [131][134]).
+The live C0028 page lists 20 ATT&CK for ICS techniques, all present in the library's ICS technique data; the library's `superseded_by.jsonl` maps the revoked ids T0803, T0804, T0805, T0855 and T0857 to the T1691, T1692, T1693 and T1695 sub-techniques, so current ids are used (Confirmed [79]; Demonstrated [131]). The library has no generated pages for ICS techniques, so the ids are plain text, with names and tactics from `data/attack/ics/` (Demonstrated [131][134]).
 
 | Id | Name (ATT&CK for ICS v20.0) | Tactic(s) | Basis | Dated event or report | Sources |
 |---|---|---|---|---|---|
@@ -576,7 +576,7 @@ The technique-to-countermeasure links come from the library's D3FEND data (versi
 | T1566.001, T1566.002 | [Email Filtering](/mitre/d3fend/email-filtering.md) (Isolate); [Content Filtering](/mitre/d3fend/content-filtering.md) (Isolate); [File Analysis](/mitre/d3fend/file-analysis.md) (Detect); [Dynamic Analysis](/mitre/d3fend/dynamic-analysis.md) (Detect); [Sender Reputation Analysis](/mitre/d3fend/sender-reputation-analysis.md) (Detect); [URL Analysis](/mitre/d3fend/url-analysis.md) (Detect, on T1566.002) | Carbanak [10]; Dridex [67]; BlackEnergy [78]; APT29 [56] |
 | T1557 | [Network Traffic Signature Analysis](/mitre/d3fend/network-traffic-signature-analysis.md) (Detect); [Network Traffic Filtering](/mitre/d3fend/network-traffic-filtering.md) (Isolate); [Protocol Metadata Anomaly Detection](/mitre/d3fend/protocol-metadata-anomaly-detection.md) (Detect) | FREAK and Logjam [13][37] |
 | T1195.001, T1195.002 | [Software Inventory](/mitre/d3fend/software-inventory.md) (Model); [Software Update](/mitre/d3fend/software-update.md) (Harden); [Restore Software](/mitre/d3fend/restore-software.md) (Restore); [Asset Vulnerability Enumeration](/mitre/d3fend/asset-vulnerability-enumeration.md) (Model) | XcodeGhost [65]; ScreenOS [75] |
-| T1078, T1133 | [Change Default Password](/mitre/d3fend/change-default-password.md) (Harden); [Access Modeling](/mitre/d3fend/access-modeling.md) (Model); [Account Locking](/mitre/d3fend/account-locking.md) (Evict); [User Account Permissions](/mitre/d3fend/user-account-permissions.md) (Isolate); [Session Termination](/mitre/d3fend/session-termination.md) (Evict, on T1133) | Ukraine [78]; Ashley Madison [46]; OPM [26] |
+| T1078, T1133 | [Change Default Password](/mitre/d3fend/change-default-password.md) (Harden, on T1078); [Access Modeling](/mitre/d3fend/access-modeling.md) (Model, on T1078); [Account Locking](/mitre/d3fend/account-locking.md) (Evict, on T1078); [User Account Permissions](/mitre/d3fend/user-account-permissions.md) (Isolate, on T1078); [Session Termination](/mitre/d3fend/session-termination.md) (Evict, on T1133) | Ukraine [78]; Ashley Madison [46]; OPM [26] |
 | T1561.002 | [Disk Partitioning](/mitre/d3fend/disk-partitioning.md) (Evict) | KillDisk [78] |
 | T1486 | [Restore File](/mitre/d3fend/restore-file.md) (Restore); [File Integrity Monitoring](/mitre/d3fend/file-integrity-monitoring.md) (Detect); [Decoy File](/mitre/d3fend/decoy-file.md) (Deceive) | CryptoWall [40] |
 | T1056.001 | [Input Device Analysis](/mitre/d3fend/input-device-analysis.md) (Detect); [IO Port Restriction](/mitre/d3fend/io-port-restriction.md) (Isolate) | Dridex [67]; Carbanak [10] |

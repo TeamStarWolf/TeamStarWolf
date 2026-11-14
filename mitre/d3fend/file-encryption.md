@@ -136,6 +136,7 @@ _D3FEND also maps T0853, T1053.004, deprecated in ATT&CK with no successor; not 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [North Korea-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_NORTH_KOREA.md)
+- [The Year 2012 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2012.md)
 
 <!-- library-refs:end -->
 

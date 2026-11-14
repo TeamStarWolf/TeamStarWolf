@@ -24,6 +24,7 @@ Hand-written pages in this library that link to this page or to this object's en
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 - [North Korea-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_NORTH_KOREA.md)
+- [The Year 2012 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2012.md)
 
 <!-- library-refs:end -->
 

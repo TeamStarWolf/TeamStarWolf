@@ -963,6 +963,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 3 April 2017: 3 April to 3 May 2017: GRU spearphishing of the French presidential campaign
   - 19 December 2017: The US and five partner governments attribute WannaCry to North Korea
   - 13 July 2018: Twelve GRU officers indicted over the 2016 election hacking
+- [The Year 2012 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2012.md). Period record, January to December 2012. Sectors: cross-sector, finance, energy, government, technology, media, retail, telecommunications, defense, manufacturing. CVEs: CVE-2008-5353, CVE-2010-2568, CVE-2011-3402, CVE-2011-3544, CVE-2012-0002, CVE-2012-0152 and 18 more. ATT&CK groups: G0066 Elderwood, G0006 APT1. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2012_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2012_Case_Study.pptx).
+  - 19 January 2012: Megaupload arrests in Auckland and more than 20 search warrants in the US and eight countries; DHS and FBI advise on recovering erased files
+  - 23 March 2012: Microsoft's Operation b71 seizes Zeus-family command servers under a civil court order
+  - 30 March 2012: Global Payments 8-K: unauthorized access to a portion of its processing system, self-reported
+  - 10 April 2012: MS12-027 fixes Office common controls flaw CVE-2012-0158, already used in limited targeted attacks
+  - 28 May 2012: Kaspersky publishes Flame, found while looking for the malware that wiped systems in Iran in April
+  - 3 June 2012: Microsoft Advisory 2718704 revokes trust in three of its intermediate CAs after unauthorized certificates were used in attacks
+  - 31 July 2012: Dropbox says passwords stolen from other websites opened user accounts and an employee's account
+  - 9 August 2012: Kaspersky publishes Gauss, built on the Flame platform; the FBI warns of Reveton ransomware
+  - 16 August 2012: Kaspersky analyses Shamoon, a wiper that overwrites the master boot record through a signed raw-disk driver
+  - 27 August 2012: US-CERT TA12-240A advises disabling Java in browsers for the exploited Java 7 flaw CVE-2012-4681
+  - 6 September 2012: Symantec's Elderwood Project ties the Aurora attackers to four 2012 zero-days and watering-hole attacks
+  - September 2012: DDoS on US banks becomes near-weekly, as alleged in the 2016 indictment of seven Iranians
 - [APT41: The Public Record, 2012 to 2026](/case-studies/APT41_PUBLIC_RECORD.md). Threat actor, 2012 to 2026. Sectors: technology, government, healthcare, telecommunications, education. CVEs: CVE-2012-0158, CVE-2015-1641, CVE-2017-0199, CVE-2017-11882, CVE-2019-1652, CVE-2019-1653 and 12 more. ATT&CK groups: G0096 APT41. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/APT41_Public_Record_2012_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/APT41_Public_Record_2012_2026_Case_Study.pptx).
   - 2012: FireEye traces APT41 activity to 2012, when members targeted the video game industry
   - July 2017: NetSarang's nssock2.dll backdoored in five software packages

@@ -19,7 +19,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 67 min (15,489 words at 230 words a minute)
+About 67 min (15,509 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -313,7 +313,7 @@ US-CERT's alert TA07-103A of 13 April reported active exploitation of a stack bu
 
 - **The rtsp:// URI overflow (January).** NVD published CVE-2007-0015, a buffer overflow in QuickTime 7.1.3's handling of rtsp:// URIs, on 1 January 2007 (Confirmed [28]). Any link to a "Month of Apple Bugs" project is not in the NVD record and was not checked.
 - **QuickTime for Java (April and May).** CERT/CC's VU#420668 (public date 20 April, note dated 2 May) says an exploit for CVE-2007-2175 was demonstrated at the CanSecWest 2007 conference and that QuickTime 7.1.6 fixed it (Confirmed [25]). NVD describes a flaw in the QuickTime Java extensions (QTJava.dll) as used through browsers with Java enabled, published 24 April, with CWE Other and a CVSS v2 score of 7.6 (Confirmed [27]). The Zero Day Initiative's ZDI-07-023 says the flaw was reported to Apple on 23 April and released in coordination on 1 May, and does not mention CanSecWest (Confirmed [26]). The [zero-day market study](/case-studies/ZERO_DAY_MARKET_EVENTS.md) is the home for the Zero Day Initiative (Confirmed [98]).
-- **The RTSP Content-Type overflow (November).** US-CERT's alert TA07-334A of 30 November reported a stack buffer overflow in QuickTime's handling of the RTSP Content-Type header, in QuickTime 7.3 and earlier on Windows and Mac OS X, reachable through web pages in common browsers. Exploit code was first posted publicly on 25 November. NVD records it as CVE-2007-6166, CWE-119, fixed in 7.3.1 (Confirmed [33]). The alert does not say the flaw was exploited in attacks (Confirmed [33]).
+- **The RTSP Content-Type overflow (November).** US-CERT's alert TA07-334A of 30 November reported a stack buffer overflow in QuickTime's handling of the RTSP Content-Type header, in QuickTime 7.3 and earlier on Windows and Mac OS X, reachable through web pages in common browsers. Exploit code was first posted publicly on 25 November. NVD records it as CVE-2007-6166, CWE-119, fixed in 7.3.1 (Confirmed [33][105]). The alert does not say the flaw was exploited in attacks (Confirmed [33]).
 
 ### URI handling and PDF files
 
@@ -333,7 +333,7 @@ CISA's KEV catalog (version 2026.11.10, 1,779 entries) holds exactly three CVE-2
 | CVE-2007-5659 | Adobe Reader and Acrobat 8.1.1 and earlier: buffer overflows through long arguments to JavaScript methods in a PDF | 12 Feb 2008 | CWE-120 (KEV lists CWE-119) | 8 Jun 2022 |
 | CVE-2007-0671 | Microsoft Excel: Malformed Record remote code execution | 3 Feb 2007 | NVD-CWE-noinfo | 12 Aug 2025 |
 
-Sources: [34][35][13][37]. CVSS v2 scores in NVD are 10.0, 9.3 and 9.3 (Confirmed [34][35][13]). None of the NVD records checked for the year's other exploited flaws, CVE-2007-0882, CVE-2007-0038, CVE-2007-1748, CVE-2007-6166 and CVE-2007-3896, carries a KEV date (Confirmed [15][20][24][33][30]). KEV's dates say when CISA had evidence of exploitation, not when exploitation began (Inferred).
+Sources: [34][35][13][37]. CVSS v2 scores in NVD are 10.0, 9.3 and 9.3 (Confirmed [34][35][13]). None of the NVD records checked for the year's other exploited flaws, CVE-2007-0882, CVE-2007-0038, CVE-2007-1748 and CVE-2007-3896, carries a KEV date, nor does the record for CVE-2007-6166, whose exploit code was public (Confirmed [15][20][24][30][105]). KEV's dates say when CISA had evidence of exploitation, not when exploitation began (Inferred).
 
 ### Other records
 
@@ -527,7 +527,7 @@ Rows marked NVD carry the CWE NVD lists; others are this study's classes (Inferr
 | CWE | Weakness (library name) | Basis | 2007 record | CAPEC |
 |---|---|---|---|---|
 | CWE-88 | Improper Neutralization of Argument Delimiters in a Command | NVD | Solaris in.telnetd (CVE-2007-0882) | [CAPEC-137](/mitre/capec/CAPEC-137.md) Parameter Injection; [CAPEC-88](/mitre/capec/CAPEC-88.md) OS Command Injection |
-| CWE-119 | Improper Restriction of Operations within the Bounds of a Memory Buffer | NVD | Animated cursor (CVE-2007-0038); DNS Server RPC (CVE-2007-1748); QuickTime RTSP (CVE-2007-6166) | [CAPEC-100](/mitre/capec/CAPEC-100.md) Overflow Buffers; [CAPEC-8](/mitre/capec/CAPEC-8.md) Buffer Overflow in an API Call; [CAPEC-14](/mitre/capec/CAPEC-14.md) Client-side Injection-induced Buffer Overflow (the client-side flaws) |
+| CWE-119 | Improper Restriction of Operations within the Bounds of a Memory Buffer | NVD | Animated cursor (CVE-2007-0038) [20]; DNS Server RPC (CVE-2007-1748) [24]; QuickTime RTSP (CVE-2007-6166) [105] | [CAPEC-100](/mitre/capec/CAPEC-100.md) Overflow Buffers; [CAPEC-8](/mitre/capec/CAPEC-8.md) Buffer Overflow in an API Call; [CAPEC-14](/mitre/capec/CAPEC-14.md) Client-side Injection-induced Buffer Overflow (the client-side flaws) |
 | CWE-121 | Stack-based Buffer Overflow | Study's class | The animated cursor and DNS RPC flaws, which US-CERT describes as stack buffer overflows | [CAPEC-100](/mitre/capec/CAPEC-100.md) Overflow Buffers (study's pairing; the library relates no CAPEC to CWE-121) |
 | CWE-120 | Buffer Copy without Checking Size of Input | NVD | Adobe Reader JavaScript methods (CVE-2007-5659) | [CAPEC-100](/mitre/capec/CAPEC-100.md) Overflow Buffers; [CAPEC-14](/mitre/capec/CAPEC-14.md) Client-side Injection-induced Buffer Overflow |
 | CWE-20 | Improper Input Validation | NVD | Windows URI handling (CVE-2007-3896); KEV's entry for CVE-2007-3010 | None assigned (the library relates dozens; none is specific to these flaws) |
@@ -728,6 +728,7 @@ Sources were opened on 12 November 2026, and the library data checks were run on
 | 102 | TeamStarWolf library, `data/attack/technique_to_d3fend.jsonl` | https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/technique_to_d3fend.jsonl | 2026-11-13 | Demonstrated; Inferred (the pairings) |
 | 103 | TeamStarWolf library, `mitre/` page tree (technique, group, software, campaign, CAPEC, D3FEND and mitigation pages) | https://github.com/TeamStarWolf/TeamStarWolf/tree/main/mitre | 2026-11-13 | Demonstrated |
 | 104 | TeamStarWolf library, chronicle Navigator layers (`navigator/library-layers/chronicle-2016.json` and `navigator/case-studies/`) | https://github.com/TeamStarWolf/TeamStarWolf/tree/main/navigator | 2026-11-13 | Demonstrated |
+| 105 | NVD API, CVE-2007-6166 | `https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2007-6166` | 2026-11-13 | Confirmed |
 
 *© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*
 

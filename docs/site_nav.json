@@ -10,7 +10,10 @@
     "A hub's 'home' links are the three shown on its card under 'Browse by domain' in HOME.md;",
     "each must be one of the hub's references or 'see_also' pages. A hub's 'pages' are the platform",
     "and developer reference pages that go with it (platforms/, languages/, paradigms/, frameworks/,",
-    "commands/, formats/, databases/, operating-systems/ and ai-tooling/); every hub lists at least one."
+    "commands/, formats/, databases/, operating-systems/ and ai-tooling/); every hub lists at least one.",
+    "A 'navbar' entry is [label, target] (a plain link) or a menu {label, path, children}: the parent",
+    "links to 'path' and opens a dropdown of its 'children' ([label, target] each, in order);",
+    "'hubs': true lists the domain hubs first. Group a long family into filtered views, not one link per page."
   ],
   "library_header": [
     ["Home", "/"],
@@ -20,14 +23,128 @@
     ["Explore", "/explore.md"]
   ],
   "navbar": [
-    ["Explore", "/explore.md"],
-    ["Guides", "/guides/README.md"],
-    ["Learning paths", "/disciplines/README.md"],
-    ["Domains", "/hubs/README.md"],
-    ["Index", "/INDEX.md"],
-    ["ATT&CK-Navi", "https://teamstarwolf.github.io/ATTACK-Navi/"],
-    ["Intelligence Hub", "https://teamstarwolf.github.io/intelligence-hub/"],
-    ["GitHub", "https://github.com/TeamStarWolf/TeamStarWolf"]
+    {"label": "Start", "path": "/", "children": [
+      ["Home", "/"],
+      ["How to use this library", "/guides/HOW_TO_USE_THIS_LIBRARY.md"],
+      ["Search tips", "/guides/HOW_TO_USE_THIS_LIBRARY.md?id=step-3-find-anything-three-ways"],
+      ["What changed", "/CHANGELOG.md"],
+      ["Index", "/INDEX.md"],
+      ["Explore", "/explore.md"]
+    ]},
+    {"label": "Case studies", "path": "/case-studies/README.md", "children": [
+      ["All case studies", "/case-studies/README.md"],
+      ["Timeline", "/case-studies/TIMELINE.md"],
+      ["Incidents", "/case-studies/TIMELINE.md?kind=incident"],
+      ["Vulnerabilities", "/case-studies/TIMELINE.md?kind=vulnerability"],
+      ["Campaigns", "/case-studies/TIMELINE.md?kind=campaign"],
+      ["Threat actors", "/case-studies/TIMELINE.md?kind=actor"],
+      ["Period records", "/case-studies/TIMELINE.md?kind=era"],
+      ["Attack surfaces", "/case-studies/TIMELINE.md?kind=reference"]
+    ]},
+    {"label": "Chronicles", "path": "/case-studies/TIMELINE.md?kind=era", "children": [
+      ["All chronicles", "/case-studies/TIMELINE.md?kind=era"],
+      ["1990s", "/case-studies/TIMELINE.md?kind=era&from=1990&to=1999"],
+      ["2000s", "/case-studies/TIMELINE.md?kind=era&from=2000&to=2009"],
+      ["2010s", "/case-studies/TIMELINE.md?kind=era&from=2010&to=2019"],
+      ["2020s", "/case-studies/TIMELINE.md?kind=era&from=2020"],
+      ["2020", "/case-studies/CHRONICLE_2020.md"],
+      ["2021", "/case-studies/CHRONICLE_2021.md"],
+      ["2022", "/case-studies/CHRONICLE_2022.md"],
+      ["2023", "/case-studies/CHRONICLE_2023.md"],
+      ["2024", "/case-studies/CHRONICLE_2024.md"],
+      ["2025", "/case-studies/CHRONICLE_2025.md"],
+      ["2026", "/case-studies/CHRONICLE_2026.md"]
+    ]},
+    {"label": "Guides", "path": "/guides/README.md", "children": [
+      ["Triage a New CVE in 30 Minutes", "/guides/TRIAGE_A_CVE.md"],
+      ["Start a Vulnerability Management Program", "/guides/START_A_VULN_MGMT_PROGRAM.md"],
+      ["Run an ATT&CK Coverage Gap Assessment", "/guides/RUN_A_COVERAGE_GAP_ASSESSMENT.md"],
+      ["Build and Deploy Your First Detection", "/guides/BUILD_YOUR_FIRST_DETECTION.md"],
+      ["Onboard a Log Source the Right Way", "/guides/ONBOARD_A_LOG_SOURCE.md"],
+      ["Hunt for Living-off-the-Land Activity", "/guides/HUNT_FOR_LOTL_ACTIVITY.md"],
+      ["Produce an Intelligence Product", "/guides/PRODUCE_AN_INTELLIGENCE_PRODUCT.md"],
+      ["Respond to a Ransomware Incident", "/guides/RESPOND_TO_RANSOMWARE.md"],
+      ["Run a Ransomware Tabletop Exercise", "/guides/RUN_A_RANSOMWARE_TABLETOP.md"],
+      ["Investigate a Phishing Report", "/guides/INVESTIGATE_A_PHISHING_EMAIL.md"],
+      ["Acquire & Triage an Endpoint", "/guides/ACQUIRE_AND_TRIAGE_AN_ENDPOINT.md"],
+      ["Investigate a Cloud Compromise", "/guides/INVESTIGATE_A_CLOUD_COMPROMISE.md"],
+      ["Harden a Windows Baseline", "/guides/HARDEN_A_WINDOWS_BASELINE.md"],
+      ["Harden a Linux Host", "/guides/HARDEN_A_LINUX_HOST.md"],
+      ["Harden a macOS Fleet with mSCP", "/guides/HARDEN_A_MACOS_FLEET.md"],
+      ["Assess Your M365 Tenant with ScubaGear", "/guides/ASSESS_M365_WITH_SCUBAGEAR.md"],
+      ["Harden a Kubernetes Cluster", "/guides/HARDEN_A_KUBERNETES_CLUSTER.md"],
+      ["Roll Out Phishing-Resistant MFA", "/guides/ROLL_OUT_PHISHING_RESISTANT_MFA.md"],
+      ["Run Your First Purple-Team Exercise", "/guides/RUN_A_PURPLE_TEAM_EXERCISE.md"],
+      ["Threat Model an Application", "/guides/THREAT_MODEL_AN_APPLICATION.md"],
+      ["Build a Detection Home Lab", "/guides/BUILD_A_DETECTION_HOMELAB.md"],
+      ["All guides", "/guides/README.md"]
+    ]},
+    {"label": "Learning paths", "path": "/disciplines/README.md", "children": [
+      ["Detection Engineering", "/disciplines/detection-engineering.md"],
+      ["Threat Hunting", "/disciplines/threat-hunting.md"],
+      ["Offensive Security", "/disciplines/offensive-security.md"],
+      ["Red Teaming", "/disciplines/red-teaming.md"],
+      ["Cloud Security", "/disciplines/cloud-security.md"],
+      ["Container & Kubernetes Security", "/disciplines/container-kubernetes-security.md"],
+      ["Governance, Risk & Compliance", "/disciplines/governance-risk-compliance.md"],
+      ["Vulnerability Management", "/disciplines/vulnerability-management.md"],
+      ["AI & LLM Security", "/disciplines/ai-llm-security.md"],
+      ["AI/ML Security", "/disciplines/ai-ml-security.md"],
+      ["All learning paths", "/disciplines/README.md"]
+    ]},
+    {"label": "Domains", "path": "/hubs/README.md", "hubs": true, "children": [
+      ["All domains", "/hubs/README.md"]
+    ]},
+    {"label": "References", "path": "/INDEX.md", "children": [
+      ["Vulnerability Root Causes", "/VULNERABILITY_ROOT_CAUSES.md"],
+      ["Secure Coding", "/SECURE_CODING_REFERENCE.md"],
+      ["Vulnerability Management", "/VULNERABILITY_MANAGEMENT_REFERENCE.md"],
+      ["Supply Chain Security", "/SUPPLY_CHAIN_SECURITY_REFERENCE.md"],
+      ["CVE Reference", "/CVE_REFERENCE.md"],
+      ["Incident Response", "/INCIDENT_RESPONSE_REFERENCE.md"],
+      ["Notable Incidents", "/NOTABLE_INCIDENTS.md"],
+      ["Malware Families", "/MALWARE_FAMILIES.md"],
+      ["Threat Actors", "/THREAT_ACTORS.md"],
+      ["Web Application Security", "/WEB_APPLICATION_SECURITY_REFERENCE.md"],
+      ["AI and LLM Security", "/AI_SECURITY_REFERENCE.md"],
+      ["Ransomware Defense", "/RANSOMWARE_DEFENSE_REFERENCE.md"],
+      ["Cloud Security", "/CLOUD_SECURITY_REFERENCE.md"],
+      ["All references (A to Z)", "/INDEX.md"]
+    ]},
+    {"label": "Frameworks", "path": "/explore.md", "children": [
+      ["Explore all objects", "/explore.md"],
+      ["ATT&CK techniques", "/mitre/techniques/README.md"],
+      ["ATT&CK tactics", "/mitre/tactics/README.md"],
+      ["Threat groups", "/mitre/groups/README.md"],
+      ["Software", "/mitre/software/README.md"],
+      ["Campaigns", "/mitre/campaigns/README.md"],
+      ["Mitigations", "/mitre/mitigations/README.md"],
+      ["CAPEC", "/mitre/capec/README.md"],
+      ["D3FEND", "/mitre/d3fend/README.md"],
+      ["ATLAS", "/mitre/atlas/README.md"],
+      ["F3", "/mitre/f3/README.md"],
+      ["Crosswalk", "/mitre/crosswalk.md"],
+      ["Navigator layers", "/navigator/"]
+    ]},
+    {"label": "Data and tools", "path": "/detections/README.md", "children": [
+      ["Detections", "/detections/README.md"],
+      ["Detection strategies", "/detections/strategies/README.md"],
+      ["Technique detail pages", "/techniques/README.md"],
+      ["Coverage scores", "/scores/README.md"],
+      ["Data and edges", "/data/README.md"],
+      ["Scripts and checks", "/scripts/README.md"],
+      ["Vendor tools", "/tools/README.md"],
+      ["Security platforms", "/platforms/README.md"],
+      ["AI tooling", "/ai-tooling/README.md"],
+      ["Tools research", "/tools-research/README.md"],
+      ["About the data", "/ABOUT_THE_DATA.md"],
+      ["Contributing", "/CONTRIBUTING.md"]
+    ]},
+    {"label": "Sites", "path": "https://teamstarwolf.github.io/ATTACK-Navi/", "children": [
+      ["ATT&CK-Navi", "https://teamstarwolf.github.io/ATTACK-Navi/"],
+      ["Intelligence Hub", "https://teamstarwolf.github.io/intelligence-hub/"],
+      ["GitHub", "https://github.com/TeamStarWolf/TeamStarWolf"]
+    ]}
   ],
   "sections": [
     {"label": "Start", "links": [

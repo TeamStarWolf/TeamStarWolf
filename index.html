@@ -433,6 +433,15 @@
        or when its parent link is toggled with Space (see the keyboard plugin below). */
     .app-nav li:focus-within > ul, .app-nav li.tsw-open > ul { display: block; }
     .app-nav li.tsw-shut > ul { display: none; }
+    /* Category menus (docs/site_nav.json "navbar"): a long list scrolls inside its menu, and
+       a menu opens rightward from its category, except the last three, which open leftward,
+       so none leaves the window. The current page is marked in its menu, and its menu's
+       category is marked in the bar. */
+    .app-nav li ul { max-height: 70vh; overflow-y: auto; min-width: 13rem; left: -14px; right: auto; }
+    .app-nav > ul > li:nth-last-child(-n+3) > ul { left: auto; right: -14px; }
+    .app-nav li ul li { margin: 6px 16px; }
+    .app-nav li ul a.active { color: var(--tsw-link); }
+    .app-nav li:has(> ul a.active) > a { color: var(--tsw-heading); border-bottom: 2px solid var(--tsw-link); }
     /* The repository is linked from the navbar ("GitHub") and from every page's
        "Edit this page on GitHub" line; the corner badge sat under the theme button. */
     .github-corner { display: none; }
@@ -1408,6 +1417,33 @@
               if (menu && link) { link.setAttribute('aria-haspopup', 'true'); link.setAttribute('aria-expanded', li.classList.contains('tsw-open') ? 'true' : 'false'); }
             });
           });
+        },
+        // Navbar menus, current page: docsify marks one navbar link, the longest that the
+        // route starts with. Home ('#/') starts every route, so on a page the menus do not
+        // list, Home (and its Start menu) would read as current: keep that mark for the
+        // homepage only. A page listed in two menus (Index under Start and References) is
+        // marked in both. The menu holding the current page is marked by CSS (the Top navbar
+        // styles).
+        function (hook, vm) {
+          var watched = null;
+          function mark() {
+            var nav = document.querySelector('nav');
+            if (!nav) { return; }
+            if (nav !== watched && window.MutationObserver) {
+              watched = nav;
+              new MutationObserver(mark).observe(nav, { subtree: true, childList: true, attributes: true, attributeFilter: ['class'] });
+            }
+            if (vm.route.path !== '/') {
+              nav.querySelectorAll('a.active[href="#/"]').forEach(function (a) { a.classList.remove('active'); });
+            }
+            var cur = nav.querySelector('a.active');
+            if (!cur) { return; }
+            var href = cur.getAttribute('href');
+            nav.querySelectorAll('a:not(.active)').forEach(function (a) {
+              if (a.getAttribute('href') === href) { a.classList.add('active'); }
+            });
+          }
+          hook.doneEach(mark);
         },
         // Navbar height: from 601px to 768px (docsify's tablet mode) and from 769px to 1099px
         // the navbar wraps to fit its items. Publish its height as --tsw-nav-h (the page's top

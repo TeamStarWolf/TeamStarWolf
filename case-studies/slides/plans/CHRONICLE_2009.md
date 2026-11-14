@@ -24,7 +24,7 @@ Stat: 5,778 | CVE records NVD published in 2009
 Stat: 15 | CVE-2009 ids in CISA's KEV catalog today
 - MS08-067 had been out five months when US-CERT's alert named it.
 - Heartland's reserve: USD 99.9 million unpaid at the end of 2009.
-- Six ids tied to 2009 events entered KEV in 2026.
+- Seven ids tied to 2009 events entered KEV in 2026.
 Notes: GhostNet [20]. Reward [5]. NVD count [89]. KEV [88]. MS08-067 and the alert [7][6]. Heartland [3]. KEV 2026 additions [88].
 
 ## PART 1 | The year in date order, from Heartland to Aurora
@@ -70,9 +70,10 @@ Notes: Part 2. MS08-067 [7]; NVD [8]; ATT&CK's S0608 [10]. Coalition and reward 
 | CVE-2009-1537 | DirectShow | MS09-028, 14 Jul |
 | CVE-2008-0015 | Video ActiveX control | MS09-032, 14 Jul |
 | CVE-2009-1862 | Flash and Reader | APSB09-10 |
+| CVE-2009-3459 | Adobe Reader | APSB09-15, 13 Oct |
 | CVE-2009-4324 | Adobe Reader | Planned Jan 2010 |
 Caption: Each was exploited at or before its fix, per the vendor, CERT/CC or NVD.
-Notes: Part 2. JBIG2 [14][13][15]. Excel [17]. PowerPoint [25]. DirectShow [26][27]. Video ActiveX [34][35][36]. Flash [40][39]. Reader Doc.media.newPlayer [66][65][67]. KEV dates [88].
+Notes: Part 2. JBIG2 [14][13][15]. Excel [17]. PowerPoint [25]. DirectShow [26][27]. Video ActiveX [34][35][36]. Flash [40][39]. Reader heap overflow [99][100]. Reader Doc.media.newPlayer [66][65][67]. KEV dates [88].
 
 ## PART 2 | Disclosed before the fix, and the trust layer cracked
 

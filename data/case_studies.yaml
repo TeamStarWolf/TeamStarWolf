@@ -707,7 +707,7 @@ studies:
     start: "2009-01"
     end: "2009-12"
     sectors: ["cross-sector", "finance", "retail", "government", "defense", "energy", "technology", "healthcare", "education", "media", "telecommunications"]
-    cves: ["CVE-2008-0015", "CVE-2008-4114", "CVE-2008-4250", "CVE-2008-4834", "CVE-2008-4835", "CVE-2009-0238", "CVE-2009-0556", "CVE-2009-0658", "CVE-2009-0927", "CVE-2009-1123", "CVE-2009-1136", "CVE-2009-1151", "CVE-2009-1537", "CVE-2009-1862", "CVE-2009-2055", "CVE-2009-2408", "CVE-2009-2477", "CVE-2009-2521", "CVE-2009-2526", "CVE-2009-2532", "CVE-2009-2990", "CVE-2009-3023", "CVE-2009-3103", "CVE-2009-3555", "CVE-2009-3672", "CVE-2009-4324", "CVE-2010-0249"]
+    cves: ["CVE-2008-0015", "CVE-2008-4114", "CVE-2008-4250", "CVE-2008-4834", "CVE-2008-4835", "CVE-2009-0238", "CVE-2009-0556", "CVE-2009-0658", "CVE-2009-0927", "CVE-2009-1123", "CVE-2009-1136", "CVE-2009-1151", "CVE-2009-1537", "CVE-2009-1862", "CVE-2009-2055", "CVE-2009-2408", "CVE-2009-2477", "CVE-2009-2521", "CVE-2009-2526", "CVE-2009-2532", "CVE-2009-2990", "CVE-2009-3023", "CVE-2009-3103", "CVE-2009-3459", "CVE-2009-3555", "CVE-2009-3672", "CVE-2009-3960", "CVE-2009-4324", "CVE-2010-0249"]
     actors: ["G0066"]
     tags: ["Conficker", "MS08-067", "AutoRun", "Heartland", "GhostNet", "Shadow Network", "Night Dragon", "Operation Aurora", "Phish Phry", "HITECH", "US Cyber Command", "TLS renegotiation"]
     pdf: "Chronicle_2009_Case_Study.pdf"

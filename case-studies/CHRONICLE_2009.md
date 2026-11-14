@@ -19,7 +19,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 68 min (15,749 words at 230 words a minute)
+About 69 min (15,902 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -73,12 +73,12 @@ This study records the year by date. It is built only from sources opened on 12 
 |---|---|
 | Period | 1 January to 31 December 2009, plus the records that open, close or explain a 2009 event: the 2008 Heartland intrusion and campaign hack, MS08-067 (October 2008), the 2008 ATM cash-out, Google's January 2010 disclosure and MS10-002, RFC 5746 (February 2010), Heartland's 10-K (March 2010), the Commons report on the CRU data (March 2010), "Shadows in the Cloud" (April 2010), McAfee's Night Dragon report and the Stuxnet dossier (February 2011), Kaspersky's Equation Q&A (2015), TA17-164A (2017), and KEV additions from 2022 to 2026 |
 | Worm response | Conficker coalition and USD 250,000 reward (12 Feb); US-CERT TA09-088A (29 Mar) and the 9 Apr variant; AutoRun alert (20 Jan); AutoPlay restriction KB971029 (25 Aug; automatic updating only from 8 Feb 2011) (Confirmed [5][6][4][11]) |
-| Exploited before or at the fix | Adobe CVE-2009-0658 (Feb), CVE-2009-1862 (Jul), CVE-2009-4324 (Dec); Microsoft CVE-2009-0238 (Excel), CVE-2009-0556 (PowerPoint), CVE-2009-1537 (DirectShow), CVE-2008-0015 (Video ActiveX), CVE-2009-3023 and CVE-2009-2521 (IIS FTP, limited targeted attacks per MS09-053) (Confirmed [14][40][66][17][25][26][35][98]) |
+| Exploited before or at the fix | Adobe CVE-2009-0658 (Feb), CVE-2009-1862 (Jul), CVE-2009-3459 (Oct), CVE-2009-4324 (Dec); Microsoft CVE-2009-0238 (Excel), CVE-2009-0556 (PowerPoint), CVE-2009-1537 (DirectShow), CVE-2008-0015 (Video ActiveX), CVE-2009-3023 and CVE-2009-2521 (IIS FTP, limited targeted attacks per MS09-053) (Confirmed [14][40][99][100][66][17][25][26][35][98]) |
 | Disclosed publicly before a fix | SMBv2 CVE-2009-3103 (8 Sep; MS09-050 on 13 Oct; no exploitation known at release); IIS FTP CVE-2009-3023 and CVE-2009-2521 (Advisory 975191, 1 Sep; MS09-053 on 13 Oct says limited, targeted attacks) (Confirmed [45][46][44][98]) |
 | Trust layer | NUL-in-certificate flaw CVE-2009-2408 (NVD 30 Jul); TLS renegotiation CVE-2009-3555 (public 5 Nov); fixed in protocol by RFC 5746 (Feb 2010) (Confirmed [41][58][59][60]) |
 | Microsoft's year | MS09-001 (13 Jan) to MS09-074 (8 Dec): 74 bulletins by numbering (Confirmed [12][64]; count Inferred) |
 | NVD volume | 5,778 CVE records published by NVD in calendar 2009, counted by publication date (Confirmed [89]) |
-| KEV tail | 15 CVE-2009 ids, added 3 Mar 2022 to 20 May 2026; six 2008 to 2010 ids tied to 2009 events added in 2026 (Confirmed [88]) |
+| KEV tail | 15 CVE-2009 ids, added 3 Mar 2022 to 20 May 2026; seven 2008 to 2010 ids tied to 2009 events added in 2026 (Confirmed [88]) |
 | Card theft and fraud | Heartland disclosure (20 Jan); FTC letter (19 Feb); Heartland re-certified PCI DSS compliant (Apr); Amex settlement of about USD 3.5 million (17 Dec); Wyndham's intrusions of 2008 and 2009; Phish Phry (7 Oct); ATM cash-out charges (Nov) (Confirmed [1][2][3][92][53][54]) |
 | State and espionage | GhostNet (28 Mar); "The snooping dragon" (Mar); Shadow Network letters (Jan to Nov, reported 2010); Stuxnet first infection (23 Jun); Night Dragon from Nov; Aurora detected mid-Dec (Confirmed [20][22][68][29][61][70]) |
 | Written later | Groups ATT&CK dates to "since at least 2009": Lazarus Group, Andariel, Sandworm Team, Leviathan, Tonto Team, APT18, Lotus Blossom, PLATINUM, Higaisa; HIDDEN COBRA "since 2009" per TA17-164A; Equation's Houston conference disk (compile timestamp 23 Dec 2009) (Confirmed [78][79][80][81][82][83][84][85][86][77][31]) |
@@ -91,8 +91,8 @@ This study records the year by date. It is built only from sources opened on 12 
 - **2009 was the year of the response to a 2008 worm.** The flaw, the patch and ATT&CK's first-detection date are all October 2008; the coalition, the reward, the US-CERT alert and the AutoRun fixes are 2009 (Confirmed [7][10][5][6][11]).
 - **The patch was older than the outbreak.** MS08-067 had been available for five months when US-CERT's March alert named unpatched hosts as Conficker's way in (Confirmed [7][6]; the gap is Inferred from the dates).
 - **Removable media had a slow fix.** US-CERT said in January 2009 that AutoRun could not be reliably disabled, and Microsoft's AutoPlay restriction of 25 August 2009 reached automatic updating only on 8 February 2011. The June 2009 Stuxnet variant spread on removable drives through autorun data in that period of weak defaults (Confirmed [4][11][96]; the reading is Inferred).
-- **Documents were the daily attack surface.** Three Adobe advisories and four Microsoft fixes in the record were for flaws exploited at or before release (Confirmed [14][40][66][17][25][26][35]).
-- **KEV is still writing 2009 down.** CVE-2008-4250, CVE-2008-0015, CVE-2009-0238, CVE-2009-0556, CVE-2009-1537 and CVE-2010-0249 were all added in 2026 (Confirmed [88]).
+- **Documents were the daily attack surface.** Three Adobe advisories, Adobe's October bulletin APSB09-15 and four Microsoft fixes in the record were for flaws exploited at or before release (Confirmed [14][40][66][99][100][17][25][26][35]).
+- **KEV is still writing 2009 down.** CVE-2008-4250, CVE-2008-0015, CVE-2009-0238, CVE-2009-0556, CVE-2009-1537, CVE-2009-3459 and CVE-2010-0249 were all added in 2026 (Confirmed [88]).
 - **The card brands were the sensor.** Visa and MasterCard alerted Heartland, and the processor found the evidence only afterwards (Confirmed [1]).
 - **Most researchers documented large espionage networks without naming a state.** GhostNet, the Shadow Network and Night Dragon reports each stop at circumstantial evidence pointing to China; only the Cambridge report names the Chinese government, and Google's post names no state (Confirmed [20][68][62][22][70]).
 - **Much of 2009's state activity is known only from later records.** ATT&CK dates nine groups to "since at least 2009" or "as early as 2009", and DHS and FBI dated HIDDEN COBRA to 2009 only in 2017 (Confirmed [78][79][80][81][82][83][84][85][86][77]).
@@ -110,7 +110,7 @@ This study records the year by date. It is built only from sources opened on 12 
 7. **Monitor the limits and records that move money.** As charged, the ATM cash-out crew raised withdrawal limits on prepaid payroll cards and deleted files to cover their tracks (Confirmed as charged [54]).
 8. **Train staff on targeted lures built from stolen inside information.** The FBI warned in April that criminals hacked a firm to craft bogus orders to its customers (Confirmed [57]).
 9. **Watch for command and control hidden in ordinary web services.** The Shadow Network layered its control over Twitter, Google Groups, Blogspot, Baidu Blogs and Yahoo Mail (Confirmed [68]).
-10. **Do not read KEV dates as event dates.** Six ids tied to 2009 events entered KEV in 2026 (Confirmed [88]).
+10. **Do not read KEV dates as event dates.** Seven ids tied to 2009 events entered KEV in 2026 (Confirmed [88]).
 11. **Do not read "since at least 2009" as a 2009 record.** Those start dates were written years later (Confirmed [78][80][81]; Inferred for the reading).
 
 ## Scope and method
@@ -196,6 +196,7 @@ One row per event or report. The date is the event date where the source gives o
 | 2009-09-23 | CVE's tenth anniversary noted in a GCN article recorded on MITRE's news page; HHS rule takes effect | Standards; Regulation | Cross-sector; healthcare | Reported; Confirmed | [50][18] |
 | 2009-10-07 | FBI announces Operation Phish Phry: nearly 100 charged in the US and Egypt | Crime | Finance (banking) | Confirmed (as charged) | [53] |
 | 2009-10-13 | MS09-050 and twelve other bulletins (8 Critical, 5 Important); US-CERT TA09-286A | Vulnerability | Cross-sector | Confirmed | [46][47][48] |
+| 2009-10-13 | Adobe APSB09-15 and US-CERT TA09-286B: Reader and Acrobat updates for flaws being actively exploited, including CVE-2009-3459 | Vulnerability | Cross-sector | Confirmed | [100][99] |
 | 2009-10-19 | NVD publishes CVE-2009-2990 (later used by the Shadow Network) | Vulnerability | Cross-sector | Confirmed | [67][68] |
 | 2009-10-29 | CWE 1.6 released; the Top 25 document reaches version 1.4 | Standards | Cross-sector | Confirmed | [50][49] |
 | 2009-11 | Night Dragon first seen per ATT&CK; McAfee dates the attacks from November | State (China-based, per researchers) | Energy | Confirmed | [61][62] |
@@ -221,7 +222,7 @@ One row per event or report. The date is the event date where the source gives o
 | 2015-02 (boundary) | Kaspersky's Equation Q&A | State | Various | Confirmed | [31] |
 | 2015-08-24 (boundary) | Third Circuit decides FTC v. Wyndham, reciting the 2008 and 2009 intrusions | Law | Hospitality | Confirmed | [92] |
 | 2017-06-13 (boundary) | TA17-164A dates HIDDEN COBRA activity to 2009 | State | Various | Confirmed | [77] |
-| 2022-03-25 to 2026-05-20 (boundary) | KEV adds 2009-era CVEs, the last six in 2026 | Vulnerability | Cross-sector | Confirmed | [88] |
+| 2022-03-03 to 2026-05-20 (boundary) | KEV adds 2009-era CVEs, the last seven in 2026 | Vulnerability | Cross-sector | Confirmed | [88] |
 
 ## Part 2: the vulnerability record
 
@@ -253,6 +254,7 @@ The year's exploited client-side flaws, in date order:
 | CVE-2009-1537 | DirectShow QuickTime movie parser | Advisory 971778, 28 May | NVD: in the wild in May; MS09-028: being exploited at release | MS09-028, 14 Jul | not checked | 2026-05-20 | [26][27][88] |
 | CVE-2008-0015 | Microsoft Video ActiveX control | Advisory 972890 and US-CERT alert, 6 Jul (VU#180513) | "Being used in attacks"; NVD: exploited via a crafted web page | MS09-032 kill bits, 14 Jul | CWE-119, CWE-121 | 2026-02-17 | [34][35][36][88] |
 | CVE-2009-1862 | Flash Player 9.0.159.0 and 10.0.22.87 and earlier; Reader and Acrobat 9.1.2 and earlier | APSA09-03 and VU#259425, 22 Jul; US-CERT alert 23 Jul | Adobe: actively exploited in limited, targeted attacks; NVD: in the wild in July | APSB09-10 | CWE-787 | 2022-06-08 | [40][39][88] |
+| CVE-2009-3459 | Adobe Reader and Acrobat 7.x before 7.1.4, 8.x before 8.1.7 and 9.x before 9.2, heap-based buffer overflow | US-CERT TA09-286B, 13 Oct, on Adobe's APSB09-15 | NVD: in the wild in October 2009; TA09-286B: the APSB09-15 flaws are being actively exploited | APSB09-15 (Reader and Acrobat 9.2, 8.1.7 and 7.1.4), 13 Oct | CWE-119 | 2026-05-20 | [99][100][88] |
 | CVE-2009-4324 | Adobe Reader and Acrobat 9.2 and earlier, Doc.media.newPlayer use-after-free | APSA09-07 and VU#508357, 15 Dec | CERT/CC: currently exploited in the wild; NVD: December | Planned for 12 Jan 2010 | CWE-416 | 2022-06-08 | [66][65][67][88] |
 
 Two more flaws in the record had fixes but no exploitation date in the sources opened here. NVD links the Office Web Components Spreadsheet ActiveX flaw CVE-2009-1136 to Advisory 973472, MS09-043 and US-CERT TA09-223A (Confirmed [37]). The TraceMonkey JIT flaw CVE-2009-2477 in Firefox 3.5 was fixed in 3.5.1 under MFSA 2009-41 and VU#443060 (Confirmed [38]). The Reader and Acrobat flaw CVE-2009-0927, fixed under APSB09-04, is listed by NVD as CWE-121 and was added to KEV on 25 March 2022 (Confirmed [16]).
@@ -273,7 +275,7 @@ Two flaws went to the channel itself. CVE-2009-2408, published by NVD on 30 July
 
 ### The volume and the KEV tail
 
-NVD's API, counted by publication date in four windows, returns 5,778 CVE records published in calendar 2009 (2,294, 1,771, 1,617 and 96); some are CVE-2008 ids (Confirmed [89]). The KEV catalog, version 2026.11.10, lists 15 CVE-2009 ids, most of them Adobe Reader, Acrobat or Flash and Microsoft Office document flaws, the rest phpMyAdmin CVE-2009-1151, Cisco IOS XR CVE-2009-2055, Adobe BlazeDS CVE-2009-3960 and Windows CVE-2009-1123 and CVE-2009-1537, added between 3 March 2022 and 20 May 2026 (Confirmed [88]). Six ids tied to 2009 events were added in 2026 alone:
+NVD's API, counted by publication date in four windows, returns 5,778 CVE records published in calendar 2009 (2,294, 1,771, 1,617 and 96); some are CVE-2008 ids (Confirmed [89]). The KEV catalog, versions 2026.11.10 and 2026.11.13, lists 15 CVE-2009 ids, most of them Adobe Reader, Acrobat or Flash and Microsoft Office document flaws, the rest phpMyAdmin CVE-2009-1151, Cisco IOS XR CVE-2009-2055, Adobe BlazeDS CVE-2009-3960 and Windows CVE-2009-1123 and CVE-2009-1537, added between 3 March 2022 and 20 May 2026 (Confirmed [88]). Seven ids tied to 2009 events were added in 2026 alone:
 
 | CVE | 2009 event | KEV dateAdded | Sources |
 |---|---|---|---|
@@ -282,6 +284,7 @@ NVD's API, counted by publication date in four windows, returns 5,778 CVE record
 | CVE-2009-0238 | Excel, Advisory 968272 | 2026-04-14 | [88][17] |
 | CVE-2008-4250 | MS08-067, Conficker's way in | 2026-05-20 | [88][8] |
 | CVE-2009-1537 | DirectShow, Advisory 971778 | 2026-05-20 | [88][27] |
+| CVE-2009-3459 | Reader and Acrobat, APSB09-15 and TA09-286B | 2026-05-20 | [88][99][100] |
 | CVE-2010-0249 | Internet Explorer, Aurora's MS10-002 | 2026-05-20 | [88][73] |
 
 CVE-2009-0658, CVE-2009-3103 and CVE-2009-3023 are absent from that catalog version (Demonstrated [88]). The gap between event and listing runs to 17 years, so KEV dates say when CISA had evidence of exploitation, not when the exploitation happened (Inferred [88]).
@@ -446,7 +449,7 @@ The Basis column says how strong each tie is, as in the [2016 chronicle](/case-s
 | [`T1547.001`](/mitre/techniques/T1547-001.md) | Registry Run Keys / Startup Folder | persistence, privilege-escalation | Listed (S0608) | Conficker (ATT&CK object) | [10] |
 | [`T1027`](/mitre/techniques/T1027.md) | Obfuscated Files or Information | stealth | Listed (S0608, S0203) | Conficker; Hydraq (ATT&CK objects) | [10][75] |
 | [`T1189`](/mitre/techniques/T1189.md) | Drive-by Compromise | initial-access | Listed (G0066); Described | Elderwood (reportedly Aurora, mid-Dec); Video ActiveX flaw exploited via a crafted web page (6 Jul; match Inferred) | [74][36][34] |
-| [`T1203`](/mitre/techniques/T1203.md) | Exploitation for Client Execution | execution | Listed (G0066); Described | Internet Explorer CVE-2010-0249 in limited, targeted attacks (MS10-002); Adobe and Office flaws exploited at release (Feb to Dec); Shadow Network PDF exploits (2009) | [74][72][14][17][25][26][40][66][68] |
+| [`T1203`](/mitre/techniques/T1203.md) | Exploitation for Client Execution | execution | Listed (G0066); Described | Internet Explorer CVE-2010-0249 in limited, targeted attacks (MS10-002); Adobe and Office flaws exploited at release (Feb to Dec); Shadow Network PDF exploits (2009) | [74][72][14][17][25][26][40][99][66][68] |
 | [`T1566.001`](/mitre/techniques/T1566-001.md) | Spearphishing Attachment | initial-access | Listed (G0066); Described | GhostNet e-mails with exploit attachments (Mar); "The snooping dragon" social phishing (Mar); Shadow Network PDFs (2009) | [74][21][22][68] |
 | [`T1566.002`](/mitre/techniques/T1566-002.md) | Spearphishing Link | initial-access | Listed (G0066, C0002) | Elderwood; Night Dragon spearphishing (from Nov) | [74][61][62] |
 | [`T1204.001`](/mitre/techniques/T1204-001.md) | Malicious Link | execution | Listed (G0066, C0002) | Elderwood; Night Dragon (ATT&CK objects) | [74][61] |
@@ -537,7 +540,7 @@ Rows marked NVD carry the CWE NVD lists. Names are those in the library's CWE an
 
 | CWE | Weakness (library name) | Basis | 2009 record | CAPEC |
 |---|---|---|---|---|
-| CWE-119 | Improper Restriction of Operations within the Bounds of a Memory Buffer | NVD | MS08-067 (CVE-2008-4250); Adobe JBIG2 (CVE-2009-0658); Video ActiveX (CVE-2008-0015) | [CAPEC-100](/mitre/capec/CAPEC-100.md) Overflow Buffers |
+| CWE-119 | Improper Restriction of Operations within the Bounds of a Memory Buffer | NVD | MS08-067 (CVE-2008-4250); Adobe JBIG2 (CVE-2009-0658); Reader and Acrobat heap overflow (CVE-2009-3459); Video ActiveX (CVE-2008-0015) | [CAPEC-100](/mitre/capec/CAPEC-100.md) Overflow Buffers |
 | CWE-94 | Improper Control of Generation of Code | NVD | MS08-067 (CVE-2008-4250); Excel (CVE-2009-0238); PowerPoint (CVE-2009-0556) | None assigned (the library relates [CAPEC-242](/mitre/capec/CAPEC-242.md) Code Injection, [CAPEC-35](/mitre/capec/CAPEC-35.md) and [CAPEC-77](/mitre/capec/CAPEC-77.md); none is specific to these flaws) |
 | CWE-121 | Stack-based Buffer Overflow | NVD | Video ActiveX (CVE-2008-0015); Reader (CVE-2009-0927) | None (the library relates none); [CAPEC-100](/mitre/capec/CAPEC-100.md) is this study's pairing |
 | CWE-20 | Improper Input Validation | NVD | Reader (CVE-2009-0927), as the Shadow Network record gives it; first entry of the 2009 Top 25 | None assigned |
@@ -615,7 +618,7 @@ This section is the study's reading of the record (Inferred).
 - **Understated: the trust layer.** The NUL certificate flaw in July and the renegotiation flaw in November showed the authenticated channel could be attacked, and the protocol fix came only in 2010 [41][58][60].
 - **Understated: the standards work.** The Top 25, the CWE and CAPEC releases, SP 800-53 Revision 3 and the SHA-3 second round were quiet dated records that later tooling builds on [49][50][51][42][43].
 - **Understated: the groups that began in 2009.** Nine ATT&CK groups and HIDDEN COBRA are dated to 2009 only by records written years later, so much of the year's state activity was invisible at the time [78][79][80][81][82][83][84][85][86][77].
-- **Understated: the KEV tail.** Six ids tied to 2009 events entered KEV in 2026 [88].
+- **Understated: the KEV tail.** Seven ids tied to 2009 events entered KEV in 2026 [88].
 
 ### Discrepancies in the record
 
@@ -726,7 +729,7 @@ Sources were opened on 12 or 13 November 2026, except sources 91 and 92, opened 
 | 85 | MITRE ATT&CK, G0068 PLATINUM | https://attack.mitre.org/groups/G0068/ | 2026-11-12 | Confirmed |
 | 86 | MITRE ATT&CK, G0126 Higaisa | https://attack.mitre.org/groups/G0126/ | 2026-11-12 | Confirmed |
 | 87 | MITRE ATT&CK, versions page | https://attack.mitre.org/resources/versions/ | 2026-11-12 | Confirmed |
-| 88 | CISA, Known Exploited Vulnerabilities catalog (JSON feed, version 2026.11.10) | https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json | 2026-11-12 | Confirmed; Demonstrated (counts) |
+| 88 | CISA, Known Exploited Vulnerabilities catalog (JSON feed, versions 2026.11.10 and 2026.11.13) | https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json | 2026-11-12; 2026-11-13 | Confirmed; Demonstrated (counts) |
 | 89 | NVD, CVE API 2.0 counts by publication date for calendar 2009 (first of four date windows shown) | `https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=2009-01-01T00:00:00.000&pubEndDate=2009-04-30T23:59:59.999` | 2026-11-13 | Confirmed |
 | 90 | TeamStarWolf Intelligence Hub, history shards for 2009 (used as a map) | https://github.com/TeamStarWolf/intelligence-hub/tree/main/history | 2026-11-12 | Demonstrated |
 | 91 | The Register, Max Vision pleads guilty to running cybercrime bazaar, 30 Jun 2009 (as cited by the Four Books study) | https://www.theregister.com/2009/06/30/max_vision_guilty_plea/ | 2026-11-03 | Reported |
@@ -737,6 +740,8 @@ Sources were opened on 12 or 13 November 2026, except sources 91 and 92, opened 
 | 96 | TeamStarWolf library, case studies on main (home studies named in the text) | https://github.com/TeamStarWolf/TeamStarWolf/tree/main/case-studies | 2026-11-12; 2026-11-13 | Confirmed (for the fact that a study is the home and for the facts it carries from its own sources) |
 | 97 | TeamStarWolf library, chronicle Navigator layers (`navigator/library-layers/chronicle-2016.json` and the later years) | https://github.com/TeamStarWolf/TeamStarWolf/tree/main/navigator/library-layers | 2026-11-13 | Demonstrated |
 | 98 | Microsoft Security Bulletin MS09-053, 13 Oct 2009 | https://learn.microsoft.com/en-us/security-updates/securitybulletins/2009/ms09-053 | 2026-11-13 | Confirmed |
+| 99 | NVD, CVE-2009-3459 (API record; links APSB09-15, an Adobe PSIRT blog post and US-CERT TA09-286B; Adobe's APSB09-15 page returned HTTP 403 and was not opened) | `https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2009-3459` | 2026-11-13 | Confirmed |
+| 100 | US-CERT TA09-286B, Adobe Reader and Acrobat Vulnerabilities, 13 Oct 2009 (CISA archive) | https://www.cisa.gov/news-events/alerts/2009/10/13/adobe-reader-and-acrobat-vulnerabilities | 2026-11-13 | Confirmed |
 
 *© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*
 

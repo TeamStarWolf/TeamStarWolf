@@ -1,0 +1,509 @@
+{
+  "name": "TeamStarWolf - The Year 2013 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2013 record supports: the techniques ATT&CK lists for the objects it ties to 2013 reports or events, G0006 APT1 (the 22 entries that cite Mandiant's report of 19 February), G0044 Winnti Group (Kaspersky, 11 April), S0033 NetTraveler (Kaspersky, 4 June), G0094 Kimsuky (the 16 entries that cite Kaspersky's report of 11 September), S0051 MiniDuke (the entries that cite the 27 February reports), G0021 Molerats (FireEye, 23 August, as ATT&CK cites it), S0027 Zeroaccess (disrupted 5 December) and S0041 Wiper (the March 2013 South Korea attack), and behavior described by US-CERT's alerts on Java (TA13-010A), open DNS resolvers (TA13-088A) and CryptoLocker (TA13-309A), Microsoft's advisories and bulletins, Cloudflare's Spamhaus posts, Kaspersky's MiniDuke, NetTraveler and Icefog reports, the Drinkman indictment, the DOE Inspector General's report, ICS-CERT's 2013 incident record, the FBI's ransomware warnings, the 2016 indictment over the bank DDoS and, graded Reported, the 2014 Senate report on Target. No 2013 source prints an ATT&CK id. The four ATT&CK for ICS techniques are in the study's table, not in this layer. Each comment names source numbers from case-studies/CHRONICLE_2013.md. Scores: 100 an ATT&CK object prints the id, 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports it, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "APT1 report (19 Feb) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "APT1 report (19 Feb); Kimsuky (11 Sep); Drinkman ring (25 Jul, as charged) (basis: Listed (G0006, G0094); Described; ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013; ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it); a primary also describes the behavior for the other events named). Sources [10][51][68] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1007",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "APT1 report (19 Feb) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1008",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "MiniDuke (27 Feb) (basis: Listed (S0051); ATT&CK lists the id for S0051 MiniDuke, citing Kaspersky's and CrySyS's MiniDuke reports of 27 February 2013 (only the entries that cite them)). Sources [53][52] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1010",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "NetTraveler (4 Jun) (basis: Listed (S0033); ATT&CK lists the id for S0033 NetTraveler, citing Kaspersky's NetTraveler report of 4 June 2013 (citations not opened)). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1014",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Winnti (11 Apr); ZeroAccess kernel-mode rootkit (disrupted 5 Dec) (basis: Listed (G0044, S0027); ATT&CK lists the id for G0044 Winnti Group, citing Kaspersky's Winnti report of 11 April 2013; ATT&CK lists the id for S0027 Zeroaccess, citing ZeroAccess, disrupted 5 December 2013 (citations not opened)). Sources [45][90] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "APT1 report (19 Feb) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1027.003",
+      "tactic": "stealth",
+      "score": 70,
+      "comment": "MiniDuke receives payloads inside GIF files (27 Feb) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2013 source prints an ATT&CK id). Sources [52] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "APT1 report (19 Feb); a FinSpy sample masquerading as Mozilla Firefox (30 Apr) (basis: Listed (G0006); Described; ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013; a primary also describes the behavior for the other events named). Sources [10][65] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Drinkman ring's sniffers (25 Jul, as charged) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2013 source prints an ATT&CK id). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "Drinkman ring's sniffers (25 Jul, as charged) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2013 source prints an ATT&CK id). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Kimsuky (11 Sep) (basis: Listed (G0094); ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it)). Sources [51] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1049",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "APT1 report (19 Feb) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Kimsuky (11 Sep) (basis: Listed (G0094); ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it)). Sources [51] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1055",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Kimsuky (11 Sep) (basis: Listed (G0094); ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it)). Sources [51] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "NetTraveler (4 Jun); Kimsuky (11 Sep); Citadel's banking keylogger (5 Jun) (basis: Listed (S0033, G0094); Described; ATT&CK lists the id for S0033 NetTraveler, citing Kaspersky's NetTraveler report of 4 June 2013 (citations not opened); ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it); a primary also describes the behavior for the other events named). Sources [47][51][23] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "NetTraveler (4 Jun); Kimsuky (11 Sep); Citadel's banking keylogger (5 Jun) (basis: Listed (S0033, G0094); Described; ATT&CK lists the id for S0033 NetTraveler, citing Kaspersky's NetTraveler report of 4 June 2013 (citations not opened); ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it); a primary also describes the behavior for the other events named). Sources [47][51][23] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "APT1 report (19 Feb); Winnti (11 Apr) (basis: Listed (G0006, G0044); ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013; ATT&CK lists the id for G0044 Winnti Group, citing Kaspersky's Winnti report of 11 April 2013). Sources [10][45] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "APT1 report (19 Feb) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "NDProxy CVE-2013-5065, exploited in limited targeted attacks (Nov) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2013 source prints an ATT&CK id). Sources [39][85] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Kimsuky (11 Sep) (basis: Listed (G0094); ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it)). Sources [51] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Wiper in the March 2013 South Korea attack, per ATT&CK's description (basis: Listed (S0041); ATT&CK lists the id for S0041 Wiper, citing ATT&CK's description of the March 2013 South Korea attack (citation not opened)). Sources [123][49] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1072",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Wiper in the March 2013 South Korea attack, per ATT&CK's description (basis: Listed (S0041); ATT&CK lists the id for S0041 Wiper, citing ATT&CK's description of the March 2013 South Korea attack (citation not opened)). Sources [123][49] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 50,
+      "comment": "Target, credentials reportedly stolen from the vendor (Nov) (basis: Reported; only a Reported source describes the behavior; a later mapping). Sources [40] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 50,
+      "comment": "Target, credentials reportedly stolen from the vendor (Nov) (basis: Reported; only a Reported source describes the behavior; a later mapping). Sources [40] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 50,
+      "comment": "Target, credentials reportedly stolen from the vendor (Nov) (basis: Reported; only a Reported source describes the behavior; a later mapping). Sources [40] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 50,
+      "comment": "Target, credentials reportedly stolen from the vendor (Nov) (basis: Reported; only a Reported source describes the behavior; a later mapping). Sources [40] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Kimsuky (11 Sep) (basis: Listed (G0094); ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it)). Sources [51] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Winnti (11 Apr); Kimsuky (11 Sep) (basis: Listed (G0044, G0094); ATT&CK lists the id for G0044 Winnti Group, citing Kaspersky's Winnti report of 11 April 2013; ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it)). Sources [45][51] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1087.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "APT1 report (19 Feb) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1102.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "MiniDuke finds its server through Twitter and Google Search (27 Feb) (basis: Listed (S0051); ATT&CK lists the id for S0051 MiniDuke, citing Kaspersky's and CrySyS's MiniDuke reports of 27 February 2013 (only the entries that cite them)). Sources [53][52] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Winnti (11 Apr); MiniDuke (27 Feb) (basis: Listed (G0044, S0051); ATT&CK lists the id for G0044 Winnti Group, citing Kaspersky's Winnti report of 11 April 2013; ATT&CK lists the id for S0051 MiniDuke, citing Kaspersky's and CrySyS's MiniDuke reports of 27 February 2013 (only the entries that cite them)). Sources [45][53] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1110.001",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "WordPress admin brute force (15 Apr) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2013 source prints an ATT&CK id). Sources [17] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1114.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "APT1 report (19 Feb) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "APT1 report (19 Feb) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1119",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "APT1 report (19 Feb) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1125",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "A DHS-themed ransomware variant photographs the victim through the webcam (21 Mar) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2013 source prints an ATT&CK id). Sources [11] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1135",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "APT1 report (19 Feb) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Java CVE-2013-0422 via malicious applets (TA13-010A, 10 Jan); news sites to Fiesta (16 May); IE8 watering holes (May, Sep); US security-policy site (12 Nov); ICS-CERT's watering-hole notices (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2013 source prints an ATT&CK id). Sources [2][21][19][29][37][95] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Drinkman ring's SQL injection (25 Jul, as charged); DOE MIS (Jul); ICS-CERT's SQL injection and web-service vectors; Struts S2-016 and ColdFusion in KEV (match Inferred) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2013 source prints an ATT&CK id). Sources [68][25][95][79][72] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1195.002",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Winnti's trojan pushed from a game publisher's update server (11 Apr) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2013 source prints an ATT&CK id). Sources [16] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 50,
+      "comment": "Target, through an HVAC vendor's network access (Nov) (basis: Reported; only a Reported source describes the behavior; a later mapping). Sources [40] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Java CVE-2013-0422 (Jan); Reader CVE-2013-0640 in MiniDuke's PDFs (27 Feb); IE CVE-2013-1347 (May) and CVE-2013-3893 (Sep); Office CVE-2013-3906 (Nov); Icefog's and NetTraveler's known exploits (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2013 source prints an ATT&CK id). Sources [3][52][20][29][36][31][46] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "CryptoLocker's attachments (5 Nov); FinSpy's Ginbot 7 bait (13 Mar) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2013 source prints an ATT&CK id). Sources [35][64] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1219.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Kimsuky's modified TeamViewer (11 Sep) (basis: Listed (G0094); ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it)). Sources [51][50] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "CryptoLocker (TA13-309A, 5 Nov) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2013 source prints an ATT&CK id). Sources [35] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "The 2011 to 2013 financial-sector DDoS, as charged (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2013 source prints an ATT&CK id). Sources [27][28] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1498.002",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Spamhaus DNS reflection (18 to 22 Mar); TA13-088A (29 Mar) (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2013 source prints an ATT&CK id). Sources [12][13][14] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Kimsuky (11 Sep) (basis: Listed (G0094); ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it)). Sources [51] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Kimsuky (11 Sep) (basis: Listed (G0094); ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it)). Sources [51] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1546.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Kimsuky (11 Sep) (basis: Listed (G0094); ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it)). Sources [51] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1546.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Kimsuky (11 Sep) (basis: Listed (G0094); ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it)). Sources [51] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Kimsuky (11 Sep) (basis: Listed (G0094); ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it)). Sources [51] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Kimsuky (11 Sep) (basis: Listed (G0094); ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it)). Sources [51] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "APT1 report (19 Feb) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Winnti's stolen certificates (11 Apr); Molerats' forged Microsoft certificates (23 Aug, as ATT&CK cites) (basis: Listed (G0044, G0021); ATT&CK lists the id for G0044 Winnti Group, citing Kaspersky's Winnti report of 11 April 2013; ATT&CK lists the id for G0021 Molerats, citing FireEye's report of 23 August 2013, as ATT&CK cites it). Sources [45][57] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1560.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "APT1 report (19 Feb) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1560.003",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Kimsuky (11 Sep) (basis: Listed (G0094); ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it)). Sources [51] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1564.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "ZeroAccess (disrupted 5 Dec) (basis: Listed (S0027); ATT&CK lists the id for S0027 Zeroaccess, citing ZeroAccess, disrupted 5 December 2013 (citations not opened)). Sources [90] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "ICS-CERT's 2013 incident vectors include spear-phishing (basis: Described; a primary source describes the behavior and the study assigns the id; a later mapping, since no 2013 source prints an ATT&CK id). Sources [95] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "APT1 report (19 Feb); Kimsuky (11 Sep); NetTraveler's spearphishing (4 Jun); Icefog's lure documents (25 Sep); CryptoLocker's attachments (TA13-309A, 5 Nov) (basis: Listed (G0006, G0094); Described; ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013; ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it); a primary also describes the behavior for the other events named). Sources [10][51][46][31][35] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "APT1 report (19 Feb) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1583.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "APT1 report (19 Feb); Winnti (11 Apr) (basis: Listed (G0006, G0044); ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013; ATT&CK lists the id for G0044 Winnti Group, citing Kaspersky's Winnti report of 11 April 2013). Sources [10][45] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1584.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "APT1 report (19 Feb) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1585.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "APT1 report (19 Feb) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1588.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "APT1 report (19 Feb) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1588.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "APT1 report (19 Feb) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1, citing Mandiant's APT1 report of 19 February 2013). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1680",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Kimsuky (11 Sep) (basis: Listed (G0094); ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it)). Sources [51] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Kimsuky (11 Sep) (basis: Listed (G0094); ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it)). Sources [51] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    },
+    {
+      "techniqueID": "T1686",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Kimsuky disables firewalls (11 Sep) (basis: Listed (G0094); ATT&CK lists the id for G0094 Kimsuky, citing Kaspersky's Kimsuky report of 11 September 2013 (only the entries that cite it)). Sources [51][50] refer to the Sources table of case-studies/CHRONICLE_2013.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: an ATT&CK object prints the id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2013.md (sources opened 12 and 13 November 2026, library checks 12 and 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "60"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "70"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2013 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2013.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

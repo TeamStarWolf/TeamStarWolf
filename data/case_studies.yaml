@@ -725,6 +725,30 @@ studies:
       - {"date": "2010-09-01", "label": "Deputy Secretary of Defense discloses the 2008 CENTCOM flash-drive compromise (Buckshot Yankee)"}
       - {"date": "2010-09-30", "label": "Symantec's Stuxnet dossier; SDNY charges 37 defendants over Zeus-enabled bank fraud"}
       - {"date": "2010-10-24", "label": "Firesheep shows session cookies taken over open Wi-Fi"}
+  case-studies/CHRONICLE_2012.md:
+    kind: "era"
+    title: "The Year 2012 in Intrusions: A Dated Record"
+    start: "2012-01"
+    end: "2012-12"
+    sectors: ["cross-sector", "finance", "energy", "government", "technology", "media", "retail", "telecommunications", "defense", "manufacturing"]
+    cves: ["CVE-2008-5353", "CVE-2010-2568", "CVE-2011-3402", "CVE-2011-3544", "CVE-2012-0002", "CVE-2012-0152", "CVE-2012-0158", "CVE-2012-0391", "CVE-2012-0394", "CVE-2012-0507", "CVE-2012-0754", "CVE-2012-0779", "CVE-2012-1535", "CVE-2012-1710", "CVE-2012-1723", "CVE-2012-1823", "CVE-2012-1875", "CVE-2012-1889", "CVE-2012-2311", "CVE-2012-2549", "CVE-2012-4681", "CVE-2012-4792", "CVE-2012-4929", "CVE-2012-4969"]
+    actors: ["G0066", "G0006"]
+    tags: ["Flame", "Gauss", "Microsoft certificates", "Shamoon", "Wiper", "Bank DDoS", "Elderwood", "APT1", "Global Payments", "Dropbox", "Java", "Megaupload"]
+    pdf: "Chronicle_2012_Case_Study.pdf"
+    pptx: "Chronicle_2012_Case_Study.pptx"
+    events:
+      - {"date": "2012-01-19", "label": "Megaupload arrests in Auckland and more than 20 search warrants in the US and eight countries; DHS and FBI advise on recovering erased files"}
+      - {"date": "2012-03-23", "label": "Microsoft's Operation b71 seizes Zeus-family command servers under a civil court order"}
+      - {"date": "2012-03-30", "label": "Global Payments 8-K: unauthorized access to a portion of its processing system, self-reported"}
+      - {"date": "2012-04-10", "label": "MS12-027 fixes Office common controls flaw CVE-2012-0158, already used in limited targeted attacks"}
+      - {"date": "2012-05-28", "label": "Kaspersky publishes Flame, found while looking for the malware that wiped systems in Iran in April"}
+      - {"date": "2012-06-03", "label": "Microsoft Advisory 2718704 revokes trust in three of its intermediate CAs after unauthorized certificates were used in attacks"}
+      - {"date": "2012-07-31", "label": "Dropbox says passwords stolen from other websites opened user accounts and an employee's account"}
+      - {"date": "2012-08-09", "label": "Kaspersky publishes Gauss, built on the Flame platform; the FBI warns of Reveton ransomware"}
+      - {"date": "2012-08-16", "label": "Kaspersky analyses Shamoon, a wiper that overwrites the master boot record through a signed raw-disk driver"}
+      - {"date": "2012-08-27", "label": "US-CERT TA12-240A advises disabling Java in browsers for the exploited Java 7 flaw CVE-2012-4681"}
+      - {"date": "2012-09-06", "label": "Symantec's Elderwood Project ties the Aurora attackers to four 2012 zero-days and watering-hole attacks"}
+      - {"date": "2012-09", "label": "DDoS on US banks becomes near-weekly, as alleged in the 2016 indictment of seven Iranians"}
   case-studies/CHRONICLE_2011.md:
     kind: "era"
     title: "The Year 2011 in Intrusions: A Dated Record"

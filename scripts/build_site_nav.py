@@ -5,7 +5,7 @@ Writes, from the config and the pages themselves:
 
     _sidebar.md                 the root sidebar: a few short sections (Start, Domains,
                                 Frameworks, ...) instead of one link per page
-    _navbar.md                  the top bar
+    _navbar.md                  the top bar: category menus, each a dropdown list of pages
     <folder>/_sidebar.md        nested sidebars for guides/, disciplines/, tools/,
                                 ai-tooling/ and mitre/, each opening with the same
                                 "Library" block of ways back
@@ -294,9 +294,31 @@ def root_sidebar(cfg: dict) -> str:
     return sidebar("_sidebar.md", sections)
 
 
+def navbar_menu(cfg: dict, entry) -> tuple[str, str, list[tuple[str, str]]]:
+    """A navbar entry -> (label, target, menu items). An entry is [label, target] (a plain
+    link) or {"label", "path", "children": [[label, target], ...], "hubs": true|false}: a
+    menu whose parent links to "path", listing the domain hubs first when "hubs" is set."""
+    if isinstance(entry, list) and len(entry) == 2:
+        return entry[0], entry[1], []
+    if not isinstance(entry, dict) or not entry.get("label") or not entry.get("path"):
+        raise SystemExit(CONFIG + ": navbar entry " + json.dumps(entry)[:80]
+                         + " is not [label, target] or {label, path, children}")
+    items = [(h["title"], hub_target(h)) for h in cfg["hubs"]] if entry.get("hubs") else []
+    for child in entry.get("children", []):
+        if not (isinstance(child, list) and len(child) == 2):
+            raise SystemExit(CONFIG + ": navbar menu " + entry["label"] + ": item "
+                             + json.dumps(child)[:80] + " is not [label, target]")
+        items.append(tuple(child))
+    return entry["label"], entry["path"], items
+
+
 def navbar(cfg: dict) -> str:
+    """The top bar. docsify shows a nested list as a dropdown menu under its parent link."""
     out = ["<!-- _navbar.md: " + GENERATED_BY + " -->", ""]
-    out += ["- " + md_link(lab, tgt) for lab, tgt in cfg["navbar"]]
+    for entry in cfg["navbar"]:
+        lab, tgt, items = navbar_menu(cfg, entry)
+        out.append("- " + md_link(lab, tgt))
+        out += ["  - " + md_link(ilab, itgt) for ilab, itgt in items]
     return "\n".join(out) + "\n"
 
 

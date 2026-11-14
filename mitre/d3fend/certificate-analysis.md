@@ -40,6 +40,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Notepad++ Update-Channel Hijack (CVE-2025-15556): A Case Study](/case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md)
 - [The Year 2001 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2001.md)
 - [The Year 2010 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2010.md)
+- [The Year 2011 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2011.md)
 - [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md)
 - [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)
 

@@ -29,6 +29,7 @@ Persisting either a server's X.509 certificate or their public key and comparing
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [The eMudhra Certificate Authority Key Compromise: A 2026 Case Study](/case-studies/EMUDHRA_CA_COMPROMISE_2026.md)
+- [The Year 2011 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2011.md)
 
 <!-- library-refs:end -->
 

@@ -2515,6 +2515,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 2: the vulnerability record](#part-2-the-vulnerability-record), [Part 5: the state and espionage record](#part-5-the-state-and-espionage-record)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Stuxnet](/case-studies/STUXNET.md), [ICS/OT Security](/ICS_OT_SECURITY_REFERENCE.md), [The Year 2007 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2007.md)"
     reviewed: null
+  case-studies/CHRONICLE_2011.md:
+    audience: "Threat intelligence analysts, security historians, PKI and identity teams, vulnerability management and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2011, you need the Comodo, DigiNotar and DigiCert Sdn. Bhd. certificate failures, RSA SecurID and Duqu side by side with the year's exploited document and plug-in flaws, the Sony, Epsilon and Steam breaches, the botnet takedowns in court and the strategies and disclosure guidance that followed, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 2: the certificate authority failures](#part-2-the-certificate-authority-failures), [Part 6: the state and espionage record](#part-6-the-state-and-espionage-record)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Certificate Trust Incident Response](/CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md), [Stuxnet](/case-studies/STUXNET.md), [The Year 2010 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2010.md)"
+    reviewed: null
   case-studies/CHRONICLE_2016.md:
     audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
     level: "Intermediate"

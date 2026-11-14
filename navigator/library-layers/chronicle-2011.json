@@ -1,0 +1,581 @@
+{
+  "name": "TeamStarWolf - The Year 2011 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2011 record supports: the techniques ATT&CK lists for the objects it ties to 2011, campaign C0002 Night Dragon (published by McAfee on 10 February, last seen February 2011), S0038 Duqu (first recorded attack April 2011, disclosed in October) and G0006 APT1 (only the eight techniques the record opened names, from Mandiant's 2013 report that dates APT1 activity from January 2011), and behavior described by Comodo's incident report, VASCO's filing on DigiNotar, Google's and Microsoft's notices on the fraudulent certificates, US-CERT's Gmail phishing alert and Google's account of that campaign, Adobe's advisory and NVD's records for the flaws exploited at release, CrySyS Lab's and Symantec's Duqu reports, Apache's Range-header advisory, Microsoft's Morto entry, Valve's Steam message and the FBI's releases on the Sony Pictures intrusion, the PayPal attacks, Coreflood, DNSChanger and the 2011 to 2013 financial-sector DDoS, with the Stratfor card charges graded Reported. No 2011 source prints an ATT&CK id. The three ATT&CK for ICS techniques listed for Duqu are not in this layer. Each comment names source numbers from case-studies/CHRONICLE_2011.md. Scores: 100 an ATT&CK object prints the id, 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1001.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1003.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "APT1 (ATT&CK object) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1; APT1's techniques come from ATT&CK's group record across years of reporting; Mandiant's 2013 report records APT1 activity from January 2011). Sources [57] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1003.002",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1008",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1010",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "APT1 (ATT&CK object); Morto (match Inferred) (basis: Listed (G0006); Described; ATT&CK lists the id for G0006 APT1; APT1's techniques come from ATT&CK's group record across years of reporting; Mandiant's 2013 report records APT1 activity from January 2011). Sources [57][67] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1027.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1027.013",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1033",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1049",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1055.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1055.012",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1055.012",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Duqu; Coreflood's keylogging software (13 Apr) (basis: Listed (S0038); Described; ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45][16] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Duqu; Coreflood's keylogging software (13 Apr) (basis: Listed (S0038); Described; ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45][16] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Duqu's kernel zero-day CVE-2011-3402 (Nov); afd.sys CVE-2011-2005 in KEV (match Inferred) (basis: Described; a later mapping, since no 2011 source prints an ATT&CK id). Sources [40][43][71][54] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1071",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1074.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1074.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Night Dragon; Duqu; the compromised Comodo RA account (15 Mar); stolen Gmail passwords (1 Jun) (basis: Listed (C0002, S0038); Described; ATT&CK lists the id for C0002 Night Dragon, S0038 Duqu; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [1][45][5][22] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Night Dragon; Duqu; the compromised Comodo RA account (15 Mar); stolen Gmail passwords (1 Jun) (basis: Listed (C0002, S0038); Described; ATT&CK lists the id for C0002 Night Dragon, S0038 Duqu; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [1][45][5][22] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Night Dragon; Duqu; the compromised Comodo RA account (15 Mar); stolen Gmail passwords (1 Jun) (basis: Listed (C0002, S0038); Described; ATT&CK lists the id for C0002 Night Dragon, S0038 Duqu; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [1][45][5][22] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Night Dragon; Duqu; the compromised Comodo RA account (15 Mar); stolen Gmail passwords (1 Jun) (basis: Listed (C0002, S0038); Described; ATT&CK lists the id for C0002 Night Dragon, S0038 Duqu; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [1][45][5][22] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Night Dragon's Active Directory compromise (McAfee) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Night Dragon's Active Directory compromise (McAfee) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Night Dragon's Active Directory compromise (McAfee) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Night Dragon's Active Directory compromise (McAfee) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1087.001",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1090.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Morto guessed Remote Desktop administrator passwords (date not in the record) (basis: Inferred; a later mapping, since no 2011 source prints an ATT&CK id). Sources [67] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1110.002",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1114.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Night Dragon; APT1 (basis: Listed (C0002, G0006); ATT&CK lists the id for C0002 Night Dragon, G0006 APT1; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011; APT1's techniques come from ATT&CK's group record across years of reporting; Mandiant's 2013 report records APT1 activity from January 2011). Sources [1][57] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1114.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "APT1 (ATT&CK object) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1; APT1's techniques come from ATT&CK's group record across years of reporting; Mandiant's 2013 report records APT1 activity from January 2011). Sources [57] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1114.003",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Gmail forwarding settings changed with stolen passwords (1 Jun) (basis: Described; a later mapping, since no 2011 source prints an ATT&CK id). Sources [22] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Night Dragon; SQL injection against Sony Pictures, as the indictment alleges (27 May to 2 Jun); the telnetd flaw CVE-2011-4862 (Dec; match Inferred) (basis: Listed (C0002); Described; ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1][21][75] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "CVE-2011-0609 (Mar), CVE-2011-0611 (Apr), CVE-2011-3402 through a Word document (Duqu, from Apr), CVE-2011-2462 (Dec); CVE-2011-3544 in KEV (match Inferred) (basis: Described; a later mapping, since no 2011 source prints an ATT&CK id). Sources [12][15][40][43][50][72] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1204.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1218.007",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Night Dragon's remote administration tools (McAfee) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1491.002",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Steam forums defaced (6 Nov) (basis: Described; a later mapping, since no 2011 source prints an ATT&CK id). Sources [48] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "The PayPal DDoS (Dec 2010), charged 19 Jul 2011; the 2011 to 2013 financial-sector DDoS, as charged in 2016 (basis: Described; a later mapping, since no 2011 source prints an ATT&CK id). Sources [24][59] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1499.004",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Apache Range-header attack tool in active use (24 Aug) (basis: Described; a later mapping, since no 2011 source prints an ATT&CK id). Sources [27] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Night Dragon; APT1 (basis: Listed (C0002, G0006); ATT&CK lists the id for C0002 Night Dragon, G0006 APT1; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011; APT1's techniques come from ATT&CK's group record across years of reporting; Mandiant's 2013 report records APT1 activity from January 2011). Sources [1][57] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-impairment",
+      "score": 70,
+      "comment": "Duqu's driver signed with a Taiwanese maker's certificate (CrySyS, 14 Oct); not in S0038's ATT&CK mapping (basis: Described; a later mapping, since no 2011 source prints an ATT&CK id). Sources [39] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Attempted SSL man-in-the-middle attacks on Google users primarily in Iran with a DigiNotar certificate (29 Aug) (basis: Described; a later mapping, since no 2011 source prints an ATT&CK id). Sources [28][29] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1557",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Attempted SSL man-in-the-middle attacks on Google users primarily in Iran with a DigiNotar certificate (29 Aug) (basis: Described; a later mapping, since no 2011 source prints an ATT&CK id). Sources [28][29] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1560.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "APT1 (ATT&CK object) (basis: Listed (G0006); ATT&CK lists the id for G0006 APT1; APT1's techniques come from ATT&CK's group record across years of reporting; Mandiant's 2013 report records APT1 activity from January 2011). Sources [57] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1560.003",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "APT1; Flash in an Excel e-mail attachment (APSA11-01, 14 Mar; RSA link not checked); Duqu by Word document (Symantec) (basis: Listed (G0006); Described; ATT&CK lists the id for G0006 APT1; APT1's techniques come from ATT&CK's group record across years of reporting; Mandiant's 2013 report records APT1 activity from January 2011). Sources [57][12][40] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Night Dragon; APT1 (basis: Listed (C0002, G0006); ATT&CK lists the id for C0002 Night Dragon, G0006 APT1; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011; APT1's techniques come from ATT&CK's group record across years of reporting; Mandiant's 2013 report records APT1 activity from January 2011). Sources [1][57] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1568",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1573.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Duqu (ATT&CK object) (basis: Listed (S0038); ATT&CK lists the id for S0038 Duqu; Duqu's techniques come from ATT&CK's software record; Symantec dates the first recorded attack to April 2011). Sources [45] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1583.004",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Night Dragon's purchased US hosting (McAfee, 10 Feb) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1584.004",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Night Dragon's compromised servers in the Netherlands (McAfee, 10 Feb) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1][2] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1588.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1588.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Night Dragon's PsExec, at and gsecdump (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1588.004",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "Fraudulent Comodo certificates (15 Mar); fraudulent DigiNotar certificates (detected 19 Jul, public 29 Aug) (basis: Described; a later mapping, since no 2011 source prints an ATT&CK id). Sources [5][6][26][28][96] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1598.003",
+      "tactic": "reconnaissance",
+      "score": 70,
+      "comment": "Gmail campaign's fake login page (US-CERT, 2 Jun) (basis: Described; a later mapping, since no 2011 source prints an ATT&CK id). Sources [23][22] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1608.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Night Dragon (ATT&CK object) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 50,
+      "comment": "Over USD 700,000 in unauthorized charges on Stratfor subscribers' cards, as alleged (Dec) (basis: Reported; only a Reported source supports the behavior, and no 2011 source prints an ATT&CK id). Sources [4] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Night Dragon; DNSChanger blocked anti-virus and operating system updates, as charged (9 Nov) (basis: Listed (C0002); Described; ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates the Night Dragon campaign from November 2009 to February 2011). Sources [1][46] refer to the Sources table of case-studies/CHRONICLE_2011.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: an ATT&CK object prints the id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2011.md (sources opened 12 and 13 November 2026, library checks 12 and 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "66"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "82"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2011 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2011.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

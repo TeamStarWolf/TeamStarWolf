@@ -21,7 +21,7 @@ Notes: Conficker [7][10][5][6]. Documents [14][40][66][17][25][26][35]. Heartlan
 Stat: 1,295 | infected hosts GhostNet found in 103 countries
 Stat: $250K | Microsoft's reward for Conficker's authors
 Stat: 5,778 | CVE records NVD published in 2009
-Stat: 16 | CVE-2009 ids in CISA's KEV catalog today
+Stat: 15 | CVE-2009 ids in CISA's KEV catalog today
 - MS08-067 had been out five months when US-CERT's alert named it.
 - Heartland's reserve: USD 99.9 million unpaid at the end of 2009.
 - Six ids tied to 2009 events entered KEV in 2026.

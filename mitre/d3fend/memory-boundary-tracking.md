@@ -45,6 +45,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [Node.js, CVE-2026-111497: Version Check and Fix in the Lab](/case-studies/NODEJS_CVE_2026_111497.md)
 - [The Year 1997 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1997.md)
 - [The Year 1998 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1998.md)
+- [The Year 2010 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2010.md)
 
 <!-- library-refs:end -->
 

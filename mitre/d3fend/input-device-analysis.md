@@ -29,6 +29,7 @@ Operating system level mechanisms to prevent abusive input device exploitation.
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [The Year 2005 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2005.md)
+- [The Year 2010 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2010.md)
 
 <!-- library-refs:end -->
 

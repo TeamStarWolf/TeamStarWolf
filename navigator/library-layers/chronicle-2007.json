@@ -1,0 +1,204 @@
+{
+  "name": "TeamStarWolf - The Year 2007 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2007 record supports: SecureWorks' Storm Worm analysis (the e-mail dropper, the Overnet-located second stage and the SYN and ICMP floods), Microsoft's MS07-014, MS07-015, MS07-017 and MS07-029 for the Word, Excel, animated cursor and DNS Server RPC flaws exploited at release, US-CERT's alerts on the Solaris telnet worm, the animated cursor, the DNS RPC flaw, malicious PDF files abusing Windows URI handling and the spoofed FTC e-mail, the KEV catalog's CVE-2007 entries, the Justice Department and FBI releases on Soloway and Operations Bot Roast I and II, TJX's filings, the Canadian privacy commissioners' TJX report and the 2008 Gonzalez charges, and the CCDCOE analyses of the Estonia attacks graded Reported. No 2007 source prints an ATT&CK id: every entry is this study's later mapping. The group techniques ATT&CK lists for APT1 are not in this layer. The Stuxnet 0.5 techniques are in the separate ATT&CK for ICS layer navigator/case-studies/chronicle-2007-ics.json. Each comment names source numbers from case-studies/CHRONICLE_2007.md. Scores: 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "TJX: 2006 tooling could capture card data sent unencrypted during approval (10-K, 28 Mar); the Gonzalez ring's sniffers (DOJ, 2008, alleged) (basis: Described; a later mapping, since no 2007 source prints an ATT&CK id). Sources [4][10] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "TJX: 2006 tooling could capture card data sent unencrypted during approval (10-K, 28 Mar); the Gonzalez ring's sniffers (DOJ, 2008, alleged) (basis: Described; a later mapping, since no 2007 source prints an ATT&CK id). Sources [4][10] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "Solaris telnet worm scanned for other telnet hosts (28 Feb) (basis: Described; a later mapping, since no 2007 source prints an ATT&CK id). Sources [14] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T1053.003",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Solaris telnet worm modified crontabs (28 Feb) (basis: Described; a later mapping, since no 2007 source prints an ATT&CK id). Sources [14] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T1053.003",
+      "tactic": "persistence",
+      "score": 70,
+      "comment": "Solaris telnet worm modified crontabs (28 Feb) (basis: Described; a later mapping, since no 2007 source prints an ATT&CK id). Sources [14] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T1053.003",
+      "tactic": "privilege-escalation",
+      "score": 70,
+      "comment": "Solaris telnet worm modified crontabs (28 Feb) (basis: Described; a later mapping, since no 2007 source prints an ATT&CK id). Sources [14] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Storm's second-stage download, located through Overnet peers (7 Feb analysis) (basis: Described; a later mapping, since no 2007 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Animated cursor flaw triggered by malicious web pages (TA07-089A, 30 Mar) (basis: Described; a later mapping, since no 2007 source prints an ATT&CK id). Sources [18][20] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "CVE-2007-3010, Alcatel OmniPCX masterCGI, in KEV; neither NVD nor KEV dates the exploitation (basis: Inferred; a later mapping, since no 2007 source prints an ATT&CK id). Sources [34][37] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Word (MS07-014) and Excel (MS07-015), exploited at release (13 Feb); animated cursor CVE-2007-0038 (29 Mar to 3 Apr); URI flaw via PDF (24 Oct); CVE-2007-5659 in KEV (exploitation date not stated) (basis: Described; a later mapping, since no 2007 source prints an ATT&CK id). Sources [11][12][18][19][29][35][37] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Excel CVE-2007-0671, user-assisted (3 Feb); crafted PDF files for the URI flaw (24 Oct); FTC-spoofed attachments (30 Oct) (basis: Described; a later mapping, since no 2007 source prints an ATT&CK id). Sources [13][29][32] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 70,
+      "comment": "DNS Server RPC flaw exploited (13 Apr to 8 May); Solaris telnet worm (28 Feb) (basis: Described; a later mapping, since no 2007 source prints an ATT&CK id). Sources [21][23][14] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T1491.002",
+      "tactic": "impact",
+      "score": 50,
+      "comment": "Estonia website defacements (CCDCOE) (basis: Reported; a later mapping, since no 2007 source prints an ATT&CK id). Sources [40] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Storm floods on anti-spam sites (12 and 30 Jan); Downey's botnet DDoS (Jun); Goldstein's DDoS on a university (1 Nov, alleged); Estonia (27 Apr to 18 May, Reported) (basis: Described; a later mapping, since no 2007 source prints an ATT&CK id). Sources [1][47][48][40] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T1498.001",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Storm ICMP floods (Jan); Estonia ping floods, including Galushkevich's admitted attacks (Reported) (basis: Described; a later mapping, since no 2007 source prints an ATT&CK id). Sources [1][40][41] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T1499.001",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Storm TCP SYN floods on port 80 (Jan); ATT&CK places SYN floods under this sub-technique, and assigning it here is this study's reading (basis: Described; a later mapping, since no 2007 source prints an ATT&CK id). Sources [1] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T1499.002",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "Estonia: floods against government, e-banking and news web services; the sources do not describe the flood type at the service layer (basis: Inferred; a later mapping, since no 2007 source prints an ATT&CK id). Sources [40][41] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Storm's dropper, an e-mail virus (Jan, mass mailing rather than targeted; the attachment form is not in the analysis as verified, so this part is Inferred); spoofed FTC e-mail with malicious attachments (30 Oct) (basis: Described; a later mapping, since no 2007 source prints an ATT&CK id). Sources [1][32] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T1584.005",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "Storm's botnets (Jan to Feb); Soloway's spam relayed through botnets (alleged, to May); the Bot Roast cases (Jun, Nov); Estonia (Reported; whether the bots were compromised or rented is not established) (basis: Described; a later mapping, since no 2007 source prints an ATT&CK id). Sources [1][46][47][48][40][41] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    },
+    {
+      "techniqueID": "T1669",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "TJX: intruder may have entered through store wireless networks (Canadian commissioners, 25 Sep); wardriving into retailers' wireless networks (DOJ, 2008, alleged); FTC alleges wireless access was not limited (basis: Described; a later mapping, since no 2007 source prints an ATT&CK id). Sources [5][10][8] refer to the Sources table of case-studies/CHRONICLE_2007.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8"
+    ],
+    "minValue": 40,
+    "maxValue": 70
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2007.md (sources opened 12 November 2026, library checks 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "17"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "20"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2007 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2007.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

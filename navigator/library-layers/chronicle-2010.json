@@ -351,7 +351,7 @@
       "techniqueID": "T1203",
       "tactic": "execution",
       "score": 100,
-      "comment": "CVE-2010-0249 in limited, targeted attacks (MS10-002, 21 Jan); Internet Explorer, Firefox, Reader, Flash and Office flaws exploited at or before their fixes (Jan to Dec; match Inferred) (basis: Listed (G0066); Described; ATT&CK lists the id for G0066 Elderwood; ATT&CK says Elderwood was \"reportedly responsible\" for the 2009 Google intrusion and draws its techniques from 2009 to 2012 reporting). Sources [11][4][52][56][60][62][63][45] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+      "comment": "CVE-2010-0249 in limited, targeted attacks (MS10-002, 21 Jan); Internet Explorer, Firefox, Reader and Flash flaws exploited at or before their fixes (Jan to Dec; match Inferred) (basis: Listed (G0066); Described; ATT&CK lists the id for G0066 Elderwood; ATT&CK says Elderwood was \"reportedly responsible\" for the 2009 Google intrusion and draws its techniques from 2009 to 2012 reporting). Sources [11][4][52][56][60][62][63][45] refer to the Sources table of case-studies/CHRONICLE_2010.md."
     },
     {
       "techniqueID": "T1204.001",

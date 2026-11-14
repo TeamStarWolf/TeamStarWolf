@@ -65,7 +65,7 @@ Espionage was documented by researchers and a congressional commission, and neit
 
 The web's defaults moved. Gmail began turning on HTTPS by default for all users on 12 January, Chromium launched a vulnerability reward program on 28 January, RFC 5746 fixed TLS renegotiation in February, HTTPS Everywhere shipped on 17 June, the signed DNS root's first trust anchor became valid on 15 July, and on 24 October Firesheep showed how easily session cookies could be taken on open Wi-Fi (Confirmed [76][74][70][77][73][68]). Governments organized: NIST published SP 800-37 Revision 1 in February, US Cyber Command began operations in May, NIST published its smart grid guidelines on 31 August, DHS ran Cyber Storm III from 27 September, and the UK committed GBP 650 million of new funds to cyber security on 19 October (Confirmed [69][38][78][79][80]).
 
-This study records the year by date. It is built only from sources opened on 12 November 2026 and from checks of the library's data run on 12 and 13 November 2026, and is checked as of 13 November 2026.
+This study records the year by date. It is built from sources opened on 12 November 2026 (except source 82, which is carried from the E-Commerce Threats study) and from checks of the library's data run on 12 and 13 November 2026, and is checked as of 13 November 2026.
 
 ### Key facts at a glance
 
@@ -113,7 +113,7 @@ This study records the year by date. It is built only from sources opened on 12 
 
 ## Scope and method
 
-This study covers intrusions, vulnerabilities, malware, botnets, card theft and fraud, prosecutions, state and espionage operations, defaults and incentives, regulation, standards and policy dated to 2010, plus the later records that open, close or explain a 2010 event. It follows the method of the [case studies collection](/case-studies/README.md): primary sources first, every claim graded, and numbers given as the source states them. Every external source was opened on 12 November 2026, and the library data checks were run on 12 and 13 November 2026. The Intelligence Hub feed, which carries 23 KEV rows for CVE-2010 ids and a historic row for the 16 July shortcut advisory, was used as a map to find primaries, not as a citation for any event (Confirmed [83]).
+This study covers intrusions, vulnerabilities, malware, botnets, card theft and fraud, prosecutions, state and espionage operations, defaults and incentives, regulation, standards and policy dated to 2010, plus the later records that open, close or explain a 2010 event. It follows the method of the [case studies collection](/case-studies/README.md): primary sources first, every claim graded, and numbers given as the source states them. Every external source except source 82, which is carried from the E-Commerce Threats study, was opened on 12 November 2026, and the library data checks were run on 12 and 13 November 2026. The Intelligence Hub feed, which carries 23 KEV rows for CVE-2010 ids and a historic row for the 16 July shortcut advisory, was used as a map to find primaries, not as a citation for any event (Confirmed [83]).
 
 | Grade | Meaning in this study |
 |---|---|
@@ -405,7 +405,7 @@ The Basis column says how strong each tie is, as in the [2016 chronicle](/case-s
 | Id | Name (ATT&CK v20.0) | Tactic(s) | Basis | Dated event or report | Sources |
 |---|---|---|---|---|---|
 | [`T1189`](/mitre/techniques/T1189.md) | Drive-by Compromise | initial-access | Listed (G0066) | Elderwood, reportedly Aurora (disclosed 12 Jan); the USCC's account of a link to a malicious photo-sharing site (Nov; Reported) | [11][10] |
-| [`T1203`](/mitre/techniques/T1203.md) | Exploitation for Client Execution | execution | Listed (G0066); Described | CVE-2010-0249 in limited, targeted attacks (MS10-002, 21 Jan); Internet Explorer, Firefox, Reader, Flash and Office flaws exploited at or before their fixes (Jan to Dec; match Inferred) | [11][4][52][56][60][62][63][45] |
+| [`T1203`](/mitre/techniques/T1203.md) | Exploitation for Client Execution | execution | Listed (G0066); Described | CVE-2010-0249 in limited, targeted attacks (MS10-002, 21 Jan); Internet Explorer, Firefox, Reader and Flash flaws exploited at or before their fixes (Jan to Dec; match Inferred) | [11][4][52][56][60][62][63][45] |
 | [`T1105`](/mitre/techniques/T1105.md) | Ingress Tool Transfer | command-and-control | Listed (G0066, S0203, C0002); Described | Elderwood, Hydraq, Night Dragon; the Aurora link downloaded malware (USCC; Reported) | [11][12][47][10] |
 | [`T1027.002`](/mitre/techniques/T1027-002.md) | Software Packing | stealth | Listed (G0066, C0002) | Elderwood; Night Dragon (ATT&CK objects) | [11][47] |
 | [`T1027.013`](/mitre/techniques/T1027-013.md) | Encrypted/Encoded File | stealth | Listed (G0066, C0002) | Elderwood; Night Dragon (ATT&CK objects) | [11][47] |
@@ -580,7 +580,7 @@ The study's Enterprise techniques are saved as an ATT&CK Navigator layer pinned 
 
 **Removable media crossed every boundary.** A flash drive reached classified military networks in 2008 and a USB worm reached Siemens control software in 2010, both disclosed this year (Confirmed [38][22]).
 
-**Documents and browsers carried the attacks.** Internet Explorer, Firefox, Reader, Flash and Office flaws were exploited at or before their fixes from January to December (Confirmed [4][52][56][60][62][63][45]).
+**Documents and browsers carried the attacks.** Internet Explorer, Firefox, Reader and Flash flaws were exploited at or before their fixes from January to December (Confirmed [4][52][56][60][62][63][45]).
 
 **Encryption and integrity defaults moved.** Gmail, HTTPS Everywhere, RFC 5746 and the signed DNS root all date from 2010, and Firesheep made the case in public (Confirmed [76][77][70][73][68]).
 
@@ -625,7 +625,7 @@ This section is the study's reading of the record (Inferred).
 
 ## Sources
 
-Every external source was opened on 12 November 2026, and the library data checks were run on 12 and 13 November 2026, as the Opened column shows. All are checked as of 13 November 2026. Grade is the source's evidence grade as used in this study. The address of source 82 is shown as code rather than as a link because sec.gov refuses automated link checkers; copy it into a browser to open it.
+Every external source except source 82, which is carried from the E-Commerce Threats study, was opened on 12 November 2026, and the library data checks were run on 12 and 13 November 2026, as the Opened column shows. All are checked as of 13 November 2026. Grade is the source's evidence grade as used in this study. The address of source 82 is shown as code rather than as a link because sec.gov refuses automated link checkers; copy it into a browser to open it.
 
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|
@@ -710,7 +710,7 @@ Every external source was opened on 12 November 2026, and the library data check
 | 79 | DHS, Cyber Storm III Final Report | https://www.cisa.gov/sites/default/files/publications/CyberStorm%2520III%2520FINAL%2520Report.pdf | 2026-11-12 | Confirmed |
 | 80 | UK Government, The Strategic Defence and Security Review: Securing Britain in an Age of Uncertainty, 19 Oct 2010 | https://www.gov.uk/government/publications/the-strategic-defence-and-security-review-securing-britain-in-an-age-of-uncertainty | 2026-11-12 | Confirmed |
 | 81 | The White House (archived), CNCI summary page (national-initiative) | https://obamawhitehouse.archives.gov/issues/foreign-policy/cybersecurity/national-initiative | 2026-11-12 | Confirmed (content); date not checked |
-| 82 | Heartland Payment Systems, Exhibit 99.1 on the Visa settlement, 8 Jan 2010 (SEC EDGAR; as cited by the E-Commerce Threats study, not reopened) | `https://www.sec.gov/Archives/edgar/data/0001144354/000119312510003149/dex991.htm` | 2026-11-12 | Inferred (carried from the home study) |
+| 82 | Heartland Payment Systems, Exhibit 99.1 on the Visa settlement, 8 Jan 2010 (SEC EDGAR; as cited by the E-Commerce Threats study, not reopened) | `https://www.sec.gov/Archives/edgar/data/0001144354/000119312510003149/dex991.htm` | not opened (carried from E-Commerce Threats source 6, opened there 2026-11-11) | Inferred (carried from the home study) |
 | 83 | TeamStarWolf Intelligence Hub, feed (used as a map) | https://teamstarwolf.github.io/intelligence-hub/data/feed.json | 2026-11-12 | Confirmed (as feed data) |
 | 84 | TeamStarWolf library, ATT&CK data files (`data/attack/`, `data/attack/ics/`) | https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack | 2026-11-12; 2026-11-13 | Confirmed; Demonstrated |
 | 85 | TeamStarWolf library, weakness and countermeasure data (`data/weaknesses/capec.jsonl`, `cwe.jsonl`, `data/attack/technique_to_d3fend.jsonl`) | https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/weaknesses | 2026-11-12; 2026-11-13 | Demonstrated |

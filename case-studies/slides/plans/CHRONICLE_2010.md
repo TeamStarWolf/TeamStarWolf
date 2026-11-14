@@ -50,15 +50,14 @@ Notes: Aurora [1][4]. Waledac [15]. Gonzalez [66]. Shadows [18]. Routes [10]. St
 Left: Exploited at release
 - IE: Aurora, then two more.
 - Firefox 3.6 in October.
-- Reader and Flash, four flaws.
-- Office RTF in November.
+- Reader and Flash, three flaws.
 Right: The KEV tail
 - 23 CVE-2010 entries.
 - Two added in 2026.
 - JBoss, ColdFusion, Exim.
 - Four tied to ransomware.
 Caption: Adobe's fixes were not opened; the Adobe rows rest on the CVE records.
-Notes: Part 2. IE [4][52][45]. Firefox [56]. Reader and Flash [60][62][63][58]. Office [54]. KEV [8][59][61][64].
+Notes: Part 2. IE [4][52][45]. Firefox [56]. Reader and Flash [60][62][63]. KEV [8][59][61][64].
 
 ## PART 3 | Stuxnet reached the control room by USB
 

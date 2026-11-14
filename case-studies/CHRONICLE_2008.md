@@ -19,7 +19,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 65 min (15,011 words at 230 words a minute)
+About 65 min (15,026 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -155,7 +155,7 @@ One row per event or report. The date is the event date where the source gives o
 | 2008-03-08 to 2008-03-10 | Hannaford finds the means of access (8 Mar) and contains the breach (10 Mar) | Card theft | Retail (grocery) | Confirmed (as alleged) | [56] |
 | 2008-03-12 | NVD begins using CWE mappings; Dave & Buster's indictment returned in E.D.N.Y. (unsealed 12 May) | Standards; Crime | Cross-sector; hospitality | Confirmed | [59][49] |
 | 2008-03-17 | Hannaford announces the breach: more than 270 stores, about 1,800 fraud cases already reported | Card theft | Retail (grocery) | Confirmed (as alleged) | [56] |
-| 2008-03-26 | A Core Security advisory becomes the first advisory to carry a CWE id | Standards | Cross-sector | Confirmed | [59] |
+| 2008-03-25 | A Core Security advisory becomes the first advisory to carry a CWE id (reported in CWE news on 26 Mar) | Standards | Cross-sector | Confirmed | [59] |
 | 2008-03-27 | FTC announces the proposed TJX consent order with separate actions against Reed Elsevier and Seisint | Regulation | Retail, data brokers | Confirmed | [58] |
 | 2008-04 | Wyndham's first intrusion, through a Phoenix hotel's network, as alleged by the FTC. Home: [E-Commerce Threats](/case-studies/ECOMMERCE_THREATS.md) | Card theft | Hospitality | Confirmed (as alleged) | [57] |
 | 2008-04-25 to 2008-05-27 | Regin's decoded GSM base station controller log, commands on 136 cells | State | Telecom | Confirmed (vendor's analysis) | [42] |
@@ -377,7 +377,7 @@ The PCI Security Standards Council made PCI DSS version 1.2 generally available 
 
 ### The vocabulary of weaknesses
 
-MITRE's CWE news archive records three 2008 firsts: NVD began using CWE mappings (item of 12 March), a Core Security advisory became the first advisory to include a CWE id (26 March), and CWE version 1.0 was posted on 9 September, followed by 1.0.1 on 14 October and 1.1 on 25 November (Confirmed [59]). The item of 25 November said the SANS/MITRE Top 25 Most Dangerous Programming Errors was scheduled for initial release on 10 December; the actual release date was not checked (Confirmed [59]).
+MITRE's CWE news archive records three 2008 firsts: NVD began using CWE mappings (item of 12 March), a Core Security advisory became the first advisory to include a CWE id (advisory of 25 March, CWE news item of 26 March), and CWE version 1.0 was posted on 9 September, followed by 1.0.1 on 14 October and 1.1 on 25 November (Confirmed [59]). The item of 25 November said the SANS/MITRE Top 25 Most Dangerous Programming Errors was scheduled for initial release on 10 December; the actual release date was not checked (Confirmed [59]).
 
 ### Guides, protocols and platforms
 

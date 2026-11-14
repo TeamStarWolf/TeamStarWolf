@@ -1019,6 +1019,8 @@ CVEs the library discusses that the Hub also tracks, each with its brief on the 
 | CVE | Named in |
 |---|---|
 | [CVE-2002-0367](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2002-0367) | [The Year 2002 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2002.md), [Slide plan: The Year 2002 in Intrusions: A Dated Record](/case-studies/slides/plans/CHRONICLE_2002.md) |
+| [CVE-2006-1547](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2006-1547) | [The Year 2006 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2006.md) |
+| [CVE-2006-2492](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2006-2492) | [The Year 2006 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2006.md) |
 | [CVE-2007-0671](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2007-0671) | [File Types and Extensions Reference](/FILE_TYPES_REFERENCE.md), [The Year 2007 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2007.md), [Slide plan: The Year 2007 in Intrusions: A Dated Record](/case-studies/slides/plans/CHRONICLE_2007.md) |
 | [CVE-2007-1748](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2007-1748) | [The Year 2007 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2007.md) |
 | [CVE-2007-3010](https://teamstarwolf.github.io/intelligence-hub/#/cve/CVE-2007-3010) | [The Year 2007 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2007.md) |

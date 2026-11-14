@@ -677,6 +677,30 @@ studies:
       - {"date": "2007-06-20", "label": "FIRST releases CVSS v2"}
       - {"date": "2007-11-15", "label": "Stuxnet 0.5 submitted to a public scanning service"}
       - {"date": "2007-11-20", "label": "Chancellor tells the Commons that HMRC's child benefit discs are missing"}
+  case-studies/CHRONICLE_2006.md:
+    kind: "era"
+    title: "The Year 2006 in Intrusions: A Dated Record"
+    start: "2006-01"
+    end: "2006-12"
+    sectors: ["cross-sector", "government", "defense", "healthcare", "technology", "retail", "finance", "telecommunications", "energy", "education"]
+    cves: ["CVE-2005-4560", "CVE-2006-0003", "CVE-2006-0058", "CVE-2006-1301", "CVE-2006-1359", "CVE-2006-1547", "CVE-2006-2492", "CVE-2006-3059", "CVE-2006-3439", "CVE-2006-3507", "CVE-2006-3590", "CVE-2006-3730", "CVE-2006-4534", "CVE-2006-4868"]
+    actors: ["G0006", "G0045"]
+    tags: ["VA data theft", "Windows Metafile", "Office zero-days", "Mywife.E", "botnets", "ChoicePoint", "HP pretexting", "TJX", "APT1", "menuPass", "Shady RAT", "FIPS 200"]
+    pdf: "Chronicle_2006_Case_Study.pdf"
+    pptx: "Chronicle_2006_Case_Study.pptx"
+    events:
+      - {"date": "2006-01-05", "label": "MS06-001 fixes the Windows Metafile flaw out of cycle, exploited before any patch; US-CERT alert"}
+      - {"date": "2006-01-26", "label": "FTC announces the ChoicePoint settlement: $10 million civil penalty and $5 million consumer redress"}
+      - {"date": "2006-02-03", "label": "Mywife.E (Nyxem) runs its first scheduled corruption of document files"}
+      - {"date": "2006-05-03", "label": "VA analyst's home burglarized; laptop and drive with data on up to 26.5 million veterans stolen"}
+      - {"date": "2006-05-08", "label": "Jeanson James Ancheta sentenced to 57 months for selling botnet access for DDoS and spam"}
+      - {"date": "2006-05-19", "label": "Word zero-day: CERT/CC VU#446012 and a US-CERT alert; ISC first reports the targeted attack"}
+      - {"date": "2006-06-23", "label": "OMB M-06-16: encrypt mobile devices and require two-factor remote access"}
+      - {"date": "2006-07", "label": "Mandiant first observes APT1 using WEBC2 backdoors; Shady RAT logs its first victims"}
+      - {"date": "2006-08-08", "label": "MS06-040 (Server service) and MS06-048 (PowerPoint), both exploited at release"}
+      - {"date": "2006-09-06", "label": "HP 8-K: a third party working for its outside investigators used pretexting to get phone records"}
+      - {"date": "2006-09-26", "label": "MS06-055 fixes the exploited VML flaw out of cycle"}
+      - {"date": "2006-12-18", "label": "TJX finds suspicious software, then confirms an intruder and stolen customer data (18 to 27 Dec)"}
   case-studies/CHRONICLE_2016.md:
     kind: "era"
     title: "The Year 2016 in Intrusions: A Dated Record"

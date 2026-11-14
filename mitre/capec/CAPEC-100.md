@@ -81,6 +81,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Year 2005 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2005.md)
 - [The Year 2006 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2006.md)
 - [The Year 2007 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2007.md)
+- [The Year 2009 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2009.md)
 - [The Year 2010 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2010.md)
 - [The Year 2011 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2011.md)
 - [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md)

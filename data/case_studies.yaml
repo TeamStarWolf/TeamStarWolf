@@ -797,6 +797,30 @@ studies:
       - {"date": "2014-10-14", "label": "Google discloses POODLE in SSL 3.0; MS14-060 fixes the OLE flaw CVE-2014-4114 used in targeted attacks"}
       - {"date": "2014-11-24", "label": "Symantec and Kaspersky publish Regin, with samples timestamped back to 2003"}
       - {"date": "2014-12-19", "label": "FBI attributes the destructive attack on Sony Pictures to North Korea; US-CERT TA14-353A"}
+  case-studies/CHRONICLE_2009.md:
+    kind: "era"
+    title: "The Year 2009 in Intrusions: A Dated Record"
+    start: "2009-01"
+    end: "2009-12"
+    sectors: ["cross-sector", "finance", "retail", "government", "defense", "energy", "technology", "healthcare", "education", "media", "telecommunications"]
+    cves: ["CVE-2008-0015", "CVE-2008-4114", "CVE-2008-4250", "CVE-2008-4834", "CVE-2008-4835", "CVE-2009-0238", "CVE-2009-0556", "CVE-2009-0658", "CVE-2009-0927", "CVE-2009-1123", "CVE-2009-1136", "CVE-2009-1151", "CVE-2009-1537", "CVE-2009-1862", "CVE-2009-2055", "CVE-2009-2408", "CVE-2009-2477", "CVE-2009-2521", "CVE-2009-2526", "CVE-2009-2532", "CVE-2009-2990", "CVE-2009-3023", "CVE-2009-3103", "CVE-2009-3459", "CVE-2009-3555", "CVE-2009-3672", "CVE-2009-3960", "CVE-2009-4324", "CVE-2010-0249"]
+    actors: ["G0066"]
+    tags: ["Conficker", "MS08-067", "AutoRun", "Heartland", "GhostNet", "Shadow Network", "Night Dragon", "Operation Aurora", "Phish Phry", "HITECH", "US Cyber Command", "TLS renegotiation"]
+    pdf: "Chronicle_2009_Case_Study.pdf"
+    pptx: "Chronicle_2009_Case_Study.pptx"
+    events:
+      - {"date": "2009-01-20", "label": "Heartland discloses a 2008 breach of its processing system; US-CERT TA09-020A says AutoRun cannot be reliably disabled"}
+      - {"date": "2009-02-12", "label": "Microsoft announces the Conficker coalition with ICANN and DNS operators and a USD 250,000 reward"}
+      - {"date": "2009-02-17", "label": "ARRA enacted, including the HITECH Act's breach notification sections for health data"}
+      - {"date": "2009-02-19", "label": "Adobe APSA09-01: the Reader and Acrobat JBIG2 flaw is being exploited (CVE-2009-0658)"}
+      - {"date": "2009-03-28", "label": "Information Warfare Monitor publishes Tracking GhostNet: more than 1,295 infected hosts in 103 countries"}
+      - {"date": "2009-03-29", "label": "US-CERT TA09-088A: Conficker spreads to hosts lacking MS08-067 by thumb drives, shares and networks"}
+      - {"date": "2009-05-29", "label": "The President announces a White House cybersecurity office and discloses the 2008 campaign intrusion"}
+      - {"date": "2009-06-23", "label": "Stuxnet attack wave 1 infects its first target; the Secretary of Defense directs creation of US Cyber Command"}
+      - {"date": "2009-10-07", "label": "FBI announces Operation Phish Phry: nearly 100 charged in the United States and Egypt"}
+      - {"date": "2009-11", "label": "Night Dragon campaign against oil, energy and petrochemical companies first seen, per ATT&CK"}
+      - {"date": "2009-11-05", "label": "TLS renegotiation flaw CVE-2009-3555 made public; fixed in protocol by RFC 5746 in February 2010"}
+      - {"date": "2009-12", "label": "Google detects the targeted attack it disclosed in January 2010, now known as Operation Aurora"}
   case-studies/CHRONICLE_2013.md:
     kind: "era"
     title: "The Year 2013 in Intrusions: A Dated Record"

@@ -3066,6 +3066,14 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
     pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [DevSecOps Reference](/DEVSECOPS_REFERENCE.md), [npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md), [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)"
     reviewed: null
+  case-studies/THE_RECORD_AND_THE_WINDOW.md:
+    audience: "Security leaders, vulnerability management and exposure owners, threat intelligence analysts, policy teams and anyone planning security for the decade ahead"
+    level: "Intermediate"
+    read_when: "You want one argument that reads the whole case-study library together, you need the evidence that the exposure window on edge devices went negative in 2026, or you are deciding what to build and measure for the years 2027 to 2036"
+    start_at: "[Executive summary](#executive-summary), [Chapter 12: The Next Decade](#chapter-12-the-next-decade), [Chapter 13: What the Paper Would Do](#chapter-13-what-the-paper-would-do)"
+    pairs_with: "[The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md), [Vulnerability Root Causes](/VULNERABILITY_ROOT_CAUSES.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
   case-studies/THREAT_ACTORS_CHINA.md:
     audience: "Threat intelligence analysts, threat hunters, defenders of critical infrastructure and healthcare security teams"
     level: "Intermediate"

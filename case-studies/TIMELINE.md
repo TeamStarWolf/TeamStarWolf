@@ -530,6 +530,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 30 January 2026: Advisory updated with the last release updates; KEV due date for federal civilian agencies
   - 10 March 2026: Siemens SSA-975644 lists the CVE for the Fortinet NGFW on RUGGEDCOM APE1808
   - 12 May 2026: SSA-975644 V1.1 adds two other Fortinet CVEs on the same platform
+- [The Record and the Window: A Thesis on Cybersecurity in 2026 and the Decade Ahead](/case-studies/THE_RECORD_AND_THE_WINDOW.md). Attack surface, August 1986 to November 2026 (core: 1 January 2026 to 13 November 2026). Sectors: cross-sector. CVEs: CVE-2026-20127, CVE-2026-22769, CVE-2026-50751, CVE-2026-88772, CVE-2026-24858, CVE-2026-104935 and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/The_Record_And_The_Window_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/The_Record_And_The_Window_Case_Study.pptx).
+  - August 1986: The Cuckoo's Egg intrusion: an intruder uses Lawrence Berkeley Laboratory as a way station into ARPANET and MILNET
+  - 2 November 1988: The Morris worm guesses passwords with a 432-word list and moves through host trust files
+  - 2003: The first Patch Tuesday: the vendor's fix, applied on a schedule, becomes the unit of defensive work
+  - 17 February 2026: Dell discloses RecoverPoint for Virtual Machines hard-coded credential CVE-2026-22769, exploited from mid-2024 as reported
+  - 25 February 2026: Cisco scores SD-WAN bypass CVE-2026-20127 at CVSS 10.0; Talos traces UAT-8616 to 2023; CISA issues Emergency Directive 26-03
+  - 8 June 2026: Check Point's hotfix for VPN flaw CVE-2026-50751, exploited from 7 May; KEV lists it the same day
+  - 27 September 2026: Citrix bulletin: exploits of CVE-2026-88772 and a second flaw observed, from early September as reported; KEV lists both that day
+  - 13 October 2026: Ivanti discloses CVE-2026-104935 under limited exploitation, ten days after exploitation began on 3 October
+  - 30 October 2026: First wave of the Check Point gateway chain: a wiper on a VMware ESXi host deletes files at Israeli organizations
+  - 5 November 2026: SSHole, CVE-2026-123158, published at 15:46 UTC; attempts follow within hours and KEV lists it on 9 November
+  - 8 November 2026: Able2Shell: a researcher publishes 33 alleged N-able N-central flaws with proof-of-concept code and no notice to the vendor
+  - 12 November 2026: CVE-2026-123039 published two weeks after the first wave; KEV lists it on 13 November, due 16 November
 - [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md). Period record, January to November 2026. Sectors: cross-sector, government, technology, energy, healthcare, finance, retail, education, defense, transport. CVEs: CVE-2008-0015, CVE-2008-4128, CVE-2008-4250, CVE-2015-3306, CVE-2015-5477, CVE-2016-3081 and 65 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2026_Case_Study.pptx).
   - 23 January 2026: ESET ties DynoWiper, used against a Polish energy company on 29 Dec 2025, to Sandworm with medium confidence
   - 25 February 2026: Talos: Cisco Catalyst SD-WAN CVE-2026-20127 exploited as a zero-day back to at least 2023; CISA issues ED 26-03

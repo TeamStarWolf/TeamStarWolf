@@ -291,7 +291,7 @@
       "techniqueID": "T1203",
       "tactic": "execution",
       "score": 100,
-      "comment": "Internet Explorer CVE-2010-0249 in limited, targeted attacks (MS10-002); Adobe and Office flaws exploited at release (Feb to Dec); Shadow Network PDF exploits (2009) (basis: Listed (G0066); Described; ATT&CK lists the id for G0066 Elderwood; ATT&CK says Elderwood was \"reportedly\" responsible for Operation Aurora). Sources [74][72][14][17][25][26][40][66][68] refer to the Sources table of case-studies/CHRONICLE_2009.md."
+      "comment": "Internet Explorer CVE-2010-0249 in limited, targeted attacks (MS10-002); Adobe and Office flaws exploited at release (Feb to Dec); Shadow Network PDF exploits (2009) (basis: Listed (G0066); Described; ATT&CK lists the id for G0066 Elderwood; ATT&CK says Elderwood was \"reportedly\" responsible for Operation Aurora). Sources [74][72][14][17][25][26][40][99][66][68] refer to the Sources table of case-studies/CHRONICLE_2009.md."
     },
     {
       "techniqueID": "T1204.001",

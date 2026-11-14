@@ -1047,6 +1047,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 21 February 2025: Bybit theft, about $1.5 billion; the FBI names TraderTraitor on 26 February 2025
   - 21 September 2026: Operation Lonestar Roundup searches of Texas laptop farms (21 to 25 September), announced 13 October 2026
   - 29 October 2026: Binance theft, more than $6 billion; the FBI names TraderTraitor on 31 October 2026, an attribution disputed in press
+- [The Year 2009 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2009.md). Period record, January to December 2009. Sectors: cross-sector, finance, retail, government, defense, energy, technology, healthcare, education, media, telecommunications. CVEs: CVE-2008-0015, CVE-2008-4114, CVE-2008-4250, CVE-2008-4834, CVE-2008-4835, CVE-2009-0238 and 21 more. ATT&CK groups: G0066 Elderwood. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2009_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2009_Case_Study.pptx).
+  - 20 January 2009: Heartland discloses a 2008 breach of its processing system; US-CERT TA09-020A says AutoRun cannot be reliably disabled
+  - 12 February 2009: Microsoft announces the Conficker coalition with ICANN and DNS operators and a USD 250,000 reward
+  - 17 February 2009: ARRA enacted, including the HITECH Act's breach notification sections for health data
+  - 19 February 2009: Adobe APSA09-01: the Reader and Acrobat JBIG2 flaw is being exploited (CVE-2009-0658)
+  - 28 March 2009: Information Warfare Monitor publishes Tracking GhostNet: more than 1,295 infected hosts in 103 countries
+  - 29 March 2009: US-CERT TA09-088A: Conficker spreads to hosts lacking MS08-067 by thumb drives, shares and networks
+  - 29 May 2009: The President announces a White House cybersecurity office and discloses the 2008 campaign intrusion
+  - 23 June 2009: Stuxnet attack wave 1 infects its first target; the Secretary of Defense directs creation of US Cyber Command
+  - 7 October 2009: FBI announces Operation Phish Phry: nearly 100 charged in the United States and Egypt
+  - November 2009: Night Dragon campaign against oil, energy and petrochemical companies first seen, per ATT&CK
+  - 5 November 2009: TLS renegotiation flaw CVE-2009-3555 made public; fixed in protocol by RFC 5746 in February 2010
+  - December 2009: Google detects the targeted attack it disclosed in January 2010, now known as Operation Aurora
 
 ### 2007 <!-- {docsify-ignore} -->
 

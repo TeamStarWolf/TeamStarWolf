@@ -68,6 +68,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [Cyber Operations as Statecraft: The Cases in The Hacker and the State](/case-studies/HACKER_AND_THE_STATE_CASES.md)
 - [Healthcare Threat Actor Watchlist, 2023 to 2026: Who Hits Hospitals, How They Get In, and What the Record Says](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md)
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md)
+- [The Year 2009 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2009.md)
 
 <!-- library-refs:end -->
 

@@ -2494,6 +2494,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 2: the data-broker and card-data breaches](#part-2-the-data-broker-and-card-data-breaches), [Part 8: the defender view](#part-8-the-defender-view)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [E-Commerce Threats](/case-studies/ECOMMERCE_THREATS.md), [Database Security](/DATABASE_SECURITY_REFERENCE.md), [The Year 2004 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2004.md)"
     reviewed: null
+  case-studies/CHRONICLE_2007.md:
+    audience: "Threat intelligence analysts, security historians, vulnerability management, privacy and policy teams and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2007, you need the Storm Worm, the Estonia attacks and the year's exploited Office, Windows and Solaris flaws side by side with the data losses at TJX, Certegy and HMRC, the later records that date APT1, APT28 and Stuxnet 0.5 to 2007, the rules that followed, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 2: Storm and the botnet economy](#part-2-storm-and-the-botnet-economy), [Part 3: Estonia, April and May 2007](#part-3-estonia-april-and-may-2007)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Russia-attributed threat actors](/case-studies/THREAT_ACTORS_RUSSIA.md), [Incident Response](/INCIDENT_RESPONSE_REFERENCE.md), [The Year 2005 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2005.md)"
+    reviewed: null
   case-studies/CHRONICLE_2006.md:
     audience: "Threat intelligence analysts, security historians, privacy and vulnerability management teams and anyone who wants the history behind current threats"
     level: "Beginner to intermediate"

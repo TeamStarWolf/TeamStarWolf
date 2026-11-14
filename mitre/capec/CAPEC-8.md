@@ -65,6 +65,7 @@ Hand-written pages in this library that link to this page or to this object's en
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 - [The Year 2006 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2006.md)
+- [The Year 2007 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2007.md)
 
 <!-- library-refs:end -->
 

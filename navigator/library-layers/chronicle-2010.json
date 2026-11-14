@@ -1,0 +1,617 @@
+{
+  "name": "TeamStarWolf - The Year 2010 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2010 record supports: the techniques ATT&CK lists for the objects it ties to 2010, G0066 Elderwood and S0203 Hydraq (reportedly Operation Aurora, disclosed by Google on 12 January), campaign C0002 Night Dragon (November 2009 to February 2011) and S0603 Stuxnet (discovered 2010, only the techniques a 2010 primary describes), and behavior described by Microsoft's bulletins and advisories, ICS-CERT's and US-CERT's Stuxnet records, the Shadows in the Cloud report, Apache's JIRA incident report, the Firesheep release, the Justice Department and FBI Zeus releases and the 2011 PayPal indictment release, with the US-China Commission's account of the Aurora lure graded Reported. No 2010 source prints an ATT&CK id. The ten ATT&CK for ICS techniques listed for Stuxnet are in the separate layer navigator/case-studies/chronicle-2010-ics.json. Each comment names source numbers from case-studies/CHRONICLE_2010.md. Scores: 100 an ATT&CK object prints the id, 70 the source describes the behavior and the study assigns the id, 50 only a Reported source supports the behavior, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1003.002",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Night Dragon (Nov 2009 to Feb 2011) (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Hydraq; Night Dragon; Apache attackers copied home directories (5 to 9 Apr) (basis: Listed (S0203, C0002); Described; ATT&CK lists the id for S0203 Hydraq, C0002 Night Dragon; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [12][47][17] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1007",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Hydraq (ATT&CK object) (basis: Listed (S0203); ATT&CK lists the id for S0203 Hydraq; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses). Sources [12] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1008",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1012",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Hydraq (ATT&CK object) (basis: Listed (S0203); ATT&CK lists the id for S0203 Hydraq; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses). Sources [12] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1014",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Stuxnet's signed kernel-mode rootkit (ICSA-10-238-01B) (basis: Listed (S0603); Described; ATT&CK lists the id for S0603 Stuxnet; ATT&CK says Stuxnet was discovered in 2010). Sources [34][28] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Hydraq (ATT&CK object) (basis: Listed (S0203); ATT&CK lists the id for S0203 Hydraq; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses). Sources [12] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Stuxnet through network shares (ICSA-10-238-01B, ICSA-10-272-01) (basis: Listed (S0603); Described; ATT&CK lists the id for S0603 Stuxnet; ATT&CK says Stuxnet was discovered in 2010). Sources [34][28][29] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Hydraq (ATT&CK object) (basis: Listed (S0203); ATT&CK lists the id for S0203 Hydraq; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses). Sources [12] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1027.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Elderwood; Night Dragon (ATT&CK objects) (basis: Listed (G0066, C0002); ATT&CK lists the id for G0066 Elderwood, C0002 Night Dragon; ATT&CK says Elderwood was \"reportedly responsible\" for the 2009 Google intrusion and draws its techniques from 2009 to 2012 reporting; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [11][47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1027.013",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Elderwood; Night Dragon (ATT&CK objects) (basis: Listed (G0066, C0002); ATT&CK lists the id for G0066 Elderwood, C0002 Night Dragon; ATT&CK says Elderwood was \"reportedly responsible\" for the 2009 Google intrusion and draws its techniques from 2009 to 2012 reporting; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [11][47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1033",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 40,
+      "comment": "Firesheep captured cookies on open Wi-Fi (24 Oct) (basis: Inferred; a later mapping, since no 2010 source prints an ATT&CK id). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 40,
+      "comment": "Firesheep captured cookies on open Wi-Fi (24 Oct) (basis: Inferred; a later mapping, since no 2010 source prints an ATT&CK id). Sources [68] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1048",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Hydraq (ATT&CK object) (basis: Listed (S0203); ATT&CK lists the id for S0203 Hydraq; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses). Sources [12] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "Zeus recorded keystrokes at online-banking login (charged 30 Sep) (basis: Described; a later mapping, since no 2010 source prints an ATT&CK id). Sources [42] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Zeus recorded keystrokes at online-banking login (charged 30 Sep) (basis: Described; a later mapping, since no 2010 source prints an ATT&CK id). Sources [42] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1057",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Hydraq (ATT&CK object) (basis: Listed (S0203); ATT&CK lists the id for S0203 Hydraq; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses). Sources [12] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1068",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Stuxnet's privilege-escalation zero-days CVE-2010-2743 and CVE-2010-3338 (MS10-073, MS10-092); CVE-2010-3904 in KEV (match Inferred) (basis: Listed (S0603); Described; ATT&CK lists the id for S0603 Stuxnet; ATT&CK says Stuxnet was discovered in 2010). Sources [34][32][53][55][64] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1070.004",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Hydraq (ATT&CK object) (basis: Listed (S0203); ATT&CK lists the id for S0203 Hydraq; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses). Sources [12] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1074.002",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Hard-coded WinCC and PCS 7 password CVE-2010-2772 (Jul) (basis: Listed (S0603); Described; ATT&CK lists the id for S0603 Stuxnet; ATT&CK says Stuxnet was discovered in 2010). Sources [34][33] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Hard-coded WinCC and PCS 7 password CVE-2010-2772 (Jul) (basis: Listed (S0603); Described; ATT&CK lists the id for S0603 Stuxnet; ATT&CK says Stuxnet was discovered in 2010). Sources [34][33] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Hard-coded WinCC and PCS 7 password CVE-2010-2772 (Jul) (basis: Listed (S0603); Described; ATT&CK lists the id for S0603 Stuxnet; ATT&CK says Stuxnet was discovered in 2010). Sources [34][33] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Hard-coded WinCC and PCS 7 password CVE-2010-2772 (Jul) (basis: Listed (S0603); Described; ATT&CK lists the id for S0603 Stuxnet; ATT&CK says Stuxnet was discovered in 2010). Sources [34][33] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1078.002",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1080",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Stuxnet through STEP 7 project files (ICSA-10-272-01; match Inferred) (basis: Listed (S0603); Described; ATT&CK lists the id for S0603 Stuxnet; ATT&CK says Stuxnet was discovered in 2010). Sources [34][29] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Hydraq (ATT&CK object) (basis: Listed (S0203); ATT&CK lists the id for S0203 Hydraq; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses). Sources [12] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Hydraq; Night Dragon (basis: Listed (S0203, C0002); ATT&CK lists the id for S0203 Hydraq, C0002 Night Dragon; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [12][47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Stuxnet's shortcut flaw from USB drives (Jul); the 2008 CENTCOM flash drive (disclosed 1 Sep) (basis: Listed (S0603); Described; ATT&CK lists the id for S0603 Stuxnet; ATT&CK says Stuxnet was discovered in 2010). Sources [34][22][23][25][38] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Stuxnet's shortcut flaw from USB drives (Jul); the 2008 CENTCOM flash drive (disclosed 1 Sep) (basis: Listed (S0603); Described; ATT&CK lists the id for S0603 Stuxnet; ATT&CK says Stuxnet was discovered in 2010). Sources [34][22][23][25][38] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1102",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Shadows in the Cloud: command and control over Twitter, Google Groups, Blogspot, Baidu Blogs, blog.com and Yahoo Mail (6 Apr) (basis: Described; a later mapping, since no 2010 source prints an ATT&CK id). Sources [18] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Elderwood, Hydraq, Night Dragon; the Aurora link downloaded malware (USCC; Reported) (basis: Listed (G0066, S0203, C0002); Described; ATT&CK lists the id for G0066 Elderwood, S0203 Hydraq, C0002 Night Dragon; ATT&CK says Elderwood was \"reportedly responsible\" for the 2009 Google intrusion and draws its techniques from 2009 to 2012 reporting; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [11][12][47][10] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Apache JIRA login brute-forced, succeeding on 6 Apr (basis: Described; a later mapping, since no 2010 source prints an ATT&CK id). Sources [17] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1110.002",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Hydraq; Night Dragon (basis: Listed (S0203, C0002); ATT&CK lists the id for S0203 Hydraq, C0002 Night Dragon; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [12][47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Hydraq; Night Dragon (basis: Listed (S0203, C0002); ATT&CK lists the id for S0203 Hydraq, C0002 Night Dragon; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [12][47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1113",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Hydraq (ATT&CK object) (basis: Listed (S0203); ATT&CK lists the id for S0203 Hydraq; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses). Sources [12] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1114.001",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1129",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Hydraq (ATT&CK object) (basis: Listed (S0203); ATT&CK lists the id for S0203 Hydraq; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses). Sources [12] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Hydraq (ATT&CK object) (basis: Listed (S0203); ATT&CK lists the id for S0203 Hydraq; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses). Sources [12] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1134",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Hydraq (ATT&CK object) (basis: Listed (S0203); ATT&CK lists the id for S0203 Hydraq; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses). Sources [12] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Elderwood, reportedly Aurora (disclosed 12 Jan); the USCC's account of a link to a malicious photo-sharing site (Nov; Reported) (basis: Listed (G0066); ATT&CK lists the id for G0066 Elderwood; ATT&CK says Elderwood was \"reportedly responsible\" for the 2009 Google intrusion and draws its techniques from 2009 to 2012 reporting). Sources [11][10] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Night Dragon; ASP.NET padding oracle CVE-2010-3332 under limited, targeted attacks (Sep); JBoss, ColdFusion and Exim flaws in KEV (exploitation date not opened; match Inferred) (basis: Listed (C0002); Described; ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47][39][40][8] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "CVE-2010-0249 in limited, targeted attacks (MS10-002, 21 Jan); Internet Explorer, Firefox, Reader and Flash flaws exploited at or before their fixes (Jan to Dec; match Inferred) (basis: Listed (G0066); Described; ATT&CK lists the id for G0066 Elderwood; ATT&CK says Elderwood was \"reportedly responsible\" for the 2009 Google intrusion and draws its techniques from 2009 to 2012 reporting). Sources [11][4][52][56][60][62][63][45] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1204.001",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Elderwood; Night Dragon; the Aurora employee clicked a link (USCC; Reported) (basis: Listed (G0066, C0002); ATT&CK lists the id for G0066 Elderwood, C0002 Night Dragon; ATT&CK says Elderwood was \"reportedly responsible\" for the 2009 Google intrusion and draws its techniques from 2009 to 2012 reporting; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [11][47][10] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Elderwood (ATT&CK object) (basis: Listed (G0066); ATT&CK lists the id for G0066 Elderwood; ATT&CK says Elderwood was \"reportedly responsible\" for the 2009 Google intrusion and draws its techniques from 2009 to 2012 reporting). Sources [11] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Stuxnet through MS08-067 and the print spooler flaw (MS10-061, 14 Sep; ICSA-10-272-01) (basis: Listed (S0603); Described; ATT&CK lists the id for S0603 Stuxnet; ATT&CK says Stuxnet was discovered in 2010). Sources [34][29][31] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "PayPal attacks (6 to 10 Dec, as charged); Mariposa used for denial-of-service attacks (Jul) (basis: Described; a later mapping, since no 2010 source prints an ATT&CK id). Sources [46][16] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1505.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Stuxnet through WinCC database files and SQL databases (ICSA-10-238-01B, ICSA-10-272-01; match Inferred) (basis: Listed (S0603); Described; ATT&CK lists the id for S0603 Stuxnet; ATT&CK says Stuxnet was discovered in 2010). Sources [34][28][29] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "Apache attackers changed the attachment path so JSP files would run (Apr) (basis: Inferred; a later mapping, since no 2010 source prints an ATT&CK id). Sources [17] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1539",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Apache JIRA cross-site scripting link stole administrators' sessions (5 to 9 Apr); Firesheep (24 Oct; match Inferred) (basis: Described; a later mapping, since no 2010 source prints an ATT&CK id). Sources [17][68] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Hydraq (ATT&CK object) (basis: Listed (S0203); ATT&CK lists the id for S0203 Hydraq; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses). Sources [12] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Hydraq (ATT&CK object) (basis: Listed (S0203); ATT&CK lists the id for S0203 Hydraq; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses). Sources [12] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1550.004",
+      "tactic": "lateral-movement",
+      "score": 40,
+      "comment": "Firesheep account takeover with captured cookies (24 Oct); Apache's stolen administrator sessions (Apr) (basis: Inferred; a later mapping, since no 2010 source prints an ATT&CK id). Sources [68][17] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Drivers signed with the Realtek and JMicron certificates, revoked 16 and 22 Jul (basis: Listed (S0603); Described; ATT&CK lists the id for S0603 Stuxnet; ATT&CK says Stuxnet was discovered in 2010). Sources [34][28][30] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Zeus sent as an apparently benign e-mail (charged 30 Sep); the release does not say attachment or link (basis: Described; a later mapping, since no 2010 source prints an ATT&CK id). Sources [42] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Elderwood (ATT&CK object) (basis: Listed (G0066); ATT&CK lists the id for G0066 Elderwood; ATT&CK says Elderwood was \"reportedly responsible\" for the 2009 Google intrusion and draws its techniques from 2009 to 2012 reporting). Sources [11] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1566.002",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Elderwood; Night Dragon (basis: Listed (G0066, C0002); ATT&CK lists the id for G0066 Elderwood, C0002 Night Dragon; ATT&CK says Elderwood was \"reportedly responsible\" for the 2009 Google intrusion and draws its techniques from 2009 to 2012 reporting; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [11][47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1566.003",
+      "tactic": "initial-access",
+      "score": 50,
+      "comment": "Aurora attackers posed as an acquaintance in a chat session (USCC citing Google's security manager) (basis: Reported; only a Reported source describes the behavior; a later mapping, since no 2010 source prints an ATT&CK id). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1568",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1569.002",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Hydraq (ATT&CK object) (basis: Listed (S0203); ATT&CK lists the id for S0203 Hydraq; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses). Sources [12] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1570",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Stuxnet's peer-to-peer RPC updates (ICSA-10-272-01; match Inferred) (basis: Listed (S0603); ATT&CK lists the id for S0603 Stuxnet; ATT&CK says Stuxnet was discovered in 2010). Sources [34][29] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1573.001",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Hydraq (ATT&CK object) (basis: Listed (S0203); ATT&CK lists the id for S0203 Hydraq; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses). Sources [12] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "execution",
+      "score": 40,
+      "comment": "DLL preloading (\"binary planting\") class, Advisory 2269637 (23 Aug); no exploited event in the record (basis: Inferred; a later mapping, since no 2010 source prints an ATT&CK id). Sources [37] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1574.001",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "DLL preloading (\"binary planting\") class, Advisory 2269637 (23 Aug); no exploited event in the record (basis: Inferred; a later mapping, since no 2010 source prints an ATT&CK id). Sources [37] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1583.004",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1584.004",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1588.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1588.002",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1593.001",
+      "tactic": "reconnaissance",
+      "score": 50,
+      "comment": "Aurora attackers profiled employees on social networks (USCC citing Google's security manager) (basis: Reported; only a Reported source describes the behavior; a later mapping, since no 2010 source prints an ATT&CK id). Sources [10] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1608.001",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Zeus transfers to mule accounts (30 Sep); Trident Breach's USD 70 million (1 Oct) (basis: Described; a later mapping, since no 2010 source prints an ATT&CK id). Sources [42][43][44] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Night Dragon (basis: Listed (C0002); ATT&CK lists the id for C0002 Night Dragon; ATT&CK dates Night Dragon from November 2009 to February 2011). Sources [47] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T1685.005",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Hydraq (ATT&CK object) (basis: Listed (S0203); ATT&CK lists the id for S0203 Hydraq; ATT&CK says Hydraq was first used by Elderwood in the 2009 Google intrusion; its techniques come from later analyses). Sources [12] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#93c5fd",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "50: behavior supported only by a Reported source",
+      "color": "#93c5fd"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: an ATT&CK object prints the id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2010.md (sources opened 12 November 2026, library checks 12 and 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "71"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "88"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2010 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2010.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

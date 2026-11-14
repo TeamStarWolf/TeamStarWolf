@@ -1019,6 +1019,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 15 October 2026: Storm-0940 signs in to customer tenants as ConnectWise multi-tenant apps and tries more than 2,250 tenants
   - 1 November 2026: Todyl: one operator signs in as victims' own Entra apps with stolen secrets and reaches 27 organizations (to 6 November)
 
+### 2010 <!-- {docsify-ignore} -->
+
+- [The Year 2010 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2010.md). Period record, January to December 2010. Sectors: cross-sector, technology, energy, manufacturing, government, defense, finance, retail, telecommunications, media. CVEs: CVE-2010-0188, CVE-2010-0232, CVE-2010-0249, CVE-2010-0738, CVE-2010-0806, CVE-2010-0840 and 24 more. ATT&CK groups: G0066 Elderwood, G0001 Axiom. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2010_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2010_Case_Study.pptx).
+  - 12 January 2010: Google discloses a targeted attack originating from China, detected in mid-December 2009; Gmail turns on HTTPS by default
+  - 21 January 2010: MS10-002 fixes the Internet Explorer flaw exploited during Operation Aurora (CVE-2010-0249)
+  - 22 February 2010: A federal court grants Microsoft's restraining order cutting off 277 Waledac botnet domains
+  - 25 March 2010: Albert Gonzalez of the TJX card-theft ring sentenced to 20 years in Massachusetts
+  - 6 April 2010: Shadows in the Cloud documents espionage against India, the Dalai Lama's office and the UN
+  - 8 April 2010: China Telecom advertises erroneous routes for about 18 minutes, per the US-China Commission
+  - 17 June 2010: VirusBlokAda reports the malware later named Stuxnet; HTTPS Everywhere released
+  - 16 July 2010: Microsoft Advisory 2286198 and a US-CERT alert on the Windows shortcut flaw (CVE-2010-2568)
+  - 2 August 2010: Out-of-band MS10-046 fixes the shortcut flaw, already exploited by a number of malware families
+  - 1 September 2010: Deputy Secretary of Defense discloses the 2008 CENTCOM flash-drive compromise (Buckshot Yankee)
+  - 30 September 2010: Symantec's Stuxnet dossier; SDNY charges 37 defendants over Zeus-enabled bank fraud
+  - 24 October 2010: Firesheep shows session cookies taken over open Wi-Fi
+
 ### 2009 <!-- {docsify-ignore} -->
 
 - [The Zero-Day Trade and Its Fallout: The Events in This Is How They Tell Me the World Ends](/case-studies/ZERO_DAY_MARKET_EVENTS.md). Period record, 1996 to May 2026 (core: 2009 to 2021). Sectors: technology, government, healthcare, media, cross-sector. CVEs: CVE-2008-4250, CVE-2010-0249, CVE-2010-2568, CVE-2012-6422, CVE-2014-0160, CVE-2014-6324 and 24 more. ATT&CK groups: G0066 Elderwood, G0020 Equation, G0022 APT3, G0032 Lazarus Group, G0034 Sandworm Team, G0038 Stealth Falcon. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Zero_Day_Market_Events_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Zero_Day_Market_Events_Case_Study.pptx).

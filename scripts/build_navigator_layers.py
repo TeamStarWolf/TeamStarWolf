@@ -544,7 +544,10 @@ CATALOG = [
        "[2003 chronicle case study](/case-studies/CHRONICLE_2003.md)"),
       ("case-studies/chronicle-2007-ics.json", "The Year 2007 in Intrusions (ICS)",
        "The two ATT&CK for ICS techniques this study maps for Stuxnet 0.5, which Symantec dates to November 2007 and which spread only through infected Step 7 project files, from the "
-       "[2007 chronicle case study](/case-studies/CHRONICLE_2007.md)")]),
+       "[2007 chronicle case study](/case-studies/CHRONICLE_2007.md)"),
+      ("case-studies/chronicle-2010-ics.json", "The Year 2010 in Intrusions (ICS)",
+       "The ten ATT&CK for ICS techniques that ATT&CK lists for Stuxnet and that the 2010 record most directly supports, from its USB spread to the reported PLC code injection, from the "
+       "[2010 chronicle case study](/case-studies/CHRONICLE_2010.md)")]),
 ]
 
 

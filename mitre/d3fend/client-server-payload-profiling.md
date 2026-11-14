@@ -120,10 +120,16 @@ Comparing client-server request and response payloads to a baseline profile to i
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md)
+- [Ivanti EPMM Code Injection (CVE-2026-1281 and CVE-2026-1340): A Case Study](/case-studies/IVANTI_EPMM_CVE_2026_1281.md)
 - [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md)
 - [Log4Shell (CVE-2021-44228): The Case Study](/case-studies/LOG4SHELL.md)
 - [Magento and Adobe Commerce, CVE-2026-48356: Lab-Verified Exposure and Fix](/case-studies/MAGENTO_CVE_2026_48356.md)
 - [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md)
+- [The Year 1998 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1998.md)
+- [The Year 2010 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2010.md)
+- [The Year 2011 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2011.md)
+- [The Year 2012 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2012.md)
+- [The Year 2014 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2014.md)
 
 <!-- library-refs:end -->
 

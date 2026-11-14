@@ -1,0 +1,275 @@
+{
+  "name": "TeamStarWolf - Oracle PeopleSoft CVE-2026-35273 and ShinyHunters 2026 Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the Oracle PeopleSoft CVE-2026-35273 case study: the ShinyHunters (UNC6240) zero-day wave of 27 May to 9 June 2026 against PeopleSoft PeopleTools, mostly in higher education, and the September 2026 n-day wave that got past WAF rules with an encoded path and planted JSP web shells. Score 100: a primary (Mandiant and GTIG, or ATT&CK's G1057 entry) states the behavior or lists the technique and the fit is direct. Score 60: the fit is partly inferred from a tool the primary names. Score 40: only a Reported source supports it. Scores measure the strength of the tie to this record, not severity. Comments carry the study's source numbers.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: stated or listed in a primary, direct fit",
+      "color": "#15803d"
+    },
+    {
+      "label": "60: fit partly inferred",
+      "color": "#86efac"
+    },
+    {
+      "label": "40: Reported source only",
+      "color": "#d1fae5"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026.md; ATT&CK v20.0 technique data"
+    },
+    {
+      "name": "score_meaning",
+      "value": "100 = stated or listed in a primary, direct fit; 60 = fit partly inferred; 40 = Reported source only. No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "Oracle PeopleSoft CVE-2026-35273 and the ShinyHunters Mass Exploitation of 2026: A Case Study",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "System Network Configuration Discovery. Listed by GTIG in its 25 September 2026 report on the renewed campaign. Sources: [8].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1021.004",
+      "tactic": "lateral-movement",
+      "score": 60,
+      "comment": "SSH. sshpass used for SSH lateral movement, June 2026; the binding is the study's reading of the tool GTIG names. Sources: [7].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Obfuscated Files or Information. Listed by GTIG in its 25 September 2026 report on the renewed campaign; reading it as the encoded path that got past WAF rules is the study's inference. Sources: [8].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1036.005",
+      "tactic": "stealth",
+      "score": 60,
+      "comment": "Match Legitimate Resource Name or Location. Disguised MeshCentral agents and Microsoft-themed domains, May to July 2026; the binding is the study's reading of what GTIG names. Sources: [7].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1048",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Exfiltration Over Alternative Protocol. Listed by GTIG in its 25 September 2026 report on the renewed campaign. Sources: [8].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "execution",
+      "score": 40,
+      "comment": "Scheduled Task. Scheduled tasks in the same Beazley DFIR case (Reported). Sources: [21].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "Scheduled Task. Scheduled tasks in the same Beazley DFIR case (Reported). Sources: [21].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1053.005",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "Scheduled Task. Scheduled tasks in the same Beazley DFIR case (Reported). Sources: [21].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059.003",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Windows Command Shell. Fileless commands after exploitation, September 2026; listed by GTIG in its 25 September 2026 report on the renewed campaign. Sources: [8].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059.004",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Unix Shell. Fileless commands after exploitation, about a quarter as root or SYSTEM, September 2026; listed by GTIG in its 25 September 2026 report on the renewed campaign. Sources: [8].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1082",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "System Information Discovery. Listed by GTIG in its 25 September 2026 report on the renewed campaign. Sources: [8].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "File and Directory Discovery. Checking PeopleSoft configuration files, per ATT&CK's G1057 entry. Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1090",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Proxy. Neo-reGeorg SOCKS-over-HTTP tunnel, September 2026; listed by GTIG in its 25 September 2026 report on the renewed campaign. Sources: [8].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Exploit Public-Facing Application. CVE-2026-35273 in PeopleSoft PeopleTools: zero-day 27 May to 9 June 2026, n-day wave September 2026; listed by GTIG and mapped in ATT&CK's G1057 entry. Sources: [7] [8] [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Remote Access Tools. MeshCentral 1.1.59 in June 2026 and MeshAgent in May, July and September 2026; listed by GTIG in its 25 September 2026 report on the renewed campaign. Sources: [7] [8].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1491.002",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "External Defacement. FBI recruitment site defaced, 22 September 2026, per news reporting (Reported). Sources: [15].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1505.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Web Shell. JSP web shells dropped into the PSEMHUB web application directory, repeated to reach every node behind a load balancer, September 2026; JSP hunting advised in June. Sources: [7] [8].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1550.002",
+      "tactic": "lateral-movement",
+      "score": 40,
+      "comment": "Pass the Hash. Pass-the-hash in a May 2026 breach later tied to the wave, per Sekoia and Beazley (Reported). Sources: [21].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1552.001",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "Credentials In Files. Listed by GTIG in its 25 September 2026 report on the renewed campaign. Sources: [8].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1553.002",
+      "tactic": "defense-impairment",
+      "score": 60,
+      "comment": "Code Signing. SIDEEYE backdoor inside a trojanized, EV-signed media-player installer, September 2026; GTIG asked the CA to revoke the certificate. Sources: [8].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1560.001",
+      "tactic": "collection",
+      "score": 60,
+      "comment": "Archive via Utility. zstd used to archive data before exfiltration, June 2026; the binding is the study's reading of the tool GTIG names. Sources: [7].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1572",
+      "tactic": "command-and-control",
+      "score": 40,
+      "comment": "Protocol Tunneling. Chisel tunnels in the same Beazley DFIR case (Reported). Sources: [21].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1587.004",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "Exploits. ATT&CK's G1057 entry maps ShinyHunters' use of CVE-2026-35273 (zero-day window 27 May to 9 June 2026) to this technique. Sources: [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1588.004",
+      "tactic": "resource-development",
+      "score": 60,
+      "comment": "Digital Certificates. acme-client used to obtain certificates for a masquerading domain, June 2026; the binding is the study's reading of the tool GTIG names. Sources: [7].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Vulnerability Scanning. Roughly 5 to 15 verification probes per host before exploitation, September 2026; listed by GTIG in its 25 September 2026 report on the renewed campaign. Sources: [8].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1596.003",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Digital Certificates. Listed by GTIG in its 25 September 2026 report on the renewed campaign. Sources: [8].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1596.005",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "Scan Databases. Listed by GTIG in its 25 September 2026 report on the renewed campaign. Sources: [8].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1657",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Financial Theft. Data-theft extortion: stolen data on the ShinyHunters leak site and a victim marker file, 9 June 2026. Sources: [7] [8] [12].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 40,
+      "comment": "Disable or Modify Tools. EDR-disabling script in the same Beazley DFIR case (Reported). Sources: [21].",
+      "enabled": true
+    }
+  ]
+}

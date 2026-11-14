@@ -40,6 +40,11 @@ Hand-written pages in this library that link to this page or to this object's en
 
 - [Before the Internet: Computer Threats, 1960 to 1990](/case-studies/PRE_INTERNET_THREATS.md)
 - [Stuxnet: The Case Study](/case-studies/STUXNET.md)
+- [The Year 1993 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1993.md)
+- [The Year 1994 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1994.md)
+- [The Year 2010 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2010.md)
+- [The Year 2012 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2012.md)
+- [The Year 2014 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2014.md)
 - [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md)
 
 <!-- library-refs:end -->

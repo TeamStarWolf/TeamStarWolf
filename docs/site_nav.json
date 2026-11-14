@@ -179,7 +179,7 @@
           "DETECTION_RULES_REFERENCE.md", "SIEM_REFERENCE.md", "SIEM_DETECTION_CONTENT.md",
           "SECURITY_DATA_ENGINEERING_REFERENCE.md", "SOAR_AUTOMATION_REFERENCE.md", "THREAT_HUNTING_REFERENCE.md",
           "THREAT_HUNTING_PLAYBOOKS.md", "LOTL_DETECTION_REFERENCE.md", "ENDPOINT_SECURITY_REFERENCE.md",
-          "NETWORK_DEFENSE_REFERENCE.md", "NETWORK_MONITORING_REFERENCE.md", "EMAIL_SECURITY_REFERENCE.md",
+          "NETWORK_DEFENSE_REFERENCE.md", "NETWORK_MONITORING_REFERENCE.md", "EMAIL_SECURITY_REFERENCE.md", "FILE_TYPES_REFERENCE.md",
           "DECEPTION_TECHNOLOGY_REFERENCE.md", "HONEYPOT_DECEPTION_REFERENCE.md", "VENDOR_PREVENTION_POLICIES.md"]},
         {"heading": "Incident response and forensics", "docs": [
           "INCIDENT_RESPONSE_REFERENCE.md", "IR_PLAYBOOKS.md", "RANSOMWARE_DEFENSE_REFERENCE.md",
@@ -252,10 +252,39 @@
         ["Before the Internet, computer threats from 1960 to 1990: a case study", "/case-studies/PRE_INTERNET_THREATS.md"],
         ["E-commerce threats: the public record, 1999 to 2026", "/case-studies/ECOMMERCE_THREATS.md"],
         ["The year 2026 in intrusions: a dated record", "/case-studies/CHRONICLE_2026.md"],
+        ["The year 1994 in intrusions: a dated record", "/case-studies/CHRONICLE_1994.md"],
+        ["The year 1996 in intrusions: a dated record", "/case-studies/CHRONICLE_1996.md"],
         ["The ConnectWise Cloud Backup compromise of October 2026: a case study", "/case-studies/CONNECTWISE_STORM_0940_2026.md"],
         ["The Stryker device-wipe attack of March 2026: a case study", "/case-studies/STRYKER_HANDALA_WIPER_2026.md"],
         ["The Binance hot-wallet theft of October 2026: a case study", "/case-studies/BINANCE_HEIST_2026.md"],
-        ["Refrigeration-controller attacks on European supermarkets and blood services, 2026", "/case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md"]
+        ["Refrigeration-controller attacks on European supermarkets and blood services, 2026", "/case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md"],
+        ["The DentaQuest health-data breach of May 2026: a case study", "/case-studies/DENTAQUEST_BREACH_2026.md"],
+        ["The FBI surveillance system breach of 2026: a case study", "/case-studies/FBI_SURVEILLANCE_SYSTEM_BREACH_2026.md"],
+        ["The Instructure Canvas breach and ShinyHunters extortion of 2026: a case study", "/case-studies/INSTRUCTURE_CANVAS_BREACH_2026.md"],
+        ["Oracle PeopleSoft CVE-2026-35273 and the ShinyHunters mass exploitation of 2026: a case study", "/case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026.md"],
+        ["The Boston Scientific network outage of August 2026: a case study", "/case-studies/BOSTON_SCIENTIFIC_ATTACK_2026.md"],
+        ["The IDScan.net driver's license breach of 2026: a case study", "/case-studies/IDSCAN_DRIVERS_LICENSE_BREACH_2026.md"],
+        ["The European Commission cloud breach of 2026 (Trivy): a case study", "/case-studies/EUROPEAN_COMMISSION_CLOUD_BREACH_2026.md"],
+        ["The ATF major incident of 2026: a case study", "/case-studies/ATF_MAJOR_INCIDENT_2026.md"],
+        ["The Notepad++ update-channel hijack (CVE-2025-15556): a case study", "/case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md"],
+        ["The CareCloud medical-records breach of March 2026: a case study", "/case-studies/CARECLOUD_BREACH_2026.md"],
+        ["The year 1993 in intrusions: a dated record", "/case-studies/CHRONICLE_1993.md"],
+        ["The year 1995 in intrusions: a dated record", "/case-studies/CHRONICLE_1995.md"],
+        ["The year 1997 in intrusions: a dated record", "/case-studies/CHRONICLE_1997.md"],
+        ["The year 1998 in intrusions: a dated record", "/case-studies/CHRONICLE_1998.md"],
+        ["The year 2000 in intrusions: a dated record", "/case-studies/CHRONICLE_2000.md"],
+        ["The year 1999 in intrusions: a dated record", "/case-studies/CHRONICLE_1999.md"],
+        ["The year 2002 in intrusions: a dated record", "/case-studies/CHRONICLE_2002.md"],
+        ["The year 2001 in intrusions: a dated record", "/case-studies/CHRONICLE_2001.md"],
+        ["The year 2003 in intrusions: a dated record", "/case-studies/CHRONICLE_2003.md"],
+        ["The year 2004 in intrusions: a dated record", "/case-studies/CHRONICLE_2004.md"],
+        ["The year 2005 in intrusions: a dated record", "/case-studies/CHRONICLE_2005.md"],
+        ["The year 2007 in intrusions: a dated record", "/case-studies/CHRONICLE_2007.md"],
+        ["The year 2006 in intrusions: a dated record", "/case-studies/CHRONICLE_2006.md"],
+        ["The year 2010 in intrusions: a dated record", "/case-studies/CHRONICLE_2010.md"],
+        ["The year 2012 in intrusions: a dated record", "/case-studies/CHRONICLE_2012.md"],
+        ["The year 2014 in intrusions: a dated record", "/case-studies/CHRONICLE_2014.md"],
+        ["The year 2011 in intrusions: a dated record", "/case-studies/CHRONICLE_2011.md"]
       ]
     },
     {
@@ -300,7 +329,14 @@
         ["ProFTPD mod_copy (CVE-2015-3306): a lab case study", "/case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md"],
         ["The Ivanti Connect Secure zero-day chain (October 2026): a case study", "/case-studies/IVANTI_CONNECT_SECURE_2026.md"],
         ["The Cisco Catalyst SD-WAN authentication bypass (CVE-2026-20127): a case study", "/case-studies/CISCO_SDWAN_CVE_2026_20127.md"],
-        ["The Citrix NetScaler zero-days (September and October 2026): a case study", "/case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md"]
+        ["The Citrix NetScaler zero-days (September and October 2026): a case study", "/case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md"],
+        ["The Citrix NetScaler SAML IdP memory overread (CVE-2026-3055): a case study", "/case-studies/CITRIX_NETSCALER_CVE_2026_3055.md"],
+        ["The PAN-OS GlobalProtect authentication bypass (CVE-2026-0257): a case study", "/case-studies/PALO_ALTO_PAN_OS_CVE_2026_0257.md"],
+        ["The BeyondTrust Remote Support and PRA command injection (CVE-2026-1731): a case study", "/case-studies/BEYONDTRUST_REMOTE_SUPPORT_CVE_2026_1731.md"],
+        ["The FortiCloud SSO authentication bypass (CVE-2026-24858): a case study", "/case-studies/FORTINET_FORTICLOUD_SSO_CVE_2026_24858.md"],
+        ["The Check Point Remote Access VPN IKEv1 authentication bypass (CVE-2026-50751): a case study", "/case-studies/CHECK_POINT_VPN_CVE_2026_50751.md"],
+        ["The Dell RecoverPoint for Virtual Machines hard-coded credential zero-day (CVE-2026-22769): a case study", "/case-studies/DELL_RECOVERPOINT_CVE_2026_22769.md"],
+        ["The Check Point Gaia DynamicCLI root flaw, the PHP2Shell chain and the ESXi wiper (CVE-2026-123039): a case study", "/case-studies/CHECK_POINT_GAIA_CVE_2026_123039.md"]
       ]
     },
     {
@@ -338,7 +374,8 @@
       "see_also": [
         ["Endpoint security", "/ENDPOINT_SECURITY_REFERENCE.md"],
         ["Active Directory security", "/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md"],
-        ["SSHole, the OpenSSH authentication bypass (CVE-2026-123158): a case study", "/case-studies/SSHOLE_CVE_2026_123158.md"]
+        ["SSHole, the OpenSSH authentication bypass (CVE-2026-123158): a case study", "/case-studies/SSHOLE_CVE_2026_123158.md"],
+        ["The Ivanti EPMM code injection (CVE-2026-1281 and CVE-2026-1340): a case study", "/case-studies/IVANTI_EPMM_CVE_2026_1281.md"]
       ]
     },
     {
@@ -369,7 +406,12 @@
         ["npm supply-chain attacks: a case study", "/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md"],
         ["Hugging Face supply chain: a case study", "/case-studies/HUGGING_FACE_SUPPLY_CHAIN.md"],
         ["Chrome Isolated Web Apps, vulnerabilities and abuse in 2026: a case study", "/case-studies/CHROME_ISOLATED_WEB_APPS_2026.md"],
-        ["The TeamPCP supply-chain campaign of 2026 (Trivy, CVE-2026-33634): a case study", "/case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md"]
+        ["The TeamPCP supply-chain campaign of 2026 (Trivy, CVE-2026-33634): a case study", "/case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md"],
+        ["The SharePoint Server exploitation waves of 2026 (CVE-2026-45659 and successors): a case study", "/case-studies/SHAREPOINT_2026_EXPLOITATION.md"],
+        ["The Microsoft Office security feature bypass and APT28 (CVE-2026-21509): a case study", "/case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md"],
+        ["The cPanel and WHM authentication bypass (CVE-2026-41940): a case study", "/case-studies/CPANEL_WHM_CVE_2026_41940.md"],
+        ["The SmarterTools SmarterMail exploitation and ransomware (CVE-2026-23760, CVE-2026-24423, CVE-2025-52691): a case study", "/case-studies/SMARTERTOOLS_SMARTERMAIL_2026.md"],
+        ["The trojanized Claude Code extension on Cursor's marketplace (October 2026): a case study", "/case-studies/CURSOR_EXTENSION_TROJAN_2026.md"]
       ]
     },
     {

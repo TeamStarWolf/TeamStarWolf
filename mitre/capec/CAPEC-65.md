@@ -60,6 +60,8 @@ An adversary passively sniffs network communications and captures application co
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [The Year 1994 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1994.md)
+- [The Year 2010 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2010.md)
 
 <!-- library-refs:end -->
 

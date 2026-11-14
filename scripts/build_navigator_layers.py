@@ -532,7 +532,25 @@ CATALOG = [
        "[ransomware ecosystem case study](/case-studies/RANSOMWARE_ECOSYSTEM.md)"),
       ("case-studies/european-refrigeration-attacks-2026-ics.json", "European Refrigeration Attacks, 2026 (ICS)",
        "The 8 ATT&CK for ICS techniques bound to the October and November 2026 attacks on supermarket and blood-service refrigeration controllers (CERT-FR, France's attribution, NCSC Ireland and the US joint fact sheet), from the "
-       "[European refrigeration attacks case study](/case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md)")]),
+       "[European refrigeration attacks case study](/case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md)"),
+      ("case-studies/chronicle-2000-ics.json", "The Year 2000 in Intrusions (ICS)",
+       "The 12 ATT&CK for ICS techniques that campaign C0020, Maroochy Water Breach, lists for the February to April 2000 attack on the Maroochy Shire sewerage control system, from the "
+       "[2000 chronicle case study](/case-studies/CHRONICLE_2000.md)"),
+      ("case-studies/chronicle-2001-ics.json", "The Year 2001 in Intrusions (ICS)",
+       "The 12 ATT&CK for ICS techniques that campaign C0020, Maroochy Water Breach, lists for the February to April 2000 attack on the Maroochy Shire sewerage control system, sentenced on 31 October 2001, from the "
+       "[2001 chronicle case study](/case-studies/CHRONICLE_2001.md)"),
+      ("case-studies/chronicle-2003-ics.json", "The Year 2003 in Intrusions (ICS)",
+       "The two ATT&CK for ICS techniques this study maps for the January 2003 Slammer infection at the idled Davis-Besse nuclear plant, from the "
+       "[2003 chronicle case study](/case-studies/CHRONICLE_2003.md)"),
+      ("case-studies/chronicle-2007-ics.json", "The Year 2007 in Intrusions (ICS)",
+       "The two ATT&CK for ICS techniques this study maps for Stuxnet 0.5, which Symantec dates to November 2007 and which spread only through infected Step 7 project files, from the "
+       "[2007 chronicle case study](/case-studies/CHRONICLE_2007.md)"),
+      ("case-studies/chronicle-2010-ics.json", "The Year 2010 in Intrusions (ICS)",
+       "The ten ATT&CK for ICS techniques that ATT&CK lists for Stuxnet and that the 2010 record most directly supports, from its USB spread to the reported PLC code injection, from the "
+       "[2010 chronicle case study](/case-studies/CHRONICLE_2010.md)"),
+      ("case-studies/chronicle-2014-ics.json", "The Year 2014 in Intrusions (ICS)",
+       "The 14 ATT&CK for ICS techniques bound to the 2014 record: the Havex campaign's trojanized vendor installers and OPC scanning as ATT&CK lists them for Backdoor.Oldrea and Dragonfly, ICS-CERT's alert on BlackEnergy against internet-connected HMIs, and BSI's German steel mill case, from the "
+       "[2014 chronicle case study](/case-studies/CHRONICLE_2014.md)")]),
 ]
 
 

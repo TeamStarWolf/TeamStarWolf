@@ -36,7 +36,15 @@ Control of access to organizational systems and services by users or processes o
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [Before the Internet: Computer Threats, 1960 to 1990](/case-studies/PRE_INTERNET_THREATS.md)
+- [The ATF Major Incident of 2026: A Case Study](/case-studies/ATF_MAJOR_INCIDENT_2026.md)
+- [The DentaQuest Health-Data Breach of May 2026: A Case Study](/case-studies/DENTAQUEST_BREACH_2026.md)
 - [The Shadow Brokers and Vault 7: The NSA and CIA Tool Leaks, 2016 to 2017](/case-studies/NSA_CIA_TOOL_LEAKS.md)
+- [The Year 1996 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1996.md)
+- [The Year 1997 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1997.md)
+- [The Year 1998 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1998.md)
+- [The Year 1999 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1999.md)
+- [The Year 2010 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2010.md)
+- [The Year 2011 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2011.md)
 
 <!-- library-refs:end -->
 

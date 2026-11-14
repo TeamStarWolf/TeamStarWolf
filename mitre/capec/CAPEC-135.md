@@ -55,6 +55,8 @@ An adversary includes formatting characters in a string input field on the targe
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
+- [The Year 2000 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2000.md)
+- [The Year 2001 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2001.md)
 
 <!-- library-refs:end -->
 

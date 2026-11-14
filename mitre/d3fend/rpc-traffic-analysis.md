@@ -28,6 +28,8 @@ Monitoring the activity of remote procedure calls in communication traffic to es
 
 Hand-written pages in this library that link to this page or to this object's entry on the MITRE site:
 
+- [The Year 2003 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2003.md)
+- [The Year 2004 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2004.md)
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)
 
 <!-- library-refs:end -->

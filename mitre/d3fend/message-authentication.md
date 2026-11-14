@@ -67,6 +67,11 @@ Hand-written pages in this library that link to this page or to this object's en
 - [Refrigeration-Controller Attacks on European Supermarkets and Blood Services, 2026: A Case Study](/case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md)
 - [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md)
 - [Stuxnet: The Case Study](/case-studies/STUXNET.md)
+- [The Year 1993 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1993.md)
+- [The Year 2002 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2002.md)
+- [The Year 2003 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2003.md)
+- [The Year 2004 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2004.md)
+- [The Year 2007 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2007.md)
 - [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)
 
 <!-- library-refs:end -->

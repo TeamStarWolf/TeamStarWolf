@@ -40,6 +40,31 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 10 November 2026: N-central 2026.4 Hotfix 2 (2026.4.1.26) posted; N-able publishes seven CVE records, two at CVSS v4.0 9.3
   - 11 November 2026: All hosted N-central servers upgraded (status update, 01:04 dashboard time)
   - 11 November 2026: N-able blog: unauthenticated paths fixed, more hotfixes to come, calls claims it ignored disclosure inaccurate
+- [CVE-2026-123039 and Root on the Check Point Gateway: The PHP2Shell Chain, the TSGA Implant and the ESXi Wiper of October and November 2026](/case-studies/CHECK_POINT_GAIA_CVE_2026_123039.md). Vulnerability, January 2019 to November 2026 (core: 30 October 2026 to 13 November 2026). Sectors: cross-sector, technology. CVEs: CVE-2026-123039, CVE-2026-107484, CVE-2026-109618, CVE-2026-109619, CVE-2026-50751, CVE-2024-24919 and 22 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Check_Point_Gaia_CVE_2026_123039_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Check_Point_Gaia_CVE_2026_123039_Case_Study.pptx).
+  - 8 January 2019: sk144112 documents Dynamic CLI, the Gaia feature served by the vulnerable daemon
+  - 28 May 2026: ESET's APT Activity Report assesses PhiliKit as part of UNC5221's SPAWN toolset
+  - 21 October 2026: PHP2Shell patches released (Reported); GreyNoise's PHP2Shell sensor data starts
+  - 26 October 2026: KEV adds CVE-2026-109618 and CVE-2026-109619, due 29 Oct, with forensic triage required
+  - 28 October 2026: GreyNoise records its first successful PHP2Shell exploitation of a vulnerable sensor
+  - 30 October 2026: First wave against unpatched Mobile Access portals of Israeli organizations; root, TSGA and the destroy_v6 wiper on ESXi follow
+  - 2 November 2026: Second, broader wave across multiple countries and sectors; no destruction reported
+  - 5 November 2026: CVE-2026-123039 reserved
+  - 8 November 2026: Check Point creates support article sk1000362
+  - 9 November 2026: CSIRT Italia alert on Check Point PHP2Shell updates marks exploitation present
+  - 12 November 2026: CVE-2026-107484 and CVE-2026-123039 published; Check Point Research report; Canadian Centre AV26-1154
+  - 13 November 2026: CISA adds CVE-2026-123039 to KEV, due 16 Nov under BOD 26-04
+- [The Trojanized Claude Code Extension on Cursor's Marketplace (October 2026)](/case-studies/CURSOR_EXTENSION_TROJAN_2026.md). Incident, 27 October 2026 to 11 November 2026 (core: 29 October 2026 to 31 October 2026). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cursor_Extension_Trojan_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Cursor_Extension_Trojan_2026_Case_Study.pptx).
+  - 27 October 2026: Legitimate Claude Code 2.1.312 published to npm, GitHub and Open VSX
+  - 29 October 2026: About 09:27 UTC: malicious 2.1.312 and 2.1.313 become available in Cursor's marketplace
+  - 29 October 2026: About 20:35 UTC: window ends; Cursor removes the version and shuts its marketplace down
+  - 29 October 2026: Cursor's security notice published; its first version named only 2.1.313 (Reported)
+  - 30 October 2026: Anthropic publishes 2.1.314 to npm, GitHub and Open VSX
+  - 30 October 2026: Phorion's advisory, then its correction of the affected marketplace to Cursor
+  - 30 October 2026: Socket finds no Open VSX change-feed event for 2.1.313
+  - 30 October 2026: Cursor updates its indicators and clarifies the affected versions
+  - 31 October 2026: Microsoft Threat Intelligence publishes its analysis of the SSH backdoor
+  - 2 November 2026: SecurityWeek: Anthropic moved its extension straight to 2.1.314 (Reported)
+  - 10 November 2026: KEV catalog 2026.11.10 carries no Cursor or Anthropic entry
 - [The Binance Hot-Wallet Theft of October 2026: A Case Study](/case-studies/BINANCE_HEIST_2026.md). Incident, June to November 2026 (core: 29 October 2026 to 1 November 2026). Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Binance_Heist_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Binance_Heist_2026_Case_Study.pptx).
   - June 2026: A wallet developer downloads a tampered Homebrew installer; it is caught, but the engineer's role and colleagues are exposed
   - September 2026: A second engineer's fake job assignment swaps a pyenv component; endpoint tools do not detect it
@@ -154,6 +179,31 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 29 October 2026: CISA adds CVE-2026-97229 to KEV with forensic triage required, due 1 November
   - 30 October 2026: Metasploit module merged; press reports exploitation attempts against self-managed instances
   - 4 November 2026: TeamStarWolf lab run: 19.4.1 and 19.4.2 differ in GitLab version, not in ruby -v
+- [The ATF Major Incident of 2026: A Case Study](/case-studies/ATF_MAJOR_INCIDENT_2026.md). Incident, March to November 2026 (core: 26 August 2026 to 28 August 2026). Sectors: government. CVEs: CVE-2026-0257, CVE-2026-50751. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ATF_Major_Incident_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/ATF_Major_Incident_2026_Case_Study.pptx).
+  - 5 March 2026: Context: the FBI confirms it identified and addressed suspicious activities after a reported breach of its surveillance systems (Reported)
+  - 7 May 2026: Lineage: exploitation of Check Point VPN flaw CVE-2026-50751 begins against a few dozen organizations
+  - 29 May 2026: Lineage: PAN-OS CVE-2026-0257 enters KEV with ransomware use Known
+  - June 2026: Lineage: Arctic Wolf investigates several intrusions that began with CVE-2026-0257 and ended in Qilin ransomware
+  - 8 June 2026: Lineage: Check Point's hotfix advisory notes a Qilin affiliate case; CISA adds CVE-2026-50751 to KEV
+  - 1 July 2026: Context: DHS confirms a compromise of HSIN, a legacy information sharing environment (Reported)
+  - 26 August 2026: Qilin lists ATF on its leak site with no proof screenshots, timer, theft claim or ransom claim (Reported)
+  - 26 August 2026: ATF statement: one standalone system compromised, connections terminated, a major incident designated (Reported)
+  - 27 August 2026: BleepingComputer reports; an ATF spokesperson had not responded by publication (Reported)
+  - 28 August 2026: SecurityWeek reports the major-incident designation and no effect on ATF's missions (Reported)
+  - 13 November 2026: No source opened shows Qilin publishing ATF data; the Hub has no ATF row, and its Oct Qilin rows cover PAN-OS CVE-2026-0257
+- [The Boston Scientific Network Outage of August 2026: A Case Study](/case-studies/BOSTON_SCIENTIFIC_ATTACK_2026.md). Incident, July to November 2026 (core: 25 August 2026 to 9 September 2026). Sectors: healthcare, manufacturing. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Boston_Scientific_Attack_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Boston_Scientific_Attack_2026_Case_Study.pptx).
+  - 25 August 2026: System availability issues traced to an unauthorized third party; containment begins and CrowdStrike's investigation starts
+  - 26 August 2026: Form 8-K Item 8.01: a global disruption, including the ability to process and ship orders
+  - 27 August 2026: Orders queued through EDI; implanted device function unaffected; new remote-monitoring activations impaired
+  - 29 August 2026: CrowdStrike named as responder; cloud systems not affected; manufacturing also impacted
+  - 30 August 2026: No unauthorized activity seen since 25 August; partial restoration of shipping planned
+  - 3 September 2026: Access believed limited to select internal-facing IT; shipping restored for most products at major distribution centers
+  - 5 September 2026: Distribution substantially restored; all sterilization facilities operational; manufacturing resumed at most sites
+  - 7 September 2026: Form 8-K Item 1.05 (filed 8 September): likely material to Q3 and full-year 2026 results
+  - 8 September 2026: Remote-monitoring activation restored for LATITUDE NXT communicators and LATITUDE Clarity ICMs
+  - 9 September 2026: Manufacturing, order fulfillment and shipping fully restored
+  - 28 October 2026: Q3 results: net sales $5.138 billion (+1.5%) against 3 to 5% guidance; full-year guidance cut
+  - 2 November 2026: Q3 10-Q: material effect on Q3, a 1.7-point gross margin hit and civil legal claims filed
 - [Collabora Built-in CODE Server (richdocumentscode), CVE-2026-110447: Lab-Verified Exposure and Fix](/case-studies/NEXTCLOUD_RICHDOCUMENTS_CVE_2026_110447.md). Vulnerability, August to November 2026. Sectors: technology. CVEs: CVE-2026-110447, CVE-2025-66208, CVE-2026-67400. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Nextcloud_Richdocuments_CVE_2026_110447_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Nextcloud_Richdocuments_CVE_2026_110447_Case_Study.pptx).
   - 20 August 2026: Fix commit 6cc8dae authored, titled as a tidy-up of the coolwsd launch command
   - 31 August 2026: richdocumentscode 26.4.302 released, still vulnerable
@@ -192,6 +242,106 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 31 October 2026: The fixed php:8.4.27-apache Docker tag is last pushed
   - 2 November 2026: NVD last modifies both records
   - 4 November 2026: TeamStarWolf lab run: 8.4.26 and 8.4.27 told apart; both interim workarounds take effect
+- [Oracle PeopleSoft CVE-2026-35273 and the ShinyHunters Mass Exploitation of 2026: A Case Study](/case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026.md). Campaign, April to November 2026 (core: 27 May 2026 to 25 September 2026). Sectors: education, government, technology, healthcare, transport. CVEs: CVE-2024-21182, CVE-2026-21962, CVE-2026-35273, CVE-2026-46817. ATT&CK groups: G1057 ShinyHunters. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Oracle_PeopleSoft_ShinyHunters_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Oracle_PeopleSoft_ShinyHunters_2026_Case_Study.pptx).
+  - 1 April 2026: Oracle's CNA reserves CVE-2026-35273
+  - 15 May 2026: FBI IC3 PSA warns about ShinyHunters extortion, with educational institutions at elevated risk
+  - 27 May 2026: 27 May to 9 June: UNC6240 (ShinyHunters) exploits the PeopleSoft PSEMHUB flaw as a zero-day
+  - 9 June 2026: Stolen data published on the ShinyHunters leak site; the zero-day window closes
+  - 10 June 2026: Oracle out-of-band Security Alert for PeopleTools 8.61 and 8.62; University of Nottingham notice to students
+  - 11 June 2026: CVE record published; CISA SSVC records exploitation as active; GTIG has notified more than 100 organizations
+  - 12 June 2026: CISA adds CVE-2026-35273 to KEV with a 15 June due date and known ransomware campaign use
+  - September 2026: Renewed n-day mass exploitation: WAF rules bypassed with an encoded path, JSP web shells planted
+  - 22 September 2026: FBI jobs site defaced; the actor claims data on FBI employees and applicants (Reported)
+  - 25 September 2026: GTIG publishes its report on the renewed campaign
+  - 9 October 2026: FBI announces another arrest tied to the FBI jobs incident (Reported)
+  - 20 October 2026: ZDI publishes the three-flaw chain behind the CVE (URL dated 20 October, page dated 27 October)
+- [The DentaQuest Health-Data Breach of May 2026: A Case Study](/case-studies/DENTAQUEST_BREACH_2026.md). Incident, May to November 2026 (core: 17 May 2026 to 20 May 2026). Sectors: healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DentaQuest_Breach_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/DentaQuest_Breach_2026_Case_Study.pptx).
+  - 17 May 2026: 17 to 19 May: one employee socially engineered out of credentials and an MFA code; data taken from a network file share
+  - 20 May 2026: DentaQuest learns a third party claims to hold its data; containment the same day
+  - 29 May 2026: DentaQuest learns the data was posted on the dark web
+  - 30 May 2026: ShinyHunters leak-site post last updated: about 234 GB, says DentaQuest failed to reach an agreement (Reported)
+  - 3 June 2026: Have I Been Pwned adds 2.6 million unique email addresses (Reported)
+  - 29 June 2026: Kroll gives DentaQuest initial information on impacted individuals
+  - 16 July 2026: Notice to the Rhode Island AG of more than 15 million people; HHS OCR lists 15,000,000, with California and Oregon filings
+  - 17 July 2026: Individual notification by mail begins
+  - 23 July 2026: 23 to 27 July: trade press reports a 23 million estimate, a dedupe of name and birth-date pairs (Reported)
+  - 11 November 2026: HHS export: 15,000,000 is the largest 2026 entry, ahead of Aesto and iRhythm Technologies
+- [The PAN-OS GlobalProtect Authentication Bypass of 2026 (CVE-2026-0257), Qilin and INC Ransomware: A Case Study](/case-studies/PALO_ALTO_PAN_OS_CVE_2026_0257.md). Vulnerability, November 2025 to November 2026 (core: 13 May 2026 to 20 October 2026). Sectors: cross-sector, education, finance, healthcare, technology, manufacturing, government, transport, energy, retail. CVEs: CVE-2026-0257, CVE-2023-27532. ATT&CK groups: G1032 INC Ransom, G1050 Water Galura. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Palo_Alto_PAN_OS_CVE_2026_0257_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Palo_Alto_PAN_OS_CVE_2026_0257_Case_Study.pptx).
+  - 3 November 2025: Palo Alto Networks reserves CVE-2026-0257
+  - 13 May 2026: Advisory published for the GlobalProtect authentication bypass; CVE record and NVD entry published
+  - 17 May 2026: Earliest exploitation Rapid7 MDR observed, from Vultr hosting; first alert on 18 May
+  - 21 May 2026: Second wave from Dromatics Systems hosting, likely the same actor (Rapid7)
+  - 28 May 2026: Fix-release timeline updated; CISA SSVC decision: exploitation active, technical impact total
+  - 29 May 2026: KEV adds the CVE, due 1 Jun; vendor status limited exploit attempts; Rapid7 analysis and public checker
+  - June 2026: Several intrusions with CVE-2026-0257 as initial access end in Qilin ransomware (Arctic Wolf)
+  - 9 June 2026: Siemens SSA-967325 V1.1 adds the CVE for RUGGEDCOM APE1808
+  - 20 July 2026: Arctic Wolf Labs report links the CVE to Qilin
+  - 9 October 2026: ReliaQuest says on X that Qilin and Settra are exploiting the flaw (Reported)
+  - 19 October 2026: Unit 42 reports attempted exploitation by Spikey Scorpius (Qilin) and Tarnished Scorpius (INC)
+  - 10 November 2026: Kaspersky ranks Qilin first by share of leak-site victims in Q3 2026
+- [The Check Point Remote Access VPN IKEv1 Authentication Bypass of 2026 (CVE-2026-50751): A Case Study](/case-studies/CHECK_POINT_VPN_CVE_2026_50751.md). Vulnerability, May to November 2026 (core: 7 May 2026 to 15 June 2026). Sectors: cross-sector, technology. CVEs: CVE-2026-50751, CVE-2026-50752, CVE-2024-24919, CVE-2026-0257, CVE-2026-16232, CVE-2026-85102 and 2 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Check_Point_VPN_CVE_2026_50751_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Check_Point_VPN_CVE_2026_50751_Case_Study.pptx).
+  - 7 May 2026: Earliest exploitation Check Point observed; start of the attacker indicator window
+  - 4 June 2026: Check Point Research begins investigating suspicious VPN activity; sk185033 created
+  - 7 June 2026: CVE-2026-50751 reserved; sk185035 created for the site-to-site companion CVE-2026-50752
+  - 8 June 2026: Check Point publishes the CVE and announces the hotfix; KEV adds it, due 11 Jun, ransomware use Known; AV26-559 issued
+  - 11 June 2026: KEV due date; sk185033 adds R81.10 JHF Take 187 and more indicators
+  - 12 June 2026: watchTowr Labs publishes its reproduction and analysis
+  - 13 June 2026: sk185033 adds attacker addresses and a section on identifying hits on the IPS signature
+  - 15 June 2026: Recommended accumulators for R82.10, R82 and R81.20 listed; CPR weekly report records the Qilin case (Reported)
+  - 17 June 2026: The CNA adds affected-version data; CISA ADP adds its SSVC decision
+  - 22 July 2026: A later Check Point flaw, CVE-2026-16232 (SmartConsole), enters KEV
+  - 10 September 2026: CERT-EU 2026-012 covers later Check Point VPN flaws; it does not mention CVE-2026-50751
+  - 22 September 2026: CVE-2026-85102 and CVE-2026-93616 enter KEV with BOD 26-04 forensic triage marked Yes
+- [The cPanel and WHM Authentication Bypass of 2026 (CVE-2026-41940): A Case Study](/case-studies/CPANEL_WHM_CVE_2026_41940.md). Vulnerability, February to November 2026 (core: 28 April 2026 to 5 May 2026). Sectors: technology, cross-sector. CVEs: CVE-2026-41940, CVE-2026-48172, CVE-2026-54420, CVE-2026-87886. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/cPanel_WHM_CVE_2026_41940_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/cPanel_WHM_CVE_2026_41940_Case_Study.pptx).
+  - 23 February 2026: Earliest execution attempts KnownHost says it saw; Rapid7 calls the date speculation (Reported)
+  - 22 April 2026: CVE-2026-41940 reserved by VulnCheck
+  - 28 April 2026: Namecheap blocks the panel ports; vendor advisory and fixed builds for six tiers and WP Squared 136.1.7 follow
+  - 29 April 2026: CVE record and NVD entry published; CISA ADP grades exploitation active; watchTowr publishes analysis and proof of concept
+  - 30 April 2026: KEV adds CVE-2026-41940, due 3 May; mass exploitation dropping the "Sorry" encryptor reported from about this day
+  - 1 May 2026: Detection script withdrawn for false positives and replaced; 11.124 patch added
+  - 2 May 2026: News cites Shadowserver for at least 44,000 compromised cPanel IP addresses (Reported)
+  - 5 May 2026: Advisory adds patches for the 11.94 and 11.102 tiers
+  - 12 July 2026: 12 to 13 Jul: malicious dev versions of 10 Packagist packages carry 583 workflow files (Reported)
+  - 22 July 2026: Socket reports GitHub Actions workflows scanning for and attempting CVE-2026-41940 (Reported)
+  - 26 October 2026: JFrog ties Shellpanel artifacts to 42 hijacked repositories, one scanning cPanel-related ports (Reported)
+  - 10 November 2026: KEV catalog 2026.11.10 still lists ransomware use as Known
+- [The Instructure Canvas Breach and ShinyHunters Extortion of 2026: A Case Study](/case-studies/INSTRUCTURE_CANVAS_BREACH_2026.md). Incident, September 2025 to September 2026 (core: 25 April 2026 to 11 May 2026). Sectors: education, technology. ATT&CK groups: G1057 ShinyHunters. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Instructure_Canvas_Breach_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Instructure_Canvas_Breach_2026_Case_Study.pptx).
+  - 21 September 2025: Instructure discloses a social-engineering compromise of its Salesforce instance; no product data exposed
+  - 25 April 2026: 25 to 30 April: institution logs may show the actor using Canvas customer support representative accounts
+  - 29 April 2026: Instructure detects unauthorized activity in Canvas, revokes access and engages outside forensic experts
+  - 1 May 2026: Confirmed Security Incident posted: a criminal threat actor; Canvas Data 2, Beta and Test in maintenance
+  - 2 May 2026: Incident believed contained: privileged credentials and tokens revoked, patches deployed, keys rotated
+  - 3 May 2026: ShinyHunters lists Instructure on its leak site, claiming 3.65 TB on 275 million people (Reported)
+  - 7 May 2026: The actor returns through a second XSS flaw; ransom note on login pages of about 300 organizations
+  - 8 May 2026: CEO apology names a support-ticket flaw in the Free-for-Teacher environment and disables it
+  - 11 May 2026: Agreement with the actor: data returned, shred logs; House Homeland Security letter to the CEO
+  - 15 May 2026: FBI PSA: ShinyHunters claimed an attack that interrupted an unnamed learning management system
+  - 26 July 2026: Delivery of API provisioning records and user reports to institutions begins; Kroll handles notification
+  - 29 September 2026: Forensic review complete; final delivery phase begins
+- [The IDScan.net Driver's License Breach of 2026: A Case Study](/case-studies/IDSCAN_DRIVERS_LICENSE_BREACH_2026.md). Incident, February 2025 to November 2026 (core: 4 April 2026 to 2 September 2026). Sectors: technology, cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/IDScan_Drivers_License_Breach_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/IDScan_Drivers_License_Breach_2026_Case_Study.pptx).
+  - February 2025: Caesars says it has not used VeriScan since February 2025 and had no active VeriScan accounts at the time of the incident (Reported)
+  - June 2025: Earliest scan timestamps seen in the Nexus records, June 2025 (Demonstrated); read here as scan dates, not theft dates (Inferred)
+  - 4 April 2026: 4 April to 2 September: an unauthorized third party accesses part of IDScan.net's cloud environment (VeriScan)
+  - 31 August 2026: A source alerts KrebsOnSecurity to the Nexus listing on the Exploit forum (Reported)
+  - 1 September 2026: Nearly 400,000 records added to Nexus in 24 hours; the FBI New Orleans field office opens an investigation (Reported)
+  - 1 September 2026: IDScan.net receives information that data may have been accessed; Nexus goes offline that evening
+  - 2 September 2026: End of the vendor-stated access window; 2 to 4 September: nine putative class actions docketed (Reported)
+  - 4 September 2026: IDScan.net posts its notification of data security incident
+  - 10 September 2026: Risky Business frames the breach as a national security problem (Reported)
+  - 29 September 2026: Notice updated: the event was limited to the VeriScan platform
+  - 11 November 2026: No IDScan filing on the California Attorney General's breach list
+- [The Citrix NetScaler SAML IdP Memory Overread (CVE-2026-3055): A Case Study](/case-studies/CITRIX_NETSCALER_CVE_2026_3055.md). Vulnerability, February to November 2026 (core: 23 March 2026 to 31 March 2026). Sectors: technology. CVEs: CVE-2026-3055, CVE-2026-4368, CVE-2026-8451, CVE-2026-8452, CVE-2026-8655, CVE-2026-10816 and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Citrix_Netscaler_CVE_2026_3055_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Citrix_Netscaler_CVE_2026_3055_Case_Study.pptx).
+  - 23 February 2026: The NetScaler CNA reserves CVE-2026-3055
+  - 23 March 2026: Citrix CTX696300 for CVE-2026-3055 and CVE-2026-4368; a same-day revision adds 14.1-60.58 as a fixed build
+  - 23 March 2026: CERT-EU Advisory 2026-003 sees no public evidence of exploitation and advises snapshot, update and session termination
+  - 27 March 2026: watchTowr's honeypots see exploitation from known threat-actor addresses (Reported)
+  - 28 March 2026: watchTowr Part 1 reproduces a small overread on the SAML login path
+  - 29 March 2026: watchTowr Part 2: a WS-Federation overread leaks an authenticated administrative session ID
+  - 30 March 2026: KEV adds CVE-2026-3055 on evidence of active exploitation, due 2 Apr
+  - 31 March 2026: CISA's ADP container records Exploitation active, Automatable yes, Technical Impact total
+  - 20 May 2026: A Metasploit auxiliary scanner module for the flaw is merged
+  - 17 June 2026: NVD's last modification: status Analyzed, CWE-125
+  - 30 June 2026: Citrix CTX696604 fixes the follow-on SAML IdP overread CVE-2026-8451
 - [The TeamPCP Supply-Chain Campaign of 2026: Trivy, Checkmarx and the Bitwarden CLI (CVE-2026-33634)](/case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md). Campaign, September 2025 to August 2026 (core: 19 March 2026 to 10 May 2026). Sectors: technology, government. CVEs: CVE-2026-33634, CVE-2026-42994, CVE-2025-55182. ATT&CK groups: G1056 TeamPCP. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Teampcp_Trivy_Supply_Chain_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Teampcp_Trivy_Supply_Chain_2026_Case_Study.pptx).
   - 28 February 2026: About 28 Feb: a pull_request_target workflow at Trivy yields a token and releases are deleted (Reported)
   - 1 March 2026: Aqua's first disclosure; the credential rotation that follows is not atomic
@@ -205,6 +355,32 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 May 2026: 9 to 10 May: malicious Checkmarx Jenkins AST plugin published with access obtained in March
   - 6 July 2026: Checkmarx declares the incident fully contained
   - 26 August 2026: 26 and 27 Aug: the AFP arrests two Western Australian men the FBI alleges are TeamPCP members
+- [The European Commission Cloud Breach of 2026: AWS Data Theft Through the Poisoned Trivy Scanner](/case-studies/EUROPEAN_COMMISSION_CLOUD_BREACH_2026.md). Incident, February to August 2026 (core: 19 March 2026 to 28 March 2026). Sectors: government, technology. CVEs: CVE-2026-33634. ATT&CK groups: G1056 TeamPCP, G1057 ShinyHunters. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/European_Commission_Cloud_Breach_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/European_Commission_Cloud_Breach_2026_Case_Study.pptx).
+  - February 2026: Late February: attackers abuse a misconfigured Trivy GitHub Actions environment and extract a privileged access token
+  - 1 March 2026: The Trivy team discloses the first incident and rotates credentials; the rotation is not atomic
+  - 19 March 2026: Malicious Trivy v0.69.4 pushed; 76 of 77 trivy-action tags and all 7 setup-trivy tags moved to credential-stealing commits
+  - 19 March 2026: The attacker obtains a Commission AWS secret through the Trivy compromise, searches for more secrets and begins reconnaissance
+  - 24 March 2026: Commission CSOC alerts on Amazon API misuse, possible account compromise and abnormal traffic; incident response begins
+  - 25 March 2026: The Commission notifies CERT-EU, secures the AWS secret and disables the new access keys
+  - 26 March 2026: CISA adds CVE-2026-33634 to KEV
+  - 27 March 2026: Commission press release IP/26/748
+  - 28 March 2026: ShinyHunters publishes the dataset on its leak site: about 91.7 GB compressed, 340 GB uncompressed
+  - 2 April 2026: CERT-EU publishes its post-incident report
+  - 2 July 2026: FBI FLASH-20260702-01 on TeamPCP
+  - 26 August 2026: Two Western Australian men charged with 14 offences; the FBI calls them alleged TeamPCP members
+- [The SharePoint Server Exploitation Waves of 2026 (CVE-2026-45659 and Successors): A Case Study](/case-studies/SHAREPOINT_2026_EXPLOITATION.md). Campaign, January to November 2026 (core: 18 March 2026 to 25 September 2026). Sectors: cross-sector, government, telecommunications, education. CVEs: CVE-2026-20963, CVE-2026-32201, CVE-2026-45659, CVE-2026-58644, CVE-2026-56164, CVE-2026-50522 and 4 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SharePoint_2026_Exploitation_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/SharePoint_2026_Exploitation_Case_Study.pptx).
+  - 13 January 2026: Microsoft fixes CVE-2026-20963 in the January updates, marked not exploited
+  - 17 March 2026: Microsoft re-scores CVE-2026-20963 to an unauthenticated 9.8; KEV adds it on 18 Mar
+  - 25 March 2026: CERT-EU issues Security Advisory 2026-004
+  - 14 April 2026: Microsoft fixes CVE-2026-32201 as Exploitation Detected; KEV adds it the same day
+  - 21 May 2026: Microsoft publishes CVE-2026-45659, whose fix had shipped in the May updates
+  - 14 July 2026: July updates list CVE-2026-56164 (exploited), 58644, 50522 and 55040; CISA issues its hardening alert; SharePoint Server 2016 and 2019 reach end of support
+  - 15 July 2026: Canada issues AL26-017
+  - 22 July 2026: CERT-EU issues 2026-009 on exploitation of CVE-2026-50522; KEV adds it
+  - 22 July 2026: 22 to 31 Jul: a Warlock intrusion runs from a SharePoint web shell to ransomware (Reported)
+  - 11 August 2026: August updates fix CVE-2026-65660
+  - 24 September 2026: 24 to 25 Sep: Previdian honeypot attempt and Canada's AL26-023; KEV adds CVE-2026-65660 on 25 Sep
+  - 1 October 2026: Symantec reports Warlock attacks on at least four organizations after SharePoint exploitation (Reported)
 - [The Stryker Device-Wipe Attack of March 2026: A Case Study](/case-studies/STRYKER_HANDALA_WIPER_2026.md). Incident, March to November 2026 (core: 11 March 2026 to 1 April 2026). Sectors: healthcare, manufacturing. ATT&CK groups: G1055 VOID MANTICORE. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Stryker_Handala_Wiper_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Stryker_Handala_Wiper_2026_Case_Study.pptx).
   - 6 March 2026: Persona domains claim 851 GB stolen from a Hasidic community and post data on about 190 people tied to the IDF (6 to 9 March)
   - 11 March 2026: Managed devices wiped in the US, Ireland, Costa Rica and Australia; the Entra login page shows the Handala logo (Reported)
@@ -216,6 +392,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 1 April 2026: Stryker is fully operational across global manufacturing
   - 9 April 2026: 8-K/A Item 1.05: material impact on operations and first-quarter results, not on full-year guidance
   - 20 April 2026: ATT&CK creates G1055 VOID MANTICORE; its current description names the Stryker attack
+- [The CareCloud Medical-Records Breach of March 2026: A Case Study](/case-studies/CARECLOUD_BREACH_2026.md). Incident, March to November 2026 (core: 10 March 2026 to 16 March 2026). Sectors: healthcare, technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/CareCloud_Breach_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/CareCloud_Breach_2026_Case_Study.pptx).
+  - 10 March 2026: 10 to 16 March: an unauthorized third party has access to one of CareCloud's AWS environments
+  - 16 March 2026: One of six EHR environments loses functionality for about 8 hours; contained the same day, the last date of activity
+  - 24 March 2026: CareCloud decides the incident is material because of the sensitivity of the data
+  - 27 March 2026: Form 8-K Item 1.05 filed; access to or exfiltration of patient data still being assessed
+  - 7 May 2026: Q1 10-Q: an undetermined amount of data exfiltrated; access began about a week earlier; two class actions served
+  - June 2026: Class actions consolidated in the Southern District of Florida
+  - 24 June 2026: CareCloud determines the affected data elements
+  - 24 July 2026: HHS breach report submitted: 3,756,469 individuals
+  - 25 July 2026: California AG listing; individual notices begin
+  - 6 August 2026: Q2 10-Q: one cloud account accessed; PII and PHI exfiltrated for a substantial number of individuals
+  - 19 August 2026: BleepingComputer reports that no ransomware or extortion group has claimed the attack (Reported)
+  - 5 November 2026: Q3 10-Q: no regulator claim; settlement discussions ongoing; no Item 1.05 8-K/A filed
 - [Magento and Adobe Commerce, CVE-2026-48356: Lab-Verified Exposure and Fix](/case-studies/MAGENTO_CVE_2026_48356.md). Vulnerability, March to November 2026. Sectors: retail, technology. CVEs: CVE-2015-3306, CVE-2020-1938, CVE-2026-48356, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Magento_CVE_2026_48356_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Magento_CVE_2026_48356_Case_Study.pptx).
   - 17 March 2026: Sansec publishes the PolyShell advisory
   - 19 March 2026: First attacks in the wild, per Sansec (Reported)
@@ -240,6 +429,30 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 24 June 2026: Mandiant reports zero-day exploitation of CVE-2026-20245 in SD-WAN Manager
   - 30 September 2026: KEV adds CVE-2026-76504, the platform's ninth 2026 KEV entry
   - 28 October 2026: Talos names UAT-11473 and its KeyDrift framework; Cisco revision 2.1 links the post
+- [The FBI Surveillance System Breach of 2026: A Case Study](/case-studies/FBI_SURVEILLANCE_SYSTEM_BREACH_2026.md). Incident, February to November 2026 (core: 17 February 2026 to 6 April 2026). Sectors: government. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/FBI_Surveillance_System_Breach_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/FBI_Surveillance_System_Breach_2026_Case_Study.pptx).
+  - 17 February 2026: The FBI begins investigating abnormal log information on an unclassified system on its network (Reported)
+  - 4 March 2026: The FBI first tells Congress of suspicious activity on a system holding law enforcement sensitive information (Reported)
+  - 5 March 2026: The FBI says it identified and addressed suspicious activities on FBI networks (Reported)
+  - 6 March 2026: WSJ: US investigators believe Chinese-government-affiliated hackers are responsible; any Salt Typhoon link unclear (Reported)
+  - 10 March 2026: Malwarebytes calls the system DCSNet, a name not found in any quoted notice wording (Reported)
+  - 23 March 2026: Senior DOJ officials determine the intrusion is a FISMA major incident (Reported)
+  - 1 April 2026: Politico publishes the major-incident designation (Reported)
+  - 3 April 2026: FBI spokesperson: access was obtained through a third party; target phone numbers likely exposed (Reported)
+  - 6 April 2026: Later notice per Bloomberg: forensics and remediation ongoing, a working group created, no actor named (Reported)
+  - 11 November 2026: No hearing, IG report, formal attribution or joint advisory found; the Intelligence Hub feed has no row for the incident
+- [The Dell RecoverPoint for Virtual Machines Hard-Coded Credential Zero-Day of 2026 (CVE-2026-22769): A Case Study](/case-studies/DELL_RECOVERPOINT_CVE_2026_22769.md). Vulnerability, 2024 to November 2026 (core: 17 February 2026 to 21 February 2026). Sectors: technology. CVEs: CVE-2026-22769. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Dell_RecoverPoint_CVE_2026_22769_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Dell_RecoverPoint_CVE_2026_22769_Case_Study.pptx).
+  - 2024: Mid-2024: earliest exploitation GTIG identifies; UNC6201 deploys SLAYSTYLE, BRICKSTORM and GRIMBOLT (Reported)
+  - September 2025: Mandiant sees BRICKSTORM binaries on compromised appliances replaced with GRIMBOLT (Reported)
+  - 24 September 2025: GTIG publishes its BRICKSTORM espionage campaign report; it does not mention RecoverPoint
+  - 4 December 2025: CISA, NSA and the Canadian Cyber Centre publish AR25-338A, BRICKSTORM Backdoor
+  - 9 January 2026: Dell reserves CVE-2026-22769
+  - 20 January 2026: AR25-338A revised to add YARA rules
+  - 11 February 2026: AR25-338A adds Sample 12, a file whose hash GTIG later lists as GRIMBOLT
+  - 17 February 2026: Dell publishes DSA-2026-079 and the CVE; NVD publishes; GTIG publishes its UNC6201 report
+  - 18 February 2026: CISA adds the CVE to KEV, due 21 Feb
+  - 19 February 2026: CISA SSVC decision: exploitation active, automatable yes, technical impact total
+  - 18 March 2026: Dell KB 000426742, the remediation script, revised to version 2
+  - 16 April 2026: ATT&CK creates S9015 BRICKSTORM, naming UNC6201 among its users
 - [Node.js, CVE-2026-111497: Version Check and Fix in the Lab](/case-studies/NODEJS_CVE_2026_111497.md). Vulnerability, February to November 2026. Sectors: technology. CVEs: CVE-2026-111497, CVE-2026-105481, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Nodejs_CVE_2026_111497_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Nodejs_CVE_2026_111497_Case_Study.pptx).
   - 27 February 2026: Brotli fix commit 0ed4268 lands on the default branch with no release
   - 14 October 2026: Node.js pre-announces a security release for 21 October
@@ -252,6 +465,71 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 October 2026: CISA adds the CVE to KEV as Google Brotli Unchecked Return Value Vulnerability
   - 4 November 2026: TeamStarWolf lab run: 24.22.0 flagged, 24.22.1 not, both report Brotli 1.2.0
   - 10 November 2026: KEV due date
+- [The BeyondTrust Remote Support and PRA Command Injection of 2026 (CVE-2026-1731): A Case Study](/case-studies/BEYONDTRUST_REMOTE_SUPPORT_CVE_2026_1731.md). Vulnerability, December 2024 to November 2026 (core: 31 January 2026 to 19 February 2026). Sectors: cross-sector, finance, technology, education, retail, healthcare. CVEs: CVE-2026-1731, CVE-2024-12356, CVE-2024-12686, CVE-2026-102764. ATT&CK groups: G1051 Medusa Group. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/BeyondTrust_Remote_Support_CVE_2026_1731_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/BeyondTrust_Remote_Support_CVE_2026_1731_Case_Study.pptx).
+  - 16 December 2024: Advisory BT24-10 discloses CVE-2024-12356, an unauthenticated command injection in RS and PRA; KEV adds it on 19 Dec
+  - 31 January 2026: BeyondTrust detects anomalous activity on one RS appliance; Hacktron reports the flaw; CVE-2026-1731 reserved
+  - 2 February 2026: Patches BT26-02-RS and BT26-02-PRA pushed to auto-updating appliances; RS and PRA SaaS fully patched
+  - 6 February 2026: Advisory BT26-02 and the CVE record published
+  - 10 February 2026: BeyondTrust records its first observed exploitation attempt and emails customers again
+  - 11 February 2026: Public proof-of-concept repository created; reconnaissance surges (GreyNoise, Reported)
+  - 13 February 2026: KEV adds CVE-2026-1731, due 16 Feb; Arctic Wolf reports suspected exploitation (Reported)
+  - 18 February 2026: 18 to 19 Feb: KEV ransomware flag changes from Unknown to Known
+  - 19 February 2026: Unit 42 reports a multi-sector campaign with VShell and SparkRAT (Reported)
+  - 18 August 2026: AA25-071A update lists CVE-2026-1731 among the flaws Medusa actors exploit
+  - 30 September 2026: Google calls the discovery an early indicator of AI-assisted vulnerability discovery (Reported)
+  - 15 October 2026: 15 to 16 Oct: a separate RS flaw, CVE-2026-102764, is disclosed and added to KEV
+- [Ivanti EPMM Code Injection (CVE-2026-1281 and CVE-2026-1340): A Case Study](/case-studies/IVANTI_EPMM_CVE_2026_1281.md). Vulnerability, January to November 2026 (core: 29 January 2026 to 8 April 2026). Sectors: government, technology, cross-sector. CVEs: CVE-2026-1281, CVE-2026-1340, CVE-2026-6973, CVE-2023-35078, CVE-2023-35081, CVE-2025-4427 and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ivanti_EPMM_CVE_2026_1281_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Ivanti_EPMM_CVE_2026_1281_Case_Study.pptx).
+  - 21 January 2026: Ivanti reserves CVE-2026-1281; CVE-2026-1340 follows on 22 Jan
+  - 29 January 2026: Ivanti discloses both flaws with a very limited number of customers exploited; KEV adds CVE-2026-1281, due 1 Feb
+  - 30 January 2026: CERT-EU says one flaw was exploited; Rapid7 and watchTowr publish; the European Commission finds traces of an MDM attack
+  - 2 February 2026: NCSC-NL tells EPMM users to assume breach and to report even after patching
+  - 6 February 2026: Dutch government letter names the Data Protection Authority and the Council for the Judiciary
+  - 9 February 2026: NCSC-NL: misuse at several organisations, the MIFS database copied, multiple actors plausible
+  - 17 February 2026: Unit 42 reports widespread, mostly automated exploitation attempts (Reported)
+  - 20 February 2026: NCSC-2026-0043 rev 1.0.2: a compromised EPMM can reach Ivanti Sentry through the EPMM keystore
+  - 27 February 2026: Dutch letter lists six public bodies and a municipality; police reports filed
+  - 8 April 2026: KEV adds CVE-2026-1340, due 11 Apr; Canada relays that Ivanti says both were exploited
+  - 20 May 2026: Justice and Security annual report records that the prison service DJI was hit via the Ivanti hack
+  - 25 June 2026: Dutch parliamentary Digital Affairs committee debates the two government letters
+- [The Microsoft Office Security Feature Bypass of 2026 (CVE-2026-21509) and APT28: A Case Study](/case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md). Vulnerability, December 2025 to March 2026 (core: 26 January 2026 to 2 February 2026). Sectors: government. CVEs: CVE-2026-21509, CVE-2026-21514, CVE-2022-30190, CVE-2023-23397, CVE-2018-14634, CVE-2025-52691 and 2 more. ATT&CK groups: G0007 APT28. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Microsoft_Office_CVE_2026_21509_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Microsoft_Office_CVE_2026_21509_Case_Study.pptx).
+  - July 2025: APT28's Covenant begins using the Filen cloud storage service for command and control, per ESET (Reported)
+  - 16 September 2025: Sekoia publishes Operation Phantom Net Voxel with the same building blocks (Reported)
+  - 30 December 2025: Microsoft reserves CVE-2026-21509
+  - 12 January 2026: Two domains later used in the chain are registered
+  - 26 January 2026: MSRC publishes the Office security feature bypass out of band, Exploited = Yes; KEV adds it, due 16 Feb
+  - 27 January 2026: COREPER-themed lure document created, per its metadata
+  - 29 January 2026: CERT-UA receives reports of mail posing as Ukraine's Hydrometeorological Center sent to more than 60 addresses
+  - 1 February 2026: CERT-UA#19542 attributes the activity to UAC-0001 (APT28)
+  - 2 February 2026: Zscaler publishes Operation Neusploit (Reported)
+  - 10 February 2026: KEV adds CVE-2026-21514, a Word flaw with the same CWE-807
+  - 16 February 2026: KEV due date for federal agencies
+  - 10 March 2026: ESET ties the January campaigns to Sednit's Covenant (Reported)
+- [SmarterTools SmarterMail Exploitation and Ransomware, 2026 (CVE-2026-23760, CVE-2026-24423, CVE-2025-52691): A Case Study](/case-studies/SMARTERTOOLS_SMARTERMAIL_2026.md). Vulnerability, October 2025 to November 2026 (core: 15 January 2026 to 26 February 2026). Sectors: cross-sector, technology. CVEs: CVE-2025-52691, CVE-2026-23760, CVE-2026-24423, CVE-2026-40514. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SmarterTools_SmarterMail_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/SmarterTools_SmarterMail_2026_Case_Study.pptx).
+  - 9 October 2025: Build 9413 ships with "Critical security fixes." and no CVE named
+  - 29 December 2025: CSA Singapore alert AL-2025-124 and the CVE record for CVE-2025-52691
+  - 8 January 2026: 8 to 13 Jan: watchTowr reports the password-reset bypass; the vendor acknowledges it
+  - 15 January 2026: Build 9511 fixes the password-reset bypass and the ConnectToHub command execution flaw
+  - 17 January 2026: A SmarterMail forum post describes a successful attack (Reported)
+  - 22 January 2026: 22 to 23 Jan: CVE-2026-23760 and CVE-2026-24423 published; watchTowr, Huntress and VulnCheck publish
+  - 26 January 2026: KEV adds CVE-2025-52691 and CVE-2026-23760; Shadowserver sees exploitation attempts
+  - 29 January 2026: SmarterTools' own network is breached through its unpatched SmarterMail VM
+  - 5 February 2026: KEV adds CVE-2026-24423; its ransomware flag goes to Known within hours
+  - 9 February 2026: ReliaQuest ties a CVE-2026-23760 intrusion to Storm-2603 (Reported)
+  - 25 February 2026: 25 to 26 Feb: KEV ransomware flag for CVE-2026-23760 goes to Known
+  - 21 April 2026: KEV ransomware flag for CVE-2025-52691 goes to Known
+- [The FortiCloud SSO Authentication Bypass of 2026 (CVE-2026-24858): A Case Study](/case-studies/FORTINET_FORTICLOUD_SSO_CVE_2026_24858.md). Vulnerability, December 2025 to November 2026 (core: 15 January 2026 to 30 January 2026). Sectors: cross-sector, technology. CVEs: CVE-2026-24858, CVE-2025-59718, CVE-2025-59719, CVE-2022-40684, CVE-2024-55591, CVE-2025-24472 and 3 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Fortinet_FortiCloud_SSO_CVE_2026_24858_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Fortinet_FortiCloud_SSO_CVE_2026_24858_Case_Study.pptx).
+  - 9 December 2025: Fortinet FG-IR-25-647 discloses CVE-2025-59718 and CVE-2025-59719, a FortiCloud SSO bypass via a crafted SAML message
+  - 12 December 2025: Arctic Wolf sees malicious FortiGate SSO logins and configuration exports three days after the advisory (Reported)
+  - 16 December 2025: KEV adds CVE-2025-59718, due 23 Dec 2025
+  - 15 January 2026: Arctic Wolf first sees a new cluster: SSO logins to admin accounts, configuration export, new accounts, VPN changes (Reported)
+  - 21 January 2026: Arctic Wolf publishes; the initial access method is not yet confirmed (Reported)
+  - 22 January 2026: Fortinet PSIRT blog: exploitation on fully upgraded devices points to a new attack path; two FortiCloud accounts locked out
+  - 26 January 2026: Fortinet disables FortiCloud SSO on the FortiCloud side
+  - 27 January 2026: CVE-2026-24858 and FG-IR-26-060 published; SSO re-enabled refusing vulnerable versions; KEV adds it, due 30 Jan
+  - 28 January 2026: CISA alert on Fortinet's guidance; third-party SAML IdPs and FortiAuthenticator stated not affected
+  - 30 January 2026: Advisory updated with the last release updates; KEV due date for federal civilian agencies
+  - 10 March 2026: Siemens SSA-975644 lists the CVE for the Fortinet NGFW on RUGGEDCOM APE1808
+  - 12 May 2026: SSA-975644 V1.1 adds two other Fortinet CVEs on the same platform
 - [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md). Period record, January to November 2026. Sectors: cross-sector, government, technology, energy, healthcare, finance, retail, education, defense, transport. CVEs: CVE-2008-0015, CVE-2008-4128, CVE-2008-4250, CVE-2015-3306, CVE-2015-5477, CVE-2016-3081 and 65 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2026_Case_Study.pptx).
   - 23 January 2026: ESET ties DynoWiper, used against a Polish energy company on 29 Dec 2025, to Sandworm with medium confidence
   - 25 February 2026: Talos: Cisco Catalyst SD-WAN CVE-2026-20127 exploited as a zero-day back to at least 2023; CISA issues ED 26-03
@@ -289,6 +567,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 19 July 2025: Microsoft ships out-of-band updates, 19 to 20 July
   - 20 July 2025: CISA adds CVE-2025-53770 to the KEV catalog
   - September 2025: Warlock's leak site lists roughly 60 victims
+- [The Notepad++ Update-Channel Hijack (CVE-2025-15556): A Case Study](/case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md). Incident, June 2025 to November 2026 (core: June 2025 to February 2026). Sectors: technology, government, finance. CVEs: CVE-2025-15556. ATT&CK groups: G0030 Lotus Blossom. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Notepad_Plus_Plus_Update_Hijack_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Notepad_Plus_Plus_Update_Hijack_2026_Case_Study.pptx).
+  - June 2025: Incident begins, per the vendor's estimate (Reported)
+  - July 2025: Late July to early August: Kaspersky chain 1, an update launched by the updater leads to Cobalt Strike (Reported)
+  - 2 September 2025: Hosting provider says attackers lost access to the shared server (Reported)
+  - October 2025: Kaspersky chain 3: DLL sideloading delivers the Chrysalis backdoor (Reported)
+  - 18 November 2025: v8.8.8 addresses a potential WinGUp hijacking issue and advises a manual upgrade
+  - 2 December 2025: Attacker-held credentials stop working; the vendor's estimated end of the compromise (Reported)
+  - 9 December 2025: v8.8.9 aborts updates whose installer fails certificate and signature checks
+  - 2 February 2026: Vendor incident post, VulnCheck advisory and Rapid7 report (Lotus Blossom, moderate confidence)
+  - 3 February 2026: CVE-2025-15556 published and in NVD; Kaspersky report
+  - 5 February 2026: Vendor clarification: Notepad++ itself was not hacked
+  - 12 February 2026: CISA adds CVE-2025-15556 to KEV, due 5 March 2026
+  - 16 February 2026: v8.9.2 signs and verifies the update metadata
 - [The Year 2025 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2025.md). Period record, January to December 2025. Sectors: cross-sector, government, technology, telecommunications, finance, retail, manufacturing, energy, healthcare, transport, media. CVEs: CVE-2009-3960, CVE-2010-2861, CVE-2018-0171, CVE-2018-13379, CVE-2019-0604, CVE-2023-20198 and 53 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0027 Threat Group-3390, G0035 Dragonfly, G0125 HAFNIUM, G0128 ZIRCONIUM and 9 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2025_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2025_Case_Study.pptx).
   - 14 January 2025: Fortinet: FortiOS and FortiProxy authentication bypass CVE-2024-55591 exploited in the wild; KEV the same day, with known ransomware use
   - 21 February 2025: About US$1.5 billion in virtual assets stolen from Bybit; the FBI's PSA of 26 Feb attributes the theft to North Korea
@@ -656,6 +947,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 April 2024: Mandiant graduates Sandworm to APT44
   - 29 December 2025: Poland energy attack: RTUs damaged at more than 30 wind and PV farms
   - 13 July 2026: UK and EU formally attribute the Poland attack to FSB Centre 16; first joint cyber sanctions
+- [The Year 2014 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2014.md). Period record, January to December 2014. Sectors: cross-sector, technology, retail, finance, government, defense, energy, healthcare, manufacturing, media, telecommunications. CVEs: CVE-2013-3346, CVE-2013-5065, CVE-2013-5211, CVE-2014-0160, CVE-2014-0224, CVE-2014-0322 and 24 more. ATT&CK groups: G0001 Axiom, G0010 Turla, G0012 Darkhotel, G0022 APT3, G0024 Putter Panda, G0027 Threat Group-3390 and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2014_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2014_Case_Study.pptx).
+  - 13 January 2014: US-CERT alert on NTP amplification DDoS using the monlist feature, CVE-2013-5211
+  - 12 February 2014: NIST publishes Cybersecurity Framework 1.0
+  - 7 April 2014: OpenSSL discloses Heartbleed, CVE-2014-0160; US-CERT later tells victims to regenerate keys after patching
+  - 19 May 2014: Indictment of five PLA Unit 61398 officers on 31 counts announced; Blackshades takedown
+  - 2 June 2014: GameOver Zeus botnet and CryptoLocker disrupted; charges against the alleged administrator unsealed
+  - 25 June 2014: ICS-CERT alert on Havex: phishing, watering holes and trojanized installers on ICS vendor sites
+  - 31 July 2014: US-CERT TA14-212A on Backoff point-of-sale malware, deployed after brute-forced remote-desktop logins
+  - 18 September 2014: Home Depot: custom-built malware put about 56 million payment cards at risk
+  - 24 September 2014: NVD publishes Shellshock, CVE-2014-6271; US-CERT lists five follow-on Bash CVEs
+  - 14 October 2014: Google discloses POODLE in SSL 3.0; MS14-060 fixes the OLE flaw CVE-2014-4114 used in targeted attacks
+  - 24 November 2014: Symantec and Kaspersky publish Regin, with samples timestamped back to 2003
+  - 19 December 2014: FBI attributes the destructive attack on Sony Pictures to North Korea; US-CERT TA14-353A
 
 ### 2012 <!-- {docsify-ignore} -->
 
@@ -672,6 +976,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 3 April 2017: 3 April to 3 May 2017: GRU spearphishing of the French presidential campaign
   - 19 December 2017: The US and five partner governments attribute WannaCry to North Korea
   - 13 July 2018: Twelve GRU officers indicted over the 2016 election hacking
+- [The Year 2012 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2012.md). Period record, January to December 2012. Sectors: cross-sector, finance, energy, government, technology, media, retail, telecommunications, defense, manufacturing. CVEs: CVE-2008-5353, CVE-2010-2568, CVE-2011-3402, CVE-2011-3544, CVE-2012-0002, CVE-2012-0152 and 18 more. ATT&CK groups: G0066 Elderwood, G0006 APT1. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2012_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2012_Case_Study.pptx).
+  - 19 January 2012: Megaupload arrests in Auckland and more than 20 search warrants in the US and eight countries; DHS and FBI advise on recovering erased files
+  - 23 March 2012: Microsoft's Operation b71 seizes Zeus-family command servers under a civil court order
+  - 30 March 2012: Global Payments 8-K: unauthorized access to a portion of its processing system, self-reported
+  - 10 April 2012: MS12-027 fixes Office common controls flaw CVE-2012-0158, already used in limited targeted attacks
+  - 28 May 2012: Kaspersky publishes Flame, found while looking for the malware that wiped systems in Iran in April
+  - 3 June 2012: Microsoft Advisory 2718704 revokes trust in three of its intermediate CAs after unauthorized certificates were used in attacks
+  - 31 July 2012: Dropbox says passwords stolen from other websites opened user accounts and an employee's account
+  - 9 August 2012: Kaspersky publishes Gauss, built on the Flame platform; the FBI warns of Reveton ransomware
+  - 16 August 2012: Kaspersky analyses Shamoon, a wiper that overwrites the master boot record through a signed raw-disk driver
+  - 27 August 2012: US-CERT TA12-240A advises disabling Java in browsers for the exploited Java 7 flaw CVE-2012-4681
+  - 6 September 2012: Symantec's Elderwood Project ties the Aurora attackers to four 2012 zero-days and watering-hole attacks
+  - September 2012: DDoS on US banks becomes near-weekly, as alleged in the 2016 indictment of seven Iranians
 - [APT41: The Public Record, 2012 to 2026](/case-studies/APT41_PUBLIC_RECORD.md). Threat actor, 2012 to 2026. Sectors: technology, government, healthcare, telecommunications, education. CVEs: CVE-2012-0158, CVE-2015-1641, CVE-2017-0199, CVE-2017-11882, CVE-2019-1652, CVE-2019-1653 and 12 more. ATT&CK groups: G0096 APT41. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/APT41_Public_Record_2012_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/APT41_Public_Record_2012_2026_Case_Study.pptx).
   - 2012: FireEye traces APT41 activity to 2012, when members targeted the video game industry
   - July 2017: NetSarang's nssock2.dll backdoored in five software packages
@@ -727,6 +1044,35 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 8 August 2025: UNC6395 uses stolen Salesloft Drift OAuth tokens to export data from many Salesforce instances (8 to 18 August)
   - 15 October 2026: Storm-0940 signs in to customer tenants as ConnectWise multi-tenant apps and tries more than 2,250 tenants
   - 1 November 2026: Todyl: one operator signs in as victims' own Entra apps with stolen secrets and reaches 27 organizations (to 6 November)
+- [The Year 2011 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2011.md). Period record, January to December 2011. Sectors: cross-sector, technology, energy, government, defense, finance, retail, media, telecommunications, manufacturing. CVEs: CVE-2011-0609, CVE-2011-0611, CVE-2011-1823, CVE-2011-1889, CVE-2011-2005, CVE-2011-2462 and 8 more. ATT&CK groups: G0006 APT1. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2011_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2011_Case_Study.pptx).
+  - 10 February 2011: McAfee publishes Night Dragon, the espionage campaign against oil, energy and petrochemical companies
+  - 15 March 2011: A compromised Comodo RA account issues nine fraudulent certificates for seven domains
+  - 16 March 2011: Microsoft's civil action takes down the Rustock botnet
+  - 17 March 2011: EMC files RSA's open letter: an attack extracted information related to SecurID
+  - 13 April 2011: The Justice Department sends court-ordered stop commands to Coreflood-infected computers
+  - 17 April 2011: Intruders reach PlayStation Network and Qriocity account data (17 to 19 Apr)
+  - 1 June 2011: Google reports a phishing campaign that stole Gmail passwords and changed forwarding settings
+  - 19 July 2011: FBI arrests 16 people over the PayPal attacks and related intrusions; DigiNotar detects its intrusion
+  - 29 August 2011: Google reports man-in-the-middle attempts on users in Iran with a fraudulent DigiNotar certificate
+  - 13 October 2011: The SEC issues its cybersecurity disclosure guidance, CF Topic No. 2
+  - 14 October 2011: CrySyS Lab reports Duqu, a Stuxnet-like malware with a signed driver
+  - 9 November 2011: Operation Ghost Click charges seven over the DNSChanger scheme
+
+### 2010 <!-- {docsify-ignore} -->
+
+- [The Year 2010 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2010.md). Period record, January to December 2010. Sectors: cross-sector, technology, energy, manufacturing, government, defense, finance, retail, telecommunications, media. CVEs: CVE-2010-0188, CVE-2010-0232, CVE-2010-0249, CVE-2010-0738, CVE-2010-0806, CVE-2010-0840 and 24 more. ATT&CK groups: G0066 Elderwood, G0001 Axiom. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2010_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2010_Case_Study.pptx).
+  - 12 January 2010: Google discloses a targeted attack originating from China, detected in mid-December 2009; Gmail turns on HTTPS by default
+  - 21 January 2010: MS10-002 fixes the Internet Explorer flaw exploited during Operation Aurora (CVE-2010-0249)
+  - 22 February 2010: A federal court grants Microsoft's restraining order cutting off 277 Waledac botnet domains
+  - 25 March 2010: Albert Gonzalez of the TJX card-theft ring sentenced to 20 years in Massachusetts
+  - 6 April 2010: Shadows in the Cloud documents espionage against India, the Dalai Lama's office and the UN
+  - 8 April 2010: China Telecom advertises erroneous routes for about 18 minutes, per the US-China Commission
+  - 17 June 2010: VirusBlokAda reports the malware later named Stuxnet; HTTPS Everywhere released
+  - 16 July 2010: Microsoft Advisory 2286198 and a US-CERT alert on the Windows shortcut flaw (CVE-2010-2568)
+  - 2 August 2010: Out-of-band MS10-046 fixes the shortcut flaw, already exploited by a number of malware families
+  - 1 September 2010: Deputy Secretary of Defense discloses the 2008 CENTCOM flash-drive compromise (Buckshot Yankee)
+  - 30 September 2010: Symantec's Stuxnet dossier; SDNY charges 37 defendants over Zeus-enabled bank fraud
+  - 24 October 2010: Firesheep shows session cookies taken over open Wi-Fi
 
 ### 2009 <!-- {docsify-ignore} -->
 
@@ -757,6 +1103,22 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 21 September 2026: Operation Lonestar Roundup searches of Texas laptop farms (21 to 25 September), announced 13 October 2026
   - 29 October 2026: Binance theft, more than $6 billion; the FBI names TraderTraitor on 31 October 2026, an attribution disputed in press
 
+### 2007 <!-- {docsify-ignore} -->
+
+- [The Year 2007 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2007.md). Period record, January to December 2007. Sectors: cross-sector, government, defense, retail, finance, technology, telecommunications, energy, media, education. CVEs: CVE-2006-3877, CVE-2006-5994, CVE-2006-6456, CVE-2006-6561, CVE-2007-0015, CVE-2007-0038 and 14 more. ATT&CK groups: G0006 APT1, G0007 APT28, G1023 APT5, G0012 Darkhotel. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2007_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2007_Case_Study.pptx).
+  - 12 January 2007: Storm Worm floods several anti-spam sites; Spamhaus is hit on 30 January
+  - 17 January 2007: TJX announces an intrusion into its systems that handle customer transaction data
+  - 13 February 2007: MS07-014 (Word) and MS07-015 (Excel), both exploited at release
+  - 28 February 2007: US-CERT TA07-059A: a worm exploits the Solaris telnet daemon
+  - 3 April 2007: MS07-017 fixes the exploited animated cursor flaw a week before the monthly release
+  - 27 April 2007: DDoS attacks on Estonian government websites begin after the Bronze Soldier relocation (to 18 May)
+  - 8 May 2007: MS07-029 fixes the DNS Server RPC flaw, exploited since April
+  - 22 May 2007: OMB M-07-16: one-hour reporting of PII incidents
+  - 13 June 2007: Operation Bot Roast announced: over 1 million victim IP addresses
+  - 20 June 2007: FIRST releases CVSS v2
+  - 15 November 2007: Stuxnet 0.5 submitted to a public scanning service
+  - 20 November 2007: Chancellor tells the Commons that HMRC's child benefit discs are missing
+
 ### 2006 <!-- {docsify-ignore} -->
 
 - [China-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_CHINA.md). Threat actor, 2006 to October 2026. Sectors: government, healthcare, telecommunications, technology, defense. CVEs: CVE-2017-6862, CVE-2018-0171, CVE-2018-13382, CVE-2018-14847, CVE-2019-1652, CVE-2019-7192 and 44 more. ATT&CK groups: G0001 Axiom, G0002 Moafee, G0004 Ke3chang, G0005 APT12, G0006 APT1, G0009 Deep Panda and 41 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_China_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_China_Case_Study.pptx).
@@ -772,6 +1134,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - October 2024: Media first report Salt Typhoon in US telecoms
   - 5 March 2025: 12 people charged, including eight i-Soon employees and APT27 actors
   - 27 August 2025: AA25-239A: 23 agencies in 13 countries on Salt Typhoon
+- [The Year 2006 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2006.md). Period record, January to December 2006. Sectors: cross-sector, government, defense, healthcare, technology, retail, finance, telecommunications, energy, education. CVEs: CVE-2005-4560, CVE-2006-0003, CVE-2006-0058, CVE-2006-1301, CVE-2006-1359, CVE-2006-1547 and 8 more. ATT&CK groups: G0006 APT1, G0045 menuPass. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2006_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2006_Case_Study.pptx).
+  - 5 January 2006: MS06-001 fixes the Windows Metafile flaw out of cycle, exploited before any patch; US-CERT alert
+  - 26 January 2006: FTC announces the ChoicePoint settlement: $10 million civil penalty and $5 million consumer redress
+  - 3 February 2006: Mywife.E (Nyxem) runs its first scheduled corruption of document files
+  - 3 May 2006: VA analyst's home burglarized; laptop and drive with data on up to 26.5 million veterans stolen
+  - 8 May 2006: Jeanson James Ancheta sentenced to 57 months for selling botnet access for DDoS and spam
+  - 19 May 2006: Word zero-day: CERT/CC VU#446012 and a US-CERT alert; ISC first reports the targeted attack
+  - 23 June 2006: OMB M-06-16: encrypt mobile devices and require two-factor remote access
+  - July 2006: Mandiant first observes APT1 using WEBC2 backdoors; Shady RAT logs its first victims
+  - 8 August 2006: MS06-040 (Server service) and MS06-048 (PowerPoint), both exploited at release
+  - 6 September 2006: HP 8-K: a third party working for its outside investigators used pretexting to get phone records
+  - 26 September 2006: MS06-055 fixes the exploited VML flaw out of cycle
+  - 18 December 2006: TJX finds suspicious software, then confirms an intruder and stolen customer data (18 to 27 Dec)
 
 ### 2005 <!-- {docsify-ignore} -->
 
@@ -788,6 +1163,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 1 June 2012: New York Times Olympic Games account, relayed by the Guardian
   - 24 June 2012: Coded infection stop date for Stuxnet 1.x
   - 26 February 2013: Symantec publishes Stuxnet 0.5: The Missing Link
+- [The Year 2005 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2005.md). Period record, January to December 2005. Sectors: cross-sector, retail, finance, technology, government, defense, telecommunications, media. CVEs: CVE-2005-0773, CVE-2005-1983, CVE-2005-3650, CVE-2005-4560. ATT&CK groups: G0010 Turla, G0020 Equation. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2005_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2005_Case_Study.pptx).
+  - February 2005: ChoicePoint notifies about 35,000 California consumers under a California law; later rounds follow
+  - 8 March 2005: Retail Ventures announces the DSW card-data theft, 103 stores (108 by 18 April)
+  - 9 March 2005: Reed Elsevier reports fraudulent access at LexisNexis's Seisint unit through misused customer credentials
+  - 16 June 2005: FTC settles with BJ's Wholesale Club, treating weak security as an unfair practice
+  - 29 June 2005: TA05-180A: the VERITAS Backup Exec Remote Agent flaw actively exploited, scanning on 10000/tcp up
+  - July 2005: TJX's intruder first gets in, not found until December 2006
+  - 8 July 2005: TA05-189A, Targeted Trojan Email Attacks; Sven Jaschan convicted for Sasser
+  - 9 August 2005: MS05-039 fixes the Plug and Play flaw that Zotob exploits within days
+  - 25 August 2005: Zotob and Mytob suspects arrested in Morocco and Turkey (FBI release, 26 Aug)
+  - 3 November 2005: Jeanson James Ancheta arrested on a 17-count botnet indictment, which DOJ called the first of its kind
+  - 15 November 2005: VU#312073: Sony BMG's XCP software hides files with rootkit techniques; its uninstaller is unsafe
+  - 28 December 2005: TA05-362A: the Windows Metafile flaw exploited against patched XP SP2 before any patch
 
 ### 2004 <!-- {docsify-ignore} -->
 
@@ -804,6 +1192,51 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 15 October 2024: Kaspersky reports SideWinder using CVE-2017-11882 and StealerBot
   - March 2025: Stealth Falcon uses CVE-2025-33053 as a zero-day against a defense organization in Türkiye (Reported)
   - 10 June 2025: CVE-2025-33053 added to KEV and published by NVD
+- [The Year 2004 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2004.md). Period record, January to December 2004. Sectors: cross-sector, technology, government, defense, finance, retail, telecommunications. CVEs: CVE-2003-0533, CVE-2003-0719, CVE-2003-0818, CVE-2003-0819, CVE-2004-0200, CVE-2004-0362 and 4 more. ATT&CK groups: G0006 APT1, G0007 APT28, G0010 Turla, G0012 Darkhotel, G0020 Equation. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2004_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2004_Case_Study.pptx).
+  - 13 January 2004: CA-2004-01: multiple H.323 message flaws across VoIP, video conferencing, routers and firewalls (with NISCC)
+  - 28 January 2004: MyDoom.B detected; US-CERT SA04-028A and the first alert of DHS's new cyber alert system
+  - 19 March 2004: Witty begins at about 20:45 PST against ISS security software, the day after its flaw was announced
+  - 13 April 2004: MS04-011 fixes 14 flaws, the LSASS overrun later used by Sasser among them
+  - 29 April 2004: First criminal CAN-SPAM charges and the FTC's first CAN-SPAM cases
+  - 7 May 2004: German police arrest the alleged Sasser author after informants use Microsoft's reward program
+  - 24 June 2004: Download.Ject: Microsoft responds to compromised IIS 5.0 servers pushing code to visitors' browsers
+  - 6 August 2004: Windows XP SP2 released to manufacturing, with Windows Firewall on and DEP
+  - 26 August 2004: Operation Web Snare announced: more than 160 investigations, hired DDoS among them
+  - 25 October 2004: hugesoft.org, the first APT1 zone Mandiant knew, registered
+  - 15 December 2004: Brian Salcedo sentenced to 108 months in the Lowe's wireless card-capture case
+  - 21 December 2004: TA04-356A: the Santy.A worm exploits phpBB, finding targets through search engines
+
+### 2003 <!-- {docsify-ignore} -->
+
+- [The Year 2003 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2003.md). Period record, January to December 2003. Sectors: cross-sector, technology, energy, government, defense, retail, media, finance, telecommunications. CVEs: CVE-2002-0649, CVE-2002-1337, CVE-2003-0109, CVE-2003-0161, CVE-2003-0209, CVE-2003-0352 and 7 more. ATT&CK groups: G0010 Turla, G0020 Equation. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2003_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2003_Case_Study.pptx).
+  - January 2003: Slammer takes down monitoring computers at the idled Davis-Besse nuclear plant
+  - 25 January 2003: Slammer (Sapphire) begins slightly before 05:30 UTC, six months after MS02-039; CA-2003-04 the same day
+  - 11 March 2003: CA-2003-08: Windows systems compromised through null or weak Administrator passwords on SMB shares
+  - 17 March 2003: MS03-007 and CA-2003-09: ntdll.dll overflow actively exploited through WebDAV on IIS 5.0
+  - 16 July 2003: MS03-026 fixes the DCOM RPC overrun, 26 days before CERT/CC's Blaster advisory
+  - 11 August 2003: CA-2003-20: W32/Blaster
+  - 13 August 2003: CA-2003-21 announces the root compromise of the server behind GNU's primary FTP sites, reportedly from March
+  - 14 August 2003: The Northeast blackout; the US-Canada task force later finds no evidence of a malicious cause
+  - 22 August 2003: IN-2003-03: W32/Sobig.F
+  - 15 October 2003: MS03-041 to MS03-045 published together, Microsoft's first monthly batch
+  - 19 November 2003: Four Debian project machines compromised with a sniffed password and the do_brk() kernel flaw
+  - 16 December 2003: CAN-SPAM approved (Pub. L. 108-187)
+
+### 2002 <!-- {docsify-ignore} -->
+
+- [The Year 2002 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2002.md). Period record, January to December 2002. Sectors: cross-sector, technology, government, defense, finance, media, healthcare, telecommunications. CVEs: CVE-2000-0979, CVE-2001-0154, CVE-2001-0803, CVE-2002-0012, CVE-2002-0013, CVE-2002-0059 and 9 more. ATT&CK groups: G0020 Equation. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2002_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2002_Case_Study.pptx).
+  - 14 January 2002: CA-2002-01: active exploitation of the CDE dtspcd overflow on Solaris, confirmed with Honeynet Project traces
+  - 12 February 2002: CA-2002-03: SNMPv1 flaws across many vendors, found with the PROTOS c06-snmpv1 suite
+  - 26 February 2002: Adrian Lamo gets into the New York Times internal network and its Op-Ed contributor database
+  - 22 May 2002: IN-2002-04: the Spida worm spreads through null or weak sa passwords on SQL Server and MSDE
+  - 26 June 2002: OpenSSH challenge-response advisory and CA-2002-18, five days after 3.3 turned on privilege separation
+  - 30 July 2002: OpenSSH 3.4p1, 3.4 and 3.2.2p1 tarballs trojaned on the OpenBSD FTP server (30 or 31 July; CA-2002-24, 1 August)
+  - 14 September 2002: CA-2002-27: the Apache/mod_ssl worm Slapper; thousands of systems, at least three variants
+  - 25 September 2002: California SB 1386, the breach-notification law, approved by the Governor (operative 1 July 2003)
+  - 28 September 2002: Trojaned Sendmail 8.12.6 tarballs appear on ftp.sendmail.org from about 28 September (CA-2002-28, 8 October)
+  - 21 October 2002: Flood against all thirteen DNS root name servers, about 20:45 to 22:00 UTC
+  - 11 November 2002: Trojaned tcpdump and libpcap on www.tcpdump.org, 11 to 13 November (CA-2002-30)
+  - 17 December 2002: E-Government Act approved; Title III is the Federal Information Security Management Act
 
 ### 2001 <!-- {docsify-ignore} -->
 
@@ -820,6 +1253,35 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 15 November 2017: The White House publishes the unclassified VEP charter
   - 1 June 2023: Kaspersky discloses Operation Triangulation; the FSB blames US intelligence the same day
   - 19 October 2025: China's Ministry of State Security alleges an NSA campaign against the National Time Service Center
+- [The Year 2001 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2001.md). Period record, January to December 2001. Sectors: cross-sector, government, defense, technology, finance, retail, telecommunications. CVEs: CVE-2000-0884, CVE-2001-0008, CVE-2001-0010, CVE-2001-0144, CVE-2001-0154, CVE-2001-0241 and 3 more. ATT&CK groups: G0020 Equation. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2001_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2001_Case_Study.pptx).
+  - 18 January 2001: IN-2001-01: the self-propagating ramen toolkit roots Linux hosts through wu-ftpd, rpc.statd and LPRng flaws
+  - 29 January 2001: 29 and 30 January: VeriSign issues two "Microsoft Corporation" code-signing certificates to an impostor
+  - 12 February 2001: CA-2001-03: VBS/OnTheFly ("Anna Kournikova") mails itself through Outlook
+  - 8 May 2001: CA-2001-11: the sadmind/IIS worm crosses from Solaris to IIS
+  - 18 June 2001: MS01-033: the idq.dll overflow later used by Code Red, about four weeks before the worm
+  - 19 July 2001: CAIDA: Code-Red v2 infects 359,104 hosts in under 14 hours
+  - 18 September 2001: CA-2001-26: Nimda spreads by five paths, including the back doors earlier worms left
+  - 9 October 2001: Seattle jury convicts Vasiliy Gorshkov on 20 counts
+  - 26 October 2001: USA PATRIOT Act amends the computer fraud and surveillance statutes
+  - 31 October 2001: Vitek Boden sentenced over the Maroochy Shire sewerage intrusion (ATT&CK campaign C0020)
+  - 23 November 2001: Council of Europe Convention on Cybercrime done at Budapest
+  - 20 December 2001: MS01-059 and CA-2001-37: UPnP overflow leaves Windows XP vulnerable in its default configuration
+
+### 2000 <!-- {docsify-ignore} -->
+
+- [The Year 2000 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2000.md). Period record, January to December 2000. Sectors: cross-sector, government, defense, technology, retail, finance, media, manufacturing. CVEs: CVE-2000-0573, CVE-2000-0621, CVE-2000-0666, CVE-2000-0770, CVE-2000-0884, CVE-2000-0887 and 3 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2000_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2000_Case_Study.pptx).
+  - 3 January 2000: CA-2000-01: Stacheldraht DDoS agents found on multiple compromised hosts
+  - 7 January 2000: The President announces the national plan to defend America's cyberspace
+  - 7 February 2000: Yahoo unreachable for about three hours; Amazon.com, eBay, Buy.com and CNN hit the next day (press reports)
+  - 9 February 2000: Maroochy Shire: Boden alters pumping-station data from 9 February to 23 April (ATT&CK campaign C0020)
+  - 15 April 2000: RCMP arrests 'mafia boy' in Montreal over the attack on CNN's site
+  - 4 May 2000: Love Letter: first reported in Asia; CERT/CC advisory CA-2000-04 that night
+  - 7 July 2000: CA-2000-13: wu-ftpd site exec format string flaw exploited for remote root
+  - 11 July 2000: Carnivore widely reported, per EPIC; EPIC files a FOIA request the next day
+  - 15 September 2000: IN-2000-10: automated exploitation of rpc.statd and wu-ftpd, hundreds of hosts in single incidents
+  - 2 October 2000: NIST announces Rijndael as the proposed Advanced Encryption Standard
+  - 30 October 2000: Government Information Security Reform Act enacted in Pub. L. 106-398
+  - 10 November 2000: Gorshkov and Ivanov arrested in Seattle after a recorded meeting with the FBI's undercover company
 
 ### 1999 <!-- {docsify-ignore} -->
 
@@ -836,6 +1298,83 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 31 March 2025: PCI DSS 6.4.3 and 11.6.1 on payment page scripts become required
   - 22 October 2025: SessionReaper (CVE-2025-54236) attacks begin (Reported); KEV entry on 24 Oct
   - 27 October 2026: PolyShell (CVE-2026-48356) added to KEV
+- [The Year 1999 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1999.md). Period record, January to December 1999. Sectors: cross-sector, defense, government, technology, telecommunications, finance, healthcare, energy, retail, media. CVEs: CVE-1999-0018, CVE-1999-0668, CVE-1999-0696, CVE-1999-0704, CVE-1999-0833, CVE-1999-0834 and 4 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_1999_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_1999_Case_Study.pptx).
+  - 18 January 1999: DES Challenge III: distributed.net and the EFF DES Cracker find the key in 22 hours 15 minutes
+  - 21 January 1999: CA-1999-01: trojaned TCP Wrappers 7.6 source on a number of FTP servers
+  - 23 February 1999: Deputy Secretary of Defense Hamre tells Congress DoD detects 80 to 100 events a day
+  - 27 March 1999: CA-1999-04: Melissa, a Word macro virus spreading by email; over 100,000 computers by 29 March
+  - 22 April 1999: IN-99-03: CIH can erase the hard drive and overwrite the system BIOS
+  - 10 June 1999: CA-1999-06: ExploreZip zeroes Office and source-code files and spreads to shares
+  - 22 July 1999: IN-99-04: scripted attacks chain the cmsd, statd/automountd and ToolTalk flaws
+  - 9 August 1999: Kevin Mitnick sentenced to 46 months
+  - September 1999: The CVE List launches publicly with 321 records
+  - 12 November 1999: Gramm-Leach-Bliley Act puts a security and confidentiality obligation on financial institutions
+  - 18 November 1999: IN-99-07: trinoo and Tribe Flood Network installed on hosts taken through RPC flaws
+  - 28 December 1999: CA-1999-17: Tribe FloodNet 2K, with spoofed sources and MacOS 9 amplification
+
+### 1998 <!-- {docsify-ignore} -->
+
+- [The Year 1998 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1998.md). Period record, January to December 1998. Sectors: cross-sector, defense, government, technology, telecommunications, finance, healthcare, media. CVEs: CVE-1999-0001, CVE-1999-0002, CVE-1999-0003, CVE-1999-0004, CVE-1999-0005, CVE-1999-0006 and 10 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_1998_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_1998_Case_Study.pptx).
+  - 5 January 1998: CA-1998-01: continuing smurf floods through IP broadcast addresses congest or knock out NSPs, ISPs and other sites
+  - 1 February 1998: Solar Sunrise: attacks on Air Force, Navy and Marine Corps unclassified systems (1 to 26 February) (Reported)
+  - 27 February 1998: Attorney General Reno unveils the National Infrastructure Protection Center
+  - 18 March 1998: DOJ announces an arrest in Israel and searches of two California teenagers' homes; no sign of a state-sponsored campaign
+  - 13 May 1998: IN-98.01: TCP port 1 sweeps for IRIX hosts and automated logins to default accounts with no passwords
+  - 22 May 1998: PDD-63, Critical Infrastructure Protection, and PDD-62 on unconventional threats to the homeland
+  - 26 June 1998: CA-1998-07 and MS98-002: Bleichenbacher's PKCS #1 attack can recover information from SSL sessions
+  - 16 July 1998: IN-98.03: a compromised host holds 186,126 accounts with encrypted passwords, 47,642 already cracked
+  - 1 August 1998: Back Orifice released at DEF CON VI; MS98-010 follows on 4 August
+  - 12 October 1998: CA-1998-12: NFS mountd overflow, mainly on Linux, actively exploited with large-scale scanning
+  - 28 October 1998: Digital Millennium Copyright Act, Pub. L. 105-304
+  - 9 December 1998: IN-98-06: scripted tools scan the portmapper, exploit mountd on Linux and add a passwordless privileged account
+
+### 1997 <!-- {docsify-ignore} -->
+
+- [The Year 1997 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1997.md). Period record, January to December 1997. Sectors: cross-sector, defense, government, technology, telecommunications, finance, media, retail. CVEs: CVE-1999-0015, CVE-1999-0016, CVE-1999-0017, CVE-1999-0018, CVE-1999-0021, CVE-1999-0024 and 12 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_1997_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_1997_Case_Study.pptx).
+  - 16 January 1997: Office 97 reaches North American shops with VBA5 in every application
+  - 28 January 1997: CA-97.05: sendmail 8.8.3 and 8.8.4 MIME conversion overflow, exploitable despite firewalls
+  - 20 February 1997: CA-97.08: INN runs attacker commands from crafted control messages
+  - 7 April 1997: CA-97.09: IMAP and POP login overflow gives remote root; large-scale automated scans all year
+  - 21 May 1997: Card data on more than 100,000 accounts sold to undercover FBI agents; arrest at San Francisco Airport (Reported)
+  - 10 June 1997: Eligible Receiver 97: Joint Chiefs of Staff J-5 tasking for the exercise scenario
+  - 26 June 1997: Reno v. ACLU: the Communications Decency Act's indecency provisions struck down
+  - 13 August 1997: CA-97.22: BIND cache poisoning now being exploited
+  - 1 September 1997: Phrack 51 publishes The Art of Port Scanning, introducing nmap
+  - October 1997: PCCIP issues Critical Foundations: Protecting America's Infrastructures
+  - 10 November 1997: CA-97.25: sanitizing user-supplied data in CGI scripts
+  - 16 December 1997: CA-97.28 Teardrop and Land; the No Electronic Theft Act becomes law
+
+### 1996 <!-- {docsify-ignore} -->
+
+- [The Year 1996 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1996.md). Period record, January to December 1996. Sectors: cross-sector, defense, government, technology, telecommunications, manufacturing, education, healthcare. CVEs: CVE-1999-0022, CVE-1999-0043, CVE-1999-0067, CVE-1999-0103, CVE-1999-0116, CVE-1999-0128 and 7 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_1996_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_1996_Case_Study.pptx).
+  - 8 February 1996: CA-96.01: UDP packet storms between chargen and echo, typically with IP spoofing
+  - 20 March 1996: CA-96.06: the phf example CGI program in NCSA httpd and Apache is actively exploited
+  - 29 March 1996: Justice Department charges the Harvard intruder after the first court-ordered wiretap on a computer network
+  - 22 May 1996: GAO/AIMD-96-84: as many as 250,000 attacks on Defense systems in 1995, about 4 percent of test attacks detected
+  - 15 July 1996: Executive Order 13010 creates the President's Commission on Critical Infrastructure Protection
+  - 30 July 1996: Omega Engineering: an insider's time bomb deletes the company's manufacturing programs
+  - 16 August 1996: Justice Department web site altered and shut down (16 or 17 August)
+  - 19 September 1996: CA-96.21: TCP SYN flooding and IP spoofing, with no complete solution yet
+  - 11 October 1996: Pub. L. 104-294: the Economic Espionage Act and the National Information Infrastructure Protection Act
+  - 8 November 1996: Phrack 49 publishes Aleph One's Smashing The Stack For Fun And Profit
+  - 14 December 1996: A SYN flood takes more than 3,000 sites hosted by WebCom off the air for 40 hours
+  - 18 December 1996: CA-96.26: oversized ping packets crash, freeze or reboot systems
+
+### 1995 <!-- {docsify-ignore} -->
+
+- [The Year 1995 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1995.md). Period record, January to December 1995. Sectors: cross-sector, defense, government, education, finance, technology, telecommunications. CVEs: CVE-1999-0073, CVE-1999-0077, CVE-1999-0080, CVE-1999-0099, CVE-1999-0151, CVE-1999-0155 and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_1995_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_1995_Case_Study.pptx).
+  - 23 January 1995: CA-95:01: forged source addresses beat address-based trust; a kernel tool hijacks open terminal and login sessions
+  - 15 February 1995: FBI and the Raleigh-Durham Fugitive Task Force arrest Kevin Mitnick after a two-week electronic manhunt
+  - 15 February 1995: BSI publishes BS 7799-1:1995, an information security management code of practice
+  - 5 April 1995: SATAN released; CIAC bulletin F-20 records the release and announces the Courtney detector
+  - 29 June 1995: CERT heads-up: 170 IP spoofing attacks in a few weeks, at least 80 against name servers, routers and network systems
+  - 12 July 1995: Tatu Ylonen announces SSH 1.0 as a replacement for rlogin, rsh and rcp
+  - August 1995: Navy NCCOSC detects an intrusion traced to Harvard's FAS host (late August)
+  - 15 August 1995: Export-grade 40-bit SSL challenge broken by brute force
+  - September 1995: Virus Bulletin analyses Winword.Concept, the first Word macro virus seen spreading
+  - 11 October 1995: Netscape Bugs Bounty: $1,000 to the first finder of a major security bug in its browser beta (Reported)
+  - 18 December 1995: CA-95:18 Widespread Attacks: hundreds of sites hit through automated scanning of already-advised flaws
+  - 28 December 1995: Argentine authorities seize the Harvard intruder's equipment in Buenos Aires
 
 ### 1994 <!-- {docsify-ignore} -->
 
@@ -852,6 +1391,35 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 23 November 2001: Council of Europe Convention on Cybercrime done at Budapest
   - 25 January 2003: Slammer begins slightly before 05:30 UTC; over 90 percent of vulnerable hosts within ten minutes
   - 11 August 2003: CERT/CC CA-2003-20 on W32/Blaster, 26 days after Microsoft's MS03-026
+- [The Year 1994 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1994.md). Period record, January to December 1994. Sectors: cross-sector, defense, government, education, finance, technology, telecommunications. CVEs: CVE-1999-0113, CVE-1999-0120, CVE-1999-0207, CVE-1999-0211, CVE-1999-0337, CVE-1999-0338 and 4 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_1994_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_1994_Case_Study.pptx).
+  - 3 February 1994: CA-94:01: sniffers on compromised hosts have captured access information for tens of thousands of systems
+  - 9 February 1994: FIPS 185, the Escrowed Encryption Standard (Clipper), approved and published
+  - 21 February 1994: FBI arrests CIA officer Aldrich Ames in Arlington, Virginia
+  - 18 March 1994: CA-94:05 publishes MD5 checksums for SunOS files after intruders build Trojans to match the sum checksum
+  - 23 March 1994: Rome Laboratory first penetrated, per audit logs; staff find a sniffer on 28 March
+  - 6 April 1994: CA-94:07: intruder-modified wuarchive ftpd 2.2 and 2.1f source carries a root back door
+  - 12 May 1994: New Scotland Yard arrests the 16-year-old Datastream Cowboy; the US record never identifies Kuji
+  - June 1994: About 40 illegal transfers totalling more than $10 million from a US bank's cash management system begin (to October)
+  - 13 September 1994: Pub. L. 103-322 amends 18 U.S.C. 1030 and adds a civil action
+  - 19 October 1994: CA-94:14: Trojaned ircII 2.2.9 source, on FTP sites since May, is actively exploited
+  - December 1994: US Naval Academy penetrated from three countries and two US universities; more than 12,000 passwords changed
+  - 25 December 1994: IP spoofing attack on Tsutomu Shimomura's systems begins
+
+### 1993 <!-- {docsify-ignore} -->
+
+- [The Year 1993 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1993.md). Period record, January to December 1993. Sectors: cross-sector, government, defense, technology, finance, telecommunications, energy, education. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_1993_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_1993_Case_Study.pptx).
+  - 3 February 1993: CA-93:03: SunOS default file permissions give local root; CERT sees an increasing number of attackers exploiting them
+  - 12 March 1993: Steve Jackson Games v. US Secret Service decided: Privacy Protection Act and Stored Communications Act violated
+  - 17 March 1993: Paul Bedworth acquitted at Southwark Crown Court after a four-week Computer Misuse Act trial
+  - 16 April 1993: White House announces the voluntary Clipper Chip key-escrow initiative
+  - 14 May 1993: Channel Videodat broadcasts a Tremor-infected PKUNZIP to a claimed 60,000 subscribers
+  - 14 July 1993: CA-93:10 Anonymous FTP Activity: compromise, disk-filling denial of service, trading of pirated software
+  - 4 August 1993: Senate hearing "Auditing the Auditors": IRS staff browsing taxpayer records
+  - 10 September 1993: The Air Force Electronic Warfare Center is redesignated the Air Force Information Warfare Center
+  - 30 September 1993: CA-93:14: the Internet Security Scanner is posted to comp.sources.misc; CERT expects malicious use
+  - 21 October 1993: CA-93:15: the Sun sendmail flaw is being actively exploited
+  - 3 November 1993: Mark Abene (Phiber Optik) sentenced to a year and a day in federal court in Manhattan
+  - 16 November 1993: The seclists.org Bugtraq archive opens with a thread on CA-93:17
 
 ### 1992 <!-- {docsify-ignore} -->
 

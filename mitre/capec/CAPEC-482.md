@@ -45,6 +45,13 @@ Hand-written pages in this library that link to this page or to this object's en
 
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 - [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md)
+- [The Year 1994 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1994.md)
+- [The Year 1996 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1996.md)
+- [The Year 2000 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2000.md)
+- [The Year 2001 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2001.md)
+- [The Year 2002 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2002.md)
+- [The Year 2003 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2003.md)
+- [The Year 2007 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2007.md)
 - [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md)
 
 <!-- library-refs:end -->

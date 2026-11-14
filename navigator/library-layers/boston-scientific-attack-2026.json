@@ -1,0 +1,85 @@
+{
+  "name": "TeamStarWolf - Boston Scientific Network Outage August 2026 Case Study",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. Enterprise ATT&CK v20.0 techniques bound in the Boston Scientific network outage case study: an unauthorized third party entered through an external-facing network management device on or before 25 August 2026 and reached a limited portion of the on-premises IT environment (CrowdStrike investigation summary, 22 September 2026). The record states the entry point but not the method, so both Initial Access techniques are candidates at score 40 and neither is asserted. Score 40: a candidate the record allows but does not state. Scores measure the strength of the tie to this record, not severity. No actor, malware, CVE, encryption or exfiltration is in the record, so none is bound. Comments carry the study's source numbers.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#e5e7eb",
+      "#86efac",
+      "#15803d"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: candidate; the record allows it but does not state the method",
+      "color": "#d1fae5"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "case-studies/BOSTON_SCIENTIFIC_ATTACK_2026.md; ATT&CK v20.0 technique data"
+    },
+    {
+      "name": "score_meaning",
+      "value": "40 = candidate: the record states an external-facing network management device as the way in but not how it was compromised. No severity, prevalence or coverage is measured."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Boston Scientific Network Outage of August 2026: A Case Study",
+      "url": "https://teamstarwolf.github.io/TeamStarWolf/#/case-studies/BOSTON_SCIENTIFIC_ATTACK_2026"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false,
+  "techniques": [
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "External Remote Services. Candidate: entry through an external-facing network management device, identified 25 Aug 2026, if its remote management service was used with valid access; the method is not stated (CrowdStrike summary, 22 Sep 2026). Sources: [13].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "External Remote Services. Candidate: entry through an external-facing network management device, identified 25 Aug 2026, if its remote management service was used with valid access; the method is not stated (CrowdStrike summary, 22 Sep 2026). Sources: [13].",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "Exploit Public-Facing Application. Candidate: entry through an external-facing network management device, identified 25 Aug 2026; whether a flaw was exploited is not stated (CrowdStrike summary, 22 Sep 2026). Sources: [13].",
+      "enabled": true
+    }
+  ]
+}

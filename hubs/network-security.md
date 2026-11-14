@@ -51,5 +51,12 @@ Part of the [domain hubs](/hubs/README.md). 11 reference documents in this domai
 - [The Ivanti Connect Secure zero-day chain (October 2026): a case study](/case-studies/IVANTI_CONNECT_SECURE_2026.md)
 - [The Cisco Catalyst SD-WAN authentication bypass (CVE-2026-20127): a case study](/case-studies/CISCO_SDWAN_CVE_2026_20127.md)
 - [The Citrix NetScaler zero-days (September and October 2026): a case study](/case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md)
+- [The Citrix NetScaler SAML IdP memory overread (CVE-2026-3055): a case study](/case-studies/CITRIX_NETSCALER_CVE_2026_3055.md)
+- [The PAN-OS GlobalProtect authentication bypass (CVE-2026-0257): a case study](/case-studies/PALO_ALTO_PAN_OS_CVE_2026_0257.md)
+- [The BeyondTrust Remote Support and PRA command injection (CVE-2026-1731): a case study](/case-studies/BEYONDTRUST_REMOTE_SUPPORT_CVE_2026_1731.md)
+- [The FortiCloud SSO authentication bypass (CVE-2026-24858): a case study](/case-studies/FORTINET_FORTICLOUD_SSO_CVE_2026_24858.md)
+- [The Check Point Remote Access VPN IKEv1 authentication bypass (CVE-2026-50751): a case study](/case-studies/CHECK_POINT_VPN_CVE_2026_50751.md)
+- [The Dell RecoverPoint for Virtual Machines hard-coded credential zero-day (CVE-2026-22769): a case study](/case-studies/DELL_RECOVERPOINT_CVE_2026_22769.md)
+- [The Check Point Gaia DynamicCLI root flaw, the PHP2Shell chain and the ESXi wiper (CVE-2026-123039): a case study](/case-studies/CHECK_POINT_GAIA_CVE_2026_123039.md)
 
 <!-- hub:end -->

@@ -112,6 +112,57 @@ studies:
       - {"date": "2024-07-18", "label": "APT41 DUST (C0040) reported: prolonged access at shipping and logistics organizations"}
       - {"date": "2026-07-24", "label": "Google renames APT41 to SPIRE CASTLE"}
       - {"date": "2026-10-22", "label": "BlackX UEFI bootkit reported at diplomatic agencies in Tajikistan, Uzbekistan and Turkmenistan"}
+  case-studies/ATF_MAJOR_INCIDENT_2026.md:
+    kind: "incident"
+    title: "The ATF Major Incident of 2026: A Case Study"
+    start: "2026-03"
+    end: "2026-11"
+    core_start: "2026-08-26"
+    core_end: "2026-08-28"
+    sectors: ["government"]
+    cves: ["CVE-2026-0257", "CVE-2026-50751"]
+    actors: []
+    tags: ["ATF", "federal agency", "Qilin", "Agenda", "leak site", "FISMA major incident", "segmentation", "ransomware claim"]
+    pdf: "ATF_Major_Incident_2026_Case_Study.pdf"
+    pptx: "ATF_Major_Incident_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-03-05", "label": "Context: the FBI confirms it identified and addressed suspicious activities after a reported breach of its surveillance systems (Reported)"}
+      - {"date": "2026-05-07", "label": "Lineage: exploitation of Check Point VPN flaw CVE-2026-50751 begins against a few dozen organizations"}
+      - {"date": "2026-05-29", "label": "Lineage: PAN-OS CVE-2026-0257 enters KEV with ransomware use Known"}
+      - {"date": "2026-06", "label": "Lineage: Arctic Wolf investigates several intrusions that began with CVE-2026-0257 and ended in Qilin ransomware"}
+      - {"date": "2026-06-08", "label": "Lineage: Check Point's hotfix advisory notes a Qilin affiliate case; CISA adds CVE-2026-50751 to KEV"}
+      - {"date": "2026-07-01", "label": "Context: DHS confirms a compromise of HSIN, a legacy information sharing environment (Reported)"}
+      - {"date": "2026-08-26", "label": "Qilin lists ATF on its leak site with no proof screenshots, timer, theft claim or ransom claim (Reported)"}
+      - {"date": "2026-08-26", "label": "ATF statement: one standalone system compromised, connections terminated, a major incident designated (Reported)"}
+      - {"date": "2026-08-27", "label": "BleepingComputer reports; an ATF spokesperson had not responded by publication (Reported)"}
+      - {"date": "2026-08-28", "label": "SecurityWeek reports the major-incident designation and no effect on ATF's missions (Reported)"}
+      - {"date": "2026-11-13", "label": "No source opened shows Qilin publishing ATF data; the Hub has no ATF row, and its Oct Qilin rows cover PAN-OS CVE-2026-0257"}
+  case-studies/BEYONDTRUST_REMOTE_SUPPORT_CVE_2026_1731.md:
+    kind: "vulnerability"
+    title: "The BeyondTrust Remote Support and PRA Command Injection of 2026 (CVE-2026-1731): A Case Study"
+    start: "2024-12"
+    end: "2026-11"
+    core_start: "2026-01-31"
+    core_end: "2026-02-19"
+    sectors: ["cross-sector", "finance", "technology", "education", "retail", "healthcare"]
+    cves: ["CVE-2026-1731", "CVE-2024-12356", "CVE-2024-12686", "CVE-2026-102764"]
+    actors: ["G1051"]
+    tags: ["BeyondTrust", "Remote Support", "Privileged Remote Access", "command injection", "remote access", "edge device", "Medusa", "ransomware", "AI-assisted discovery", "KEV"]
+    pdf: "BeyondTrust_Remote_Support_CVE_2026_1731_Case_Study.pdf"
+    pptx: "BeyondTrust_Remote_Support_CVE_2026_1731_Case_Study.pptx"
+    events:
+      - {"date": "2024-12-16", "label": "Advisory BT24-10 discloses CVE-2024-12356, an unauthenticated command injection in RS and PRA; KEV adds it on 19 Dec"}
+      - {"date": "2026-01-31", "label": "BeyondTrust detects anomalous activity on one RS appliance; Hacktron reports the flaw; CVE-2026-1731 reserved"}
+      - {"date": "2026-02-02", "label": "Patches BT26-02-RS and BT26-02-PRA pushed to auto-updating appliances; RS and PRA SaaS fully patched"}
+      - {"date": "2026-02-06", "label": "Advisory BT26-02 and the CVE record published"}
+      - {"date": "2026-02-10", "label": "BeyondTrust records its first observed exploitation attempt and emails customers again"}
+      - {"date": "2026-02-11", "label": "Public proof-of-concept repository created; reconnaissance surges (GreyNoise, Reported)"}
+      - {"date": "2026-02-13", "label": "KEV adds CVE-2026-1731, due 16 Feb; Arctic Wolf reports suspected exploitation (Reported)"}
+      - {"date": "2026-02-18", "label": "18 to 19 Feb: KEV ransomware flag changes from Unknown to Known"}
+      - {"date": "2026-02-19", "label": "Unit 42 reports a multi-sector campaign with VShell and SparkRAT (Reported)"}
+      - {"date": "2026-08-18", "label": "AA25-071A update lists CVE-2026-1731 among the flaws Medusa actors exploit"}
+      - {"date": "2026-09-30", "label": "Google calls the discovery an early indicator of AI-assisted vulnerability discovery (Reported)"}
+      - {"date": "2026-10-15", "label": "15 to 16 Oct: a separate RS flaw, CVE-2026-102764, is disclosed and added to KEV"}
   case-studies/BINANCE_HEIST_2026.md:
     kind: "incident"
     title: "The Binance Hot-Wallet Theft of October 2026: A Case Study"
@@ -136,6 +187,32 @@ studies:
       - {"date": "2026-11-01", "label": "Phase-one withdrawals resume on 15 networks"}
       - {"date": "2026-11-02", "label": "Kim Yo Jong denies North Korea's role (Reported)"}
       - {"date": "2026-11-03", "label": "Binance publishes its preliminary post-mortem; Chainalysis and TRM publish follow-ups"}
+  case-studies/BOSTON_SCIENTIFIC_ATTACK_2026.md:
+    kind: "incident"
+    title: "The Boston Scientific Network Outage of August 2026: A Case Study"
+    start: "2026-07"
+    end: "2026-11"
+    core_start: "2026-08-25"
+    core_end: "2026-09-09"
+    sectors: ["healthcare", "manufacturing"]
+    cves: []
+    actors: []
+    tags: ["Boston Scientific", "CrowdStrike", "network management device", "edge device", "SEC Item 1.05", "8-K", "medical technology", "LATITUDE", "remote monitoring", "outage"]
+    pdf: "Boston_Scientific_Attack_2026_Case_Study.pdf"
+    pptx: "Boston_Scientific_Attack_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-08-25", "label": "System availability issues traced to an unauthorized third party; containment begins and CrowdStrike's investigation starts"}
+      - {"date": "2026-08-26", "label": "Form 8-K Item 8.01: a global disruption, including the ability to process and ship orders"}
+      - {"date": "2026-08-27", "label": "Orders queued through EDI; implanted device function unaffected; new remote-monitoring activations impaired"}
+      - {"date": "2026-08-29", "label": "CrowdStrike named as responder; cloud systems not affected; manufacturing also impacted"}
+      - {"date": "2026-08-30", "label": "No unauthorized activity seen since 25 August; partial restoration of shipping planned"}
+      - {"date": "2026-09-03", "label": "Access believed limited to select internal-facing IT; shipping restored for most products at major distribution centers"}
+      - {"date": "2026-09-05", "label": "Distribution substantially restored; all sterilization facilities operational; manufacturing resumed at most sites"}
+      - {"date": "2026-09-07", "label": "Form 8-K Item 1.05 (filed 8 September): likely material to Q3 and full-year 2026 results"}
+      - {"date": "2026-09-08", "label": "Remote-monitoring activation restored for LATITUDE NXT communicators and LATITUDE Clarity ICMs"}
+      - {"date": "2026-09-09", "label": "Manufacturing, order fulfillment and shipping fully restored"}
+      - {"date": "2026-10-28", "label": "Q3 results: net sales $5.138 billion (+1.5%) against 3 to 5% guidance; full-year guidance cut"}
+      - {"date": "2026-11-02", "label": "Q3 10-Q: material effect on Q3, a 1.7-point gross margin hit and civil legal claims filed"}
   case-studies/CHANGE_HEALTHCARE_2024.md:
     kind: "incident"
     title: "The Change Healthcare Attack of 2024: The Largest Healthcare Breach on Record"
@@ -160,6 +237,84 @@ studies:
       - {"date": "2024-10-22", "label": "About 100 million individual notices sent"}
       - {"date": "2025-07-31", "label": "About 192.7 million people counted as affected"}
       - {"date": "2026-09-30", "label": "S.3315 passes the Senate by unanimous consent"}
+  case-studies/CARECLOUD_BREACH_2026.md:
+    kind: "incident"
+    title: "The CareCloud Medical-Records Breach of March 2026: A Case Study"
+    start: "2026-03"
+    end: "2026-11"
+    core_start: "2026-03-10"
+    core_end: "2026-03-16"
+    sectors: ["healthcare", "technology"]
+    cves: []
+    actors: []
+    tags: ["CareCloud", "EHR", "health data", "business associate", "cloud account", "AWS", "SEC 8-K Item 1.05", "HIPAA"]
+    pdf: "CareCloud_Breach_2026_Case_Study.pdf"
+    pptx: "CareCloud_Breach_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-03-10", "label": "10 to 16 March: an unauthorized third party has access to one of CareCloud's AWS environments"}
+      - {"date": "2026-03-16", "label": "One of six EHR environments loses functionality for about 8 hours; contained the same day, the last date of activity"}
+      - {"date": "2026-03-24", "label": "CareCloud decides the incident is material because of the sensitivity of the data"}
+      - {"date": "2026-03-27", "label": "Form 8-K Item 1.05 filed; access to or exfiltration of patient data still being assessed"}
+      - {"date": "2026-05-07", "label": "Q1 10-Q: an undetermined amount of data exfiltrated; access began about a week earlier; two class actions served"}
+      - {"date": "2026-06", "label": "Class actions consolidated in the Southern District of Florida"}
+      - {"date": "2026-06-24", "label": "CareCloud determines the affected data elements"}
+      - {"date": "2026-07-24", "label": "HHS breach report submitted: 3,756,469 individuals"}
+      - {"date": "2026-07-25", "label": "California AG listing; individual notices begin"}
+      - {"date": "2026-08-06", "label": "Q2 10-Q: one cloud account accessed; PII and PHI exfiltrated for a substantial number of individuals"}
+      - {"date": "2026-08-19", "label": "BleepingComputer reports that no ransomware or extortion group has claimed the attack (Reported)"}
+      - {"date": "2026-11-05", "label": "Q3 10-Q: no regulator claim; settlement discussions ongoing; no Item 1.05 8-K/A filed"}
+  case-studies/CHECK_POINT_GAIA_CVE_2026_123039.md:
+    kind: "vulnerability"
+    title: "CVE-2026-123039 and Root on the Check Point Gateway: The PHP2Shell Chain, the TSGA Implant and the ESXi Wiper of October and November 2026"
+    start: "2019-01"
+    end: "2026-11"
+    core_start: "2026-10-30"
+    core_end: "2026-11-13"
+    sectors: ["cross-sector", "technology"]
+    cves: ["CVE-2026-123039", "CVE-2026-107484", "CVE-2026-109618", "CVE-2026-109619", "CVE-2026-50751", "CVE-2024-24919", "CVE-2026-16232", "CVE-2026-85102", "CVE-2026-85103", "CVE-2026-93616", "CVE-2026-91843", "CVE-2026-46300", "CVE-2026-41709", "CVE-2023-20867", "CVE-2026-1281", "CVE-2026-1340", "CVE-2026-0257", "CVE-2026-24858", "CVE-2026-18577", "CVE-2026-18556", "CVE-2026-86218", "CVE-2026-88771", "CVE-2026-88772", "CVE-2026-88779", "CVE-2026-104935", "CVE-2026-111357", "CVE-2026-118527", "CVE-2026-1731"]
+    actors: []
+    tags: ["Check Point", "Gaia OS", "DynamicCLI", "privilege escalation", "PHP2Shell", "Mobile Access", "TSGA", "TSProxy", "PhiliKit", "wiper", "VMware ESXi", "edge device", "zero-day", "KEV"]
+    pdf: "Check_Point_Gaia_CVE_2026_123039_Case_Study.pdf"
+    pptx: "Check_Point_Gaia_CVE_2026_123039_Case_Study.pptx"
+    events:
+      - {"date": "2019-01-08", "label": "sk144112 documents Dynamic CLI, the Gaia feature served by the vulnerable daemon"}
+      - {"date": "2026-05-28", "label": "ESET's APT Activity Report assesses PhiliKit as part of UNC5221's SPAWN toolset"}
+      - {"date": "2026-10-21", "label": "PHP2Shell patches released (Reported); GreyNoise's PHP2Shell sensor data starts"}
+      - {"date": "2026-10-26", "label": "KEV adds CVE-2026-109618 and CVE-2026-109619, due 29 Oct, with forensic triage required"}
+      - {"date": "2026-10-28", "label": "GreyNoise records its first successful PHP2Shell exploitation of a vulnerable sensor"}
+      - {"date": "2026-10-30", "label": "First wave against unpatched Mobile Access portals of Israeli organizations; root, TSGA and the destroy_v6 wiper on ESXi follow"}
+      - {"date": "2026-11-02", "label": "Second, broader wave across multiple countries and sectors; no destruction reported"}
+      - {"date": "2026-11-05", "label": "CVE-2026-123039 reserved"}
+      - {"date": "2026-11-08", "label": "Check Point creates support article sk1000362"}
+      - {"date": "2026-11-09", "label": "CSIRT Italia alert on Check Point PHP2Shell updates marks exploitation present"}
+      - {"date": "2026-11-12", "label": "CVE-2026-107484 and CVE-2026-123039 published; Check Point Research report; Canadian Centre AV26-1154"}
+      - {"date": "2026-11-13", "label": "CISA adds CVE-2026-123039 to KEV, due 16 Nov under BOD 26-04"}
+  case-studies/CHECK_POINT_VPN_CVE_2026_50751.md:
+    kind: "vulnerability"
+    title: "The Check Point Remote Access VPN IKEv1 Authentication Bypass of 2026 (CVE-2026-50751): A Case Study"
+    start: "2026-05"
+    end: "2026-11"
+    core_start: "2026-05-07"
+    core_end: "2026-06-15"
+    sectors: ["cross-sector", "technology"]
+    cves: ["CVE-2026-50751", "CVE-2026-50752", "CVE-2024-24919", "CVE-2026-0257", "CVE-2026-16232", "CVE-2026-85102", "CVE-2026-85103", "CVE-2026-93616"]
+    actors: []
+    tags: ["Check Point", "Quantum Security Gateway", "Spark", "Remote Access VPN", "IKEv1", "authentication bypass", "edge device", "VPN", "Qilin", "ransomware", "KEV"]
+    pdf: "Check_Point_VPN_CVE_2026_50751_Case_Study.pdf"
+    pptx: "Check_Point_VPN_CVE_2026_50751_Case_Study.pptx"
+    events:
+      - {"date": "2026-05-07", "label": "Earliest exploitation Check Point observed; start of the attacker indicator window"}
+      - {"date": "2026-06-04", "label": "Check Point Research begins investigating suspicious VPN activity; sk185033 created"}
+      - {"date": "2026-06-07", "label": "CVE-2026-50751 reserved; sk185035 created for the site-to-site companion CVE-2026-50752"}
+      - {"date": "2026-06-08", "label": "Check Point publishes the CVE and announces the hotfix; KEV adds it, due 11 Jun, ransomware use Known; AV26-559 issued"}
+      - {"date": "2026-06-11", "label": "KEV due date; sk185033 adds R81.10 JHF Take 187 and more indicators"}
+      - {"date": "2026-06-12", "label": "watchTowr Labs publishes its reproduction and analysis"}
+      - {"date": "2026-06-13", "label": "sk185033 adds attacker addresses and a section on identifying hits on the IPS signature"}
+      - {"date": "2026-06-15", "label": "Recommended accumulators for R82.10, R82 and R81.20 listed; CPR weekly report records the Qilin case (Reported)"}
+      - {"date": "2026-06-17", "label": "The CNA adds affected-version data; CISA ADP adds its SSVC decision"}
+      - {"date": "2026-07-22", "label": "A later Check Point flaw, CVE-2026-16232 (SmartConsole), enters KEV"}
+      - {"date": "2026-09-10", "label": "CERT-EU 2026-012 covers later Check Point VPN flaws; it does not mention CVE-2026-50751"}
+      - {"date": "2026-09-22", "label": "CVE-2026-85102 and CVE-2026-93616 enter KEV with BOD 26-04 forensic triage marked Yes"}
   case-studies/CHROME_ISOLATED_WEB_APPS_2026.md:
     kind: "reference"
     title: "Chrome Isolated Web Apps: Vulnerabilities and Abuse in 2026"
@@ -186,6 +341,462 @@ studies:
       - {"date": "2026-09-08", "label": "Chrome 153 fixes three IWA and two Controlled Frame bugs, and exploited V8 bug CVE-2026-87491 with no link between them"}
       - {"date": "2026-11-03", "label": "Chrome 157 fixes CVE-2026-121172 and CVE-2026-121206, the last IWA-component CVEs of the record"}
       - {"date": "2026-11-10", "label": "CISA adds Chrome XML zero-day CVE-2026-125350 to KEV; the catalog holds no IWA or Controlled Frame entry"}
+  case-studies/CHRONICLE_1993.md:
+    kind: "era"
+    title: "The Year 1993 in Intrusions: A Dated Record"
+    start: "1993-01"
+    end: "1993-12"
+    sectors: ["cross-sector", "government", "defense", "technology", "finance", "telecommunications", "energy", "education"]
+    cves: []
+    actors: []
+    tags: ["CERT advisories", "sendmail", "Internet Security Scanner", "Computer Misuse Act", "Masters of Deception", "polymorphic viruses", "Clipper Chip", "Crypto AG", "Kerberos V5", "Tripwire"]
+    pdf: "Chronicle_1993_Case_Study.pdf"
+    pptx: "Chronicle_1993_Case_Study.pptx"
+    events:
+      - {"date": "1993-02-03", "label": "CA-93:03: SunOS default file permissions give local root; CERT sees an increasing number of attackers exploiting them"}
+      - {"date": "1993-03-12", "label": "Steve Jackson Games v. US Secret Service decided: Privacy Protection Act and Stored Communications Act violated"}
+      - {"date": "1993-03-17", "label": "Paul Bedworth acquitted at Southwark Crown Court after a four-week Computer Misuse Act trial"}
+      - {"date": "1993-04-16", "label": "White House announces the voluntary Clipper Chip key-escrow initiative"}
+      - {"date": "1993-05-14", "label": "Channel Videodat broadcasts a Tremor-infected PKUNZIP to a claimed 60,000 subscribers"}
+      - {"date": "1993-07-14", "label": "CA-93:10 Anonymous FTP Activity: compromise, disk-filling denial of service, trading of pirated software"}
+      - {"date": "1993-08-04", "label": "Senate hearing \"Auditing the Auditors\": IRS staff browsing taxpayer records"}
+      - {"date": "1993-09-10", "label": "The Air Force Electronic Warfare Center is redesignated the Air Force Information Warfare Center"}
+      - {"date": "1993-09-30", "label": "CA-93:14: the Internet Security Scanner is posted to comp.sources.misc; CERT expects malicious use"}
+      - {"date": "1993-10-21", "label": "CA-93:15: the Sun sendmail flaw is being actively exploited"}
+      - {"date": "1993-11-03", "label": "Mark Abene (Phiber Optik) sentenced to a year and a day in federal court in Manhattan"}
+      - {"date": "1993-11-16", "label": "The seclists.org Bugtraq archive opens with a thread on CA-93:17"}
+  case-studies/CHRONICLE_1994.md:
+    kind: "era"
+    title: "The Year 1994 in Intrusions: A Dated Record"
+    start: "1994-01"
+    end: "1994-12"
+    sectors: ["cross-sector", "defense", "government", "education", "finance", "technology", "telecommunications"]
+    cves: ["CVE-1999-0113", "CVE-1999-0120", "CVE-1999-0207", "CVE-1999-0211", "CVE-1999-0337", "CVE-1999-0338", "CVE-1999-0661", "CVE-1999-1219", "CVE-1999-1309", "CVE-2000-0508"]
+    actors: []
+    tags: ["sniffers", "Rome Laboratory", "Datastream Cowboy", "CERT advisories", "source-code Trojans", "Clipper", "CALEA", "Aldrich Ames", "One_Half", "Good Times hoax"]
+    pdf: "Chronicle_1994_Case_Study.pdf"
+    pptx: "Chronicle_1994_Case_Study.pptx"
+    events:
+      - {"date": "1994-02-03", "label": "CA-94:01: sniffers on compromised hosts have captured access information for tens of thousands of systems"}
+      - {"date": "1994-02-09", "label": "FIPS 185, the Escrowed Encryption Standard (Clipper), approved and published"}
+      - {"date": "1994-02-21", "label": "FBI arrests CIA officer Aldrich Ames in Arlington, Virginia"}
+      - {"date": "1994-03-18", "label": "CA-94:05 publishes MD5 checksums for SunOS files after intruders build Trojans to match the sum checksum"}
+      - {"date": "1994-03-23", "label": "Rome Laboratory first penetrated, per audit logs; staff find a sniffer on 28 March"}
+      - {"date": "1994-04-06", "label": "CA-94:07: intruder-modified wuarchive ftpd 2.2 and 2.1f source carries a root back door"}
+      - {"date": "1994-05-12", "label": "New Scotland Yard arrests the 16-year-old Datastream Cowboy; the US record never identifies Kuji"}
+      - {"date": "1994-06", "label": "About 40 illegal transfers totalling more than $10 million from a US bank's cash management system begin (to October)"}
+      - {"date": "1994-09-13", "label": "Pub. L. 103-322 amends 18 U.S.C. 1030 and adds a civil action"}
+      - {"date": "1994-10-19", "label": "CA-94:14: Trojaned ircII 2.2.9 source, on FTP sites since May, is actively exploited"}
+      - {"date": "1994-12", "label": "US Naval Academy penetrated from three countries and two US universities; more than 12,000 passwords changed"}
+      - {"date": "1994-12-25", "label": "IP spoofing attack on Tsutomu Shimomura's systems begins"}
+  case-studies/CHRONICLE_1996.md:
+    kind: "era"
+    title: "The Year 1996 in Intrusions: A Dated Record"
+    start: "1996-01"
+    end: "1996-12"
+    sectors: ["cross-sector", "defense", "government", "technology", "telecommunications", "manufacturing", "education", "healthcare"]
+    cves: ["CVE-1999-0022", "CVE-1999-0043", "CVE-1999-0067", "CVE-1999-0103", "CVE-1999-0116", "CVE-1999-0128", "CVE-1999-0141", "CVE-1999-0142", "CVE-1999-0143", "CVE-1999-0335", "CVE-1999-0509", "CVE-1999-1309", "CVE-1999-1383"]
+    actors: []
+    tags: ["SYN flooding", "phf", "CGI", "Java applets", "Harvard intruder", "GAO/AIMD-96-84", "web defacements", "Omega Engineering", "Laroux", "macro viruses", "Smashing the Stack", "EO 13010"]
+    pdf: "Chronicle_1996_Case_Study.pdf"
+    pptx: "Chronicle_1996_Case_Study.pptx"
+    events:
+      - {"date": "1996-02-08", "label": "CA-96.01: UDP packet storms between chargen and echo, typically with IP spoofing"}
+      - {"date": "1996-03-20", "label": "CA-96.06: the phf example CGI program in NCSA httpd and Apache is actively exploited"}
+      - {"date": "1996-03-29", "label": "Justice Department charges the Harvard intruder after the first court-ordered wiretap on a computer network"}
+      - {"date": "1996-05-22", "label": "GAO/AIMD-96-84: as many as 250,000 attacks on Defense systems in 1995, about 4 percent of test attacks detected"}
+      - {"date": "1996-07-15", "label": "Executive Order 13010 creates the President's Commission on Critical Infrastructure Protection"}
+      - {"date": "1996-07-30", "label": "Omega Engineering: an insider's time bomb deletes the company's manufacturing programs"}
+      - {"date": "1996-08-16", "label": "Justice Department web site altered and shut down (16 or 17 August)"}
+      - {"date": "1996-09-19", "label": "CA-96.21: TCP SYN flooding and IP spoofing, with no complete solution yet"}
+      - {"date": "1996-10-11", "label": "Pub. L. 104-294: the Economic Espionage Act and the National Information Infrastructure Protection Act"}
+      - {"date": "1996-11-08", "label": "Phrack 49 publishes Aleph One's Smashing The Stack For Fun And Profit"}
+      - {"date": "1996-12-14", "label": "A SYN flood takes more than 3,000 sites hosted by WebCom off the air for 40 hours"}
+      - {"date": "1996-12-18", "label": "CA-96.26: oversized ping packets crash, freeze or reboot systems"}
+  case-studies/CHRONICLE_1995.md:
+    kind: "era"
+    title: "The Year 1995 in Intrusions: A Dated Record"
+    start: "1995-01"
+    end: "1995-12"
+    sectors: ["cross-sector", "defense", "government", "education", "finance", "technology", "telecommunications"]
+    cves: ["CVE-1999-0073", "CVE-1999-0077", "CVE-1999-0080", "CVE-1999-0099", "CVE-1999-0151", "CVE-1999-0155", "CVE-1999-0164", "CVE-1999-0203", "CVE-1999-0208", "CVE-1999-0235", "CVE-1999-1080", "CVE-1999-1098"]
+    actors: []
+    tags: ["IP spoofing", "session hijacking", "SATAN", "CERT advisories", "Harvard wiretap", "Concept macro virus", "SSL breaks", "Bugs Bounty", "SSH", "BS 7799"]
+    pdf: "Chronicle_1995_Case_Study.pdf"
+    pptx: "Chronicle_1995_Case_Study.pptx"
+    events:
+      - {"date": "1995-01-23", "label": "CA-95:01: forged source addresses beat address-based trust; a kernel tool hijacks open terminal and login sessions"}
+      - {"date": "1995-02-15", "label": "FBI and the Raleigh-Durham Fugitive Task Force arrest Kevin Mitnick after a two-week electronic manhunt"}
+      - {"date": "1995-02-15", "label": "BSI publishes BS 7799-1:1995, an information security management code of practice"}
+      - {"date": "1995-04-05", "label": "SATAN released; CIAC bulletin F-20 records the release and announces the Courtney detector"}
+      - {"date": "1995-06-29", "label": "CERT heads-up: 170 IP spoofing attacks in a few weeks, at least 80 against name servers, routers and network systems"}
+      - {"date": "1995-07-12", "label": "Tatu Ylonen announces SSH 1.0 as a replacement for rlogin, rsh and rcp"}
+      - {"date": "1995-08", "label": "Navy NCCOSC detects an intrusion traced to Harvard's FAS host (late August)"}
+      - {"date": "1995-08-15", "label": "Export-grade 40-bit SSL challenge broken by brute force"}
+      - {"date": "1995-09", "label": "Virus Bulletin analyses Winword.Concept, the first Word macro virus seen spreading"}
+      - {"date": "1995-10-11", "label": "Netscape Bugs Bounty: $1,000 to the first finder of a major security bug in its browser beta (Reported)"}
+      - {"date": "1995-12-18", "label": "CA-95:18 Widespread Attacks: hundreds of sites hit through automated scanning of already-advised flaws"}
+      - {"date": "1995-12-28", "label": "Argentine authorities seize the Harvard intruder's equipment in Buenos Aires"}
+  case-studies/CHRONICLE_1997.md:
+    kind: "era"
+    title: "The Year 1997 in Intrusions: A Dated Record"
+    start: "1997-01"
+    end: "1997-12"
+    sectors: ["cross-sector", "defense", "government", "technology", "telecommunications", "finance", "media", "retail"]
+    cves: ["CVE-1999-0015", "CVE-1999-0016", "CVE-1999-0017", "CVE-1999-0018", "CVE-1999-0021", "CVE-1999-0024", "CVE-1999-0031", "CVE-1999-0032", "CVE-1999-0034", "CVE-1999-0039", "CVE-1999-0041", "CVE-1999-0042", "CVE-1999-0043", "CVE-1999-0045", "CVE-1999-0046", "CVE-1999-0047", "CVE-1999-0048", "CVE-1999-0153"]
+    actors: []
+    tags: ["CERT advisories", "IMAP scans", "sendmail", "INN", "CGI", "BIND cache poisoning", "Teardrop", "Land", "nmap", "Office 97", "macro viruses", "Eligible Receiver", "Critical Foundations"]
+    pdf: "Chronicle_1997_Case_Study.pdf"
+    pptx: "Chronicle_1997_Case_Study.pptx"
+    events:
+      - {"date": "1997-01-16", "label": "Office 97 reaches North American shops with VBA5 in every application"}
+      - {"date": "1997-01-28", "label": "CA-97.05: sendmail 8.8.3 and 8.8.4 MIME conversion overflow, exploitable despite firewalls"}
+      - {"date": "1997-02-20", "label": "CA-97.08: INN runs attacker commands from crafted control messages"}
+      - {"date": "1997-04-07", "label": "CA-97.09: IMAP and POP login overflow gives remote root; large-scale automated scans all year"}
+      - {"date": "1997-05-21", "label": "Card data on more than 100,000 accounts sold to undercover FBI agents; arrest at San Francisco Airport (Reported)"}
+      - {"date": "1997-06-10", "label": "Eligible Receiver 97: Joint Chiefs of Staff J-5 tasking for the exercise scenario"}
+      - {"date": "1997-06-26", "label": "Reno v. ACLU: the Communications Decency Act's indecency provisions struck down"}
+      - {"date": "1997-08-13", "label": "CA-97.22: BIND cache poisoning now being exploited"}
+      - {"date": "1997-09-01", "label": "Phrack 51 publishes The Art of Port Scanning, introducing nmap"}
+      - {"date": "1997-10", "label": "PCCIP issues Critical Foundations: Protecting America's Infrastructures"}
+      - {"date": "1997-11-10", "label": "CA-97.25: sanitizing user-supplied data in CGI scripts"}
+      - {"date": "1997-12-16", "label": "CA-97.28 Teardrop and Land; the No Electronic Theft Act becomes law"}
+  case-studies/CHRONICLE_1998.md:
+    kind: "era"
+    title: "The Year 1998 in Intrusions: A Dated Record"
+    start: "1998-01"
+    end: "1998-12"
+    sectors: ["cross-sector", "defense", "government", "technology", "telecommunications", "finance", "healthcare", "media"]
+    cves: ["CVE-1999-0001", "CVE-1999-0002", "CVE-1999-0003", "CVE-1999-0004", "CVE-1999-0005", "CVE-1999-0006", "CVE-1999-0007", "CVE-1999-0008", "CVE-1999-0009", "CVE-1999-0010", "CVE-1999-0012", "CVE-1999-0013", "CVE-1999-0278", "CVE-1999-0513", "CVE-1999-1011", "CVE-1999-1087"]
+    actors: []
+    tags: ["smurf", "CERT advisories", "mscan", "mountd", "Back Orifice", "CIH", "Solar Sunrise", "Moonlight Maze", "PDD-63", "Bleichenbacher", "DES Cracker", "StackGuard"]
+    pdf: "Chronicle_1998_Case_Study.pdf"
+    pptx: "Chronicle_1998_Case_Study.pptx"
+    events:
+      - {"date": "1998-01-05", "label": "CA-1998-01: continuing smurf floods through IP broadcast addresses congest or knock out NSPs, ISPs and other sites"}
+      - {"date": "1998-02-01", "label": "Solar Sunrise: attacks on Air Force, Navy and Marine Corps unclassified systems (1 to 26 February) (Reported)"}
+      - {"date": "1998-02-27", "label": "Attorney General Reno unveils the National Infrastructure Protection Center"}
+      - {"date": "1998-03-18", "label": "DOJ announces an arrest in Israel and searches of two California teenagers' homes; no sign of a state-sponsored campaign"}
+      - {"date": "1998-05-13", "label": "IN-98.01: TCP port 1 sweeps for IRIX hosts and automated logins to default accounts with no passwords"}
+      - {"date": "1998-05-22", "label": "PDD-63, Critical Infrastructure Protection, and PDD-62 on unconventional threats to the homeland"}
+      - {"date": "1998-06-26", "label": "CA-1998-07 and MS98-002: Bleichenbacher's PKCS #1 attack can recover information from SSL sessions"}
+      - {"date": "1998-07-16", "label": "IN-98.03: a compromised host holds 186,126 accounts with encrypted passwords, 47,642 already cracked"}
+      - {"date": "1998-08-01", "label": "Back Orifice released at DEF CON VI; MS98-010 follows on 4 August"}
+      - {"date": "1998-10-12", "label": "CA-1998-12: NFS mountd overflow, mainly on Linux, actively exploited with large-scale scanning"}
+      - {"date": "1998-10-28", "label": "Digital Millennium Copyright Act, Pub. L. 105-304"}
+      - {"date": "1998-12-09", "label": "IN-98-06: scripted tools scan the portmapper, exploit mountd on Linux and add a passwordless privileged account"}
+  case-studies/CHRONICLE_2000.md:
+    kind: "era"
+    title: "The Year 2000 in Intrusions: A Dated Record"
+    start: "2000-01"
+    end: "2000-12"
+    sectors: ["cross-sector", "government", "defense", "technology", "retail", "finance", "media", "manufacturing"]
+    cves: ["CVE-2000-0573", "CVE-2000-0621", "CVE-2000-0666", "CVE-2000-0770", "CVE-2000-0884", "CVE-2000-0887", "CVE-2000-0888", "CVE-2000-0917", "CVE-2000-1039"]
+    actors: []
+    tags: ["Love Letter", "ILOVEYOU", "DDoS", "Stacheldraht", "Maroochy", "C0020", "rpc.statd", "wu-ftpd", "Carnivore", "ECHELON", "AES", "BCP 38"]
+    pdf: "Chronicle_2000_Case_Study.pdf"
+    pptx: "Chronicle_2000_Case_Study.pptx"
+    events:
+      - {"date": "2000-01-03", "label": "CA-2000-01: Stacheldraht DDoS agents found on multiple compromised hosts"}
+      - {"date": "2000-01-07", "label": "The President announces the national plan to defend America's cyberspace"}
+      - {"date": "2000-02-07", "label": "Yahoo unreachable for about three hours; Amazon.com, eBay, Buy.com and CNN hit the next day (press reports)"}
+      - {"date": "2000-02-09", "label": "Maroochy Shire: Boden alters pumping-station data from 9 February to 23 April (ATT&CK campaign C0020)"}
+      - {"date": "2000-04-15", "label": "RCMP arrests 'mafia boy' in Montreal over the attack on CNN's site"}
+      - {"date": "2000-05-04", "label": "Love Letter: first reported in Asia; CERT/CC advisory CA-2000-04 that night"}
+      - {"date": "2000-07-07", "label": "CA-2000-13: wu-ftpd site exec format string flaw exploited for remote root"}
+      - {"date": "2000-07-11", "label": "Carnivore widely reported, per EPIC; EPIC files a FOIA request the next day"}
+      - {"date": "2000-09-15", "label": "IN-2000-10: automated exploitation of rpc.statd and wu-ftpd, hundreds of hosts in single incidents"}
+      - {"date": "2000-10-02", "label": "NIST announces Rijndael as the proposed Advanced Encryption Standard"}
+      - {"date": "2000-10-30", "label": "Government Information Security Reform Act enacted in Pub. L. 106-398"}
+      - {"date": "2000-11-10", "label": "Gorshkov and Ivanov arrested in Seattle after a recorded meeting with the FBI's undercover company"}
+  case-studies/CHRONICLE_1999.md:
+    kind: "era"
+    title: "The Year 1999 in Intrusions: A Dated Record"
+    start: "1999-01"
+    end: "1999-12"
+    sectors: ["cross-sector", "defense", "government", "technology", "telecommunications", "finance", "healthcare", "energy", "retail", "media"]
+    cves: ["CVE-1999-0018", "CVE-1999-0668", "CVE-1999-0696", "CVE-1999-0704", "CVE-1999-0833", "CVE-1999-0834", "CVE-1999-0874", "CVE-1999-0878", "CVE-1999-0977", "CVE-1999-1011"]
+    actors: []
+    tags: ["CERT advisories", "supply chain", "TCP Wrappers", "Melissa", "ExploreZip", "CIH", "Moonlight Maze", "trinoo", "TFN2K", "CVE launch", "Gramm-Leach-Bliley", "DES Challenge III"]
+    pdf: "Chronicle_1999_Case_Study.pdf"
+    pptx: "Chronicle_1999_Case_Study.pptx"
+    events:
+      - {"date": "1999-01-18", "label": "DES Challenge III: distributed.net and the EFF DES Cracker find the key in 22 hours 15 minutes"}
+      - {"date": "1999-01-21", "label": "CA-1999-01: trojaned TCP Wrappers 7.6 source on a number of FTP servers"}
+      - {"date": "1999-02-23", "label": "Deputy Secretary of Defense Hamre tells Congress DoD detects 80 to 100 events a day"}
+      - {"date": "1999-03-27", "label": "CA-1999-04: Melissa, a Word macro virus spreading by email; over 100,000 computers by 29 March"}
+      - {"date": "1999-04-22", "label": "IN-99-03: CIH can erase the hard drive and overwrite the system BIOS"}
+      - {"date": "1999-06-10", "label": "CA-1999-06: ExploreZip zeroes Office and source-code files and spreads to shares"}
+      - {"date": "1999-07-22", "label": "IN-99-04: scripted attacks chain the cmsd, statd/automountd and ToolTalk flaws"}
+      - {"date": "1999-08-09", "label": "Kevin Mitnick sentenced to 46 months"}
+      - {"date": "1999-09", "label": "The CVE List launches publicly with 321 records"}
+      - {"date": "1999-11-12", "label": "Gramm-Leach-Bliley Act puts a security and confidentiality obligation on financial institutions"}
+      - {"date": "1999-11-18", "label": "IN-99-07: trinoo and Tribe Flood Network installed on hosts taken through RPC flaws"}
+      - {"date": "1999-12-28", "label": "CA-1999-17: Tribe FloodNet 2K, with spoofed sources and MacOS 9 amplification"}
+  case-studies/CHRONICLE_2002.md:
+    kind: "era"
+    title: "The Year 2002 in Intrusions: A Dated Record"
+    start: "2002-01"
+    end: "2002-12"
+    sectors: ["cross-sector", "technology", "government", "defense", "finance", "media", "healthcare", "telecommunications"]
+    cves: ["CVE-2000-0979", "CVE-2001-0154", "CVE-2001-0803", "CVE-2002-0012", "CVE-2002-0013", "CVE-2002-0059", "CVE-2002-0367", "CVE-2002-0391", "CVE-2002-0392", "CVE-2002-0639", "CVE-2002-0640", "CVE-2002-0649", "CVE-2002-0656", "CVE-2002-1219", "CVE-2002-1235"]
+    actors: ["G0020"]
+    tags: ["CERT advisories", "supply chain", "OpenSSH", "Sendmail", "tcpdump", "Slapper", "Spida", "root servers", "McKinnon", "SB 1386", "FISMA", "SHA-256"]
+    pdf: "Chronicle_2002_Case_Study.pdf"
+    pptx: "Chronicle_2002_Case_Study.pptx"
+    events:
+      - {"date": "2002-01-14", "label": "CA-2002-01: active exploitation of the CDE dtspcd overflow on Solaris, confirmed with Honeynet Project traces"}
+      - {"date": "2002-02-12", "label": "CA-2002-03: SNMPv1 flaws across many vendors, found with the PROTOS c06-snmpv1 suite"}
+      - {"date": "2002-02-26", "label": "Adrian Lamo gets into the New York Times internal network and its Op-Ed contributor database"}
+      - {"date": "2002-05-22", "label": "IN-2002-04: the Spida worm spreads through null or weak sa passwords on SQL Server and MSDE"}
+      - {"date": "2002-06-26", "label": "OpenSSH challenge-response advisory and CA-2002-18, five days after 3.3 turned on privilege separation"}
+      - {"date": "2002-07-30", "label": "OpenSSH 3.4p1, 3.4 and 3.2.2p1 tarballs trojaned on the OpenBSD FTP server (30 or 31 July; CA-2002-24, 1 August)"}
+      - {"date": "2002-09-14", "label": "CA-2002-27: the Apache/mod_ssl worm Slapper; thousands of systems, at least three variants"}
+      - {"date": "2002-09-25", "label": "California SB 1386, the breach-notification law, approved by the Governor (operative 1 July 2003)"}
+      - {"date": "2002-09-28", "label": "Trojaned Sendmail 8.12.6 tarballs appear on ftp.sendmail.org from about 28 September (CA-2002-28, 8 October)"}
+      - {"date": "2002-10-21", "label": "Flood against all thirteen DNS root name servers, about 20:45 to 22:00 UTC"}
+      - {"date": "2002-11-11", "label": "Trojaned tcpdump and libpcap on www.tcpdump.org, 11 to 13 November (CA-2002-30)"}
+      - {"date": "2002-12-17", "label": "E-Government Act approved; Title III is the Federal Information Security Management Act"}
+  case-studies/CHRONICLE_2001.md:
+    kind: "era"
+    title: "The Year 2001 in Intrusions: A Dated Record"
+    start: "2001-01"
+    end: "2001-12"
+    sectors: ["cross-sector", "government", "defense", "technology", "finance", "retail", "telecommunications"]
+    cves: ["CVE-2000-0884", "CVE-2001-0008", "CVE-2001-0010", "CVE-2001-0144", "CVE-2001-0154", "CVE-2001-0241", "CVE-2001-0333", "CVE-2001-0500", "CVE-2001-0550"]
+    actors: ["G0020"]
+    tags: ["Code Red", "Nimda", "Sircam", "Klez", "sadmind/IIS", "ramen", "code-signing certificates", "Equation", "Maroochy", "PATRIOT Act", "Budapest Convention", "AES"]
+    pdf: "Chronicle_2001_Case_Study.pdf"
+    pptx: "Chronicle_2001_Case_Study.pptx"
+    events:
+      - {"date": "2001-01-18", "label": "IN-2001-01: the self-propagating ramen toolkit roots Linux hosts through wu-ftpd, rpc.statd and LPRng flaws"}
+      - {"date": "2001-01-29", "label": "29 and 30 January: VeriSign issues two \"Microsoft Corporation\" code-signing certificates to an impostor"}
+      - {"date": "2001-02-12", "label": "CA-2001-03: VBS/OnTheFly (\"Anna Kournikova\") mails itself through Outlook"}
+      - {"date": "2001-05-08", "label": "CA-2001-11: the sadmind/IIS worm crosses from Solaris to IIS"}
+      - {"date": "2001-06-18", "label": "MS01-033: the idq.dll overflow later used by Code Red, about four weeks before the worm"}
+      - {"date": "2001-07-19", "label": "CAIDA: Code-Red v2 infects 359,104 hosts in under 14 hours"}
+      - {"date": "2001-09-18", "label": "CA-2001-26: Nimda spreads by five paths, including the back doors earlier worms left"}
+      - {"date": "2001-10-09", "label": "Seattle jury convicts Vasiliy Gorshkov on 20 counts"}
+      - {"date": "2001-10-26", "label": "USA PATRIOT Act amends the computer fraud and surveillance statutes"}
+      - {"date": "2001-10-31", "label": "Vitek Boden sentenced over the Maroochy Shire sewerage intrusion (ATT&CK campaign C0020)"}
+      - {"date": "2001-11-23", "label": "Council of Europe Convention on Cybercrime done at Budapest"}
+      - {"date": "2001-12-20", "label": "MS01-059 and CA-2001-37: UPnP overflow leaves Windows XP vulnerable in its default configuration"}
+  case-studies/CHRONICLE_2003.md:
+    kind: "era"
+    title: "The Year 2003 in Intrusions: A Dated Record"
+    start: "2003-01"
+    end: "2003-12"
+    sectors: ["cross-sector", "technology", "energy", "government", "defense", "retail", "media", "finance", "telecommunications"]
+    cves: ["CVE-2002-0649", "CVE-2002-1337", "CVE-2003-0109", "CVE-2003-0161", "CVE-2003-0209", "CVE-2003-0352", "CVE-2003-0528", "CVE-2003-0545", "CVE-2003-0567", "CVE-2003-0605", "CVE-2003-0693", "CVE-2003-0717", "CVE-2003-0812"]
+    actors: ["G0010", "G0020"]
+    tags: ["CERT advisories", "Slammer", "Blaster", "Sobig", "Welchia", "Davis-Besse", "Northeast blackout", "GNU", "Debian", "monthly patches", "Snake", "CAN-SPAM"]
+    pdf: "Chronicle_2003_Case_Study.pdf"
+    pptx: "Chronicle_2003_Case_Study.pptx"
+    events:
+      - {"date": "2003-01", "label": "Slammer takes down monitoring computers at the idled Davis-Besse nuclear plant"}
+      - {"date": "2003-01-25", "label": "Slammer (Sapphire) begins slightly before 05:30 UTC, six months after MS02-039; CA-2003-04 the same day"}
+      - {"date": "2003-03-11", "label": "CA-2003-08: Windows systems compromised through null or weak Administrator passwords on SMB shares"}
+      - {"date": "2003-03-17", "label": "MS03-007 and CA-2003-09: ntdll.dll overflow actively exploited through WebDAV on IIS 5.0"}
+      - {"date": "2003-07-16", "label": "MS03-026 fixes the DCOM RPC overrun, 26 days before CERT/CC's Blaster advisory"}
+      - {"date": "2003-08-11", "label": "CA-2003-20: W32/Blaster"}
+      - {"date": "2003-08-13", "label": "CA-2003-21 announces the root compromise of the server behind GNU's primary FTP sites, reportedly from March"}
+      - {"date": "2003-08-14", "label": "The Northeast blackout; the US-Canada task force later finds no evidence of a malicious cause"}
+      - {"date": "2003-08-22", "label": "IN-2003-03: W32/Sobig.F"}
+      - {"date": "2003-10-15", "label": "MS03-041 to MS03-045 published together, Microsoft's first monthly batch"}
+      - {"date": "2003-11-19", "label": "Four Debian project machines compromised with a sniffed password and the do_brk() kernel flaw"}
+      - {"date": "2003-12-16", "label": "CAN-SPAM approved (Pub. L. 108-187)"}
+  case-studies/CHRONICLE_2004.md:
+    kind: "era"
+    title: "The Year 2004 in Intrusions: A Dated Record"
+    start: "2004-01"
+    end: "2004-12"
+    sectors: ["cross-sector", "technology", "government", "defense", "finance", "retail", "telecommunications"]
+    cves: ["CVE-2003-0533", "CVE-2003-0719", "CVE-2003-0818", "CVE-2003-0819", "CVE-2004-0200", "CVE-2004-0362", "CVE-2004-0549", "CVE-2004-0597", "CVE-2004-1050", "CVE-2004-1315"]
+    actors: ["G0006", "G0007", "G0010", "G0012", "G0020"]
+    tags: ["MyDoom", "Bagle", "Witty", "Sasser", "Download.Ject", "Santy", "CAN-SPAM", "Shadowcrew", "Snake", "APT1", "XP SP2", "802.11i"]
+    pdf: "Chronicle_2004_Case_Study.pdf"
+    pptx: "Chronicle_2004_Case_Study.pptx"
+    events:
+      - {"date": "2004-01-13", "label": "CA-2004-01: multiple H.323 message flaws across VoIP, video conferencing, routers and firewalls (with NISCC)"}
+      - {"date": "2004-01-28", "label": "MyDoom.B detected; US-CERT SA04-028A and the first alert of DHS's new cyber alert system"}
+      - {"date": "2004-03-19", "label": "Witty begins at about 20:45 PST against ISS security software, the day after its flaw was announced"}
+      - {"date": "2004-04-13", "label": "MS04-011 fixes 14 flaws, the LSASS overrun later used by Sasser among them"}
+      - {"date": "2004-04-29", "label": "First criminal CAN-SPAM charges and the FTC's first CAN-SPAM cases"}
+      - {"date": "2004-05-07", "label": "German police arrest the alleged Sasser author after informants use Microsoft's reward program"}
+      - {"date": "2004-06-24", "label": "Download.Ject: Microsoft responds to compromised IIS 5.0 servers pushing code to visitors' browsers"}
+      - {"date": "2004-08-06", "label": "Windows XP SP2 released to manufacturing, with Windows Firewall on and DEP"}
+      - {"date": "2004-08-26", "label": "Operation Web Snare announced: more than 160 investigations, hired DDoS among them"}
+      - {"date": "2004-10-25", "label": "hugesoft.org, the first APT1 zone Mandiant knew, registered"}
+      - {"date": "2004-12-15", "label": "Brian Salcedo sentenced to 108 months in the Lowe's wireless card-capture case"}
+      - {"date": "2004-12-21", "label": "TA04-356A: the Santy.A worm exploits phpBB, finding targets through search engines"}
+  case-studies/CHRONICLE_2005.md:
+    kind: "era"
+    title: "The Year 2005 in Intrusions: A Dated Record"
+    start: "2005-01"
+    end: "2005-12"
+    sectors: ["cross-sector", "retail", "finance", "technology", "government", "defense", "telecommunications", "media"]
+    cves: ["CVE-2005-0773", "CVE-2005-1983", "CVE-2005-3650", "CVE-2005-4560"]
+    actors: ["G0010", "G0020"]
+    tags: ["ChoicePoint", "LexisNexis", "CardSystems", "DSW", "BJ's", "TJX", "Zotob", "Windows Metafile", "Sony BMG rootkit", "Ancheta", "Titan Rain", "SP 800-53"]
+    pdf: "Chronicle_2005_Case_Study.pdf"
+    pptx: "Chronicle_2005_Case_Study.pptx"
+    events:
+      - {"date": "2005-02", "label": "ChoicePoint notifies about 35,000 California consumers under a California law; later rounds follow"}
+      - {"date": "2005-03-08", "label": "Retail Ventures announces the DSW card-data theft, 103 stores (108 by 18 April)"}
+      - {"date": "2005-03-09", "label": "Reed Elsevier reports fraudulent access at LexisNexis's Seisint unit through misused customer credentials"}
+      - {"date": "2005-06-16", "label": "FTC settles with BJ's Wholesale Club, treating weak security as an unfair practice"}
+      - {"date": "2005-06-29", "label": "TA05-180A: the VERITAS Backup Exec Remote Agent flaw actively exploited, scanning on 10000/tcp up"}
+      - {"date": "2005-07", "label": "TJX's intruder first gets in, not found until December 2006"}
+      - {"date": "2005-07-08", "label": "TA05-189A, Targeted Trojan Email Attacks; Sven Jaschan convicted for Sasser"}
+      - {"date": "2005-08-09", "label": "MS05-039 fixes the Plug and Play flaw that Zotob exploits within days"}
+      - {"date": "2005-08-25", "label": "Zotob and Mytob suspects arrested in Morocco and Turkey (FBI release, 26 Aug)"}
+      - {"date": "2005-11-03", "label": "Jeanson James Ancheta arrested on a 17-count botnet indictment, which DOJ called the first of its kind"}
+      - {"date": "2005-11-15", "label": "VU#312073: Sony BMG's XCP software hides files with rootkit techniques; its uninstaller is unsafe"}
+      - {"date": "2005-12-28", "label": "TA05-362A: the Windows Metafile flaw exploited against patched XP SP2 before any patch"}
+  case-studies/CHRONICLE_2007.md:
+    kind: "era"
+    title: "The Year 2007 in Intrusions: A Dated Record"
+    start: "2007-01"
+    end: "2007-12"
+    sectors: ["cross-sector", "government", "defense", "retail", "finance", "technology", "telecommunications", "energy", "media", "education"]
+    cves: ["CVE-2006-3877", "CVE-2006-5994", "CVE-2006-6456", "CVE-2006-6561", "CVE-2007-0015", "CVE-2007-0038", "CVE-2007-0515", "CVE-2007-0671", "CVE-2007-0882", "CVE-2007-1748", "CVE-2007-2175", "CVE-2007-3010", "CVE-2007-3896", "CVE-2007-4559", "CVE-2007-5020", "CVE-2007-5659", "CVE-2007-6166", "CVE-2009-3129", "CVE-2010-3333", "CVE-2012-0158"]
+    actors: ["G0006", "G0007", "G1023", "G0012"]
+    tags: ["Storm Worm", "Estonia", "Operation Bot Roast", "TJX", "Certegy", "HMRC", "animated cursor", "Office zero-days", "Stuxnet 0.5", "APT1", "APT28", "CVSS v2"]
+    pdf: "Chronicle_2007_Case_Study.pdf"
+    pptx: "Chronicle_2007_Case_Study.pptx"
+    events:
+      - {"date": "2007-01-12", "label": "Storm Worm floods several anti-spam sites; Spamhaus is hit on 30 January"}
+      - {"date": "2007-01-17", "label": "TJX announces an intrusion into its systems that handle customer transaction data"}
+      - {"date": "2007-02-13", "label": "MS07-014 (Word) and MS07-015 (Excel), both exploited at release"}
+      - {"date": "2007-02-28", "label": "US-CERT TA07-059A: a worm exploits the Solaris telnet daemon"}
+      - {"date": "2007-04-03", "label": "MS07-017 fixes the exploited animated cursor flaw a week before the monthly release"}
+      - {"date": "2007-04-27", "label": "DDoS attacks on Estonian government websites begin after the Bronze Soldier relocation (to 18 May)"}
+      - {"date": "2007-05-08", "label": "MS07-029 fixes the DNS Server RPC flaw, exploited since April"}
+      - {"date": "2007-05-22", "label": "OMB M-07-16: one-hour reporting of PII incidents"}
+      - {"date": "2007-06-13", "label": "Operation Bot Roast announced: over 1 million victim IP addresses"}
+      - {"date": "2007-06-20", "label": "FIRST releases CVSS v2"}
+      - {"date": "2007-11-15", "label": "Stuxnet 0.5 submitted to a public scanning service"}
+      - {"date": "2007-11-20", "label": "Chancellor tells the Commons that HMRC's child benefit discs are missing"}
+  case-studies/CHRONICLE_2006.md:
+    kind: "era"
+    title: "The Year 2006 in Intrusions: A Dated Record"
+    start: "2006-01"
+    end: "2006-12"
+    sectors: ["cross-sector", "government", "defense", "healthcare", "technology", "retail", "finance", "telecommunications", "energy", "education"]
+    cves: ["CVE-2005-4560", "CVE-2006-0003", "CVE-2006-0058", "CVE-2006-1301", "CVE-2006-1359", "CVE-2006-1547", "CVE-2006-2492", "CVE-2006-3059", "CVE-2006-3439", "CVE-2006-3507", "CVE-2006-3590", "CVE-2006-3730", "CVE-2006-4534", "CVE-2006-4868"]
+    actors: ["G0006", "G0045"]
+    tags: ["VA data theft", "Windows Metafile", "Office zero-days", "Mywife.E", "botnets", "ChoicePoint", "HP pretexting", "TJX", "APT1", "menuPass", "Shady RAT", "FIPS 200"]
+    pdf: "Chronicle_2006_Case_Study.pdf"
+    pptx: "Chronicle_2006_Case_Study.pptx"
+    events:
+      - {"date": "2006-01-05", "label": "MS06-001 fixes the Windows Metafile flaw out of cycle, exploited before any patch; US-CERT alert"}
+      - {"date": "2006-01-26", "label": "FTC announces the ChoicePoint settlement: $10 million civil penalty and $5 million consumer redress"}
+      - {"date": "2006-02-03", "label": "Mywife.E (Nyxem) runs its first scheduled corruption of document files"}
+      - {"date": "2006-05-03", "label": "VA analyst's home burglarized; laptop and drive with data on up to 26.5 million veterans stolen"}
+      - {"date": "2006-05-08", "label": "Jeanson James Ancheta sentenced to 57 months for selling botnet access for DDoS and spam"}
+      - {"date": "2006-05-19", "label": "Word zero-day: CERT/CC VU#446012 and a US-CERT alert; ISC first reports the targeted attack"}
+      - {"date": "2006-06-23", "label": "OMB M-06-16: encrypt mobile devices and require two-factor remote access"}
+      - {"date": "2006-07", "label": "Mandiant first observes APT1 using WEBC2 backdoors; Shady RAT logs its first victims"}
+      - {"date": "2006-08-08", "label": "MS06-040 (Server service) and MS06-048 (PowerPoint), both exploited at release"}
+      - {"date": "2006-09-06", "label": "HP 8-K: a third party working for its outside investigators used pretexting to get phone records"}
+      - {"date": "2006-09-26", "label": "MS06-055 fixes the exploited VML flaw out of cycle"}
+      - {"date": "2006-12-18", "label": "TJX finds suspicious software, then confirms an intruder and stolen customer data (18 to 27 Dec)"}
+  case-studies/CHRONICLE_2010.md:
+    kind: "era"
+    title: "The Year 2010 in Intrusions: A Dated Record"
+    start: "2010-01"
+    end: "2010-12"
+    sectors: ["cross-sector", "technology", "energy", "manufacturing", "government", "defense", "finance", "retail", "telecommunications", "media"]
+    cves: ["CVE-2010-0188", "CVE-2010-0232", "CVE-2010-0249", "CVE-2010-0738", "CVE-2010-0806", "CVE-2010-0840", "CVE-2010-1297", "CVE-2010-1428", "CVE-2010-1871", "CVE-2010-1885", "CVE-2010-2568", "CVE-2010-2572", "CVE-2010-2729", "CVE-2010-2743", "CVE-2010-2772", "CVE-2010-2861", "CVE-2010-2883", "CVE-2010-3035", "CVE-2010-3332", "CVE-2010-3333", "CVE-2010-3338", "CVE-2010-3654", "CVE-2010-3765", "CVE-2010-3904", "CVE-2010-3962", "CVE-2010-4344", "CVE-2010-4345", "CVE-2010-4398", "CVE-2010-5326", "CVE-2010-5330"]
+    actors: ["G0066", "G0001"]
+    tags: ["Operation Aurora", "Stuxnet", "Windows shortcut flaw", "Night Dragon", "Shadows in the Cloud", "China Telecom routes", "Buckshot Yankee", "Zeus", "Waledac", "Mariposa", "Firesheep", "HTTPS by default"]
+    pdf: "Chronicle_2010_Case_Study.pdf"
+    pptx: "Chronicle_2010_Case_Study.pptx"
+    events:
+      - {"date": "2010-01-12", "label": "Google discloses a targeted attack originating from China, detected in mid-December 2009; Gmail turns on HTTPS by default"}
+      - {"date": "2010-01-21", "label": "MS10-002 fixes the Internet Explorer flaw exploited during Operation Aurora (CVE-2010-0249)"}
+      - {"date": "2010-02-22", "label": "A federal court grants Microsoft's restraining order cutting off 277 Waledac botnet domains"}
+      - {"date": "2010-03-25", "label": "Albert Gonzalez of the TJX card-theft ring sentenced to 20 years in Massachusetts"}
+      - {"date": "2010-04-06", "label": "Shadows in the Cloud documents espionage against India, the Dalai Lama's office and the UN"}
+      - {"date": "2010-04-08", "label": "China Telecom advertises erroneous routes for about 18 minutes, per the US-China Commission"}
+      - {"date": "2010-06-17", "label": "VirusBlokAda reports the malware later named Stuxnet; HTTPS Everywhere released"}
+      - {"date": "2010-07-16", "label": "Microsoft Advisory 2286198 and a US-CERT alert on the Windows shortcut flaw (CVE-2010-2568)"}
+      - {"date": "2010-08-02", "label": "Out-of-band MS10-046 fixes the shortcut flaw, already exploited by a number of malware families"}
+      - {"date": "2010-09-01", "label": "Deputy Secretary of Defense discloses the 2008 CENTCOM flash-drive compromise (Buckshot Yankee)"}
+      - {"date": "2010-09-30", "label": "Symantec's Stuxnet dossier; SDNY charges 37 defendants over Zeus-enabled bank fraud"}
+      - {"date": "2010-10-24", "label": "Firesheep shows session cookies taken over open Wi-Fi"}
+  case-studies/CHRONICLE_2012.md:
+    kind: "era"
+    title: "The Year 2012 in Intrusions: A Dated Record"
+    start: "2012-01"
+    end: "2012-12"
+    sectors: ["cross-sector", "finance", "energy", "government", "technology", "media", "retail", "telecommunications", "defense", "manufacturing"]
+    cves: ["CVE-2008-5353", "CVE-2010-2568", "CVE-2011-3402", "CVE-2011-3544", "CVE-2012-0002", "CVE-2012-0152", "CVE-2012-0158", "CVE-2012-0391", "CVE-2012-0394", "CVE-2012-0507", "CVE-2012-0754", "CVE-2012-0779", "CVE-2012-1535", "CVE-2012-1710", "CVE-2012-1723", "CVE-2012-1823", "CVE-2012-1875", "CVE-2012-1889", "CVE-2012-2311", "CVE-2012-2549", "CVE-2012-4681", "CVE-2012-4792", "CVE-2012-4929", "CVE-2012-4969"]
+    actors: ["G0066", "G0006"]
+    tags: ["Flame", "Gauss", "Microsoft certificates", "Shamoon", "Wiper", "Bank DDoS", "Elderwood", "APT1", "Global Payments", "Dropbox", "Java", "Megaupload"]
+    pdf: "Chronicle_2012_Case_Study.pdf"
+    pptx: "Chronicle_2012_Case_Study.pptx"
+    events:
+      - {"date": "2012-01-19", "label": "Megaupload arrests in Auckland and more than 20 search warrants in the US and eight countries; DHS and FBI advise on recovering erased files"}
+      - {"date": "2012-03-23", "label": "Microsoft's Operation b71 seizes Zeus-family command servers under a civil court order"}
+      - {"date": "2012-03-30", "label": "Global Payments 8-K: unauthorized access to a portion of its processing system, self-reported"}
+      - {"date": "2012-04-10", "label": "MS12-027 fixes Office common controls flaw CVE-2012-0158, already used in limited targeted attacks"}
+      - {"date": "2012-05-28", "label": "Kaspersky publishes Flame, found while looking for the malware that wiped systems in Iran in April"}
+      - {"date": "2012-06-03", "label": "Microsoft Advisory 2718704 revokes trust in three of its intermediate CAs after unauthorized certificates were used in attacks"}
+      - {"date": "2012-07-31", "label": "Dropbox says passwords stolen from other websites opened user accounts and an employee's account"}
+      - {"date": "2012-08-09", "label": "Kaspersky publishes Gauss, built on the Flame platform; the FBI warns of Reveton ransomware"}
+      - {"date": "2012-08-16", "label": "Kaspersky analyses Shamoon, a wiper that overwrites the master boot record through a signed raw-disk driver"}
+      - {"date": "2012-08-27", "label": "US-CERT TA12-240A advises disabling Java in browsers for the exploited Java 7 flaw CVE-2012-4681"}
+      - {"date": "2012-09-06", "label": "Symantec's Elderwood Project ties the Aurora attackers to four 2012 zero-days and watering-hole attacks"}
+      - {"date": "2012-09", "label": "DDoS on US banks becomes near-weekly, as alleged in the 2016 indictment of seven Iranians"}
+  case-studies/CHRONICLE_2011.md:
+    kind: "era"
+    title: "The Year 2011 in Intrusions: A Dated Record"
+    start: "2011-01"
+    end: "2011-12"
+    sectors: ["cross-sector", "technology", "energy", "government", "defense", "finance", "retail", "media", "telecommunications", "manufacturing"]
+    cves: ["CVE-2011-0609", "CVE-2011-0611", "CVE-2011-1823", "CVE-2011-1889", "CVE-2011-2005", "CVE-2011-2462", "CVE-2011-3192", "CVE-2011-3389", "CVE-2011-3402", "CVE-2011-3414", "CVE-2011-3544", "CVE-2011-4723", "CVE-2011-4862", "CVE-2011-4885"]
+    actors: ["G0006"]
+    tags: ["Comodo", "DigiNotar", "RSA SecurID", "Duqu", "Night Dragon", "Sony PlayStation Network", "LulzSec", "Rustock", "Coreflood", "Kelihos", "DNSChanger", "SEC disclosure guidance"]
+    pdf: "Chronicle_2011_Case_Study.pdf"
+    pptx: "Chronicle_2011_Case_Study.pptx"
+    events:
+      - {"date": "2011-02-10", "label": "McAfee publishes Night Dragon, the espionage campaign against oil, energy and petrochemical companies"}
+      - {"date": "2011-03-15", "label": "A compromised Comodo RA account issues nine fraudulent certificates for seven domains"}
+      - {"date": "2011-03-16", "label": "Microsoft's civil action takes down the Rustock botnet"}
+      - {"date": "2011-03-17", "label": "EMC files RSA's open letter: an attack extracted information related to SecurID"}
+      - {"date": "2011-04-13", "label": "The Justice Department sends court-ordered stop commands to Coreflood-infected computers"}
+      - {"date": "2011-04-17", "label": "Intruders reach PlayStation Network and Qriocity account data (17 to 19 Apr)"}
+      - {"date": "2011-06-01", "label": "Google reports a phishing campaign that stole Gmail passwords and changed forwarding settings"}
+      - {"date": "2011-07-19", "label": "FBI arrests 16 people over the PayPal attacks and related intrusions; DigiNotar detects its intrusion"}
+      - {"date": "2011-08-29", "label": "Google reports man-in-the-middle attempts on users in Iran with a fraudulent DigiNotar certificate"}
+      - {"date": "2011-10-13", "label": "The SEC issues its cybersecurity disclosure guidance, CF Topic No. 2"}
+      - {"date": "2011-10-14", "label": "CrySyS Lab reports Duqu, a Stuxnet-like malware with a signed driver"}
+      - {"date": "2011-11-09", "label": "Operation Ghost Click charges seven over the DNSChanger scheme"}
+  case-studies/CHRONICLE_2014.md:
+    kind: "era"
+    title: "The Year 2014 in Intrusions: A Dated Record"
+    start: "2014-01"
+    end: "2014-12"
+    sectors: ["cross-sector", "technology", "retail", "finance", "government", "defense", "energy", "healthcare", "manufacturing", "media", "telecommunications"]
+    cves: ["CVE-2013-3346", "CVE-2013-5065", "CVE-2013-5211", "CVE-2014-0160", "CVE-2014-0224", "CVE-2014-0322", "CVE-2014-0346", "CVE-2014-0751", "CVE-2014-1266", "CVE-2014-1776", "CVE-2014-1812", "CVE-2014-3120", "CVE-2014-3153", "CVE-2014-3566", "CVE-2014-3704", "CVE-2014-4113", "CVE-2014-4114", "CVE-2014-4148", "CVE-2014-6271", "CVE-2014-6277", "CVE-2014-6278", "CVE-2014-6287", "CVE-2014-6321", "CVE-2014-6324", "CVE-2014-6352", "CVE-2014-7169", "CVE-2014-7186", "CVE-2014-7187", "CVE-2014-8361", "CVE-2014-8730"]
+    actors: ["G0001", "G0010", "G0012", "G0022", "G0024", "G0027", "G0032", "G0034", "G0035", "G0059", "G0095", "G0130"]
+    tags: ["Heartbleed", "Shellshock", "POODLE", "MS14-068", "Unit 61398 indictment", "Sony Pictures", "Home Depot", "Target", "Backoff", "Havex", "Regin", "GameOver Zeus"]
+    pdf: "Chronicle_2014_Case_Study.pdf"
+    pptx: "Chronicle_2014_Case_Study.pptx"
+    events:
+      - {"date": "2014-01-13", "label": "US-CERT alert on NTP amplification DDoS using the monlist feature, CVE-2013-5211"}
+      - {"date": "2014-02-12", "label": "NIST publishes Cybersecurity Framework 1.0"}
+      - {"date": "2014-04-07", "label": "OpenSSL discloses Heartbleed, CVE-2014-0160; US-CERT later tells victims to regenerate keys after patching"}
+      - {"date": "2014-05-19", "label": "Indictment of five PLA Unit 61398 officers on 31 counts announced; Blackshades takedown"}
+      - {"date": "2014-06-02", "label": "GameOver Zeus botnet and CryptoLocker disrupted; charges against the alleged administrator unsealed"}
+      - {"date": "2014-06-25", "label": "ICS-CERT alert on Havex: phishing, watering holes and trojanized installers on ICS vendor sites"}
+      - {"date": "2014-07-31", "label": "US-CERT TA14-212A on Backoff point-of-sale malware, deployed after brute-forced remote-desktop logins"}
+      - {"date": "2014-09-18", "label": "Home Depot: custom-built malware put about 56 million payment cards at risk"}
+      - {"date": "2014-09-24", "label": "NVD publishes Shellshock, CVE-2014-6271; US-CERT lists five follow-on Bash CVEs"}
+      - {"date": "2014-10-14", "label": "Google discloses POODLE in SSL 3.0; MS14-060 fixes the OLE flaw CVE-2014-4114 used in targeted attacks"}
+      - {"date": "2014-11-24", "label": "Symantec and Kaspersky publish Regin, with samples timestamped back to 2003"}
+      - {"date": "2014-12-19", "label": "FBI attributes the destructive attack on Sony Pictures to North Korea; US-CERT TA14-353A"}
   case-studies/CHRONICLE_2016.md:
     kind: "era"
     title: "The Year 2016 in Intrusions: A Dated Record"
@@ -1057,6 +1668,31 @@ studies:
       - {"date": "2026-06-24", "label": "Mandiant reports zero-day exploitation of CVE-2026-20245 in SD-WAN Manager"}
       - {"date": "2026-09-30", "label": "KEV adds CVE-2026-76504, the platform's ninth 2026 KEV entry"}
       - {"date": "2026-10-28", "label": "Talos names UAT-11473 and its KeyDrift framework; Cisco revision 2.1 links the post"}
+  case-studies/CITRIX_NETSCALER_CVE_2026_3055.md:
+    kind: "vulnerability"
+    title: "The Citrix NetScaler SAML IdP Memory Overread (CVE-2026-3055): A Case Study"
+    start: "2026-02"
+    end: "2026-11"
+    core_start: "2026-03-23"
+    core_end: "2026-03-31"
+    sectors: ["technology"]
+    cves: ["CVE-2026-3055", "CVE-2026-4368", "CVE-2026-8451", "CVE-2026-8452", "CVE-2026-8655", "CVE-2026-10816", "CVE-2026-10817", "CVE-2026-13474", "CVE-2026-19490", "CVE-2026-88771", "CVE-2026-88772", "CVE-2026-88779", "CVE-2023-3519", "CVE-2023-4966", "CVE-2023-6548", "CVE-2023-6549", "CVE-2025-5777", "CVE-2025-6543", "CVE-2025-7775"]
+    actors: []
+    tags: ["Citrix", "NetScaler", "NetScaler ADC", "NetScaler Gateway", "SAML", "identity provider", "memory overread", "session hijacking", "CitrixBleed", "edge device", "KEV"]
+    pdf: "Citrix_Netscaler_CVE_2026_3055_Case_Study.pdf"
+    pptx: "Citrix_Netscaler_CVE_2026_3055_Case_Study.pptx"
+    events:
+      - {"date": "2026-02-23", "label": "The NetScaler CNA reserves CVE-2026-3055"}
+      - {"date": "2026-03-23", "label": "Citrix CTX696300 for CVE-2026-3055 and CVE-2026-4368; a same-day revision adds 14.1-60.58 as a fixed build"}
+      - {"date": "2026-03-23", "label": "CERT-EU Advisory 2026-003 sees no public evidence of exploitation and advises snapshot, update and session termination"}
+      - {"date": "2026-03-27", "label": "watchTowr's honeypots see exploitation from known threat-actor addresses (Reported)"}
+      - {"date": "2026-03-28", "label": "watchTowr Part 1 reproduces a small overread on the SAML login path"}
+      - {"date": "2026-03-29", "label": "watchTowr Part 2: a WS-Federation overread leaks an authenticated administrative session ID"}
+      - {"date": "2026-03-30", "label": "KEV adds CVE-2026-3055 on evidence of active exploitation, due 2 Apr"}
+      - {"date": "2026-03-31", "label": "CISA's ADP container records Exploitation active, Automatable yes, Technical Impact total"}
+      - {"date": "2026-05-20", "label": "A Metasploit auxiliary scanner module for the flaw is merged"}
+      - {"date": "2026-06-17", "label": "NVD's last modification: status Analyzed, CWE-125"}
+      - {"date": "2026-06-30", "label": "Citrix CTX696604 fixes the follow-on SAML IdP overread CVE-2026-8451"}
   case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md:
     kind: "vulnerability"
     title: "The Citrix NetScaler Zero-Days of September and October 2026 (CVE-2026-88771, CVE-2026-88772, CVE-2026-88779): A Case Study"
@@ -1162,6 +1798,32 @@ studies:
       - {"date": "2026-10-28", "label": "M365 backup restoration begins through a new app; partners must re-authorize each tenant"}
       - {"date": "2026-11-04", "label": "Last advisory update: billing and some notifications still being restored"}
       - {"date": "2026-11-06", "label": "Microsoft reports Storm-3358, a financially motivated cluster, also using ARTEX"}
+  case-studies/CPANEL_WHM_CVE_2026_41940.md:
+    kind: "vulnerability"
+    title: "The cPanel and WHM Authentication Bypass of 2026 (CVE-2026-41940): A Case Study"
+    start: "2026-02"
+    end: "2026-11"
+    core_start: "2026-04-28"
+    core_end: "2026-05-05"
+    sectors: ["technology", "cross-sector"]
+    cves: ["CVE-2026-41940", "CVE-2026-48172", "CVE-2026-54420", "CVE-2026-87886"]
+    actors: []
+    tags: ["cPanel", "WHM", "WP Squared", "web hosting", "control panel", "authentication bypass", "Sorry ransomware", "GitHub Actions", "Shai-Hulud", "KEV"]
+    pdf: "cPanel_WHM_CVE_2026_41940_Case_Study.pdf"
+    pptx: "cPanel_WHM_CVE_2026_41940_Case_Study.pptx"
+    events:
+      - {"date": "2026-02-23", "label": "Earliest execution attempts KnownHost says it saw; Rapid7 calls the date speculation (Reported)"}
+      - {"date": "2026-04-22", "label": "CVE-2026-41940 reserved by VulnCheck"}
+      - {"date": "2026-04-28", "label": "Namecheap blocks the panel ports; vendor advisory and fixed builds for six tiers and WP Squared 136.1.7 follow"}
+      - {"date": "2026-04-29", "label": "CVE record and NVD entry published; CISA ADP grades exploitation active; watchTowr publishes analysis and proof of concept"}
+      - {"date": "2026-04-30", "label": "KEV adds CVE-2026-41940, due 3 May; mass exploitation dropping the \"Sorry\" encryptor reported from about this day"}
+      - {"date": "2026-05-01", "label": "Detection script withdrawn for false positives and replaced; 11.124 patch added"}
+      - {"date": "2026-05-02", "label": "News cites Shadowserver for at least 44,000 compromised cPanel IP addresses (Reported)"}
+      - {"date": "2026-05-05", "label": "Advisory adds patches for the 11.94 and 11.102 tiers"}
+      - {"date": "2026-07-12", "label": "12 to 13 Jul: malicious dev versions of 10 Packagist packages carry 583 workflow files (Reported)"}
+      - {"date": "2026-07-22", "label": "Socket reports GitHub Actions workflows scanning for and attempting CVE-2026-41940 (Reported)"}
+      - {"date": "2026-10-26", "label": "JFrog ties Shellpanel artifacts to 42 hijacked repositories, one scanning cPanel-related ports (Reported)"}
+      - {"date": "2026-11-10", "label": "KEV catalog 2026.11.10 still lists ransomware use as Known"}
   case-studies/CUCKOOS_EGG_1986.md:
     kind: "incident"
     title: "The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986"
@@ -1186,6 +1848,31 @@ studies:
       - {"date": "1989-09-30", "label": "Stoll posts the details of his book The Cuckoo's Egg (Doubleday, 1989)"}
       - {"date": "1990-02-15", "label": "Court in Celle gives Carl, Hess and Brzezinski suspended sentences (Reported)"}
       - {"date": "1991-07", "label": "RFC 1244 frames \"Protect and Proceed\" against \"Pursue and Prosecute\" and cites both Stoll works"}
+  case-studies/CURSOR_EXTENSION_TROJAN_2026.md:
+    kind: "incident"
+    title: "The Trojanized Claude Code Extension on Cursor's Marketplace (October 2026)"
+    start: "2026-10-27"
+    end: "2026-11-11"
+    core_start: "2026-10-29"
+    core_end: "2026-10-31"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["Cursor", "Claude Code", "IDE extension", "VS Code extension", "extension marketplace", "supply chain", "SSH backdoor", "reverse SSH tunnel", "developer workstation"]
+    pdf: "Cursor_Extension_Trojan_2026_Case_Study.pdf"
+    pptx: "Cursor_Extension_Trojan_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-10-27", "label": "Legitimate Claude Code 2.1.312 published to npm, GitHub and Open VSX"}
+      - {"date": "2026-10-29", "label": "About 09:27 UTC: malicious 2.1.312 and 2.1.313 become available in Cursor's marketplace"}
+      - {"date": "2026-10-29", "label": "About 20:35 UTC: window ends; Cursor removes the version and shuts its marketplace down"}
+      - {"date": "2026-10-29", "label": "Cursor's security notice published; its first version named only 2.1.313 (Reported)"}
+      - {"date": "2026-10-30", "label": "Anthropic publishes 2.1.314 to npm, GitHub and Open VSX"}
+      - {"date": "2026-10-30", "label": "Phorion's advisory, then its correction of the affected marketplace to Cursor"}
+      - {"date": "2026-10-30", "label": "Socket finds no Open VSX change-feed event for 2.1.313"}
+      - {"date": "2026-10-30", "label": "Cursor updates its indicators and clarifies the affected versions"}
+      - {"date": "2026-10-31", "label": "Microsoft Threat Intelligence publishes its analysis of the SSH backdoor"}
+      - {"date": "2026-11-02", "label": "SecurityWeek: Anthropic moved its extension straight to 2.1.314 (Reported)"}
+      - {"date": "2026-11-10", "label": "KEV catalog 2026.11.10 carries no Cursor or Anthropic entry"}
   case-studies/CYBERCRIME_FOUR_BOOKS.md:
     kind: "era"
     title: "Cybercrime and Hacktivism in Four Books: Kingpin, Fatal System Error, We Are Anonymous, The Hacker Crackdown"
@@ -1210,6 +1897,56 @@ studies:
       - {"date": "2011-06-07", "label": "FBI approaches Monsegur, who agrees to cooperate that night (about this date)"}
       - {"date": "2013-11-15", "label": "Jeremy Hammond sentenced to 10 years for computer hacking conspiracy"}
       - {"date": "2014-05-27", "label": "Monsegur sentenced to time served"}
+  case-studies/DELL_RECOVERPOINT_CVE_2026_22769.md:
+    kind: "vulnerability"
+    title: "The Dell RecoverPoint for Virtual Machines Hard-Coded Credential Zero-Day of 2026 (CVE-2026-22769): A Case Study"
+    start: "2024"
+    end: "2026-11"
+    core_start: "2026-02-17"
+    core_end: "2026-02-21"
+    sectors: ["technology"]
+    cves: ["CVE-2026-22769"]
+    actors: []
+    tags: ["Dell", "RecoverPoint for Virtual Machines", "hard-coded credential", "Apache Tomcat", "zero-day", "BRICKSTORM", "GRIMBOLT", "UNC6201", "VMware", "backup appliance", "KEV"]
+    pdf: "Dell_RecoverPoint_CVE_2026_22769_Case_Study.pdf"
+    pptx: "Dell_RecoverPoint_CVE_2026_22769_Case_Study.pptx"
+    events:
+      - {"date": "2024", "label": "Mid-2024: earliest exploitation GTIG identifies; UNC6201 deploys SLAYSTYLE, BRICKSTORM and GRIMBOLT (Reported)"}
+      - {"date": "2025-09", "label": "Mandiant sees BRICKSTORM binaries on compromised appliances replaced with GRIMBOLT (Reported)"}
+      - {"date": "2025-09-24", "label": "GTIG publishes its BRICKSTORM espionage campaign report; it does not mention RecoverPoint"}
+      - {"date": "2025-12-04", "label": "CISA, NSA and the Canadian Cyber Centre publish AR25-338A, BRICKSTORM Backdoor"}
+      - {"date": "2026-01-09", "label": "Dell reserves CVE-2026-22769"}
+      - {"date": "2026-01-20", "label": "AR25-338A revised to add YARA rules"}
+      - {"date": "2026-02-11", "label": "AR25-338A adds Sample 12, a file whose hash GTIG later lists as GRIMBOLT"}
+      - {"date": "2026-02-17", "label": "Dell publishes DSA-2026-079 and the CVE; NVD publishes; GTIG publishes its UNC6201 report"}
+      - {"date": "2026-02-18", "label": "CISA adds the CVE to KEV, due 21 Feb"}
+      - {"date": "2026-02-19", "label": "CISA SSVC decision: exploitation active, automatable yes, technical impact total"}
+      - {"date": "2026-03-18", "label": "Dell KB 000426742, the remediation script, revised to version 2"}
+      - {"date": "2026-04-16", "label": "ATT&CK creates S9015 BRICKSTORM, naming UNC6201 among its users"}
+  case-studies/DENTAQUEST_BREACH_2026.md:
+    kind: "incident"
+    title: "The DentaQuest Health-Data Breach of May 2026: A Case Study"
+    start: "2026-05"
+    end: "2026-11"
+    core_start: "2026-05-17"
+    core_end: "2026-05-20"
+    sectors: ["healthcare"]
+    cves: []
+    actors: []
+    tags: ["DentaQuest", "ShinyHunters", "health data", "social engineering", "MFA", "file share", "data extortion", "HIPAA"]
+    pdf: "DentaQuest_Breach_2026_Case_Study.pdf"
+    pptx: "DentaQuest_Breach_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-05-17", "label": "17 to 19 May: one employee socially engineered out of credentials and an MFA code; data taken from a network file share"}
+      - {"date": "2026-05-20", "label": "DentaQuest learns a third party claims to hold its data; containment the same day"}
+      - {"date": "2026-05-29", "label": "DentaQuest learns the data was posted on the dark web"}
+      - {"date": "2026-05-30", "label": "ShinyHunters leak-site post last updated: about 234 GB, says DentaQuest failed to reach an agreement (Reported)"}
+      - {"date": "2026-06-03", "label": "Have I Been Pwned adds 2.6 million unique email addresses (Reported)"}
+      - {"date": "2026-06-29", "label": "Kroll gives DentaQuest initial information on impacted individuals"}
+      - {"date": "2026-07-16", "label": "Notice to the Rhode Island AG of more than 15 million people; HHS OCR lists 15,000,000, with California and Oregon filings"}
+      - {"date": "2026-07-17", "label": "Individual notification by mail begins"}
+      - {"date": "2026-07-23", "label": "23 to 27 July: trade press reports a 23 million estimate, a dedupe of name and birth-date pairs (Reported)"}
+      - {"date": "2026-11-11", "label": "HHS export: 15,000,000 is the largest 2026 entry, ahead of Aesto and iRhythm Technologies"}
   case-studies/DOTCOM_ERA_CYBER_EVENTS.md:
     kind: "era"
     title: "The Dot-Com Era: Cyber Events, 1994 to 2003"
@@ -1286,6 +2023,32 @@ studies:
       - {"date": "2026-10-27", "label": "Chrome Root Store removal reaches devices; Chrome Root Program posts its review on the incident bug"}
       - {"date": "2026-11-07", "label": "Eight RSA G2B and G2C intermediates from the same ceremony revoked, cessationOfOperation"}
       - {"date": "2026-11-10", "label": "eMudhra posts its Full Incident Report to the Mozilla bug"}
+  case-studies/EUROPEAN_COMMISSION_CLOUD_BREACH_2026.md:
+    kind: "incident"
+    title: "The European Commission Cloud Breach of 2026: AWS Data Theft Through the Poisoned Trivy Scanner"
+    start: "2026-02"
+    end: "2026-08"
+    core_start: "2026-03-19"
+    core_end: "2026-03-28"
+    sectors: ["government", "technology"]
+    cves: ["CVE-2026-33634"]
+    actors: ["G1056", "G1057"]
+    tags: ["European Commission", "CERT-EU", "Trivy", "GitHub Actions", "CI/CD", "AWS", "cloud keys", "supply chain", "ShinyHunters", "TeamPCP", "KEV"]
+    pdf: "European_Commission_Cloud_Breach_2026_Case_Study.pdf"
+    pptx: "European_Commission_Cloud_Breach_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-02", "label": "Late February: attackers abuse a misconfigured Trivy GitHub Actions environment and extract a privileged access token"}
+      - {"date": "2026-03-01", "label": "The Trivy team discloses the first incident and rotates credentials; the rotation is not atomic"}
+      - {"date": "2026-03-19", "label": "Malicious Trivy v0.69.4 pushed; 76 of 77 trivy-action tags and all 7 setup-trivy tags moved to credential-stealing commits"}
+      - {"date": "2026-03-19", "label": "The attacker obtains a Commission AWS secret through the Trivy compromise, searches for more secrets and begins reconnaissance"}
+      - {"date": "2026-03-24", "label": "Commission CSOC alerts on Amazon API misuse, possible account compromise and abnormal traffic; incident response begins"}
+      - {"date": "2026-03-25", "label": "The Commission notifies CERT-EU, secures the AWS secret and disables the new access keys"}
+      - {"date": "2026-03-26", "label": "CISA adds CVE-2026-33634 to KEV"}
+      - {"date": "2026-03-27", "label": "Commission press release IP/26/748"}
+      - {"date": "2026-03-28", "label": "ShinyHunters publishes the dataset on its leak site: about 91.7 GB compressed, 340 GB uncompressed"}
+      - {"date": "2026-04-02", "label": "CERT-EU publishes its post-incident report"}
+      - {"date": "2026-07-02", "label": "FBI FLASH-20260702-01 on TeamPCP"}
+      - {"date": "2026-08-26", "label": "Two Western Australian men charged with 14 offences; the FBI calls them alleged TeamPCP members"}
   case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md:
     kind: "campaign"
     title: "Refrigeration-Controller Attacks on European Supermarkets and Blood Services, 2026: A Case Study"
@@ -1414,6 +2177,56 @@ studies:
       - {"date": "2016-10-21", "label": "The Dyn attack, which the USENIX paper attributes to Mirai cluster 6, not the original cluster 1"}
       - {"date": "2017-12-05", "label": "Informations and plea agreements against three Mirai and clickfraud defendants filed in Alaska"}
       - {"date": "2018-07-13", "label": "Twelve GRU officers indicted in the District of Columbia over the 2016 intrusions and leaks"}
+  case-studies/FBI_SURVEILLANCE_SYSTEM_BREACH_2026.md:
+    kind: "incident"
+    title: "The FBI Surveillance System Breach of 2026: A Case Study"
+    start: "2026-02"
+    end: "2026-11"
+    core_start: "2026-02-17"
+    core_end: "2026-04-06"
+    sectors: ["government"]
+    cves: []
+    actors: []
+    tags: ["FBI", "surveillance data", "pen register", "lawful intercept", "third party", "FISMA major incident", "China", "Salt Typhoon"]
+    pdf: "FBI_Surveillance_System_Breach_2026_Case_Study.pdf"
+    pptx: "FBI_Surveillance_System_Breach_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-02-17", "label": "The FBI begins investigating abnormal log information on an unclassified system on its network (Reported)"}
+      - {"date": "2026-03-04", "label": "The FBI first tells Congress of suspicious activity on a system holding law enforcement sensitive information (Reported)"}
+      - {"date": "2026-03-05", "label": "The FBI says it identified and addressed suspicious activities on FBI networks (Reported)"}
+      - {"date": "2026-03-06", "label": "WSJ: US investigators believe Chinese-government-affiliated hackers are responsible; any Salt Typhoon link unclear (Reported)"}
+      - {"date": "2026-03-10", "label": "Malwarebytes calls the system DCSNet, a name not found in any quoted notice wording (Reported)"}
+      - {"date": "2026-03-23", "label": "Senior DOJ officials determine the intrusion is a FISMA major incident (Reported)"}
+      - {"date": "2026-04-01", "label": "Politico publishes the major-incident designation (Reported)"}
+      - {"date": "2026-04-03", "label": "FBI spokesperson: access was obtained through a third party; target phone numbers likely exposed (Reported)"}
+      - {"date": "2026-04-06", "label": "Later notice per Bloomberg: forensics and remediation ongoing, a working group created, no actor named (Reported)"}
+      - {"date": "2026-11-11", "label": "No hearing, IG report, formal attribution or joint advisory found; the Intelligence Hub feed has no row for the incident"}
+  case-studies/FORTINET_FORTICLOUD_SSO_CVE_2026_24858.md:
+    kind: "vulnerability"
+    title: "The FortiCloud SSO Authentication Bypass of 2026 (CVE-2026-24858): A Case Study"
+    start: "2025-12"
+    end: "2026-11"
+    core_start: "2026-01-15"
+    core_end: "2026-01-30"
+    sectors: ["cross-sector", "technology"]
+    cves: ["CVE-2026-24858", "CVE-2025-59718", "CVE-2025-59719", "CVE-2022-40684", "CVE-2024-55591", "CVE-2025-24472", "CVE-2022-42475", "CVE-2025-61624", "CVE-2025-53847"]
+    actors: []
+    tags: ["Fortinet", "FortiGate", "FortiOS", "FortiCloud", "single sign-on", "authentication bypass", "edge device", "firewall", "configuration theft", "KEV"]
+    pdf: "Fortinet_FortiCloud_SSO_CVE_2026_24858_Case_Study.pdf"
+    pptx: "Fortinet_FortiCloud_SSO_CVE_2026_24858_Case_Study.pptx"
+    events:
+      - {"date": "2025-12-09", "label": "Fortinet FG-IR-25-647 discloses CVE-2025-59718 and CVE-2025-59719, a FortiCloud SSO bypass via a crafted SAML message"}
+      - {"date": "2025-12-12", "label": "Arctic Wolf sees malicious FortiGate SSO logins and configuration exports three days after the advisory (Reported)"}
+      - {"date": "2025-12-16", "label": "KEV adds CVE-2025-59718, due 23 Dec 2025"}
+      - {"date": "2026-01-15", "label": "Arctic Wolf first sees a new cluster: SSO logins to admin accounts, configuration export, new accounts, VPN changes (Reported)"}
+      - {"date": "2026-01-21", "label": "Arctic Wolf publishes; the initial access method is not yet confirmed (Reported)"}
+      - {"date": "2026-01-22", "label": "Fortinet PSIRT blog: exploitation on fully upgraded devices points to a new attack path; two FortiCloud accounts locked out"}
+      - {"date": "2026-01-26", "label": "Fortinet disables FortiCloud SSO on the FortiCloud side"}
+      - {"date": "2026-01-27", "label": "CVE-2026-24858 and FG-IR-26-060 published; SSO re-enabled refusing vulnerable versions; KEV adds it, due 30 Jan"}
+      - {"date": "2026-01-28", "label": "CISA alert on Fortinet's guidance; third-party SAML IdPs and FortiAuthenticator stated not affected"}
+      - {"date": "2026-01-30", "label": "Advisory updated with the last release updates; KEV due date for federal civilian agencies"}
+      - {"date": "2026-03-10", "label": "Siemens SSA-975644 lists the CVE for the Fortinet NGFW on RUGGEDCOM APE1808"}
+      - {"date": "2026-05-12", "label": "SSA-975644 V1.1 adds two other Fortinet CVEs on the same platform"}
   case-studies/GHOSTCAT_CVE_2020_1938.md:
     kind: "vulnerability"
     title: "Ghostcat, CVE-2020-1938: The Tomcat AJP File Read in the Lab"
@@ -1659,6 +2472,57 @@ studies:
       - {"date": "2026-04-07", "label": "AA26-097A on the Iranian-affiliated campaign disrupting exposed Rockwell PLCs"}
       - {"date": "2026-07-26", "label": "Coordinated attack on OT at more than 30 Minnesota community water systems"}
       - {"date": "2026-10-20", "label": "Siemens Software Center CVE-2026-110936 added to KEV"}
+  case-studies/INSTRUCTURE_CANVAS_BREACH_2026.md:
+    kind: "incident"
+    title: "The Instructure Canvas Breach and ShinyHunters Extortion of 2026: A Case Study"
+    start: "2025-09"
+    end: "2026-09"
+    core_start: "2026-04-25"
+    core_end: "2026-05-11"
+    sectors: ["education", "technology"]
+    cves: []
+    actors: ["G1057"]
+    tags: ["Instructure", "Canvas", "ShinyHunters", "learning management system", "cross-site scripting", "support access", "access tokens", "data extortion", "defacement"]
+    pdf: "Instructure_Canvas_Breach_2026_Case_Study.pdf"
+    pptx: "Instructure_Canvas_Breach_2026_Case_Study.pptx"
+    events:
+      - {"date": "2025-09-21", "label": "Instructure discloses a social-engineering compromise of its Salesforce instance; no product data exposed"}
+      - {"date": "2026-04-25", "label": "25 to 30 April: institution logs may show the actor using Canvas customer support representative accounts"}
+      - {"date": "2026-04-29", "label": "Instructure detects unauthorized activity in Canvas, revokes access and engages outside forensic experts"}
+      - {"date": "2026-05-01", "label": "Confirmed Security Incident posted: a criminal threat actor; Canvas Data 2, Beta and Test in maintenance"}
+      - {"date": "2026-05-02", "label": "Incident believed contained: privileged credentials and tokens revoked, patches deployed, keys rotated"}
+      - {"date": "2026-05-03", "label": "ShinyHunters lists Instructure on its leak site, claiming 3.65 TB on 275 million people (Reported)"}
+      - {"date": "2026-05-07", "label": "The actor returns through a second XSS flaw; ransom note on login pages of about 300 organizations"}
+      - {"date": "2026-05-08", "label": "CEO apology names a support-ticket flaw in the Free-for-Teacher environment and disables it"}
+      - {"date": "2026-05-11", "label": "Agreement with the actor: data returned, shred logs; House Homeland Security letter to the CEO"}
+      - {"date": "2026-05-15", "label": "FBI PSA: ShinyHunters claimed an attack that interrupted an unnamed learning management system"}
+      - {"date": "2026-07-26", "label": "Delivery of API provisioning records and user reports to institutions begins; Kroll handles notification"}
+      - {"date": "2026-09-29", "label": "Forensic review complete; final delivery phase begins"}
+  case-studies/IDSCAN_DRIVERS_LICENSE_BREACH_2026.md:
+    kind: "incident"
+    title: "The IDScan.net Driver's License Breach of 2026: A Case Study"
+    start: "2025-02"
+    end: "2026-11"
+    core_start: "2026-04-04"
+    core_end: "2026-09-02"
+    sectors: ["technology", "cross-sector"]
+    cves: []
+    actors: []
+    tags: ["IDScan.net", "VeriScan", "Nexus", "driver's licenses", "identity verification", "ID scanning", "third-party risk", "data retention"]
+    pdf: "IDScan_Drivers_License_Breach_2026_Case_Study.pdf"
+    pptx: "IDScan_Drivers_License_Breach_2026_Case_Study.pptx"
+    events:
+      - {"date": "2025-02", "label": "Caesars says it has not used VeriScan since February 2025 and had no active VeriScan accounts at the time of the incident (Reported)"}
+      - {"date": "2025-06", "label": "Earliest scan timestamps seen in the Nexus records, June 2025 (Demonstrated); read here as scan dates, not theft dates (Inferred)"}
+      - {"date": "2026-04-04", "label": "4 April to 2 September: an unauthorized third party accesses part of IDScan.net's cloud environment (VeriScan)"}
+      - {"date": "2026-08-31", "label": "A source alerts KrebsOnSecurity to the Nexus listing on the Exploit forum (Reported)"}
+      - {"date": "2026-09-01", "label": "Nearly 400,000 records added to Nexus in 24 hours; the FBI New Orleans field office opens an investigation (Reported)"}
+      - {"date": "2026-09-01", "label": "IDScan.net receives information that data may have been accessed; Nexus goes offline that evening"}
+      - {"date": "2026-09-02", "label": "End of the vendor-stated access window; 2 to 4 September: nine putative class actions docketed (Reported)"}
+      - {"date": "2026-09-04", "label": "IDScan.net posts its notification of data security incident"}
+      - {"date": "2026-09-10", "label": "Risky Business frames the breach as a national security problem (Reported)"}
+      - {"date": "2026-09-29", "label": "Notice updated: the event was limited to the VeriScan platform"}
+      - {"date": "2026-11-11", "label": "No IDScan filing on the California Attorney General's breach list"}
   case-studies/IVANTI_CONNECT_SECURE_2026.md:
     kind: "vulnerability"
     title: "The Ivanti Connect Secure Zero-Day Chain of October 2026 (CVE-2026-104935, CVE-2026-111357, CVE-2026-118527): A Case Study"
@@ -1685,6 +2549,32 @@ studies:
       - {"date": "2026-10-30", "label": "KEV adds CVE-2026-111357 (due 2 Nov) and CVE-2026-118527 (due 13 Nov); CISA revises its alert"}
       - {"date": "2026-11-03", "label": "CVE-2026-118527 record published, four days after its KEV listing"}
       - {"date": "2026-11-10", "label": "Ivanti's November Security Update does not mention Connect Secure"}
+  case-studies/IVANTI_EPMM_CVE_2026_1281.md:
+    kind: "vulnerability"
+    title: "Ivanti EPMM Code Injection (CVE-2026-1281 and CVE-2026-1340): A Case Study"
+    start: "2026-01"
+    end: "2026-11"
+    core_start: "2026-01-29"
+    core_end: "2026-04-08"
+    sectors: ["government", "technology", "cross-sector"]
+    cves: ["CVE-2026-1281", "CVE-2026-1340", "CVE-2026-6973", "CVE-2023-35078", "CVE-2023-35081", "CVE-2025-4427", "CVE-2025-4428", "CVE-2025-0282", "CVE-2023-35082", "CVE-2023-38035", "CVE-2026-10520", "CVE-2021-44228"]
+    actors: []
+    tags: ["Ivanti", "Endpoint Manager Mobile", "EPMM", "MDM", "mobile device management", "code injection", "zero-day", "NCSC-NL", "Office365 tokens", "Ivanti Sentry", "KEV"]
+    pdf: "Ivanti_EPMM_CVE_2026_1281_Case_Study.pdf"
+    pptx: "Ivanti_EPMM_CVE_2026_1281_Case_Study.pptx"
+    events:
+      - {"date": "2026-01-21", "label": "Ivanti reserves CVE-2026-1281; CVE-2026-1340 follows on 22 Jan"}
+      - {"date": "2026-01-29", "label": "Ivanti discloses both flaws with a very limited number of customers exploited; KEV adds CVE-2026-1281, due 1 Feb"}
+      - {"date": "2026-01-30", "label": "CERT-EU says one flaw was exploited; Rapid7 and watchTowr publish; the European Commission finds traces of an MDM attack"}
+      - {"date": "2026-02-02", "label": "NCSC-NL tells EPMM users to assume breach and to report even after patching"}
+      - {"date": "2026-02-06", "label": "Dutch government letter names the Data Protection Authority and the Council for the Judiciary"}
+      - {"date": "2026-02-09", "label": "NCSC-NL: misuse at several organisations, the MIFS database copied, multiple actors plausible"}
+      - {"date": "2026-02-17", "label": "Unit 42 reports widespread, mostly automated exploitation attempts (Reported)"}
+      - {"date": "2026-02-20", "label": "NCSC-2026-0043 rev 1.0.2: a compromised EPMM can reach Ivanti Sentry through the EPMM keystore"}
+      - {"date": "2026-02-27", "label": "Dutch letter lists six public bodies and a municipality; police reports filed"}
+      - {"date": "2026-04-08", "label": "KEV adds CVE-2026-1340, due 11 Apr; Canada relays that Ivanti says both were exploited"}
+      - {"date": "2026-05-20", "label": "Justice and Security annual report records that the prison service DJI was hit via the Ivanti hack"}
+      - {"date": "2026-06-25", "label": "Dutch parliamentary Digital Affairs committee debates the two government letters"}
   case-studies/LINUX_TCP_UAF_2026.md:
     kind: "vulnerability"
     title: "The CVE-2026-98432 Linux Kernel Flaw and an AI-Written Exploit: A 2026 Case Study"
@@ -1794,6 +2684,32 @@ studies:
       - {"date": "2021-10-04", "label": "FireEye, Inc. becomes Mandiant, Inc.; the products business sale closes on 8 October"}
       - {"date": "2022-04-27", "label": "Mandiant merges UNC2452 into APT29"}
       - {"date": "2022-09-12", "label": "Google completes its acquisition of Mandiant"}
+  case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md:
+    kind: "vulnerability"
+    title: "The Microsoft Office Security Feature Bypass of 2026 (CVE-2026-21509) and APT28: A Case Study"
+    start: "2025-12"
+    end: "2026-03"
+    core_start: "2026-01-26"
+    core_end: "2026-02-02"
+    sectors: ["government"]
+    cves: ["CVE-2026-21509", "CVE-2026-21514", "CVE-2022-30190", "CVE-2023-23397", "CVE-2018-14634", "CVE-2025-52691", "CVE-2026-23760", "CVE-2026-24061"]
+    actors: ["G0007"]
+    tags: ["Microsoft Office", "OLE", "COM", "security feature bypass", "spearphishing", "APT28", "Covenant", "Filen", "Ukraine", "KEV"]
+    pdf: "Microsoft_Office_CVE_2026_21509_Case_Study.pdf"
+    pptx: "Microsoft_Office_CVE_2026_21509_Case_Study.pptx"
+    events:
+      - {"date": "2025-07", "label": "APT28's Covenant begins using the Filen cloud storage service for command and control, per ESET (Reported)"}
+      - {"date": "2025-09-16", "label": "Sekoia publishes Operation Phantom Net Voxel with the same building blocks (Reported)"}
+      - {"date": "2025-12-30", "label": "Microsoft reserves CVE-2026-21509"}
+      - {"date": "2026-01-12", "label": "Two domains later used in the chain are registered"}
+      - {"date": "2026-01-26", "label": "MSRC publishes the Office security feature bypass out of band, Exploited = Yes; KEV adds it, due 16 Feb"}
+      - {"date": "2026-01-27", "label": "COREPER-themed lure document created, per its metadata"}
+      - {"date": "2026-01-29", "label": "CERT-UA receives reports of mail posing as Ukraine's Hydrometeorological Center sent to more than 60 addresses"}
+      - {"date": "2026-02-01", "label": "CERT-UA#19542 attributes the activity to UAC-0001 (APT28)"}
+      - {"date": "2026-02-02", "label": "Zscaler publishes Operation Neusploit (Reported)"}
+      - {"date": "2026-02-10", "label": "KEV adds CVE-2026-21514, a Word flaw with the same CWE-807"}
+      - {"date": "2026-02-16", "label": "KEV due date for federal agencies"}
+      - {"date": "2026-03-10", "label": "ESET ties the January campaigns to Sednit's Covenant (Reported)"}
   case-studies/MITNICK_INTRUSIONS.md:
     kind: "actor"
     title: "Kevin Mitnick: Ghost in the Wires and The Art of Intrusion"
@@ -1904,6 +2820,32 @@ studies:
       - {"date": "2026-10-27", "label": "CISA adds the CVE to KEV as Google Brotli Unchecked Return Value Vulnerability"}
       - {"date": "2026-11-04", "label": "TeamStarWolf lab run: 24.22.0 flagged, 24.22.1 not, both report Brotli 1.2.0"}
       - {"date": "2026-11-10", "label": "KEV due date"}
+  case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md:
+    kind: "incident"
+    title: "The Notepad++ Update-Channel Hijack (CVE-2025-15556): A Case Study"
+    start: "2025-06"
+    end: "2026-11"
+    core_start: "2025-06"
+    core_end: "2026-02"
+    sectors: ["technology", "government", "finance"]
+    cves: ["CVE-2025-15556"]
+    actors: ["G0030"]
+    tags: ["Notepad++", "WinGUp", "software update", "update hijack", "supply chain", "code signing", "Lotus Blossom", "Chrysalis", "DLL sideloading"]
+    pdf: "Notepad_Plus_Plus_Update_Hijack_2026_Case_Study.pdf"
+    pptx: "Notepad_Plus_Plus_Update_Hijack_2026_Case_Study.pptx"
+    events:
+      - {"date": "2025-06", "label": "Incident begins, per the vendor's estimate (Reported)"}
+      - {"date": "2025-07", "label": "Late July to early August: Kaspersky chain 1, an update launched by the updater leads to Cobalt Strike (Reported)"}
+      - {"date": "2025-09-02", "label": "Hosting provider says attackers lost access to the shared server (Reported)"}
+      - {"date": "2025-10", "label": "Kaspersky chain 3: DLL sideloading delivers the Chrysalis backdoor (Reported)"}
+      - {"date": "2025-11-18", "label": "v8.8.8 addresses a potential WinGUp hijacking issue and advises a manual upgrade"}
+      - {"date": "2025-12-02", "label": "Attacker-held credentials stop working; the vendor's estimated end of the compromise (Reported)"}
+      - {"date": "2025-12-09", "label": "v8.8.9 aborts updates whose installer fails certificate and signature checks"}
+      - {"date": "2026-02-02", "label": "Vendor incident post, VulnCheck advisory and Rapid7 report (Lotus Blossom, moderate confidence)"}
+      - {"date": "2026-02-03", "label": "CVE-2025-15556 published and in NVD; Kaspersky report"}
+      - {"date": "2026-02-05", "label": "Vendor clarification: Notepad++ itself was not hacked"}
+      - {"date": "2026-02-12", "label": "CISA adds CVE-2025-15556 to KEV, due 5 March 2026"}
+      - {"date": "2026-02-16", "label": "v8.9.2 signs and verifies the update metadata"}
   case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md:
     kind: "reference"
     title: "npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses"
@@ -1952,6 +2894,58 @@ studies:
       - {"date": "2017-11-09", "label": "WikiLeaks begins Vault 8 with source code for the CIA Hive tool"}
       - {"date": "2022-07-13", "label": "Joshua Schulte convicted on eight counts at retrial over the Vault 7 theft"}
       - {"date": "2024-02-01", "label": "Schulte sentenced to 40 years"}
+  case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026.md:
+    kind: "campaign"
+    title: "Oracle PeopleSoft CVE-2026-35273 and the ShinyHunters Mass Exploitation of 2026: A Case Study"
+    start: "2026-04"
+    end: "2026-11"
+    core_start: "2026-05-27"
+    core_end: "2026-09-25"
+    sectors: ["education", "government", "technology", "healthcare", "transport"]
+    cves: ["CVE-2024-21182", "CVE-2026-21962", "CVE-2026-35273", "CVE-2026-46817"]
+    actors: ["G1057"]
+    tags: ["Oracle", "PeopleSoft", "PeopleTools", "ShinyHunters", "UNC6240", "zero-day", "WAF bypass", "web shells", "higher education", "data extortion", "FBI"]
+    pdf: "Oracle_PeopleSoft_ShinyHunters_2026_Case_Study.pdf"
+    pptx: "Oracle_PeopleSoft_ShinyHunters_2026_Case_Study.pptx"
+    events:
+      - {"date": "2026-04-01", "label": "Oracle's CNA reserves CVE-2026-35273"}
+      - {"date": "2026-05-15", "label": "FBI IC3 PSA warns about ShinyHunters extortion, with educational institutions at elevated risk"}
+      - {"date": "2026-05-27", "label": "27 May to 9 June: UNC6240 (ShinyHunters) exploits the PeopleSoft PSEMHUB flaw as a zero-day"}
+      - {"date": "2026-06-09", "label": "Stolen data published on the ShinyHunters leak site; the zero-day window closes"}
+      - {"date": "2026-06-10", "label": "Oracle out-of-band Security Alert for PeopleTools 8.61 and 8.62; University of Nottingham notice to students"}
+      - {"date": "2026-06-11", "label": "CVE record published; CISA SSVC records exploitation as active; GTIG has notified more than 100 organizations"}
+      - {"date": "2026-06-12", "label": "CISA adds CVE-2026-35273 to KEV with a 15 June due date and known ransomware campaign use"}
+      - {"date": "2026-09", "label": "Renewed n-day mass exploitation: WAF rules bypassed with an encoded path, JSP web shells planted"}
+      - {"date": "2026-09-22", "label": "FBI jobs site defaced; the actor claims data on FBI employees and applicants (Reported)"}
+      - {"date": "2026-09-25", "label": "GTIG publishes its report on the renewed campaign"}
+      - {"date": "2026-10-09", "label": "FBI announces another arrest tied to the FBI jobs incident (Reported)"}
+      - {"date": "2026-10-20", "label": "ZDI publishes the three-flaw chain behind the CVE (URL dated 20 October, page dated 27 October)"}
+  case-studies/PALO_ALTO_PAN_OS_CVE_2026_0257.md:
+    kind: "vulnerability"
+    title: "The PAN-OS GlobalProtect Authentication Bypass of 2026 (CVE-2026-0257), Qilin and INC Ransomware: A Case Study"
+    start: "2025-11"
+    end: "2026-11"
+    core_start: "2026-05-13"
+    core_end: "2026-10-20"
+    sectors: ["cross-sector", "education", "finance", "healthcare", "technology", "manufacturing", "government", "transport", "energy", "retail"]
+    cves: ["CVE-2026-0257", "CVE-2023-27532"]
+    actors: ["G1032", "G1050"]
+    tags: ["Palo Alto Networks", "PAN-OS", "GlobalProtect", "VPN", "authentication bypass", "edge device", "Qilin", "INC Ransom", "ransomware", "KEV"]
+    pdf: "Palo_Alto_PAN_OS_CVE_2026_0257_Case_Study.pdf"
+    pptx: "Palo_Alto_PAN_OS_CVE_2026_0257_Case_Study.pptx"
+    events:
+      - {"date": "2025-11-03", "label": "Palo Alto Networks reserves CVE-2026-0257"}
+      - {"date": "2026-05-13", "label": "Advisory published for the GlobalProtect authentication bypass; CVE record and NVD entry published"}
+      - {"date": "2026-05-17", "label": "Earliest exploitation Rapid7 MDR observed, from Vultr hosting; first alert on 18 May"}
+      - {"date": "2026-05-21", "label": "Second wave from Dromatics Systems hosting, likely the same actor (Rapid7)"}
+      - {"date": "2026-05-28", "label": "Fix-release timeline updated; CISA SSVC decision: exploitation active, technical impact total"}
+      - {"date": "2026-05-29", "label": "KEV adds the CVE, due 1 Jun; vendor status limited exploit attempts; Rapid7 analysis and public checker"}
+      - {"date": "2026-06", "label": "Several intrusions with CVE-2026-0257 as initial access end in Qilin ransomware (Arctic Wolf)"}
+      - {"date": "2026-06-09", "label": "Siemens SSA-967325 V1.1 adds the CVE for RUGGEDCOM APE1808"}
+      - {"date": "2026-07-20", "label": "Arctic Wolf Labs report links the CVE to Qilin"}
+      - {"date": "2026-10-09", "label": "ReliaQuest says on X that Qilin and Settra are exploiting the flaw (Reported)"}
+      - {"date": "2026-10-19", "label": "Unit 42 reports attempted exploitation by Spikey Scorpius (Qilin) and Tarnished Scorpius (INC)"}
+      - {"date": "2026-11-10", "label": "Kaspersky ranks Qilin first by share of leak-site victims in Q3 2026"}
   case-studies/PHP2SHELL_OCTOBER_2026.md:
     kind: "vulnerability"
     title: "PHP2Shell and the October 2026 Attack Wave: A Case Study"
@@ -2118,6 +3112,32 @@ studies:
       - {"date": "2022-04-08", "label": "Industroyer2 planned against high-voltage substations; CERT-UA says it was prevented"}
       - {"date": "2022-10-10", "label": "Third Ukrainian blackout, 10 to 12 October"}
       - {"date": "2024-04-17", "label": "Mandiant designates APT44"}
+  case-studies/SHAREPOINT_2026_EXPLOITATION.md:
+    kind: "campaign"
+    title: "The SharePoint Server Exploitation Waves of 2026 (CVE-2026-45659 and Successors): A Case Study"
+    start: "2026-01"
+    end: "2026-11"
+    core_start: "2026-03-18"
+    core_end: "2026-09-25"
+    sectors: ["cross-sector", "government", "telecommunications", "education"]
+    cves: ["CVE-2026-20963", "CVE-2026-32201", "CVE-2026-45659", "CVE-2026-58644", "CVE-2026-56164", "CVE-2026-50522", "CVE-2026-55040", "CVE-2026-65660", "CVE-2025-53770", "CVE-2025-53771"]
+    actors: []
+    tags: ["SharePoint", "on-premises", "machine keys", "KEV", "end of support", "Warlock", "ransomware", "deserialization"]
+    pdf: "SharePoint_2026_Exploitation_Case_Study.pdf"
+    pptx: "SharePoint_2026_Exploitation_Case_Study.pptx"
+    events:
+      - {"date": "2026-01-13", "label": "Microsoft fixes CVE-2026-20963 in the January updates, marked not exploited"}
+      - {"date": "2026-03-17", "label": "Microsoft re-scores CVE-2026-20963 to an unauthenticated 9.8; KEV adds it on 18 Mar"}
+      - {"date": "2026-03-25", "label": "CERT-EU issues Security Advisory 2026-004"}
+      - {"date": "2026-04-14", "label": "Microsoft fixes CVE-2026-32201 as Exploitation Detected; KEV adds it the same day"}
+      - {"date": "2026-05-21", "label": "Microsoft publishes CVE-2026-45659, whose fix had shipped in the May updates"}
+      - {"date": "2026-07-14", "label": "July updates list CVE-2026-56164 (exploited), 58644, 50522 and 55040; CISA issues its hardening alert; SharePoint Server 2016 and 2019 reach end of support"}
+      - {"date": "2026-07-15", "label": "Canada issues AL26-017"}
+      - {"date": "2026-07-22", "label": "CERT-EU issues 2026-009 on exploitation of CVE-2026-50522; KEV adds it"}
+      - {"date": "2026-07-22", "label": "22 to 31 Jul: a Warlock intrusion runs from a SharePoint web shell to ransomware (Reported)"}
+      - {"date": "2026-08-11", "label": "August updates fix CVE-2026-65660"}
+      - {"date": "2026-09-24", "label": "24 to 25 Sep: Previdian honeypot attempt and Canada's AL26-023; KEV adds CVE-2026-65660 on 25 Sep"}
+      - {"date": "2026-10-01", "label": "Symantec reports Warlock attacks on at least four organizations after SharePoint exploitation (Reported)"}
   case-studies/SHAREPOINT_TOOLSHELL_2025.md:
     kind: "vulnerability"
     title: "The SharePoint ToolShell Mass Exploitation: A 2025 Case Study"
@@ -2137,6 +3157,32 @@ studies:
       - {"date": "2025-07-19", "label": "Microsoft ships out-of-band updates, 19 to 20 July"}
       - {"date": "2025-07-20", "label": "CISA adds CVE-2025-53770 to the KEV catalog"}
       - {"date": "2025-09", "label": "Warlock's leak site lists roughly 60 victims"}
+  case-studies/SMARTERTOOLS_SMARTERMAIL_2026.md:
+    kind: "vulnerability"
+    title: "SmarterTools SmarterMail Exploitation and Ransomware, 2026 (CVE-2026-23760, CVE-2026-24423, CVE-2025-52691): A Case Study"
+    start: "2025-10"
+    end: "2026-11"
+    core_start: "2026-01-15"
+    core_end: "2026-02-26"
+    sectors: ["cross-sector", "technology"]
+    cves: ["CVE-2025-52691", "CVE-2026-23760", "CVE-2026-24423", "CVE-2026-40514"]
+    actors: []
+    tags: ["SmarterTools", "SmarterMail", "mail server", "authentication bypass", "password reset", "Warlock", "Storm-2603", "ransomware", "KEV"]
+    pdf: "SmarterTools_SmarterMail_2026_Case_Study.pdf"
+    pptx: "SmarterTools_SmarterMail_2026_Case_Study.pptx"
+    events:
+      - {"date": "2025-10-09", "label": "Build 9413 ships with \"Critical security fixes.\" and no CVE named"}
+      - {"date": "2025-12-29", "label": "CSA Singapore alert AL-2025-124 and the CVE record for CVE-2025-52691"}
+      - {"date": "2026-01-08", "label": "8 to 13 Jan: watchTowr reports the password-reset bypass; the vendor acknowledges it"}
+      - {"date": "2026-01-15", "label": "Build 9511 fixes the password-reset bypass and the ConnectToHub command execution flaw"}
+      - {"date": "2026-01-17", "label": "A SmarterMail forum post describes a successful attack (Reported)"}
+      - {"date": "2026-01-22", "label": "22 to 23 Jan: CVE-2026-23760 and CVE-2026-24423 published; watchTowr, Huntress and VulnCheck publish"}
+      - {"date": "2026-01-26", "label": "KEV adds CVE-2025-52691 and CVE-2026-23760; Shadowserver sees exploitation attempts"}
+      - {"date": "2026-01-29", "label": "SmarterTools' own network is breached through its unpatched SmarterMail VM"}
+      - {"date": "2026-02-05", "label": "KEV adds CVE-2026-24423; its ransomware flag goes to Known within hours"}
+      - {"date": "2026-02-09", "label": "ReliaQuest ties a CVE-2026-23760 intrusion to Storm-2603 (Reported)"}
+      - {"date": "2026-02-25", "label": "25 to 26 Feb: KEV ransomware flag for CVE-2026-23760 goes to Known"}
+      - {"date": "2026-04-21", "label": "KEV ransomware flag for CVE-2025-52691 goes to Known"}
   case-studies/SOLARWINDS_SUNBURST.md:
     kind: "campaign"
     title: "SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021"

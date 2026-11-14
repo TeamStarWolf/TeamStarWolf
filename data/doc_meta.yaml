@@ -692,6 +692,14 @@ pages:
     learning_path:
       - "disciplines/exploit-development.md"
     reviewed: null
+  FILE_TYPES_REFERENCE.md:
+    audience: "SOC analysts, incident responders, email and endpoint administrators, and detection engineers"
+    level: "Intermediate"
+    read_when: "You are deciding whether an attachment or download type should be blocked, inspected or allowed, you are triaging a file by its extension, magic number or handler, or you are writing a detection or a mail and endpoint policy for a rarely seen file type"
+    start_at: "[How a file type is decided](#how-a-file-type-is-decided), [The catalog](#the-catalog) for the family tables, [Uncommon and dangerous](#uncommon-and-dangerous) for the rarely seen types with an exploitation record"
+    pairs_with: "[Email Security Reference](EMAIL_SECURITY_REFERENCE.md), [Endpoint Security Reference](ENDPOINT_SECURITY_REFERENCE.md), [Malware Analysis Reference](MALWARE_ANALYSIS_REFERENCE.md), [Digital Forensics Reference](DIGITAL_FORENSICS_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
   FIRMWARE_IOT_SECURITY_REFERENCE.md:
     audience: "Hardware and IoT security testers, embedded engineers, and OT defenders"
     level: "Intermediate to advanced"
@@ -2329,12 +2337,33 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 4: exploited vulnerabilities](#part-4-exploited-vulnerabilities), [Part 7: the defender view](#part-7-the-defender-view)"
     pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
     reviewed: null
+  case-studies/ATF_MAJOR_INCIDENT_2026.md:
+    audience: "Government and public-sector security leaders, incident responders, vulnerability management leads and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You want the dated record of the 2026 ATF major incident and the Qilin listing that preceded it, how much of it rests on an agency statement quoted by the press, or which segmentation, isolation and federal reporting controls the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md), [The Ransomware Ecosystem](/case-studies/RANSOMWARE_ECOSYSTEM.md)"
+    reviewed: null
+  case-studies/BEYONDTRUST_REMOTE_SUPPORT_CVE_2026_1731.md:
+    audience: "Help-desk, remote-access and privileged-access teams that run BeyondTrust Remote Support or Privileged Remote Access, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run a self-hosted BeyondTrust appliance, you need the dated record of CVE-2026-1731 and the exploitation that followed it, or you want to decide how to patch, scope and hunt after a pre-authentication flaw in a remote-support tool"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [BeyondTrust](/platforms/beyondtrust.md)"
+    reviewed: null
   case-studies/BINANCE_HEIST_2026.md:
     audience: "Security engineers and leads at exchanges, custodians and other crypto firms, detection engineers, threat intelligence analysts and vulnerability management leads"
     level: "Intermediate"
     read_when: "You want the dated record of the October 2026 Binance theft, how a fake job assignment and an internal AI tool led to the hot wallets, or which controls the case argues for"
     start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
     pairs_with: "[Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md), [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md), [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md), [North Korea-attributed threat actors](/case-studies/THREAT_ACTORS_NORTH_KOREA.md)"
+    reviewed: null
+  case-studies/BOSTON_SCIENTIFIC_ATTACK_2026.md:
+    audience: "Medical-technology and manufacturing security teams, network and edge-device owners, incident responders, business continuity leads and vulnerability management leads"
+    level: "Intermediate"
+    read_when: "You want the dated record of the August 2026 Boston Scientific outage, what the CrowdStrike summary found and did not find, or which edge-device, segmentation and continuity controls the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [The Year 2026 in Intrusions](/case-studies/CHRONICLE_2026.md)"
     reviewed: null
   case-studies/CHANGE_HEALTHCARE_2024.md:
     audience: "Healthcare security leaders, incident responders and identity and vulnerability management teams"
@@ -2343,12 +2372,169 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 10: the vulnerability-management view](#part-10-the-vulnerability-management-view)"
     pairs_with: "[Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md)"
     reviewed: null
+  case-studies/CARECLOUD_BREACH_2026.md:
+    audience: "Healthcare and health-technology security leaders, cloud and identity teams, detection engineers, vendor-risk and breach-response staff and vulnerability management leads"
+    level: "Intermediate"
+    read_when: "You want the dated record of the March 2026 CareCloud breach, how its SEC, HHS and state disclosures fit together, or which cloud identity and detection controls the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Healthcare Threat Watchlist](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md)"
+  case-studies/CHECK_POINT_GAIA_CVE_2026_123039.md:
+    audience: "Firewall, network and edge-device teams that run Check Point gateways, management servers or Maestro, virtualization and VMware ESXi administrators, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run Check Point Gaia or Mobile Access, you need the dated record of CVE-2026-123039 and the PHP2Shell campaign against Check Point gateways, or you want to decide how to patch, hunt, rebuild and cut the path from the firewall to the hypervisor"
+    start_at: "[Executive summary](#executive-summary), [Part 7: the defender view](#part-7-the-defender-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Check Point](/platforms/check-point.md), [VMware ESXi](/operating-systems/vmware-esxi.md)"
+    reviewed: null
+  case-studies/CHECK_POINT_VPN_CVE_2026_50751.md:
+    audience: "Firewall, network and edge-device teams that run Check Point gateways or Spark appliances, remote-access VPN owners, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run Check Point Remote Access or Mobile Access, you need the dated record of CVE-2026-50751 and its exploitation from May 2026, or you want to decide how to patch, reconfigure and hunt after a VPN authentication bypass that ran a month before disclosure"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Check Point](/platforms/check-point.md)"
+    reviewed: null
+  case-studies/DELL_RECOVERPOINT_CVE_2026_22769.md:
+    audience: "Backup, replication and virtualization teams that run Dell RecoverPoint for Virtual Machines or VMware vCenter and ESXi, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run RecoverPoint for Virtual Machines, you need the dated record of CVE-2026-22769 and its exploitation since mid-2024, or you want to decide how to patch, then hunt, on infrastructure appliances that scanners and endpoint agents often miss"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Hypervisor Security Reference](/HYPERVISOR_SECURITY_REFERENCE.md), [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Threat Actors: China](/case-studies/THREAT_ACTORS_CHINA.md)"
+    reviewed: null
   case-studies/CHROME_ISOLATED_WEB_APPS_2026.md:
     audience: "Browser and endpoint security engineers, ChromeOS and Chrome Enterprise administrators, vulnerability management leads and detection engineers"
     level: "Intermediate"
     read_when: "You run managed ChromeOS or Chrome fleets, you need the facts behind a headline about an Isolated Web App flaw or exploit, or you want to decide which IWA policies to set and what to watch for on desktops"
     start_at: "[Executive summary](#executive-summary), [Part 3: the 2026 vulnerability record](#part-3-the-2026-vulnerability-record), [Part 8: the defender view](#part-8-the-defender-view)"
     pairs_with: "[Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md), [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [npm Supply-Chain Attacks](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md)"
+    reviewed: null
+  case-studies/CHRONICLE_1993.md:
+    audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
+    level: "Intermediate"
+    read_when: "You want a dated record of 1993, you need the CERT advisories, the first Computer Misuse Act trials, the polymorphic virus record and the Clipper debate side by side, or you want to see which defender lessons were already on the record before CVE and ATT&CK existed"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 7: the defender view](#part-7-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md), [Before the Internet: Computer Threats, 1960 to 1990](/case-studies/PRE_INTERNET_THREATS.md)"
+    reviewed: null
+  case-studies/CHRONICLE_1994.md:
+    audience: "Threat intelligence analysts, security historians and defenders who want the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 1994, you need the sniffer wave, the Rome Laboratory intrusions and the year's CERT advisories side by side with their government record, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 8: the defender view](#part-8-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md), [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md), [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md)"
+    reviewed: null
+  case-studies/CHRONICLE_1996.md:
+    audience: "Threat intelligence analysts, security historians and defenders who want the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 1996, you need the year's floods, the web's new attack paths and the CERT advisories side by side with the Defense record and the year's law, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 10: the defender view](#part-10-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md), [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md), [The Year 1994 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1994.md)"
+    reviewed: null
+  case-studies/CHRONICLE_1995.md:
+    audience: "Threat intelligence analysts, security historians and defenders who want the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 1995, you need the IP spoofing campaign, SATAN, the December wave and the Harvard wiretap case side by side with the year's CERT advisories and government record, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 9: the defender view](#part-9-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [The Year 1994 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1994.md), [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md), [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md)"
+    reviewed: null
+  case-studies/CHRONICLE_1997.md:
+    audience: "Threat intelligence analysts, security historians and defenders who want the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 1997, you need the year's mass scans, network-facing root flaws, web scripts and macro viruses side by side with the CERT advisories, Eligible Receiver and the year's law, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 10: the defender view](#part-10-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [The Year 1996 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1996.md), [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md), [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md)"
+  case-studies/CHRONICLE_1998.md:
+    audience: "Threat intelligence analysts, security historians and defenders who want the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 1998, you need the year's CERT advisories and incident notes, mscan and the scripted mountd attacks, Back Orifice and CIH side by side with Solar Sunrise, Moonlight Maze and the government's answer, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 10: the defender view](#part-10-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md), [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md), [The Year 1997 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1997.md)"
+    reviewed: null
+  case-studies/CHRONICLE_2000.md:
+    audience: "Threat intelligence analysts, security historians, ICS defenders and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2000, you need the year's CERT advisories and incident notes, the DDoS agent pools and Love Letter side by side with the Maroochy Shire attack, ECHELON, Carnivore and the year's new law, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 9: the industrial record](#part-9-the-industrial-record)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md), [ICS ATT&CK Atlas](/ICS_ATTACK_ATLAS.md), [The Year 1998 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1998.md)"
+  case-studies/CHRONICLE_1999.md:
+    audience: "Threat intelligence analysts, security historians and defenders who want the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 1999, you need the year's CERT advisories and incident notes, the trojaned source packages, Melissa, ExploreZip and the first DDoS networks side by side with Moonlight Maze, the year's prosecutions and the new privacy law, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 10: the defender view](#part-10-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md), [Kevin Mitnick: Ghost in the Wires and The Art of Intrusion](/case-studies/MITNICK_INTRUSIONS.md), [The Year 1998 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1998.md)"
+    reviewed: null
+  case-studies/CHRONICLE_2002.md:
+    audience: "Threat intelligence analysts, security historians, supply-chain defenders and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2002, you need the year's CERT advisories, the trojaned OpenSSH, Sendmail and tcpdump distributions and the worms that followed the fixes side by side with the root server flood, the year's prosecutions and the new security law, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 3: the trojaned distributions](#part-3-the-trojaned-distributions), [Part 10: the defender view](#part-10-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md), [Supply Chain Security](/SUPPLY_CHAIN_SECURITY.md), [The Year 2000 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2000.md)"
+  case-studies/CHRONICLE_2001.md:
+    audience: "Threat intelligence analysts, security historians and defenders who want the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2001, you need the year's CERT advisories and incident notes, Code Red, Nimda and the Unix worms side by side with the bogus Microsoft code-signing certificates, the Scarfo keystroke logger, the PATRIOT Act and the Budapest Convention, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 3: the worm year](#part-3-the-worm-year)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md), [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md), [The Year 2000 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2000.md)"
+    reviewed: null
+  case-studies/CHRONICLE_2003.md:
+    audience: "Threat intelligence analysts, security historians, ICS and open-source defenders and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2003, you need the year's CERT advisories, Microsoft bulletins and worms side by side with the GNU and Debian server compromises, Slammer at Davis-Besse, the blackout record, the year's prosecutions and the new spam and breach law, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the year as a dated timeline](#part-1-the-year-as-a-dated-timeline), [Part 4: the compromised project servers](#part-4-the-compromised-project-servers)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [The Dot-Com Era: Cyber Events, 1994 to 2003](/case-studies/DOTCOM_ERA_CYBER_EVENTS.md), [Supply Chain Security](/SUPPLY_CHAIN_SECURITY.md), [The Year 2002 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2002.md)"
+    reviewed: null
+  case-studies/CHRONICLE_2004.md:
+    audience: "Threat intelligence analysts, security historians, email and endpoint defenders and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2004, you need the year's mass mailers, Witty, Sasser and the browser attacks side by side with the later records that date Snake, APT1 and Equation to 2004, the year's prosecutions and the new identity theft law, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 3: the worms, the mass mailers and the web](#part-3-the-worms-the-mass-mailers-and-the-web), [Part 7: the defender view](#part-7-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Four Books on Cybercrime](/case-studies/CYBERCRIME_FOUR_BOOKS.md), [Email Security](/EMAIL_SECURITY_REFERENCE.md), [The Year 2002 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2002.md)"
+    reviewed: null
+  case-studies/CHRONICLE_2005.md:
+    audience: "Threat intelligence analysts, security historians, payment-card, privacy and compliance teams and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2005, you need the data-broker and card-data breaches side by side with Zotob, the Windows Metafile zero-day, the Sony BMG rootkit and the later records that date Snake and Equation to 2005, the FTC orders and breach-notice rules that followed, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 2: the data-broker and card-data breaches](#part-2-the-data-broker-and-card-data-breaches), [Part 8: the defender view](#part-8-the-defender-view)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [E-Commerce Threats](/case-studies/ECOMMERCE_THREATS.md), [Database Security](/DATABASE_SECURITY_REFERENCE.md), [The Year 2004 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2004.md)"
+    reviewed: null
+  case-studies/CHRONICLE_2007.md:
+    audience: "Threat intelligence analysts, security historians, vulnerability management, privacy and policy teams and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2007, you need the Storm Worm, the Estonia attacks and the year's exploited Office, Windows and Solaris flaws side by side with the data losses at TJX, Certegy and HMRC, the later records that date APT1, APT28 and Stuxnet 0.5 to 2007, the rules that followed, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 2: Storm and the botnet economy](#part-2-storm-and-the-botnet-economy), [Part 3: Estonia, April and May 2007](#part-3-estonia-april-and-may-2007)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Russia-attributed threat actors](/case-studies/THREAT_ACTORS_RUSSIA.md), [Incident Response](/INCIDENT_RESPONSE_REFERENCE.md), [The Year 2005 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2005.md)"
+    reviewed: null
+  case-studies/CHRONICLE_2006.md:
+    audience: "Threat intelligence analysts, security historians, privacy and vulnerability management teams and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2006, you need the VA theft and the federal data losses, the Office and browser flaws exploited at release and the later records that date APT1, menuPass and Shady RAT to 2006 side by side, the year's prosecutions, settlements and standards, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 2: the data the government lost](#part-2-the-data-the-government-lost), [Part 3: the vulnerability record](#part-3-the-vulnerability-record)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [E-Commerce Threats](/case-studies/ECOMMERCE_THREATS.md), [Privacy Engineering](/PRIVACY_ENGINEERING_REFERENCE.md), [The Year 2004 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2004.md)"
+    reviewed: null
+  case-studies/CHRONICLE_2010.md:
+    audience: "Threat intelligence analysts, security historians, vulnerability management, ICS and web security teams and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2010, you need Operation Aurora, Stuxnet's 2010 dates and the year's exploited browser, document and Windows flaws side by side with the Zeus, Waledac and Mariposa cases, the espionage reports that stopped short of a state finding, the defaults and standards that followed, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 2: the vulnerability record](#part-2-the-vulnerability-record), [Part 5: the state and espionage record](#part-5-the-state-and-espionage-record)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Stuxnet](/case-studies/STUXNET.md), [ICS/OT Security](/ICS_OT_SECURITY_REFERENCE.md), [The Year 2007 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2007.md)"
+    reviewed: null
+  case-studies/CHRONICLE_2012.md:
+    audience: "Threat intelligence analysts, security historians, vulnerability management, PKI, payment-card and finance teams and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2012, you need Flame, Gauss, the Microsoft certificate response, Wiper and Shamoon side by side with the bank DDoS, Elderwood, APT1 and the year's exploited Java, Internet Explorer, Office and Flash flaws, the breaches that became filings, the takedowns that went to court, the standards that followed, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 4: the state and espionage record](#part-4-the-state-and-espionage-record), [Part 7: the vulnerability record](#part-7-the-vulnerability-record)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Stuxnet: The Case Study](/case-studies/STUXNET.md), [Iran-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_IRAN.md), [The Year 2010 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2010.md)"
+    reviewed: null
+  case-studies/CHRONICLE_2011.md:
+    audience: "Threat intelligence analysts, security historians, PKI and identity teams, vulnerability management and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2011, you need the Comodo, DigiNotar and DigiCert Sdn. Bhd. certificate failures, RSA SecurID and Duqu side by side with the year's exploited document and plug-in flaws, the Sony, Epsilon and Steam breaches, the botnet takedowns in court and the strategies and disclosure guidance that followed, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 2: the certificate authority failures](#part-2-the-certificate-authority-failures), [Part 6: the state and espionage record](#part-6-the-state-and-espionage-record)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Certificate Trust Incident Response](/CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md), [Stuxnet](/case-studies/STUXNET.md), [The Year 2010 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2010.md)"
+    reviewed: null
+  case-studies/CHRONICLE_2014.md:
+    audience: "Threat intelligence analysts, security historians, vulnerability management, payment-card, ICS and policy teams and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2014, you need Heartbleed, Shellshock and POODLE side by side with the exploited Internet Explorer, Kerberos and Group Policy flaws, the point-of-sale breaches, the Unit 61398 indictment, Sony Pictures, Havex and the year's espionage reports, the takedowns that went to court, the laws and standards that followed, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 2: the shared-code vulnerabilities](#part-2-the-shared-code-vulnerabilities), [Part 7: breaches and data loss](#part-7-breaches-and-data-loss)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [E-Commerce Threats](/case-studies/ECOMMERCE_THREATS.md), [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md), [The Year 2012 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2012.md)"
     reviewed: null
   case-studies/CHRONICLE_2016.md:
     audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
@@ -2434,6 +2620,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
     pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)"
     reviewed: null
+  case-studies/CITRIX_NETSCALER_CVE_2026_3055.md:
+    audience: "Teams that run NetScaler ADC or NetScaler Gateway as a SAML identity provider, identity and single sign-on administrators, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run NetScaler as a SAML IdP, you need the dated record of CVE-2026-3055 and its follow-on CVE-2026-8451, or you want to decide how to find the exposed appliances, check the right fixed build and end sessions that may have leaked before the patch"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [The Citrix NetScaler Zero-Days of September and October 2026](/case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md)"
+    reviewed: null
   case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md:
     audience: "Teams that run NetScaler ADC or NetScaler Gateway or another remote-access appliance, vulnerability management leads, incident responders and threat intelligence analysts"
     level: "Intermediate"
@@ -2462,6 +2655,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
     pairs_with: "[Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [SaaS Security Reference](/SAAS_SECURITY_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Major Cloud Security Incidents](/case-studies/CLOUD_SECURITY_INCIDENTS.md)"
     reviewed: null
+  case-studies/CPANEL_WHM_CVE_2026_41940.md:
+    audience: "Hosting providers and administrators who run cPanel, WHM, DNSOnly or WP Squared, vulnerability management leads, incident responders, CI and DevSecOps engineers and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run or host on a cPanel server, you need the dated record of CVE-2026-41940 and the ransomware and GitHub Actions scanning that followed it, or you want to decide how to patch, scope and rebuild after a pre-authentication flaw in a hosting control panel"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
+    reviewed: null
   case-studies/CUCKOOS_EGG_1986.md:
     audience: "Incident responders, detection engineers, threat intelligence analysts and anyone who has read The Cuckoo's Egg and wants the primary record behind it"
     level: "Beginner"
@@ -2469,12 +2669,26 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 7: the defender view](#part-7-the-defender-view)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Honeypot and Deception Reference](/HONEYPOT_DECEPTION_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md)"
     reviewed: null
+  case-studies/CURSOR_EXTENSION_TROJAN_2026.md:
+    audience: "Developers and engineering leads who use Cursor or other VS Code-based editors, endpoint and detection engineers, incident responders, vulnerability management leads and supply chain security teams"
+    level: "Intermediate"
+    read_when: "You run Cursor or manage developer workstations, you need the dated record of the tampered Claude Code extension of 29 October 2026 and its indicators, or you want to decide how to inventory, restrict and hunt editor extensions when there is no CVE to track"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Supply Chain Security](/SUPPLY_CHAIN_SECURITY.md), [AI Security Reference](/AI_SECURITY_REFERENCE.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [npm Supply-Chain Attacks](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md)"
+    reviewed: null
   case-studies/CYBERCRIME_FOUR_BOOKS.md:
     audience: "Threat intelligence analysts, incident responders, investigators and anyone who has read Kingpin, Fatal System Error, We Are Anonymous or The Hacker Crackdown and wants the primary record behind them"
     level: "Beginner"
     read_when: "You want the carding markets, DDoS extortion, Anonymous and LulzSec, or the 1990 crackdown as the court and government record tells them, you need to know which numbers in the books differ from the record, or you want the defender lessons on DDoS extortion, the HBGary chain and card fraud at the merchant edge"
     start_at: "[Executive summary](#executive-summary), [Part 5: the combined timeline](#part-5-the-combined-timeline), [Part 6: the defender view](#part-6-the-defender-view)"
     pairs_with: "[Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md), [Threat Actors](/THREAT_ACTORS.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [The Cuckoo's Egg Intrusion: Lawrence Berkeley Laboratory, 1986](/case-studies/CUCKOOS_EGG_1986.md)"
+    reviewed: null
+  case-studies/DENTAQUEST_BREACH_2026.md:
+    audience: "Healthcare and health-plan security leaders, identity and access teams, detection engineers, privacy and breach-response staff and vulnerability management leads"
+    level: "Intermediate"
+    read_when: "You want the dated record of the May 2026 DentaQuest breach, why its counts disagree, or which identity and data controls the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Healthcare Threat Watchlist](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md)"
     reviewed: null
   case-studies/DOTCOM_ERA_CYBER_EVENTS.md:
     audience: "Vulnerability management leads, threat intelligence analysts, security historians and anyone who started their career between Melissa and Blaster and wants the primary record behind it"
@@ -2496,6 +2710,13 @@ pages:
     read_when: "You need the facts of the eMudhra intermediate CA key compromise, you are checking whether your clients still trust the affected certificates, or you want the remediation steps by platform"
     start_at: "[Executive summary](#executive-summary), [The client-path exposure gap](#the-client-path-exposure-gap), [Remediation by platform and capability](#remediation-by-platform-and-capability)"
     pairs_with: "[Certificate Trust Incident Response](/CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md), [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)"
+    reviewed: null
+  case-studies/EUROPEAN_COMMISSION_CLOUD_BREACH_2026.md:
+    audience: "Cloud and platform security engineers, DevOps teams who run CI/CD pipelines, incident responders, vulnerability management leads and public-sector security teams"
+    level: "Intermediate"
+    read_when: "You need the dated record of the 2026 European Commission cloud breach, how a poisoned Trivy scanner led to stolen AWS keys and a public leak, or which pipeline, cloud-key and detection controls the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[The TeamPCP Supply-Chain Campaign of 2026](/case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md), [The Year 2026 in Intrusions](/case-studies/CHRONICLE_2026.md)"
     reviewed: null
   case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md:
     audience: "OT and facilities security engineers, vulnerability management leads, retail and healthcare defenders, and the contractors who run refrigeration supervision"
@@ -2524,6 +2745,20 @@ pages:
     read_when: "You have read or are reading the book, you teach the history of hacking, or you want to see how the Morris worm, the Dark Avenger, the 2005 phone case, the DNC intrusions and Mirai look in their court records, advisories and technical analyses, and which popular numbers do not hold up"
     start_at: "[Executive summary](#executive-summary), [Part 4: the DNC and the Clinton campaign, 2015 to 2017](#part-4-the-dnc-and-the-clinton-campaign-2015-to-2017), [Part 7: the defender view](#part-7-the-defender-view)"
     pairs_with: "[Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md)"
+    reviewed: null
+  case-studies/FBI_SURVEILLANCE_SYSTEM_BREACH_2026.md:
+    audience: "Government and public-sector security leaders, third-party and supplier risk teams, detection engineers, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You want the dated record of the 2026 breach of an FBI system holding surveillance returns, how much of it rests on anonymous sources, or which third-party and logging controls the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Telecom and 5G Security Reference](/TELECOM_5G_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Threat Actors: China](/case-studies/THREAT_ACTORS_CHINA.md)"
+    reviewed: null
+  case-studies/FORTINET_FORTICLOUD_SSO_CVE_2026_24858.md:
+    audience: "Firewall, network and edge-device teams that run FortiGate or other Fortinet products, identity and SSO owners, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run Fortinet devices registered to FortiCloud, you need the dated record of CVE-2026-24858 and the January 2026 SSO abuse, or you want to decide how to patch, scope and hunt after an edge-device login bypass that a previous patch did not close"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Fortinet](/platforms/fortinet.md)"
     reviewed: null
   case-studies/GHOSTCAT_CVE_2020_1938.md:
     audience: "Vulnerability management leads, Apache Tomcat administrators and security engineers"
@@ -2567,12 +2802,39 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 3: how the attacks and the CVEs relate](#part-3-how-the-attacks-and-the-cves-relate), [Part 5: the defender view](#part-5-the-defender-view)"
     pairs_with: "[ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Stuxnet: The Case Study](/case-studies/STUXNET.md)"
     reviewed: null
+  case-studies/SHAREPOINT_2026_EXPLOITATION.md:
+    audience: "Teams that run on-premises SharePoint Server, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run SharePoint Server on premises, you need the facts of the eight 2026 SharePoint CVEs in KEV, or you want to decide how to patch, rotate machine keys and hunt after the 2026 waves"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[The SharePoint ToolShell Mass Exploitation: A 2025 Case Study](/case-studies/SHAREPOINT_TOOLSHELL_2025.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)"
+    reviewed: null
+  case-studies/INSTRUCTURE_CANVAS_BREACH_2026.md:
+    audience: "Education IT and security leaders, SaaS third-party risk and vendor management teams, identity and application security engineers, detection engineers and vulnerability management leads"
+    level: "Intermediate"
+    read_when: "You want the dated record of the 2026 Canvas breach and extortion, why it never reached a CVE queue, or which SaaS support-access and token controls the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[SaaS Security Reference](/SAAS_SECURITY_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [The DentaQuest Health-Data Breach of May 2026: A Case Study](/case-studies/DENTAQUEST_BREACH_2026.md)"
+  case-studies/IDSCAN_DRIVERS_LICENSE_BREACH_2026.md:
+    audience: "Third-party risk and privacy teams, identity and access teams, detection engineers, fraud and help-desk leads and vulnerability management leads"
+    level: "Intermediate"
+    read_when: "You want the dated record of the 2026 IDScan.net breach and the Nexus driver's license service, why the vendor's notice and the reporting disagree, or which vendor, retention and monitoring controls the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Privacy Engineering Reference](/PRIVACY_ENGINEERING_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [The Year 2026 in Intrusions](/case-studies/CHRONICLE_2026.md)"
+    reviewed: null
   case-studies/IVANTI_CONNECT_SECURE_2026.md:
     audience: "Teams that run Ivanti Connect Secure or another remote-access VPN appliance, vulnerability management leads, incident responders and threat intelligence analysts"
     level: "Intermediate"
     read_when: "You run Ivanti Connect Secure, you need the facts of the October 2026 zero-day chain and its three CVEs, or you want to decide how to patch, hunt and recover an edge appliance whose integrity check came back clean"
     start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
     pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)"
+    reviewed: null
+  case-studies/IVANTI_EPMM_CVE_2026_1281.md:
+    audience: "Teams that run Ivanti Endpoint Manager Mobile or another on-premises mobile device management server, identity and Microsoft 365 administrators, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run Ivanti EPMM, you need the dated record of CVE-2026-1281 and CVE-2026-1340 and the Dutch and European victims, or you want to decide how to patch, rebuild and rotate secrets after an MDM server was exposed"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)"
     reviewed: null
   case-studies/LINUX_TCP_UAF_2026.md:
     audience: "Linux administrators, vulnerability management leads and security engineers"
@@ -2601,6 +2863,13 @@ pages:
     read_when: "You want the dated record of how a security firm caught a state operator, what its stolen red team tools meant for defenders, or which identity-plane alerts and recovery steps the case argues for"
     start_at: "[Executive summary](#executive-summary), [Part 1: the intrusion at FireEye](#part-1-the-intrusion-at-fireeye), [Part 9: the defender view](#part-9-the-defender-view)"
     pairs_with: "[Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Red Team Reference](/RED_TEAM_REFERENCE.md), [SolarWinds and SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md)"
+    reviewed: null
+  case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md:
+    audience: "Desktop and Microsoft 365 administrators, email security and vulnerability management teams, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run Microsoft Office or Microsoft 365 Apps, you need the dated record of CVE-2026-21509 and the APT28 campaigns that exploited it, or you want to decide how to patch Office by build and hunt a COM-hijack chain"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Email Security Reference](/EMAIL_SECURITY_REFERENCE.md), [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Russia-Attributed Threat Actors](/case-studies/THREAT_ACTORS_RUSSIA.md)"
     reviewed: null
   case-studies/MITNICK_INTRUSIONS.md:
     audience: "Security awareness leads, help desk and identity managers, threat intelligence analysts and anyone who has read Ghost in the Wires or The Art of Intrusion and wants the primary record behind them"
@@ -2637,6 +2906,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 4: what the lab showed](#part-4-what-the-lab-showed), [Part 5: find it and fix it on real hosts](#part-5-find-it-and-fix-it-on-real-hosts)"
     pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [CWE Reference](/CWE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)"
     reviewed: null
+  case-studies/NOTEPAD_PLUS_PLUS_UPDATE_HIJACK_2026.md:
+    audience: "Vulnerability management leads, endpoint and desktop engineering teams that manage Notepad++ or other self-updating tools, threat hunters and supply chain security engineers"
+    level: "Intermediate"
+    read_when: "You need the dated record of the 2025 Notepad++ update-channel hijack and CVE-2025-15556, you want to know which version actually closes it, or you are deciding how far back to hunt and how much to trust the attribution"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [SolarWinds and SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md)"
+    reviewed: null
   case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md:
     audience: "JavaScript developers, supply chain security engineers and platform teams that install npm packages"
     level: "Intermediate"
@@ -2650,6 +2926,20 @@ pages:
     read_when: "You need a graded account of the Shadow Brokers and Vault 7 leaks, what the court record and the CIA's own review show, how the leaked SMBv1 exploits became WannaCry and NotPetya, or what the leaks mean for patching, SMB exposure and privileged users on development networks"
     start_at: "[Executive summary](#executive-summary), [Part 10: the vulnerability-management view](#part-10-the-vulnerability-management-view), [Part 11: the defender view](#part-11-the-defender-view)"
     pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Insider Threat Reference](/INSIDER_THREAT_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md)"
+    reviewed: null
+  case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026.md:
+    audience: "Higher education and public-sector IT and security leaders, ERP and PeopleSoft administrators, vulnerability management leads, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want the dated record of the 2026 PeopleSoft CVE-2026-35273 zero-day and September WAF-bypass waves, what the vendor, KEV and GTIG each said, or which patch and hunt steps the case argues for"
+    start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [The Instructure Canvas Breach and ShinyHunters Extortion of 2026: A Case Study](/case-studies/INSTRUCTURE_CANVAS_BREACH_2026.md)"
+    reviewed: null
+  case-studies/PALO_ALTO_PAN_OS_CVE_2026_0257.md:
+    audience: "Firewall and remote-access teams that run Palo Alto Networks GlobalProtect or another VPN gateway, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run GlobalProtect, you need the dated record of CVE-2026-0257 and the Qilin and INC ransomware activity tied to it, or you want to decide how to patch, evict and hunt after a VPN authentication bypass"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [The Ransomware Ecosystem: The Public Record, 2019 to 2026](/case-studies/RANSOMWARE_ECOSYSTEM.md)"
     reviewed: null
   case-studies/PHP2SHELL_OCTOBER_2026.md:
     audience: "Vulnerability management leads, incident responders and web platform owners"
@@ -2706,6 +2996,13 @@ pages:
     read_when: "You need the facts of the ToolShell SharePoint exploitation, you run on-premises SharePoint Server, or you want to know why patching alone did not remove the attacker"
     start_at: "[Executive summary](#executive-summary), [Part 1: the vulnerability chain](#part-1-the-vulnerability-chain), [Part 2: why patching alone did not fix it](#part-2-why-patching-alone-did-not-fix-it)"
     pairs_with: "[Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [PHP2Shell and the October 2026 Attack Wave: A Case Study](/case-studies/PHP2SHELL_OCTOBER_2026.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)"
+    reviewed: null
+  case-studies/SMARTERTOOLS_SMARTERMAIL_2026.md:
+    audience: "Mail and Windows server administrators who run SmarterMail, hosting providers, vulnerability management leads, incident responders and threat intelligence analysts"
+    level: "Intermediate"
+    read_when: "You run SmarterMail, you need the dated record of CVE-2026-23760, CVE-2026-24423 and CVE-2025-52691 and the ransomware that followed, or you want to decide how to patch and hunt after a mail server flaw that was exploited two days after its fix"
+    start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
+    pairs_with: "[Email Security Reference](/EMAIL_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md)"
     reviewed: null
   case-studies/SOLARWINDS_SUNBURST.md:
     audience: "Threat intelligence analysts, supply chain security engineers and identity and incident response teams"

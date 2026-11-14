@@ -54,6 +54,18 @@ Hand-written pages in this library that link to this page or to this object's en
 - [CAPEC Attack Pattern Reference](/CAPEC_REFERENCE.md)
 - [Cybercrime and Hacktivism in Four Books: Kingpin, Fatal System Error, We Are Anonymous, The Hacker Crackdown](/case-studies/CYBERCRIME_FOUR_BOOKS.md)
 - [Sandworm: The Operations in the Public Record](/case-studies/SANDWORM_OPERATIONS.md)
+- [The Year 1996 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1996.md)
+- [The Year 1997 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1997.md)
+- [The Year 1998 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1998.md)
+- [The Year 1999 in Intrusions: A Dated Record](/case-studies/CHRONICLE_1999.md)
+- [The Year 2001 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2001.md)
+- [The Year 2002 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2002.md)
+- [The Year 2003 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2003.md)
+- [The Year 2004 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2004.md)
+- [The Year 2005 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2005.md)
+- [The Year 2006 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2006.md)
+- [The Year 2007 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2007.md)
+- [The Year 2012 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2012.md)
 - [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md)
 
 <!-- library-refs:end -->

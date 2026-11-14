@@ -773,6 +773,30 @@ studies:
       - {"date": "2011-10-13", "label": "The SEC issues its cybersecurity disclosure guidance, CF Topic No. 2"}
       - {"date": "2011-10-14", "label": "CrySyS Lab reports Duqu, a Stuxnet-like malware with a signed driver"}
       - {"date": "2011-11-09", "label": "Operation Ghost Click charges seven over the DNSChanger scheme"}
+  case-studies/CHRONICLE_2014.md:
+    kind: "era"
+    title: "The Year 2014 in Intrusions: A Dated Record"
+    start: "2014-01"
+    end: "2014-12"
+    sectors: ["cross-sector", "technology", "retail", "finance", "government", "defense", "energy", "healthcare", "manufacturing", "media", "telecommunications"]
+    cves: ["CVE-2013-3346", "CVE-2013-5065", "CVE-2013-5211", "CVE-2014-0160", "CVE-2014-0224", "CVE-2014-0322", "CVE-2014-0346", "CVE-2014-0751", "CVE-2014-1266", "CVE-2014-1776", "CVE-2014-1812", "CVE-2014-3120", "CVE-2014-3153", "CVE-2014-3566", "CVE-2014-3704", "CVE-2014-4113", "CVE-2014-4114", "CVE-2014-4148", "CVE-2014-6271", "CVE-2014-6277", "CVE-2014-6278", "CVE-2014-6287", "CVE-2014-6321", "CVE-2014-6324", "CVE-2014-6352", "CVE-2014-7169", "CVE-2014-7186", "CVE-2014-7187", "CVE-2014-8361", "CVE-2014-8730"]
+    actors: ["G0001", "G0010", "G0012", "G0022", "G0024", "G0027", "G0032", "G0034", "G0035", "G0059", "G0095", "G0130"]
+    tags: ["Heartbleed", "Shellshock", "POODLE", "MS14-068", "Unit 61398 indictment", "Sony Pictures", "Home Depot", "Target", "Backoff", "Havex", "Regin", "GameOver Zeus"]
+    pdf: "Chronicle_2014_Case_Study.pdf"
+    pptx: "Chronicle_2014_Case_Study.pptx"
+    events:
+      - {"date": "2014-01-13", "label": "US-CERT alert on NTP amplification DDoS using the monlist feature, CVE-2013-5211"}
+      - {"date": "2014-02-12", "label": "NIST publishes Cybersecurity Framework 1.0"}
+      - {"date": "2014-04-07", "label": "OpenSSL discloses Heartbleed, CVE-2014-0160; US-CERT later tells victims to regenerate keys after patching"}
+      - {"date": "2014-05-19", "label": "Indictment of five PLA Unit 61398 officers on 31 counts announced; Blackshades takedown"}
+      - {"date": "2014-06-02", "label": "GameOver Zeus botnet and CryptoLocker disrupted; charges against the alleged administrator unsealed"}
+      - {"date": "2014-06-25", "label": "ICS-CERT alert on Havex: phishing, watering holes and trojanized installers on ICS vendor sites"}
+      - {"date": "2014-07-31", "label": "US-CERT TA14-212A on Backoff point-of-sale malware, deployed after brute-forced remote-desktop logins"}
+      - {"date": "2014-09-18", "label": "Home Depot: custom-built malware put about 56 million payment cards at risk"}
+      - {"date": "2014-09-24", "label": "NVD publishes Shellshock, CVE-2014-6271; US-CERT lists five follow-on Bash CVEs"}
+      - {"date": "2014-10-14", "label": "Google discloses POODLE in SSL 3.0; MS14-060 fixes the OLE flaw CVE-2014-4114 used in targeted attacks"}
+      - {"date": "2014-11-24", "label": "Symantec and Kaspersky publish Regin, with samples timestamped back to 2003"}
+      - {"date": "2014-12-19", "label": "FBI attributes the destructive attack on Sony Pictures to North Korea; US-CERT TA14-353A"}
   case-studies/CHRONICLE_2016.md:
     kind: "era"
     title: "The Year 2016 in Intrusions: A Dated Record"

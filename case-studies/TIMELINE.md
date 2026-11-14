@@ -947,6 +947,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 April 2024: Mandiant graduates Sandworm to APT44
   - 29 December 2025: Poland energy attack: RTUs damaged at more than 30 wind and PV farms
   - 13 July 2026: UK and EU formally attribute the Poland attack to FSB Centre 16; first joint cyber sanctions
+- [The Year 2014 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2014.md). Period record, January to December 2014. Sectors: cross-sector, technology, retail, finance, government, defense, energy, healthcare, manufacturing, media, telecommunications. CVEs: CVE-2013-3346, CVE-2013-5065, CVE-2013-5211, CVE-2014-0160, CVE-2014-0224, CVE-2014-0322 and 24 more. ATT&CK groups: G0001 Axiom, G0010 Turla, G0012 Darkhotel, G0022 APT3, G0024 Putter Panda, G0027 Threat Group-3390 and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2014_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2014_Case_Study.pptx).
+  - 13 January 2014: US-CERT alert on NTP amplification DDoS using the monlist feature, CVE-2013-5211
+  - 12 February 2014: NIST publishes Cybersecurity Framework 1.0
+  - 7 April 2014: OpenSSL discloses Heartbleed, CVE-2014-0160; US-CERT later tells victims to regenerate keys after patching
+  - 19 May 2014: Indictment of five PLA Unit 61398 officers on 31 counts announced; Blackshades takedown
+  - 2 June 2014: GameOver Zeus botnet and CryptoLocker disrupted; charges against the alleged administrator unsealed
+  - 25 June 2014: ICS-CERT alert on Havex: phishing, watering holes and trojanized installers on ICS vendor sites
+  - 31 July 2014: US-CERT TA14-212A on Backoff point-of-sale malware, deployed after brute-forced remote-desktop logins
+  - 18 September 2014: Home Depot: custom-built malware put about 56 million payment cards at risk
+  - 24 September 2014: NVD publishes Shellshock, CVE-2014-6271; US-CERT lists five follow-on Bash CVEs
+  - 14 October 2014: Google discloses POODLE in SSL 3.0; MS14-060 fixes the OLE flaw CVE-2014-4114 used in targeted attacks
+  - 24 November 2014: Symantec and Kaspersky publish Regin, with samples timestamped back to 2003
+  - 19 December 2014: FBI attributes the destructive attack on Sony Pictures to North Korea; US-CERT TA14-353A
 
 ### 2012 <!-- {docsify-ignore} -->
 

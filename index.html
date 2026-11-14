@@ -433,13 +433,21 @@
        or when its parent link is toggled with Space (see the keyboard plugin below). */
     .app-nav li:focus-within > ul, .app-nav li.tsw-open > ul { display: block; }
     .app-nav li.tsw-shut > ul { display: none; }
-    /* Category menus (docs/site_nav.json "navbar"): a long list scrolls inside its menu, and
-       a menu opens rightward from its category, except the last three, which open leftward,
-       so none leaves the window. The current page is marked in its menu, and its menu's
-       category is marked in the bar. */
-    .app-nav li ul { max-height: 70vh; overflow-y: auto; min-width: 13rem; left: -14px; right: auto; }
+    /* Category menus (docs/site_nav.json "navbar"): a long list scrolls inside its menu, which
+       is never wider than the window or taller than the room below the bar. A menu opens
+       rightward from its category, except the last three, which open leftward. Where the bar
+       wraps to two rows that is not enough, so the menu placement script (the keyboard
+       plugin below) measures each menu as it opens and shifts it left or right to keep it
+       between the sidebar and the window's right edge. The current page is marked in its
+       menu, and its menu's category is marked in the bar. */
+    .app-nav li ul {
+      max-height: 70vh; max-height: min(70vh, calc(100vh - var(--tsw-nav-h, 52px) - 16px));
+      overflow-y: auto; min-width: 13rem; width: max-content; max-width: calc(100vw - 32px);
+      left: -14px; right: auto;
+      z-index: 1;   /* over the bar's second row where it wraps */
+    }
     .app-nav > ul > li:nth-last-child(-n+3) > ul { left: auto; right: -14px; }
-    .app-nav li ul li { margin: 6px 16px; }
+    .app-nav li ul li { margin: 6px 16px; white-space: normal; }
     .app-nav li ul a.active { color: var(--tsw-link); }
     .app-nav li:has(> ul a.active) > a { color: var(--tsw-heading); border-bottom: 2px solid var(--tsw-link); }
     /* The repository is linked from the navbar ("GitHub") and from every page's
@@ -756,6 +764,17 @@
     /* Tablet mode: tighter items, so every navbar item stays on one row beside the two buttons at 768px */
     @media screen and (min-width: 601px) and (max-width: 768px) {
       .app-nav li { margin: 0 4px; }
+    }
+    /* Phone mode: docsify moves the navbar to the top of the sidebar (mergeNavbar). Each
+       category there is one row with a caret, and its pages stay folded until a tap or Space
+       opens them (the keyboard plugin below), so the categories fit in about one screen and
+       the page's own sidebar follows them. The category holding the current page is marked. */
+    @media screen and (max-width: 768px) {
+      .sidebar > nav li > ul, .sidebar > nav li.tsw-shut > ul { display: none; }
+      .sidebar > nav li.tsw-open > ul { display: block; }
+      .sidebar > nav li:has(> ul) > a::after { content: ' \25B8'; font-size: .72em; opacity: .65; }
+      .sidebar > nav li.tsw-open:has(> ul) > a::after { content: ' \25BE'; }
+      .sidebar > nav li:has(> ul a.active) > a { color: var(--tsw-heading); font-weight: 600; }
     }
     /* Narrow desktops and tablets (docsify switches to its phone layout at 768px). The navbar
        items fit one row from 1100px when set tighter; below that they wrap, so the
@@ -1409,12 +1428,14 @@
               });
             }
             if (document.body.firstElementChild !== skip) { document.body.insertBefore(skip, document.body.firstChild); }
-            document.querySelectorAll('nav.app-nav').forEach(function (n) { n.setAttribute('aria-label', 'Site'); });
+            document.querySelectorAll('nav.app-nav, .sidebar > nav').forEach(function (n) { n.setAttribute('aria-label', 'Site'); });
             var sbNav = document.querySelector('.sidebar-nav');
             if (sbNav) { sbNav.setAttribute('role', 'navigation'); sbNav.setAttribute('aria-label', 'Library contents'); }
-            document.querySelectorAll('.app-nav li').forEach(function (li) {
+            document.querySelectorAll('.app-nav li, .sidebar > nav li').forEach(function (li) {
               var menu = li.querySelector(':scope > ul'), link = li.querySelector(':scope > a');
-              if (menu && link) { link.setAttribute('aria-haspopup', 'true'); link.setAttribute('aria-expanded', li.classList.contains('tsw-open') ? 'true' : 'false'); }
+              if (!menu || !link) { return; }
+              if (li.closest('.app-nav')) { link.setAttribute('aria-haspopup', 'true'); }
+              link.setAttribute('aria-expanded', li.classList.contains('tsw-open') ? 'true' : 'false');
             });
           });
         },
@@ -1510,17 +1531,45 @@
     // Navbar dropdowns by keyboard. Tab into a menu and it opens (CSS :focus-within);
     // Enter follows the parent link as before; Space opens or closes the menu without
     // leaving the page; Escape closes it and returns focus to the parent link.
+    // In phone mode the navbar sits at the top of the sidebar with its menus folded: a tap
+    // on a category, or Space, opens or closes its pages (one category open at a time),
+    // and Enter follows its link.
+    // Menu placement: as a bar menu opens (hover, focus or Space), it is measured and, where
+    // it would cross the window's right edge or slip under the sidebar, moved sideways to
+    // fit between them (the bar wraps to two rows below 1100px, where the CSS rule alone
+    // leaves some menus past the edge).
     (function () {
+      var ITEM = '.app-nav li, .sidebar > nav li';
       function menuItem(el) {
-        var li = el && el.closest && el.closest('.app-nav li');
-        while (li && !li.querySelector(':scope > ul')) { li = li.parentElement && li.parentElement.closest('.app-nav li'); }
+        var li = el && el.closest && el.closest(ITEM);
+        while (li && !li.querySelector(':scope > ul')) { li = li.parentElement && li.parentElement.closest(ITEM); }
         return li;
       }
+      function place(li) {
+        var nav = li && li.closest('nav.app-nav'), menu = li && li.querySelector(':scope > ul');
+        if (!nav || !menu) { return; }
+        menu.style.left = ''; menu.style.right = '';
+        var hidden = getComputedStyle(menu).display === 'none';
+        if (hidden) { menu.style.visibility = 'hidden'; menu.style.display = 'block'; }
+        var lo = Math.max(0, nav.getBoundingClientRect().left) + 8;
+        var hi = document.documentElement.clientWidth - 8;
+        menu.style.maxWidth = Math.max(0, hi - lo) + 'px';
+        var r = menu.getBoundingClientRect(), x = r.left;
+        if (r.right > hi) { x = hi - r.width; }
+        if (x < lo) { x = lo; }
+        if (x !== r.left) { menu.style.left = (x - li.getBoundingClientRect().left) + 'px'; menu.style.right = 'auto'; }
+        if (hidden) { menu.style.visibility = ''; menu.style.display = ''; }
+      }
       function setOpen(li, open) {
+        // One category open at a time in the phone sidebar
+        if (open && li.closest('.sidebar')) {
+          li.parentElement.querySelectorAll(':scope > li.tsw-open').forEach(function (o) { if (o !== li) { setOpen(o, false); } });
+        }
         li.classList.toggle('tsw-open', open);
         li.classList.toggle('tsw-shut', !open);
         var link = li.querySelector(':scope > a');
         if (link) { link.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+        if (open) { place(li); }
       }
       document.addEventListener('keydown', function (e) {
         var li = menuItem(document.activeElement);
@@ -1534,9 +1583,22 @@
           li.querySelector(':scope > a').focus();
         }
       });
+      // A tap on a folded category in the phone sidebar opens it in place. Capture phase, so
+      // docsify's own handler (which closes the sidebar on any tap) does not see it; a click
+      // from the keyboard (Enter, detail 0) follows the link.
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest && e.target.closest('.sidebar > nav li > a');
+        var li = a && a.parentElement, menu = li && li.querySelector(':scope > ul');
+        if (!menu || e.detail === 0) { return; }
+        e.preventDefault();
+        e.stopPropagation();
+        setOpen(li, getComputedStyle(menu).display === 'none');
+      }, true);
       document.addEventListener('mouseover', function (e) {
         var li = menuItem(e.target);
-        if (li && li.classList.contains('tsw-shut')) { li.classList.remove('tsw-shut'); }
+        if (!li) { return; }
+        if (li.classList.contains('tsw-shut')) { li.classList.remove('tsw-shut'); }
+        if (!li.contains(e.relatedTarget)) { place(li); }
       });
       document.addEventListener('focusin', function (e) {
         var li = menuItem(e.target);
@@ -1547,7 +1609,13 @@
           var owner = a.parentElement;
           a.setAttribute('aria-expanded', owner === li && !owner.classList.contains('tsw-shut') ? 'true' : 'false');
         });
+        if (li) { place(li); }
       });
+      window.addEventListener('resize', function () {
+        document.querySelectorAll('.app-nav li > ul').forEach(function (menu) {
+          if (getComputedStyle(menu).display !== 'none') { place(menu.parentElement); }
+        });
+      }, { passive: true });
     })();
   </script>
 

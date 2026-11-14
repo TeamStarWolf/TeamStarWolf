@@ -1,0 +1,152 @@
+{
+  "name": "TeamStarWolf - The Year 2010 in Intrusions (ICS)",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "ics-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. The ten ATT&CK for ICS techniques that ATT&CK lists for Stuxnet (S0603) and that the 2010 record most directly supports: ICS-CERT's advisories on the USB-borne trojan that interacts with Siemens SIMATIC WinCC and STEP 7, its spread through MS08-067, the print spooler flaw and STEP 7 project files, and Symantec's dossier dating the reported PLC code injection to 6 August 2010. No 2010 source prints an ATT&CK id. The Stuxnet case study carries all 25 ICS techniques. Each comment names source numbers from case-studies/CHRONICLE_2010.md. Scores: 100 the ATT&CK object prints the id.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T0821",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "Stuxnet (ATT&CK object) (basis: Listed; ATT&CK for ICS lists the id for S0603 Stuxnet, discovered in 2010; a later mapping, since no 2010 source prints an ATT&CK id). Sources [34] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T0831",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Stuxnet (ATT&CK object) (basis: Listed; ATT&CK for ICS lists the id for S0603 Stuxnet, discovered in 2010; a later mapping, since no 2010 source prints an ATT&CK id). Sources [34] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T0832",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Stuxnet (ATT&CK object) (basis: Listed; ATT&CK for ICS lists the id for S0603 Stuxnet, discovered in 2010; a later mapping, since no 2010 source prints an ATT&CK id). Sources [34] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T0836",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "Stuxnet (ATT&CK object) (basis: Listed; ATT&CK for ICS lists the id for S0603 Stuxnet, discovered in 2010; a later mapping, since no 2010 source prints an ATT&CK id). Sources [34] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T0843",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "PLC code injection reported (6 Aug) (basis: Listed; Described; ATT&CK for ICS lists the id for S0603 Stuxnet, discovered in 2010; a later mapping, since no 2010 source prints an ATT&CK id). Sources [34][30] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T0847",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "USB malware targeting Siemens control software (Jul) (basis: Listed; Described; ATT&CK for ICS lists the id for S0603 Stuxnet, discovered in 2010; a later mapping, since no 2010 source prints an ATT&CK id). Sources [34][22] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T0851",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "Stuxnet (ATT&CK object) (basis: Listed; ATT&CK for ICS lists the id for S0603 Stuxnet, discovered in 2010; a later mapping, since no 2010 source prints an ATT&CK id). Sources [34] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T0851",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "Stuxnet (ATT&CK object) (basis: Listed; ATT&CK for ICS lists the id for S0603 Stuxnet, discovered in 2010; a later mapping, since no 2010 source prints an ATT&CK id). Sources [34] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T0866",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "MS08-067 and the print spooler flaw (Sep) (basis: Listed; Described; ATT&CK for ICS lists the id for S0603 Stuxnet, discovered in 2010; a later mapping, since no 2010 source prints an ATT&CK id). Sources [34][29] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T0866",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "MS08-067 and the print spooler flaw (Sep) (basis: Listed; Described; ATT&CK for ICS lists the id for S0603 Stuxnet, discovered in 2010; a later mapping, since no 2010 source prints an ATT&CK id). Sources [34][29] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T0873.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Propagation through STEP 7 project files (ICSA-10-272-01) (basis: Listed; Described; ATT&CK for ICS lists the id for S0603 Stuxnet, discovered in 2010; a later mapping, since no 2010 source prints an ATT&CK id). Sources [34][29] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    },
+    {
+      "techniqueID": "T0889",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Stuxnet (ATT&CK object) (basis: Listed; ATT&CK for ICS lists the id for S0603 Stuxnet, discovered in 2010; a later mapping, since no 2010 source prints an ATT&CK id). Sources [34] refer to the Sources table of case-studies/CHRONICLE_2010.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: an ATT&CK object prints the id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2010.md (sources opened 12 November 2026, library checks 12 and 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "10"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "12"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/ics/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/ics/technique_profiles.jsonl"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2010 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2010.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

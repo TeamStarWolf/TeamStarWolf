@@ -2508,6 +2508,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 2: the data the government lost](#part-2-the-data-the-government-lost), [Part 3: the vulnerability record](#part-3-the-vulnerability-record)"
     pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [E-Commerce Threats](/case-studies/ECOMMERCE_THREATS.md), [Privacy Engineering](/PRIVACY_ENGINEERING_REFERENCE.md), [The Year 2004 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2004.md)"
     reviewed: null
+  case-studies/CHRONICLE_2010.md:
+    audience: "Threat intelligence analysts, security historians, vulnerability management, ICS and web security teams and anyone who wants the history behind current threats"
+    level: "Beginner to intermediate"
+    read_when: "You want a dated record of the intrusions of 2010, you need Operation Aurora, Stuxnet's 2010 dates and the year's exploited browser, document and Windows flaws side by side with the Zeus, Waledac and Mariposa cases, the espionage reports that stopped short of a state finding, the defaults and standards that followed, or you want the defender lessons that still apply"
+    start_at: "[Executive summary](#executive-summary), [Part 2: the vulnerability record](#part-2-the-vulnerability-record), [Part 5: the state and espionage record](#part-5-the-state-and-espionage-record)"
+    pairs_with: "[Notable Incidents](/NOTABLE_INCIDENTS.md), [Stuxnet](/case-studies/STUXNET.md), [ICS/OT Security](/ICS_OT_SECURITY_REFERENCE.md), [The Year 2007 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2007.md)"
+    reviewed: null
   case-studies/CHRONICLE_2016.md:
     audience: "Threat intelligence analysts, security leaders and defenders who want the history behind current threats"
     level: "Intermediate"

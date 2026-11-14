@@ -1,0 +1,213 @@
+{
+  "name": "TeamStarWolf - Water and Wastewater Networks (Enterprise)",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. The 21 Enterprise techniques that the verified record in case-studies/WATER_TREATMENT_NETWORKS.md supports: the technique tables of AA21-287A, AA23-335A, AA25-343A and AA26-097A, plus Inferred mappings from the wording of AA24-038A, AA21-287A, WaterISAC's Fundamentals and the July 2026 FBI and EPA PSA. Scores: 100 listed, 40 Inferred. Each comment names the records and the study's source numbers.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#fde68a",
+      "#f97316"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: the advisory or the ATT&CK object lists the id",
+      "color": "#f97316"
+    },
+    {
+      "label": "40: this study's Inferred mapping",
+      "color": "#fde68a"
+    }
+  ],
+  "techniques": [
+    {
+      "techniqueID": "T1021.001",
+      "tactic": "lateral-movement",
+      "score": 40,
+      "comment": "AA24-038A Volt Typhoon water compromise (2024-02-07), RDP (Inferred) [96]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1021.005",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA25-343A pro-Russia hacktivists (2025-12-09) [64]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "AA26-097A Iranian-affiliated PLC activity (2026-04-07, updated 2026-07-22) [109]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "stealth",
+      "score": 40,
+      "comment": "AA24-038A Volt Typhoon water compromise (2024-02-07), VPN administrator credentials (Inferred) [96]; Kansas 2019 unrevoked former-employee credentials, AA21-287A (Inferred) [20]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "AA24-038A Volt Typhoon water compromise (2024-02-07), VPN administrator credentials (Inferred) [96]; Kansas 2019 unrevoked former-employee credentials, AA21-287A (Inferred) [20]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 40,
+      "comment": "AA24-038A Volt Typhoon water compromise (2024-02-07), VPN administrator credentials (Inferred) [96]; Kansas 2019 unrevoked former-employee credentials, AA21-287A (Inferred) [20]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "AA24-038A Volt Typhoon water compromise (2024-02-07), VPN administrator credentials (Inferred) [96]; Kansas 2019 unrevoked former-employee credentials, AA21-287A (Inferred) [20]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "AA23-335A CyberAv3ngers Unitronics (2023-12-01) [56]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA23-335A CyberAv3ngers Unitronics (2023-12-01) [56]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "AA23-335A CyberAv3ngers Unitronics (2023-12-01) [56]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1078.001",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA23-335A CyberAv3ngers Unitronics (2023-12-01) [56]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA23-335A CyberAv3ngers Unitronics (2023-12-01) [56]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1110.003",
+      "tactic": "credential-access",
+      "score": 100,
+      "comment": "AA25-343A pro-Russia hacktivists (2025-12-09) [64]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 40,
+      "comment": "AA24-038A Volt Typhoon water compromise (2024-02-07), VPN access (Inferred) [96]; Maine 2021 remote access to a wastewater SCADA computer, AA21-287A (Inferred) [20]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "AA24-038A Volt Typhoon water compromise (2024-02-07), VPN access (Inferred) [96]; Maine 2021 remote access to a wastewater SCADA computer, AA21-287A (Inferred) [20]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1199",
+      "tactic": "initial-access",
+      "score": 40,
+      "comment": "WaterISAC Fundamental 11 cites T1199 for integrators and providers (2024-12) [7]; 2026 MicroLogix wave, shared third-party network setups (Inferred) [112]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA21-287A water incidents 2019 to 2021 (2021-10-14) [20]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1219",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "AA26-097A Iranian-affiliated PLC activity (2026-04-07, updated 2026-07-22) [109]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1486",
+      "tactic": "impact",
+      "score": 40,
+      "comment": "Ransomware on Nevada, Maine and California SCADA hosts, 2021, AA21-287A (Inferred) [20]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1491.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA23-335A CyberAv3ngers Unitronics (2023-12-01) [56]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA23-335A CyberAv3ngers Unitronics (2023-12-01) [56]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1531",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA23-335A CyberAv3ngers Unitronics (2023-12-01) [56]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1565",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA26-097A Iranian-affiliated PLC activity (2026-04-07, updated 2026-07-22) [109]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1565.001",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA23-335A CyberAv3ngers Unitronics (2023-12-01) [56]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "AA21-287A water incidents 2019 to 2021 (2021-10-14) [20]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1583.003",
+      "tactic": "resource-development",
+      "score": 100,
+      "comment": "AA25-343A pro-Russia hacktivists (2025-12-09) [64]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1591",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "AA25-343A pro-Russia hacktivists (2025-12-09) [64]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1595.002",
+      "tactic": "reconnaissance",
+      "score": 100,
+      "comment": "AA25-343A pro-Russia hacktivists (2025-12-09) [64]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    }
+  ],
+  "metadata": [
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ]
+}

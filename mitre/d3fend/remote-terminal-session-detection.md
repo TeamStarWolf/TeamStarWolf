@@ -148,6 +148,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)
 - [The Year 2023 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2023.md)
 - [The Year 2024 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2024.md)
+- [Water and Wastewater Networks: The Control Systems, the Chemistry and the Attacks on Them](/case-studies/WATER_TREATMENT_NETWORKS.md)
 
 <!-- library-refs:end -->
 

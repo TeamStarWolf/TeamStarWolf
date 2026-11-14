@@ -45,5 +45,6 @@ Part of the [domain hubs](/hubs/README.md). 9 reference documents in this domain
 - [ICS attacks and advisories, 2024 to 2026: a case study](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md)
 - [Stuxnet: the case study](/case-studies/STUXNET.md)
 - [Sandworm: the operations in the public record](/case-studies/SANDWORM_OPERATIONS.md)
+- [Water and wastewater networks: a case study](/case-studies/WATER_TREATMENT_NETWORKS.md)
 
 <!-- hub:end -->

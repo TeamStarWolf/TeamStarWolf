@@ -1340,6 +1340,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2000 <!-- {docsify-ignore} -->
 
+- [Water and Wastewater Networks: The Control Systems, the Chemistry and the Attacks on Them](/case-studies/WATER_TREATMENT_NETWORKS.md). Attack surface, February 2000 to November 2026. Sectors: government. CVEs: CVE-2016-4510, CVE-2016-4523, CVE-2016-4532, CVE-2018-4061, CVE-2018-4062, CVE-2018-4063 and 36 more. ATT&CK groups: G0034 Sandworm Team, G1017 Volt Typhoon. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Water_Treatment_Networks_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Water_Treatment_Networks_Case_Study.pptx).
+  - February 2000: Maroochy Water Breach (Feb to Apr 2000): a wastewater control system is misused and about 800,000 litres of raw sewage released
+  - March 2019: Kansas: a former employee's unrevoked credentials reach a water facility computer remotely; the attempt fails
+  - 5 February 2021: SCADA used to raise sodium hydroxide dosing at a US drinking water facility; an operator reverses it
+  - 14 October 2021: AA21-287A warns of ongoing threats to water, including ransomware on SCADA hosts in Nevada, Maine and California
+  - 22 November 2023: CyberAv3ngers begin defacing Unitronics PLCs: at least 75 devices, at least 34 in US water and wastewater
+  - January 2024: Water storage tanks overflow in Abernathy and Muleshoe, Texas; CARR claims it
+  - 7 February 2024: AA24-038A: Volt Typhoon held access to a water utility's IT network for about nine months
+  - May 2024: EPA enforcement alert: over 70% of inspected water systems violate basic Section 1433 requirements
+  - 3 October 2024: American Water Works detects unauthorized activity and disconnects systems
+  - 9 December 2025: AA25-343A: CARR, NoName057(16), Z-Pentest and Sector16 tamper with water HMIs through VNC
+  - 7 April 2026: AA26-097A: Iranian-affiliated actors extract and modify project files on internet-facing PLCs
+  - 27 July 2026: MicroLogix PLC wave reaches utilities in at least seven states; boil water notices and manual operations
 - [The Year 2000 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2000.md). Period record, January to December 2000. Sectors: cross-sector, government, defense, technology, retail, finance, media, manufacturing. CVEs: CVE-2000-0573, CVE-2000-0621, CVE-2000-0666, CVE-2000-0770, CVE-2000-0884, CVE-2000-0887 and 3 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2000_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2000_Case_Study.pptx).
   - 3 January 2000: CA-2000-01: Stacheldraht DDoS agents found on multiple compromised hosts
   - 7 January 2000: The President announces the national plan to defend America's cyberspace

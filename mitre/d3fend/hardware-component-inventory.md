@@ -50,6 +50,7 @@ Hand-written pages in this library that link to this page or to this object's en
 - [The Year 2013 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2013.md)
 - [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)
 - [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md)
+- [Water and Wastewater Networks: The Control Systems, the Chemistry and the Attacks on Them](/case-studies/WATER_TREATMENT_NETWORKS.md)
 
 <!-- library-refs:end -->
 

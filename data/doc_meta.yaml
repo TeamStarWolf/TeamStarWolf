@@ -3116,6 +3116,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: identity and aliases](#part-1-identity-and-aliases), [Part 8: the defender view](#part-8-the-defender-view)"
     pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
     reviewed: null
+  case-studies/WATER_TREATMENT_NETWORKS.md:
+    audience: "Water and wastewater utility operators and managers, the integrators and contractors who support them, state primacy agencies, WaterISAC members, ICS and OT defenders and security teams helping a utility that has never had one"
+    level: "Beginner to intermediate"
+    read_when: "You need to know how a water or wastewater system is built and zoned, which telemetry protocols, controller languages and SCADA platforms run on it, which devices sit on it and what their advisories say, the dated record of attacks on water from Maroochy to the 2026 PLC wave, the actors to watch, or the MITRE mappings and defender controls for each layer"
+    start_at: "[Executive summary](#executive-summary), [Part 1: how water and wastewater networks are made up](#part-1-how-water-and-wastewater-networks-are-made-up), [Part 6: MITRE mappings and the defender view](#part-6-mitre-mappings-and-the-defender-view)"
+    pairs_with: "[ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md), [Industrial Control System Attacks and Advisories, 2024 to 2026](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md), [Iran-Attributed Threat Actors](/case-studies/THREAT_ACTORS_IRAN.md)"
+    reviewed: null
   case-studies/XZ_UTILS_BACKDOOR_2024.md:
     audience: "Supply chain security engineers, Linux administrators and open-source maintainers"
     level: "Intermediate"

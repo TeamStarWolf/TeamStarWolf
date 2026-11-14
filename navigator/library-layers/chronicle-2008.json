@@ -1,0 +1,318 @@
+{
+  "name": "TeamStarWolf - The Year 2008 in Intrusions",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. ATT&CK Enterprise techniques that the verified 2008 record supports: the techniques ATT&CK lists for the ATT&CK objects S0608 Conficker and S0092 Agent.btz, and behavior described by Microsoft's MS08-067, Advisory 954462, MS08-078 and its Conficker support article, CERT/CC's and NVD's records, CERT/CC's VU#593409 on Adobe Reader's util.printf() flaw, the Lynn article, the Cambridge report on the Dalai Lama's office, the CCDCOE report on Georgia, Belarus and Lithuania, Kaspersky's Fanny analysis, and the Justice Department and court records on the Gonzalez ring, Dave & Buster's, Wyndham, the Walker and Gembe indictment and the botnet sale charge. No 2008 source prints an ATT&CK id. The four group techniques ATT&CK lists for Equation and the three ATT&CK for ICS techniques it lists for Conficker are not in this layer. Each comment names source numbers from case-studies/CHRONICLE_2008.md. Scores: 100 the ATT&CK object prints the id, 70 the source describes the behavior and the study assigns the id, 40 the mapping is Inferred.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": true,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1005",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "OHHDL samples' file search and retrieval (basis: Described; a later mapping, since no 2008 source prints an ATT&CK id). Sources [35] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1016",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Agent.btz (ATT&CK object) (basis: Listed (S0092); ATT&CK lists the id for S0092 Agent.btz; ATT&CK says Agent.btz \"reportedly\" infected US military networks in 2008). Sources [24] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1021.002",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Conficker spread through network shares (KB 962007) (basis: Listed (S0608); Described; ATT&CK lists the id for S0608 Conficker; Conficker's October 2008 detection date comes from ATT&CK's secondary sources). Sources [20][21] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1027",
+      "tactic": "stealth",
+      "score": 100,
+      "comment": "Conficker (ATT&CK object) (basis: Listed (S0608); ATT&CK lists the id for S0608 Conficker; Conficker's October 2008 detection date comes from ATT&CK's secondary sources). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1033",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Agent.btz (ATT&CK object) (basis: Listed (S0092); ATT&CK lists the id for S0092 Agent.btz; ATT&CK says Agent.btz \"reportedly\" infected US military networks in 2008). Sources [24] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Sniffers on retailers' processing networks (5 Aug, alleged); packet sniffer on Dave & Buster's registers (12 May, alleged); Heartland's malicious software on data crossing its network (Inferred) (basis: Described; a later mapping, since no 2008 source prints an ATT&CK id). Sources [51][49][12] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1040",
+      "tactic": "discovery",
+      "score": 70,
+      "comment": "Sniffers on retailers' processing networks (5 Aug, alleged); packet sniffer on Dave & Buster's registers (12 May, alleged); Heartland's malicious software on data crossing its network (Inferred) (basis: Described; a later mapping, since no 2008 source prints an ATT&CK id). Sources [51][49][12] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1046",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Conficker (ATT&CK object) (basis: Listed (S0608); ATT&CK lists the id for S0608 Conficker; Conficker's October 2008 detection date comes from ATT&CK's secondary sources). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1052.001",
+      "tactic": "exfiltration",
+      "score": 100,
+      "comment": "Agent.btz (ATT&CK object; 2008 infection reportedly) (basis: Listed (S0092); ATT&CK lists the id for S0092 Agent.btz; ATT&CK says Agent.btz \"reportedly\" infected US military networks in 2008). Sources [24] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "collection",
+      "score": 70,
+      "comment": "OHHDL samples (F-Secure, per the Cambridge report) (basis: Described; a later mapping, since no 2008 source prints an ATT&CK id). Sources [35] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1056.001",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "OHHDL samples (F-Secure, per the Cambridge report) (basis: Described; a later mapping, since no 2008 source prints an ATT&CK id). Sources [35] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "Lynn's infected flash drive (2008); Agent.btz (2008, reportedly); Conficker AutoPlay (KB 962007); Fanny's USB spread (compiled Jul) (basis: Listed (S0608, S0092); Described; ATT&CK lists the id for S0608 Conficker and S0092 Agent.btz; Conficker's October 2008 detection date comes from ATT&CK's secondary sources; ATT&CK says Agent.btz \"reportedly\" infected US military networks in 2008). Sources [23][24][32][21][20][39] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1091",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Lynn's infected flash drive (2008); Agent.btz (2008, reportedly); Conficker AutoPlay (KB 962007); Fanny's USB spread (compiled Jul) (basis: Listed (S0608, S0092); Described; ATT&CK lists the id for S0608 Conficker and S0092 Agent.btz; Conficker's October 2008 detection date comes from ATT&CK's secondary sources; ATT&CK says Agent.btz \"reportedly\" infected US military networks in 2008). Sources [23][24][32][21][20][39] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1092",
+      "tactic": "command-and-control",
+      "score": 70,
+      "comment": "Fanny's USB-based command channel into air-gapped networks (compiled Jul 2008; Kaspersky, 2015) (basis: Described; a later mapping, since no 2008 source prints an ATT&CK id). Sources [39] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1105",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Conficker; Agent.btz (ATT&CK objects) (basis: Listed (S0608, S0092); ATT&CK lists the id for S0608 Conficker and S0092 Agent.btz; Conficker's October 2008 detection date comes from ATT&CK's secondary sources; ATT&CK says Agent.btz \"reportedly\" infected US military networks in 2008). Sources [20][24] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 70,
+      "comment": "Wyndham administrator account brute-forced (Apr, alleged); Conficker's tripped lockout policies (Inferred) (basis: Described; a later mapping, since no 2008 source prints an ATT&CK id). Sources [57][21] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Conficker (ATT&CK object) (basis: Listed (S0608); ATT&CK lists the id for S0608 Conficker; Conficker's October 2008 detection date comes from ATT&CK's secondary sources). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1112",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Conficker (ATT&CK object) (basis: Listed (S0608); ATT&CK lists the id for S0608 Conficker; Conficker's October 2008 detection date comes from ATT&CK's secondary sources). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1114",
+      "tactic": "collection",
+      "score": 40,
+      "comment": "OHHDL mail stolen in transit; the report describes interception, not collection from a mailbox, so the fit is this study's reading (basis: Inferred; a later mapping, since no 2008 source prints an ATT&CK id). Sources [35] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1124",
+      "tactic": "discovery",
+      "score": 100,
+      "comment": "Conficker (ATT&CK object) (basis: Listed (S0608); ATT&CK lists the id for S0608 Conficker; Conficker's October 2008 detection date comes from ATT&CK's secondary sources). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1189",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Compromised sites forwarding visitors to malware (24 Jun); the delivery of the Internet Explorer data binding exploit is not described (Inferred) (basis: Described; a later mapping, since no 2008 source prints an ATT&CK id). Sources [7][25] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1190",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "SQL injection wave on ASP and ASP.NET sites (24 Jun); the SQL vulnerability exploited in Georgia (Aug); Lithuania's vulnerable hosting server (Jun to Jul; exploitation Inferred) (basis: Described; a later mapping, since no 2008 source prints an ATT&CK id). Sources [7][38] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1203",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "Internet Explorer CVE-2008-4844 exploited at release (17 Dec); Adobe CVE-2008-2992 and CVE-2008-0655 in KEV (exploitation not dated) (basis: Described; a later mapping, since no 2008 source prints an ATT&CK id). Sources [25][26][22][19] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1204.002",
+      "tactic": "execution",
+      "score": 70,
+      "comment": "OHHDL malicious attachments (basis: Described; a later mapping, since no 2008 source prints an ATT&CK id). Sources [35] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1210",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "Conficker through MS08-067 (Oct, ATT&CK); MS08-067 exploited in the wild by Gimmiv.A (Oct) and per CERT/CC (23 Oct) (basis: Listed (S0608); Described; ATT&CK lists the id for S0608 Conficker; Conficker's October 2008 detection date comes from ATT&CK's secondary sources). Sources [20][18][17][16] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "Conficker (ATT&CK object) (basis: Listed (S0608); ATT&CK lists the id for S0608 Conficker; Conficker's October 2008 detection date comes from ATT&CK's secondary sources). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1491.002",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Lithuania, more than 300 sites (28 Jun to 2 Jul); Georgia's presidential site (by 11 Aug); RBN-linked defacements per Network World (Reported) (basis: Described; a later mapping, since no 2008 source prints an ATT&CK id). Sources [38][11] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1498",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "Georgia (8 to 28 Aug); Walker and Gembe indictment (2 Oct, alleged) (basis: Described; a later mapping, since no 2008 source prints an ATT&CK id). Sources [38][14] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1498.001",
+      "tactic": "impact",
+      "score": 70,
+      "comment": "RFE/RL Belarus, about 50,000 fake pings a second (26 to 28 Apr) (basis: Described; a later mapping, since no 2008 source prints an ATT&CK id). Sources [38] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Conficker (ATT&CK object) (basis: Listed (S0608); ATT&CK lists the id for S0608 Conficker; Conficker's October 2008 detection date comes from ATT&CK's secondary sources). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1543.003",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Conficker (ATT&CK object) (basis: Listed (S0608); ATT&CK lists the id for S0608 Conficker; Conficker's October 2008 detection date comes from ATT&CK's secondary sources). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "Conficker (ATT&CK object) (basis: Listed (S0608); ATT&CK lists the id for S0608 Conficker; Conficker's October 2008 detection date comes from ATT&CK's secondary sources). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1547.001",
+      "tactic": "privilege-escalation",
+      "score": 100,
+      "comment": "Conficker (ATT&CK object) (basis: Listed (S0608); ATT&CK lists the id for S0608 Conficker; Conficker's October 2008 detection date comes from ATT&CK's secondary sources). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1560.003",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "Agent.btz (ATT&CK object) (basis: Listed (S0092); ATT&CK lists the id for S0092 Agent.btz; ATT&CK says Agent.btz \"reportedly\" infected US military networks in 2008). Sources [24] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1566.001",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "OHHDL lures posing as fellow Tibetans and co-workers (investigated Sep) (basis: Described; a later mapping, since no 2008 source prints an ATT&CK id). Sources [35] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1568.002",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "Conficker (ATT&CK object) (basis: Listed (S0608); ATT&CK lists the id for S0608 Conficker; Conficker's October 2008 detection date comes from ATT&CK's secondary sources). Sources [20] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1584.005",
+      "tactic": "resource-development",
+      "score": 70,
+      "comment": "A botnet offered for sale, more than 100,000 computers damaged (21 Aug, alleged) (basis: Described; a later mapping, since no 2008 source prints an ATT&CK id). Sources [52] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1669",
+      "tactic": "initial-access",
+      "score": 70,
+      "comment": "Gonzalez ring's wardriving into retailers' wireless networks (5 Aug, alleged) (basis: Described; a later mapping, since no 2008 source prints an ATT&CK id). Sources [51] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    },
+    {
+      "techniqueID": "T1685",
+      "tactic": "defense-impairment",
+      "score": 100,
+      "comment": "Conficker disabled Windows Defender, Automatic Updates, BITS and Error Reporting (KB 962007) (basis: Listed (S0608); Described; ATT&CK lists the id for S0608 Conficker; Conficker's October 2008 detection date comes from ATT&CK's secondary sources). Sources [20][21] refer to the Sources table of case-studies/CHRONICLE_2008.md."
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#dbeafe",
+      "#38bdf8",
+      "#7c3aed"
+    ],
+    "minValue": 40,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "40: Inferred mapping",
+      "color": "#dbeafe"
+    },
+    {
+      "label": "70: behavior described by the source, id assigned by the study",
+      "color": "#38bdf8"
+    },
+    {
+      "label": "100: the ATT&CK object prints the id",
+      "color": "#7c3aed"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "source",
+      "value": "TeamStarWolf case study: case-studies/CHRONICLE_2008.md (sources opened 12 and 13 November 2026)"
+    },
+    {
+      "name": "techniques_scored",
+      "value": "33"
+    },
+    {
+      "name": "technique_tactic_entries",
+      "value": "39"
+    },
+    {
+      "name": "score_meaning",
+      "value": "Scores show the evidence basis for the mapping, not severity, prevalence or coverage."
+    },
+    {
+      "name": "tactic_policy",
+      "value": "Each selected technique is shown under all tactics in data/attack/technique_profiles.jsonl. This is display expansion, not a claim that every source association applies in every tactic."
+    },
+    {
+      "name": "validation_source",
+      "value": "data/attack/technique_profiles.jsonl"
+    },
+    {
+      "name": "attack_version",
+      "value": "MITRE ATT&CK Enterprise v20.0: technique IDs and tactics normalized to data/attack/technique_profiles.jsonl by scripts/build_navigator_layers.py"
+    }
+  ],
+  "links": [
+    {
+      "label": "The Year 2008 in Intrusions: A Dated Record",
+      "url": "https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/CHRONICLE_2008.md"
+    }
+  ],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}

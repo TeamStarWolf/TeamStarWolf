@@ -1,0 +1,261 @@
+{
+  "name": "TeamStarWolf - Water and Wastewater Networks (ICS)",
+  "versions": {
+    "attack": "20",
+    "navigator": "4.9",
+    "layer": "4.5"
+  },
+  "domain": "ics-attack",
+  "description": "Curated case-study layer, not an official MITRE mapping. The 32 ATT&CK for ICS techniques that the verified record in case-studies/WATER_TREATMENT_NETWORKS.md supports: ATT&CK campaigns C0020 and C0031, the CyberAv3ngers group record G1027, and the advisories AA21-287A and AA25-343A and AA26-097A, with AA25-343A's revoked ids T0812 and T0855 bound to their v20 successors through data/attack/superseded_by.jsonl. Scores: 100 the advisory or ATT&CK object lists the id, 40 the mapping is this study's Inferred reading. Each comment names the records and the study's source numbers.",
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": [
+      "#fde68a",
+      "#f97316"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "100: the advisory or the ATT&CK object lists the id",
+      "color": "#f97316"
+    },
+    {
+      "label": "40: this study's Inferred mapping",
+      "color": "#fde68a"
+    }
+  ],
+  "techniques": [
+    {
+      "techniqueID": "T0813",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "C0020 Maroochy Water Breach (2000-02 to 2000-04) [97]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0814",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "C0031 Unitronics Defacement Campaign (2023-11) [99]; G1027 CyberAv3ngers (page modified 2026-10-07) [117]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0815",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "C0020 Maroochy Water Breach (2000-02 to 2000-04) [97]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0816",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "AA25-343A pro-Russia hacktivists (2025-12-09) [64]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0822",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "C0020 Maroochy Water Breach (2000-02 to 2000-04) [97]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0823",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "AA25-343A pro-Russia hacktivists (2025-12-09) [64]; 2021 dosing change through the SCADA HMI, AA21-042A (Inferred) [57]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0826",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "C0031 Unitronics Defacement Campaign (2023-11) [99]; G1027 CyberAv3ngers (page modified 2026-10-07) [117]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0827",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA21-287A water incidents 2019 to 2021 (2021-10-14) [20]; G1027 CyberAv3ngers (page modified 2026-10-07) [117]; 2026 MicroLogix wave, loss of monitoring and control, PSA 2026-07-30 (Inferred) [112]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0828",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "C0031 Unitronics Defacement Campaign (2023-11) [99]; G1027 CyberAv3ngers (page modified 2026-10-07) [117]; AA25-343A pro-Russia hacktivists (2025-12-09) [64]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0829",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "C0031 Unitronics Defacement Campaign (2023-11) [99]; G1027 CyberAv3ngers (page modified 2026-10-07) [117]; AA25-343A pro-Russia hacktivists (2025-12-09) [64]; 2026 MicroLogix wave (Inferred) [112]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0831",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "AA25-343A pro-Russia hacktivists (2025-12-09) [64]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0836",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "C0020 Maroochy Water Breach (2000-02 to 2000-04) [97]; AA25-343A pro-Russia hacktivists (2025-12-09) [64]; 2024 hacktivist fact sheet, set points maxed (Inferred) [63]; 2021 dosing change (Inferred) [57]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0838",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "C0020 Maroochy Water Breach (2000-02 to 2000-04) [97]; G1027 CyberAv3ngers (page modified 2026-10-07) [117]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0843",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "G1027 CyberAv3ngers (page modified 2026-10-07) [117]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0845",
+      "tactic": "collection",
+      "score": 100,
+      "comment": "G1027 CyberAv3ngers (page modified 2026-10-07) [117]; AA26-097A project files extracted (Inferred) [109]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0848",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "C0020 Maroochy Water Breach (2000-02 to 2000-04) [97]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0859",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "AA25-343A pro-Russia hacktivists (2025-12-09) [64]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0859",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "AA25-343A pro-Russia hacktivists (2025-12-09) [64]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0860",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "C0020 Maroochy Water Breach (2000-02 to 2000-04) [97]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0864",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "C0020 Maroochy Water Breach (2000-02 to 2000-04) [97]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0871",
+      "tactic": "execution",
+      "score": 100,
+      "comment": "G1027 CyberAv3ngers (page modified 2026-10-07) [117]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0878",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "C0020 Maroochy Water Breach (2000-02 to 2000-04) [97]; AA25-343A pro-Russia hacktivists (2025-12-09) [64]; AA26-097A alarm logic disabled (Inferred) [109]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0879",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "C0020 Maroochy Water Breach (2000-02 to 2000-04) [97]; G1027 CyberAv3ngers (page modified 2026-10-07) [117]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0880",
+      "tactic": "impact",
+      "score": 100,
+      "comment": "G1027 CyberAv3ngers (page modified 2026-10-07) [117]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0883",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "C0031 Unitronics Defacement Campaign (2023-11) [99]; G1027 CyberAv3ngers (page modified 2026-10-07) [117]; AA25-343A pro-Russia hacktivists (2025-12-09) [64]; AA26-097A Iranian-affiliated PLC activity (2026-04-07, updated 2026-07-22) [109]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0885",
+      "tactic": "command-and-control",
+      "score": 100,
+      "comment": "G1027 CyberAv3ngers (page modified 2026-10-07) [117]; AA26-097A Iranian-affiliated PLC activity (2026-04-07, updated 2026-07-22) [109]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0886",
+      "tactic": "initial-access",
+      "score": 100,
+      "comment": "G1027 CyberAv3ngers (page modified 2026-10-07) [117]; AA25-343A pro-Russia hacktivists (2025-12-09) [64]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0886",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "G1027 CyberAv3ngers (page modified 2026-10-07) [117]; AA25-343A pro-Russia hacktivists (2025-12-09) [64]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0889",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "G1027 CyberAv3ngers (page modified 2026-10-07) [117]; AA26-097A and PSA 2026-07-30, project files modified (Inferred) [109] [112]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T0892",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "G1027 CyberAv3ngers (page modified 2026-10-07) [117]; AA25-343A pro-Russia hacktivists (2025-12-09) [64]; 2026 MicroLogix wave, passwords changed (Inferred) [112]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1692.001",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "C0020 Maroochy Water Breach (2000-02 to 2000-04) [97]; G1027 CyberAv3ngers (page modified 2026-10-07) [117]; AA25-343A pro-Russia hacktivists (2025-12-09) [64], listed as revoked T0855 mapped through superseded_by.jsonl [66]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1692.001",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "C0020 Maroochy Water Breach (2000-02 to 2000-04) [97]; G1027 CyberAv3ngers (page modified 2026-10-07) [117]; AA25-343A pro-Russia hacktivists (2025-12-09) [64], listed as revoked T0855 mapped through superseded_by.jsonl [66]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1692.002",
+      "tactic": "evasion",
+      "score": 100,
+      "comment": "C0020 Maroochy Water Breach (2000-02 to 2000-04) [97]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1692.002",
+      "tactic": "impair-process-control",
+      "score": 100,
+      "comment": "C0020 Maroochy Water Breach (2000-02 to 2000-04) [97]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1694.001",
+      "tactic": "persistence",
+      "score": 100,
+      "comment": "C0031 Unitronics Defacement Campaign (2023-11) [99]; G1027 CyberAv3ngers (page modified 2026-10-07) [117]; AA25-343A pro-Russia hacktivists (2025-12-09) [64], listed as revoked T0812 mapped through superseded_by.jsonl [66]; AA24-038A Volt Typhoon tested default OT vendor credentials (Inferred) [96]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1694.001",
+      "tactic": "lateral-movement",
+      "score": 100,
+      "comment": "C0031 Unitronics Defacement Campaign (2023-11) [99]; G1027 CyberAv3ngers (page modified 2026-10-07) [117]; AA25-343A pro-Russia hacktivists (2025-12-09) [64], listed as revoked T0812 mapped through superseded_by.jsonl [66]; AA24-038A Volt Typhoon tested default OT vendor credentials (Inferred) [96]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    },
+    {
+      "techniqueID": "T1695",
+      "tactic": "inhibit-response-function",
+      "score": 100,
+      "comment": "G1027 CyberAv3ngers (page modified 2026-10-07) [117]. Source numbers refer to the Sources table of case-studies/WATER_TREATMENT_NETWORKS.md."
+    }
+  ]
+}

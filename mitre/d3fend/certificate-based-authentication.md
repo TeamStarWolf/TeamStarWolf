@@ -30,6 +30,7 @@ Hand-written pages in this library that link to this page or to this object's en
 
 - [The Check Point Remote Access VPN IKEv1 Authentication Bypass of 2026 (CVE-2026-50751): A Case Study](/case-studies/CHECK_POINT_VPN_CVE_2026_50751.md)
 - [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)
+- [Water and Wastewater Networks: The Control Systems, the Chemistry and the Attacks on Them](/case-studies/WATER_TREATMENT_NETWORKS.md)
 
 <!-- library-refs:end -->
 

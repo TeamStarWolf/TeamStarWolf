@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Bad Rabbit shows why an infection chain needs more than one label. ([Executive summary](#executive-summary))
+- The first visible step can be a person running a deceptive software installer, with later steps using credentials or an exploit to spread. ([Executive summary](#executive-summary))
+- Calling the whole event a fake-update attack understates the network risk; calling it exploit-driven hides the software-trust failure. ([Executive summary](#executive-summary))
+- No exploit needed for the web-delivered installer does not mean no exploit was present anywhere in the malware's spreading behavior. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

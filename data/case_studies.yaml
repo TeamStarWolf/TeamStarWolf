@@ -5337,3 +5337,109 @@ studies:
       - {"date": "2019-03", "label": "RFC 8555 standardizes the ACME protocol"}
       - {"date": "2020-02", "label": "A CAA-rechecking defect leads to a mass revocation and a public dispute over timing"}
       - {"date": "2021-09", "label": "The DST Root CA X3 cross-sign expires, exposing client trust-path assumptions"}
+  case-studies/CITRIX_CVE_2019_19781.md:
+    kind: "vulnerability"
+    title: "Citrix CVE-2019-19781: Mitigation Revisions, Competing Intruders and the January 2020 Patch Race"
+    start: "2019-12"
+    end: "2020-09"
+    core_start: "2019"
+    core_end: "2020"
+    sectors: ["technology"]
+    cves: ["CVE-2019-19781"]
+    actors: []
+    tags: ["Citrix ADC", "CVE-2019-19781", "path traversal", "edge device", "NOTROBIN"]
+    pdf: "Citrix_CVE_2019_19781_Case_Study.pdf"
+    events:
+      - {"date": "2019-12-17", "label": "Citrix discloses CVE-2019-19781 and publishes interim mitigation guidance (CTX267679)"}
+      - {"date": "2020-01-08", "label": "Exposure measurements and public tooling appear; CERT/CC narrows the technical findings"}
+      - {"date": "2020-01-10", "label": "US government guidance precedes permanent fixes"}
+      - {"date": "2020-01-19", "label": "Permanent branch-specific firmware fixes begin"}
+      - {"date": "2020-01-22", "label": "Citrix clarifies the SD-WAN WANOP subset"}
+      - {"date": "2020-01-24", "label": "The supported-release fix sequence completes"}
+      - {"date": "2020-09", "label": "Later reporting shows a longer exploitation tail"}
+  case-studies/PULSE_SECURE_CVE_2019_11510.md:
+    kind: "vulnerability"
+    title: "Pulse Secure CVE-2019-11510: When a VPN Patch Could Not Revoke Stolen Trust"
+    start: "2019-04"
+    end: "2021-04"
+    core_start: "2019"
+    core_end: "2020"
+    sectors: ["technology"]
+    cves: ["CVE-2019-11510"]
+    actors: []
+    tags: ["Pulse Connect Secure", "CVE-2019-11510", "VPN", "credential theft", "file disclosure"]
+    pdf: "Pulse_Secure_CVE_2019_11510_Case_Study.pdf"
+    events:
+      - {"date": "2019-04-24", "label": "Pulse Secure publishes advisory SA44101 for CVE-2019-11510 and related issues"}
+      - {"date": "2019-08", "label": "Public technical details and mass scanning follow"}
+      - {"date": "2020-01", "label": "CISA warns that patched appliances can retain previously stolen credentials"}
+      - {"date": "2020-04-16", "label": "CISA AA20-107A describes continued exploitation and credential reuse"}
+      - {"date": "2020-09-14", "label": "CISA and FBI reporting (AA20-258A, AA20-259A) records further activity"}
+      - {"date": "2021-04", "label": "Later Pulse Connect Secure issues, including CVE-2021-22893, are reported as distinct"}
+  case-studies/F5_BIGIP_CVE_2020_5902.md:
+    kind: "vulnerability"
+    title: "F5 BIG-IP CVE-2020-5902: A Management-Plane Failure and the July 2020 Mitigation Race"
+    start: "2020-06"
+    end: "2020-07"
+    core_start: "2020"
+    core_end: "2020"
+    sectors: ["technology"]
+    cves: ["CVE-2020-5902"]
+    actors: []
+    tags: ["F5 BIG-IP", "CVE-2020-5902", "TMUI", "management plane", "remote code execution"]
+    pdf: "F5_BIG-IP_CVE_2020_5902_Case_Study.pdf"
+    events:
+      - {"date": "2020-06-30", "label": "F5 discloses CVE-2020-5902 in the TMUI management interface and urges mitigation"}
+      - {"date": "2020-07-05", "label": "Scan evidence is published, with explicit limits"}
+      - {"date": "2020-07-08", "label": "An earlier mitigation is found bypassable and is revised"}
+      - {"date": "2020-07-14", "label": "Guidance pairs correction with investigation"}
+      - {"date": "2020-07-24", "label": "CISA reporting establishes confirmed incidents"}
+  case-studies/SMBGHOST_CVE_2020_0796.md:
+    kind: "vulnerability"
+    title: "SMBGhost: Compression Arithmetic, Client Exposure and the 2020 Emergency Patch"
+    start: "2020-03"
+    end: "2020-06"
+    core_start: "2020"
+    core_end: "2020"
+    sectors: ["technology"]
+    cves: ["CVE-2020-0796"]
+    actors: []
+    tags: ["SMBv3", "CVE-2020-0796", "compression", "wormable", "Windows"]
+    pdf: "SMBGhost_CVE_2020_0796_Case_Study.pdf"
+    events:
+      - {"date": "2020-03-10", "label": "Details of CVE-2020-0796 in SMB 3.1.1 appear ahead of a patch"}
+      - {"date": "2020-03-12", "label": "Microsoft releases KB4551762 to fix the compression flaw"}
+      - {"date": "2020-06", "label": "SMBleed (CVE-2020-1206) research and proof-of-concept activity follow"}
+  case-studies/SIGRED_CVE_2020_1350.md:
+    kind: "vulnerability"
+    title: "SIGRed: Windows DNS Parsing, Emergency Mitigation and the Evidence Behind Wormability"
+    start: "2020-07"
+    end: "2020-09"
+    core_start: "2020"
+    core_end: "2020"
+    sectors: ["technology"]
+    cves: ["CVE-2020-1350"]
+    actors: []
+    tags: ["Windows DNS Server", "CVE-2020-1350", "wormable", "DNS", "emergency directive"]
+    pdf: "SIGRed_CVE_2020_1350_Case_Study.pdf"
+    events:
+      - {"date": "2020-07-14", "label": "Microsoft patches CVE-2020-1350 and offers a registry size workaround; Check Point publishes the research"}
+      - {"date": "2020-07-16", "label": "CISA Emergency Directive 20-03 mandates mitigation and reporting"}
+  case-studies/PRINTNIGHTMARE_CVE_2021_34527.md:
+    kind: "vulnerability"
+    title: "PrintNightmare, 2021: When a Security Fix Depends on the Policy Around It"
+    start: "2021-06"
+    end: "2021-09"
+    core_start: "2021"
+    core_end: "2021"
+    sectors: ["technology"]
+    cves: ["CVE-2021-1675", "CVE-2021-34527"]
+    actors: []
+    tags: ["Print Spooler", "CVE-2021-34527", "CVE-2021-1675", "privilege escalation", "Windows"]
+    pdf: "PrintNightmare_CVE_2021_34527_Case_Study.pdf"
+    events:
+      - {"date": "2021-06-08", "label": "CVE-2021-1675 is addressed as a Print Spooler elevation-of-privilege issue"}
+      - {"date": "2021-06-21", "label": "The issue is reclassified to remote code execution"}
+      - {"date": "2021-07-01", "label": "CERT/CC VU#383432 highlights the separate PrintNightmare behavior"}
+      - {"date": "2021-07-06", "label": "Microsoft assigns CVE-2021-34527 and begins a phased out-of-band update"}
+      - {"date": "2021-08-10", "label": "A later update changes a default amid continued Print Spooler issues"}

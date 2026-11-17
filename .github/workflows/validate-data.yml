@@ -222,6 +222,14 @@ jobs:
           python scripts/build_case_study_timeline.py --self-test
           python scripts/build_case_study_timeline.py --check
 
+      # The evidence-grade vocabulary (Confirmed, Reported, Inferred, Demonstrated) stays
+      # closed: the README Method legend defines exactly those four, and no study's own
+      # "Meaning in this study" grade table introduces a fifth. Length is reported only.
+      - name: Case-study evidence-grade vocabulary is closed (legend and per-study tables)
+        run: |
+          python scripts/check_case_study_grades.py --self-test
+          python scripts/check_case_study_grades.py --check
+
       # The cross-links between the hand-written and generated pages are written into the
       # Markdown by build_crosslinks.py from docs/crosslinks.json and the pages' own links:
       # each learning path's matching reference, the "Related pages" footer on each root

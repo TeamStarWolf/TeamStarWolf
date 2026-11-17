@@ -226,6 +226,10 @@ EXPORT_NAMES = {
     "PROLOCK_2020": "ProLock_2020",
     "QAKBOT_2020_2021": "QakBot_2020_2021",
     "UCSF_NETWALKER_2020": "UCSF_NetWalker_2020",
+    "XCODEGHOST_2015": "XcodeGhost_2015",
+    "KERANGER_2016": "KeRanger_2016",
+    "ESTONIA_DDOS_2007": "Estonia_DDoS_2007",
+    "EASYJET_2020": "easyJet_2020",
 }
 
 

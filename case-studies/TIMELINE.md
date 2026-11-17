@@ -768,6 +768,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 7 June 2021: DOJ announces seizure of 63.7 bitcoin tied to the payment
   - 8 June 2021: Senate and House hearings add detail on entry, decryption and continuing restoration
   - 17 January 2025: DHS Federal Register notice ratifies the 2021 pipeline security directives (historical aftermath)
+- [Twitch 2021: Source Code, Payouts and the Limits of the Public Record](/case-studies/TWITCH_2021.md). Incident, 2021 to 2024 (core: 2021). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Twitch_2021_Case_Study.pdf).
+  - 6 October 2021: Twitch attributes exposure to an erroneous server-configuration change and malicious third-party access; no indication of exposed login credentials
+  - 7 October 2021: Twitch precautionarily replaces all stream keys
+  - 15 October 2021: Twitch reports remediation; exposed material was source-repository documents and some creator-payout data; passwords not exposed
+  - 16 November 2024: Turkey's KVKK is reported to impose TRY 2 million in penalties (35,274 affected Turkey residents)
+- [T-Mobile 2021: Lab Access, Customer Records and the Long Accountability Trail](/case-studies/TMOBILE_2021.md). Incident, 2021 to 2025 (core: 2021). Sectors: telecommunications. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/T-Mobile_2021_Case_Study.pdf).
+  - 18 March 2021: Initial access to some systems (per the later SEC filing)
+  - 3 August 2021: Access to and taking of customer data begins (per the SEC filing)
+  - 12 August 2021: T-Mobile becomes aware of the issue
+  - 17 August 2021: T-Mobile discloses about 7.8 million postpaid accounts and 40+ million former or prospective records exposed; updated 20 August
+  - 29 July 2024: The Eighth Circuit reverses the attorneys' fee award in the $350 million class settlement
+  - 30 September 2024: The FCC announces a $15.75 million penalty plus a $15.75 million security-spending commitment (multiple incidents)
+  - 6 January 2025: Washington's attorney general sues T-Mobile (79+ million consumers nationally)
 - [Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation](/case-studies/EXCHANGE_MARAUDER_2021.md). Campaign, January to November 2021. Sectors: cross-sector, government, education. CVEs: CVE-2020-0688, CVE-2021-26412, CVE-2021-26854, CVE-2021-26855, CVE-2021-26857, CVE-2021-26858 and 11 more. ATT&CK groups: G0027 Threat Group-3390, G0044 Winnti Group, G0046 FIN7, G0059 Magic Hound, G0060 BRONZE BUTLER, G0065 Leviathan and 7 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Exchange_Marauder_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Exchange_Marauder_2021_Case_Study.pptx).
   - 10 December 2020: DEVCORE finds the pre-auth proxy bug, later CVE-2021-26855
   - 3 January 2021: Earliest SSRF mailbox theft Volexity observed
@@ -855,6 +868,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 - [The Multipath TCP Attack Surface: A 2026 Case Study](/case-studies/MPTCP_ATTACK_SURFACE_2026.md). Attack surface, 2020 to 2026. Sectors: technology. CVEs: CVE-2021-47152, CVE-2022-50071, CVE-2025-40258, CVE-2026-31669, CVE-2026-80588, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/MPTCP_Attack_Surface_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/MPTCP_Attack_Surface_2026_Case_Study.pptx).
   - 2020: Linux kernel 5.6 ships a mainline Multipath TCP implementation
   - 3 November 2026: Lab readings on a host running Kali 2026.2 with kernel 7.1.5
+- [Ledger Customer-Data Breaches, 2020: Commerce Records, Phishing and the Limits of Product Security](/case-studies/LEDGER_2020.md). Incident, 2020 to 2021 (core: 2020). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ledger_2020_Case_Study.pdf).
+  - 25 June 2020: Unauthorized commerce-data access through an API key (identified later)
+  - 29 July 2020: Ledger discloses the breach: about one million email addresses and ~9,500 detailed records
+  - 22 September 2020: Shopify discloses a separate support-staff data-access incident (fewer than 200 merchants)
+  - 21 December 2020: A publicly released database reveals about 272,000 detailed records; Ledger revises its scope
+  - 13 January 2021: Ledger reports Shopify-related exports (about 292,000 records, around 93 percent overlap)
+  - 9 November 2021: A US court dismisses Baton v. Ledger SAS for lack of personal jurisdiction
 - [Ghostcat, CVE-2020-1938: The Tomcat AJP File Read in the Lab](/case-studies/GHOSTCAT_CVE_2020_1938.md). Vulnerability, January 2020 to November 2026. Sectors: technology. CVEs: CVE-2020-1938, CVE-2021-44228, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ghostcat_CVE_2020_1938_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Ghostcat_CVE_2020_1938_Case_Study.pptx).
   - 3 January 2020: Chaitin Tech reports the flaw to the Apache Tomcat Security Team
   - 11 February 2020: Tomcat 9.0.31 and 8.5.51 released
@@ -928,6 +948,14 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 5 April 2019: Most production is normal or near normal while reporting, billing and invoicing still lag
   - 16 December 2019: Microsoft publishes a responder account (credential capture, manual ransomware push from domain controllers)
   - 2020: The 2020 financial statements revise the estimated impact to NOK 800 million to 1 billion; NOK 769 million total insurance received
+- [MGM 2019: Guest Data, Developer Access and Delayed Notification](/case-studies/MGM_2019.md). Incident, 2019 to 2025 (core: 2019). Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/MGM_2019_Case_Study.pdf).
+  - 7 July 2019: Reused employee credentials open a developer platform; an MFA bypass and a temporary token enable about an hour of cloud-database access and exfiltration
+  - 24 July 2019: MGM buys a copy of the data after law-enforcement consultation
+  - 5 September 2019: Certain US notifications begin
+  - 28 February 2020: Canadian analysis begins after OPC contact; the data resurfaces for sale
+  - 19 May 2022: The OPC publishes its findings (1,934,090 affected Canadians); well-founded and conditionally resolved
+  - 2 November 2022: A Nevada court grants MGM's dismissal motion in part
+  - 18 June 2025: A court grants final approval of a $45 million settlement covering the 2019 and 2023 incidents
 - [Maze 2019-2020: Encryption, Data Theft and the Limits of Containment](/case-studies/MAZE_2019_2020.md). Campaign, 2019 to 2020 (core: 2019 to 2020). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Maze_2019_2020_Case_Study.pdf).
   - May 2019: Maze activity observed from at least May 2019 (per Mandiant); shift to post-intrusion deployment and double extortion
   - 18 April 2020: Cognizant confirms a Maze incident affecting internal systems and some client services
@@ -947,6 +975,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 5 December 2019: Treasury sanctions Evil Corp and Maksim Yakubets
   - 17 December 2019: Citrix discloses CVE-2019-19781 with interim mitigations
   - 31 December 2019: Travelex hit by Sodinokibi; more than 1,500 stores affected
+- [Canva 2019-2020: Password-Store Exposure and the Cost of Reassuring Language](/case-studies/CANVA_2019_2020.md). Incident, 2019 to 2020 (core: 2019). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Canva_2019_2020_Case_Study.pdf).
+  - 24 May 2019: Canva interrupts an attack; later reports up to 139 million profiles and bcrypt-protected passwords exposed
+  - 9 August 2019: The collection is added to Have I Been Pwned (about 137 million addresses)
+  - 13 August 2019: The University of the Philippines issues a Canva advisory
+  - 11 January 2020: Canva learns of about four million accounts with recovered passwords; resets unchanged historical passwords the next day
+  - 28 February 2020: Miami University issues a further advisory
 - [Baltimore and RobbinHood, 2019: When a Network Outage Becomes a Transaction Crisis](/case-studies/BALTIMORE_ROBBINHOOD_2019.md). Incident, 2019 to 2025 (core: 2019). Sectors: government. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Baltimore_RobbinHood_2019_Case_Study.pdf).
   - 7 May 2019: The RobbinHood attack is discovered; systems taken offline for containment
   - 17 May 2019: The city describes containment, manual alternatives and a temporary property-transaction process
@@ -1024,6 +1058,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 28 November 2018: DOJ unseals the SamSam indictment; OFAC designates two Iran-based exchangers and publishes bitcoin addresses for the first time
   - 30 November 2018: Marriott discloses access to the Starwood network since 2014: up to about 500 million guests
   - 20 December 2018: DOJ unseals the APT10 indictment and the UK and allies attribute APT 10 to China's MSS
+- [Cathay Pacific, 2018: Passenger Data, Migration Exceptions and Evidence That Survives Recovery](/case-studies/CATHAY_PACIFIC_2018.md). Incident, 2014 to 2020 (core: 2018). Sectors: transport. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cathay_Pacific_2018_Case_Study.pdf).
+  - October 2014: The earliest known compromise (per the later ICO chronology)
+  - March 2018: Suspicious activity is discovered
+  - 11 May 2018: The last unauthorized personal-data access (per the ICO)
+  - 24 October 2018: Cathay discloses the breach: about 9.4 million affected, including ~860,000 passport numbers
+  - 6 June 2019: The Hong Kong Privacy Commissioner publishes its investigation report (security and retention contraventions)
+  - 10 February 2020: The UK ICO imposes a 500,000 pound penalty under the Data Protection Act 1998
 - [Cambridge Analytica and Facebook: Consent, Data Provenance and Platform Accountability](/case-studies/CAMBRIDGE_ANALYTICA_2018.md). Incident, 2014 to 2020 (core: 2018). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cambridge_Analytica_2018_Case_Study.pdf).
   - 2014: Graph API collection arrangements for app users' and friends' data (2014 to 2015, per the FTC complaint)
   - 2015: Facebook learns Kogan passed data to third parties; it removes the app and requests deletion certifications

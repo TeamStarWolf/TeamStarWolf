@@ -3333,6 +3333,48 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 6: EternalBlue and WannaCry](#part-6-eternalblue-and-wannacry), [Part 11: the defender view](#part-11-the-defender-view)"
     pairs_with: "[Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
     reviewed: null
+  case-studies/ASHLEY_MADISON_2015.md:
+    audience: "Privacy and security engineers for sensitive-data services, data-retention and deletion owners, incident responders and communications leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2015 Ashley Madison breach, you need to treat sensitive context, false associations and the meaning of deletion carefully, or you are reviewing access control, retention and the evidence behind product and security claims"
+    start_at: "[Executive assessment](#executive-assessment), [3. Sensitive context and false association](#_3-sensitive-context-and-false-association), [6. Deactivation, inactivity and deletion](#_6-deactivation-inactivity-and-deletion)"
+    pairs_with: "[Privacy Engineering Reference](/PRIVACY_ENGINEERING_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [GRC Reference](/GRC_REFERENCE.md)"
+    reviewed: null
+  case-studies/CAMBRIDGE_ANALYTICA_2018.md:
+    audience: "Platform and application security engineers, privacy and data-governance owners, API reviewers and disclosure leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the Cambridge Analytica and Facebook matter, you need to separate consent from a working permission flow or distinct enforcement tracks and populations, or you are reviewing application permissions, data lineage and deletion evidence"
+    start_at: "[Executive assessment](#executive-assessment), [3. Technical permission and meaningful consent](#_3-technical-permission-and-meaningful-consent), [5. Data lineage across organizational boundaries](#_5-data-lineage-across-organizational-boundaries)"
+    pairs_with: "[Privacy Engineering Reference](/PRIVACY_ENGINEERING_REFERENCE.md), [API Security Reference](/API_SECURITY_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Regulatory Landscape Reference](/REGULATORY_LANDSCAPE_REFERENCE.md), [Ashley Madison 2015](/case-studies/ASHLEY_MADISON_2015.md)"
+    reviewed: null
+  case-studies/CCLEANER_2017.md:
+    audience: "Software producers and consumers, release-engineering and build-security owners, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2017 CCleaner supply-chain compromise, you need to separate downloads, installations, callbacks and second-stage targets, or you are reviewing release assurance, code signing and distribution cleanup"
+    start_at: "[Executive summary](#executive-summary), [The population ledger: five numbers that answer different questions](#the-population-ledger-five-numbers-that-answer-different-questions), [Communication when the evidence changes](#communication-when-the-evidence-changes)"
+    pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Supply Chain Security](/SUPPLY_CHAIN_SECURITY.md), [DevSecOps Reference](/DEVSECOPS_REFERENCE.md), [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md), [SolarWinds SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md), [NotPetya 2017](/case-studies/NOTPETYA_2017.md)"
+    reviewed: null
+  case-studies/HOME_DEPOT_2014.md:
+    audience: "Retail and payment security engineers, vendor-access and identity owners, detection engineers and risk leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2014 Home Depot breach, you need to separate cards from email addresses from people or gross cost from net and settlement figures, or you are reviewing vendor access, payment-environment boundaries and EMV and encryption claims"
+    start_at: "[Executive assessment](#executive-assessment), [4. Initial credentials and subsequent authority](#_4-initial-credentials-and-subsequent-authority), [10. Financial accounting and the danger of a single total](#_10-financial-accounting-and-the-danger-of-a-single-total)"
+    pairs_with: "[Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Vendor Prevention Policies](/VENDOR_PREVENTION_POLICIES.md), [Target, 2013](/case-studies/TARGET_2013.md)"
+    reviewed: null
+  case-studies/JPMORGAN_2014.md:
+    audience: "Financial-sector security engineers, data-protection and fraud teams, incident responders and risk leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2014 JPMorgan Chase breach, you need to separate contact-data exposure from account compromise or campaign-wide figures from one bank's loss, or you are reviewing bulk-access boundaries and fraud response"
+    start_at: "[Executive assessment](#executive-assessment), [1. What the bank disclosed](#_1-what-the-bank-disclosed), [4. Contact information as an input to fraud](#_4-contact-information-as-an-input-to-fraud)"
+    pairs_with: "[Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Fraud Framework Reference](/FRAUD_FRAMEWORK_REFERENCE.md), [Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Target, 2013](/case-studies/TARGET_2013.md)"
+    reviewed: null
+  case-studies/YAHOO_2014_2016.md:
+    audience: "Identity and account-security engineers, incident responders, disclosure and privacy owners, and risk and M&A diligence leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2014 Yahoo intrusion and its 2016 disclosure, you need to keep the 2013 and 2014 populations and their counts separate, or you are reviewing account trust, session revocation, support-tool authority and acquisition diligence"
+    start_at: "[Executive assessment](#executive-assessment), [1. The 2014 incident and the 2016 disclosure](#_1-the-2014-incident-and-the-2016-disclosure), [2. The separate 2013 breach must remain separate](#_2-the-separate-2013-breach-must-remain-separate)"
+    pairs_with: "[Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md)"
+    reviewed: null
   commands/aws-cli.md:
     audience: "Cloud engineers, administrators and security teams who work in AWS from a terminal"
     level: "Beginner to intermediate"

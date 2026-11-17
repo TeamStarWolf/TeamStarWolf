@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- In March 2026 managed devices in four countries, including work phones, were remotely wiped through Stryker's device-management system. ([Executive summary](#executive-summary))
+- Hospitals felt it: Stryker rescheduled some personalized-implant cases because of shipping delays. ([Executive summary](#executive-summary))
+- Stryker and Unit 42 reported a malicious file that ran commands to hide the actor's activity. ([Executive summary](#executive-summary))
+- Stryker declared the incident material to its first-quarter results on 9 April. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

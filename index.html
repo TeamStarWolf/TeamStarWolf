@@ -1067,6 +1067,43 @@
     }
     .sidebar-nav li.tsw-in-section > a { color: var(--tsw-green); font-weight: 650; }
 
+    /* ===================== Collapsible sections (long references) =====================
+       Each h2 section on a long reference is folded into a <details> (built by the plugin
+       above). The summary carries the h2 and a rotating chevron; the body holds the section
+       content and its Previous/Next links. */
+    .markdown-section details.tsw-fold { margin: 0; border-top: 1px solid var(--tsw-border-soft); }
+    .markdown-section details.tsw-fold:last-of-type { border-bottom: 1px solid var(--tsw-border-soft); }
+    .markdown-section details.tsw-fold > summary.tsw-fold-summary {
+      cursor: pointer; list-style: none; display: flex; align-items: center; gap: .55rem; padding: .35rem 0;
+    }
+    .markdown-section details.tsw-fold > summary.tsw-fold-summary::-webkit-details-marker { display: none; }
+    .markdown-section details.tsw-fold > summary.tsw-fold-summary::before {
+      content: ""; flex: none; width: .48rem; height: .48rem; margin-top: -.2em;
+      border-right: 2px solid var(--tsw-text-dim); border-bottom: 2px solid var(--tsw-text-dim);
+      transform: rotate(-45deg); transition: transform .15s;
+    }
+    .markdown-section details.tsw-fold[open] > summary.tsw-fold-summary::before { transform: rotate(45deg); }
+    .markdown-section details.tsw-fold > summary.tsw-fold-summary:hover { color: var(--tsw-link); }
+    .markdown-section details.tsw-fold > summary.tsw-fold-summary:hover::before { border-color: var(--tsw-link); }
+    /* The h2 keeps its type scale but drops the standalone top margin and hairline; the
+       summary row owns the spacing now. */
+    .markdown-section details.tsw-fold > summary.tsw-fold-summary h2 {
+      margin: 0; padding: 0; background: none; border: 0; flex: 1;
+    }
+    .markdown-section .tsw-fold-body { padding: .2rem 0 1.4rem; }
+    .markdown-section .tsw-fold-bar { display: flex; justify-content: flex-end; margin: .4rem 0 .2rem; }
+    .markdown-section .tsw-fold-toggle,
+    .markdown-section .tsw-fold-nav button {
+      font: inherit; font-size: .84rem; font-weight: 600; cursor: pointer;
+      color: var(--tsw-text-muted); background: var(--tsw-surface);
+      border: 1px solid var(--tsw-border); border-radius: 8px; padding: .3rem .7rem;
+      transition: border-color .13s, color .13s;
+    }
+    .markdown-section .tsw-fold-toggle:hover,
+    .markdown-section .tsw-fold-nav button:hover { color: var(--tsw-link); border-color: var(--tsw-link); }
+    .markdown-section .tsw-fold-nav { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.6rem; }
+    .markdown-section .tsw-fold-nav .tsw-fold-next { margin-left: auto; text-align: right; }
+
     /* ===================== Header card and folds =====================
        scripts/build_doc_meta.py writes a header card between meta:start and meta:end comments
        at the top of each reference and learning path; the card script below wraps that block
@@ -1762,6 +1799,8 @@
             ticking = false;
             var best = null, bestTop = -Infinity;
             for (var i = 0; i < spied.length; i++) {
+              // Skip headings hidden inside a collapsed section; only visible ones locate you.
+              if (!spied[i].el.getClientRects().length) { continue; }
               var t = spied[i].el.getBoundingClientRect().top;
               if (t <= 120 && t > bestTop) { bestTop = t; best = spied[i]; }
             }
@@ -1782,6 +1821,120 @@
           spied.forEach(function (s) { io.observe(s.el); });
           tocSpy = { remove: function () { io.disconnect(); } };
           mark();
+        });
+      });
+
+      // ---------- 1b. Collapsible sections on long references
+      // A reference of 9k to 46k words is one very long scroll. On the pages the sidebar does
+      // not list (the references) that are long enough, fold each h2 and its content into a
+      // collapsed <details>, so the page opens as a short list of sections you expand. Every
+      // heading is still reachable: a hashchange (a TOC click, a search result, a pasted deep
+      // link) opens the section that holds the target before scrolling to it, and an "Expand
+      // all" control opens everything for reading or Ctrl+F. Each section carries Previous and
+      // Next links to its neighbours.
+      window.$docsify.plugins.push(function (hook, vm) {
+        var MIN_SECTIONS = 4, MIN_CHARS = 14000;
+
+        function scrollToEl(t) {
+          var off = (window.$docsify && window.$docsify.topMargin) || 105;
+          window.scrollTo(0, t.getBoundingClientRect().top + window.pageYOffset - off);
+        }
+        function openForHash() {
+          var m = /[?&]id=([^&]+)/.exec(location.hash || '');
+          if (!m) { return; }
+          var t = document.getElementById(decodeURIComponent(m[1]));
+          if (!t) { return; }
+          var d = t.closest('details.tsw-fold');
+          if (d && !d.open) { d.open = true; }
+          // Re-scroll after the fold opens and after docsify's own anchor scroll, which runs
+          // while the section is still collapsed and so lands short once it expands.
+          requestAnimationFrame(function () { scrollToEl(t); });
+          setTimeout(function () { scrollToEl(t); }, 90);
+        }
+        // Opening the section that holds the anchor is a page-wide concern: a TOC click, a
+        // search result and a pasted deep link all arrive as a hash change.
+        window.addEventListener('hashchange', openForHash);
+
+        hook.doneEach(function () {
+          var main = document.querySelector('#main');
+          if (!main) { return; }
+          // Fold the same pages that get the "On this page" block (references the sidebar does
+          // not list), and only when they are long enough to be worth chunking.
+          if (!document.querySelector('.sidebar .tsw-toc')) { return; }
+          var h2s = Array.prototype.slice.call(main.querySelectorAll('h2[id]'));
+          if (h2s.length < MIN_SECTIONS || main.innerText.length < MIN_CHARS) { return; }
+
+          // Wrap each h2 and the content up to the next h2 in a collapsed <details>. Whatever
+          // sits before the first h2 (the header card and intro) stays open above the list.
+          h2s.forEach(function (h2) {
+            var parent = h2.parentNode;
+            var details = el('details', { className: 'tsw-fold' });
+            var summary = el('summary', { className: 'tsw-fold-summary' });
+            var body = el('div', { className: 'tsw-fold-body' });
+            parent.insertBefore(details, h2);
+            details.appendChild(summary);
+            summary.appendChild(h2);
+            details.appendChild(body);
+            var node = details.nextSibling;
+            while (node && !(node.nodeType === 1 && node.tagName === 'H2')) {
+              var next = node.nextSibling;
+              body.appendChild(node);
+              node = next;
+            }
+          });
+
+          var folds = Array.prototype.slice.call(main.querySelectorAll('details.tsw-fold'));
+          if (!folds.length) { return; }
+
+          // Expand all / collapse all above the first section, and the way to open everything
+          // for a Ctrl+F across the whole page.
+          var bar = el('div', { className: 'tsw-fold-bar' });
+          var toggle = el('button', { type: 'button', className: 'tsw-fold-toggle', 'aria-expanded': 'false' }, 'Expand all');
+          bar.appendChild(toggle);
+          folds[0].parentNode.insertBefore(bar, folds[0]);
+          function sync() {
+            var anyClosed = folds.some(function (d) { return !d.open; });
+            toggle.textContent = anyClosed ? 'Expand all' : 'Collapse all';
+            toggle.setAttribute('aria-expanded', String(!anyClosed));
+          }
+          toggle.addEventListener('click', function () {
+            var anyClosed = folds.some(function (d) { return !d.open; });
+            folds.forEach(function (d) { d.open = anyClosed; });
+            sync();
+          });
+          folds.forEach(function (d) { d.addEventListener('toggle', sync); });
+
+          // Previous and Next within the topic, at the foot of each section.
+          function go(d) {
+            d.open = true;
+            var s = d.querySelector('summary');
+            if (!s) { return; }
+            requestAnimationFrame(function () { scrollToEl(s); });
+            setTimeout(function () { scrollToEl(s); }, 90);
+          }
+          function title(d) {
+            var h = d.querySelector('summary h2');
+            return h ? h.textContent.replace(/\s+/g, ' ').trim() : 'section';
+          }
+          folds.forEach(function (d, i) {
+            var body = d.querySelector('.tsw-fold-body');
+            var nav = el('nav', { className: 'tsw-fold-nav', 'aria-label': 'Section navigation' });
+            if (i > 0) {
+              var p = el('button', { type: 'button', className: 'tsw-fold-prev' }, 'Previous: ' + title(folds[i - 1]));
+              p.addEventListener('click', function () { go(folds[i - 1]); });
+              nav.appendChild(p);
+            }
+            if (i < folds.length - 1) {
+              var n = el('button', { type: 'button', className: 'tsw-fold-next' }, 'Next: ' + title(folds[i + 1]));
+              n.addEventListener('click', function () { go(folds[i + 1]); });
+              nav.appendChild(n);
+            }
+            if (nav.childNodes.length) { body.appendChild(nav); }
+          });
+
+          sync();
+          // A deep link or search result may have set the hash before the folds existed.
+          openForHash();
         });
       });
 

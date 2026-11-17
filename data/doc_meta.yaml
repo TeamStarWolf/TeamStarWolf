@@ -3543,6 +3543,48 @@ pages:
     start_at: "[Executive assessment](#executive-assessment), [Original analysis: resilience has more than one finish line](#original-analysis-resilience-has-more-than-one-finish-line), [The audit trail is a recovery asset](#the-audit-trail-is-a-recovery-asset)"
     pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Cyber Resilience BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Maze 2019-2020](/case-studies/MAZE_2019_2020.md)"
     reviewed: null
+  case-studies/MGM_2019.md:
+    audience: "Data-protection and identity-security teams, incident responders, notification and legal owners, and risk leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2019 MGM guest-data breach, you need to keep it separate from the 2023 attack and the joint settlement or an access duration from a harm duration, or you are reviewing developer-access boundaries and cross-border notification"
+    start_at: "[Executive assessment](#executive-assessment), [2. The developer-access boundary](#_2-the-developer-access-boundary), [4. Buying a copy is not recovering exclusivity](#_4-buying-a-copy-is-not-recovering-exclusivity)"
+    pairs_with: "[Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
+  case-studies/TMOBILE_2021.md:
+    audience: "Telecom and enterprise security teams, incident responders, notification and compliance owners, and risk leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2021 T-Mobile breach, you need to separate the intrusion clock from the disclosure clock or a settlement fund from per-person payments, or you are reviewing environment boundaries, notice quality and multi-incident regulatory scope"
+    start_at: "[Executive assessment](#executive-assessment), [2. Separate the intrusion clock from the disclosure clock](#_2-separate-the-intrusion-clock-from-the-disclosure-clock), [3. What the technical record supports](#_3-what-the-technical-record-supports)"
+    pairs_with: "[Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Telecom 5G Security Reference](/TELECOM_5G_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Regulatory Landscape Reference](/REGULATORY_LANDSCAPE_REFERENCE.md)"
+    reviewed: null
+  case-studies/TWITCH_2021.md:
+    audience: "Platform and application security teams, incident responders, secrets and configuration owners, and communications leaders"
+    level: "Intermediate"
+    read_when: "You want a shorter, evidence-bounded account of the 2021 Twitch incident, you need to separate configuration exposure from a password breach or source visibility from execution control, or you are reviewing credential-role communication under an evidence-limited record"
+    start_at: "[Executive assessment](#executive-assessment), [3. Different secrets support different actions](#_3-different-secrets-support-different-actions), [5. Source visibility is not the same as execution control](#_5-source-visibility-is-not-the-same-as-execution-control)"
+    pairs_with: "[Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md)"
+    reviewed: null
+  case-studies/CANVA_2019_2020.md:
+    audience: "Identity and password-security teams, incident communicators, data-protection owners and security-awareness leaders"
+    level: "Intermediate"
+    read_when: "You want a shorter, evidence-bounded account of the 2019-2020 Canva breach, you need to separate access to protected password records from recovered passwords or a count's units, or you are reviewing reassuring-language risk and reused-credential exposure"
+    start_at: "[Executive assessment](#executive-assessment), [3. Hashing and recovery: the technical distinction](#_3-hashing-and-recovery-the-technical-distinction), [7. Exact editorial improvements for a case-study audit](#_7-exact-editorial-improvements-for-a-case-study-audit)"
+    pairs_with: "[Password Security Reference](/PASSWORD_SECURITY_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [LinkedIn 2012-2016](/case-studies/LINKEDIN_2012_2016.md)"
+    reviewed: null
+  case-studies/CATHAY_PACIFIC_2018.md:
+    audience: "Data-protection and application-security teams, vulnerability-management and identity owners, incident responders and privacy leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2018 Cathay Pacific breach, you need to separate a field count from a person count or an attacker technique from an identity, or you are reviewing migration-copy governance, retention and evidence preservation during recovery"
+    start_at: "[Executive assessment](#executive-assessment), [1. Sources and what they can establish](#_1-sources-and-what-they-can-establish), [10. Migration copies and exception governance](#_10-migration-copies-and-exception-governance)"
+    pairs_with: "[Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Privacy Engineering Reference](/PRIVACY_ENGINEERING_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
+  case-studies/LEDGER_2020.md:
+    audience: "Commerce and product security teams, data-protection and support owners, incident responders and anti-phishing leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2020 Ledger customer-data breaches, you need to separate product security from customer security or a confirmed minimum from an established maximum or overlapping datasets, or you are reviewing API-credential scope, support-access risk and phishing trust"
+    start_at: "[Executive assessment](#executive-assessment), [3. December disclosure and the revised estimate](#_3-december-disclosure-and-the-revised-estimate), [6. Product security and customer security](#_6-product-security-and-customer-security)"
+    pairs_with: "[Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
   commands/aws-cli.md:
     audience: "Cloud engineers, administrators and security teams who work in AWS from a terminal"
     level: "Beginner to intermediate"

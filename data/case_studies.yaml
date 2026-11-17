@@ -5116,3 +5116,116 @@ studies:
       - {"date": "2020-08-06", "label": "Restructuring completes via administration; 1,802 UK jobs safeguarded, 1,309 UK redundancies"}
       - {"date": "2021-11-29", "label": "KPMG disclaims an audit opinion, citing evidence limitations from the restructuring and the malware incident"}
       - {"date": "2022-04", "label": "An Employment Tribunal records agreed background facts recognizing multiple business pressures"}
+  case-studies/MGM_2019.md:
+    kind: "incident"
+    title: "MGM 2019: Guest Data, Developer Access and Delayed Notification"
+    start: "2019"
+    end: "2025"
+    core_start: "2019"
+    core_end: "2019"
+    sectors: ["retail"]
+    cves: []
+    actors: []
+    tags: ["data breach", "guest data", "developer access", "MGM", "notification", "cloud"]
+    pdf: "MGM_2019_Case_Study.pdf"
+    events:
+      - {"date": "2019-07-07", "label": "Reused employee credentials open a developer platform; an MFA bypass and a temporary token enable about an hour of cloud-database access and exfiltration"}
+      - {"date": "2019-07-24", "label": "MGM buys a copy of the data after law-enforcement consultation"}
+      - {"date": "2019-09-05", "label": "Certain US notifications begin"}
+      - {"date": "2020-02-28", "label": "Canadian analysis begins after OPC contact; the data resurfaces for sale"}
+      - {"date": "2022-05-19", "label": "The OPC publishes its findings (1,934,090 affected Canadians); well-founded and conditionally resolved"}
+      - {"date": "2022-11-02", "label": "A Nevada court grants MGM's dismissal motion in part"}
+      - {"date": "2025-06-18", "label": "A court grants final approval of a $45 million settlement covering the 2019 and 2023 incidents"}
+  case-studies/TMOBILE_2021.md:
+    kind: "incident"
+    title: "T-Mobile 2021: Lab Access, Customer Records and the Long Accountability Trail"
+    start: "2021"
+    end: "2025"
+    core_start: "2021"
+    core_end: "2021"
+    sectors: ["telecommunications"]
+    cves: []
+    actors: []
+    tags: ["data breach", "telecom", "lab access", "customer records", "T-Mobile", "notification"]
+    pdf: "T-Mobile_2021_Case_Study.pdf"
+    events:
+      - {"date": "2021-03-18", "label": "Initial access to some systems (per the later SEC filing)"}
+      - {"date": "2021-08-03", "label": "Access to and taking of customer data begins (per the SEC filing)"}
+      - {"date": "2021-08-12", "label": "T-Mobile becomes aware of the issue"}
+      - {"date": "2021-08-17", "label": "T-Mobile discloses about 7.8 million postpaid accounts and 40+ million former or prospective records exposed; updated 20 August"}
+      - {"date": "2024-07-29", "label": "The Eighth Circuit reverses the attorneys' fee award in the $350 million class settlement"}
+      - {"date": "2024-09-30", "label": "The FCC announces a $15.75 million penalty plus a $15.75 million security-spending commitment (multiple incidents)"}
+      - {"date": "2025-01-06", "label": "Washington's attorney general sues T-Mobile (79+ million consumers nationally)"}
+  case-studies/TWITCH_2021.md:
+    kind: "incident"
+    title: "Twitch 2021: Source Code, Payouts and the Limits of the Public Record"
+    start: "2021"
+    end: "2024"
+    core_start: "2021"
+    core_end: "2021"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["data breach", "source code", "configuration", "Twitch", "stream keys", "confidentiality"]
+    pdf: "Twitch_2021_Case_Study.pdf"
+    events:
+      - {"date": "2021-10-06", "label": "Twitch attributes exposure to an erroneous server-configuration change and malicious third-party access; no indication of exposed login credentials"}
+      - {"date": "2021-10-07", "label": "Twitch precautionarily replaces all stream keys"}
+      - {"date": "2021-10-15", "label": "Twitch reports remediation; exposed material was source-repository documents and some creator-payout data; passwords not exposed"}
+      - {"date": "2024-11-16", "label": "Turkey's KVKK is reported to impose TRY 2 million in penalties (35,274 affected Turkey residents)"}
+  case-studies/CANVA_2019_2020.md:
+    kind: "incident"
+    title: "Canva 2019-2020: Password-Store Exposure and the Cost of Reassuring Language"
+    start: "2019"
+    end: "2020"
+    core_start: "2019"
+    core_end: "2019"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["data breach", "password storage", "bcrypt", "Canva", "breach communication", "credential exposure"]
+    pdf: "Canva_2019_2020_Case_Study.pdf"
+    events:
+      - {"date": "2019-05-24", "label": "Canva interrupts an attack; later reports up to 139 million profiles and bcrypt-protected passwords exposed"}
+      - {"date": "2019-08-09", "label": "The collection is added to Have I Been Pwned (about 137 million addresses)"}
+      - {"date": "2019-08-13", "label": "The University of the Philippines issues a Canva advisory"}
+      - {"date": "2020-01-11", "label": "Canva learns of about four million accounts with recovered passwords; resets unchanged historical passwords the next day"}
+      - {"date": "2020-02-28", "label": "Miami University issues a further advisory"}
+  case-studies/CATHAY_PACIFIC_2018.md:
+    kind: "incident"
+    title: "Cathay Pacific, 2018: Passenger Data, Migration Exceptions and Evidence That Survives Recovery"
+    start: "2014"
+    end: "2020"
+    core_start: "2018"
+    core_end: "2018"
+    sectors: ["transport"]
+    cves: []
+    actors: []
+    tags: ["data breach", "aviation", "passenger data", "data retention", "ICO", "migration"]
+    pdf: "Cathay_Pacific_2018_Case_Study.pdf"
+    events:
+      - {"date": "2014-10", "label": "The earliest known compromise (per the later ICO chronology)"}
+      - {"date": "2018-03", "label": "Suspicious activity is discovered"}
+      - {"date": "2018-05-11", "label": "The last unauthorized personal-data access (per the ICO)"}
+      - {"date": "2018-10-24", "label": "Cathay discloses the breach: about 9.4 million affected, including ~860,000 passport numbers"}
+      - {"date": "2019-06-06", "label": "The Hong Kong Privacy Commissioner publishes its investigation report (security and retention contraventions)"}
+      - {"date": "2020-02-10", "label": "The UK ICO imposes a 500,000 pound penalty under the Data Protection Act 1998"}
+  case-studies/LEDGER_2020.md:
+    kind: "incident"
+    title: "Ledger Customer-Data Breaches, 2020: Commerce Records, Phishing and the Limits of Product Security"
+    start: "2020"
+    end: "2021"
+    core_start: "2020"
+    core_end: "2020"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["data breach", "cryptocurrency", "phishing", "Ledger", "Shopify", "customer data"]
+    pdf: "Ledger_2020_Case_Study.pdf"
+    events:
+      - {"date": "2020-06-25", "label": "Unauthorized commerce-data access through an API key (identified later)"}
+      - {"date": "2020-07-29", "label": "Ledger discloses the breach: about one million email addresses and ~9,500 detailed records"}
+      - {"date": "2020-09-22", "label": "Shopify discloses a separate support-staff data-access incident (fewer than 200 merchants)"}
+      - {"date": "2020-12-21", "label": "A publicly released database reveals about 272,000 detailed records; Ledger revises its scope"}
+      - {"date": "2021-01-13", "label": "Ledger reports Shopify-related exports (about 292,000 records, around 93 percent overlap)"}
+      - {"date": "2021-11-09", "label": "A US court dismisses Baton v. Ledger SAS for lack of personal jurisdiction"}

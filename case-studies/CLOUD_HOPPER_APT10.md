@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- A managed-service provider's compromise reaches its customers: the customer's security boundary includes the provider's identities, tools and practices. ([Executive summary](#executive-summary))
+- The record describes an espionage campaign through managed-service providers and their customers, followed by attribution and criminal charges. ([Executive summary](#executive-summary))
+- Provider compromise can create customer exposure, but exposure, access and verified theft remain different findings. ([Executive summary](#executive-summary))
+- Recovery requires restoring the trust relationship, not merely cleaning the computer where the first alert appeared. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

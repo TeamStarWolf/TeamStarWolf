@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- A supplier incident can affect your security without any malicious update: information at a trusted authentication supplier can itself help an adversary. ([Executive assessment](#executive-assessment))
+- An organization does not have to receive a malicious software update for an incident at a supplier to affect its security assumptions. ([Executive assessment](#executive-assessment))
+- The lesson: distinguish a control's normal operation from confidence in the assumptions that make the control valuable. ([Executive assessment](#executive-assessment))
+- An authentication system can continue to function while its assurance requires reassessment. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

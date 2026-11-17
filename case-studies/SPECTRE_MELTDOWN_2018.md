@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Spectre and Meltdown were vulnerability disclosures and demonstrations of information leakage, not an incident like a ransomware deployment. ([Executive assessment](#executive-assessment))
+- The subject is the change in security assumptions and the difficulty of deploying mitigations across independently maintained components. ([Executive assessment](#executive-assessment))
+- A patch receipt is a change-management event; protection is a property of the resulting system under a particular threat model. ([Executive assessment](#executive-assessment))
+- Mitigation remains configuration-specific, per maintained Linux documentation. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

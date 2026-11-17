@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- A certificate can carry a valid signature while making an unauthorized claim about identity. ([Executive assessment](#executive-assessment))
+- The record establishes a real CA compromise, fraudulent issuance, and abuse against Google users primarily in Iran. ([Executive assessment](#executive-assessment))
+- Repairing a server does not undo credentials already distributed outside it. ([Executive assessment](#executive-assessment))
+- The most useful lesson is operational: distrust must be an executable capability. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

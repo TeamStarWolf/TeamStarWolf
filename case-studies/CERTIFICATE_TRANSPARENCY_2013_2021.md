@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Certificate Transparency adds public evidence to a system that depended heavily on certificate authorities behaving correctly out of view. ([Executive assessment](#executive-assessment))
+- What it does not fix: it is no guarantee that a logged certificate was authorized, that a website is honest, or that a connection is safe. ([Executive assessment](#executive-assessment))
+- Transparency needs someone who can interpret and act on what becomes visible. ([Executive assessment](#executive-assessment))
+- Investigation must distinguish surprise from confirmed misissuance; an unfamiliar certificate can be legitimate infrastructure. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

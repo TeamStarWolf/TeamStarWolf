@@ -1036,3 +1036,45 @@ pages:
       - {"text": "A device can keep its technical boundary while commerce records expose its owner to deception, harassment or unwanted attention.", "from": "#executive-assessment", "quote": "A device can retain its intended technical boundary while commerce records expose its owner to deception, harassment or unwanted attention"}
       - {"text": "The study does not describe the leaked commerce database as a repository of wallet private keys.", "from": "#executive-assessment", "quote": "It does not describe the commerce database as a repository of wallet private keys"}
       - {"text": "Estimates need dates and denominators: email addresses, customer records, customers and merchants are not interchangeable units.", "from": "#executive-assessment", "quote": "Email addresses, detailed customer records, customers and merchants are not interchangeable units"}
+  case-studies/CERTIFICATE_TRANSPARENCY_2013_2021.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Certificate Transparency adds public evidence to a system that depended heavily on certificate authorities behaving correctly out of view.", "from": "#executive-assessment", "quote": "Certificate Transparency, or CT, adds public evidence to a system that previously depended heavily on certificate authorities behaving correctly out of view"}
+      - {"text": "What it does not fix: it is no guarantee that a logged certificate was authorized, that a website is honest, or that a connection is safe.", "from": "#executive-assessment", "quote": "it is not a guarantee that a logged certificate was authorized, that a website is honest or that a particular connection is safe"}
+      - {"text": "Transparency needs someone who can interpret and act on what becomes visible.", "from": "#executive-assessment", "quote": "transparency needs someone who can interpret and act on what becomes visible"}
+      - {"text": "Investigation must distinguish surprise from confirmed misissuance; an unfamiliar certificate can be legitimate infrastructure.", "from": "#executive-assessment", "quote": "Investigation must distinguish surprise from confirmed misissuance"}
+  case-studies/DNS_OVER_TLS_2016.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "DNS over TLS shows why adding encryption is not the same as defining a complete privacy service.", "from": "#executive-assessment", "quote": "DNS over TLS (DoT) illustrates why adding encryption is not the same as defining a complete privacy service"}
+      - {"text": "The central distinction is between attempting encryption and requiring an authenticated encrypted connection.", "from": "#executive-assessment", "quote": "The central distinction is between attempting encryption and requiring an authenticated encrypted connection"}
+      - {"text": "A product can support DoT without guaranteeing that every lookup is protected.", "from": "#executive-assessment", "quote": "A product can support DoT without guaranteeing that every lookup is protected"}
+      - {"text": "A strict client can refuse to resolve a name when the required secure service is unavailable, which may be the intended outcome.", "from": "#executive-assessment", "quote": "a strict client can preserve its confidentiality requirement by refusing to resolve a name when the required secure service is unavailable"}
+  case-studies/LETS_ENCRYPT_ACME_2014_2021.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Let's Encrypt turned a recurring administrative task into a service that software and hosting platforms could consume.", "from": "#executive-summary", "quote": "Let's Encrypt changed a recurring administrative task into a service that software and hosting platforms could consume"}
+      - {"text": "The advancement was not TLS itself but free issuance, an automated protocol, client integration, a running CA and a route into browser trust.", "from": "#executive-summary", "quote": "It was the combination of free certificate issuance, an automated validation and management protocol, client integration, an operating certificate authority and a route into the trust infrastructure already present in browsers"}
+      - {"text": "The history includes constraints a success story misses: a 2020 CAA-recheck defect and a dispute over delayed revocation.", "from": "#executive-summary", "quote": "A 2020 implementation defect affected CAA rechecking, followed by a public dispute over delayed revocation"}
+      - {"text": "What it does not fix: those events show where the system's promises ended and where separate operational obligations began.", "from": "#executive-summary", "quote": "They show where the system's promises ended and where separate operational obligations began"}
+  case-studies/QUIC_2021.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The May 2021 QUIC specs formalized a transport integrating security, multiplexed streams and connection management over UDP.", "from": "#executive-assessment", "quote": "The May 2021 QUIC specifications formalized a transport design that integrated security, multiplexed streams and connection management over UDP"}
+      - {"text": "QUIC is not simply an HTTP revision or a TLS record stream moved unchanged from TCP to UDP.", "from": "#executive-assessment", "quote": "QUIC is not simply an HTTP revision or a TLS record stream moved unchanged from TCP to UDP"}
+      - {"text": "QUIC changed the responsibilities of endpoints and networks as well as connection latency.", "from": "#executive-assessment", "quote": "QUIC changed the responsibilities of endpoints and networks as well as connection latency"}
+      - {"text": "Faster startup, less cross-stream blocking and more protected transport metadata each came with operational qualifications.", "from": "#executive-assessment", "quote": "Faster startup, reduced cross-stream blocking and more protected transport metadata each came with operational qualifications"}
+  case-studies/TLS_1_3_2018.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "TLS 1.3 is an advancement in a widely used security protocol, not a breach: it removes problematic choices and reduces delay.", "from": "#executive-assessment", "quote": "a standard can improve security by removing problematic choices, reorganizing negotiation and reducing unnecessary delay"}
+      - {"text": "Security properties have boundaries: encryption protects a channel between its endpoints.", "from": "#executive-assessment", "quote": "Encryption protects a channel between its endpoints"}
+      - {"text": "What it does not fix: it does not protect information after an endpoint receives it, establish a site is honest, or make repeated actions harmless.", "from": "#executive-assessment", "quote": "It does not automatically protect information after an endpoint receives it, establish that a website is honest, or make repeated application actions harmless"}
+      - {"text": "Faster establishment introduces decisions about which data can safely arrive before the ordinary handshake finishes.", "from": "#executive-assessment", "quote": "Faster establishment also introduces decisions about which data can safely arrive before the ordinary handshake finishes"}
+  case-studies/WEBAUTHN_2019.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "WebAuthn's significance is changing how a service authenticates a user, reducing dependence on reusable secrets people can disclose to an impostor.", "from": "#executive-assessment", "quote": "the opportunity to change how an online service authenticates a user, reducing dependence on reusable secrets that people can disclose to an impostor"}
+      - {"text": "The central distinction is between a stronger authentication transaction and a completely secure account.", "from": "#executive-assessment", "quote": "The central distinction is between a stronger authentication transaction and a completely secure account"}
+      - {"text": "What it does not fix: a strong sign-in does not repair account recovery, enrollment, authorization, endpoint security or session handling.", "from": "#executive-assessment", "quote": "A carefully designed sign-in method does not automatically repair account recovery, enrollment, authorization, endpoint security or session handling"}
+      - {"text": "The study anchors the milestone in the March 2019 W3C Recommendation, with later passkey developments as context.", "from": "#executive-assessment", "quote": "This article anchors the historical milestone in the fixed March 2019 W3C Recommendation"}

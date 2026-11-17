@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- A modern website could inherit risk from a separate legacy service because both used the same RSA private key. ([Executive assessment](#executive-assessment))
+- DROWN showed a vulnerable obsolete service could assist attacks against traffic associated with another service. ([Executive assessment](#executive-assessment))
+- The dependency followed cryptographic key use rather than the application name displayed to the user. ([Executive assessment](#executive-assessment))
+- It was a research demonstration: the study invents no victim, threat actor, ransom demand or count of stolen records. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Cathay Pacific shows how personal-data security can fail across several organizational boundaries at once. ([Executive assessment](#executive-assessment))
+- Removing a compromised server reduces exposure but can make later independent review harder if evidence is not preserved first. ([Executive assessment](#executive-assessment))
+- Passenger information is not a homogeneous dataset; different people had different fields exposed. ([Executive assessment](#executive-assessment))
+- A statement about passwords does not answer questions about travel history or identity-document numbers. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 Historical focus: Cathay Pacific and Cathay Dragon passenger-data exposure disclosed in October 2018, the Hong Kong privacy regulator's June 2019 investigation, and the UK Information Commissioner's February 2020 penalty notice. This is a source-grounded case study and original defensive analysis, not a current legal assessment or a reconstruction of redacted systems.

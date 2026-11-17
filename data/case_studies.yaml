@@ -5009,3 +5009,110 @@ studies:
       - {"date": "2017-09-12", "label": "Public disclosure of BlueBorne (Armis); CERT/CC note VU#240311; Android bulletin and Ubuntu BlueZ (USN-3413-1) updates"}
       - {"date": "2017-09-18", "label": "Ubuntu ships the kernel fix (USN-3420-1) for CVE-2017-1000251"}
       - {"date": "2017-10-04", "label": "Red Hat publishes its BlueBorne analysis"}
+  case-studies/ATLANTA_SAMSAM_2018.md:
+    kind: "incident"
+    title: "Atlanta and SamSam, 2018: Restoring a City Requires More Than Decrypting Its Files"
+    start: "2018"
+    end: "2019"
+    sectors: ["government"]
+    cves: []
+    actors: []
+    tags: ["ransomware", "SamSam", "municipal", "public sector", "recovery", "Atlanta"]
+    pdf: "Atlanta_SamSam_2018_Case_Study.pdf"
+    events:
+      - {"date": "2018-03-10", "label": "The Atlanta intrusion and encryption activity window (about 10-22 March 2018, per the federal account)"}
+      - {"date": "2018-03-22", "label": "Major operational disruption; the city does not pay the ~$51,000 demand"}
+      - {"date": "2018-11-28", "label": "Treasury designates two Iran-based financial facilitators; the SamSam campaign indictment is announced (200+ victims)"}
+      - {"date": "2018-12-05", "label": "DOJ announces Atlanta-specific charges against Savandi and Mansouri (about 3,789 affected computers)"}
+      - {"date": "2019-06-25", "label": "Mayor Bottoms testifies to Congress; about $7.2 million in recovery costs to date"}
+  case-studies/NORSK_HYDRO_LOCKERGOGA_2019.md:
+    kind: "incident"
+    title: "Norsk Hydro and LockerGoga, 2019: Recovery Had to Reach the Factory Floor"
+    start: "2018"
+    end: "2020"
+    core_start: "2019"
+    core_end: "2019"
+    sectors: ["manufacturing"]
+    cves: []
+    actors: []
+    tags: ["ransomware", "LockerGoga", "manufacturing", "OT", "business continuity", "Norsk Hydro"]
+    pdf: "Norsk_Hydro_LockerGoga_2019_Case_Study.pdf"
+    events:
+      - {"date": "2018-12", "label": "A malicious attachment establishes an initial foothold (per Microsoft's later responder account)"}
+      - {"date": "2019-03-19", "label": "Hydro discloses the attack; plants isolated and moved to manual operation where possible"}
+      - {"date": "2019-03-21", "label": "An intermediate operating-status update"}
+      - {"date": "2019-04-05", "label": "Most production is normal or near normal while reporting, billing and invoicing still lag"}
+      - {"date": "2019-12-16", "label": "Microsoft publishes a responder account (credential capture, manual ransomware push from domain controllers)"}
+      - {"date": "2020", "label": "The 2020 financial statements revise the estimated impact to NOK 800 million to 1 billion; NOK 769 million total insurance received"}
+  case-studies/GARMIN_WASTEDLOCKER_2020.md:
+    kind: "incident"
+    title: "Garmin's 2020 Outage: Connected-Service Recovery and the WastedLocker Evidence Boundary"
+    start: "2020"
+    end: "2020"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["ransomware", "WastedLocker", "connected services", "outage", "business continuity", "Garmin"]
+    pdf: "Garmin_WastedLocker_2020_Case_Study.pdf"
+    events:
+      - {"date": "2020-06-25", "label": "Symantec reports the WastedLocker campaign (at least 31 organizations), predating the Garmin outage"}
+      - {"date": "2020-07-23", "label": "Garmin says some systems were encrypted and online services interrupted"}
+      - {"date": "2020-07-27", "label": "Garmin's public statement (filed with the SEC); no indication customer data was accessed"}
+      - {"date": "2020-07-29", "label": "Microsoft publishes its WastedLocker entry"}
+      - {"date": "2020", "label": "Garmin's 2020 Form 10-K reports independent forensic analysis found no indication of customer-data access"}
+  case-studies/BALTIMORE_ROBBINHOOD_2019.md:
+    kind: "incident"
+    title: "Baltimore and RobbinHood, 2019: When a Network Outage Becomes a Transaction Crisis"
+    start: "2019"
+    end: "2025"
+    core_start: "2019"
+    core_end: "2019"
+    sectors: ["government"]
+    cves: []
+    actors: []
+    tags: ["ransomware", "RobbinHood", "municipal", "public sector", "business continuity", "Baltimore"]
+    pdf: "Baltimore_RobbinHood_2019_Case_Study.pdf"
+    events:
+      - {"date": "2019-05-07", "label": "The RobbinHood attack is discovered; systems taken offline for containment"}
+      - {"date": "2019-05-17", "label": "The city describes containment, manual alternatives and a temporary property-transaction process"}
+      - {"date": "2019-06-10", "label": "About 65 percent of employees regain computer and email access; service-specific limits continue"}
+      - {"date": "2019", "label": "The city council enacts a $10 million supplementary appropriation for ransomware response"}
+      - {"date": "2020-01-24", "label": "A Maryland fiscal note records an early ~$18 million estimate (including potential lost or delayed revenue)"}
+      - {"date": "2025-05-27", "label": "The Justice Department announces Sina Gholinejad's guilty plea; Baltimore losses exceeding $19 million"}
+  case-studies/MAZE_2019_2020.md:
+    kind: "campaign"
+    title: "Maze 2019-2020: Encryption, Data Theft and the Limits of Containment"
+    start: "2019"
+    end: "2020"
+    core_start: "2019"
+    core_end: "2020"
+    sectors: ["cross-sector"]
+    cves: []
+    actors: []
+    tags: ["ransomware", "Maze", "double extortion", "data theft", "service provider", "Cognizant"]
+    pdf: "Maze_2019_2020_Case_Study.pdf"
+    events:
+      - {"date": "2019-05", "label": "Maze activity observed from at least May 2019 (per Mandiant); shift to post-intrusion deployment and double extortion"}
+      - {"date": "2020-04-18", "label": "Cognizant confirms a Maze incident affecting internal systems and some client services"}
+      - {"date": "2020-04-20", "label": "Cognizant files an 8-K with an early assessment and financial-risk warning"}
+      - {"date": "2020-05-07", "label": "Cognizant reports it believes the attack is contained; projects a $50 to 70 million quarterly impact"}
+      - {"date": "2020-07", "label": "A Sophos casebook describes an unnamed Maze incident: repeated blocked encryption attempts, prior data theft, a $15 million demand not paid"}
+  case-studies/TRAVELEX_2020.md:
+    kind: "incident"
+    title: "Travelex 2019-2020: Ransomware, Business Continuity and the Long Tail of Lost Evidence"
+    start: "2019"
+    end: "2022"
+    core_start: "2019"
+    core_end: "2020"
+    sectors: ["finance"]
+    cves: []
+    actors: []
+    tags: ["ransomware", "Sodinokibi", "REvil", "business continuity", "financial services", "Travelex"]
+    pdf: "Travelex_2020_Case_Study.pdf"
+    events:
+      - {"date": "2019-12-31", "label": "Travelex detects the Sodinokibi (REvil) ransomware and takes systems offline"}
+      - {"date": "2020-01-08", "label": "Finablr discloses the incident; no evidence at that time of data exfiltration or encryption of structured personal data"}
+      - {"date": "2020-03-02", "label": "Travelex announces restoration of customer-facing systems; a ~25 million pound Q1 EBITDA estimate (mostly malware, with COVID-19)"}
+      - {"date": "2020-08-06", "label": "Restructuring completes via administration; 1,802 UK jobs safeguarded, 1,309 UK redundancies"}
+      - {"date": "2021-11-29", "label": "KPMG disclaims an audit opinion, citing evidence limitations from the restructuring and the malware incident"}
+      - {"date": "2022-04", "label": "An Employment Tribunal records agreed background facts recognizing multiple business pressures"}

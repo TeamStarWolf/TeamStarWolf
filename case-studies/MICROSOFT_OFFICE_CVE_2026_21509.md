@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Microsoft shipped an out-of-band fix for an Office flaw that let a mailed document load risky COM/OLE controls, already being exploited. ([Executive summary](#executive-summary))
+- Within three days, emails with a weather-bulletin exploit document reached more than 60 addresses, mostly at Ukrainian central executive bodies. ([Executive summary](#executive-summary))
+- The lure was themed on EU consultations about Ukraine. ([Executive summary](#executive-summary))
+- CERT-UA attributed the attacks to UAC-0001, which it tracks as APT28. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

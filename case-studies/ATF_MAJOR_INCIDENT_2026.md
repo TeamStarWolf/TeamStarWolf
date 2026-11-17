@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- On 26 August 2026 the Qilin ransomware operation added the US ATF to its leak site. ([Executive summary](#executive-summary))
+- The listing named the agency and little else: no proof screenshots, no leak timer, no word on stolen files or a ransom. ([Executive summary](#executive-summary))
+- ATF said one standalone system, separate from its enterprise network, was affected and its missions were not. ([Executive summary](#executive-summary))
+- ATF's own page returned HTTP 403 for this study, so its words reach the brief through two publishers that quote it. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

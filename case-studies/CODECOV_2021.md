@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Codecov is a case of inherited authority: a narrow coverage-upload step sat in an environment with authority far beyond uploading a report. ([Executive summary](#executive-summary))
+- Unauthorized uploader changes ran from 31 January to 1 April 2021, across 108 affected windows rather than one continuous interval. ([Executive summary](#executive-summary))
+- The cause was an HMAC key recoverable from an intermediate layer of Codecov's public Docker image, used to alter the stored uploader. ([Executive summary](#executive-summary))
+- A customer detected an unexpected SHA256 mismatch and reported it on 1 April, surfacing the compromise. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- VPNFilter shows an easily missed boundary: the device carrying an organization's traffic can itself become an adversary-controlled computer. ([Executive summary](#executive-summary))
+- A successful intervention can interrupt malicious activity without removing the condition that enables its return. ([Executive summary](#executive-summary))
+- A team needs separate completion criteria for disruption, device recovery, credential protection and investigating connected systems. ([Executive summary](#executive-summary))
+- Published malware capabilities are not a tally of actions performed against every victim. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

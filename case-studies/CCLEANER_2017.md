@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- CCleaner challenged a shortcut: downloading from the official source and checking the signature cannot prove the build process was trustworthy. ([Executive summary](#executive-summary))
+- When malicious content enters before an artifact is signed, the resulting package satisfies the checks users were taught to perform. ([Executive summary](#executive-summary))
+- A widely installed consumer utility created a large opportunity, while a later stage selected a much smaller population. ([Executive summary](#executive-summary))
+- Downloads, affected installs, callbacks, selected targets and confirmed second-stage delivery are different measurements. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

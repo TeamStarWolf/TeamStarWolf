@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- A widely distributed, apparently legitimate update served as a selective entry mechanism for a much smaller set of systems. ([Executive summary](#executive-summary))
+- Kaspersky reported more than 57,000 affected users in its own telemetry, while saying a worldwide count could not be calculated. ([Executive summary](#executive-summary))
+- The modified installers came from official ASUS update infrastructure and were signed with legitimate ASUS certificates. ([Executive summary](#executive-summary))
+- The malware targeted selectively: more than 600 distinct MAC addresses recovered from over 200 samples were targeting selectors. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

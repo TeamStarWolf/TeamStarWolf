@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Drupalgeddon2 let untrusted requests influence internal processing in ways that enabled unauthenticated remote code execution. ([Executive assessment](#executive-assessment))
+- Once automated attacks were underway, an updated installation could still contain unauthorized changes left by an earlier compromise. ([Executive assessment](#executive-assessment))
+- Drupal issued SA-CORE-2018-002 for CVE-2018-7600 on 28 March 2018, warning of automated attacks by mid-April. ([Executive assessment](#executive-assessment))
+- The April follow-up, CVE-2018-7602, requires separate treatment, with a different identifier and prerequisites. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 Historical case study: CVE-2018-7600 and the distinct April 2018 follow-up CVE-2018-7602. Defensive analysis only. No exploit requests, payloads, persistence instructions or live testing.

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- PrintNightmare became shorthand for a confusing summer of Windows printing vulnerabilities, emergency updates and configuration guidance. ([Executive assessment](#executive-assessment))
+- Security state is a combination of software, policy, privilege and business workflow. ([Executive assessment](#executive-assessment))
+- A patch deployment can succeed while an inherited configuration still weakens a boundary. ([Executive assessment](#executive-assessment))
+- The study separates CVE-2021-1675 from CVE-2021-34527, which the shorthand name blurs. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 Historical vulnerability-response study with original defensive analysis. This article distinguishes related CVEs, dated vendor statements, configuration conditions and observed-exploitation reporting. It contains no exploit code, malicious-driver construction, target-selection instructions or live attack infrastructure. Historical settings are explained for research, not supplied as an instruction to change a production environment without review.

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Struts CVE-2017-5638 shows why security review must include what happens when an application rejects input. ([Executive assessment](#executive-assessment))
+- In the affected framework, exception handling and generation of an error message formed part of a remote code-execution path. ([Executive assessment](#executive-assessment))
+- A defensive conclusion changed: an early test suggested an alternative parser avoided the attack, but subsequent testing showed it remained affected. ([Executive assessment](#executive-assessment))
+- The study does not retell the Equifax breach as a substitute for analyzing the vulnerability. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 A vulnerability study of S2-045, S2-046 and the evidence needed to close a patch response. No exploit payloads, scanning commands or operational attack sequence are included.

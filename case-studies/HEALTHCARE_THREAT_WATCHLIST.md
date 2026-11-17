@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The HHS breach portal records cover about 702 million individual health records across 2023 to 2026. ([Executive summary](#executive-summary))
+- One entry dominates: Change Healthcare, at 192,700,000 individuals. ([Executive summary](#executive-summary))
+- After a December 2023 takedown, an ALPHV Blackcat administrator urged affiliates to target hospitals, and healthcare was hit most often. ([Executive summary](#executive-summary))
+- State-linked groups are in the record too: North Korea's Andariel funds espionage through ransomware against US healthcare. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

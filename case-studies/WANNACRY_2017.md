@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- On 12 May 2017, ransomware with automated SMB propagation created an international emergency. ([Executive summary](#executive-summary))
+- Microsoft connected the spread to vulnerabilities addressed by MS17-010, published on 14 March, two months earlier. ([Executive summary](#executive-summary))
+- The lesson is not that a patch existed, but that the distance between a published remedy and verified protection can mean interrupted care. ([Executive summary](#executive-summary))
+- A defender needed to know which machines existed, which were reachable, who could change them, and what those changes would interrupt. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

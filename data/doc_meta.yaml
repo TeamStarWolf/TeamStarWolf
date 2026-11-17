@@ -3921,6 +3921,20 @@ pages:
     start_at: "[Executive assessment](#executive-assessment), [4. Authentic code is not necessarily safe code](#_4-authentic-code-is-not-necessarily-safe-code), [6. The rollback problem made revocation essential](#_6-the-rollback-problem-made-revocation-essential)"
     pairs_with: "[Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md), [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
     reviewed: null
+  case-studies/EXIM_CVE_2019_10149.md:
+    audience: "Mail-platform and Linux security teams, vulnerability-management leads and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of CVE-2019-10149, you need to separate installing a correction from establishing confidence in an already exposed server or upstream versions from vendor packages, or you are planning mail-service recovery"
+    start_at: "[Executive assessment](#executive-assessment), [2. The correction preceded its security recognition](#_2-the-correction-preceded-its-security-recognition), [7. Early uncertainty and later exploitation are compatible](#_7-early-uncertainty-and-later-exploitation-are-compatible)"
+    pairs_with: "[Email Security Reference](/EMAIL_SECURITY_REFERENCE.md), [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
+  case-studies/MSHTML_CVE_2021_40444.md:
+    audience: "Windows platform and endpoint security teams, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want a shorter, evidence-bounded account of CVE-2021-40444, you need to separate a document delivery surface from the vulnerable component or an interim mitigation from a patch, or you want to avoid inheriting an overstated patch-bypass claim"
+    start_at: "[Executive assessment](#executive-assessment), [4. The document was a delivery surface, not the entire vulnerability](#_4-the-document-was-a-delivery-surface-not-the-entire-vulnerability), [6. Interim mitigation was not patch equivalence](#_6-interim-mitigation-was-not-patch-equivalence)"
+    pairs_with: "[Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
   commands/aws-cli.md:
     audience: "Cloud engineers, administrators and security teams who work in AWS from a terminal"
     level: "Beginner to intermediate"

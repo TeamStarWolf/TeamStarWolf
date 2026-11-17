@@ -433,3 +433,66 @@ pages:
       - {"text": "The listing named the agency and little else: no proof screenshots, no leak timer, no word on stolen files or a ransom.", "from": "#executive-summary", "quote": "The listing named the agency and little else: no proof screenshots, no leak timer, and no word on stolen files or a ransom"}
       - {"text": "ATF said one standalone system, separate from its enterprise network, was affected and its missions were not.", "from": "#executive-summary", "quote": "It said one standalone system, which operates separately from the ATF enterprise network, was affected"}
       - {"text": "ATF's own page returned HTTP 403 for this study, so its words reach the brief through two publishers that quote it.", "from": "#executive-summary", "quote": "ATF's own page returned HTTP 403 when opened for this study, so its words reach this brief through two publishers"}
+  case-studies/MAGENTO_CVE_2026_48356.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "PolyShell (CVE-2026-48356) lets an unauthenticated guest-cart call attach a file to a product option and write it to the web server's disk.", "from": "#executive-summary", "quote": "An unauthenticated guest-cart call accepts a file attached to a product's custom option"}
+      - {"text": "Whether the planted file runs as code depends on the web server configuration in front of Magento.", "from": "#executive-summary", "quote": "Whether that file then runs as code depends on the web server configuration in front of Magento"}
+      - {"text": "Sansec reported an automated wave that compromised 471 stores in one hour on 30 March.", "from": "#executive-summary", "quote": "an automated wave that compromised 471 stores in one hour on 30 March"}
+      - {"text": "The record is split: Adobe rated it Priority 2 and said it was not aware of exploits, even as CISA listed it as known-exploited.", "from": "#executive-summary", "quote": "a statement that Adobe was not aware of exploits in the wild"}
+  case-studies/GITLAB_CVE_2026_97229.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Under certain conditions an unauthenticated user could run arbitrary code on a self-managed GitLab server through a crafted regular expression.", "from": "#executive-summary", "quote": "an unauthenticated user could run arbitrary code on the server through a crafted regular expression"}
+      - {"text": "GitLab scored it CVSS 10.0; CISA added it to KEV seventeen days later.", "from": "#executive-summary", "quote": "GitLab scored it CVSS 3.1 10.0"}
+      - {"text": "The flaw is not GitLab's own code: it is an integer overflow in Ruby's regular-expression engine, fixed upstream.", "from": "#executive-summary", "quote": "an integer overflow in the size of a compiled pattern in Ruby's regular expression engine"}
+      - {"text": "A trap for defenders: a vulnerable 19.4.1 container and a fixed 19.4.2 container print the identical Ruby version string.", "from": "#executive-summary", "quote": "a vulnerable 19.4.1 container and a fixed 19.4.2 container print the identical Ruby version string"}
+  case-studies/PLEX_MEDIA_SERVER_2026_CVES.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Four flaws in Plex Media Server chain into unauthenticated remote code execution with the server process's privileges.", "from": "#executive-summary", "quote": "chain into code execution by an unauthenticated remote attacker with the privileges of the server process"}
+      - {"text": "The researcher calls the chain Plex2Shell and rates it 9.8 Critical; it matters most if you ever turned on Remote Access.", "from": "#executive-summary", "quote": "The researcher who found them, Zach Main, calls the chain Plex2Shell and rates it 9.8 Critical"}
+      - {"text": "By 19 October Plex described the flaws as actively and widely exploited, with compromised servers running miners and proxy software.", "from": "#executive-summary", "quote": "Plex was describing the flaws as actively and widely exploited, with compromised servers running cryptocurrency miners and proxy software"}
+      - {"text": "A trap the lab found: a host package check returned nothing while two Plex servers ran in containers.", "from": "#executive-summary", "quote": "A host package check returned nothing while two Plex servers ran in containers"}
+  case-studies/NEXTCLOUD_RICHDOCUMENTS_CVE_2026_110447.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The flaw let an unauthenticated request make the web server user run a command whenever the bundled Collabora server was not already running.", "from": "#executive-summary", "quote": "an unauthenticated request could make the web server user run a command of the attacker's choosing whenever the bundled server was not already running"}
+      - {"text": "The fix shipped in September 2026 without any security label, and the advisory followed 33 days later.", "from": "#executive-summary", "quote": "shipped on 11 September 2026 as 26.4.303 without any security label, and the advisory followed 33 days later"}
+      - {"text": "Administrators were reporting web shells on a public GitHub issue, the first logged attack request dated less than a day before the fix.", "from": "#executive-summary", "quote": "the first logged attack request is dated 10 September 2026, less than a day before the fixed release"}
+      - {"text": "No vendor, CERT or research firm has attributed the activity, and no primary source counts the affected servers.", "from": "#executive-summary", "quote": "No vendor, CERT or research firm has attributed the activity, and no primary source gives a count of affected servers"}
+  case-studies/NODEJS_CVE_2026_111497.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "CVE-2026-111497 is an out-of-bounds write in the Google Brotli decoder that Node.js and many other products bundle.", "from": "#executive-summary", "quote": "CVE-2026-111497 is an out-of-bounds write in the Google Brotli decoder"}
+      - {"text": "A crafted Brotli stream can corrupt the decoder's memory, leading to memory disclosure, denial of service or possibly code execution.", "from": "#executive-summary", "quote": "A crafted Brotli stream can corrupt the decoder's memory, and the CVE record says that can lead to memory disclosure, denial of service or possibly code execution"}
+      - {"text": "The researchers who wrote it up call it Node2Shell.", "from": "#executive-summary", "quote": "The researchers who wrote it up call it Node2Shell"}
+      - {"text": "A version check that trusts the Brotli string will flag a fixed Node.js host as vulnerable; only the Node version tells them apart.", "from": "#executive-summary", "quote": "A version check that trusts the Brotli string will flag a fixed Node.js host as vulnerable"}
+  case-studies/PHP_8_4_27_CVES.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "On 21 October 2026 PHP shipped security releases for two flaws in the interpreter itself, CVE-2026-109618 and CVE-2026-109619.", "from": "#executive-summary", "quote": "shipped security releases (8.2.35, 8.3.36, 8.4.27 and 8.5.12) for two flaws in the interpreter itself, CVE-2026-109618 and CVE-2026-109619"}
+      - {"text": "Both let an unauthenticated attacker run code on the server.", "from": "#executive-summary", "quote": "Both let an unauthenticated attacker run code on the server"}
+      - {"text": "The vendor validated it on Apache mod_php, where one of the flaws fires before any application code runs.", "from": "#executive-summary", "quote": "the vendor validated that on Apache mod_php, where one of them fires before any application code runs"}
+      - {"text": "CISA added both to the Known Exploited Vulnerabilities catalog on 26 October with a three-day due date.", "from": "#executive-summary", "quote": "CISA added both to the Known Exploited Vulnerabilities catalog on 26 October with a three-day due date"}
+  case-studies/EXPOSURE_CHECKS_2026_11.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Between 4 October and 3 November 2026 CISA added 34 vulnerabilities to its KEV catalog; this study builds a check for each testable one.", "from": "#executive-summary", "quote": "Between 4 October and 3 November 2026 CISA added 34 vulnerabilities to its Known Exploited Vulnerabilities (KEV) catalog"}
+      - {"text": "The lesson: a version string is where an exposure check starts, not where it ends.", "from": "#executive-summary", "quote": "a version string is where an exposure check starts, not where it ends"}
+      - {"text": "Several fixed and vulnerable builds print the same banner, and several flaws are reachable only when one configuration line is set.", "from": "#executive-summary", "quote": "Several flaws are reachable only when one configuration line is set"}
+      - {"text": "A workaround changes the configuration while leaving the version a scanner reads untouched.", "from": "#executive-summary", "quote": "a workaround changes the configuration while leaving the version a scanner reads untouched"}
+  case-studies/CUCKOOS_EGG_1986.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "From August 1986 a persistent intruder used Lawrence Berkeley Lab as a way station into ARPANET and MILNET.", "from": "#executive-summary", "quote": "From August 1986 a persistent intruder used LBL as a way station into ARPANET and MILNET"}
+      - {"text": "Rather than lock him out, LBL printed virtually every session and traced him, a decision that took nearly a year.", "from": "#executive-summary", "quote": "LBL chose to let him keep his access while it printed virtually every session and traced him, a decision that took nearly a year and many organizations to see through"}
+      - {"text": "Over 10 months he tried about 450 computers and got into more than 30, mostly with default accounts and guessed or cracked passwords.", "from": "#executive-summary", "quote": "Over 10 months LBL watched him try about 450 computers and get into more than 30, mostly with default account names, guessed passwords, passwords left in files and password files he cracked offline"}
+      - {"text": "Fake Strategic Defense Initiative files, alarmed to reveal who read them, held him on the line long enough to finish the trace to West Germany.", "from": "#executive-summary", "quote": "Fictitious Strategic Defense Initiative (SDI) files, alarmed so that LBL would know who read them, held him on the line for more than an hour while telephone technicians finished the trace to West Germany"}
+  case-studies/MITNICK_INTRUSIONS.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "In a 1999 plea, Mitnick admitted breaking in and stealing proprietary software from Motorola, Novell, Fujitsu, Sun and others.", "from": "#executive-summary", "quote": "Mitnick admitted breaking into systems and stealing proprietary software from Motorola, Novell, Fujitsu, Sun Microsystems and others"}
+      - {"text": "His methods were social engineering, cloned cellular phones, sniffers and impersonating employees, not novel exploits.", "from": "#executive-summary", "quote": "using social engineering, cloned cellular phones, sniffers and hacker software"}
+      - {"text": "His 68 months was then the longest sentence any computer hacker had received, yet restitution was a nominal sum over $4,125.", "from": "#executive-summary", "quote": "restitution was set at a nominal sum of just over $4,125 against victim claims in the hundreds of millions"}
+      - {"text": "The record is narrower than the legend: the 1994 IP-spoofing attack on Shimomura is not part of any charge in the records opened here.", "from": "#executive-summary", "quote": "the 1994 IP-spoofing attack on Shimomura, is not described as part of any charge in the records opened here"}

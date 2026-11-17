@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The flaw let an unauthenticated request make the web server user run a command whenever the bundled Collabora server was not already running. ([Executive summary](#executive-summary))
+- The fix shipped in September 2026 without any security label, and the advisory followed 33 days later. ([Executive summary](#executive-summary))
+- Administrators were reporting web shells on a public GitHub issue, the first logged attack request dated less than a day before the fix. ([Executive summary](#executive-summary))
+- No vendor, CERT or research firm has attributed the activity, and no primary source counts the affected servers. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

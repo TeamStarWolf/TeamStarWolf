@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- The decisive move was not the code execution but the next step: attackers stole the SharePoint server's ASP.NET machine keys. ([Executive summary](#executive-summary))
+- With the keys stolen, a server that is merely patched is still compromised. ([Executive summary](#executive-summary))
+- More than 400 servers across about 148 organizations were hit, including the US nuclear security agency. ([Executive summary](#executive-summary))
+- The lesson: for a secret-stealing flaw, remediation is patch plus key rotation, not patch alone. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

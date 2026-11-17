@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- Multipath TCP has shipped in the Linux kernel since 5.6 and defaults to on, yet almost nothing uses it. ([Executive summary](#executive-summary))
+- That leaves a feature switched on across much of the Linux fleet while delivering value on a tiny fraction of it. ([Executive summary](#executive-summary))
+- The gap is an attack surface: new memory-unsafe networking code produces memory-safety bugs on a schedule. ([Executive summary](#executive-summary))
+- Worse, MPTCP can turn a bug that is elsewhere a mere crash into something far more serious, as with CVE-2026-98432. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- The mod_copy module answered its copy commands before login, so anyone reaching the FTP port could copy files with no account. ([Executive summary](#executive-summary))
+- The project fixed it the day it was filed in April 2015 and shipped 1.3.5a in May 2015. ([Executive summary](#executive-summary))
+- For eleven years this was a solved problem with public exploits. ([Executive summary](#executive-summary))
+- It returned in October 2026 when CISA added the eleven-year-old flaw to its KEV catalog with a three-day due date. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

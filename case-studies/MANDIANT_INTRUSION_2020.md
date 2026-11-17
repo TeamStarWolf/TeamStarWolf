@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- The breach was caught on the identity plane: an alert flagged a second phone registered to an employee's account for two-factor codes. ([Executive summary](#executive-summary))
+- Chasing its own breach, FireEye decompiled its SolarWinds Orion server and found the implant it named SUNBURST. ([Executive summary](#executive-summary))
+- That made FireEye's own breach the first public thread of the SolarWinds campaign. ([Executive summary](#executive-summary))
+- The stolen Red Team tools held no zero-days; FireEye released free countermeasures and a ranked list of 16 CVEs to patch. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The case is about the difference between compromising one component and proving the whole device is compromised. ([Executive assessment](#executive-assessment))
+- The research reached the Wi-Fi chip but a later scope statement set kernel execution outside the work. ([Executive assessment](#executive-assessment))
+- A chip that processes outside input is a real security boundary even when the evidence stops short of full takeover. ([Executive assessment](#executive-assessment))
+- Security assurance has to follow the actual processing path, not product labels or update announcements. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 Historical vulnerability study. Historical evidence, original defensive analysis, and a fictional exercise. No exploit instructions or live radio testing.

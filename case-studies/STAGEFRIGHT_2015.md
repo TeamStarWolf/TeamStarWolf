@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The shorthand name hides the key distinctions: original flaws, an incomplete fix, later findings, and hardening were related developments. ([Executive assessment](#executive-assessment))
+- The disclosure listed seven CVEs and estimated exposure, which were capability claims, not a census of compromised devices. ([Executive assessment](#executive-assessment))
+- A shared media component receives content through many apps, and a source fix still has to reach the actual device. ([Executive assessment](#executive-assessment))
+- A parser handling untrusted content should not hold more access than its task requires. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 Expanded historical series: 2015 disclosure with a 2016 architectural follow-up. Original defensive analysis and fictional training exercise. No exploit construction or device testing.

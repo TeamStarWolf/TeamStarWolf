@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The flaw was a mismatch between a site's apparent job and the authority of its image-processing backend. ([Executive assessment](#executive-assessment))
+- Crafted uploads could run commands as the account invoking ImageMagick, consequential in affected workflows but not automatic admin everywhere. ([Executive assessment](#executive-assessment))
+- The core question is what a processing service can do with an untrusted object after accepting it. ([Executive assessment](#executive-assessment))
+- Reports of malicious traffic did not establish which organizations were actually compromised. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 A vulnerability and defensive architecture study, focused on CVE-2016-3714 and associated issues.

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Software close to the hardware can undermine app isolation, while the finder is often several handoffs from whoever ships the fix. ([Executive assessment](#executive-assessment))
+- The name grouped four Qualcomm-related flaws; it did not show every affected handset had been compromised. ([Executive assessment](#executive-assessment))
+- The headline 900 million figure was potential exposure, not an observed victim count. ([Executive assessment](#executive-assessment))
+- Mobile response needs an auditable link between a specific issue, the actual device variant, and evidence the fix is running. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 Historical vulnerability study: 2016. Original defensive analysis and fictional training exercise. No exploitation instructions, malicious applications or live device tests.

@@ -137,6 +137,24 @@ studies:
       - {"date": "2026-08-27", "label": "BleepingComputer reports; an ATF spokesperson had not responded by publication (Reported)"}
       - {"date": "2026-08-28", "label": "SecurityWeek reports the major-incident designation and no effect on ATF's missions (Reported)"}
       - {"date": "2026-11-13", "label": "No source opened shows Qilin publishing ATF data; the Hub has no ATF row, and its Oct Qilin rows cover PAN-OS CVE-2026-0257"}
+  case-studies/BAD_RABBIT_2017.md:
+    kind: "campaign"
+    title: "Bad Rabbit, 2017: One Fake Update, Several Ways to Spread"
+    start: "2017-03"
+    end: "2018-01"
+    core_start: "2017-10"
+    core_end: "2017-10"
+    sectors: ["cross-sector"]
+    cves: []
+    actors: []
+    tags: ["ransomware", "Bad Rabbit", "EternalRomance", "fake update", "lateral movement"]
+    pdf: "Bad_Rabbit_2017_Case_Study.pdf"
+    events:
+      - {"date": "2017-03-14", "label": "Microsoft publishes MS17-010, the SMB update that predates the outbreak"}
+      - {"date": "2017-10-24", "label": "Bad Rabbit outbreak and the initial Kaspersky, Talos and ESET technical reports"}
+      - {"date": "2017-10-25", "label": "Talos adds encryption, propagation and code-linkage analysis over 25 to 26 October"}
+      - {"date": "2017-10-27", "label": "ESET adds a patch test: MS17-010 stopped the tested IPC-share propagation"}
+      - {"date": "2018-01-10", "label": "Microsoft publishes a retrospective comparing the 2017 ransomware outbreaks"}
   case-studies/BEYONDTRUST_REMOTE_SUPPORT_CVE_2026_1731.md:
     kind: "vulnerability"
     title: "The BeyondTrust Remote Support and PRA Command Injection of 2026 (CVE-2026-1731): A Case Study"
@@ -1869,6 +1887,30 @@ studies:
       - {"date": "2025-08-08", "label": "UNC6395 uses stolen Salesloft Drift OAuth tokens to export data from many Salesforce instances (8 to 18 August)"}
       - {"date": "2026-10-15", "label": "Storm-0940 signs in to customer tenants as ConnectWise multi-tenant apps and tries more than 2,250 tenants"}
       - {"date": "2026-11-01", "label": "Todyl: one operator signs in as victims' own Entra apps with stolen secrets and reaches 27 organizations (to 6 November)"}
+  case-studies/COLONIAL_DARKSIDE_2021.md:
+    kind: "incident"
+    title: "Colonial Pipeline and DarkSide in 2021: An IT Incident with Operational Consequences"
+    start: "2021-04"
+    end: "2025-01"
+    core_start: "2021-04"
+    core_end: "2021-06"
+    sectors: ["energy"]
+    cves: []
+    actors: []
+    tags: ["ransomware", "DarkSide", "pipeline", "operational technology", "incident response"]
+    pdf: "Colonial_Darkside_2021_Case_Study.pdf"
+    events:
+      - {"date": "2021-04-29", "label": "Earliest identified VPN login with employee credentials on a legacy profile without MFA (investigator testimony)"}
+      - {"date": "2021-05-07", "label": "Ransom note found in IT; employees shut down the pipeline; FBI notified"}
+      - {"date": "2021-05-08", "label": "Ransom paid (about 75 bitcoin), per DOJ and company testimony"}
+      - {"date": "2021-05-10", "label": "FBI publicly attributes the compromise to DarkSide ransomware"}
+      - {"date": "2021-05-11", "label": "CISA and FBI issue advisory AA21-131A"}
+      - {"date": "2021-05-12", "label": "Return of pipelines to service begins (company testimony)"}
+      - {"date": "2021-05-13", "label": "DOE records a systemwide restart and delivery to all markets"}
+      - {"date": "2021-05-15", "label": "Normal-system-operation announcement reported by EIA"}
+      - {"date": "2021-06-07", "label": "DOJ announces seizure of 63.7 bitcoin tied to the payment"}
+      - {"date": "2021-06-08", "label": "Senate and House hearings add detail on entry, decryption and continuing restoration"}
+      - {"date": "2025-01-17", "label": "DHS Federal Register notice ratifies the 2021 pipeline security directives (historical aftermath)"}
   case-studies/CONNECTWISE_STORM_0940_2026.md:
     kind: "incident"
     title: "The ConnectWise Cloud Backup Compromise of October 2026: A Case Study"
@@ -2043,6 +2085,42 @@ studies:
       - {"date": "2026-07-17", "label": "Individual notification by mail begins"}
       - {"date": "2026-07-23", "label": "23 to 27 July: trade press reports a 23 million estimate, a dedupe of name and birth-date pairs (Reported)"}
       - {"date": "2026-11-11", "label": "HHS export: 15,000,000 is the largest 2026 entry, ahead of Aesto and iRhythm Technologies"}
+  case-studies/DIRTY_PIPE_2022.md:
+    kind: "vulnerability"
+    title: "Dirty Pipe: When Read-Only Data Lost Its Integrity"
+    start: "2021-04"
+    end: "2022-05"
+    core_start: "2022-02"
+    core_end: "2022-03"
+    sectors: ["technology"]
+    cves: ["CVE-2022-0847"]
+    actors: []
+    tags: ["Linux kernel", "Dirty Pipe", "privilege escalation", "pipe_buffer", "patch management"]
+    pdf: "Dirty_Pipe_2022_Case_Study.pdf"
+    events:
+      - {"date": "2021-04-29", "label": "First support ticket over repeated corruption in downloadable access logs (discoverer's timeline)"}
+      - {"date": "2022-02-19", "label": "Max Kellermann recognizes the kernel vulnerability"}
+      - {"date": "2022-02-20", "label": "Reported to the kernel security team"}
+      - {"date": "2022-02-23", "label": "Stable fixes released as Linux 5.16.11, 5.15.25 and 5.10.102"}
+      - {"date": "2022-03-07", "label": "Public disclosure of Dirty Pipe, CVE-2022-0847"}
+      - {"date": "2022-03-08", "label": "Ubuntu USN-5317-1 ships the fix and notes a reboot and kernel ABI change"}
+      - {"date": "2022-05-02", "label": "Android May 2022 bulletin lists the CVE and notes indications of limited, targeted exploitation"}
+  case-studies/DNS_OVER_HTTPS_2018.md:
+    kind: "reference"
+    title: "DNS over HTTPS: Encrypting the Lookup Without Eliminating Resolver Trust"
+    start: "2018-10"
+    end: "2021-07"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["DNS", "DoH", "RFC 8484", "resolver trust", "privacy"]
+    pdf: "DNS_over_HTTPS_2018_Case_Study.pdf"
+    events:
+      - {"date": "2018-10", "label": "RFC 8484 standardizes DNS queries and responses carried in HTTPS"}
+      - {"date": "2020-02-25", "label": "Mozilla begins a by-default DoH rollout for US Firefox users with Cloudflare as default"}
+      - {"date": "2020-05-19", "label": "Google describes Chrome Secure DNS upgrading the existing provider to DoH"}
+      - {"date": "2021-01", "label": "NSA publishes enterprise guidance favoring a designated enterprise resolver"}
+      - {"date": "2021-07-08", "label": "Mozilla announces a staged Canadian rollout with CIRA; RFC 9076 replaces RFC 7626"}
   case-studies/DOTCOM_ERA_CYBER_EVENTS.md:
     kind: "era"
     title: "The Dot-Com Era: Cyber Events, 1994 to 2003"
@@ -3177,6 +3255,30 @@ studies:
       - {"date": "2025-08", "label": "Jaguar Land Rover incident, rated Category 3 at an estimated 1.9 billion pounds"}
       - {"date": "2026-07-16", "label": "Thalha Jubair and Owen Flowers, called leading Scattered Spider members by the NCA, each sentenced to five years six months"}
       - {"date": "2026-11-10", "label": "KEV catalog version 2026.11.10: 361 of 1,779 entries flagged for known ransomware use"}
+  case-studies/RYUK_HEALTHCARE_2020.md:
+    kind: "campaign"
+    title: "Ryuk and Healthcare in 2020: The Sector Warning and the Continuity Problem"
+    start: "2020-01"
+    end: "2021-03"
+    core_start: "2020-09"
+    core_end: "2020-11"
+    sectors: ["healthcare"]
+    cves: ["CVE-2020-1472"]
+    actors: []
+    tags: ["ransomware", "Ryuk", "TrickBot", "healthcare", "business continuity"]
+    pdf: "Ryuk_Healthcare_2020_Case_Study.pdf"
+    events:
+      - {"date": "2020-01-29", "label": "Mandiant investigates activity later tracked as UNC1878"}
+      - {"date": "2020-03-31", "label": "Mandiant publishes its actor-tracking account"}
+      - {"date": "2020-09-27", "label": "Universal Health Services dates the start of an IT security incident"}
+      - {"date": "2020-10-02", "label": "HHS HC3 publishes a BazarLoader, Cobalt Strike and Ryuk sector alert"}
+      - {"date": "2020-10-12", "label": "Microsoft announces action against TrickBot infrastructure"}
+      - {"date": "2020-10-18", "label": "The DFIR Report publishes a five-hour Ryuk case using Zerologon, CVE-2020-1472"}
+      - {"date": "2020-10-28", "label": "CISA, FBI and HHS issue the joint healthcare ransomware warning"}
+      - {"date": "2020-10-29", "label": "UK NCSC statement and Red Canary's interrupted medical-center account"}
+      - {"date": "2020-11-12", "label": "HHS publishes a TrickBot, Ryuk and HPH sector technical briefing"}
+      - {"date": "2021-02-25", "label": "UHS discloses an approximately $67 million 2020 pre-tax impact"}
+      - {"date": "2021-03", "label": "CERT-FR report and NHS updates describe a later self-propagating variant"}
   case-studies/SANDWORM_OPERATIONS.md:
     kind: "actor"
     title: "Sandworm: The Operations in the Public Record"

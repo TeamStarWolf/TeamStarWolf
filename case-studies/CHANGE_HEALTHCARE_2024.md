@@ -51,6 +51,14 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- The intrusion started with stolen credentials on a Citrix remote-access portal that required no second factor, not with any software flaw. ([Executive summary](#executive-summary))
+- The data loss became the largest on the federal health breach portal, affecting about 192.7 million people. ([Executive summary](#executive-summary))
+- One clearinghouse was a national dependency: UnitedHealth puts Change at about 6 percent of all US health care payments. ([Scale of the dependency](#scale-of-the-dependency))
+- The outage reached care, not only billing: in an AHA survey, 74 percent of hospitals reported effects on direct patient care. ([The providers](#the-providers))
+- Paying the $22 million ransom did not end the extortion, and the stolen data was still offered for sale weeks later. ([Part 4: the ransom and the second extortion](#part-4-the-ransom-and-the-second-extortion))
+
 <!-- meta:end -->
 
 ## Executive summary

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- Stuxnet showed an air-gapped plant can still be reached and a controller can look healthy while running an attacker's code. ([Executive summary](#executive-summary))
+- It crossed air gaps on USB drives, used four zero-days plus MS08-067, signed its drivers with stolen certificates, and rewrote PLC logic. ([Executive summary](#executive-summary))
+- The IAEA recorded changes to the Natanz centrifuge cascades in 2009 and 2010 but never named a cause. ([Executive summary](#executive-summary))
+- Attribution stays unofficial: no government has acknowledged building Stuxnet in any source the study opened. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

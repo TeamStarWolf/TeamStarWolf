@@ -3627,6 +3627,48 @@ pages:
     start_at: "[Executive summary](#executive-summary), [3. What the automation actually automated](#_3-what-the-automation-actually-automated), [8. Reading the advancement and the failures together](#_8-reading-the-advancement-and-the-failures-together)"
     pairs_with: "[Certificate Trust Incident Response](/CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md), [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md), [Certificate Transparency: Public Evidence, Private Trust and the Limits of a Timestamp](/case-studies/CERTIFICATE_TRANSPARENCY_2013_2021.md)"
     reviewed: null
+  case-studies/CITRIX_CVE_2019_19781.md:
+    audience: "Edge-device and vulnerability-management owners, detection engineers and incident responders who run Citrix ADC or Gateway"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the CVE-2019-19781 mitigation revisions and January 2020 patch race, you need to separate exposure scans from victim counts, or you are reconstructing an intrusion that used an edge appliance"
+    start_at: "[Executive assessment](#executive-assessment), [9. Mitigation required management-interface and topology coverage](#_9-mitigation-required-management-interface-and-topology-coverage), [11. NOTROBIN made apparent improvement misleading](#_11-notrobin-made-apparent-improvement-misleading)"
+    pairs_with: "[Internet-Facing Services Reference](/INTERNET_FACING_SERVICES_REFERENCE.md), [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
+  case-studies/PULSE_SECURE_CVE_2019_11510.md:
+    audience: "VPN and edge-device owners, identity and access teams, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of CVE-2019-11510, you need to separate a pre-authentication file read from command execution or a patch from credential revocation, or you are planning recovery after VPN credential theft"
+    start_at: "[Executive assessment](#executive-assessment), [7. Patching could leave stolen credentials usable](#_7-patching-could-leave-stolen-credentials-usable), [11. Later Pulse Secure issues remain distinct](#_11-later-pulse-secure-issues-remain-distinct)"
+    pairs_with: "[Internet-Facing Services Reference](/INTERNET_FACING_SERVICES_REFERENCE.md), [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
+  case-studies/F5_BIGIP_CVE_2020_5902.md:
+    audience: "Application-delivery and vulnerability-management owners, detection engineers and incident responders who run F5 BIG-IP"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of CVE-2020-5902 and the July 2020 mitigation reversal, you need to separate the management plane from delivered applications or scans from confirmed incidents, or you are assessing possible prior compromise"
+    start_at: "[Executive assessment](#executive-assessment), [2. The administrative surface was the relevant target](#_2-the-administrative-surface-was-the-relevant-target), [10. The July 7-8 mitigation reversal](#_10-the-july-7-8-mitigation-reversal)"
+    pairs_with: "[Internet-Facing Services Reference](/INTERNET_FACING_SERVICES_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
+  case-studies/SMBGHOST_CVE_2020_0796.md:
+    audience: "Windows platform and vulnerability-management owners, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of CVE-2020-0796, you need to separate an affected SMB implementation from the whole protocol family or client exposure from server exposure, or you are distinguishing SMBGhost from SMBleed"
+    start_at: "[Executive assessment](#executive-assessment), [6. Client exposure changed the mitigation problem](#_6-client-exposure-changed-the-mitigation-problem), [8. Crash, privilege escalation and remote execution](#_8-crash-privilege-escalation-and-remote-execution)"
+    pairs_with: "[Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md), [Network Attacks Reference](/NETWORK_ATTACKS_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
+  case-studies/SIGRED_CVE_2020_1350.md:
+    audience: "Windows and DNS platform owners, vulnerability-management leads, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of CVE-2020-1350, you need to separate the DNS Server role from DNS clients or a wormability classification from a completed worm, or you are applying the interim registry workaround and Emergency Directive 20-03"
+    start_at: "[Executive assessment](#executive-assessment), [3. DNS Server and DNS Client are different surfaces](#_3-dns-server-and-dns-client-are-different-surfaces), [7. Wormability was a risk classification, not a completed worm](#_7-wormability-was-a-risk-classification-not-a-completed-worm)"
+    pairs_with: "[Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md), [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
+  case-studies/PRINTNIGHTMARE_CVE_2021_34527.md:
+    audience: "Windows and Active Directory platform owners, vulnerability-management leads, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the PrintNightmare CVEs, you need to separate CVE-2021-1675 from CVE-2021-34527 or a configuration-dependent fix from a complete one, or you are planning Print Spooler hardening and exceptions"
+    start_at: "[Executive assessment](#executive-assessment), [2. The privilege boundary in plain language](#_2-the-privilege-boundary-in-plain-language), [7. Exploitation reporting and what remains unproved](#_7-exploitation-reporting-and-what-remains-unproved)"
+    pairs_with: "[Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md), [Active Directory Security Reference](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
   commands/aws-cli.md:
     audience: "Cloud engineers, administrators and security teams who work in AWS from a terminal"
     level: "Beginner to intermediate"

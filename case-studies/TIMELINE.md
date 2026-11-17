@@ -787,6 +787,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - May 2021: RFC 9000, 9001 and 9002 standardize QUIC transport, TLS integration and recovery
   - March 2022: RFC 9221 adds an unreliable datagram extension to QUIC
   - June 2022: RFC 9114 publishes HTTP/3 as a separate mapping over QUIC
+- [PrintNightmare, 2021: When a Security Fix Depends on the Policy Around It](/case-studies/PRINTNIGHTMARE_CVE_2021_34527.md). Vulnerability, June to September 2021 (core: 2021). Sectors: technology. CVEs: CVE-2021-1675, CVE-2021-34527. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/PrintNightmare_CVE_2021_34527_Case_Study.pdf).
+  - 8 June 2021: CVE-2021-1675 is addressed as a Print Spooler elevation-of-privilege issue
+  - 21 June 2021: The issue is reclassified to remote code execution
+  - 1 July 2021: CERT/CC VU#383432 highlights the separate PrintNightmare behavior
+  - 6 July 2021: Microsoft assigns CVE-2021-34527 and begins a phased out-of-band update
+  - 10 August 2021: A later update changes a default amid continued Print Spooler issues
 - [Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation](/case-studies/EXCHANGE_MARAUDER_2021.md). Campaign, January to November 2021. Sectors: cross-sector, government, education. CVEs: CVE-2020-0688, CVE-2021-26412, CVE-2021-26854, CVE-2021-26855, CVE-2021-26857, CVE-2021-26858 and 11 more. ATT&CK groups: G0027 Threat Group-3390, G0044 Winnti Group, G0046 FIN7, G0059 Magic Hound, G0060 BRONZE BUTLER, G0065 Leviathan and 7 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Exchange_Marauder_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Exchange_Marauder_2021_Case_Study.pptx).
   - 10 December 2020: DEVCORE finds the pre-auth proxy bug, later CVE-2021-26855
   - 3 January 2021: Earliest SSRF mailbox theft Volexity observed
@@ -871,6 +877,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 12 May 2021: Executive Order 14028 signed
   - 30 October 2023: SEC charges SolarWinds and its CISO
   - 20 November 2025: SEC case dismissed with prejudice by joint stipulation
+- [SMBGhost: Compression Arithmetic, Client Exposure and the 2020 Emergency Patch](/case-studies/SMBGHOST_CVE_2020_0796.md). Vulnerability, March to June 2020 (core: 2020). Sectors: technology. CVEs: CVE-2020-0796. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SMBGhost_CVE_2020_0796_Case_Study.pdf).
+  - 10 March 2020: Details of CVE-2020-0796 in SMB 3.1.1 appear ahead of a patch
+  - 12 March 2020: Microsoft releases KB4551762 to fix the compression flaw
+  - June 2020: SMBleed (CVE-2020-1206) research and proof-of-concept activity follow
+- [SIGRed: Windows DNS Parsing, Emergency Mitigation and the Evidence Behind Wormability](/case-studies/SIGRED_CVE_2020_1350.md). Vulnerability, July to September 2020 (core: 2020). Sectors: technology. CVEs: CVE-2020-1350. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SIGRed_CVE_2020_1350_Case_Study.pdf).
+  - 14 July 2020: Microsoft patches CVE-2020-1350 and offers a registry size workaround; Check Point publishes the research
+  - 16 July 2020: CISA Emergency Directive 20-03 mandates mitigation and reporting
 - [The Multipath TCP Attack Surface: A 2026 Case Study](/case-studies/MPTCP_ATTACK_SURFACE_2026.md). Attack surface, 2020 to 2026. Sectors: technology. CVEs: CVE-2021-47152, CVE-2022-50071, CVE-2025-40258, CVE-2026-31669, CVE-2026-80588, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/MPTCP_Attack_Surface_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/MPTCP_Attack_Surface_2026_Case_Study.pptx).
   - 2020: Linux kernel 5.6 ships a mainline Multipath TCP implementation
   - 3 November 2026: Lab readings on a host running Kali 2026.2 with kernel 7.1.5
@@ -897,6 +910,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 July 2020: Garmin's public statement (filed with the SEC); no indication customer data was accessed
   - 29 July 2020: Microsoft publishes its WastedLocker entry
   - 2020: Garmin's 2020 Form 10-K reports independent forensic analysis found no indication of customer-data access
+- [F5 BIG-IP CVE-2020-5902: A Management-Plane Failure and the July 2020 Mitigation Race](/case-studies/F5_BIGIP_CVE_2020_5902.md). Vulnerability, June to July 2020 (core: 2020). Sectors: technology. CVEs: CVE-2020-5902. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/F5_BIG-IP_CVE_2020_5902_Case_Study.pdf).
+  - 30 June 2020: F5 discloses CVE-2020-5902 in the TMUI management interface and urges mitigation
+  - 5 July 2020: Scan evidence is published, with explicit limits
+  - 8 July 2020: An earlier mitigation is found bypassable and is revised
+  - 14 July 2020: Guidance pairs correction with investigation
+  - 24 July 2020: CISA reporting establishes confirmed incidents
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md). Period record, January to December 2020. Sectors: cross-sector, healthcare. CVEs: CVE-2017-5638, CVE-2017-11882, CVE-2018-7600, CVE-2018-13379, CVE-2019-0604, CVE-2019-1652 and 27 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly and 12 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2020_Case_Study.pptx).
   - 14 January 2020: CISA ED 20-02 for CryptoAPI CVE-2020-0601 and the RD Gateway flaws
   - 10 February 2020: Equifax indictment of four PLA 54th Research Institute members announced
@@ -950,6 +969,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 6 August 2020: Restructuring completes via administration; 1,802 UK jobs safeguarded, 1,309 UK redundancies
   - 29 November 2021: KPMG disclaims an audit opinion, citing evidence limitations from the restructuring and the malware incident
   - April 2022: An Employment Tribunal records agreed background facts recognizing multiple business pressures
+- [Pulse Secure CVE-2019-11510: When a VPN Patch Could Not Revoke Stolen Trust](/case-studies/PULSE_SECURE_CVE_2019_11510.md). Vulnerability, April 2019 to April 2021 (core: 2019 to 2020). Sectors: technology. CVEs: CVE-2019-11510. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Pulse_Secure_CVE_2019_11510_Case_Study.pdf).
+  - 24 April 2019: Pulse Secure publishes advisory SA44101 for CVE-2019-11510 and related issues
+  - August 2019: Public technical details and mass scanning follow
+  - January 2020: CISA warns that patched appliances can retain previously stolen credentials
+  - 16 April 2020: CISA AA20-107A describes continued exploitation and credential reuse
+  - 14 September 2020: CISA and FBI reporting (AA20-258A, AA20-259A) records further activity
+  - April 2021: Later Pulse Connect Secure issues, including CVE-2021-22893, are reported as distinct
 - [Norsk Hydro and LockerGoga, 2019: Recovery Had to Reach the Factory Floor](/case-studies/NORSK_HYDRO_LOCKERGOGA_2019.md). Incident, 2018 to 2020 (core: 2019). Sectors: manufacturing. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Norsk_Hydro_LockerGoga_2019_Case_Study.pdf).
   - December 2018: A malicious attachment establishes an initial foothold (per Microsoft's later responder account)
   - 19 March 2019: Hydro discloses the attack; plants isolated and moved to manual operation where possible
@@ -971,6 +997,14 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 20 April 2020: Cognizant files an 8-K with an early assessment and financial-risk warning
   - 7 May 2020: Cognizant reports it believes the attack is contained; projects a $50 to 70 million quarterly impact
   - July 2020: A Sophos casebook describes an unnamed Maze incident: repeated blocked encryption attempts, prior data theft, a $15 million demand not paid
+- [Citrix CVE-2019-19781: Mitigation Revisions, Competing Intruders and the January 2020 Patch Race](/case-studies/CITRIX_CVE_2019_19781.md). Vulnerability, December 2019 to September 2020 (core: 2019 to 2020). Sectors: technology. CVEs: CVE-2019-19781. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Citrix_CVE_2019_19781_Case_Study.pdf).
+  - 17 December 2019: Citrix discloses CVE-2019-19781 and publishes interim mitigation guidance (CTX267679)
+  - 8 January 2020: Exposure measurements and public tooling appear; CERT/CC narrows the technical findings
+  - 10 January 2020: US government guidance precedes permanent fixes
+  - 19 January 2020: Permanent branch-specific firmware fixes begin
+  - 22 January 2020: Citrix clarifies the SD-WAN WANOP subset
+  - 24 January 2020: The supported-release fix sequence completes
+  - September 2020: Later reporting shows a longer exploitation tail
 - [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md). Period record, January to December 2019. Sectors: cross-sector. CVEs: CVE-2009-1151, CVE-2014-6271, CVE-2017-3881, CVE-2017-6736, CVE-2017-12617, CVE-2018-0296 and 31 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0045 menuPass and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2019_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2019_Case_Study.pptx).
   - 22 January 2019: CISA Emergency Directive 19-01 orders federal agencies to audit DNS records
   - 19 March 2019: Norsk Hydro hit by ransomware; plants switch to manual operations

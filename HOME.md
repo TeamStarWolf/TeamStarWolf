@@ -34,24 +34,6 @@
   <p><span class="tsw-links-label">Explore the library:</span> <a href="#/languages/README">Languages</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/paradigms/README">Paradigms</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/frameworks/README">Frameworks</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/commands/README">Commands</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/formats/README">Formats</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/hubs/README">Domains</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/guides/README">Guides</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/disciplines/README">Learning paths</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/mitre/README">ATT&amp;CK</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/detections/TECHNIQUE_DETECTION_LIBRARY">Detections</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/data/README">Data</a></p>
 </div>
 
-## What's inside
-
-<!-- stats:start (written by scripts/build_stats.py; do not edit) -->
-<table>
-  <thead><tr><th>What</th><th>Contents</th><th>Start at</th></tr></thead>
-  <tbody>
-    <tr><td>Reference documents</td><td>One topic each: its terms, tooling, and the frameworks and guidance that apply</td><td><a href="#/INDEX">Reference index</a></td></tr>
-    <tr><td>How-to guides</td><td>One task, step by step, with the time it takes, what you need, and what you produce</td><td><a href="#/guides/README">Guides</a></td></tr>
-    <tr><td>Learning paths</td><td>An order of study for one discipline, with training, tools, books, and certifications</td><td><a href="#/disciplines/README">Learning paths</a></td></tr>
-    <tr><td>Framework pages</td><td>One page per Enterprise ATT&amp;CK technique, tactic, group, software entry, campaign, and mitigation, CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique</td><td><a href="#/mitre/README">Framework pages</a></td></tr>
-    <tr><td>Developer reference pages</td><td>One page per programming language, paradigm, software framework, command-line tool, data format, and database engine</td><td><a href="#/languages/README">Languages</a></td></tr>
-    <tr><td>Security platform pages</td><td>One page per vendor platform a security program runs on, from endpoint and exposure management to identity, cloud, OT, and backup</td><td><a href="#/platforms/README">Security platforms</a></td></tr>
-    <tr><td>AI tooling pages</td><td>AI tools and models in groups, a one-page manual for each tool, a learning path, and hands-on labs</td><td><a href="#/ai-tooling/README">AI tooling</a></td></tr>
-    <tr><td>Case studies</td><td>Evidence-graded studies of how the threat landscape is changing, written from primary sources, with figures and PDF downloads</td><td><a href="#/case-studies/README">Case studies</a></td></tr>
-  </tbody>
-</table>
-<!-- stats:end -->
-
 ## Where do you want to start?
 
 <p class="tsw-lead">Three ways in, by what you came to do.</p>
@@ -77,7 +59,27 @@
   </a>
 </div>
 
+<p class="tsw-featured"><span class="tsw-featured-label">Popular references:</span> <a href="#/ACTIVE_DIRECTORY_ATTACK_REFERENCE">Active Directory attacks</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/CVE_REFERENCE">CVE reference</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/RANSOMWARE_DEFENSE_REFERENCE">Ransomware defense</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/CLOUD_ATTACK_REFERENCE">Cloud attacks</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/AI_MCP_SECURITY_REFERENCE">AI &amp; MCP security</a> <span class="tsw-links-sep" aria-hidden="true">·</span> <a href="#/THREAT_INTELLIGENCE_REFERENCE">Threat intelligence</a></p>
+
 <p class="tsw-lead">Current headlines, advisories, and CVE briefs are on the <a href="https://teamstarwolf.github.io/intelligence-hub/" target="_blank" rel="noopener">Intelligence Hub</a>. The rules for reading them are in <a href="#/THREAT_INTELLIGENCE_REFERENCE?id=the-public-intelligence-hub">the threat intelligence reference</a>.</p>
+
+## What's inside
+
+<!-- stats:start (written by scripts/build_stats.py; do not edit) -->
+<table>
+  <thead><tr><th>What</th><th>Contents</th><th>Start at</th></tr></thead>
+  <tbody>
+    <tr><td>Reference documents</td><td>One topic each: its terms, tooling, and the frameworks and guidance that apply</td><td><a href="#/INDEX">Reference index</a></td></tr>
+    <tr><td>How-to guides</td><td>One task, step by step, with the time it takes, what you need, and what you produce</td><td><a href="#/guides/README">Guides</a></td></tr>
+    <tr><td>Learning paths</td><td>An order of study for one discipline, with training, tools, books, and certifications</td><td><a href="#/disciplines/README">Learning paths</a></td></tr>
+    <tr><td>Framework pages</td><td>One page per Enterprise ATT&amp;CK technique, tactic, group, software entry, campaign, and mitigation, CAPEC attack pattern, D3FEND countermeasure, ATLAS technique and mitigation, and F3 technique</td><td><a href="#/mitre/README">Framework pages</a></td></tr>
+    <tr><td>Developer reference pages</td><td>One page per programming language, paradigm, software framework, command-line tool, data format, and database engine</td><td><a href="#/languages/README">Languages</a></td></tr>
+    <tr><td>Security platform pages</td><td>One page per vendor platform a security program runs on, from endpoint and exposure management to identity, cloud, OT, and backup</td><td><a href="#/platforms/README">Security platforms</a></td></tr>
+    <tr><td>AI tooling pages</td><td>AI tools and models in groups, a one-page manual for each tool, a learning path, and hands-on labs</td><td><a href="#/ai-tooling/README">AI tooling</a></td></tr>
+    <tr><td>Case studies</td><td>Evidence-graded studies of how the threat landscape is changing, written from primary sources, with figures and PDF downloads</td><td><a href="#/case-studies/README">Case studies</a></td></tr>
+  </tbody>
+</table>
+<!-- stats:end -->
 
 <div class="tsw-anchor" id="how-to-guides"></div>
 

@@ -652,7 +652,13 @@
        light theme uses the Version2 banner. width/height attributes reserve the box, so
        nothing shifts on load. */
     section.cover .tsw-cover-banner {
-      display: block; margin: 0 auto 1.1rem; width: 100%; max-width: 880px; height: auto;
+      display: block; margin: 0 auto 1.1rem; width: 100%; max-width: 640px; height: auto;
+    }
+    /* Wide screens: the hero shares the first screen with the homepage instead of filling it,
+       so the doors and popular references are at or near the fold. The cover keeps its flex
+       centring within the reduced height. */
+    @media screen and (min-width: 769px) {
+      section.cover.show { min-height: 64vh; }
     }
     section.cover .tsw-art-light { display: none; }
     :root[data-theme="light"] section.cover .tsw-art-dark { display: none; }
@@ -834,6 +840,10 @@
     .markdown-section .tsw-links a { white-space: nowrap; }
     .markdown-section .tsw-links-label { color: var(--tsw-text-muted); font-weight: 650; }
     .markdown-section .tsw-links-sep { color: var(--tsw-text-dim); margin: 0 .15rem; }
+    /* Popular references strip under the doors on the homepage: a quiet, centred one-liner. */
+    .markdown-section .tsw-featured { text-align: center; margin: 0 0 1.5rem; font-size: .92rem; line-height: 1.9; color: var(--tsw-text-muted); }
+    .markdown-section .tsw-featured a { white-space: nowrap; }
+    .markdown-section .tsw-featured-label { color: var(--tsw-text-muted); font-weight: 650; }
 
     /* --- Buttons --- */
     .markdown-section .tsw-btn {

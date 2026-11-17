@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- An attacker posing as a trusted maintainer spent over two years earning release authority, then hid a backdoor in XZ Utils 5.6.0 and 5.6.1. ([Executive summary](#executive-summary))
+- The backdoor hooked SSH authentication so anyone with the attacker's key could run commands as root before authenticating. ([Executive summary](#executive-summary))
+- It was caught by luck, not controls: one engineer noticed SSH logins had become about half a second slower. ([Executive summary](#executive-summary))
+- The lesson: source review misses a build-time backdoor, and a project run by one volunteer is a supply-chain single point of failure. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

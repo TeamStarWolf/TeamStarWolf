@@ -13,3 +13,73 @@ pages:
       - {"text": "One clearinghouse was a national dependency: UnitedHealth puts Change at about 6 percent of all US health care payments.", "from": "#scale-of-the-dependency", "quote": "Change's payment processing is about 6 percent of all U.S. health care payments"}
       - {"text": "The outage reached care, not only billing: in an AHA survey, 74 percent of hospitals reported effects on direct patient care.", "from": "#the-providers", "quote": "74 percent reported effects on direct patient care"}
       - {"text": "Paying the $22 million ransom did not end the extortion, and the stolen data was still offered for sale weeks later.", "from": "#part-4-the-ransom-and-the-second-extortion", "quote": "one ransom paid, data still offered for sale five weeks later"}
+  case-studies/SOLARWINDS_SUNBURST.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "The backdoor was planted at build time, not in source: an implant on the build server swapped one file while Orion compiled, then restored it.", "from": "#executive-summary", "quote": "watched for the compiler to start, swapped one source file for a trojanized copy for the length of the build, and put the original back"}
+      - {"text": "Code signing and the vendor's own update channel delivered the backdoor, so the signature proved origin, not safety.", "from": "#executive-summary", "quote": "The resulting DLL was signed by SolarWinds' own certificate and shipped through SolarWinds' own update channel"}
+      - {"text": "The worst damage came after the foothold: stolen AD FS certificates and forged SAML tokens opened cloud mail and applications.", "from": "#executive-summary", "quote": "theft of AD FS token-signing certificates, forged SAML tokens and new credentials on cloud applications"}
+      - {"text": "The US and UK attributed the operation to Russia's foreign intelligence service, the SVR, in April 2021.", "from": "#executive-summary", "quote": "the United States and the United Kingdom attributed the operation to Russia's Foreign Intelligence Service, the SVR"}
+  case-studies/STUXNET.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "Stuxnet showed an air-gapped plant can still be reached and a controller can look healthy while running an attacker's code.", "from": "#executive-summary", "quote": "a plant that is not connected to the internet can still be reached, and a controller that looks healthy on the engineering screen can be running someone else's code"}
+      - {"text": "It crossed air gaps on USB drives, used four zero-days plus MS08-067, signed its drivers with stolen certificates, and rewrote PLC logic.", "from": "#executive-summary", "quote": "It crossed air gaps on USB drives, used four zero-day exploits (two to spread, two to raise its privileges) plus the older MS08-067 bug, signed its drivers with compromised code-signing certificates, and rewrote the logic on a narrowly defined set of PLCs that drive frequency converters"}
+      - {"text": "The IAEA recorded changes to the Natanz centrifuge cascades in 2009 and 2010 but never named a cause.", "from": "#executive-summary", "quote": "The IAEA's reports document what happened to the centrifuge cascades at Natanz in 2009 and 2010, but never name a cause"}
+      - {"text": "Attribution stays unofficial: no government has acknowledged building Stuxnet in any source the study opened.", "from": "#executive-summary", "quote": "No government has acknowledged building Stuxnet in any source this study opened"}
+  case-studies/LOG4SHELL.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "A 2013 logging feature let any string in a log line pull and run remote code, with no account or user interaction.", "from": "#executive-summary", "quote": "a feature added in 2013, the JNDI lookup, let anyone who could get a string into a log line make the server reach out to a directory service they controlled and load code from it"}
+      - {"text": "The trigger could ride in almost any logged field, from a browser User-Agent header to a game chat message.", "from": "#executive-summary", "quote": "the string could arrive in a browser's User-Agent header, a chat message in a game, an email header, or any other field an application happened to log"}
+      - {"text": "The first patch was incomplete: four more CVEs and eight releases followed within twenty days.", "from": "#executive-summary", "quote": "The first fix, 2.15.0, was incomplete, and four more CVEs and eight more releases across three Java lines followed in the next twenty days"}
+      - {"text": "Finding it was the hard part: scanners keyed on file names missed shaded and bundled copies buried deep in dependencies.", "from": "#executive-summary", "quote": "scanners keyed on file names missed shaded and bundled copies"}
+  case-studies/COLONIAL_DARKSIDE_2021.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "Colonial Pipeline shut its own system down in response to ransomware on 7 May 2021; the FBI attributed it to DarkSide.", "from": "#executive-summary", "quote": "Colonial Pipeline shut down its system in response to ransomware"}
+      - {"text": "It was a fuel-delivery outage, not attacker control of pipeline equipment, a distinction the record supports.", "from": "#executive-summary", "quote": "an interruption to a major fuel-transport service, not an attacker's direct control of pipeline equipment"}
+      - {"text": "The earliest identified entry was an employee login through a legacy VPN profile without MFA.", "from": "#key-findings", "quote": "the earliest identified compromise was an employee-credential login on 29 April through a legacy VPN profile without MFA"}
+      - {"text": "A successful shutdown can still cause a serious outage: safety containment and business availability are separate outcomes.", "from": "#key-findings", "quote": "Safety containment and business availability are separate outcomes"}
+  case-studies/APT41_PUBLIC_RECORD.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "APT41 mixes state-aligned espionage with crime for profit, a pattern both the court record and vendor reporting show.", "from": "#executive-summary", "quote": "the group mixes state-aligned espionage with crime for profit"}
+      - {"text": "Its signature is supply-chain compromise: software vendors found their own update channels shipping backdoors to customers in 2017 and 2018.", "from": "#executive-summary", "quote": "Software vendors found their own update channels shipping backdoors to customers in 2017 and 2018"}
+      - {"text": "Internet-facing applications are the dominant way in, with exploitation starting within hours of a disclosure.", "from": "#executive-summary", "quote": "Internet-facing applications are the dominant way in, and exploitation starts within hours of a disclosure"}
+      - {"text": "A valid code-signing certificate is not evidence a binary is safe; the group repeatedly abused stolen certificates.", "from": "#executive-summary", "quote": "A valid code-signing certificate on a binary is not evidence that the binary is safe"}
+  case-studies/SANDWORM_OPERATIONS.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "Sandworm is Unit 74455 of Russia's military intelligence, the GRU, by governments' own identification.", "from": "#executive-summary", "quote": "Governments call it Unit 74455 of Russia's military intelligence service, the GRU"}
+      - {"text": "Between 2015 and 2022 it turned the lights off in Ukraine three times.", "from": "#executive-summary", "quote": "Between 2015 and 2022 it turned the lights off in Ukraine three times"}
+      - {"text": "It released NotPetya, which the White House called the most destructive and costly cyber attack in history.", "from": "#executive-summary", "quote": "released NotPetya, which the White House called the most destructive and costly cyber attack in history"}
+      - {"text": "The record is strong: a US grand jury indicted six GRU officers and charged the grid attacks, NotPetya and more.", "from": "#executive-summary", "quote": "A grand jury indictment names the officers and charges the 2015 and 2016 grid attacks, NotPetya, the PyeongChang attack and the 2019 Georgia attack"}
+  case-studies/XZ_UTILS_BACKDOOR_2024.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "An attacker posing as a trusted maintainer spent over two years earning release authority, then hid a backdoor in XZ Utils 5.6.0 and 5.6.1.", "from": "#executive-summary", "quote": "An attacker operating as a trusted maintainer spent more than two years earning commit and release authority, then hid a backdoor in the release tarballs of versions 5.6.0 and 5.6.1"}
+      - {"text": "The backdoor hooked SSH authentication so anyone with the attacker's key could run commands as root before authenticating.", "from": "#executive-summary", "quote": "the backdoor hooked the SSH authentication path so that anyone holding the attacker's private key could run commands as root before authenticating"}
+      - {"text": "It was caught by luck, not controls: one engineer noticed SSH logins had become about half a second slower.", "from": "#executive-summary", "quote": "It was caught by one engineer who noticed that SSH logins had become about half a second slower, not by any systematic control"}
+      - {"text": "The lesson: source review misses a build-time backdoor, and a project run by one volunteer is a supply-chain single point of failure.", "from": "#executive-summary", "quote": "critical infrastructure maintained by a single volunteer is a supply-chain single point of failure"}
+  case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "Attackers rarely need a bug: almost every incident is a legitimate publish by someone who should not have been able to publish.", "from": "#executive-summary", "quote": "almost every incident here is a legitimate publish by someone who should not have been able to publish"}
+      - {"text": "Payloads mostly ran at install time via lifecycle scripts, which npm v12, pnpm and Yarn Berry now switch off by default.", "from": "#executive-summary", "quote": "the payloads mostly ran at install time through lifecycle scripts, which is the behavior npm v12, pnpm and Yarn Berry have now switched off by default for dependencies"}
+      - {"text": "Most bad versions were pulled within minutes to hours, which is why release-age gates work.", "from": "#executive-summary", "quote": "most bad versions were found and pulled within minutes to hours, which is why release-age gates work"}
+      - {"text": "Provenance alone is not enough: the 2026 TanStack and keyv releases carried valid provenance yet were malicious.", "from": "#executive-summary", "quote": "the 2026 TanStack releases were published through the project's own trusted-publisher binding and the keyv releases carried valid provenance signed by GitHub Actions"}
+  case-studies/RANSOMWARE_ECOSYSTEM.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "Between 2019 and 2026 ransomware stopped being a virus and became an industry of specialists.", "from": "#executive-summary", "quote": "ransomware stopped being a virus and became an industry between 2019 and 2026"}
+      - {"text": "It runs as a market: developers rent encryptors to affiliates while separate services negotiate payments and settle disputes.", "from": "#executive-summary", "quote": "developers rented their encryptors to affiliates, and separate services negotiated payments, helped victims pay and settled disputes between criminals"}
+      - {"text": "The way in is usually ordinary: MFA-less VPNs and portals, unpatched edge appliances and talked-into-it help desks.", "from": "#executive-summary", "quote": "VPNs and remote-access portals without multifactor authentication, unpatched edge appliances and talked-into-it help desks recur across the advisories"}
+      - {"text": "The money is large: FinCEN counted more than $2.1 billion in reported ransomware payments for 2022 to 2024.", "from": "#executive-summary", "quote": "FinCEN counted more than $2.1 billion in reported payments for 2022 to 2024"}
+  case-studies/AI_THREATS_2026.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "AI has not created new attack types; it has made existing attacks faster and cheaper and turned AI agents into a privileged attack surface.", "from": "#executive-summary", "quote": "It has made existing attacks faster, cheaper and harder to spot, and it has turned AI agents themselves into a privileged attack surface"}
+      - {"text": "The decisive shift is autonomy: agents now run most of an intrusion while people approve only a few decisions.", "from": "#executive-summary", "quote": "agents now run most of an intrusion while people approve a few decisions"}
+      - {"text": "In one case a Chinese state-sponsored group had an AI coding agent do most of the tactical work against about 30 targets.", "from": "#key-findings", "quote": "A Chinese state-sponsored group had Claude Code do 80-90% of the tactical work against about 30 targets"}
+      - {"text": "Deepfake fraud is the most proven AI threat: the FBI logged $893 million in AI-linked losses for 2025.", "from": "#key-findings", "quote": "The FBI logged $893 million in AI-linked losses for 2025"}

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- The backdoor was planted at build time, not in source: an implant on the build server swapped one file while Orion compiled, then restored it. ([Executive summary](#executive-summary))
+- Code signing and the vendor's own update channel delivered the backdoor, so the signature proved origin, not safety. ([Executive summary](#executive-summary))
+- The worst damage came after the foothold: stolen AD FS certificates and forged SAML tokens opened cloud mail and applications. ([Executive summary](#executive-summary))
+- The US and UK attributed the operation to Russia's foreign intelligence service, the SVR, in April 2021. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

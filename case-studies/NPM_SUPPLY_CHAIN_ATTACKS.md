@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- Attackers rarely need a bug: almost every incident is a legitimate publish by someone who should not have been able to publish. ([Executive summary](#executive-summary))
+- Payloads mostly ran at install time via lifecycle scripts, which npm v12, pnpm and Yarn Berry now switch off by default. ([Executive summary](#executive-summary))
+- Most bad versions were pulled within minutes to hours, which is why release-age gates work. ([Executive summary](#executive-summary))
+- Provenance alone is not enough: the 2026 TanStack and keyv releases carried valid provenance yet were malicious. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

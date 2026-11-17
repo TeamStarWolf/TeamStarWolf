@@ -685,3 +685,66 @@ pages:
       - {"text": "The company described a compromised authentication database and a broad password-change request.", "from": "#executive-assessment", "quote": "The company described a compromised authentication database and a broad password-change request"}
       - {"text": "Describing information as non-financial does not mean it is harmless.", "from": "#executive-assessment", "quote": "Describing information as non-financial does not mean it is harmless"}
       - {"text": "Describing passwords as encrypted does not identify an algorithm or establish their resistance to guessing.", "from": "#executive-assessment", "quote": "Describing passwords as encrypted does not, by itself, identify an algorithm or establish the resistance of the stored representation to guessing"}
+  case-studies/CLOUD_HOPPER_APT10.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "A managed-service provider's compromise reaches its customers: the customer's security boundary includes the provider's identities, tools and practices.", "from": "#executive-summary", "quote": "The customer's security boundary includes the identities, tools and operating practices through which the provider performs its work"}
+      - {"text": "The record describes an espionage campaign through managed-service providers and their customers, followed by attribution and criminal charges.", "from": "#executive-summary", "quote": "an espionage campaign involving managed-service providers and their customers, followed by government attribution and criminal charges"}
+      - {"text": "Provider compromise can create customer exposure, but exposure, access and verified theft remain different findings.", "from": "#executive-summary", "quote": "provider compromise can create customer exposure, but exposure, access and verified theft remain different findings"}
+      - {"text": "Recovery requires restoring the trust relationship, not merely cleaning the computer where the first alert appeared.", "from": "#executive-summary", "quote": "Recovery requires restoring the trust relationship, not merely cleaning the computer on which the first alert appeared"}
+  case-studies/OPERATION_AURORA_2010.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Aurora is best studied as three problems: technical compromise, uncertainty about what was stolen, and the response when an intrusion meets user safety.", "from": "#executive-assessment", "quote": "three connected but different problems: technical compromise, uncertainty about the extent of stolen information, and an organization's response"}
+      - {"text": "Reducing it to a browser vulnerability misses the enterprise consequences.", "from": "#executive-assessment", "quote": "Reducing it to a browser vulnerability misses the enterprise consequences"}
+      - {"text": "The study reconstructs a deliberately bounded public record from Google, McAfee and Microsoft.", "from": "#executive-assessment", "quote": "This study reconstructs a deliberately bounded public record from Google, McAfee and Microsoft"}
+      - {"text": "The central lesson: a patch can close a known entry condition without answering what an intruder already obtained.", "from": "#executive-assessment", "quote": "a patch can close a known entry condition without answering what an intruder already obtained"}
+  case-studies/RSA_SECURID_2011.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "A supplier incident can affect your security without any malicious update: information at a trusted authentication supplier can itself help an adversary.", "from": "#executive-assessment", "quote": "Information held by a trusted authentication supplier can itself become useful to an adversary"}
+      - {"text": "An organization does not have to receive a malicious software update for an incident at a supplier to affect its security assumptions.", "from": "#executive-assessment", "quote": "An organization does not have to receive a malicious software update for an incident at a supplier to affect its security assumptions"}
+      - {"text": "The lesson: distinguish a control's normal operation from confidence in the assumptions that make the control valuable.", "from": "#executive-assessment", "quote": "distinguish a control's normal operation from confidence in the assumptions that make the control valuable"}
+      - {"text": "An authentication system can continue to function while its assurance requires reassessment.", "from": "#executive-assessment", "quote": "An authentication system can continue to function while its assurance requires reassessment"}
+  case-studies/DIGINOTAR_2011.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "A certificate can carry a valid signature while making an unauthorized claim about identity.", "from": "#executive-assessment", "quote": "A certificate can carry a valid signature while making an unauthorized claim about identity"}
+      - {"text": "The record establishes a real CA compromise, fraudulent issuance, and abuse against Google users primarily in Iran.", "from": "#executive-assessment", "quote": "a real certificate-authority compromise, fraudulent issuance, abuse against Google users primarily in Iran"}
+      - {"text": "Repairing a server does not undo credentials already distributed outside it.", "from": "#executive-assessment", "quote": "Repairing a server does not undo credentials already distributed outside it"}
+      - {"text": "The most useful lesson is operational: distrust must be an executable capability.", "from": "#executive-assessment", "quote": "distrust must be an executable capability"}
+  case-studies/BLUEKEEP_2019.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "BlueKeep shows why a vulnerability response should begin before a spectacular incident makes the news.", "from": "#executive-assessment", "quote": "a vulnerability response should begin before a spectacular incident makes the evening news"}
+      - {"text": "The name identifies CVE-2019-0708, not a single malware family or one organization's breach.", "from": "#executive-assessment", "quote": "The name identifies CVE-2019-0708, not a single malware family or one organization's breach"}
+      - {"text": "A vulnerable service, exposed endpoint, exploitation attempt, successful compromise and malicious payload are different states.", "from": "#executive-assessment", "quote": "A vulnerable service, an exposed endpoint, an exploitation attempt, a successful compromise and a malicious payload are different states"}
+      - {"text": "The feared worm did not materialize: Microsoft described operator-driven activity and cryptocurrency-mining payloads instead.", "from": "#executive-assessment", "quote": "Microsoft's November investigation described operator-driven activity and cryptocurrency-mining payloads, not proof that the feared global worm had materialized"}
+  case-studies/ZEROLOGON_2020.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Zerologon (CVE-2020-1472) threatened a central source of enterprise authority: Active Directory domain controllers.", "from": "#executive-assessment", "quote": "The vulnerability threatened a central source of enterprise authority: Active Directory domain controllers"}
+      - {"text": "The response was more than a patch: understanding incompatible connections and moving to stronger enforcement.", "from": "#executive-assessment", "quote": "The response involved patching those systems, understanding incompatible connections and moving to stronger enforcement"}
+      - {"text": "Primary records support actual malicious use in 2020 but give no worldwide victim total or single attacker identity.", "from": "#executive-assessment", "quote": "Primary records support actual malicious use in 2020, but they do not provide a complete worldwide victim total"}
+      - {"text": "A deployment is incomplete if it delivers updated software while losing track of accounts still allowed weaker behavior.", "from": "#executive-assessment", "quote": "A deployment project is incomplete if it delivers updated software while losing track of the accounts still permitted to use weaker behavior"}
+  case-studies/SPECTRE_MELTDOWN_2018.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Spectre and Meltdown were vulnerability disclosures and demonstrations of information leakage, not an incident like a ransomware deployment.", "from": "#executive-assessment", "quote": "They were vulnerability disclosures and demonstrations of information leakage"}
+      - {"text": "The subject is the change in security assumptions and the difficulty of deploying mitigations across independently maintained components.", "from": "#executive-assessment", "quote": "the change in security assumptions exposed by the research and the difficulty of deploying mitigations across independently maintained components"}
+      - {"text": "A patch receipt is a change-management event; protection is a property of the resulting system under a particular threat model.", "from": "#executive-assessment", "quote": "A patch receipt is a change-management event. Protection is a property of the resulting system under a particular threat model"}
+      - {"text": "Mitigation remains configuration-specific, per maintained Linux documentation.", "from": "#executive-assessment", "quote": "maintained Linux documentation for evidence that mitigation remains configuration-specific"}
+  case-studies/KRACK_2017.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "KRACK is a vulnerability-disclosure and engineering case: a serious weakness and a coordinated response, not a documented mass breach.", "from": "#executive-assessment", "quote": "establishes a serious weakness and a coordinated response"}
+      - {"text": "The record gives no named criminal campaign, global victim count, stolen-data totals or financial-loss estimate.", "from": "#executive-assessment", "quote": "It does not establish a named criminal campaign, a global victim count, stolen-data totals or a financial-loss estimate"}
+      - {"text": "The central lesson is about state: a security system must remember what it has already done.", "from": "#executive-assessment", "quote": "a security system must remember what it has already done"}
+      - {"text": "An operation harmless during initial setup may become dangerous when repeated after communication has begun.", "from": "#executive-assessment", "quote": "An operation that is harmless during initial setup may become dangerous when repeated after communication has begun"}
+  case-studies/SHATTERED_SHA1_2017.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "In February 2017 Google and CWI announced a practical SHA-1 collision: two PDFs with different contents but the same digest.", "from": "#executive-assessment", "quote": "Google and CWI announced a practical SHA-1 collision: two PDF files with different visible contents but the same digest"}
+      - {"text": "It was a research demonstration, not a theft of signing keys or a ransomware incident.", "from": "#executive-assessment", "quote": "It was a research demonstration, not a reported theft of signing keys or a ransomware incident"}
+      - {"text": "The artifacts did not show an attacker could replace any previously chosen file while preserving its hash.", "from": "#executive-assessment", "quote": "They did not show that an attacker could replace any previously chosen file while preserving its hash"}
+      - {"text": "The lesson: matching digests could no longer bear the same adversarial trust.", "from": "#executive-assessment", "quote": "matching digests could no longer bear the same adversarial trust"}

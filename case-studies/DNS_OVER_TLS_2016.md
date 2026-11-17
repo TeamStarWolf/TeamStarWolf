@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- DNS over TLS shows why adding encryption is not the same as defining a complete privacy service. ([Executive assessment](#executive-assessment))
+- The central distinction is between attempting encryption and requiring an authenticated encrypted connection. ([Executive assessment](#executive-assessment))
+- A product can support DoT without guaranteeing that every lookup is protected. ([Executive assessment](#executive-assessment))
+- A strict client can refuse to resolve a name when the required secure service is unavailable, which may be the intended outcome. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

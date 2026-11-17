@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- WebAuthn's significance is changing how a service authenticates a user, reducing dependence on reusable secrets people can disclose to an impostor. ([Executive assessment](#executive-assessment))
+- The central distinction is between a stronger authentication transaction and a completely secure account. ([Executive assessment](#executive-assessment))
+- What it does not fix: a strong sign-in does not repair account recovery, enrollment, authorization, endpoint security or session handling. ([Executive assessment](#executive-assessment))
+- The study anchors the milestone in the March 2019 W3C Recommendation, with later passkey developments as context. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

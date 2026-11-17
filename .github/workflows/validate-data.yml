@@ -96,6 +96,18 @@ jobs:
       - name: Check CTID edge tables (control/vendor -> technique) match their sources
         run: python scripts/build_ctid_edges.py --check
 
+      # The site builds a lowercase-kebab pretty-URL alias for every SCREAMING_SNAKE route
+      # from assets/site-nav.json at runtime (#/ACTIVE_DIRECTORY_ATTACK_REFERENCE also answers
+      # at #/active-directory-attack-reference). The resolver is collision-safe by design, so a
+      # clash fails silently: if two pages reduce to the same kebab, one keeps its pretty URL
+      # and the other gets none, with no error. This makes that case a build failure instead.
+      # The self-test runs planted cases.
+      - name: Kebab alias rules (planted cases)
+        run: python scripts/check_kebab_aliases.py --self-test
+
+      - name: No two pages collide on a lowercase-kebab route alias
+        run: python scripts/check_kebab_aliases.py --check
+
   corpus-signal:
     name: Corpus-signal round-trip (data file == pages, exactly 21)
     # The "TeamStarWolf corpus signal" paragraph on 21 technique pages comes from the

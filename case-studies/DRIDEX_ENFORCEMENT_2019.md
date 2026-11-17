@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The December 2019 action combined charges, sanctions, a reward and publicity, not a claim that every infection was removed. ([Executive assessment](#executive-assessment))
+- Reading it requires separating what had happened, accusations awaiting adjudication, institutional assessments, and technical outcomes. ([Executive assessment](#executive-assessment))
+- Authorities had achieved concrete disruption and an earlier conviction, then exposed more alleged participants. ([Executive assessment](#executive-assessment))
+- Later sources describe the group adapting rather than permanently disappearing, each outcome tied to its own window. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

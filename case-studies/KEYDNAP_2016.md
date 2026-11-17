@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- An installer investigation can stop too early, removing the file while the account access tied to the computer stays unresolved. ([Executive assessment](#executive-assessment))
+- The real question is not just whether a malicious file was present but what would justify trusting the device and its accounts again. ([Executive assessment](#executive-assessment))
+- The sources do not establish a complete worldwide victim population, a definitive attacker identity, or every user's outcome. ([Executive assessment](#executive-assessment))
+- Keeping the modern recommendations separate from the 2016 reporting prevents sensible advice from becoming invented facts. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

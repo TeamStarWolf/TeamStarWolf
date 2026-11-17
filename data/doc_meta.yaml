@@ -3417,6 +3417,48 @@ pages:
     start_at: "[Executive assessment](#executive-assessment), [1. The documented core](#_1-the-documented-core), [11. Scope accounting: cards, people, records, and notices](#_11-scope-accounting-cards-people-records-and-notices)"
     pairs_with: "[Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Target, 2013](/case-studies/TARGET_2013.md)"
     reviewed: null
+  case-studies/CODECOV_2021.md:
+    audience: "CI/CD and release-engineering security owners, incident responders, secrets and credential owners, and downstream consumers of build tooling"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2021 Codecov Bash Uploader compromise, you need to separate execution from exposure from credential use from repository access, or you are reviewing build-step authority, secret minimization and credential rotation"
+    start_at: "[Executive summary](#executive-summary), [3. Original analysis: the authority inherited by a build step](#_3-original-analysis-the-authority-inherited-by-a-build-step), [4. An investigation model that does not overclaim](#_4-an-investigation-model-that-does-not-overclaim)"
+    pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [DevSecOps Reference](/DEVSECOPS_REFERENCE.md), [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [CCleaner 2017](/case-studies/CCLEANER_2017.md)"
+    reviewed: null
+  case-studies/EVENT_STREAM_2018.md:
+    audience: "Software producers and consumers, dependency and release owners, security engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2018 event-stream npm compromise, you need to separate inclusion from vulnerability from compromise from loss or distribution from selective activation, or you are reviewing dependency handoffs and release assurance"
+    start_at: "[Executive assessment](#executive-assessment), [The trust handoff was a security event](#the-trust-handoff-was-a-security-event), [Inclusion, vulnerability, compromise, and loss](#inclusion-vulnerability-compromise-and-loss)"
+    pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [DevSecOps Reference](/DEVSECOPS_REFERENCE.md), [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md), [Package Managers Reference](/PACKAGE_MANAGERS_REFERENCE.md), [Codecov 2021](/case-studies/CODECOV_2021.md)"
+    reviewed: null
+  case-studies/NETSARANG_SHADOWPAD_2017.md:
+    audience: "Software release engineers, security operations teams, enterprise administrators, incident commanders and supplier-risk owners"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2017 NetSarang ShadowPad compromise, you need to separate exposure from execution from activation from impact, or you are reviewing release trust, signed-artifact assurance and endpoint authority"
+    start_at: "[Executive summary](#executive-summary), [Why a valid signature was not enough](#why-a-valid-signature-was-not-enough), [Exposure, execution, activation and impact](#exposure-execution-activation-and-impact)"
+    pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md), [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [CCleaner 2017](/case-studies/CCLEANER_2017.md)"
+    reviewed: null
+  case-studies/VPNFILTER_2018.md:
+    audience: "Network and edge-device security engineers, incident responders, threat-intelligence analysts and operations owners"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2018 VPNFilter botnet and its disruption, you need to separate a device estimate from a sinkhole IP count or disruption from eradication, or you are reviewing edge-device ownership, recovery and later attribution"
+    start_at: "[Executive summary](#executive-summary), [The network device as a trust boundary](#the-network-device-as-a-trust-boundary), [Why rebooting and eradication require different evidence](#why-rebooting-and-eradication-require-different-evidence)"
+    pairs_with: "[Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md), [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Threat Actors](/THREAT_ACTORS.md)"
+    reviewed: null
+  case-studies/CLOUD_HOPPER_APT10.md:
+    audience: "Managed-service providers, customer security teams, identity architects, incident commanders, procurement leaders and data owners"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the Cloud Hopper (APT10) MSP espionage campaign, you need to separate provider exposure from customer access from verified theft or attribution from allegation, or you are reviewing delegated administrative authority and tenant separation"
+    start_at: "[Executive summary](#executive-summary), [Why provider access changes the risk model](#why-provider-access-changes-the-risk-model), [Exposure, access and theft are separate findings](#exposure-access-and-theft-are-separate-findings)"
+    pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Threat Actors](/THREAT_ACTORS.md), [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [SolarWinds SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md)"
+    reviewed: null
+  case-studies/ASUS_SHADOWHAMMER_2019.md:
+    audience: "Software producers and consumers, release-engineering and endpoint owners, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2018-2019 ASUS ShadowHammer compromise, you need to separate broad distribution from narrow selection or receipt from execution from follow-on activity, or you are reviewing release trust, code signing and selective-targeting triage"
+    start_at: "[Executive summary](#executive-summary), [3. Original analysis: a five-link release trust model](#_3-original-analysis-a-five-link-release-trust-model), [4. Broad reach and selective execution](#_4-broad-reach-and-selective-execution)"
+    pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md), [DevSecOps Reference](/DEVSECOPS_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [CCleaner 2017](/case-studies/CCLEANER_2017.md)"
+    reviewed: null
   commands/aws-cli.md:
     audience: "Cloud engineers, administrators and security teams who work in AWS from a terminal"
     level: "Beginner to intermediate"

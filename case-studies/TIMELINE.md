@@ -781,6 +781,14 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 21 August 2021: CISA urgent alert on active ProxyShell exploitation
   - 3 November 2021: KEV launches with the seven ProxyLogon and ProxyShell CVEs
   - 3 July 2025: Xu Zewei arrested in Milan
+- [Codecov 2021: When the Build Helper Became a Credential Boundary](/case-studies/CODECOV_2021.md). Incident, 2021. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Codecov_2021_Case_Study.pdf).
+  - 31 January 2021: Start of the reported period containing unauthorized Bash Uploader changes
+  - 1 April 2021: A customer reports a checksum discrepancy; Codecov discovers and remediates
+  - 15 April 2021: Codecov publicly discloses and notifies affected users
+  - 22 April 2021: HashiCorp discloses an exposed GPG signing key; Twilio later notes a GitHub notification the same day
+  - 29 April 2021: Codecov publishes additional environment-variable and impact information
+  - 4 May 2021: Twilio publishes its response account
+  - 13 May 2021: Rapid7 publishes its response account
 - [The Year 2021 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2021.md). Period record, January to December 2021. Sectors: cross-sector, energy, healthcare, government, technology. CVEs: CVE-2017-16238, CVE-2018-13379, CVE-2019-5591, CVE-2019-19781, CVE-2020-1472, CVE-2020-12812 and 25 more. ATT&CK groups: G0004 Ke3chang, G0016 APT29, G0032 Lazarus Group, G0049 OilRig, G0059 Magic Hound, G0065 Leviathan and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2021_Case_Study.pptx).
   - 27 January 2021: Emotet's infrastructure taken over by eight countries' authorities
   - 5 February 2021: Someone in a US water utility's SCADA system raises sodium hydroxide; staff reverse it
@@ -951,11 +959,25 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 12 February 2018: Cisco Talos publishes its analysis; conclusions change over 12 to 13 February
   - March 2018: Kaspersky's Rich-header research concludes the Lazarus resemblance was a false flag
   - 19 October 2020: US charges six alleged GRU officers
+- [VPNFilter, 2018: When the Network Edge Became the Intrusion Platform](/case-studies/VPNFILTER_2018.md). Campaign, 2018 to 2022 (core: 2018). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/VPNFilter_2018_Case_Study.pdf).
+  - 8 May 2018: Talos observes increases in Ukrainian victims (also 17 May)
+  - 23 May 2018: Talos discloses VPNFilter (at least 500,000 devices, 54+ countries); DOJ announces the botnet disruption and domain seizure
+  - 29 May 2018: FBI Portland explains rebooting as an interruption, not eradication
+  - 6 June 2018: Talos expands the device scope and describes the ssler and dstr modules
+  - 23 February 2022: The NCSC attributes the framework to Sandworm (GRU) and describes Cyclops Blink as its successor
 - [Spectre and Meltdown, 2018: When Isolation Became a Hardware-Software Responsibility](/case-studies/SPECTRE_MELTDOWN_2018.md). Vulnerability, June 2017 to January 2018 (core: January 2018). Sectors: technology. CVEs: CVE-2017-5753, CVE-2017-5715, CVE-2017-5754. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Spectre_Meltdown_2018_Case_Study.pdf).
   - 1 June 2017: Project Zero notifies Intel, AMD and ARM
   - 3 January 2018: Public disclosure by Project Zero and Google, ahead of the planned date
   - 9 January 2018: The originally coordinated disclosure date
   - 22 January 2018: Canonical reverts an Intel microcode update after instability
+- [event-stream 2018: A Dependency Handoff Reached a Wallet Release](/case-studies/EVENT_STREAM_2018.md). Incident, 2018. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/event-stream_2018_Case_Study.pdf).
+  - 9 September 2018: flatmap-stream is added as a dependency through event-stream 3.3.6
+  - 5 October 2018: The malicious flatmap-stream 0.1.1 is published (per Snyk)
+  - 20 November 2018: A public GitHub issue surfaces the problem
+  - 26 November 2018: npm is notified and responds at the registry
+  - 27 November 2018: npm publishes its incident analysis; a Copay-specific wallet-targeting payload
+  - 6 December 2018: Snyk publishes its post-mortem
+  - 12 December 2018: BitPay confirms malicious code in Copay 5.0.2 to 5.1.0 and describes fixes
 - [The Year 2018 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2018.md). Period record, January to December 2018. Sectors: cross-sector, government, energy, finance, technology, education, healthcare, transport, retail. CVEs: CVE-2017-5715, CVE-2017-5753, CVE-2017-5754, CVE-2018-0101, CVE-2018-0171, CVE-2018-0296 and 26 more. ATT&CK groups: G0007 APT28, G0008 Carbanak, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly, G0045 menuPass and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2018_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2018_Case_Study.pptx).
   - 3 January 2018: Google Project Zero publishes the speculative-execution flaws CVE-2017-5753, CVE-2017-5715 and CVE-2017-5754 (Spectre and Meltdown)
   - 9 February 2018: Olympic Destroyer disrupts PyeongChang Winter Olympics systems during the opening ceremony; recovery within about 12 hours
@@ -987,6 +1009,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 25 October 2018: IAG revises the payment-card group to 244,000 and notifies two reward-booking groups
   - 16 October 2020: The ICO imposes a 20 million pound penalty (down from a 183.39 million pound proposal)
   - July 2021: A group claim is resolved on confidential terms with no admission of liability
+- [ASUS ShadowHammer 2018-2019: Broad Distribution, Narrow Selection, Broken Release Trust](/case-studies/ASUS_SHADOWHAMMER_2019.md). Incident, 2018 to 2019. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ASUS_ShadowHammer_2019_Case_Study.pdf).
+  - June 2018: The observed ASUS Live Update campaign period (June to November 2018)
+  - January 2019: Kaspersky discovers the campaign
+  - 25 March 2019: Kaspersky discloses Operation ShadowHammer; more than 57,000 affected users in its telemetry; 600+ MAC-address selectors
+  - 26 March 2019: CERT-EU publishes a response advisory (revised 27 March); ASUS releases Live Update 3.6.8
+  - 27 March 2019: ReversingLabs publishes additional sample analysis
+  - 23 April 2019: Kaspersky publishes its expanded technical report
 
 ### 2017 <!-- {docsify-ignore} -->
 
@@ -1044,6 +1073,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 23 February 2017: Google and CWI announce the first practical SHA-1 collision
   - 24 February 2017: NIST responds, noting SHA-1 deprecation since 2011 and disallowance since 2013
   - 20 March 2017: GitHub announces collision detection and explains Git's object boundary
+- [NetSarang / ShadowPad, 2017: A Trusted Software Release Became an Intrusion Path](/case-studies/NETSARANG_SHADOWPAD_2017.md). Incident, 2017. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/NetSarang_ShadowPad_2017_Case_Study.pdf).
+  - 18 July 2017: NetSarang ships a release containing a backdoor in nssock2.dll (distributed to 4 August)
+  - 5 August 2017: A clean update is released (per MyCERT)
+  - 15 August 2017: Kaspersky discloses ShadowPad; one confirmed activation at a Hong Kong company; NetSarang acknowledges the backdoor
+  - 17 August 2017: The Canadian Centre for Cyber Security publishes an alert with five affected builds
+  - 20 August 2017: MyCERT publishes affected-build guidance
+  - 23 August 2017: Tenable publishes a detection check for the compromised library
 - [The Year 2017 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2017.md). Period record, January to December 2017. Sectors: cross-sector, healthcare, energy, finance, government, technology. CVEs: CVE-2017-0005, CVE-2017-0101, CVE-2017-0143, CVE-2017-0144, CVE-2017-0145, CVE-2017-0146 and 28 more. ATT&CK groups: G0020 Equation, G0022 APT3, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly, G0045 menuPass and 4 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2017_Case_Study.pptx).
   - 7 March 2017: WikiLeaks publishes Vault 7 Part 1, "Year Zero", 8,761 documents it says came from the CIA
   - 14 March 2017: Microsoft publishes MS17-010, fixing the SMBv1 flaws later used by WannaCry and NotPetya
@@ -1106,6 +1142,11 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - August 2016: Time Inc.'s Form 10-Q reports about 360 million accounts and a likely June 2013 to mid-2015 breach interval
   - 2017: The Form 10-K for 2016 repeats the likely intrusion interval
   - 2021: A later Viant Form 10-K reiterates roughly 360 million accounts using pre-June 2013 framing
+- [Cloud Hopper / APT10, 2016-2018: When Provider Access Became Customer Exposure](/case-studies/CLOUD_HOPPER_APT10.md). Campaign, 2016 to 2018. Sectors: cross-sector. ATT&CK groups: G0045 menuPass. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cloud_Hopper_APT10_Case_Study.pdf).
+  - 2014: The MSP-focused campaign begins (at least around 2014, per the indictment)
+  - 2016: Research describes increased scale and MSP-focused activity (Cloud Hopper active since at least 2016 per the NCSC)
+  - April 2017: PwC UK and BAE Systems publish the Operation Cloud Hopper report and technical annex
+  - 20 December 2018: The UK attributes the campaign to APT10 (China); the US charges Zhu Hua and Zhang Shilong
 - [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md). Period record, January to December 2016. Sectors: cross-sector, government, finance, energy, healthcare, technology, transport. CVEs: CVE-2015-5374, CVE-2016-0189, CVE-2016-0800, CVE-2016-1019, CVE-2016-2118, CVE-2016-3081 and 12 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0020 Equation, G0032 Lazarus Group, G0034 Sandworm Team and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2016_Case_Study.pptx).
   - February 2016: An attacker in Bangladesh Bank's SWIFT system attempts $951 million in transfers; $81 million is not recovered
   - 31 March 2016: TA16-091A: Locky in hospitals in the US, New Zealand and Germany; Samas into healthcare networks through web servers

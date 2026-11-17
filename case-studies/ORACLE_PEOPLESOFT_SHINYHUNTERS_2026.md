@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- ShinyHunters (UNC6240) exploited a PeopleSoft zero-day, CVE-2026-35273, from 27 May to 9 June 2026. ([Executive summary](#executive-summary))
+- The University of Nottingham told students a significant amount of data in its student record system had been accessed. ([Executive summary](#executive-summary))
+- In September ShinyHunters defaced the FBI's recruitment site and claimed data on FBI employees and applicants. ([Executive summary](#executive-summary))
+- The actor returned against organizations that had used WAF rules instead of patching, walking around them with an encoded path. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

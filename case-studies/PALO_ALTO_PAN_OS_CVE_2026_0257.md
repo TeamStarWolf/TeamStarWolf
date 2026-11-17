@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- In one GlobalProtect configuration, an unauthenticated attacker could skip the portal and gateway login and open their own VPN connection. ([Executive summary](#executive-summary))
+- The flaw rests on a cookie the appliance trusted without checking it properly; within four days someone was trying it. ([Executive summary](#executive-summary))
+- By June, intrusions that began at the VPN ended with Qilin ransomware across Windows domains. ([Executive summary](#executive-summary))
+- Unit 42 said attackers used the flaw to get past multi-factor authentication into VPN sessions. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

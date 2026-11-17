@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Attackers who compromised the editor's former hosting provider redirected update traffic for a few chosen users to a malicious installer. ([Executive summary](#executive-summary))
+- The editor's own code was not changed; the attack lived in the delivery path. ([Executive summary](#executive-summary))
+- The weakness was an updater that did not check that what it downloaded was genuine, now CVE-2025-15556. ([Executive summary](#executive-summary))
+- CISA added it to the Known Exploited Vulnerabilities catalog on 12 February 2026. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

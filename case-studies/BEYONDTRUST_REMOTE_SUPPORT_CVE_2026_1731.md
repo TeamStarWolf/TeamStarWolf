@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Anyone who could reach a BeyondTrust Remote Support appliance could run OS commands on it as the site user, without logging in. ([Executive summary](#executive-summary))
+- Cloud customers needed no action: BeyondTrust patched every SaaS tenant four days before it published the advisory. ([Executive summary](#executive-summary))
+- Within a week of disclosure, Google's threat intelligence group counted six threat clusters exploiting the bug. ([Executive summary](#executive-summary))
+- By August the FBI, CISA and HHS listed the flaw among those the Medusa ransomware operation exploits. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

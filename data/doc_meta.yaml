@@ -2330,6 +2330,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Defensive playbook](#defensive-playbook), [Remediation and mitigation by platform and technology](#remediation-and-mitigation-by-platform-and-technology)"
     pairs_with: "[AI Security Reference](/AI_SECURITY_REFERENCE.md), [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md), [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md), [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md)"
     reviewed: null
+  case-studies/ANTHEM_2015.md:
+    audience: "Healthcare and health-plan security leaders, identity and data-warehouse owners, detection engineers, incident responders and privacy teams"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2015 Anthem breach, you need to separate a stolen password from the privileged path into a consolidated data warehouse, or you are reviewing bulk-extraction controls and breach-population language"
+    start_at: "[Executive assessment](#executive-assessment), [4. The alleged intrusion chain, without an exploit recipe](#_4-the-alleged-intrusion-chain-without-an-exploit-recipe), [7. A warehouse is a concentration of authority](#_7-a-warehouse-is-a-concentration-of-authority)"
+    pairs_with: "[Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)"
+    reviewed: null
   case-studies/APT41_PUBLIC_RECORD.md:
     audience: "Threat intelligence analysts, threat hunters and defenders tracking China-nexus intrusion sets"
     level: "Intermediate"
@@ -2365,6 +2372,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
     pairs_with: "[Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md), [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md), [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md), [North Korea-attributed threat actors](/case-studies/THREAT_ACTORS_NORTH_KOREA.md)"
     reviewed: null
+  case-studies/BLUEKEEP_2019.md:
+    audience: "Windows and vulnerability-management teams, network and remote-access owners, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of CVE-2019-0708, you need to tell an affected system from a reachable one or a deployment job from a verified fix, or you are acting on a wormable warning before an incident"
+    start_at: "[Executive assessment](#executive-assessment), [8. Original analysis: patching is a chain of evidence](#_8-original-analysis-patching-is-a-chain-of-evidence), [11. Original analysis: patch completion is not incident clearance](#_11-original-analysis-patch-completion-is-not-incident-clearance)"
+    pairs_with: "[Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
   case-studies/BOSTON_SCIENTIFIC_ATTACK_2026.md:
     audience: "Medical-technology and manufacturing security teams, network and edge-device owners, incident responders, business continuity leads and vulnerability management leads"
     level: "Intermediate"
@@ -2378,6 +2392,13 @@ pages:
     read_when: "You need the facts of the 2024 Change Healthcare ransomware attack and its breach count, you run remote access portals that still lack multifactor authentication, or you want the vulnerability-management and defender lessons for healthcare"
     start_at: "[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 10: the vulnerability-management view](#part-10-the-vulnerability-management-view)"
     pairs_with: "[Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md)"
+    reviewed: null
+  case-studies/CAPITAL_ONE_2019.md:
+    audience: "Cloud and application security engineers, identity and workload-permission owners, incident responders and governance and risk teams"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2019 Capital One breach, you need to separate a valid credential from a valid context or storage encryption from access authority, or you are reviewing workload identity and data blast radius"
+    start_at: "[Executive assessment](#executive-assessment), [3. The authority chain](#_3-the-authority-chain), [9. Response: contain authority and preserve meaning](#_9-response-contain-authority-and-preserve-meaning)"
+    pairs_with: "[Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md), [Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Major Cloud Security Incidents](/case-studies/CLOUD_SECURITY_INCIDENTS.md)"
     reviewed: null
   case-studies/CARECLOUD_BREACH_2026.md:
     audience: "Healthcare and health-technology security leaders, cloud and identity teams, detection engineers, vendor-risk and breach-response staff and vulnerability management leads"
@@ -2731,6 +2752,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
     pairs_with: "[Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Healthcare Threat Watchlist](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md)"
     reviewed: null
+  case-studies/DIGINOTAR_2011.md:
+    audience: "Security architects, PKI and certificate-service operators, incident commanders, public-service leaders and infrastructure owners"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2011 DigiNotar compromise, you need to tell a valid signature from a trustworthy issuer or revocation from distrust from replacement, or you are planning how to withdraw trust in a supplier"
+    start_at: "[Executive assessment](#executive-assessment), [3. Understanding the trust that failed](#_3-understanding-the-trust-that-failed), [8. Public-service continuity: the cost of a necessary rejection](#_8-public-service-continuity-the-cost-of-a-necessary-rejection)"
+    pairs_with: "[Certificate Trust Incident Response Reference](/CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md), [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
   case-studies/DIRTY_PIPE_2022.md:
     audience: "Linux platform and kernel engineers, vulnerability management leads, incident responders and container and cloud operators"
     level: "Intermediate"
@@ -2765,6 +2793,20 @@ pages:
     read_when: "You need the facts of the eMudhra intermediate CA key compromise, you are checking whether your clients still trust the affected certificates, or you want the remediation steps by platform"
     start_at: "[Executive summary](#executive-summary), [The client-path exposure gap](#the-client-path-exposure-gap), [Remediation by platform and capability](#remediation-by-platform-and-capability)"
     pairs_with: "[Certificate Trust Incident Response](/CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md), [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)"
+    reviewed: null
+  case-studies/EQUIFAX_2017.md:
+    audience: "Application and vulnerability-management teams, detection engineers, data and identity owners, incident responders and security and risk leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2017 Equifax breach, you need to separate a patch ticket from proof or a running sensor from a working one, or you are reviewing exposure closure and data blast radius"
+    start_at: "[Executive summary](#executive-summary), [Attack-path analysis: six separate trust decisions](#attack-path-analysis-six-separate-trust-decisions), [Exposure management: from notification to verified closure](#exposure-management-from-notification-to-verified-closure)"
+    pairs_with: "[Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
+  case-studies/ETERNALBLUE_MS17_010_2017.md:
+    audience: "Windows and vulnerability-management teams, network and infrastructure owners, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of MS17-010 and EternalBlue, you need to tell a released correction from a verified fix or one propagation method from a whole campaign, or you are proving a patch response"
+    start_at: "[Executive assessment](#executive-assessment), [8. Patch verification and supersedence](#_8-patch-verification-and-supersedence), [13. The limits of patching one propagation method](#_13-the-limits-of-patching-one-propagation-method)"
+    pairs_with: "[Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md), [CVE Reference](/CVE_REFERENCE.md)"
     reviewed: null
   case-studies/EUROPEAN_COMMISSION_CLOUD_BREACH_2026.md:
     audience: "Cloud and platform security engineers, DevOps teams who run CI/CD pipelines, incident responders, vulnerability management leads and public-sector security teams"
@@ -2843,6 +2885,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 2: the watchlist](#part-2-the-watchlist), [Part 5: the defender view](#part-5-the-defender-view)"
     pairs_with: "[Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Threat Actors](/THREAT_ACTORS.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
     reviewed: null
+  case-studies/HEARTBLEED_2014.md:
+    audience: "Platform and application engineers, cryptography and PKI owners, vulnerability-management teams, incident responders and supplier-risk managers"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of CVE-2014-0160, you need to separate patching a library from recovering trust (keys, certificates, sessions and secrets), or you are planning a dependency-exposure response"
+    start_at: "[Executive summary](#executive-summary), [Part 1: The feature, the implementation and the exposed boundary](#part-1-the-feature-the-implementation-and-the-exposed-boundary), [Part 9: Reconstructing recovery without inventing closure](#part-9-reconstructing-recovery-without-inventing-closure)"
+    pairs_with: "[Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md), [CVE Reference](/CVE_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)"
+    reviewed: null
   case-studies/HUGGING_FACE_SUPPLY_CHAIN.md:
     audience: "AI and ML engineers, supply chain security engineers and security teams that pull models from public hubs"
     level: "Intermediate"
@@ -2891,6 +2940,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
     pairs_with: "[Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [The Year 2026 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2026.md)"
     reviewed: null
+  case-studies/KRACK_2017.md:
+    audience: "Network and wireless engineers, endpoint and vulnerability-management teams, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2017 KRACK disclosure, you need to tell potential exposure from confirmed compromise or a router firmware change from endpoint remediation, or you are running a Wi-Fi patch program"
+    start_at: "[Executive assessment](#executive-assessment), [What the researchers demonstrated](#what-the-researchers-demonstrated), [Protocol engineering: retries must preserve invariants](#protocol-engineering-retries-must-preserve-invariants)"
+    pairs_with: "[Wireless Security Reference](/WIRELESS_SECURITY_REFERENCE.md), [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md), [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)"
+    reviewed: null
   case-studies/LINUX_TCP_UAF_2026.md:
     audience: "Linux administrators, vulnerability management leads and security engineers"
     level: "Intermediate"
@@ -2919,12 +2975,26 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the intrusion at FireEye](#part-1-the-intrusion-at-fireeye), [Part 9: the defender view](#part-9-the-defender-view)"
     pairs_with: "[Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Red Team Reference](/RED_TEAM_REFERENCE.md), [SolarWinds and SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md)"
     reviewed: null
+  case-studies/MARRIOTT_STARWOOD_2018.md:
+    audience: "Acquisition and integration security teams, data and identity owners, detection engineers, incident responders and privacy and risk leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2014 to 2018 Starwood breach, you need to tell records from people or the SHA-1 correction from the earlier AES-128 claim, or you are securing an acquired environment"
+    start_at: "[Executive summary](#executive-summary), [The historical record in six bounded accounts](#the-historical-record-in-six-bounded-accounts), [Acquisition security: four phases with different evidence](#acquisition-security-four-phases-with-different-evidence)"
+    pairs_with: "[Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
   case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md:
     audience: "Desktop and Microsoft 365 administrators, email security and vulnerability management teams, incident responders and threat intelligence analysts"
     level: "Intermediate"
     read_when: "You run Microsoft Office or Microsoft 365 Apps, you need the dated record of CVE-2026-21509 and the APT28 campaigns that exploited it, or you want to decide how to patch Office by build and hunt a COM-hijack chain"
     start_at: "[Executive summary](#executive-summary), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view), [MITRE mappings](#mitre-mappings)"
     pairs_with: "[Email Security Reference](/EMAIL_SECURITY_REFERENCE.md), [Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Russia-Attributed Threat Actors](/case-studies/THREAT_ACTORS_RUSSIA.md)"
+    reviewed: null
+  case-studies/MIRAI_DYN_2016.md:
+    audience: "Vulnerability-management teams, network defenders, DNS and service owners, procurement teams and incident commanders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2016 Mirai botnet and the Dyn disruption, you need to connect unmanaged-device security to enterprise dependency risk, or you are testing availability under a failure outside your control"
+    start_at: "[Executive summary](#executive-summary), [Part 2: the operational model](#part-2-the-operational-model), [Part 5: an evidence-led response playbook](#part-5-an-evidence-led-response-playbook)"
+    pairs_with: "[Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md), [Network Monitoring Reference](/NETWORK_MONITORING_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
     reviewed: null
   case-studies/MITNICK_INTRUSIONS.md:
     audience: "Security awareness leads, help desk and identity managers, threat intelligence analysts and anyone who has read Ghost in the Wires or The Art of Intrusion and wants the primary record behind them"
@@ -2968,6 +3038,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
     pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [SolarWinds and SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md)"
     reviewed: null
+  case-studies/NOTPETYA_2017.md:
+    audience: "Incident responders, identity and endpoint engineers, supply-chain risk teams and business-continuity leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2017 NotPetya outbreak, you need to separate a trusted update path from network propagation or technical recovery from service restoration, or you are reading its financial and attribution record carefully"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the attack had more than one beginning](#part-1-the-attack-had-more-than-one-beginning), [Part 8: the defender and vulnerability-management view](#part-8-the-defender-and-vulnerability-management-view)"
+    pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md), [Sandworm Operations](/case-studies/SANDWORM_OPERATIONS.md), [Bad Rabbit, 2017](/case-studies/BAD_RABBIT_2017.md)"
+    reviewed: null
   case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md:
     audience: "JavaScript developers, supply chain security engineers and platform teams that install npm packages"
     level: "Intermediate"
@@ -2981,6 +3058,27 @@ pages:
     read_when: "You need a graded account of the Shadow Brokers and Vault 7 leaks, what the court record and the CIA's own review show, how the leaked SMBv1 exploits became WannaCry and NotPetya, or what the leaks mean for patching, SMB exposure and privileged users on development networks"
     start_at: "[Executive summary](#executive-summary), [Part 10: the vulnerability-management view](#part-10-the-vulnerability-management-view), [Part 11: the defender view](#part-11-the-defender-view)"
     pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Insider Threat Reference](/INSIDER_THREAT_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [United States-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_UNITED_STATES.md)"
+    reviewed: null
+  case-studies/OLYMPIC_DESTROYER_2018.md:
+    audience: "Incident commanders, identity engineers, event and broadcast operators, supplier-risk managers and exposure-management teams"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2018 Olympic Destroyer attack, you need to separate a code resemblance from authorship or restored service from restored trust, or you must recover under a fixed public deadline"
+    start_at: "[Executive summary](#executive-summary), [Part 2: analyzing the trust boundaries](#part-2-analyzing-the-trust-boundaries), [Part 4: incident command under a fixed deadline](#part-4-incident-command-under-a-fixed-deadline)"
+    pairs_with: "[Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Sandworm Operations](/case-studies/SANDWORM_OPERATIONS.md), [NotPetya 2017](/case-studies/NOTPETYA_2017.md)"
+    reviewed: null
+  case-studies/OPERATION_AURORA_2010.md:
+    audience: "Incident responders, threat intelligence analysts, browser and endpoint owners, and security and policy leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2009 to 2010 Operation Aurora intrusions, you need to separate a browser exploit from an enterprise breach or infrastructure origin from sponsorship, or you are reviewing patch-versus-investigation workstreams"
+    start_at: "[Executive assessment](#executive-assessment), [Four boundaries in the attack model](#four-boundaries-in-the-attack-model), [Attribution without collapsing different questions](#attribution-without-collapsing-different-questions)"
+    pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md), [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
+  case-studies/OPM_2014_2015.md:
+    audience: "Identity, data-protection and privacy teams, incident responders, governance and audit staff, and security leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2014 to 2015 OPM breaches, you need to count overlapping populations and a revised biometric subset correctly, or you need to tell a completed control from an effective one"
+    start_at: "[Executive assessment](#executive-assessment), [4. The congressional reconstruction and its limits](#_4-the-congressional-reconstruction-and-its-limits), [8. A model of the trust boundaries](#_8-a-model-of-the-trust-boundaries)"
+    pairs_with: "[Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [GRC Reference](/GRC_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
     reviewed: null
   case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026.md:
     audience: "Higher education and public-sector IT and security leaders, ERP and PeopleSoft administrators, vulnerability management leads, detection engineers and incident responders"
@@ -3038,6 +3136,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 2: the operational record](#part-2-the-operational-record), [Part 9: the defender view](#part-9-the-defender-view)"
     pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Respond to a Ransomware Incident](/guides/RESPOND_TO_RANSOMWARE.md), [Edge Device Security](/EDGE_DEVICE_SECURITY_REFERENCE.md), [The Change Healthcare Attack of 2024](/case-studies/CHANGE_HEALTHCARE_2024.md)"
     reviewed: null
+  case-studies/RSA_SECURID_2011.md:
+    audience: "Identity and access management teams, incident responders, supplier-risk and vulnerability-management teams, and security leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2011 RSA SecurID breach, you need to tell supplier compromise from customer compromise or a new token from completed revocation, or you are planning an authenticator replacement"
+    start_at: "[Executive assessment](#executive-assessment), [Supplier compromise and customer compromise are different states](#supplier-compromise-and-customer-compromise-are-different-states), [Replacement is a controlled migration](#replacement-is-a-controlled-migration)"
+    pairs_with: "[Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
   case-studies/RYUK_HEALTHCARE_2020.md:
     audience: "Incident responders, healthcare and security leaders, and continuity planners"
     level: "Intermediate"
@@ -3059,6 +3164,20 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the vulnerability chain](#part-1-the-vulnerability-chain), [Part 2: why patching alone did not fix it](#part-2-why-patching-alone-did-not-fix-it)"
     pairs_with: "[Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [PHP2Shell and the October 2026 Attack Wave: A Case Study](/case-studies/PHP2SHELL_OCTOBER_2026.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)"
     reviewed: null
+  case-studies/SHATTERED_SHA1_2017.md:
+    audience: "Cryptography and application engineers, secure-development and supply-chain teams, and security architects"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2017 SHA-1 collision, you need to tell a collision from a second preimage or a detector from a stronger hash, or you are planning a hash migration"
+    start_at: "[Executive assessment](#executive-assessment), [2. What a collision establishes](#_2-what-a-collision-establishes), [7. Subversion exposed an application-level failure](#_7-subversion-exposed-an-application-level-failure)"
+    pairs_with: "[Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Post-Quantum Migration Reference](/POST_QUANTUM_MIGRATION_REFERENCE.md), [DevSecOps Reference](/DEVSECOPS_REFERENCE.md)"
+    reviewed: null
+  case-studies/SHELLSHOCK_2014.md:
+    audience: "Linux and application operators, vulnerability-management teams, appliance and service owners, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2014 Shellshock disclosure, you need to tell a susceptible system from a reachable execution path or a blocked attempt from a confirmed compromise, or you are tracing hidden Bash dependencies"
+    start_at: "[Executive assessment](#executive-assessment), [The first fix did not settle the family](#the-first-fix-did-not-settle-the-family), [What this case changes in an investigation](#what-this-case-changes-in-an-investigation)"
+    pairs_with: "[Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
   case-studies/SMARTERTOOLS_SMARTERMAIL_2026.md:
     audience: "Mail and Windows server administrators who run SmarterMail, hosting providers, vulnerability management leads, incident responders and threat intelligence analysts"
     level: "Intermediate"
@@ -3072,6 +3191,20 @@ pages:
     read_when: "You need the facts of the SolarWinds Orion compromise and the SUNBURST backdoor, you are assessing build-system and vendor-update risk, or you want the attribution and the defender view in one place"
     start_at: "[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 6: the defender view](#part-6-the-defender-view)"
     pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Threat Actors](/THREAT_ACTORS.md), [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)"
+    reviewed: null
+  case-studies/SONY_PICTURES_2014.md:
+    audience: "Incident responders, continuity and recovery owners, HR and privacy teams, communications and security leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2014 Sony Pictures attack, you need to separate destruction from disclosure and coercion or technical restoration from business-record recovery, or you are planning a destructive-incident exercise"
+    start_at: "[Executive assessment](#executive-assessment), [3. Later criminal allegations add a different record](#_3-later-criminal-allegations-add-a-different-record), [11. Original analysis: build a trusted recovery environment](#_11-original-analysis-build-a-trusted-recovery-environment)"
+    pairs_with: "[Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Threat Actors](/THREAT_ACTORS.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md)"
+    reviewed: null
+  case-studies/SPECTRE_MELTDOWN_2018.md:
+    audience: "Platform, virtualization and operating-system engineers, cloud and hardware owners, vulnerability-management teams and detection engineers"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the January 2018 Spectre and Meltdown disclosures, you need to tell an affected processor from a mitigated one or a patch receipt from a protected system, or you are coordinating a cross-component mitigation"
+    start_at: "[Executive assessment](#executive-assessment), [2. The original three variants](#_2-the-original-three-variants), [7. Layered mitigation and ongoing risk](#_7-layered-mitigation-and-ongoing-risk)"
+    pairs_with: "[Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md), [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
     reviewed: null
   case-studies/SSHOLE_CVE_2026_123158.md:
     audience: "Vulnerability management leads, Linux and embedded platform engineers, container and cloud image owners, and incident responders"
@@ -3093,6 +3226,13 @@ pages:
     read_when: "You want the evidence-graded record of how Stuxnet worked and what it targeted, you defend industrial control systems, or you need the attribution and policy record and the legacy it left"
     start_at: "[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 4: the defender view and legacy](#part-4-the-defender-view-and-legacy)"
     pairs_with: "[ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md), [Malware Families](/MALWARE_FAMILIES.md), [Industrial Control System Attacks and Advisories, 2024 to 2026: Incidents, CVEs and Attribution](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md)"
+    reviewed: null
+  case-studies/TARGET_2013.md:
+    audience: "Retail and payment security engineers, vendor-access and identity owners, detection engineers, incident responders and risk leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2013 Target breach, you need to separate card accounts from people or a broad cleanup from verified coverage, or you are reviewing vendor access, segmentation and alert-to-action handling"
+    start_at: "[Executive assessment](#executive-assessment), [4. Vendor access and the later state investigation](#_4-vendor-access-and-the-later-state-investigation), [11. Original analysis: the last disconnected device matters](#_11-original-analysis-the-last-disconnected-device-matters)"
+    pairs_with: "[Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md)"
     reviewed: null
   case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md:
     audience: "Platform and DevOps engineers who run CI/CD pipelines, supply chain security engineers, vulnerability management leads, incident responders and threat intelligence analysts"
@@ -3151,6 +3291,20 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: identity and aliases](#part-1-identity-and-aliases), [Part 8: the defender view](#part-8-the-defender-view)"
     pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
     reviewed: null
+  case-studies/UBER_2016.md:
+    audience: "Security and privacy leaders, incident responders, cloud and identity engineers, and legal and governance teams"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2016 Uber breach and its concealment, you need to tell a corporate settlement from an individual conviction or a bounty from unauthorized conduct, or you are designing incident escalation"
+    start_at: "[Executive assessment](#executive-assessment), [7. Incident classification must remain open to contrary evidence](#_7-incident-classification-must-remain-open-to-contrary-evidence), [11. Independent escalation and conflicts of interest](#_11-independent-escalation-and-conflicts-of-interest)"
+    pairs_with: "[Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [GRC Reference](/GRC_REFERENCE.md)"
+    reviewed: null
+  case-studies/WANNACRY_2017.md:
+    audience: "Vulnerability-management teams, incident responders, healthcare technology leaders and infrastructure owners"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2017 WannaCry outbreak and the NHS response, you need to separate an available patch from a verified one or infected from affected, or you are planning a continuity exercise"
+    start_at: "[Executive summary](#executive-summary), [6. NHS impact: count the right thing](#_6-nhs-impact-count-the-right-thing), [11. An original assurance model: from notification to service confidence](#_11-an-original-assurance-model-from-notification-to-service-confidence)"
+    pairs_with: "[Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md), [NotPetya 2017](/case-studies/NOTPETYA_2017.md)"
+    reviewed: null
   case-studies/WATER_TREATMENT_NETWORKS.md:
     audience: "Water and wastewater utility operators and managers, the integrators and contractors who support them, state primacy agencies, WaterISAC members, ICS and OT defenders and security teams helping a utility that has never had one"
     level: "Beginner to intermediate"
@@ -3164,6 +3318,13 @@ pages:
     read_when: "You need the facts of the XZ Utils backdoor and the maintainer takeover behind it, you are checking whether your systems were affected, or you want the detection and remediation steps by platform"
     start_at: "[Executive summary](#executive-summary), [The social-engineering campaign](#the-social-engineering-campaign), [Remediation by platform](#remediation-by-platform)"
     pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Package Managers](/PACKAGE_MANAGERS_REFERENCE.md), [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md)"
+    reviewed: null
+  case-studies/ZEROLOGON_2020.md:
+    audience: "Active Directory and identity engineers, vulnerability-management teams, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of CVE-2020-1472, you need to tell an installed update from an enforced policy or an exception from a removed one, or you are running a phased domain-controller enforcement"
+    start_at: "[Executive assessment](#executive-assessment), [What the August deployment actually changed](#what-the-august-deployment-actually-changed), [Original recommendation: manage exceptions as expiring decisions](#original-recommendation-manage-exceptions-as-expiring-decisions)"
+    pairs_with: "[Active Directory Security Reference](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
     reviewed: null
   case-studies/ZERO_DAY_MARKET_EVENTS.md:
     audience: "Vulnerability managers, threat intelligence analysts, security leaders and readers of the book who want the primary record behind it"

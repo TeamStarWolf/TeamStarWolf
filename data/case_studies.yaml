@@ -5759,3 +5759,105 @@ studies:
       - {"date": "2018-03-28", "label": "Drupal releases the CVE-2018-7600 correction"}
       - {"date": "2018-04-13", "label": "Automated exploitation of CVE-2018-7600 is widely observed"}
       - {"date": "2018-04-25", "label": "A separate follow-up, CVE-2018-7602, is corrected"}
+  case-studies/PROLOCK_2020.md:
+    kind: "campaign"
+    title: "ProLock 2020: A Ransomware Operation with an Unreliable Recovery Promise"
+    start: "2020-03"
+    end: "2021-10"
+    core_start: "2020"
+    core_end: "2020"
+    sectors: ["cross-sector"]
+    cves: ["CVE-2019-0859"]
+    actors: []
+    tags: ["ransomware", "ProLock", "PwndLocker", "decryptor", "double extortion"]
+    pdf: "ProLock_2020_Case_Study.pdf"
+    events:
+      - {"date": "2020-03", "label": "PwndLocker gives way to ProLock across multiple intrusion paths"}
+      - {"date": "2020-05", "label": "A Diebold Nixdorf operational disruption is reported, without an ATM-malware claim"}
+      - {"date": "2020-07", "label": "Technical analysis shows the loader mattered and the first 8,192 bytes were not a recovery service"}
+      - {"date": "2020-09", "label": "A broader September intrusion toolkit is documented"}
+      - {"date": "2021-10", "label": "ANSSI documents the Lockean activity linked to ProLock"}
+  case-studies/QAKBOT_2020_2021.md:
+    kind: "campaign"
+    title: "QakBot 2020-2021: Stolen Conversations and the Market for Intrusion Access"
+    start: "2020-06"
+    end: "2023-08"
+    core_start: "2020"
+    core_end: "2021"
+    sectors: ["cross-sector"]
+    cves: []
+    actors: []
+    tags: ["QakBot", "Qbot", "banking trojan", "access broker", "email thread hijacking"]
+    pdf: "QakBot_2020_2021_Case_Study.pdf"
+    events:
+      - {"date": "2020-06", "label": "A captured document shows QakBot activity with missing delivery evidence"}
+      - {"date": "2020-07-17", "label": "Emotet returns to observed QakBot email distribution"}
+      - {"date": "2020-08-28", "label": "A Qbot affiliate change is observed in a larger campaign"}
+      - {"date": "2020-10-15", "label": "An XLSB delivery change is observed"}
+      - {"date": "2020-11", "label": "Election-themed delivery pretexts appear"}
+      - {"date": "2023-08-30", "label": "CISA and FBI report the disruption of QakBot infrastructure"}
+  case-studies/RAGNAR_LOCKER_2020.md:
+    kind: "campaign"
+    title: "Ragnar Locker: Ransomware Inside a Virtual Machine"
+    start: "2020"
+    end: "2023"
+    core_start: "2020"
+    core_end: "2020"
+    sectors: ["cross-sector"]
+    cves: []
+    actors: []
+    tags: ["ransomware", "Ragnar Locker", "virtual machine", "defense evasion", "double extortion"]
+    pdf: "Ragnar_Locker_2020_Case_Study.pdf"
+    events:
+      - {"date": "2020", "label": "Ragnar Locker is observed deploying ransomware inside a virtual machine to evade host defenses"}
+      - {"date": "2020-11", "label": "An FBI FLASH documents a later observation window"}
+      - {"date": "2023", "label": "An international enforcement action targets the operation"}
+  case-studies/TEXAS_MUNICIPAL_RANSOMWARE_2019.md:
+    kind: "incident"
+    title: "Texas Municipal Ransomware 2019: A Shared Dependency Became a Statewide Response"
+    start: "2019-08"
+    end: "2021-11"
+    core_start: "2019"
+    core_end: "2019"
+    sectors: ["government"]
+    cves: []
+    actors: []
+    tags: ["ransomware", "local government", "managed service provider", "coordinated response", "REvil"]
+    pdf: "Texas_Municipal_Ransomware_2019_Case_Study.pdf"
+    events:
+      - {"date": "2019-08-16", "label": "A coordinated ransomware attack hits about 22 Texas local governments through a shared service provider"}
+      - {"date": "2019-08", "label": "Texas DIR coordinates a statewide response"}
+      - {"date": "2021-11-08", "label": "A federal indictment (Yevgeniy Polyanin, REvil) is unsealed"}
+  case-studies/UCSF_NETWALKER_2020.md:
+    kind: "incident"
+    title: "UCSF Ransomware 2020: Research Recovery, Privacy and the Limits of a Payment"
+    start: "2020-06"
+    end: "2021-01"
+    core_start: "2020"
+    core_end: "2020"
+    sectors: ["education", "healthcare"]
+    cves: []
+    actors: []
+    tags: ["ransomware", "NetWalker", "research data", "ransom payment", "privacy"]
+    pdf: "UCSF_NetWalker_2020_Case_Study.pdf"
+    events:
+      - {"date": "2020-06-01", "label": "UCSF detects a NetWalker ransomware intrusion affecting its School of Medicine"}
+      - {"date": "2020-06-29", "label": "UCSF discloses that it paid about $1.14 million for a decryption tool"}
+      - {"date": "2021-01", "label": "An international action disrupts NetWalker; US Department of Justice actions follow"}
+  case-studies/DRIDEX_ENFORCEMENT_2019.md:
+    kind: "campaign"
+    title: "Dridex Enforcement 2019: Financial Malware, Criminal Charges and Sanctions"
+    start: "2015-10"
+    end: "2019-12"
+    core_start: "2019"
+    core_end: "2019"
+    sectors: ["finance", "cross-sector"]
+    cves: []
+    actors: []
+    tags: ["Dridex", "Evil Corp", "banking trojan", "law enforcement", "sanctions"]
+    pdf: "Dridex_Enforcement_2019_Case_Study.pdf"
+    events:
+      - {"date": "2015-10", "label": "A disruption and an arrest occur as different events in the Dridex operation"}
+      - {"date": "2017-02", "label": "A guilty plea is entered"}
+      - {"date": "2018-12", "label": "A sentence differs from the earlier stated maximum"}
+      - {"date": "2019-12-05", "label": "US charges, Treasury sanctions and a reward target the Evil Corp network"}

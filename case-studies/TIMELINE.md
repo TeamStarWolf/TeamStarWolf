@@ -889,6 +889,10 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 November 2020: The FTC files a complaint over Zoom's security and encryption claims
   - January 2021: The FTC consent order is issued
   - 1 February 2021: The FTC finalizes the order
+- [UCSF Ransomware 2020: Research Recovery, Privacy and the Limits of a Payment](/case-studies/UCSF_NETWALKER_2020.md). Incident, June 2020 to January 2021 (core: 2020). Sectors: education, healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/UCSF_NetWalker_2020_Case_Study.pdf).
+  - 1 June 2020: UCSF detects a NetWalker ransomware intrusion affecting its School of Medicine
+  - 29 June 2020: UCSF discloses that it paid about $1.14 million for a decryption tool
+  - January 2021: An international action disrupts NetWalker; US Department of Justice actions follow
 - [SMBGhost: Compression Arithmetic, Client Exposure and the 2020 Emergency Patch](/case-studies/SMBGHOST_CVE_2020_0796.md). Vulnerability, March to June 2020 (core: 2020). Sectors: technology. CVEs: CVE-2020-0796. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SMBGhost_CVE_2020_0796_Case_Study.pdf).
   - 10 March 2020: Details of CVE-2020-0796 in SMB 3.1.1 appear ahead of a patch
   - 12 March 2020: Microsoft releases KB4551762 to fix the compression flaw
@@ -896,6 +900,23 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 - [SIGRed: Windows DNS Parsing, Emergency Mitigation and the Evidence Behind Wormability](/case-studies/SIGRED_CVE_2020_1350.md). Vulnerability, July to September 2020 (core: 2020). Sectors: technology. CVEs: CVE-2020-1350. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SIGRed_CVE_2020_1350_Case_Study.pdf).
   - 14 July 2020: Microsoft patches CVE-2020-1350 and offers a registry size workaround; Check Point publishes the research
   - 16 July 2020: CISA Emergency Directive 20-03 mandates mitigation and reporting
+- [Ragnar Locker: Ransomware Inside a Virtual Machine](/case-studies/RAGNAR_LOCKER_2020.md). Campaign, 2020 to 2023 (core: 2020). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ragnar_Locker_2020_Case_Study.pdf).
+  - 2020: Ragnar Locker is observed deploying ransomware inside a virtual machine to evade host defenses
+  - November 2020: An FBI FLASH documents a later observation window
+  - 2023: An international enforcement action targets the operation
+- [QakBot 2020-2021: Stolen Conversations and the Market for Intrusion Access](/case-studies/QAKBOT_2020_2021.md). Campaign, June 2020 to August 2023 (core: 2020 to 2021). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/QakBot_2020_2021_Case_Study.pdf).
+  - June 2020: A captured document shows QakBot activity with missing delivery evidence
+  - 17 July 2020: Emotet returns to observed QakBot email distribution
+  - 28 August 2020: A Qbot affiliate change is observed in a larger campaign
+  - 15 October 2020: An XLSB delivery change is observed
+  - November 2020: Election-themed delivery pretexts appear
+  - 30 August 2023: CISA and FBI report the disruption of QakBot infrastructure
+- [ProLock 2020: A Ransomware Operation with an Unreliable Recovery Promise](/case-studies/PROLOCK_2020.md). Campaign, March 2020 to October 2021 (core: 2020). Sectors: cross-sector. CVEs: CVE-2019-0859. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ProLock_2020_Case_Study.pdf).
+  - March 2020: PwndLocker gives way to ProLock across multiple intrusion paths
+  - May 2020: A Diebold Nixdorf operational disruption is reported, without an ATM-malware claim
+  - July 2020: Technical analysis shows the loader mattered and the first 8,192 bytes were not a recovery service
+  - September 2020: A broader September intrusion toolkit is documented
+  - October 2021: ANSSI documents the Lockean activity linked to ProLock
 - [The Multipath TCP Attack Surface: A 2026 Case Study](/case-studies/MPTCP_ATTACK_SURFACE_2026.md). Attack surface, 2020 to 2026. Sectors: technology. CVEs: CVE-2021-47152, CVE-2022-50071, CVE-2025-40258, CVE-2026-31669, CVE-2026-80588, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/MPTCP_Attack_Surface_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/MPTCP_Attack_Surface_2026_Case_Study.pptx).
   - 2020: Linux kernel 5.6 ships a mainline Multipath TCP implementation
   - 3 November 2026: Lab readings on a host running Kali 2026.2 with kernel 7.1.5
@@ -1002,6 +1023,10 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 6 August 2020: Restructuring completes via administration; 1,802 UK jobs safeguarded, 1,309 UK redundancies
   - 29 November 2021: KPMG disclaims an audit opinion, citing evidence limitations from the restructuring and the malware incident
   - April 2022: An Employment Tribunal records agreed background facts recognizing multiple business pressures
+- [Texas Municipal Ransomware 2019: A Shared Dependency Became a Statewide Response](/case-studies/TEXAS_MUNICIPAL_RANSOMWARE_2019.md). Incident, August 2019 to November 2021 (core: 2019). Sectors: government. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Texas_Municipal_Ransomware_2019_Case_Study.pdf).
+  - 16 August 2019: A coordinated ransomware attack hits about 22 Texas local governments through a shared service provider
+  - August 2019: Texas DIR coordinates a statewide response
+  - 8 November 2021: A federal indictment (Yevgeniy Polyanin, REvil) is unsealed
 - [Pulse Secure CVE-2019-11510: When a VPN Patch Could Not Revoke Stolen Trust](/case-studies/PULSE_SECURE_CVE_2019_11510.md). Vulnerability, April 2019 to April 2021 (core: 2019 to 2020). Sectors: technology. CVEs: CVE-2019-11510. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Pulse_Secure_CVE_2019_11510_Case_Study.pdf).
   - 24 April 2019: Pulse Secure publishes advisory SA44101 for CVE-2019-11510 and related issues
   - August 2019: Public technical details and mass scanning follow
@@ -1030,6 +1055,11 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 20 April 2020: Cognizant files an 8-K with an early assessment and financial-risk warning
   - 7 May 2020: Cognizant reports it believes the attack is contained; projects a $50 to 70 million quarterly impact
   - July 2020: A Sophos casebook describes an unnamed Maze incident: repeated blocked encryption attempts, prior data theft, a $15 million demand not paid
+- [Dridex Enforcement 2019: Financial Malware, Criminal Charges and Sanctions](/case-studies/DRIDEX_ENFORCEMENT_2019.md). Campaign, October 2015 to December 2019 (core: 2019). Sectors: finance, cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Dridex_Enforcement_2019_Case_Study.pdf).
+  - October 2015: A disruption and an arrest occur as different events in the Dridex operation
+  - February 2017: A guilty plea is entered
+  - December 2018: A sentence differs from the earlier stated maximum
+  - 5 December 2019: US charges, Treasury sanctions and a reward target the Evil Corp network
 - [DoppelPaymer: Code Lineage, Service Disruption and Personal Coercion](/case-studies/DOPPELPAYMER_2019_2021.md). Campaign, 2019 to 2023 (core: 2019 to 2021). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DoppelPaymer_2019_2021_Case_Study.pdf).
   - 2019: DoppelPaymer emerges as a code fork linked to the BitPaymer lineage
   - 10 September 2020: A ransomware outage disrupts services at a German hospital (causation later qualified)

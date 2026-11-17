@@ -5229,3 +5229,111 @@ studies:
       - {"date": "2020-12-21", "label": "A publicly released database reveals about 272,000 detailed records; Ledger revises its scope"}
       - {"date": "2021-01-13", "label": "Ledger reports Shopify-related exports (about 292,000 records, around 93 percent overlap)"}
       - {"date": "2021-11-09", "label": "A US court dismisses Baton v. Ledger SAS for lack of personal jurisdiction"}
+  case-studies/TLS_1_3_2018.md:
+    kind: "reference"
+    title: "TLS 1.3 in 2018: A Security Standard Meets Real Deployment"
+    start: "2018-08"
+    end: "2022-11"
+    core_start: "2018"
+    core_end: "2018"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["TLS 1.3", "RFC 8446", "forward secrecy", "0-RTT", "early data"]
+    pdf: "TLS_1_3_2018_Case_Study.pdf"
+    events:
+      - {"date": "2018-08", "label": "RFC 8446 publishes TLS 1.3, removing legacy options and reorganizing the handshake"}
+      - {"date": "2018-09", "label": "RFC 8470 defines how servers handle HTTP early data sent in 0-RTT"}
+      - {"date": "2020-01", "label": "RFC 8701 documents the GREASE practice that keeps TLS extensibility working"}
+      - {"date": "2021-03", "label": "RFC 8996 formally deprecates TLS 1.0 and TLS 1.1"}
+      - {"date": "2021-05", "label": "RFC 9001 specifies how QUIC carries the TLS 1.3 handshake"}
+      - {"date": "2022-11", "label": "RFC 9325 updates recommendations for secure TLS and DTLS configuration"}
+  case-studies/WEBAUTHN_2019.md:
+    kind: "reference"
+    title: "WebAuthn, 2019: Standardizing Stronger Sign-In Without Pretending Recovery Disappears"
+    start: "2019-03"
+    end: "2022-05"
+    core_start: "2019"
+    core_end: "2019"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["WebAuthn", "FIDO2", "passkeys", "phishing resistance", "authentication"]
+    pdf: "WebAuthn_2019_Case_Study.pdf"
+    events:
+      - {"date": "2019-03-04", "label": "W3C publishes WebAuthn Level 1 as a Recommendation, a public-key authentication API"}
+      - {"date": "2022-05-05", "label": "FIDO Alliance, Apple, Google and Microsoft announce expanded cross-device passkey support"}
+  case-studies/DNS_OVER_TLS_2016.md:
+    kind: "reference"
+    title: "DNS over TLS: Authentication, Fallback and the Cost of Keeping DNS Private"
+    start: "2016-05"
+    end: "2021-07"
+    core_start: "2016"
+    core_end: "2016"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["DNS", "DoT", "RFC 7858", "resolver trust", "privacy"]
+    pdf: "DNS_over_TLS_2016_Case_Study.pdf"
+    events:
+      - {"date": "2016-05", "label": "RFC 7858 specifies DNS over TLS on a dedicated TCP port 853"}
+      - {"date": "2018-03", "label": "RFC 8310 adds authentication profiles and usage guidance for DoT"}
+      - {"date": "2018-10", "label": "RFC 8467 describes padding to reduce DNS message-size side channels"}
+      - {"date": "2019-01", "label": "Google announces a public DNS over TLS service for its resolver"}
+      - {"date": "2020-10", "label": "RFC 8932 gives operational and privacy guidance for DoT and DoH resolvers"}
+      - {"date": "2021-07", "label": "RFC 9076 updates DNS privacy considerations and retains resolver trust"}
+  case-studies/QUIC_2021.md:
+    kind: "reference"
+    title: "QUIC in 2021: A Secure Transport Standard, Not Just Faster HTTP"
+    start: "2017-08"
+    end: "2022-06"
+    core_start: "2021"
+    core_end: "2021"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["QUIC", "RFC 9000", "HTTP/3", "transport security", "0-RTT"]
+    pdf: "QUIC_2021_Case_Study.pdf"
+    events:
+      - {"date": "2017-08", "label": "A SIGCOMM paper describes Google's pre-IETF QUIC design and deployment"}
+      - {"date": "2020-10", "label": "A browser documents a QUIC rollout before final RFC publication"}
+      - {"date": "2021-05", "label": "RFC 9000, 9001 and 9002 standardize QUIC transport, TLS integration and recovery"}
+      - {"date": "2022-03", "label": "RFC 9221 adds an unreliable datagram extension to QUIC"}
+      - {"date": "2022-06", "label": "RFC 9114 publishes HTTP/3 as a separate mapping over QUIC"}
+  case-studies/CERTIFICATE_TRANSPARENCY_2013_2021.md:
+    kind: "reference"
+    title: "Certificate Transparency: Public Evidence, Private Trust and the Limits of a Timestamp"
+    start: "2013-06"
+    end: "2021-12"
+    core_start: "2013"
+    core_end: "2021"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["Certificate Transparency", "CT", "RFC 6962", "RFC 9162", "Web PKI"]
+    pdf: "Certificate_Transparency_2013_2021_Case_Study.pdf"
+    events:
+      - {"date": "2013-06", "label": "RFC 6962 specifies Certificate Transparency, publishing issuance to append-only logs"}
+      - {"date": "2021-12", "label": "RFC 9162 publishes CT version 2.0 (Experimental), obsoleting RFC 6962"}
+  case-studies/LETS_ENCRYPT_ACME_2014_2021.md:
+    kind: "reference"
+    title: "Let's Encrypt and ACME: Making Web Encryption an Operable Default"
+    start: "2014-11"
+    end: "2021-09"
+    core_start: "2014"
+    core_end: "2021"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["Let's Encrypt", "ACME", "RFC 8555", "Web PKI", "certificate automation"]
+    pdf: "Lets_Encrypt_ACME_2014_2021_Case_Study.pdf"
+    events:
+      - {"date": "2014-11", "label": "The Let's Encrypt initiative is announced as a free, automated certificate authority"}
+      - {"date": "2015-06", "label": "Root and intermediate keys are generated"}
+      - {"date": "2015-09", "label": "The first certificate is issued"}
+      - {"date": "2015-10", "label": "IdenTrust cross-signatures are announced, routing into existing browser trust"}
+      - {"date": "2015-12", "label": "Public beta opens"}
+      - {"date": "2018-03", "label": "ACME v2 reaches production, before the final RFC"}
+      - {"date": "2019-03", "label": "RFC 8555 standardizes the ACME protocol"}
+      - {"date": "2020-02", "label": "A CAA-rechecking defect leads to a mass revocation and a public dispute over timing"}
+      - {"date": "2021-09", "label": "The DST Root CA X3 cross-sign expires, exposing client trust-path assumptions"}

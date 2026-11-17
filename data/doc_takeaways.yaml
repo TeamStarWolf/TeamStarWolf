@@ -748,3 +748,66 @@ pages:
       - {"text": "It was a research demonstration, not a theft of signing keys or a ransomware incident.", "from": "#executive-assessment", "quote": "It was a research demonstration, not a reported theft of signing keys or a ransomware incident"}
       - {"text": "The artifacts did not show an attacker could replace any previously chosen file while preserving its hash.", "from": "#executive-assessment", "quote": "They did not show that an attacker could replace any previously chosen file while preserving its hash"}
       - {"text": "The lesson: matching digests could no longer bear the same adversarial trust.", "from": "#executive-assessment", "quote": "matching digests could no longer bear the same adversarial trust"}
+  case-studies/VPNFILTER_2018.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "VPNFilter shows an easily missed boundary: the device carrying an organization's traffic can itself become an adversary-controlled computer.", "from": "#executive-summary", "quote": "the device carrying an organization's traffic can itself become an adversary-controlled computer"}
+      - {"text": "A successful intervention can interrupt malicious activity without removing the condition that enables its return.", "from": "#executive-summary", "quote": "A successful intervention can interrupt malicious activity without removing the condition that enables its return"}
+      - {"text": "A team needs separate completion criteria for disruption, device recovery, credential protection and investigating connected systems.", "from": "#executive-summary", "quote": "A security team needs separate completion criteria for disruption, device recovery, credential protection and investigation of connected systems"}
+      - {"text": "Published malware capabilities are not a tally of actions performed against every victim.", "from": "#executive-summary", "quote": "Published malware capabilities are not a tally of actions performed against every victim"}
+  case-studies/OLYMPIC_DESTROYER_2018.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Olympic Destroyer brings together destructive malware, access across organizational boundaries, and an attribution record with deliberate distractions.", "from": "#executive-summary", "quote": "destructive malware, access that crosses organizational boundaries, and an attribution record containing deliberate-looking technical distractions"}
+      - {"text": "The attack affected the 2018 PyeongChang Winter Olympics.", "from": "#executive-summary", "quote": "The historical attack affected the 2018 PyeongChang Winter Olympics"}
+      - {"text": "A US indictment unsealed in October 2020 alleged a wider intrusion and deployment operation; the indictment is not a conviction.", "from": "#executive-summary", "quote": "a U.S. indictment unsealed in October 2020 alleged a wider intrusion and deployment operation"}
+      - {"text": "The central recommendation is to prepare two restoration plans, not one, with separate completion criteria.", "from": "#executive-summary", "quote": "The central recommendation is to prepare two restoration plans, not one"}
+  case-studies/CCLEANER_2017.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "CCleaner challenged a shortcut: downloading from the official source and checking the signature cannot prove the build process was trustworthy.", "from": "#executive-summary", "quote": "Neither can establish that the producer's build and release process was trustworthy"}
+      - {"text": "When malicious content enters before an artifact is signed, the resulting package satisfies the checks users were taught to perform.", "from": "#executive-summary", "quote": "When malicious content enters before an authorized artifact is signed and distributed, the resulting package can satisfy the checks users were taught to perform"}
+      - {"text": "A widely installed consumer utility created a large opportunity, while a later stage selected a much smaller population.", "from": "#executive-summary", "quote": "A widely installed consumer utility created a large opportunity for access, while a later stage selected a much smaller population"}
+      - {"text": "Downloads, affected installs, callbacks, selected targets and confirmed second-stage delivery are different measurements.", "from": "#executive-summary", "quote": "Downloads, affected installations, observed callbacks, selected targets and confirmed second-stage delivery are different measurements"}
+  case-studies/NETSARANG_SHADOWPAD_2017.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "A supplier compromise reverses the update relationship: an ordinary install can introduce malicious code through a trusted package.", "from": "#executive-summary", "quote": "a customer following an ordinary installation process may introduce malicious code through a package it reasonably expects to trust"}
+      - {"text": "The question is not whether you downloaded from the right place, but whether the artifact matches an authorized, independently reviewed release.", "from": "#executive-summary", "quote": "It is whether the delivered artifact corresponds to an authorized and independently reviewed release"}
+      - {"text": "A compromised package, execution of its embedded code, activation of further capabilities and verified data theft are different findings.", "from": "#executive-summary", "quote": "The presence of a compromised package, execution of its embedded code, activation of further capabilities and verified data theft are different findings"}
+      - {"text": "The record is bounded: Kaspersky documented the discovery and design, and NetSarang acknowledged the affected release.", "from": "#executive-summary", "quote": "Kaspersky documented the discovery and technical design"}
+  case-studies/ASUS_SHADOWHAMMER_2019.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "A widely distributed, apparently legitimate update served as a selective entry mechanism for a much smaller set of systems.", "from": "#executive-summary", "quote": "a widely distributed, apparently legitimate update can serve as a selective entry mechanism for a much smaller set of systems"}
+      - {"text": "Kaspersky reported more than 57,000 affected users in its own telemetry, while saying a worldwide count could not be calculated.", "from": "#executive-summary", "quote": "It reported more than 57,000 affected users within its own telemetry, while explicitly saying that a worldwide count could not be calculated from that dataset"}
+      - {"text": "The modified installers came from official ASUS update infrastructure and were signed with legitimate ASUS certificates.", "from": "#executive-summary", "quote": "The report described modified installers distributed from official ASUS update infrastructure and signed with legitimate ASUS certificates"}
+      - {"text": "The malware targeted selectively: more than 600 distinct MAC addresses recovered from over 200 samples were targeting selectors.", "from": "#executive-summary", "quote": "It also reported more than 600 distinct MAC addresses recovered from over 200 samples as targeting selectors"}
+  case-studies/EVENT_STREAM_2018.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "In event-stream, authority over an upstream package became a route into a downstream application's release process.", "from": "#executive-assessment", "quote": "authority over an upstream package became a route into a downstream application's release process"}
+      - {"text": "A package can be installed across a large ecosystem while its harmful behavior is designed for a much narrower environment.", "from": "#executive-assessment", "quote": "A package can be installed across a large ecosystem while its harmful behavior is designed for a much narrower environment"}
+      - {"text": "The malicious payload targeted the Copay build; the evidence comes from npm, BitPay and Snyk, not an audited worldwide theft total.", "from": "#executive-assessment", "quote": "The central historical evidence comes from npm's incident analysis, BitPay's subsequent security update, Snyk's contemporaneous investigation"}
+      - {"text": "A registry removal can limit future distribution without repairing artifacts already built and delivered.", "from": "#executive-assessment", "quote": "A registry removal can limit future distribution without repairing artifacts already built and delivered"}
+  case-studies/CODECOV_2021.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Codecov is a case of inherited authority: a narrow coverage-upload step sat in an environment with authority far beyond uploading a report.", "from": "#executive-summary", "quote": "the environment around that step could contain authority far beyond uploading a report"}
+      - {"text": "Unauthorized uploader changes ran from 31 January to 1 April 2021, across 108 affected windows rather than one continuous interval.", "from": "#executive-summary", "quote": "the period containing unauthorized uploader changes, with 108 affected windows rather than one continuous interval"}
+      - {"text": "The cause was an HMAC key recoverable from an intermediate layer of Codecov's public Docker image, used to alter the stored uploader.", "from": "#executive-summary", "quote": "an HMAC key recoverable from an intermediate layer of its public self-hosted Docker image"}
+      - {"text": "A customer detected an unexpected SHA256 mismatch and reported it on 1 April, surfacing the compromise.", "from": "#executive-summary", "quote": "A customer detected an unexpected SHA256 mismatch and reported it on April 1"}
+  case-studies/CAMBRIDGE_ANALYTICA_2018.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "It is a cybersecurity case even though the collection mechanism did not resemble ransomware or a conventional network intrusion.", "from": "#executive-assessment", "quote": "the central collection mechanism did not resemble ransomware or a conventional network intrusion"}
+      - {"text": "It concerns the authority to collect information, what people were told, and the movement of data between organizations.", "from": "#executive-assessment", "quote": "It concerns the authority to collect information, what people were told about that collection, the movement of data between organizations"}
+      - {"text": "Access through a functioning application interface is not proof of meaningful consent.", "from": "#executive-assessment", "quote": "treating access through a functioning application interface as proof of meaningful consent confuses a software capability with an individual's understanding"}
+      - {"text": "The study separates adjudicated FTC and SEC findings from allegations resolved by settlement.", "from": "#executive-assessment", "quote": "It separates adjudicated findings from allegations resolved by settlement"}
+  case-studies/UBER_2016.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Uber contains two failures: access to sensitive data via credentials and cloud storage, and how the organization handled the resulting facts.", "from": "#executive-assessment", "quote": "One involved access to sensitive information through credentials and cloud storage. The other concerned the way the organization handled the resulting facts"}
+      - {"text": "If one group controls the investigation, payment, classification and what reaches leadership, the organization may lose the ability to notice the narrative no longer fits.", "from": "#executive-assessment", "quote": "the organization may lose the ability to notice that its preferred description no longer matches the evidence"}
+      - {"text": "Calling an interaction a bounty does not establish that all conduct fell within an authorized research scope.", "from": "#executive-assessment", "quote": "Calling an interaction a bounty does not establish that all conduct fell within an authorized research scope"}
+      - {"text": "A deletion promise is evidence of a promise, not proof that every copy disappeared.", "from": "#executive-assessment", "quote": "A deletion promise is evidence of a promise, not proof that every copy disappeared"}

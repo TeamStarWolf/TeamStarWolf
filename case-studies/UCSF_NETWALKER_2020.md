@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- A ransom payment answers none of a research institution's recovery questions by itself, even when made for a decryption tool. ([Executive assessment](#executive-assessment))
+- UCSF's 2020 incident is useful because the institution published multiple dated updates. ([Executive assessment](#executive-assessment))
+- Stopping at the widely circulated payment headline would omit important distinctions about scope. ([Executive assessment](#executive-assessment))
+- The UCSF incident statements do not name the malware family; an Emsisoft profile associates it with NetWalker. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

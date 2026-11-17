@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Running a program inside a virtual machine does not mean every file it can reach belongs exclusively to that virtual machine. ([Executive summary](#executive-summary))
+- Deliberate integration features can expose host data to guest software. ([Executive summary](#executive-summary))
+- Ragnar Locker deployed ransomware inside a VirtualBox virtual machine with a small Windows XP guest, per Sophos's May 2020 investigation. ([Executive summary](#executive-summary))
+- The recommendation: examine the authority and data access granted to an execution environment, not just the software's name and reputation. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

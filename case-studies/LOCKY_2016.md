@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Locky challenges the idea that a ransomware family has one delivery method, one operator and one simple preventive control. ([Executive assessment](#executive-assessment))
+- Reporting described malicious documents, script attachments, intermediate downloaders and exploit-kit delivery, different routes to the same outcome. ([Executive assessment](#executive-assessment))
+- Prevention, containment and restoration are separate responsibilities. ([Executive assessment](#executive-assessment))
+- Removing a malicious executable does not reconstruct encrypted data. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

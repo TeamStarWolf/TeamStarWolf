@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- DoppelPaymer's technical record concerns a code fork; its operational record concerns interruption of services people depend on. ([Executive assessment](#executive-assessment))
+- The coercion record includes efforts to move pressure from an organization's systems to individual employees. ([Executive assessment](#executive-assessment))
+- The study does not claim that ransomware caused a reported patient's death; the FBI account does not support that. ([Executive assessment](#executive-assessment))
+- Raids and warrants are consequential investigative events without being equivalent to convictions or complete eradication. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The record tells a different story: cloud breaches were mostly failures in the band providers say always belongs to the customer. ([Executive summary](#executive-summary))
+- Mandiant found the 2024 Snowflake campaign came not from a Snowflake breach but from compromised customer credentials, mostly without MFA. ([Executive summary](#executive-summary))
+- Google said the 2025 Salesloft Drift theft did not stem from a core Salesforce vulnerability. ([Executive summary](#executive-summary))
+- The study runs from the first documented credential incidents at a consumer cloud service in 2012 to the 2026 multi-tenant app compromises. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Four reading-list books tell the story of the criminal and activist internet before ransomware and state espionage took the headlines. ([Executive summary](#executive-summary))
+- Together they cover about 30 years, from the Legion of Doom in 1984 to Hector Monsegur's sentencing in 2014. ([Executive summary](#executive-summary))
+- This study rebuilds each story from the primary record and grades a claim Reported only where the record is silent. ([Executive summary](#executive-summary))
+- The record largely supports the books on what happened and corrects them on several numbers. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The people who paid were patients: the UK found at least 81 of 236 NHS trusts infected by WannaCry. ([Executive summary](#executive-summary))
+- A US grand jury says a health system, shipping firm and drug maker lost nearly $1 billion to NotPetya six weeks after WannaCry. ([Executive summary](#executive-summary))
+- The Shadow Brokers began posting stolen NSA-linked tools on 13 August 2016 and later released a Windows exploit set. ([Executive summary](#executive-summary))
+- Over the same months WikiLeaks published Vault 7 and Vault 8 from the CIA's Center for Cyber Intelligence. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

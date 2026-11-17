@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The book's thesis: cybercrime has less to do with defective programming than with the faulty wiring of psyches and society. ([Executive summary](#executive-summary))
+- It tells the story through five cases: the Morris worm, the Dark Avenger, a 2005 phone break-in, the 2016 DNC intrusions, and Mirai. ([Executive summary](#executive-summary))
+- This study does not retell the book; it goes to the primary record behind each chapter. ([Executive summary](#executive-summary))
+- The DNC record it checks includes the July 2018 indictment of twelve GRU officers and the Special Counsel's report. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

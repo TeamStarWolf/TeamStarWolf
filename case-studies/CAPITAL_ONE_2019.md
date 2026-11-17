@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The most transferable lesson is that valid credentials can be used in an invalid context. ([Executive assessment](#executive-assessment))
+- An identity system may correctly recognize a workload while the application under that identity has been induced to act against its owner's intent. ([Executive assessment](#executive-assessment))
+- That makes identity design a partner to input validation, not a substitute for it. ([Executive assessment](#executive-assessment))
+- Recovery is a data-management problem: responders must establish which records were read and who needs notification. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Research position

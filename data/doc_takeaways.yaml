@@ -622,3 +622,66 @@ pages:
       - {"text": "Those who can prevent device recruitment may have no relationship with those who suffer the downstream outage.", "from": "#executive-summary", "quote": "The people who can prevent device recruitment may have no contractual relationship with the people who suffer the downstream outage"}
       - {"text": "The recommendation: stop your assets becoming attack infrastructure, and show critical services tolerate failures outside your control.", "from": "#executive-summary", "quote": "stop assets under your control from becoming attack infrastructure, and demonstrate that critical business services can tolerate failures outside your control"}
       - {"text": "A clean vulnerability scan of your servers does not answer whether your services survive an outage you do not control.", "from": "#executive-summary", "quote": "A clean vulnerability scan of your servers does not answer the second question"}
+  case-studies/ANTHEM_2015.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The key question is how an initial foothold acquired enough authority to reach a consolidated repository of identity information.", "from": "#executive-assessment", "quote": "how an initial foothold can acquire enough authority to reach a consolidated repository of identity information"}
+      - {"text": "A mature defense interrupts that progression at several points: endpoint, credential misuse, privileged access, bulk retrieval and exfiltration.", "from": "#executive-assessment", "quote": "endpoint compromise, credential misuse, privileged access, bulk retrieval and transfer outside the organization"}
+      - {"text": "The data needs careful language: health-plan identifiers can be protected health information even without theft of clinical histories.", "from": "#executive-assessment", "quote": "Health-plan identifiers and other identity information can be protected health information even when the disclosed evidence does not establish theft of clinical histories"}
+      - {"text": "Calling all the exposed information medical records can mislead readers about the actual categories.", "from": "#executive-assessment", "quote": "Describing all exposed information as medical records can mislead readers about the actual categories"}
+  case-studies/TARGET_2013.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Target connects third-party access, internal trust boundaries, payment systems, detection decisions and remediation coverage.", "from": "#executive-assessment", "quote": "Target is a useful case because it connects third-party access, internal trust boundaries, payment systems, detection decisions and remediation coverage"}
+      - {"text": "It is not explained by saying a vendor was compromised or a security product generated an alert.", "from": "#executive-assessment", "quote": "It is not adequately explained by saying that a vendor was compromised or that a security product generated an alert"}
+      - {"text": "Familiar statistics mislead: payment-card accounts and people whose contact information was taken are different units with possible overlap.", "from": "#executive-assessment", "quote": "Payment-card accounts and individuals whose contact information was taken are different units with possible overlap"}
+      - {"text": "The remediation lesson: an enterprise-wide action is only complete when its coverage and exceptions are known.", "from": "#executive-assessment", "quote": "an enterprise-wide action is only complete when its coverage and exceptions are known"}
+  case-studies/OPM_2014_2015.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Vetting data combines identity, relationships and personal history, creating risks different from a routine contact-list exposure.", "from": "#executive-assessment", "quote": "Vetting information can combine identity, relationships and personal history in a way that creates risks different from a routine contact-list exposure"}
+      - {"text": "Defenders must recognize sensitive data as an asset and distinguish removal of one foothold from complete containment.", "from": "#executive-assessment", "quote": "distinguish removal of one foothold from complete containment"}
+      - {"text": "A successful action against an observed intruder does not establish that all access paths have been eliminated.", "from": "#executive-assessment", "quote": "A successful action against an observed intruder does not establish that all access paths have been eliminated"}
+      - {"text": "The governance lesson: a control described as implemented may still have exceptions, missing coverage or ineffective operation.", "from": "#executive-assessment", "quote": "A control described as implemented may still have exceptions, missing coverage or ineffective operation"}
+  case-studies/CAPITAL_ONE_2019.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The most transferable lesson is that valid credentials can be used in an invalid context.", "from": "#executive-assessment", "quote": "The most transferable lesson is that valid credentials can be used in an invalid context"}
+      - {"text": "An identity system may correctly recognize a workload while the application under that identity has been induced to act against its owner's intent.", "from": "#executive-assessment", "quote": "An identity system may correctly recognize a workload while the application executing under that identity has been induced to do something its owner never intended"}
+      - {"text": "That makes identity design a partner to input validation, not a substitute for it.", "from": "#executive-assessment", "quote": "That distinction makes identity design a partner to input validation, not a substitute for it"}
+      - {"text": "Recovery is a data-management problem: responders must establish which records were read and who needs notification.", "from": "#executive-assessment", "quote": "How quickly can responders establish which records were read, which protections applied to those records, and which people require notification"}
+  case-studies/YAHOO_2014_2016.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Yahoo is not just a large password list: it connects mass account data, admin capability, session trust and targeted intelligence collection.", "from": "#executive-assessment", "quote": "It connects mass account information, privileged account-management capability, persistent session trust, targeted intelligence collection and failures to translate technical knowledge into corporate decisions"}
+      - {"text": "The 500 million accounts from the 2014 incident are not the same measurement as the three billion later attributed to the 2013 theft.", "from": "#executive-assessment", "quote": "The approximately 500 million accounts associated with the 2014 incident are not the same measurement as the approximately three billion accounts later attributed to the August 2013 theft"}
+      - {"text": "Neither number is a count of unique people, confirmed identity-theft victims or mailboxes whose contents were all read.", "from": "#executive-assessment", "quote": "Neither number is a count of unique people, confirmed identity-theft victims or mailboxes whose contents were all read"}
+      - {"text": "The study treats the 2014 incident as the main case and does not present a criminal indictment as a conviction of every defendant.", "from": "#executive-assessment", "quote": "It does not present a criminal indictment as a conviction of every defendant"}
+  case-studies/MARRIOTT_STARWOOD_2018.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Starwood is a case of inherited risk: an acquisition changes ownership but does not remove an intruder or validate every privileged account.", "from": "#executive-summary", "quote": "It does not remove an intruder, validate every privileged account or make an older database's security properties known"}
+      - {"text": "The numbers need definitions: the count moved from up to 500 million guests to about 383 million records as an upper bound.", "from": "#executive-summary", "quote": "The initial announcement discussed up to approximately 500 million guests. A later disclosure described approximately 383 million guest records as an upper bound"}
+      - {"text": "In April 2024 Marriott amended its disclosure: card and some passport numbers were protected with SHA-1, not the previously described AES-128.", "from": "#executive-summary", "quote": "Marriott amended its older disclosure to say that payment-card numbers and some passport numbers in the involved tables had been protected using SHA-1 rather than the previously described AES-128"}
+      - {"text": "Hashing and encryption are not synonyms, and a source correction must travel into derivative articles and slides.", "from": "#executive-summary", "quote": "Hashing and encryption are not synonyms, and a source correction must travel into derivative articles and slides"}
+  case-studies/JPMORGAN_2014.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Contact information deserves protection even when no evidence shows passwords or account numbers were taken.", "from": "#executive-assessment", "quote": "contact information deserves serious protection even when an investigation finds no evidence that account passwords or account numbers were taken"}
+      - {"text": "The value may lie in later deception rather than an immediate unauthorized withdrawal.", "from": "#executive-assessment", "quote": "The value may lie in later deception rather than an immediate unauthorized withdrawal"}
+      - {"text": "The disclosures and the criminal record answer different questions; the latter describes a broader campaign across multiple organizations.", "from": "#executive-assessment", "quote": "The criminal record describes a broader campaign involving multiple organizations and fraud schemes"}
+      - {"text": "A January 2021 announcement, naming the bank and Andrei Tyurin's plea, ties the earlier anonymized record to a primary source.", "from": "#executive-assessment", "quote": "official reports of Andrei Tyurin's 2019 guilty plea and 2021 sentence"}
+  case-studies/SONY_PICTURES_2014.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The Sony Pictures attack combined destruction, theft, public exposure and coercive pressure in one incident.", "from": "#executive-assessment", "quote": "how a cyberattack can combine destruction, theft, public exposure and coercive pressure"}
+      - {"text": "Disclosure of information creates a problem that cannot be undone by restoring a server, unlike the destruction.", "from": "#executive-assessment", "quote": "Disclosure of information creates a different problem that cannot be undone by restoring a server"}
+      - {"text": "Threats against people and business partners added a safety and decision-making dimension beyond technical recovery.", "from": "#executive-assessment", "quote": "Threats against people and business partners add a safety and decision-making dimension that ordinary technical recovery plans may not address"}
+      - {"text": "The public record supports strong statements about the disruption and the US government's attribution.", "from": "#executive-assessment", "quote": "The public record supports strong statements about the disruption and the U.S. government's attribution"}
+  case-studies/EBAY_2014.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "An attacker used compromised employee credentials to enter the corporate environment, forcing a response across a large consumer marketplace.", "from": "#executive-assessment", "quote": "An attacker used compromised employee credentials to enter a corporate environment, while the resulting customer-data exposure forced a response across a very large consumer marketplace"}
+      - {"text": "The company described a compromised authentication database and a broad password-change request.", "from": "#executive-assessment", "quote": "The company described a compromised authentication database and a broad password-change request"}
+      - {"text": "Describing information as non-financial does not mean it is harmless.", "from": "#executive-assessment", "quote": "Describing information as non-financial does not mean it is harmless"}
+      - {"text": "Describing passwords as encrypted does not identify an algorithm or establish their resistance to guessing.", "from": "#executive-assessment", "quote": "Describing passwords as encrypted does not, by itself, identify an algorithm or establish the resistance of the stored representation to guessing"}

@@ -3459,6 +3459,48 @@ pages:
     start_at: "[Executive summary](#executive-summary), [3. Original analysis: a five-link release trust model](#_3-original-analysis-a-five-link-release-trust-model), [4. Broad reach and selective execution](#_4-broad-reach-and-selective-execution)"
     pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md), [DevSecOps Reference](/DEVSECOPS_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [CCleaner 2017](/case-studies/CCLEANER_2017.md)"
     reviewed: null
+  case-studies/POODLE_2014.md:
+    audience: "TLS and cryptography engineers, security architects, incident responders and vulnerability-management owners"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of POODLE and SSL 3.0 retirement, you need to separate a protocol-design defect from an implementation defect or traffic measurements from victim counts, or you are reviewing downgrade protection and protocol deprecation"
+    start_at: "[Executive assessment](#executive-assessment), [How compatibility changed the security boundary](#how-compatibility-changed-the-security-boundary), [What the padding oracle revealed](#what-the-padding-oracle-revealed)"
+    pairs_with: "[Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [FREAK 2015](/case-studies/FREAK_2015.md)"
+    reviewed: null
+  case-studies/FREAK_2015.md:
+    audience: "TLS and cryptography engineers, platform security teams, incident responders and vulnerability-management owners"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of FREAK, you need to separate a client state-machine defect from server exposure or scan populations from victim counts, or you are reviewing export-cryptography downgrade risk across platforms"
+    start_at: "[Executive assessment](#executive-assessment), [The state-machine error behind the downgrade](#the-state-machine-error-behind-the-downgrade), [Exposure statistics: three populations and a mixed historical page](#exposure-statistics-three-populations-and-a-mixed-historical-page)"
+    pairs_with: "[Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [POODLE 2014](/case-studies/POODLE_2014.md)"
+    reviewed: null
+  case-studies/LOGJAM_2015.md:
+    audience: "TLS and cryptography engineers, security architects, incident responders and standards followers"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of Logjam, you need to separate a demonstrated 512-bit attack from the 1024-bit feasibility estimate or a vulnerability from a breach, or you are reviewing Diffie-Hellman group strength and forward secrecy"
+    start_at: "[Executive assessment](#executive-assessment), [4. The demonstrated TLS downgrade](#_4-the-demonstrated-tls-downgrade), [6. The 1024-bit question: inference, not attribution](#_6-the-1024-bit-question-inference-not-attribution)"
+    pairs_with: "[Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md), [Post-Quantum Migration Reference](/POST_QUANTUM_MIGRATION_REFERENCE.md), [FREAK 2015](/case-studies/FREAK_2015.md)"
+    reviewed: null
+  case-studies/DROWN_2016.md:
+    audience: "TLS and cryptography engineers, key-management and PKI owners, incident responders and vulnerability-management owners"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of DROWN, you need to separate session decryption from private-key theft or a service inventory from the key-use boundary, or you are reviewing SSLv2 retirement and RSA key reuse"
+    start_at: "[Executive assessment](#executive-assessment), [What the research established](#what-the-research-established), [Key reuse changes the unit of remediation](#key-reuse-changes-the-unit-of-remediation)"
+    pairs_with: "[Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [POODLE 2014](/case-studies/POODLE_2014.md)"
+    reviewed: null
+  case-studies/ROCA_2017.md:
+    audience: "Cryptography and PKI engineers, hardware-security and identity owners, incident responders and vulnerability-management owners"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of ROCA, you need to separate a key-generation flaw from an RSA break or detection from factorization from abuse, or you are reviewing key lifecycle, smart-card and eID credential replacement"
+    start_at: "[Executive assessment](#executive-assessment), [2. What the researchers actually identified](#_2-what-the-researchers-actually-identified), [9. Why a firmware update alone may be insufficient](#_9-why-a-firmware-update-alone-may-be-insufficient)"
+    pairs_with: "[Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)"
+    reviewed: null
+  case-studies/BLUEBORNE_2017.md:
+    audience: "Mobile, endpoint and firmware security engineers, vulnerability-management owners and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of BlueBorne, you need to separate radio proximity from internet reachability or userspace from kernel fixes, or you are reviewing Bluetooth-stack exposure and multi-vendor remediation"
+    start_at: "[Executive assessment](#executive-assessment), [3. Radio proximity and remote access](#_3-radio-proximity-and-remote-access), [4. Discovery, pairing and input processing](#_4-discovery-pairing-and-input-processing)"
+    pairs_with: "[Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md), [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md)"
+    reviewed: null
   commands/aws-cli.md:
     audience: "Cloud engineers, administrators and security teams who work in AWS from a terminal"
     level: "Beginner to intermediate"

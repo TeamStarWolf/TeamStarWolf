@@ -1102,9 +1102,10 @@
     .markdown-section details.tsw-fold[open] > summary.tsw-fold-summary::before { transform: rotate(45deg); }
     .markdown-section details.tsw-fold > summary.tsw-fold-summary:hover { color: var(--tsw-link); }
     .markdown-section details.tsw-fold > summary.tsw-fold-summary:hover::before { border-color: var(--tsw-link); }
-    /* The h2 keeps its type scale but drops the standalone top margin and hairline; the
-       summary row owns the spacing now. */
-    .markdown-section details.tsw-fold > summary.tsw-fold-summary h2 {
+    /* The heading keeps its type scale but drops the standalone top margin and hairline; the
+       summary row owns the spacing now. (h3 is the fold level on the big ATT&CK data pages.) */
+    .markdown-section details.tsw-fold > summary.tsw-fold-summary h2,
+    .markdown-section details.tsw-fold > summary.tsw-fold-summary h3 {
       margin: 0; padding: 0; background: none; border: 0; flex: 1;
     }
     .markdown-section .tsw-fold-body { padding: .2rem 0 1.4rem; }
@@ -1899,8 +1900,11 @@
           if (!m) { return; }
           var t = document.getElementById(decodeURIComponent(m[1]));
           if (!t) { return; }
-          var d = t.closest('details.tsw-fold');
-          if (d && !d.open) { d.open = true; }
+          // Open every fold the target sits inside (its section, and a nested "Show the table"
+          // fold if the anchor is within one), not just the nearest.
+          for (var d = t.closest('details.tsw-fold'); d; d = d.parentNode && d.parentNode.closest ? d.parentNode.closest('details.tsw-fold') : null) {
+            if (!d.open) { d.open = true; }
+          }
           // Re-scroll after the fold opens and after docsify's own anchor scroll, which runs
           // while the section is still collapsed and so lands short once it expands.
           requestAnimationFrame(function () { scrollToEl(t); });
@@ -1916,29 +1920,51 @@
           // Fold the same pages that get the "On this page" block (references the sidebar does
           // not list), and only when they are long enough to be worth chunking.
           if (!document.querySelector('.sidebar .tsw-toc')) { return; }
+          if (main.innerText.length < MIN_CHARS) { return; }
+          // Fold at the heading level that yields a real list of sections. Most references are
+          // organised under h2, but the largest ATT&CK data pages (data components, software,
+          // campaigns, mitigations, groups) carry two or three h2 and dozens of h3, so folding
+          // at h2 would leave one 250k-char section open. Fall back to h3 on those.
           var h2s = Array.prototype.slice.call(main.querySelectorAll('h2[id]'));
-          if (h2s.length < MIN_SECTIONS || main.innerText.length < MIN_CHARS) { return; }
+          var level, heads;
+          if (h2s.length >= MIN_SECTIONS) {
+            level = 2; heads = h2s;
+          } else {
+            var h3s = Array.prototype.slice.call(main.querySelectorAll('h3[id]'));
+            if (h3s.length < MIN_SECTIONS) { return; }
+            level = 3; heads = h3s;
+          }
+          // A heading at or above the fold level ends the current section (h2 folds stop at the
+          // next h2; h3 folds stop at the next h3 or h2).
+          function boundary(node) {
+            return node.nodeType === 1 && /^H[1-6]$/.test(node.tagName) &&
+              +node.tagName.charAt(1) <= level;
+          }
 
-          // Wrap each h2 and the content up to the next h2 in a collapsed <details>. Whatever
-          // sits before the first h2 (the header card and intro) stays open above the list.
-          h2s.forEach(function (h2) {
-            var parent = h2.parentNode;
-            var details = el('details', { className: 'tsw-fold' });
+          // Wrap each heading and the content up to the next boundary in a collapsed <details>.
+          // Whatever sits before the first folded heading (the header card, the intro, and any
+          // parent h2 when folding at h3) stays open above the list.
+          heads.forEach(function (h) {
+            var parent = h.parentNode;
+            // tsw-fold-sec marks the section folds this plugin builds, so the Expand-all and
+            // Previous/Next machinery below ignores the literal "Show the table" folds that the
+            // content authors nest inside a section (those keep class tsw-fold but not -sec).
+            var details = el('details', { className: 'tsw-fold tsw-fold-sec' });
             var summary = el('summary', { className: 'tsw-fold-summary' });
             var body = el('div', { className: 'tsw-fold-body' });
-            parent.insertBefore(details, h2);
+            parent.insertBefore(details, h);
             details.appendChild(summary);
-            summary.appendChild(h2);
+            summary.appendChild(h);
             details.appendChild(body);
             var node = details.nextSibling;
-            while (node && !(node.nodeType === 1 && node.tagName === 'H2')) {
+            while (node && !boundary(node)) {
               var next = node.nextSibling;
               body.appendChild(node);
               node = next;
             }
           });
 
-          var folds = Array.prototype.slice.call(main.querySelectorAll('details.tsw-fold'));
+          var folds = Array.prototype.slice.call(main.querySelectorAll('details.tsw-fold-sec'));
           if (!folds.length) { return; }
 
           // Expand all / collapse all above the first section, and the way to open everything
@@ -1968,7 +1994,7 @@
             setTimeout(function () { scrollToEl(s); }, 90);
           }
           function title(d) {
-            var h = d.querySelector('summary h2');
+            var h = d.querySelector('summary h2, summary h3');
             return h ? h.textContent.replace(/\s+/g, ' ').trim() : 'section';
           }
           folds.forEach(function (d, i) {
@@ -2760,11 +2786,14 @@
         for (var p = t.parentElement; p && p !== root; p = p.parentElement) {
           if (p.tagName === 'DETAILS' && !p.open) { p.open = true; hidden = true; }
         }
-        // the fold that follows the target's heading, before the next heading
+        // A "Show the table" fold that sits as a sibling right after the target's heading (the
+        // layout on pages the section-folding did not run on). Section folds (tsw-fold-sec) are
+        // excluded: they wrap the heading itself and are opened by the ancestor walk above, so
+        // opening the next sibling here would wrongly open the following section.
         var b = t;
         while (b.parentElement && b.parentElement !== root) { b = b.parentElement; }
         for (var s = b.nextElementSibling; s && !/^H[1-6]$/.test(s.tagName); s = s.nextElementSibling) {
-          if (s.tagName === 'DETAILS' && s.classList.contains('tsw-fold')) { s.open = true; break; }
+          if (s.tagName === 'DETAILS' && s.classList.contains('tsw-fold') && !s.classList.contains('tsw-fold-sec')) { s.open = true; break; }
         }
         if (hidden) { window.scrollTo(0, t.getBoundingClientRect().top + window.pageYOffset - (topMargin || 60)); }
       }

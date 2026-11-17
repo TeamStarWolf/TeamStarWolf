@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Dirty COW exposed a gap between a process's authorized permissions and what a flawed memory-management operation could permit. ([Executive assessment](#executive-assessment))
+- Installing an update is only part of proving that a system has stopped running vulnerable code. ([Executive assessment](#executive-assessment))
+- The study distinguishes a local privilege-escalation flaw from an independently exploitable remote service vulnerability. ([Executive assessment](#executive-assessment))
+- Remediation has several states: a fix may exist upstream, be packaged, be installed, and finally be activated on a machine. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

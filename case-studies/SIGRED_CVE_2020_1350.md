@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- SIGRed (CVE-2020-1350) was a critical flaw in Microsoft's Windows DNS Server implementation, disclosed in July 2020. ([Executive assessment](#executive-assessment))
+- It was not a failure of DNS as a universal protocol, nor a flaw in every device that performed a DNS lookup. ([Executive assessment](#executive-assessment))
+- Microsoft classified it as wormable, but the discoverer had not completed a full exploit chain and Microsoft knew of no active attacks at publication. ([Executive assessment](#executive-assessment))
+- The record changed: CISA later added CVE-2020-1350 to its Known Exploited Vulnerabilities on 3 November 2021. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

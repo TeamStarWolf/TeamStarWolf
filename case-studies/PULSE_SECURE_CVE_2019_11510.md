@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- CVE-2019-11510 made a remote-access appliance a potential source of authentication material via unauthenticated arbitrary file reading. ([Executive assessment](#executive-assessment))
+- Client certificates or two-factor authentication did not remove the vulnerable pre-authentication path. ([Executive assessment](#executive-assessment))
+- The lasting problem was material already taken: CISA reported compromised AD credentials could stay useful months after patching. ([Executive assessment](#executive-assessment))
+- A software correction could close the entry point without withdrawing access that had escaped into the surrounding identity environment. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 Historical case study of the 2019 Pulse Connect Secure file-read vulnerability and subsequent credential-reuse reporting. Defensive analysis only. No exploit payloads, credential extraction instructions or live testing.

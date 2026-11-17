@@ -1078,3 +1078,66 @@ pages:
       - {"text": "The central distinction is between a stronger authentication transaction and a completely secure account.", "from": "#executive-assessment", "quote": "The central distinction is between a stronger authentication transaction and a completely secure account"}
       - {"text": "What it does not fix: a strong sign-in does not repair account recovery, enrollment, authorization, endpoint security or session handling.", "from": "#executive-assessment", "quote": "A carefully designed sign-in method does not automatically repair account recovery, enrollment, authorization, endpoint security or session handling"}
       - {"text": "The study anchors the milestone in the March 2019 W3C Recommendation, with later passkey developments as context.", "from": "#executive-assessment", "quote": "This article anchors the historical milestone in the fixed March 2019 W3C Recommendation"}
+  case-studies/CITRIX_CVE_2019_19781.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "CVE-2019-19781 became a public incident-response problem before permanent fixes existed for every affected release.", "from": "#executive-assessment", "quote": "CVE-2019-19781 became a public incident-response problem before permanent fixes existed for every affected release"}
+      - {"text": "The December 2019 disclosure offered interim mitigation; January brought tooling, observed intrusions and branch-specific corrections.", "from": "#executive-assessment", "quote": "The December 2019 disclosure offered interim mitigation; January brought technical analysis, public exploitation tooling, observed intrusions and successive branch-specific corrections"}
+      - {"text": "Post-compromise competition was visible: Mandiant described NOTROBIN removing other malware while reserving access for an actor with a secret.", "from": "#executive-assessment", "quote": "Mandiant described NOTROBIN removing other malware and obstructing later exploitation while reserving access for an actor who possessed a secret"}
+      - {"text": "A successful mitigation check could not answer whether earlier compromise had occurred.", "from": "#executive-assessment", "quote": "a successful mitigation check could not answer whether earlier compromise had occurred"}
+  case-studies/PULSE_SECURE_CVE_2019_11510.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "CVE-2019-11510 made a remote-access appliance a potential source of authentication material via unauthenticated arbitrary file reading.", "from": "#executive-assessment", "quote": "CVE-2019-11510 made a remote-access security appliance a potential source of authentication material"}
+      - {"text": "Client certificates or two-factor authentication did not remove the vulnerable pre-authentication path.", "from": "#executive-assessment", "quote": "client certificates or two-factor authentication did not remove the vulnerable pre-authentication path"}
+      - {"text": "The lasting problem was material already taken: CISA reported compromised AD credentials could stay useful months after patching.", "from": "#executive-assessment", "quote": "CISA reported that compromised Active Directory credentials could remain useful months after an organization patched its appliance"}
+      - {"text": "A software correction could close the entry point without withdrawing access that had escaped into the surrounding identity environment.", "from": "#executive-assessment", "quote": "A software correction could close the original entry point without withdrawing access that had escaped into the surrounding identity environment"}
+  case-studies/F5_BIGIP_CVE_2020_5902.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "CVE-2020-5902 exposed a consequential weakness in BIG-IP's administrative interface.", "from": "#executive-assessment", "quote": "CVE-2020-5902 exposed a consequential weakness in BIG-IP's administrative interface"}
+      - {"text": "A load balancer's management service is a different security surface from the applications it delivers.", "from": "#executive-assessment", "quote": "A load balancer's management service is a different security surface from the applications it delivers"}
+      - {"text": "The response was compressed: disclosure and the fix preceded an early-July burst of scanning, exploit material and hostile activity.", "from": "#executive-assessment", "quote": "Public disclosure and corrective software preceded an early-July burst of scanning, public exploit material and observed hostile activity"}
+      - {"text": "The study separates a temporary request filter from a software correction, and the vendor's indicator checker from a guarantee of cleanliness.", "from": "#executive-assessment", "quote": "It separates public exposure estimates from confirmed incidents, a temporary request filter from a software correction, and the vendor's indicator checker from a guarantee of cleanliness"}
+  case-studies/STRUTS_CVE_2017_5638.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Struts CVE-2017-5638 shows why security review must include what happens when an application rejects input.", "from": "#executive-assessment", "quote": "security review must include what happens when an application rejects input"}
+      - {"text": "In the affected framework, exception handling and generation of an error message formed part of a remote code-execution path.", "from": "#executive-assessment", "quote": "exception handling and generation of an error message formed part of a remote code-execution path"}
+      - {"text": "A defensive conclusion changed: an early test suggested an alternative parser avoided the attack, but subsequent testing showed it remained affected.", "from": "#executive-assessment", "quote": "Subsequent testing showed that the alternative remained affected"}
+      - {"text": "The study does not retell the Equifax breach as a substitute for analyzing the vulnerability.", "from": "#executive-assessment", "quote": "It deliberately does not retell the Equifax breach as a substitute for analyzing the vulnerability"}
+  case-studies/DIRTY_COW_2016.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Dirty COW exposed a gap between a process's authorized permissions and what a flawed memory-management operation could permit.", "from": "#executive-assessment", "quote": "a gap between a process's authorized permissions and what a flawed memory-management operation could permit"}
+      - {"text": "Installing an update is only part of proving that a system has stopped running vulnerable code.", "from": "#executive-assessment", "quote": "installing an update is only part of proving that a system has stopped running vulnerable code"}
+      - {"text": "The study distinguishes a local privilege-escalation flaw from an independently exploitable remote service vulnerability.", "from": "#executive-assessment", "quote": "It distinguishes a local privilege-escalation flaw from an independently exploitable remote service vulnerability"}
+      - {"text": "Remediation has several states: a fix may exist upstream, be packaged, be installed, and finally be activated on a machine.", "from": "#executive-assessment", "quote": "A fix may exist upstream, a vendor may package it, an administrator may install it, and a machine may eventually activate it"}
+  case-studies/PRINTNIGHTMARE_CVE_2021_34527.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "PrintNightmare became shorthand for a confusing summer of Windows printing vulnerabilities, emergency updates and configuration guidance.", "from": "#executive-assessment", "quote": "PrintNightmare became shorthand for a confusing summer of Windows printing vulnerabilities, emergency updates and configuration guidance"}
+      - {"text": "Security state is a combination of software, policy, privilege and business workflow.", "from": "#executive-assessment", "quote": "security state is a combination of software, policy, privilege and business workflow"}
+      - {"text": "A patch deployment can succeed while an inherited configuration still weakens a boundary.", "from": "#executive-assessment", "quote": "A patch deployment can succeed while an inherited configuration still weakens a boundary"}
+      - {"text": "The study separates CVE-2021-1675 from CVE-2021-34527, which the shorthand name blurs.", "from": "#executive-assessment", "quote": "It separates CVE-2021-1675 from CVE-2021-34527"}
+  case-studies/SIGRED_CVE_2020_1350.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "SIGRed (CVE-2020-1350) was a critical flaw in Microsoft's Windows DNS Server implementation, disclosed in July 2020.", "from": "#executive-assessment", "quote": "SIGRed, CVE-2020-1350, was a critical flaw in Microsoft's Windows DNS Server implementation disclosed in July 2020"}
+      - {"text": "It was not a failure of DNS as a universal protocol, nor a flaw in every device that performed a DNS lookup.", "from": "#executive-assessment", "quote": "The vulnerability was not a failure of DNS as a universal protocol, nor a vulnerability in every device that performed a DNS lookup"}
+      - {"text": "Microsoft classified it as wormable, but the discoverer had not completed a full exploit chain and Microsoft knew of no active attacks at publication.", "from": "#executive-assessment", "quote": "Microsoft classified the vulnerability as wormable"}
+      - {"text": "The record changed: CISA later added CVE-2020-1350 to its Known Exploited Vulnerabilities on 3 November 2021.", "from": "#executive-assessment", "quote": "CISA's official Known Exploited Vulnerabilities data now includes CVE-2020-1350 with a November 3, 2021 addition date"}
+  case-studies/SMBGHOST_CVE_2020_0796.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "SMBGhost (CVE-2020-0796) was a Windows SMB 3.1.1 implementation vulnerability disclosed in March 2020.", "from": "#executive-assessment", "quote": "SMBGhost, CVE-2020-0796, was a Windows SMB 3.1.1 implementation vulnerability disclosed in March 2020"}
+      - {"text": "The flaw crossed a trust boundary processing compressed network data before authentication, affecting both servers and connecting clients.", "from": "#executive-assessment", "quote": "The flaw crossed a trust boundary while processing compressed network data, before authentication, and affected both receiving servers and connecting clients"}
+      - {"text": "CERT/CC describes possible arbitrary code execution with SYSTEM privileges.", "from": "#executive-assessment", "quote": "CERT/CC describes possible arbitrary code execution with SYSTEM privileges"}
+      - {"text": "The lesson is distinctions summaries erase: a server workaround versus client protection, a crash versus code execution.", "from": "#executive-assessment", "quote": "a server workaround versus client protection; a crash versus code execution"}
+  case-studies/DRUPALGEDDON2_2018.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Drupalgeddon2 let untrusted requests influence internal processing in ways that enabled unauthenticated remote code execution.", "from": "#executive-assessment", "quote": "untrusted requests could influence internal processing in ways that enabled unauthenticated remote code execution"}
+      - {"text": "Once automated attacks were underway, an updated installation could still contain unauthorized changes left by an earlier compromise.", "from": "#executive-assessment", "quote": "an updated installation could still contain unauthorized changes left by an earlier compromise"}
+      - {"text": "Drupal issued SA-CORE-2018-002 for CVE-2018-7600 on 28 March 2018, warning of automated attacks by mid-April.", "from": "#executive-assessment", "quote": "Drupal issued SA-CORE-2018-002 for CVE-2018-7600 on 28 March 2018"}
+      - {"text": "The April follow-up, CVE-2018-7602, requires separate treatment, with a different identifier and prerequisites.", "from": "#executive-assessment", "quote": "The April follow-up, CVE-2018-7602, requires separate treatment"}

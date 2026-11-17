@@ -781,6 +781,10 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 29 July 2024: The Eighth Circuit reverses the attorneys' fee award in the $350 million class settlement
   - 30 September 2024: The FCC announces a $15.75 million penalty plus a $15.75 million security-spending commitment (multiple incidents)
   - 6 January 2025: Washington's attorney general sues T-Mobile (79+ million consumers nationally)
+- [Retiring TLS 1.0 and 1.1: A Protocol Standard Was Not a Universal Shutdown Switch](/case-studies/TLS_1_0_1_1_DEPRECATION_2021.md). Attack surface, 2018 to March 2021 (core: 2021). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/TLS_1_0_1_1_Deprecation_2021_Case_Study.pdf).
+  - October 2018: Major browser vendors announce coordinated plans to retire TLS 1.0 and 1.1
+  - 2020: Vendors disable TLS 1.0 and 1.1 by default, with some schedule revisions
+  - March 2021: RFC 8996 formally deprecates TLS 1.0, TLS 1.1 and DTLS 1.0
 - [Robinhood, November 2021: Remote Support Abuse, Bulk Data and the Unfinished Corrective Action](/case-studies/ROBINHOOD_2021.md). Incident, November 2021 to January 2025 (core: 2021). Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Robinhood_2021_Case_Study.pdf).
   - 3 November 2021: A social-engineering call to support exposes customer information
   - 8 November 2021: Robinhood discloses the incident, citing roughly 7 million customers affected
@@ -799,6 +803,9 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 1 July 2021: CERT/CC VU#383432 highlights the separate PrintNightmare behavior
   - 6 July 2021: Microsoft assigns CVE-2021-34527 and begins a phased out-of-band update
   - 10 August 2021: A later update changes a default amid continued Print Spooler issues
+- [PetitPotam: Authentication Coercion, Certificate Enrollment, and the Limits of a Single Patch](/case-studies/PETITPOTAM_CVE_2021_36942.md). Vulnerability, July to August 2021 (core: 2021). Sectors: technology. CVEs: CVE-2021-36942. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/PetitPotam_CVE_2021_36942_Case_Study.pdf).
+  - July 2021: PetitPotam authentication-coercion research draws attention to NTLM relay against AD CS
+  - 10 August 2021: Microsoft issues KB5005413 and CVE-2021-36942, a partial correction for the unauthenticated call
 - [Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation](/case-studies/EXCHANGE_MARAUDER_2021.md). Campaign, January to November 2021. Sectors: cross-sector, government, education. CVEs: CVE-2020-0688, CVE-2021-26412, CVE-2021-26854, CVE-2021-26855, CVE-2021-26857, CVE-2021-26858 and 11 more. ATT&CK groups: G0027 Threat Group-3390, G0044 Winnti Group, G0046 FIN7, G0059 Magic Hound, G0060 BRONZE BUTLER, G0065 Leviathan and 7 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Exchange_Marauder_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Exchange_Marauder_2021_Case_Study.pptx).
   - 10 December 2020: DEVCORE finds the pre-auth proxy bug, later CVE-2021-26855
   - 3 January 2021: Earliest SSRF mailbox theft Volexity observed
@@ -917,6 +924,9 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - July 2020: Technical analysis shows the loader mattered and the first 8,192 bytes were not a recovery service
   - September 2020: A broader September intrusion toolkit is documented
   - October 2021: ANSSI documents the Lockean activity linked to ProLock
+- [NIST Zero Trust Architecture, 2020: Decisions, Enforcement and the Paths Between Them](/case-studies/NIST_ZERO_TRUST_2020.md). Attack surface, August 2020 to 2020 (core: 2020). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/NIST_Zero_Trust_2020_Case_Study.pdf).
+  - 2019: NIST circulates draft versions of SP 800-207 for public comment
+  - 11 August 2020: NIST publishes the final SP 800-207, defining Zero Trust Architecture and its components
 - [The Multipath TCP Attack Surface: A 2026 Case Study](/case-studies/MPTCP_ATTACK_SURFACE_2026.md). Attack surface, 2020 to 2026. Sectors: technology. CVEs: CVE-2021-47152, CVE-2022-50071, CVE-2025-40258, CVE-2026-31669, CVE-2026-80588, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/MPTCP_Attack_Surface_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/MPTCP_Attack_Surface_2026_Case_Study.pptx).
   - 2020: Linux kernel 5.6 ships a mainline Multipath TCP implementation
   - 3 November 2026: Lab readings on a host running Kali 2026.2 with kernel 7.1.5
@@ -975,6 +985,9 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 15 October 2020: A grand jury indicts six GRU Unit 74455 officers
   - 28 October 2020: AA20-302A warns of ransomware against US hospitals
   - 8 December 2020: FireEye discloses the theft of its Red Team tools
+- [BootHole: A Fatal Error That Returned and the Secure Boot Revocation Problem](/case-studies/BOOTHOLE_CVE_2020_10713.md). Vulnerability, July 2020 to 2020 (core: 2020). Sectors: technology. CVEs: CVE-2020-10713. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/BootHole_CVE_2020_10713_Case_Study.pdf).
+  - 29 July 2020: BootHole (CVE-2020-10713) is disclosed; a GRUB2 parser flaw affects UEFI Secure Boot, requiring revocation not just patching
+  - August 2020: Distribution updates and a regression affecting Ubuntu and Red Hat follow
 - [Avaddon 2020-2021: Extortion Pressure, Recovery Windows and the Limits of a Shutdown](/case-studies/AVADDON_2020_2021.md). Campaign, June 2020 to June 2021 (core: 2020 to 2021). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Avaddon_2020_2021_Case_Study.pdf).
   - 25 June 2020: Avaddon email campaigns make the ransomware visible at scale
   - January 2021: Official warnings describe encryption and extortion, with incompatible origin dates noted
@@ -1302,6 +1315,9 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 23 February 2017: Google and CWI announce the first practical SHA-1 collision
   - 24 February 2017: NIST responds, noting SHA-1 deprecation since 2011 and disallowance since 2013
   - 20 March 2017: GitHub announces collision detection and explains Git's object boundary
+- [Struts CVE-2017-5638: The Error Path That Turned Request Data Into Execution](/case-studies/STRUTS_CVE_2017_5638.md). Vulnerability, March 2017 to 2017 (core: 2017). Sectors: technology. CVEs: CVE-2017-5638. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Struts_CVE_2017_5638_Case_Study.pdf).
+  - 6 March 2017: Apache publishes S2-045 for CVE-2017-5638 in the Jakarta Multipart parser
+  - 20 March 2017: S2-046 documents an additional vector for the same flaw
 - [ROCA, 2017: A Key-Generation Flaw and the Work of Rebuilding Trust](/case-studies/ROCA_2017.md). Vulnerability, 2017 to 2018 (core: 2017). Sectors: technology, government. CVEs: CVE-2017-15361. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ROCA_2017_Case_Study.pdf).
   - 1 February 2017: Researchers notify Infineon
   - 6 June 2017: Yubico ships YubiKey 4 firmware 4.3.5 with a changed RSA generation path
@@ -2075,6 +2091,9 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 December 2025: AA25-343A: CARR, NoName057(16), Z-Pentest and Sector16 tamper with water HMIs through VNC
   - 7 April 2026: AA26-097A: Iranian-affiliated actors extract and modify project files on internet-facing PLCs
   - 27 July 2026: MicroLogix PLC wave reaches utilities in at least seven states; boil water notices and manual operations
+- [Selecting AES: How Rijndael Became a Standard Without Becoming a Complete Security System](/case-studies/NIST_AES_2000.md). Attack surface, October 2000 to November 2001 (core: 2000 to 2001). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/NIST_AES_2000_Case_Study.pdf).
+  - 2 October 2000: NIST announces Rijndael as the proposed Advanced Encryption Standard
+  - 26 November 2001: FIPS 197 publishes AES as a federal standard
 - [The Year 2000 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2000.md). Period record, January to December 2000. Sectors: cross-sector, government, defense, technology, retail, finance, media, manufacturing. CVEs: CVE-2000-0573, CVE-2000-0621, CVE-2000-0666, CVE-2000-0770, CVE-2000-0884, CVE-2000-0887 and 3 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2000_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2000_Case_Study.pptx).
   - 3 January 2000: CA-2000-01: Stacheldraht DDoS agents found on multiple compromised hosts
   - 7 January 2000: The President announces the national plan to defend America's cyberspace

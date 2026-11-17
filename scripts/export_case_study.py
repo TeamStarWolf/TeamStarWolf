@@ -112,6 +112,8 @@ EM_DASH = "\u2014"
 # Study file stem -> export name stem. The first eight are the names on main before the
 # exporter existed; keep them.
 EXPORT_NAMES = {
+    "MGM_2019": "MGM_2019",
+    "TMOBILE_2021": "T-Mobile_2021",
     "ATLANTA_SAMSAM_2018": "Atlanta_SamSam_2018",
     "NORSK_HYDRO_LOCKERGOGA_2019": "Norsk_Hydro_LockerGoga_2019",
     "GARMIN_WASTEDLOCKER_2020": "Garmin_WastedLocker_2020",

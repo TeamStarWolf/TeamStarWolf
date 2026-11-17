@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- PHP2Shell was two pre-authentication RCE flaws in PHP itself, exploited at internet scale within the hour of disclosure. ([Executive summary](#executive-summary))
+- Three trust layers failed in roughly 72 hours: the web runtime, the Web PKI, and the software and SaaS supply chain. ([Executive summary](#executive-summary))
+- In the same weeks, the largest cryptocurrency theft in history drained about $6.3 billion from Binance. ([Executive summary](#executive-summary))
+- Agentic AI appeared on both sides of the ledger, as an attacker accelerant and as a target. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

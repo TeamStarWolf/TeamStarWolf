@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- The peering authentication between Catalyst SD-WAN controllers could be skipped by anyone who could reach it, and already had been. ([Executive summary](#executive-summary))
+- Cisco scored CVE-2026-20127 at CVSS 10.0 and said it was aware of limited exploitation. ([Executive summary](#executive-summary))
+- Talos tied the exploitation to a cluster it calls UAT-8616, with malicious activity going back at least to 2023. ([Executive summary](#executive-summary))
+- Six national agencies warned of global targeting the same day, and CISA issued Emergency Directive 26-03. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

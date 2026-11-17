@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- Administrators took their NetScaler appliances offline before Citrix said anything in public. ([Executive summary](#executive-summary))
+- In the Netherlands, central government cut its Citrix environments off the internet and hospital patient portals went dark. ([Executive summary](#executive-summary))
+- Citrix's 27 September bulletin covered eight CVEs, two of them already exploited against unmitigated deployments. ([Executive summary](#executive-summary))
+- Researchers place first activity in August and exploitation from early September, about three weeks before disclosure. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

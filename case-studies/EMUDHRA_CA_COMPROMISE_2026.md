@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- Eight eMudhra intermediate CA private keys could be worked out from their public certificates. ([Executive summary](#executive-summary))
+- The P-384 keys had secret values below 256, so recovering them took moments. ([Executive summary](#executive-summary))
+- Anyone holding the keys could sign a certificate for any website, and with two code-signing keys, sign software. ([Executive summary](#executive-summary))
+- Browsers blocked it in hours, but non-browser clients lagged: two weeks on, Cloudflare saw over half of large-network probes still accepting the chain. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

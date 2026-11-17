@@ -5555,3 +5555,110 @@ studies:
       - {"date": "2021-06-11", "label": "The operation reportedly shuts down and releases keys"}
       - {"date": "2021-06-16", "label": "The Czech national cyber authority reports the shutdown, cause unknown"}
       - {"date": "2021-06-21", "label": "Public decryption tools change the options for victims"}
+  case-studies/QUORA_2018.md:
+    kind: "incident"
+    title: "Quora 2018: Breach Discovery, Private Activity and the Boundaries of Public Evidence"
+    start: "2018-11"
+    end: "2021-06"
+    core_start: "2018"
+    core_end: "2018"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["data breach", "Quora", "password hashes", "litigation", "evidence"]
+    pdf: "Quora_2018_Case_Study.pdf"
+    events:
+      - {"date": "2018-11-30", "label": "Quora discovers unauthorized access to its systems"}
+      - {"date": "2018-12-03", "label": "Quora discloses the breach; reporting estimates about 100 million users affected"}
+      - {"date": "2018-12-18", "label": "The first civil complaint is filed"}
+      - {"date": "2019-04-11", "label": "The cases are consolidated into one proceeding"}
+      - {"date": "2020-12-21", "label": "A summary-judgment order lets a negligence claim survive while resolving another"}
+      - {"date": "2021-06", "label": "A stipulated judgment closes the litigation record"}
+  case-studies/ZYNGA_2019.md:
+    kind: "incident"
+    title: "Zynga 2019: Player Credentials, Notification and the Court Record"
+    start: "2019-09"
+    end: "2022-04"
+    core_start: "2019"
+    core_end: "2019"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["data breach", "Zynga", "credentials", "notification", "court record"]
+    pdf: "Zynga_2019_Case_Study.pdf"
+    events:
+      - {"date": "2019-09", "label": "Zynga discloses a breach of player account data; a breach-index entry follows"}
+      - {"date": "2021-01-06", "label": "An early ruling finds evidence of arbitration assent missing"}
+      - {"date": "2021-05-05", "label": "A related case is transferred, which is not a breach-liability decision"}
+      - {"date": "2021-07-30", "label": "Renewed motions reach a different result on arbitration and standing"}
+      - {"date": "2022-04-29", "label": "A later order is recovered that bounds the public record"}
+  case-studies/DOORDASH_2019.md:
+    kind: "incident"
+    title: "DoorDash, 2019: Vendor Access, Historical Data and the Discipline of Breach Scope"
+    start: "2019-05"
+    end: "2020-11"
+    core_start: "2019"
+    core_end: "2019"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["data breach", "DoorDash", "third-party vendor", "supply chain", "notification"]
+    pdf: "DoorDash_2019_Case_Study.pdf"
+    events:
+      - {"date": "2019-05", "label": "Unauthorized access through a third party reaches historical DoorDash data"}
+      - {"date": "2019-09-26", "label": "DoorDash discloses the May 2019 breach affecting about 4.9 million people"}
+      - {"date": "2020-03-12", "label": "An SEC staff comment letter addresses the breach disclosure"}
+  case-studies/ROBINHOOD_2021.md:
+    kind: "incident"
+    title: "Robinhood, November 2021: Remote Support Abuse, Bulk Data and the Unfinished Corrective Action"
+    start: "2021-11"
+    end: "2025-01"
+    core_start: "2021"
+    core_end: "2021"
+    sectors: ["finance"]
+    cves: []
+    actors: []
+    tags: ["data breach", "Robinhood", "social engineering", "support access", "extortion"]
+    pdf: "Robinhood_2021_Case_Study.pdf"
+    events:
+      - {"date": "2021-11-03", "label": "A social-engineering call to support exposes customer information"}
+      - {"date": "2021-11-08", "label": "Robinhood discloses the incident, citing roughly 7 million customers affected"}
+      - {"date": "2021-11-16", "label": "Robinhood updates the disclosure"}
+      - {"date": "2024-01", "label": "A Massachusetts consent order records admitted factual allegations"}
+      - {"date": "2025-01-13", "label": "An SEC administrative order follows"}
+  case-studies/ZOOM_FTC_2020.md:
+    kind: "incident"
+    title: "Zoom and the FTC, 2020: Encryption Claims, User Consent and Security Accountability"
+    start: "2020-04"
+    end: "2021-02"
+    core_start: "2020"
+    core_end: "2020"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["FTC", "Zoom", "encryption claims", "consent order", "accountability"]
+    pdf: "Zoom_FTC_2020_Case_Study.pdf"
+    events:
+      - {"date": "2020-04-03", "label": "Citizen Lab research questions Zoom's encryption claims"}
+      - {"date": "2020-10-26", "label": "Zoom announces an end-to-end encryption technical preview"}
+      - {"date": "2020-11-09", "label": "The FTC files a complaint over Zoom's security and encryption claims"}
+      - {"date": "2021-01", "label": "The FTC consent order is issued"}
+      - {"date": "2021-02-01", "label": "The FTC finalizes the order"}
+  case-studies/PANERA_2017_2018.md:
+    kind: "incident"
+    title: "Panera Bread 2017-2018: An Exposure Report That Outlived Its Acknowledgment"
+    start: "2017-08"
+    end: "2018-06"
+    core_start: "2017"
+    core_end: "2018"
+    sectors: ["retail"]
+    cves: []
+    actors: []
+    tags: ["data exposure", "Panera", "vulnerability disclosure", "API", "web application"]
+    pdf: "Panera_2017_2018_Case_Study.pdf"
+    events:
+      - {"date": "2017-08", "label": "A researcher reports readable customer data to Panera"}
+      - {"date": "2018-04-02", "label": "Brian Krebs publishes the exposure after months without a fix"}
+      - {"date": "2018-04-03", "label": "The researcher's disclosure retrospective and news coverage follow"}
+      - {"date": "2018-04-05", "label": "A civil complaint is filed"}
+      - {"date": "2018-06-04", "label": "The civil case is voluntarily dismissed, amended on 12 June"}

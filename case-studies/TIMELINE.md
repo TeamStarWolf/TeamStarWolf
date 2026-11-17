@@ -781,6 +781,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 29 July 2024: The Eighth Circuit reverses the attorneys' fee award in the $350 million class settlement
   - 30 September 2024: The FCC announces a $15.75 million penalty plus a $15.75 million security-spending commitment (multiple incidents)
   - 6 January 2025: Washington's attorney general sues T-Mobile (79+ million consumers nationally)
+- [Robinhood, November 2021: Remote Support Abuse, Bulk Data and the Unfinished Corrective Action](/case-studies/ROBINHOOD_2021.md). Incident, November 2021 to January 2025 (core: 2021). Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Robinhood_2021_Case_Study.pdf).
+  - 3 November 2021: A social-engineering call to support exposes customer information
+  - 8 November 2021: Robinhood discloses the incident, citing roughly 7 million customers affected
+  - 16 November 2021: Robinhood updates the disclosure
+  - January 2024: A Massachusetts consent order records admitted factual allegations
+  - 13 January 2025: An SEC administrative order follows
 - [QUIC in 2021: A Secure Transport Standard, Not Just Faster HTTP](/case-studies/QUIC_2021.md). Attack surface, August 2017 to June 2022 (core: 2021). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/QUIC_2021_Case_Study.pdf).
   - August 2017: A SIGCOMM paper describes Google's pre-IETF QUIC design and deployment
   - October 2020: A browser documents a QUIC rollout before final RFC publication
@@ -877,6 +883,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 12 May 2021: Executive Order 14028 signed
   - 30 October 2023: SEC charges SolarWinds and its CISO
   - 20 November 2025: SEC case dismissed with prejudice by joint stipulation
+- [Zoom and the FTC, 2020: Encryption Claims, User Consent and Security Accountability](/case-studies/ZOOM_FTC_2020.md). Incident, April 2020 to February 2021 (core: 2020). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Zoom_FTC_2020_Case_Study.pdf).
+  - 3 April 2020: Citizen Lab research questions Zoom's encryption claims
+  - 26 October 2020: Zoom announces an end-to-end encryption technical preview
+  - 9 November 2020: The FTC files a complaint over Zoom's security and encryption claims
+  - January 2021: The FTC consent order is issued
+  - 1 February 2021: The FTC finalizes the order
 - [SMBGhost: Compression Arithmetic, Client Exposure and the 2020 Emergency Patch](/case-studies/SMBGHOST_CVE_2020_0796.md). Vulnerability, March to June 2020 (core: 2020). Sectors: technology. CVEs: CVE-2020-0796. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SMBGhost_CVE_2020_0796_Case_Study.pdf).
   - 10 March 2020: Details of CVE-2020-0796 in SMB 3.1.1 appear ahead of a patch
   - 12 March 2020: Microsoft releases KB4551762 to fix the compression flaw
@@ -974,6 +986,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 6 August 2020: OCC announces an $80 million civil penalty and a consent order
   - February 2021: Company update identifies about 4,700 additional people whose SSNs were accessed
   - 17 June 2022: DOJ announces Paige Thompson's conviction on wire fraud and computer-intrusion counts
+- [Zynga 2019: Player Credentials, Notification and the Court Record](/case-studies/ZYNGA_2019.md). Incident, September 2019 to April 2022 (core: 2019). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Zynga_2019_Case_Study.pdf).
+  - September 2019: Zynga discloses a breach of player account data; a breach-index entry follows
+  - 6 January 2021: An early ruling finds evidence of arbitration assent missing
+  - 5 May 2021: A related case is transferred, which is not a breach-liability decision
+  - 30 July 2021: Renewed motions reach a different result on arbitration and standing
+  - 29 April 2022: A later order is recovered that bounds the public record
 - [WebAuthn, 2019: Standardizing Stronger Sign-In Without Pretending Recovery Disappears](/case-studies/WEBAUTHN_2019.md). Attack surface, March 2019 to May 2022 (core: 2019). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/WebAuthn_2019_Case_Study.pdf).
   - 4 March 2019: W3C publishes WebAuthn Level 1 as a Recommendation, a public-key authentication API
   - 5 May 2022: FIDO Alliance, Apple, Google and Microsoft announce expanded cross-device passkey support
@@ -1018,6 +1036,10 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 September 2020: System access is restored, though services are not yet fully restored
   - 10 December 2020: An FBI notice describes DoppelPaymer attacks on critical infrastructure
   - 2023: German and Ukrainian authorities announce enforcement action
+- [DoorDash, 2019: Vendor Access, Historical Data and the Discipline of Breach Scope](/case-studies/DOORDASH_2019.md). Incident, May 2019 to November 2020 (core: 2019). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DoorDash_2019_Case_Study.pdf).
+  - May 2019: Unauthorized access through a third party reaches historical DoorDash data
+  - 26 September 2019: DoorDash discloses the May 2019 breach affecting about 4.9 million people
+  - 12 March 2020: An SEC staff comment letter addresses the breach disclosure
 - [Citrix CVE-2019-19781: Mitigation Revisions, Competing Intruders and the January 2020 Patch Race](/case-studies/CITRIX_CVE_2019_19781.md). Vulnerability, December 2019 to September 2020 (core: 2019 to 2020). Sectors: technology. CVEs: CVE-2019-19781. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Citrix_CVE_2019_19781_Case_Study.pdf).
   - 17 December 2019: Citrix discloses CVE-2019-19781 and publishes interim mitigation guidance (CTX267679)
   - 8 January 2020: Exposure measurements and public tooling appear; CERT/CC narrows the technical findings
@@ -1108,6 +1130,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 3 January 2018: Public disclosure by Project Zero and Google, ahead of the planned date
   - 9 January 2018: The originally coordinated disclosure date
   - 22 January 2018: Canonical reverts an Intel microcode update after instability
+- [Quora 2018: Breach Discovery, Private Activity and the Boundaries of Public Evidence](/case-studies/QUORA_2018.md). Incident, November 2018 to June 2021 (core: 2018). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Quora_2018_Case_Study.pdf).
+  - 30 November 2018: Quora discovers unauthorized access to its systems
+  - 3 December 2018: Quora discloses the breach; reporting estimates about 100 million users affected
+  - 18 December 2018: The first civil complaint is filed
+  - 11 April 2019: The cases are consolidated into one proceeding
+  - 21 December 2020: A summary-judgment order lets a negligence claim survive while resolving another
+  - June 2021: A stipulated judgment closes the litigation record
 - [GandCrab 2018-2019: Affiliate Ransomware and the Limits of a Decryptor](/case-studies/GANDCRAB_2018_2019.md). Campaign, January 2018 to October 2019 (core: 2018 to 2019). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/GandCrab_2018_2019_Case_Study.pdf).
   - January 2018: GandCrab affiliate ransomware operations begin
   - 28 February 2018: An early decryptor is released through No More Ransom
@@ -1239,6 +1268,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 2 November 2017: Estonia announces blocking certificates on about 760,000 at-risk ID cards
   - 3 November 2017: Estonia blocks the affected certificates (about 740,000 cards)
   - 1 April 2018: Estonia finally revokes the affected certificates
+- [Panera Bread 2017-2018: An Exposure Report That Outlived Its Acknowledgment](/case-studies/PANERA_2017_2018.md). Incident, August 2017 to June 2018 (core: 2017 to 2018). Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Panera_2017_2018_Case_Study.pdf).
+  - August 2017: A researcher reports readable customer data to Panera
+  - 2 April 2018: Brian Krebs publishes the exposure after months without a fix
+  - 3 April 2018: The researcher's disclosure retrospective and news coverage follow
+  - 5 April 2018: A civil complaint is filed
+  - 4 June 2018: The civil case is voluntarily dismissed, amended on 12 June
 - [NetSarang / ShadowPad, 2017: A Trusted Software Release Became an Intrusion Path](/case-studies/NETSARANG_SHADOWPAD_2017.md). Incident, 2017. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/NetSarang_ShadowPad_2017_Case_Study.pdf).
   - 18 July 2017: NetSarang ships a release containing a backdoor in nssock2.dll (distributed to 4 August)
   - 5 August 2017: A clean update is released (per MyCERT)

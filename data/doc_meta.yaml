@@ -3711,6 +3711,48 @@ pages:
     start_at: "[Executive assessment](#executive-assessment), [Research recovery was conditional, not a break of modern encryption](#research-recovery-was-conditional-not-a-break-of-modern-encryption), [The preservation dilemma is a decision, not a slogan](#the-preservation-dilemma-is-a-decision-not-a-slogan)"
     pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Attack Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
     reviewed: null
+  case-studies/QUORA_2018.md:
+    audience: "Data-protection and security teams, incident responders, and anyone reconstructing a breach from a litigation record"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2018 Quora breach, you need to separate discovery, intrusion and notification dates or a court ruling from a technical verdict, or you are judging what a public record can and cannot establish"
+    start_at: "[Executive assessment](#executive-assessment), [3. The affected-population estimate and its denominator](#_3-the-affected-population-estimate-and-its-denominator), [10. Summary judgment, expenses and the meaning of a surviving claim](#_10-summary-judgment-expenses-and-the-meaning-of-a-surviving-claim)"
+    pairs_with: "[Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Privacy Engineering Reference](/PRIVACY_ENGINEERING_REFERENCE.md), [Password Security Reference](/PASSWORD_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
+  case-studies/ZYNGA_2019.md:
+    audience: "Data-protection and security teams, incident responders and anyone separating breach facts from accumulated legal claims"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2019 Zynga breach, you need to separate a company notice, a breach index, a complaint and a court ruling, or you are avoiding inflated counts and invented technical causes"
+    start_at: "[Executive assessment](#executive-assessment), [4. Hashing is not encryption, and storage is not initial access](#_4-hashing-is-not-encryption-and-storage-is-not-initial-access), [5. Keep the OMGPOP history separate](#_5-keep-the-omgpop-history-separate)"
+    pairs_with: "[Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Password Security Reference](/PASSWORD_SECURITY_REFERENCE.md), [Regulatory Landscape Reference](/REGULATORY_LANDSCAPE_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
+  case-studies/DOORDASH_2019.md:
+    audience: "Data-protection, vendor-risk and security teams, incident responders and detection engineers"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2019 DoorDash breach, you need to separate a third-party access incident from an undocumented exploit chain or historical data from current controls, or you are scoping a vendor-access breach"
+    start_at: "[Executive assessment](#executive-assessment), [5. Third-party involvement and the missing exploit chain](#_5-third-party-involvement-and-the-missing-exploit-chain), [8. Retention and the historical-data boundary](#_8-retention-and-the-historical-data-boundary)"
+    pairs_with: "[Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Privacy Engineering Reference](/PRIVACY_ENGINEERING_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
+  case-studies/ROBINHOOD_2021.md:
+    audience: "Identity, support-operations and security teams, incident responders and detection engineers"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the November 2021 Robinhood incident, you need to separate downloaded, visible and merely reachable data or a regulatory fund from a per-person payment, or you are hardening support against social engineering"
+    start_at: "[Executive assessment](#executive-assessment), [6. The exposed populations require separate labels](#_6-the-exposed-populations-require-separate-labels), [7. Downloaded, visible and merely reachable](#_7-downloaded-visible-and-merely-reachable)"
+    pairs_with: "[Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md), [Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
+  case-studies/ZOOM_FTC_2020.md:
+    audience: "Security, privacy and compliance teams, product security owners and anyone reading an FTC security case"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the FTC's 2020 Zoom case, you need to separate an encryption claim from an end-to-end guarantee or a regulatory security case from a documented mass theft, or you are mapping consent-order obligations"
+    start_at: "[Executive assessment](#executive-assessment), [3. What end-to-end encryption actually promises](#_3-what-end-to-end-encryption-actually-promises), [7. Counts, exposure and harm](#_7-counts-exposure-and-harm)"
+    pairs_with: "[Regulatory Landscape Reference](/REGULATORY_LANDSCAPE_REFERENCE.md), [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [Privacy Engineering Reference](/PRIVACY_ENGINEERING_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md)"
+    reviewed: null
+  case-studies/PANERA_2017_2018.md:
+    audience: "Application-security and web teams, vulnerability-disclosure owners, and incident responders"
+    level: "Intermediate"
+    read_when: "You want a shorter, evidence-bounded account of the 2017-2018 Panera exposure, you need to separate a web-application exposure from a proven mass theft or a pleading from a forensic report, or you are improving vulnerability-disclosure handling"
+    start_at: "[Executive assessment](#executive-assessment), [What the application failure means](#what-the-application-failure-means), [Why the population dispute cannot be resolved by choosing the largest number](#why-the-population-dispute-cannot-be-resolved-by-choosing-the-largest-number)"
+    pairs_with: "[Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [API Security Reference](/API_SECURITY_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
   commands/aws-cli.md:
     audience: "Cloud engineers, administrators and security teams who work in AWS from a terminal"
     level: "Beginner to intermediate"

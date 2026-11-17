@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- A compromised application credential in ConnectWise's tenant was used to sign in as its multi-tenant app to customer tenants and get Graph tokens. ([Executive summary](#executive-summary))
+- The sign-ins were app-only, so no user signed in and user MFA never came into play. ([Executive summary](#executive-summary))
+- Microsoft says the actor used an agentic AI framework, ARTEX, to attempt sign-ins to more than 2,250 tenants. ([Executive summary](#executive-summary))
+- No CVE applies: this was abuse of an application identity, not a software flaw. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

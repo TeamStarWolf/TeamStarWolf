@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- Teams were asked to patch the same Ivanti Connect Secure appliance twice in just over two weeks. ([Executive summary](#executive-summary))
+- Volexity found the chain on an appliance that was fully patched, with exploitation starting 3 October 2026. ([Executive summary](#executive-summary))
+- The fix for the root-escalation flaw that completed the chain did not ship until 29 October. ([Executive summary](#executive-summary))
+- CISA gave two of the three CVEs a three-day KEV deadline with forensic triage. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

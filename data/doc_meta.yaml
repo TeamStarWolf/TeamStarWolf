@@ -2330,6 +2330,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Defensive playbook](#defensive-playbook), [Remediation and mitigation by platform and technology](#remediation-and-mitigation-by-platform-and-technology)"
     pairs_with: "[AI Security Reference](/AI_SECURITY_REFERENCE.md), [AI & MCP Security Reference](/AI_MCP_SECURITY_REFERENCE.md), [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md), [AI Infrastructure & MLOps Security](/AI_INFRASTRUCTURE_SECURITY_REFERENCE.md)"
     reviewed: null
+  case-studies/ANTHEM_2015.md:
+    audience: "Healthcare and health-plan security leaders, identity and data-warehouse owners, detection engineers, incident responders and privacy teams"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2015 Anthem breach, you need to separate a stolen password from the privileged path into a consolidated data warehouse, or you are reviewing bulk-extraction controls and breach-population language"
+    start_at: "[Executive assessment](#executive-assessment), [4. The alleged intrusion chain, without an exploit recipe](#_4-the-alleged-intrusion-chain-without-an-exploit-recipe), [7. A warehouse is a concentration of authority](#_7-a-warehouse-is-a-concentration-of-authority)"
+    pairs_with: "[Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)"
+    reviewed: null
   case-studies/APT41_PUBLIC_RECORD.md:
     audience: "Threat intelligence analysts, threat hunters and defenders tracking China-nexus intrusion sets"
     level: "Intermediate"
@@ -2940,6 +2947,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the intrusion at FireEye](#part-1-the-intrusion-at-fireeye), [Part 9: the defender view](#part-9-the-defender-view)"
     pairs_with: "[Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Red Team Reference](/RED_TEAM_REFERENCE.md), [SolarWinds and SUNBURST](/case-studies/SOLARWINDS_SUNBURST.md)"
     reviewed: null
+  case-studies/MARRIOTT_STARWOOD_2018.md:
+    audience: "Acquisition and integration security teams, data and identity owners, detection engineers, incident responders and privacy and risk leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2014 to 2018 Starwood breach, you need to tell records from people or the SHA-1 correction from the earlier AES-128 claim, or you are securing an acquired environment"
+    start_at: "[Executive summary](#executive-summary), [The historical record in six bounded accounts](#the-historical-record-in-six-bounded-accounts), [Acquisition security: four phases with different evidence](#acquisition-security-four-phases-with-different-evidence)"
+    pairs_with: "[Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
   case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md:
     audience: "Desktop and Microsoft 365 administrators, email security and vulnerability management teams, incident responders and threat intelligence analysts"
     level: "Intermediate"
@@ -3108,6 +3122,20 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 6: the defender view](#part-6-the-defender-view)"
     pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Threat Actors](/THREAT_ACTORS.md), [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md)"
     reviewed: null
+  case-studies/SONY_PICTURES_2014.md:
+    audience: "Incident responders, continuity and recovery owners, HR and privacy teams, communications and security leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2014 Sony Pictures attack, you need to separate destruction from disclosure and coercion or technical restoration from business-record recovery, or you are planning a destructive-incident exercise"
+    start_at: "[Executive assessment](#executive-assessment), [3. Later criminal allegations add a different record](#_3-later-criminal-allegations-add-a-different-record), [11. Original analysis: build a trusted recovery environment](#_11-original-analysis-build-a-trusted-recovery-environment)"
+    pairs_with: "[Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Threat Actors](/THREAT_ACTORS.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md)"
+    reviewed: null
+  case-studies/SPECTRE_MELTDOWN_2018.md:
+    audience: "Platform, virtualization and operating-system engineers, cloud and hardware owners, vulnerability-management teams and detection engineers"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the January 2018 Spectre and Meltdown disclosures, you need to tell an affected processor from a mitigated one or a patch receipt from a protected system, or you are coordinating a cross-component mitigation"
+    start_at: "[Executive assessment](#executive-assessment), [2. The original three variants](#_2-the-original-three-variants), [7. Layered mitigation and ongoing risk](#_7-layered-mitigation-and-ongoing-risk)"
+    pairs_with: "[Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md), [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
   case-studies/SSHOLE_CVE_2026_123158.md:
     audience: "Vulnerability management leads, Linux and embedded platform engineers, container and cloud image owners, and incident responders"
     level: "Intermediate"
@@ -3128,6 +3156,13 @@ pages:
     read_when: "You want the evidence-graded record of how Stuxnet worked and what it targeted, you defend industrial control systems, or you need the attribution and policy record and the legacy it left"
     start_at: "[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 4: the defender view and legacy](#part-4-the-defender-view-and-legacy)"
     pairs_with: "[ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [ICS ATT&CK Technique Atlas](/ICS_ATTACK_ATLAS.md), [Malware Families](/MALWARE_FAMILIES.md), [Industrial Control System Attacks and Advisories, 2024 to 2026: Incidents, CVEs and Attribution](/case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md)"
+    reviewed: null
+  case-studies/TARGET_2013.md:
+    audience: "Retail and payment security engineers, vendor-access and identity owners, detection engineers, incident responders and risk leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2013 Target breach, you need to separate card accounts from people or a broad cleanup from verified coverage, or you are reviewing vendor access, segmentation and alert-to-action handling"
+    start_at: "[Executive assessment](#executive-assessment), [4. Vendor access and the later state investigation](#_4-vendor-access-and-the-later-state-investigation), [11. Original analysis: the last disconnected device matters](#_11-original-analysis-the-last-disconnected-device-matters)"
+    pairs_with: "[Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md)"
     reviewed: null
   case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md:
     audience: "Platform and DevOps engineers who run CI/CD pipelines, supply chain security engineers, vulnerability management leads, incident responders and threat intelligence analysts"

@@ -70,6 +70,28 @@ studies:
       - {"date": "2026-07", "label": "OpenAI test agents exploit a zero-day in their sandbox's package proxy and breach Hugging Face"}
       - {"date": "2026-07", "label": "Microsoft's July Patch Tuesday fixes 570 flaws, almost triple June"}
       - {"date": "2026-09", "label": "GTIG reports a multi-agent credential-theft campaign run in under 6 hours"}
+  case-studies/ANTHEM_2015.md:
+    kind: "incident"
+    title: "Anthem, 2015: Health Identity, Privileged Access and the Enterprise Data Warehouse"
+    start: "2014-02"
+    end: "2020-10"
+    core_start: "2015-01"
+    core_end: "2015-02"
+    sectors: ["healthcare"]
+    cves: []
+    actors: []
+    tags: ["healthcare", "data warehouse", "privileged access", "PHI", "data breach"]
+    pdf: "Anthem_2015_Case_Study.pdf"
+    events:
+      - {"date": "2014-02-18", "label": "Phishing message to an Anthem subsidiary's employees (alleged)"}
+      - {"date": "2014-05-13", "label": "Unauthorized Anthem access begins (alleged)"}
+      - {"date": "2015-01-29", "label": "Anthem discovers the intrusion"}
+      - {"date": "2015-01-31", "label": "Incident response terminates the attackers' access (alleged)"}
+      - {"date": "2015-02-04", "label": "Public announcement of the breach"}
+      - {"date": "2015-03-13", "label": "Breach reported to HHS OCR"}
+      - {"date": "2018-10-15", "label": "A $16 million HIPAA resolution with HHS"}
+      - {"date": "2019-05-09", "label": "DOJ unseals an indictment (Fujie Wang)"}
+      - {"date": "2020-09-30", "label": "A $39.5 million multistate settlement is announced"}
   case-studies/APT41_PUBLIC_RECORD.md:
     kind: "actor"
     title: "APT41: The Public Record, 2012 to 2026"
@@ -2919,6 +2941,28 @@ studies:
       - {"date": "2021-10-04", "label": "FireEye, Inc. becomes Mandiant, Inc.; the products business sale closes on 8 October"}
       - {"date": "2022-04-27", "label": "Mandiant merges UNC2452 into APT29"}
       - {"date": "2022-09-12", "label": "Google completes its acquisition of Mandiant"}
+  case-studies/MARRIOTT_STARWOOD_2018.md:
+    kind: "incident"
+    title: "Marriott and Starwood, 2014-2018: Acquiring a Business Does Not Reset Its Intrusion Clock"
+    start: "2014-07"
+    end: "2024-12"
+    core_start: "2018-09"
+    core_end: "2018-11"
+    sectors: ["retail"]
+    cves: []
+    actors: []
+    tags: ["acquisition security", "data breach", "SHA-1", "long dwell time", "data minimization"]
+    pdf: "Marriott_Starwood_2018_Case_Study.pdf"
+    events:
+      - {"date": "2014-07", "label": "The Starwood environment is compromised (FTC alleges)"}
+      - {"date": "2016-09", "label": "Marriott's acquisition of Starwood closes"}
+      - {"date": "2018-09", "label": "The reservation-system intrusion is detected"}
+      - {"date": "2018-11", "label": "Public disclosure of the incident"}
+      - {"date": "2019-01-04", "label": "Marriott revises the scale to a 383 million records upper bound"}
+      - {"date": "2020-10-30", "label": "Marriott acknowledges the final UK ICO fine"}
+      - {"date": "2024-04-17", "label": "Marriott appends a correction: SHA-1, not the earlier AES-128"}
+      - {"date": "2024-10-09", "label": "A $52 million multistate settlement is announced"}
+      - {"date": "2024-12", "label": "The FTC finalizes its order"}
   case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md:
     kind: "vulnerability"
     title: "The Microsoft Office Security Feature Bypass of 2026 (CVE-2026-21509) and APT28: A Case Study"
@@ -3517,6 +3561,44 @@ studies:
       - {"date": "2021-05-12", "label": "Executive Order 14028 signed"}
       - {"date": "2023-10-30", "label": "SEC charges SolarWinds and its CISO"}
       - {"date": "2025-11-20", "label": "SEC case dismissed with prejudice by joint stipulation"}
+  case-studies/SONY_PICTURES_2014.md:
+    kind: "incident"
+    title: "Sony Pictures, 2014: Destruction, Disclosure and Coercion"
+    start: "2014-11"
+    end: "2021-02"
+    core_start: "2014-11"
+    core_end: "2014-12"
+    sectors: ["media"]
+    cves: []
+    actors: []
+    tags: ["wiper", "data theft", "coercion", "attribution", "business continuity"]
+    pdf: "Sony_Pictures_2014_Case_Study.pdf"
+    events:
+      - {"date": "2014-11-24", "label": "Destructive system disruption at Sony Pictures"}
+      - {"date": "2014-12-01", "label": "The company learns employee personal information may be compromised"}
+      - {"date": "2014-12-15", "label": "Company notice to employees and dependents"}
+      - {"date": "2014-12-19", "label": "The FBI attributes the attack to the North Korean government"}
+      - {"date": "2015-01-23", "label": "Sony files for a reporting-deadline extension amid recovery"}
+      - {"date": "2015-02-04", "label": "Forecast Pictures results, as the close could not be completed"}
+      - {"date": "2018-09-06", "label": "The US makes public a complaint against Park Jin Hyok"}
+      - {"date": "2021-02-17", "label": "DOJ announces an expanded indictment naming three North Korean hackers"}
+  case-studies/SPECTRE_MELTDOWN_2018.md:
+    kind: "vulnerability"
+    title: "Spectre and Meltdown, 2018: When Isolation Became a Hardware-Software Responsibility"
+    start: "2017-06"
+    end: "2018-01"
+    core_start: "2018-01"
+    core_end: "2018-01"
+    sectors: ["technology"]
+    cves: ["CVE-2017-5753", "CVE-2017-5715", "CVE-2017-5754"]
+    actors: []
+    tags: ["speculative execution", "side channel", "KPTI", "coordinated disclosure", "mitigation"]
+    pdf: "Spectre_Meltdown_2018_Case_Study.pdf"
+    events:
+      - {"date": "2017-06-01", "label": "Project Zero notifies Intel, AMD and ARM"}
+      - {"date": "2018-01-03", "label": "Public disclosure by Project Zero and Google, ahead of the planned date"}
+      - {"date": "2018-01-09", "label": "The originally coordinated disclosure date"}
+      - {"date": "2018-01-22", "label": "Canonical reverts an Intel microcode update after instability"}
   case-studies/SSHOLE_CVE_2026_123158.md:
     kind: "vulnerability"
     title: "SSHole: The OpenSSH Authentication Bypass of November 2026 (CVE-2026-123158)"
@@ -3599,6 +3681,28 @@ studies:
       - {"date": "2012-06-01", "label": "New York Times Olympic Games account, relayed by the Guardian"}
       - {"date": "2012-06-24", "label": "Coded infection stop date for Stuxnet 1.x"}
       - {"date": "2013-02-26", "label": "Symantec publishes Stuxnet 0.5: The Missing Link"}
+  case-studies/TARGET_2013.md:
+    kind: "incident"
+    title: "Target, 2013: Vendor Access, Payment Boundaries and the Last Register"
+    start: "2013-11"
+    end: "2017-05"
+    core_start: "2013-11"
+    core_end: "2013-12"
+    sectors: ["retail"]
+    cves: []
+    actors: []
+    tags: ["retail", "vendor access", "payment cards", "segmentation", "remediation coverage"]
+    pdf: "Target_2013_Case_Study.pdf"
+    events:
+      - {"date": "2013-11-12", "label": "Vendor-credential access to a Target gateway (per the state investigation)"}
+      - {"date": "2013-11-27", "label": "The payment-card theft window begins"}
+      - {"date": "2013-12-12", "label": "DOJ notifies Target of suspicious card activity"}
+      - {"date": "2013-12-15", "label": "Target confirms POS malware and removes it from most US registers"}
+      - {"date": "2013-12-18", "label": "Additional disconnected registers are addressed"}
+      - {"date": "2014-01-10", "label": "Target discloses expanded scope: contact information for up to 70 million"}
+      - {"date": "2014-02-04", "label": "The CFO testifies to the Senate"}
+      - {"date": "2014-03", "label": "The Senate Commerce staff report applies a kill-chain synthesis"}
+      - {"date": "2017-05-23", "label": "An $18.5 million multistate settlement is announced"}
   case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md:
     kind: "campaign"
     title: "The TeamPCP Supply-Chain Campaign of 2026: Trivy, Checkmarx and the Bitwarden CLI (CVE-2026-33634)"

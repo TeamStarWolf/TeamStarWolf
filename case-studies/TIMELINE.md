@@ -919,12 +919,27 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 21 November 2025: Shai-Hulud 2.0 trojanized uploads, 21 to 23 November
   - 30 March 2026: axios: social engineering and a RAT on the lead maintainer's PC expose the npm credentials
   - 4 August 2026: keyv maintainer's GitHub account compromised; the CHAINDROP worm follows
+- [Marriott and Starwood, 2014-2018: Acquiring a Business Does Not Reset Its Intrusion Clock](/case-studies/MARRIOTT_STARWOOD_2018.md). Incident, July 2014 to December 2024 (core: September to November 2018). Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Marriott_Starwood_2018_Case_Study.pdf).
+  - July 2014: The Starwood environment is compromised (FTC alleges)
+  - September 2016: Marriott's acquisition of Starwood closes
+  - September 2018: The reservation-system intrusion is detected
+  - November 2018: Public disclosure of the incident
+  - 4 January 2019: Marriott revises the scale to a 383 million records upper bound
+  - 30 October 2020: Marriott acknowledges the final UK ICO fine
+  - 17 April 2024: Marriott appends a correction: SHA-1, not the earlier AES-128
+  - 9 October 2024: A $52 million multistate settlement is announced
+  - December 2024: The FTC finalizes its order
 - [Olympic Destroyer, 2018: When the Event Clock Becomes the Attacker's Advantage](/case-studies/OLYMPIC_DESTROYER_2018.md). Incident, December 2017 to October 2020 (core: February 2018). Sectors: government, media. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Olympic_Destroyer_2018_Case_Study.pdf).
   - December 2017: Alleged preparation and intrusion period begins (per the later indictment)
   - 9 February 2018: Destructive deployment during the PyeongChang opening-ceremony period
   - 12 February 2018: Cisco Talos publishes its analysis; conclusions change over 12 to 13 February
   - March 2018: Kaspersky's Rich-header research concludes the Lazarus resemblance was a false flag
   - 19 October 2020: US charges six alleged GRU officers
+- [Spectre and Meltdown, 2018: When Isolation Became a Hardware-Software Responsibility](/case-studies/SPECTRE_MELTDOWN_2018.md). Vulnerability, June 2017 to January 2018 (core: January 2018). Sectors: technology. CVEs: CVE-2017-5753, CVE-2017-5715, CVE-2017-5754. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Spectre_Meltdown_2018_Case_Study.pdf).
+  - 1 June 2017: Project Zero notifies Intel, AMD and ARM
+  - 3 January 2018: Public disclosure by Project Zero and Google, ahead of the planned date
+  - 9 January 2018: The originally coordinated disclosure date
+  - 22 January 2018: Canonical reverts an Intel microcode update after instability
 - [The Year 2018 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2018.md). Period record, January to December 2018. Sectors: cross-sector, government, energy, finance, technology, education, healthcare, transport, retail. CVEs: CVE-2017-5715, CVE-2017-5753, CVE-2017-5754, CVE-2018-0101, CVE-2018-0171, CVE-2018-0296 and 26 more. ATT&CK groups: G0007 APT28, G0008 Carbanak, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly, G0045 menuPass and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2018_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2018_Case_Study.pptx).
   - 3 January 2018: Google Project Zero publishes the speculative-execution flaws CVE-2017-5753, CVE-2017-5715 and CVE-2017-5754 (Spectre and Meltdown)
   - 9 February 2018: Olympic Destroyer disrupts PyeongChang Winter Olympics systems during the opening ceremony; recovery within about 12 hours
@@ -1045,9 +1060,28 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 December 2015: Juniper's out-of-band advisory on unauthorized code in ScreenOS (CVE-2015-7755, CVE-2015-7756)
   - 18 December 2015: Public Law 114-113 enacted, carrying the Cybersecurity Act of 2015
   - 23 December 2015: Intrusions at three Ukrainian distribution companies cut power to about 225,000 customers
+- [Anthem, 2015: Health Identity, Privileged Access and the Enterprise Data Warehouse](/case-studies/ANTHEM_2015.md). Incident, February 2014 to October 2020 (core: January to February 2015). Sectors: healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Anthem_2015_Case_Study.pdf).
+  - 18 February 2014: Phishing message to an Anthem subsidiary's employees (alleged)
+  - 13 May 2014: Unauthorized Anthem access begins (alleged)
+  - 29 January 2015: Anthem discovers the intrusion
+  - 31 January 2015: Incident response terminates the attackers' access (alleged)
+  - 4 February 2015: Public announcement of the breach
+  - 13 March 2015: Breach reported to HHS OCR
+  - 15 October 2018: A $16 million HIPAA resolution with HHS
+  - 9 May 2019: DOJ unseals an indictment (Fujie Wang)
+  - 30 September 2020: A $39.5 million multistate settlement is announced
 
 ### 2014 <!-- {docsify-ignore} -->
 
+- [Sony Pictures, 2014: Destruction, Disclosure and Coercion](/case-studies/SONY_PICTURES_2014.md). Incident, November 2014 to February 2021 (core: November to December 2014). Sectors: media. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Sony_Pictures_2014_Case_Study.pdf).
+  - 24 November 2014: Destructive system disruption at Sony Pictures
+  - 1 December 2014: The company learns employee personal information may be compromised
+  - 15 December 2014: Company notice to employees and dependents
+  - 19 December 2014: The FBI attributes the attack to the North Korean government
+  - 23 January 2015: Sony files for a reporting-deadline extension amid recovery
+  - 4 February 2015: Forecast Pictures results, as the close could not be completed
+  - 6 September 2018: The US makes public a complaint against Park Jin Hyok
+  - 17 February 2021: DOJ announces an expanded indictment naming three North Korean hackers
 - [Heartbleed 2014: When Repairing the Library Was Only the Beginning](/case-studies/HEARTBLEED_2014.md). Vulnerability, April to May 2014. Sectors: cross-sector, technology. CVEs: CVE-2014-0160, CVE-2014-0346. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Heartbleed_2014_Case_Study.pdf).
   - 1 April 2014: Google's details and a patch reach OpenSSL participants (Cox's timeline)
   - 7 April 2014: OpenSSL publishes its advisory and the 1.0.1g fix for CVE-2014-0160
@@ -1089,6 +1123,16 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2013 <!-- {docsify-ignore} -->
 
+- [Target, 2013: Vendor Access, Payment Boundaries and the Last Register](/case-studies/TARGET_2013.md). Incident, November 2013 to May 2017 (core: November to December 2013). Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Target_2013_Case_Study.pdf).
+  - 12 November 2013: Vendor-credential access to a Target gateway (per the state investigation)
+  - 27 November 2013: The payment-card theft window begins
+  - 12 December 2013: DOJ notifies Target of suspicious card activity
+  - 15 December 2013: Target confirms POS malware and removes it from most US registers
+  - 18 December 2013: Additional disconnected registers are addressed
+  - 10 January 2014: Target discloses expanded scope: contact information for up to 70 million
+  - 4 February 2014: The CFO testifies to the Senate
+  - March 2014: The Senate Commerce staff report applies a kill-chain synthesis
+  - 23 May 2017: An $18.5 million multistate settlement is announced
 - [The Year 2013 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2013.md). Period record, January to December 2013. Sectors: cross-sector, government, finance, technology, media, retail, energy, defense, telecommunications. CVEs: CVE-2009-0927, CVE-2010-0188, CVE-2010-3333, CVE-2012-0158, CVE-2013-0074, CVE-2013-0155 and 23 more. ATT&CK groups: G0006 APT1, G0044 Winnti Group, G0094 Kimsuky, G0021 Molerats. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2013_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2013_Case_Study.pptx).
   - 10 January 2013: US-CERT TA13-010A: Java 7 Security Manager bypass CVE-2013-0422 actively exploited; Blackhole and Nuclear Pack use it
   - 14 January 2013: Kaspersky publishes Red October (Rocra), with activity traced back to May 2007

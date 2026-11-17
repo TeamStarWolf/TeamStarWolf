@@ -2344,6 +2344,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
     pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md), [The Ransomware Ecosystem](/case-studies/RANSOMWARE_ECOSYSTEM.md)"
     reviewed: null
+  case-studies/BAD_RABBIT_2017.md:
+    audience: "Endpoint and identity defenders, incident commanders, vulnerability-management teams, service owners and security educators"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2017 Bad Rabbit outbreak, you need to separate a fake-update entry from exploit-driven and credential-driven spread, or you are planning a related tabletop exercise"
+    start_at: "[Executive summary](#executive-summary), [The analytical model: separate the transitions](#the-analytical-model-separate-the-transitions), [Defender worksheet: test the claims that matter](#defender-worksheet-test-the-claims-that-matter)"
+    pairs_with: "[Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
   case-studies/BEYONDTRUST_REMOTE_SUPPORT_CVE_2026_1731.md:
     audience: "Help-desk, remote-access and privileged-access teams that run BeyondTrust Remote Support or Privileged Remote Access, vulnerability management leads, incident responders and threat intelligence analysts"
     level: "Intermediate"
@@ -2675,6 +2682,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: whose job is it? Shared responsibility as the providers state it](#part-1-whose-job-is-it-shared-responsibility-as-the-providers-state-it), [Part 7: the defender view](#part-7-the-defender-view)"
     pairs_with: "[Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Investigate a Cloud Compromise](/guides/INVESTIGATE_A_CLOUD_COMPROMISE.md)"
     reviewed: null
+  case-studies/COLONIAL_DARKSIDE_2021.md:
+    audience: "Incident responders, IT and operational-technology security leaders, and continuity and communications teams"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2021 Colonial Pipeline compromise and recovery, you need to separate the IT ransomware from claims of control over pipeline equipment, or you are planning a related tabletop exercise"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the technical record](#part-1-the-technical-record), [Part 5: the defender view](#part-5-the-defender-view)"
+    pairs_with: "[Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [ICS/OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md)"
+    reviewed: null
   case-studies/CONNECTWISE_STORM_0940_2026.md:
     audience: "Microsoft 365 and Entra administrators, managed service providers, detection engineers, incident responders and vulnerability management leads"
     level: "Intermediate"
@@ -2716,6 +2730,20 @@ pages:
     read_when: "You want the dated record of the May 2026 DentaQuest breach, why its counts disagree, or which identity and data controls the case argues for"
     start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
     pairs_with: "[Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Healthcare Threat Watchlist](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md)"
+    reviewed: null
+  case-studies/DIRTY_PIPE_2022.md:
+    audience: "Linux platform and kernel engineers, vulnerability management leads, incident responders and container and cloud operators"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of CVE-2022-0847, you need to separate an affected kernel from an exploitable one or an installed patch from an active one, or you are planning a kernel-patch exercise"
+    start_at: "[Executive assessment](#executive-assessment), [9. Distribution package identity beats a casual version comparison](#_9-distribution-package-identity-beats-a-casual-version-comparison), [20. Fictional exercise: Northbank Research Compute](#_20-fictional-exercise-northbank-research-compute)"
+    pairs_with: "[Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md), [Container Security Reference](/CONTAINER_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
+  case-studies/DNS_OVER_HTTPS_2018.md:
+    audience: "Network and platform engineers, browser and endpoint administrators, privacy engineers and enterprise resolver owners"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of RFC 8484 and the 2020 to 2021 browser rollouts, you need to separate transport confidentiality from resolver trust, or you are deciding an enterprise DNS policy"
+    start_at: "[Executive assessment](#executive-assessment), [5. Privacy on the wire is not privacy from the resolver](#_5-privacy-on-the-wire-is-not-privacy-from-the-resolver), [9. Enterprise guidance framed the problem as resolver control](#_9-enterprise-guidance-framed-the-problem-as-resolver-control)"
+    pairs_with: "[Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md), [Privacy Engineering Reference](/PRIVACY_ENGINEERING_REFERENCE.md), [Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md), [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md)"
     reviewed: null
   case-studies/DOTCOM_ERA_CYBER_EVENTS.md:
     audience: "Vulnerability management leads, threat intelligence analysts, security historians and anyone who started their career between Melissa and Blaster and wants the primary record behind it"
@@ -3009,6 +3037,13 @@ pages:
     read_when: "You need the dated public record of the ransomware business from 2019 to 2026, you are deciding which remote-access, edge and backup controls to fund first, or you want the brands, advisories and ATT&CK objects in one place"
     start_at: "[Executive summary](#executive-summary), [Part 2: the operational record](#part-2-the-operational-record), [Part 9: the defender view](#part-9-the-defender-view)"
     pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Respond to a Ransomware Incident](/guides/RESPOND_TO_RANSOMWARE.md), [Edge Device Security](/EDGE_DEVICE_SECURITY_REFERENCE.md), [The Change Healthcare Attack of 2024](/case-studies/CHANGE_HEALTHCARE_2024.md)"
+    reviewed: null
+  case-studies/RYUK_HEALTHCARE_2020.md:
+    audience: "Incident responders, healthcare and security leaders, and continuity planners"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2020 healthcare ransomware warning, you need to separate a sector advisory from a victim investigation, or you are planning a clinical continuity exercise"
+    start_at: "[Executive summary](#executive-summary), [Part 1: the warning was not the beginning of the campaign](#part-1-the-warning-was-not-the-beginning-of-the-campaign), [Part 10: controls with measurable acceptance criteria](#part-10-controls-with-measurable-acceptance-criteria)"
+    pairs_with: "[Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md)"
     reviewed: null
   case-studies/SANDWORM_OPERATIONS.md:
     audience: "ICS and OT defenders, threat intelligence analysts and security leaders who want the record behind the Sandworm threat model"

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- Sandworm is Unit 74455 of Russia's military intelligence, the GRU, by governments' own identification. ([Executive summary](#executive-summary))
+- Between 2015 and 2022 it turned the lights off in Ukraine three times. ([Executive summary](#executive-summary))
+- It released NotPetya, which the White House called the most destructive and costly cyber attack in history. ([Executive summary](#executive-summary))
+- The record is strong: a US grand jury indicted six GRU officers and charged the grid attacks, NotPetya and more. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

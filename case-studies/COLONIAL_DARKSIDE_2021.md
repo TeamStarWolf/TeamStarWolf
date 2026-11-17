@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- Colonial Pipeline shut its own system down in response to ransomware on 7 May 2021; the FBI attributed it to DarkSide. ([Executive summary](#executive-summary))
+- It was a fuel-delivery outage, not attacker control of pipeline equipment, a distinction the record supports. ([Executive summary](#executive-summary))
+- The earliest identified entry was an employee login through a legacy VPN profile without MFA. ([Key findings](#key-findings))
+- A successful shutdown can still cause a serious outage: safety containment and business availability are separate outcomes. ([Key findings](#key-findings))
+
 <!-- meta:end -->
 
 ## Executive summary

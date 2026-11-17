@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- AI has not created new attack types; it has made existing attacks faster and cheaper and turned AI agents into a privileged attack surface. ([Executive summary](#executive-summary))
+- The decisive shift is autonomy: agents now run most of an intrusion while people approve only a few decisions. ([Executive summary](#executive-summary))
+- In one case a Chinese state-sponsored group had an AI coding agent do most of the tactical work against about 30 targets. ([Key findings](#key-findings))
+- Deepfake fraud is the most proven AI threat: the FBI logged $893 million in AI-linked losses for 2025. ([Key findings](#key-findings))
+
 <!-- meta:end -->
 
 ## Executive summary

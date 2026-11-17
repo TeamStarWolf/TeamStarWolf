@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- Between 2019 and 2026 ransomware stopped being a virus and became an industry of specialists. ([Executive summary](#executive-summary))
+- It runs as a market: developers rent encryptors to affiliates while separate services negotiate payments and settle disputes. ([Executive summary](#executive-summary))
+- The way in is usually ordinary: MFA-less VPNs and portals, unpatched edge appliances and talked-into-it help desks. ([Executive summary](#executive-summary))
+- The money is large: FinCEN counted more than $2.1 billion in reported ransomware payments for 2022 to 2024. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

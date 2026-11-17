@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- APT41 mixes state-aligned espionage with crime for profit, a pattern both the court record and vendor reporting show. ([Executive summary](#executive-summary))
+- Its signature is supply-chain compromise: software vendors found their own update channels shipping backdoors to customers in 2017 and 2018. ([Executive summary](#executive-summary))
+- Internet-facing applications are the dominant way in, with exploitation starting within hours of a disclosure. ([Executive summary](#executive-summary))
+- A valid code-signing certificate is not evidence a binary is safe; the group repeatedly abused stolen certificates. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- A 2013 logging feature let any string in a log line pull and run remote code, with no account or user interaction. ([Executive summary](#executive-summary))
+- The trigger could ride in almost any logged field, from a browser User-Agent header to a game chat message. ([Executive summary](#executive-summary))
+- The first patch was incomplete: four more CVEs and eight releases followed within twenty days. ([Executive summary](#executive-summary))
+- Finding it was the hard part: scanners keyed on file names missed shaded and bundled copies buried deep in dependencies. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

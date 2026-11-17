@@ -4903,3 +4903,109 @@ studies:
       - {"date": "2019-03-26", "label": "CERT-EU publishes a response advisory (revised 27 March); ASUS releases Live Update 3.6.8"}
       - {"date": "2019-03-27", "label": "ReversingLabs publishes additional sample analysis"}
       - {"date": "2019-04-23", "label": "Kaspersky publishes its expanded technical report"}
+  case-studies/POODLE_2014.md:
+    kind: "vulnerability"
+    title: "POODLE 2014: The Security Cost of Keeping SSL 3.0 Alive"
+    start: "2014"
+    end: "2015"
+    core_start: "2014"
+    core_end: "2014"
+    sectors: ["technology"]
+    cves: ["CVE-2014-3566", "CVE-2014-3568", "CVE-2014-8730"]
+    actors: []
+    tags: ["TLS", "SSL 3.0", "POODLE", "downgrade attack", "padding oracle", "protocol deprecation"]
+    pdf: "POODLE_2014_Case_Study.pdf"
+    events:
+      - {"date": "2014-10-14", "label": "Public disclosure of POODLE (SSL 3.0, CVE-2014-3566); Mozilla and Google announce browser responses; Cloudflare disables SSL 3.0 by default"}
+      - {"date": "2014-10-15", "label": "OpenSSL publishes TLS_FALLBACK_SCSV support and a separate build-option fix (CVE-2014-3568)"}
+      - {"date": "2014-10-17", "label": "CERT/CC publishes its vulnerability note (VU#577193)"}
+      - {"date": "2014-12-01", "label": "Firefox 34.0 ships with SSL 3.0 disabled by default"}
+      - {"date": "2014-12-08", "label": "Langley describes TLS implementations with faulty padding checks; A10 identifies CVE-2014-8730"}
+      - {"date": "2015-04", "label": "RFC 7507 standardizes TLS_FALLBACK_SCSV"}
+      - {"date": "2015-06", "label": "RFC 7568 deprecates SSL 3.0"}
+  case-studies/FREAK_2015.md:
+    kind: "vulnerability"
+    title: "FREAK 2015: When Export-Grade RSA Returned Through a Client State Machine"
+    start: "2014"
+    end: "2015"
+    core_start: "2015"
+    core_end: "2015"
+    sectors: ["technology"]
+    cves: ["CVE-2015-0204", "CVE-2015-1067", "CVE-2015-1637"]
+    actors: []
+    tags: ["TLS", "export cryptography", "FREAK", "downgrade attack", "RSA", "state machine"]
+    pdf: "FREAK_2015_Case_Study.pdf"
+    events:
+      - {"date": "2014-10-22", "label": "Karthikeyan Bhargavan privately reports the client flaw to OpenSSL"}
+      - {"date": "2015-01-08", "label": "OpenSSL publishes the CVE-2015-0204 correction and branch releases"}
+      - {"date": "2015-03-03", "label": "Public FREAK announcement and research explanation (miTLS team, Matthew Green, Michigan measurement)"}
+      - {"date": "2015-03-05", "label": "Microsoft publishes advisory 3046015"}
+      - {"date": "2015-03-10", "label": "Microsoft ships MS15-031 (Schannel, CVE-2015-1637)"}
+      - {"date": "2015-03-11", "label": "OpenStack publishes security note OSSN-0045"}
+  case-studies/LOGJAM_2015.md:
+    kind: "vulnerability"
+    title: "Logjam: Export Cryptography, Shared Primes and Imperfect Forward Secrecy"
+    start: "2015"
+    end: "2017"
+    core_start: "2015"
+    core_end: "2015"
+    sectors: ["technology"]
+    cves: ["CVE-2015-4000"]
+    actors: []
+    tags: ["TLS", "Diffie-Hellman", "Logjam", "export cryptography", "forward secrecy", "downgrade attack"]
+    pdf: "Logjam_2015_Case_Study.pdf"
+    events:
+      - {"date": "2015-05-20", "label": "Public disclosure of Logjam; OpenSSL announces its response plan"}
+      - {"date": "2015-06-11", "label": "OpenSSL ships a client floor rejecting Diffie-Hellman groups below 768 bits (CVE-2015-4000)"}
+      - {"date": "2015-07-02", "label": "Mozilla's NSS 3.19.1 sets a 1023-bit minimum"}
+      - {"date": "2015-10-13", "label": "The research paper (Imperfect Forward Secrecy) is published"}
+      - {"date": "2016-08", "label": "RFC 7919 defines negotiated named finite-field Diffie-Hellman groups for TLS"}
+      - {"date": "2017-12", "label": "RFC 8270 raises the SSH Diffie-Hellman minimum to 2048 bits"}
+  case-studies/DROWN_2016.md:
+    kind: "vulnerability"
+    title: "DROWN: How an Obsolete Protocol Extended the Reach of a Shared Private Key"
+    start: "2016"
+    end: "2016"
+    sectors: ["technology"]
+    cves: ["CVE-2015-3197", "CVE-2016-0800"]
+    actors: []
+    tags: ["TLS", "SSLv2", "DROWN", "key reuse", "cross-protocol attack", "protocol deprecation"]
+    pdf: "DROWN_2016_Case_Study.pdf"
+    events:
+      - {"date": "2011-03", "label": "RFC 6176 prohibits negotiating SSL 2.0"}
+      - {"date": "2016-03-01", "label": "Public disclosure of DROWN (CVE-2016-0800); OpenSSL ships 1.0.2g/1.0.1s disabling SSLv2 by default; CERT/CC note VU#583776"}
+      - {"date": "2016-03-03", "label": "The Canadian Centre for Cyber Security publishes advisory AV16-039"}
+      - {"date": "2016-08", "label": "The USENIX Security paper (Breaking TLS using SSLv2) is published"}
+  case-studies/ROCA_2017.md:
+    kind: "vulnerability"
+    title: "ROCA, 2017: A Key-Generation Flaw and the Work of Rebuilding Trust"
+    start: "2017"
+    end: "2018"
+    core_start: "2017"
+    core_end: "2017"
+    sectors: ["technology", "government"]
+    cves: ["CVE-2017-15361"]
+    actors: []
+    tags: ["RSA", "key generation", "ROCA", "Infineon", "smart cards", "Estonia eID", "YubiKey"]
+    pdf: "ROCA_2017_Case_Study.pdf"
+    events:
+      - {"date": "2017-02-01", "label": "Researchers notify Infineon"}
+      - {"date": "2017-06-06", "label": "Yubico ships YubiKey 4 firmware 4.3.5 with a changed RSA generation path"}
+      - {"date": "2017-10-16", "label": "Public disclosure of ROCA (CVE-2017-15361); CERT/CC note VU#307015; Yubico advisory YSA-2017-01"}
+      - {"date": "2017-11-02", "label": "Estonia announces blocking certificates on about 760,000 at-risk ID cards"}
+      - {"date": "2017-11-03", "label": "Estonia blocks the affected certificates (about 740,000 cards)"}
+      - {"date": "2018-04-01", "label": "Estonia finally revokes the affected certificates"}
+  case-studies/BLUEBORNE_2017.md:
+    kind: "vulnerability"
+    title: "BlueBorne: Bluetooth Exposure Beyond the Pairing Prompt"
+    start: "2017"
+    end: "2017"
+    sectors: ["technology"]
+    cves: ["CVE-2017-0781", "CVE-2017-8628", "CVE-2017-14315", "CVE-2017-1000250", "CVE-2017-1000251"]
+    actors: []
+    tags: ["Bluetooth", "BlueBorne", "remote code execution", "memory safety", "BlueZ", "mobile security"]
+    pdf: "BlueBorne_2017_Case_Study.pdf"
+    events:
+      - {"date": "2017-09-12", "label": "Public disclosure of BlueBorne (Armis); CERT/CC note VU#240311; Android bulletin and Ubuntu BlueZ (USN-3413-1) updates"}
+      - {"date": "2017-09-18", "label": "Ubuntu ships the kernel fix (USN-3420-1) for CVE-2017-1000251"}
+      - {"date": "2017-10-04", "label": "Red Hat publishes its BlueBorne analysis"}

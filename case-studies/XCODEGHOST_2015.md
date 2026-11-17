@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Malicious code entered through unofficial copies of the build tools, so a developer could ship code they never wrote. ([Executive assessment](#executive-assessment))
+- Distribution through an official store did not by itself reveal the earlier contamination. ([Executive assessment](#executive-assessment))
+- Different telemetry counts of apps, versions, DNS queries, source IPs and customers measure different things and cannot be swapped. ([Executive assessment](#executive-assessment))
+- The account separates researcher observations from hypotheses and a litigant's proposed findings from a court's conclusions. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

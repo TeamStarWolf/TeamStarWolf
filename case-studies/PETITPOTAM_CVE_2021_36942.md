@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- An authentication-coercion technique combined with weakly protected certificate enrollment could threaten an Active Directory environment. ([Executive assessment](#executive-assessment))
+- The research tool's existence is not proof that every Windows domain is open to certificate-based compromise. ([Executive assessment](#executive-assessment))
+- The patch was partial: it blocked one unauthenticated call while authenticated routes remained. ([Executive assessment](#executive-assessment))
+- The correction and the service-hardening guidance each addressed different parts of the risk. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

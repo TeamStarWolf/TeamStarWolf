@@ -877,6 +877,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - August 2025: Jaguar Land Rover incident, rated Category 3 at an estimated 1.9 billion pounds
   - 16 July 2026: Thalha Jubair and Owen Flowers, called leading Scattered Spider members by the NCA, each sentenced to five years six months
   - 10 November 2026: KEV catalog version 2026.11.10: 361 of 1,779 entries flagged for known ransomware use
+- [Capital One 2019: When a Request Became Data Authority](/case-studies/CAPITAL_ONE_2019.md). Incident, March 2019 to June 2022 (core: March to July 2019). Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Capital_One_2019_Case_Study.pdf).
+  - March 2019: Principal access window in the company's later disclosure
+  - July 2019: Outside report, company determination and public announcement of about 100 million US and 6 million Canada affected
+  - 19 November 2019: AWS announces EC2 instance metadata (IMDSv2) enhancements, postdating the access window
+  - 6 August 2020: OCC announces an $80 million civil penalty and a consent order
+  - February 2021: Company update identifies about 4,700 additional people whose SSNs were accessed
+  - 17 June 2022: DOJ announces Paige Thompson's conviction on wire fraud and computer-intrusion counts
 - [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md). Period record, January to December 2019. Sectors: cross-sector. CVEs: CVE-2009-1151, CVE-2014-6271, CVE-2017-3881, CVE-2017-6736, CVE-2017-12617, CVE-2018-0296 and 31 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0045 menuPass and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2019_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2019_Case_Study.pptx).
   - 22 January 2019: CISA Emergency Directive 19-01 orders federal agencies to audit DNS records
   - 19 March 2019: Norsk Hydro hit by ransomware; plants switch to manual operations
@@ -912,6 +919,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 21 November 2025: Shai-Hulud 2.0 trojanized uploads, 21 to 23 November
   - 30 March 2026: axios: social engineering and a RAT on the lead maintainer's PC expose the npm credentials
   - 4 August 2026: keyv maintainer's GitHub account compromised; the CHAINDROP worm follows
+- [Olympic Destroyer, 2018: When the Event Clock Becomes the Attacker's Advantage](/case-studies/OLYMPIC_DESTROYER_2018.md). Incident, December 2017 to October 2020 (core: February 2018). Sectors: government, media. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Olympic_Destroyer_2018_Case_Study.pdf).
+  - December 2017: Alleged preparation and intrusion period begins (per the later indictment)
+  - 9 February 2018: Destructive deployment during the PyeongChang opening-ceremony period
+  - 12 February 2018: Cisco Talos publishes its analysis; conclusions change over 12 to 13 February
+  - March 2018: Kaspersky's Rich-header research concludes the Lazarus resemblance was a false flag
+  - 19 October 2020: US charges six alleged GRU officers
 - [The Year 2018 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2018.md). Period record, January to December 2018. Sectors: cross-sector, government, energy, finance, technology, education, healthcare, transport, retail. CVEs: CVE-2017-5715, CVE-2017-5753, CVE-2017-5754, CVE-2018-0101, CVE-2018-0171, CVE-2018-0296 and 26 more. ATT&CK groups: G0007 APT28, G0008 Carbanak, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly, G0045 menuPass and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2018_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2018_Case_Study.pptx).
   - 3 January 2018: Google Project Zero publishes the speculative-execution flaws CVE-2017-5753, CVE-2017-5715 and CVE-2017-5754 (Spectre and Meltdown)
   - 9 February 2018: Olympic Destroyer disrupts PyeongChang Winter Olympics systems during the opening ceremony; recovery within about 12 hours
@@ -934,6 +947,37 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 25 October 2017: Talos adds encryption, propagation and code-linkage analysis over 25 to 26 October
   - 27 October 2017: ESET adds a patch test: MS17-010 stopped the tested IPC-share propagation
   - 10 January 2018: Microsoft publishes a retrospective comparing the 2017 ransomware outbreaks
+- [NotPetya 2017: A Trusted Update Becomes a Destructive Outage](/case-studies/NOTPETYA_2017.md). Campaign, March 2017 to October 2020 (core: June 2017). Sectors: cross-sector, transport, manufacturing. CVEs: CVE-2017-0199. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/NotPetya_2017_Case_Study.pdf).
+  - 14 March 2017: Microsoft publishes MS17-010
+  - 14 April 2017: First backdoored M.E.Doc release identified by ESET
+  - 27 June 2017: NotPetya outbreak via the M.E.Doc update path, followed by network propagation
+  - 28 June 2017: Kaspersky shows the disk ID cannot recover the system; Maersk reports precautionary shutdowns
+  - 5 July 2017: ESET and Talos publish the supplier-path investigation
+  - 23 August 2017: CrowdStrike publishes conditional MFT-recovery research
+  - 17 October 2017: CrowdStrike reports broader but still-limited recovery
+  - 7 November 2017: Maersk's Q3 report puts the impact at $250 to $300 million
+  - 15 February 2018: The UK attributes NotPetya to the Russian military
+  - 19 October 2020: US charges six alleged GRU officers; three-victim losses near $1 billion alleged
+- [WannaCry 2017: How an Unclosed Patch Gap Became a Healthcare Service Crisis](/case-studies/WANNACRY_2017.md). Campaign, March 2017 to September 2018 (core: May 2017). Sectors: healthcare, cross-sector. CVEs: CVE-2017-0143, CVE-2017-0145, CVE-2017-0148. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/WannaCry_2017_Case_Study.pdf).
+  - 14 March 2017: MS17-010 published, covering CVE-2017-0143 through CVE-2017-0148
+  - 17 March 2017: The vulnerability is included in an NHS CareCERT weekly advisory
+  - 14 April 2017: Shadow Brokers release referenced in the later malware profile
+  - 12 May 2017: WannaCry outbreak; NHS England declares a major incident; a researcher's domain registration interrupts the spread
+  - 13 May 2017: Microsoft issues emergency updates for older platforms
+  - 19 May 2017: NHS England stands down the incident
+  - 27 October 2017: The National Audit Office publishes its investigation
+  - 19 December 2017: The UK attributes WannaCry to North Korean actors
+  - February 2018: The NHS CIO lessons-learned review explains the trust reclassification
+  - April 2018: Public Accounts Committee scrutiny and the revised NAO printing
+  - 6 September 2018: The US makes public a complaint against Park Jin Hyok
+- [Equifax 2017: When a Patch Ticket Is Not Proof](/case-studies/EQUIFAX_2017.md). Incident, March 2017 to February 2020 (core: May to July 2017). Sectors: finance. CVEs: CVE-2017-5638. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Equifax_2017_Case_Study.pdf).
+  - March 2017: Apache S2-045 advisory for CVE-2017-5638 and historical fixed Struts versions available
+  - 13 May 2017: Start of the intrusion in GAO's account
+  - 29 July 2017: Intrusion discovered after an expired inspection certificate is replaced
+  - 30 July 2017: The dispute portal is taken offline
+  - 30 August 2018: GAO-18-559 describes the breach and federal response
+  - July 2019: FTC announces a settlement of at least $575 million; about 147 million people affected
+  - 10 February 2020: DOJ charges four alleged members of China's PLA
 - [The Year 2017 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2017.md). Period record, January to December 2017. Sectors: cross-sector, healthcare, energy, finance, government, technology. CVEs: CVE-2017-0005, CVE-2017-0101, CVE-2017-0143, CVE-2017-0144, CVE-2017-0145, CVE-2017-0146 and 28 more. ATT&CK groups: G0020 Equation, G0022 APT3, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly, G0045 menuPass and 4 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2017_Case_Study.pptx).
   - 7 March 2017: WikiLeaks publishes Vault 7 Part 1, "Year Zero", 8,761 documents it says came from the CIA
   - 14 March 2017: Microsoft publishes MS17-010, fixing the SMBv1 flaws later used by WannaCry and NotPetya
@@ -1004,6 +1048,18 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2014 <!-- {docsify-ignore} -->
 
+- [Heartbleed 2014: When Repairing the Library Was Only the Beginning](/case-studies/HEARTBLEED_2014.md). Vulnerability, April to May 2014. Sectors: cross-sector, technology. CVEs: CVE-2014-0160, CVE-2014-0346. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Heartbleed_2014_Case_Study.pdf).
+  - 1 April 2014: Google's details and a patch reach OpenSSL participants (Cox's timeline)
+  - 7 April 2014: OpenSSL publishes its advisory and the 1.0.1g fix for CVE-2014-0160
+  - 8 April 2014: GitHub and Twilio publish response accounts at different boundaries
+  - 9 April 2014: Google describes product-specific remediation responsibilities
+  - 10 April 2014: Canada disables unpatched public government sites; FFIEC issues a sector alert
+  - 11 April 2014: Cloudflare opens a key-extraction challenge; CRA contacts the privacy commissioner
+  - 12 April 2014: Cloudflare reports four successful private-key recoveries from the challenge server
+  - 14 April 2014: The privacy commissioner notes the CRA theft of about 900 taxpayers' data
+  - 17 April 2014: Cloudflare reports completed certificate replacement and mass revocation
+  - 23 April 2014: Netcraft examines inconsistent browser revocation handling
+  - 29 May 2014: The Linux Foundation announces Core Infrastructure Initiative support for OpenSSL
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md). Threat actor, 2003 to July 2026 (core: 2014 to 2026). Sectors: government, energy, healthcare, defense, transport. CVEs: CVE-2008-4128, CVE-2017-6742, CVE-2018-0171, CVE-2018-13379, CVE-2019-1653, CVE-2019-2725 and 28 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0034 Sandworm Team, G0035 Dragonfly, G0047 Gamaredon Group and 7 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_Russia_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_Russia_Case_Study.pptx).
   - 27 October 2014: First public APT28 report
   - December 2015: BlackEnergy attack on Ukraine's grid; 230,000 people without power

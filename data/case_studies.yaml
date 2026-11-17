@@ -255,6 +255,25 @@ studies:
       - {"date": "2024-10-22", "label": "About 100 million individual notices sent"}
       - {"date": "2025-07-31", "label": "About 192.7 million people counted as affected"}
       - {"date": "2026-09-30", "label": "S.3315 passes the Senate by unanimous consent"}
+  case-studies/CAPITAL_ONE_2019.md:
+    kind: "incident"
+    title: "Capital One 2019: When a Request Became Data Authority"
+    start: "2019-03"
+    end: "2022-06"
+    core_start: "2019-03"
+    core_end: "2019-07"
+    sectors: ["finance"]
+    cves: []
+    actors: []
+    tags: ["cloud", "SSRF", "IMDS", "workload identity", "data breach"]
+    pdf: "Capital_One_2019_Case_Study.pdf"
+    events:
+      - {"date": "2019-03", "label": "Principal access window in the company's later disclosure"}
+      - {"date": "2019-07", "label": "Outside report, company determination and public announcement of about 100 million US and 6 million Canada affected"}
+      - {"date": "2019-11-19", "label": "AWS announces EC2 instance metadata (IMDSv2) enhancements, postdating the access window"}
+      - {"date": "2020-08-06", "label": "OCC announces an $80 million civil penalty and a consent order"}
+      - {"date": "2021-02", "label": "Company update identifies about 4,700 additional people whose SSNs were accessed"}
+      - {"date": "2022-06-17", "label": "DOJ announces Paige Thompson's conviction on wire fraud and computer-intrusion counts"}
   case-studies/CARECLOUD_BREACH_2026.md:
     kind: "incident"
     title: "The CareCloud Medical-Records Breach of March 2026: A Case Study"
@@ -2197,6 +2216,26 @@ studies:
       - {"date": "2026-10-27", "label": "Chrome Root Store removal reaches devices; Chrome Root Program posts its review on the incident bug"}
       - {"date": "2026-11-07", "label": "Eight RSA G2B and G2C intermediates from the same ceremony revoked, cessationOfOperation"}
       - {"date": "2026-11-10", "label": "eMudhra posts its Full Incident Report to the Mozilla bug"}
+  case-studies/EQUIFAX_2017.md:
+    kind: "incident"
+    title: "Equifax 2017: When a Patch Ticket Is Not Proof"
+    start: "2017-03"
+    end: "2020-02"
+    core_start: "2017-05"
+    core_end: "2017-07"
+    sectors: ["finance"]
+    cves: ["CVE-2017-5638"]
+    actors: []
+    tags: ["Apache Struts", "patch management", "data breach", "detection health", "blast radius"]
+    pdf: "Equifax_2017_Case_Study.pdf"
+    events:
+      - {"date": "2017-03", "label": "Apache S2-045 advisory for CVE-2017-5638 and historical fixed Struts versions available"}
+      - {"date": "2017-05-13", "label": "Start of the intrusion in GAO's account"}
+      - {"date": "2017-07-29", "label": "Intrusion discovered after an expired inspection certificate is replaced"}
+      - {"date": "2017-07-30", "label": "The dispute portal is taken offline"}
+      - {"date": "2018-08-30", "label": "GAO-18-559 describes the breach and federal response"}
+      - {"date": "2019-07", "label": "FTC announces a settlement of at least $575 million; about 147 million people affected"}
+      - {"date": "2020-02-10", "label": "DOJ charges four alleged members of China's PLA"}
   case-studies/EUROPEAN_COMMISSION_CLOUD_BREACH_2026.md:
     kind: "incident"
     title: "The European Commission Cloud Breach of 2026: AWS Data Theft Through the Poisoned Trivy Scanner"
@@ -2523,6 +2562,28 @@ studies:
       - {"date": "2025-01-30", "label": "CISA finds an embedded backdoor in Contec CMS8000 patient-monitor firmware; FDA safety communication"}
       - {"date": "2025-04-09", "label": "Kettering Health: activity from 9 April and a system-wide outage from 20 May 2025; Kettering names Interlock"}
       - {"date": "2026-05-17", "label": "DentaQuest data accessed 17 to 20 May and later posted online; HHS records 15,000,000 people, the largest 2026 entry"}
+  case-studies/HEARTBLEED_2014.md:
+    kind: "vulnerability"
+    title: "Heartbleed 2014: When Repairing the Library Was Only the Beginning"
+    start: "2014-04"
+    end: "2014-05"
+    sectors: ["cross-sector", "technology"]
+    cves: ["CVE-2014-0160", "CVE-2014-0346"]
+    actors: []
+    tags: ["OpenSSL", "Heartbleed", "TLS", "certificate revocation", "memory disclosure"]
+    pdf: "Heartbleed_2014_Case_Study.pdf"
+    events:
+      - {"date": "2014-04-01", "label": "Google's details and a patch reach OpenSSL participants (Cox's timeline)"}
+      - {"date": "2014-04-07", "label": "OpenSSL publishes its advisory and the 1.0.1g fix for CVE-2014-0160"}
+      - {"date": "2014-04-08", "label": "GitHub and Twilio publish response accounts at different boundaries"}
+      - {"date": "2014-04-09", "label": "Google describes product-specific remediation responsibilities"}
+      - {"date": "2014-04-10", "label": "Canada disables unpatched public government sites; FFIEC issues a sector alert"}
+      - {"date": "2014-04-11", "label": "Cloudflare opens a key-extraction challenge; CRA contacts the privacy commissioner"}
+      - {"date": "2014-04-12", "label": "Cloudflare reports four successful private-key recoveries from the challenge server"}
+      - {"date": "2014-04-14", "label": "The privacy commissioner notes the CRA theft of about 900 taxpayers' data"}
+      - {"date": "2014-04-17", "label": "Cloudflare reports completed certificate replacement and mass revocation"}
+      - {"date": "2014-04-23", "label": "Netcraft examines inconsistent browser revocation handling"}
+      - {"date": "2014-05-29", "label": "The Linux Foundation announces Core Infrastructure Initiative support for OpenSSL"}
   case-studies/HUGGING_FACE_SUPPLY_CHAIN.md:
     kind: "reference"
     title: "Hugging Face as an AI Supply-Chain Attack Surface: A 2021 to 2026 Case Study"
@@ -3020,6 +3081,29 @@ studies:
       - {"date": "2026-02-05", "label": "Vendor clarification: Notepad++ itself was not hacked"}
       - {"date": "2026-02-12", "label": "CISA adds CVE-2025-15556 to KEV, due 5 March 2026"}
       - {"date": "2026-02-16", "label": "v8.9.2 signs and verifies the update metadata"}
+  case-studies/NOTPETYA_2017.md:
+    kind: "campaign"
+    title: "NotPetya 2017: A Trusted Update Becomes a Destructive Outage"
+    start: "2017-03"
+    end: "2020-10"
+    core_start: "2017-06"
+    core_end: "2017-06"
+    sectors: ["cross-sector", "transport", "manufacturing"]
+    cves: ["CVE-2017-0199"]
+    actors: []
+    tags: ["wiper", "supply chain", "M.E.Doc", "EternalBlue", "attribution"]
+    pdf: "NotPetya_2017_Case_Study.pdf"
+    events:
+      - {"date": "2017-03-14", "label": "Microsoft publishes MS17-010"}
+      - {"date": "2017-04-14", "label": "First backdoored M.E.Doc release identified by ESET"}
+      - {"date": "2017-06-27", "label": "NotPetya outbreak via the M.E.Doc update path, followed by network propagation"}
+      - {"date": "2017-06-28", "label": "Kaspersky shows the disk ID cannot recover the system; Maersk reports precautionary shutdowns"}
+      - {"date": "2017-07-05", "label": "ESET and Talos publish the supplier-path investigation"}
+      - {"date": "2017-08-23", "label": "CrowdStrike publishes conditional MFT-recovery research"}
+      - {"date": "2017-10-17", "label": "CrowdStrike reports broader but still-limited recovery"}
+      - {"date": "2017-11-07", "label": "Maersk's Q3 report puts the impact at $250 to $300 million"}
+      - {"date": "2018-02-15", "label": "The UK attributes NotPetya to the Russian military"}
+      - {"date": "2020-10-19", "label": "US charges six alleged GRU officers; three-victim losses near $1 billion alleged"}
   case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md:
     kind: "reference"
     title: "npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses"
@@ -3068,6 +3152,24 @@ studies:
       - {"date": "2017-11-09", "label": "WikiLeaks begins Vault 8 with source code for the CIA Hive tool"}
       - {"date": "2022-07-13", "label": "Joshua Schulte convicted on eight counts at retrial over the Vault 7 theft"}
       - {"date": "2024-02-01", "label": "Schulte sentenced to 40 years"}
+  case-studies/OLYMPIC_DESTROYER_2018.md:
+    kind: "incident"
+    title: "Olympic Destroyer, 2018: When the Event Clock Becomes the Attacker's Advantage"
+    start: "2017-12"
+    end: "2020-10"
+    core_start: "2018-02"
+    core_end: "2018-02"
+    sectors: ["government", "media"]
+    cves: []
+    actors: []
+    tags: ["wiper", "false flag", "supplier access", "event disruption", "attribution"]
+    pdf: "Olympic_Destroyer_2018_Case_Study.pdf"
+    events:
+      - {"date": "2017-12", "label": "Alleged preparation and intrusion period begins (per the later indictment)"}
+      - {"date": "2018-02-09", "label": "Destructive deployment during the PyeongChang opening-ceremony period"}
+      - {"date": "2018-02-12", "label": "Cisco Talos publishes its analysis; conclusions change over 12 to 13 February"}
+      - {"date": "2018-03", "label": "Kaspersky's Rich-header research concludes the Lazarus resemblance was a false flag"}
+      - {"date": "2020-10-19", "label": "US charges six alleged GRU officers"}
   case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026.md:
     kind: "campaign"
     title: "Oracle PeopleSoft CVE-2026-35273 and the ShinyHunters Mass Exploitation of 2026: A Case Study"
@@ -3968,6 +4070,30 @@ studies:
       - {"date": "2017-11-15", "label": "The White House publishes the unclassified VEP charter"}
       - {"date": "2023-06-01", "label": "Kaspersky discloses Operation Triangulation; the FSB blames US intelligence the same day"}
       - {"date": "2025-10-19", "label": "China's Ministry of State Security alleges an NSA campaign against the National Time Service Center"}
+  case-studies/WANNACRY_2017.md:
+    kind: "campaign"
+    title: "WannaCry 2017: How an Unclosed Patch Gap Became a Healthcare Service Crisis"
+    start: "2017-03"
+    end: "2018-09"
+    core_start: "2017-05"
+    core_end: "2017-05"
+    sectors: ["healthcare", "cross-sector"]
+    cves: ["CVE-2017-0143", "CVE-2017-0145", "CVE-2017-0148"]
+    actors: []
+    tags: ["ransomware", "worm", "EternalBlue", "NHS", "patch management"]
+    pdf: "WannaCry_2017_Case_Study.pdf"
+    events:
+      - {"date": "2017-03-14", "label": "MS17-010 published, covering CVE-2017-0143 through CVE-2017-0148"}
+      - {"date": "2017-03-17", "label": "The vulnerability is included in an NHS CareCERT weekly advisory"}
+      - {"date": "2017-04-14", "label": "Shadow Brokers release referenced in the later malware profile"}
+      - {"date": "2017-05-12", "label": "WannaCry outbreak; NHS England declares a major incident; a researcher's domain registration interrupts the spread"}
+      - {"date": "2017-05-13", "label": "Microsoft issues emergency updates for older platforms"}
+      - {"date": "2017-05-19", "label": "NHS England stands down the incident"}
+      - {"date": "2017-10-27", "label": "The National Audit Office publishes its investigation"}
+      - {"date": "2017-12-19", "label": "The UK attributes WannaCry to North Korean actors"}
+      - {"date": "2018-02", "label": "The NHS CIO lessons-learned review explains the trust reclassification"}
+      - {"date": "2018-04", "label": "Public Accounts Committee scrutiny and the revised NAO printing"}
+      - {"date": "2018-09-06", "label": "The US makes public a complaint against Park Jin Hyok"}
   case-studies/WATER_TREATMENT_NETWORKS.md:
     kind: "reference"
     title: "Water and Wastewater Networks: The Control Systems, the Chemistry and the Attacks on Them"

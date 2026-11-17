@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- A municipal ransomware incident is not simply an endpoint-security failure; it disrupts the relationships between records, people, deadlines and public services. ([Executive summary](#executive-summary))
+- A functioning login page does not establish that the records are complete or that an interrupted payment will not be processed twice. ([Executive summary](#executive-summary))
+- The record supports serious disruption but not describing every Atlanta city function as destroyed. ([Executive summary](#executive-summary))
+- Recovery is modeled as separate workstreams: containment, clean restoration, service acceptance, backlog reconciliation and public communication. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

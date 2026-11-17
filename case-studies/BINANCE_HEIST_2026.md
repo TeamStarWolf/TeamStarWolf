@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- The largest crypto theft on record: about $6.34 billion drained from Binance's hot wallets in October 2026. ([Executive summary](#executive-summary))
+- The way in was people: engineers hit by a tampered installer, a fake job interview, and takeover of their computers. ([Executive summary](#executive-summary))
+- Most of the value left in minutes, though the theft window ran almost four hours. ([Executive summary](#executive-summary))
+- On Ethereum, signed EIP-7702 authorizations acted outside the withdrawal system and kept working after Binance paused withdrawals. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

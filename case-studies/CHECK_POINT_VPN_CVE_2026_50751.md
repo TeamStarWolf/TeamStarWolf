@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- The flaw lets an unauthenticated remote attacker set up a VPN connection without a valid user password. ([Executive summary](#executive-summary))
+- The hard part was the hunting window: Check Point traced first exploitation to 7 May, a month before the 8 June hotfix. ([Executive summary](#executive-summary))
+- A gateway patched on the day of disclosure could already have been open for a month. ([Executive summary](#executive-summary))
+- Check Point reports one case with post-compromise activity tied to a Qilin ransomware affiliate. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

@@ -195,3 +195,59 @@ pages:
       - {"text": "What made it a landmark was Anthropic's report that an unreleased model wrote a working remote-root exploit in under an hour.", "from": "#executive-summary", "quote": "wrote a working zero-click remote-root exploit against servers running a Multipath TCP listener, reaching a root shell in under an hour of model time"}
       - {"text": "Two facts are kept apart: the vulnerability is confirmed, while the AI-written exploit was withheld and unreproduced.", "from": "#executive-summary", "quote": "the code and test configuration were deliberately withheld, and no independent public reproduction had appeared by late October"}
       - {"text": "The marker that matters: the time from a memory-corruption CVE to a working exploit is collapsing toward the length of a lunch break.", "from": "#executive-summary", "quote": "the time between a memory-corruption CVE landing and a working exploit existing is collapsing toward the length of a lunch break"}
+  case-studies/BINANCE_HEIST_2026.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "The largest crypto theft on record: about $6.34 billion drained from Binance's hot wallets in October 2026.", "from": "#executive-summary", "quote": "a loss of about $6.34 billion from Binance's hot wallets"}
+      - {"text": "The way in was people: engineers hit by a tampered installer, a fake job interview, and takeover of their computers.", "from": "#executive-summary", "quote": "One downloaded a tampered installer in June, one sat through a fake job interview in September"}
+      - {"text": "Most of the value left in minutes, though the theft window ran almost four hours.", "from": "#executive-summary", "quote": "Most of the value left in minutes, though the theft window ran almost four hours"}
+      - {"text": "On Ethereum, signed EIP-7702 authorizations acted outside the withdrawal system and kept working after Binance paused withdrawals.", "from": "#executive-summary", "quote": "the attackers used signed EIP-7702 authorizations that acted outside the withdrawal system and kept working after Binance paused withdrawals"}
+  case-studies/PHP2SHELL_OCTOBER_2026.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "PHP2Shell was two pre-authentication RCE flaws in PHP itself, exploited at internet scale within the hour of disclosure.", "from": "#executive-summary", "quote": "two pre-authentication remote-code-execution flaws in PHP itself (CVE-2026-109618 and CVE-2026-109619)"}
+      - {"text": "Three trust layers failed in roughly 72 hours: the web runtime, the Web PKI, and the software and SaaS supply chain.", "from": "#executive-summary", "quote": "three trust layers failed in roughly 72 hours (the web runtime, the Web PKI, and the software and SaaS supply chain)"}
+      - {"text": "In the same weeks, the largest cryptocurrency theft in history drained about $6.3 billion from Binance.", "from": "#executive-summary", "quote": "the largest cryptocurrency theft in history drained about $6.3 billion from Binance"}
+      - {"text": "Agentic AI appeared on both sides of the ledger, as an attacker accelerant and as a target.", "from": "#executive-summary", "quote": "Agentic AI appeared on both sides of the ledger, as an attacker accelerant and as a target"}
+  case-studies/EMUDHRA_CA_COMPROMISE_2026.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "Eight eMudhra intermediate CA private keys could be worked out from their public certificates.", "from": "#executive-summary", "quote": "eight intermediate certificate authorities run by the Indian CA eMudhra, under its emSign brand, had private keys that anyone could work out from the public certificates"}
+      - {"text": "The P-384 keys had secret values below 256, so recovering them took moments.", "from": "#executive-summary", "quote": "The keys were P-384 elliptic-curve keys whose secret values were integers smaller than 256, so recovering them took moments"}
+      - {"text": "Anyone holding the keys could sign a certificate for any website, and with two code-signing keys, sign software.", "from": "#executive-summary", "quote": "Anyone holding those keys could sign a certificate for any website, and with the two code-signing keys could sign software"}
+      - {"text": "Browsers blocked it in hours, but non-browser clients lagged: two weeks on, Cloudflare saw over half of large-network probes still accepting the chain.", "from": "#executive-summary", "quote": "about two weeks after disclosure Cloudflare still measured more than half of probes from large networks accepting the compromised chain"}
+  case-studies/CITRIX_NETSCALER_SEPTEMBER_2026.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "Administrators took their NetScaler appliances offline before Citrix said anything in public.", "from": "#executive-summary", "quote": "administrators took appliances offline before Citrix had said anything in public"}
+      - {"text": "In the Netherlands, central government cut its Citrix environments off the internet and hospital patient portals went dark.", "from": "#executive-summary", "quote": "In the Netherlands, central government cut its Citrix environments off from the internet and hospital patient portals went dark"}
+      - {"text": "Citrix's 27 September bulletin covered eight CVEs, two of them already exploited against unmitigated deployments.", "from": "#executive-summary", "quote": "stating that exploits of two of them, CVE-2026-88771 and CVE-2026-88772, had been observed against unmitigated deployments"}
+      - {"text": "Researchers place first activity in August and exploitation from early September, about three weeks before disclosure.", "from": "#executive-summary", "quote": "Vendor researchers place the first related activity in August and exploitation from early September, about three weeks before disclosure"}
+  case-studies/IVANTI_CONNECT_SECURE_2026.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "Teams were asked to patch the same Ivanti Connect Secure appliance twice in just over two weeks.", "from": "#executive-summary", "quote": "they were asked to patch the same appliance twice in just over two weeks, and told that a clean integrity check might not mean a clean box"}
+      - {"text": "Volexity found the chain on an appliance that was fully patched, with exploitation starting 3 October 2026.", "from": "#executive-summary", "quote": "Volexity found the chain on a customer appliance fully patched at 22.8R2.4; exploitation of that appliance began on 3 October 2026"}
+      - {"text": "The fix for the root-escalation flaw that completed the chain did not ship until 29 October.", "from": "#executive-summary", "quote": "Ivanti's fix for it did not ship until 29 October"}
+      - {"text": "CISA gave two of the three CVEs a three-day KEV deadline with forensic triage.", "from": "#executive-summary", "quote": "CISA's Known Exploited Vulnerabilities (KEV) catalog gave two of the three CVEs a three-day deadline with forensic triage"}
+  case-studies/CHECK_POINT_VPN_CVE_2026_50751.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "The flaw lets an unauthenticated remote attacker set up a VPN connection without a valid user password.", "from": "#executive-summary", "quote": "It lets an unauthenticated remote attacker set up a remote access VPN connection without a valid user password"}
+      - {"text": "The hard part was the hunting window: Check Point traced first exploitation to 7 May, a month before the 8 June hotfix.", "from": "#executive-summary", "quote": "By the time it published a hotfix on 8 June, it had traced the first exploitation back to 7 May"}
+      - {"text": "A gateway patched on the day of disclosure could already have been open for a month.", "from": "#executive-summary", "quote": "A gateway patched on the day of disclosure could already have been open for a month"}
+      - {"text": "Check Point reports one case with post-compromise activity tied to a Qilin ransomware affiliate.", "from": "#executive-summary", "quote": "Check Point reports one case with confirmed post-compromise activity associated with a Qilin ransomware affiliate"}
+  case-studies/CONNECTWISE_STORM_0940_2026.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "A compromised application credential in ConnectWise's tenant was used to sign in as its multi-tenant app to customer tenants and get Graph tokens.", "from": "#executive-summary", "quote": "an application credential that lived in ConnectWise's own tenant was compromised and used to sign in as that multi-tenant application to customer tenants and obtain Microsoft Graph tokens"}
+      - {"text": "The sign-ins were app-only, so no user signed in and user MFA never came into play.", "from": "#executive-summary", "quote": "The sign-ins were app-only, so no user signed in and user multi-factor authentication (MFA) never came into play"}
+      - {"text": "Microsoft says the actor used an agentic AI framework, ARTEX, to attempt sign-ins to more than 2,250 tenants.", "from": "#executive-summary", "quote": "Microsoft says the actor used ARTEX to attempt sign-ins to more than 2,250 tenants"}
+      - {"text": "No CVE applies: this was abuse of an application identity, not a software flaw.", "from": "#executive-summary", "quote": "No CVE applies: this was abuse of an application identity, not a software flaw"}
+  case-studies/CISCO_SDWAN_CVE_2026_20127.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "The peering authentication between Catalyst SD-WAN controllers could be skipped by anyone who could reach it, and already had been.", "from": "#executive-summary", "quote": "the peering authentication between those controllers could be skipped by anyone who could reach it, that it already had been"}
+      - {"text": "Cisco scored CVE-2026-20127 at CVSS 10.0 and said it was aware of limited exploitation.", "from": "#executive-summary", "quote": "Cisco scored CVE-2026-20127 at CVSS 10.0 and said it was aware of limited exploitation"}
+      - {"text": "Talos tied the exploitation to a cluster it calls UAT-8616, with malicious activity going back at least to 2023.", "from": "#executive-summary", "quote": "Cisco Talos tied the exploitation to a cluster it calls UAT-8616 and found malicious activity going back at least to 2023"}
+      - {"text": "Six national agencies warned of global targeting the same day, and CISA issued Emergency Directive 26-03.", "from": "#executive-summary", "quote": "Six national agencies warned the same day of global targeting, CISA issued Emergency Directive 26-03"}

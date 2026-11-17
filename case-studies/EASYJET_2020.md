@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- easyJet is two connected histories: the 2020 customer-data incident and a much longer record of notification, regulation and unresolved civil exposure. ([Executive assessment](#executive-assessment))
+- A count of affected customers captures scale but not the duration or meaning of the aftermath. ([Executive assessment](#executive-assessment))
+- The review does not establish an initial-access technique, a named perpetrator or a complete intrusion timeline. ([Executive assessment](#executive-assessment))
+- It does not treat the closure of an investigation as a finding that the company's security had been adequate. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

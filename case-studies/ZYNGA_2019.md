@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Zynga 2019 is a case in separating an account-data incident from the many claims that accumulate around it. ([Executive assessment](#executive-assessment))
+- A company notice, a breach-index entry, a complaint and a court ruling describe related events while establishing different things. ([Executive assessment](#executive-assessment))
+- Treating all of them as interchangeable produces inflated counts, invented technical causes and misleading legal conclusions. ([Executive assessment](#executive-assessment))
+- The record does not support a reconstructed entry technique, a complete cost or a claim that every user suffered the same harm. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

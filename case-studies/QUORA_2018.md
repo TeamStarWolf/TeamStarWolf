@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Quora's 2018 breach deserves more careful treatment than a headline about a large password list. ([Executive assessment](#executive-assessment))
+- The affected service combined public writing with private interactions and linked-account information. ([Executive assessment](#executive-assessment))
+- Its response raised several different questions, and the answer to one did not settle the others. ([Executive assessment](#executive-assessment))
+- Contemporaneous reporting placed the affected population at about 100 million users, a dated company estimate. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

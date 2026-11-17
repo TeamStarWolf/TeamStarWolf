@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Estonia's 2007 cyberattacks are significant without being the complete shutdown of a country. ([Executive assessment](#executive-assessment))
+- They showed how interference with public-facing services could become a national coordination problem and accelerate cyber-defence attention. ([Executive assessment](#executive-assessment))
+- The study separates recorded service effects from policy responses and an analyst's hypothesis from proven attribution. ([Executive assessment](#executive-assessment))
+- It does not claim access to complete traffic records or offer a total economic-loss estimate. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

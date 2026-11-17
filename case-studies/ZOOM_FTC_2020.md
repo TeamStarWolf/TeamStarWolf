@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- A security incident does not need a ransomware operator or a stolen database to reveal serious failures. ([Executive assessment](#executive-assessment))
+- Customers can make consequential decisions on the basis of inaccurate technical assurances. ([Executive assessment](#executive-assessment))
+- The FTC alleged Zoom misrepresented end-to-end encryption, encryption strength, and immediate encrypted storage of certain recordings. ([Executive assessment](#executive-assessment))
+- Zoom neither admitted nor denied the allegations, so they remain allegations, not findings after a contested trial. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 Historical focus: the practices described in the FTC's 2020 complaint and the consent order finalized in January 2021. This study examines a regulatory security case, not a documented mass theft of Zoom meetings. Recommendations and exercises are original defensive analysis. They do not describe an audit of Zoom's present service.

@@ -1204,3 +1204,66 @@ pages:
       - {"text": "UCSF's 2020 incident is useful because the institution published multiple dated updates.", "from": "#executive-assessment", "quote": "The University of California, San Francisco's 2020 incident is particularly useful because the institution published multiple dated updates"}
       - {"text": "Stopping at the widely circulated payment headline would omit important distinctions about scope.", "from": "#executive-assessment", "quote": "Stopping at the most widely circulated payment headline would omit important distinctions about scope"}
       - {"text": "The UCSF incident statements do not name the malware family; an Emsisoft profile associates it with NetWalker.", "from": "#executive-assessment", "quote": "The consulted UCSF incident statements do not name the malware family"}
+  case-studies/DOORDASH_2019.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "DoorDash 2019 shows the difficulty of explaining a platform breach when several communities use the same service.", "from": "#executive-assessment", "quote": "DoorDash's 2019 case shows the difficulty of explaining a platform breach when several communities use the same service"}
+      - {"text": "Consumers, delivery workers and merchants had different data: a single affected-population number cannot explain those differences.", "from": "#executive-assessment", "quote": "A single affected-population number cannot explain those differences"}
+      - {"text": "A company notice hosted by a regulator does not become an independent regulatory finding.", "from": "#executive-assessment", "quote": "it does not transform a company notice into an independent regulatory finding"}
+      - {"text": "The notices do not identify a named attacker, disclose a complete exploit chain or prove an exact duration of attacker access.", "from": "#executive-assessment", "quote": "They do not identify a named attacker, disclose a complete exploit chain or prove an exact duration of attacker access"}
+  case-studies/EASYJET_2020.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "easyJet is two connected histories: the 2020 customer-data incident and a much longer record of notification, regulation and unresolved civil exposure.", "from": "#executive-assessment", "quote": "a customer-data incident disclosed in 2020 and a much longer record of notification, regulatory prioritisation and unresolved civil exposure"}
+      - {"text": "A count of affected customers captures scale but not the duration or meaning of the aftermath.", "from": "#executive-assessment", "quote": "A count of affected customers captures scale but not the duration or meaning of the aftermath"}
+      - {"text": "The review does not establish an initial-access technique, a named perpetrator or a complete intrusion timeline.", "from": "#executive-assessment", "quote": "The review does not establish an initial-access technique, a named perpetrator, a complete intrusion timeline"}
+      - {"text": "It does not treat the closure of an investigation as a finding that the company's security had been adequate.", "from": "#executive-assessment", "quote": "It also does not treat the closure of an investigation as a finding that the company's security had been adequate"}
+  case-studies/PANERA_2017_2018.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Panera is a customer-data exposure and vulnerability-disclosure failure, not a documented ransomware operation or a proven database theft.", "from": "#executive-assessment", "quote": "a customer-data exposure and vulnerability-disclosure failure, not a documented ransomware operation or a proven theft of an entire customer database"}
+      - {"text": "A public-facing application can violate confidentiality without malware, a stolen admin account or a disrupted restaurant.", "from": "#executive-assessment", "quote": "a public-facing application can violate confidentiality without an attacker first deploying malware, stealing an administrator account, or disrupting a restaurant"}
+      - {"text": "The absence of those familiar events does not make the exposure harmless.", "from": "#executive-assessment", "quote": "The absence of those familiar events does not make the exposure harmless"}
+      - {"text": "A company statement establishes what the company said at that time, not what a completed forensic investigation later proved.", "from": "#executive-assessment", "quote": "A company statement establishes what the company said at that time, not necessarily what a completed forensic investigation later proved"}
+  case-studies/QUORA_2018.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Quora's 2018 breach deserves more careful treatment than a headline about a large password list.", "from": "#executive-assessment", "quote": "Quora's 2018 breach deserves a more careful treatment than a headline about a large password list"}
+      - {"text": "The affected service combined public writing with private interactions and linked-account information.", "from": "#executive-assessment", "quote": "The affected service combined public writing with private interactions and linked-account information"}
+      - {"text": "Its response raised several different questions, and the answer to one did not settle the others.", "from": "#executive-assessment", "quote": "The answer to one question did not settle the others"}
+      - {"text": "Contemporaneous reporting placed the affected population at about 100 million users, a dated company estimate.", "from": "#executive-assessment", "quote": "Contemporaneous reporting placed the affected population at about 100 million users"}
+  case-studies/RIVER_CITY_MEDIA_2017.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "River City Media is a public disclosure, a cataloged dataset, a forceful company denial and litigation that ended in a stipulated dismissal.", "from": "#scope-and-status", "quote": "It is a documented public disclosure, a dataset cataloged by an independent breach service, a forceful company denial, and litigation that ended through a stipulated dismissal"}
+      - {"text": "The public sources do not support treating every allegation on either side as a finding of fact.", "from": "#scope-and-status", "quote": "They do not support treating every allegation on either side as a finding of fact"}
+      - {"text": "The technical reconstruction is incomplete: the acquisition evidence and a definitive merits finding were not retrieved.", "from": "#scope-and-status", "quote": "The technical reconstruction remains incomplete because the underlying acquisition evidence and a definitive merits finding resolving the contested access mechanism were not retrieved"}
+      - {"text": "Three distinctions matter: total records versus unique emails, and files with a proposed technique versus proof it was deployed.", "from": "#scope-and-status", "quote": "total records versus unique email addresses; files containing a proposed technique versus proof that the technique was deployed"}
+  case-studies/ROBINHOOD_2021.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Robinhood's November 2021 breach shows why social engineering cannot be reduced to an employee making a bad decision.", "from": "#executive-assessment", "quote": "social engineering cannot be reduced to an employee making a bad decision"}
+      - {"text": "An outsider persuaded an employee to allow remote control of a company computer that already had access to internal systems.", "from": "#executive-assessment", "quote": "an outsider persuading an employee to allow remote control of a company computer"}
+      - {"text": "A June 2021 warning involving remote-access software went unheeded; a known signature was blocked but the broader restriction stayed incomplete.", "from": "#executive-assessment", "quote": "A known digital signature was blocked, but the broader restriction remained incomplete before the November incident"}
+      - {"text": "Central to the case: the failure to generalize a lesson from one observed tool to the underlying access capability.", "from": "#executive-assessment", "quote": "The failure to generalize a lesson from one observed tool to the underlying access capability is central to this case"}
+  case-studies/ZYNGA_2019.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Zynga 2019 is a case in separating an account-data incident from the many claims that accumulate around it.", "from": "#executive-assessment", "quote": "separating an account-data incident from the many claims that accumulate around it"}
+      - {"text": "A company notice, a breach-index entry, a complaint and a court ruling describe related events while establishing different things.", "from": "#executive-assessment", "quote": "A company notice, a breach-index entry, a complaint and a court ruling can describe related events while establishing different things"}
+      - {"text": "Treating all of them as interchangeable produces inflated counts, invented technical causes and misleading legal conclusions.", "from": "#executive-assessment", "quote": "Treating all of them as interchangeable produces inflated counts, invented technical causes and misleading legal conclusions"}
+      - {"text": "The record does not support a reconstructed entry technique, a complete cost or a claim that every user suffered the same harm.", "from": "#executive-assessment", "quote": "It does not support an independently reconstructed entry technique, a complete incident cost or a claim that every affected user suffered the same harm"}
+  case-studies/ZOOM_FTC_2020.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "A security incident does not need a ransomware operator or a stolen database to reveal serious failures.", "from": "#executive-assessment", "quote": "a security incident does not need a ransomware operator or a stolen customer database to reveal serious failures"}
+      - {"text": "Customers can make consequential decisions on the basis of inaccurate technical assurances.", "from": "#executive-assessment", "quote": "Customers can make consequential decisions on the basis of inaccurate technical assurances"}
+      - {"text": "The FTC alleged Zoom misrepresented end-to-end encryption, encryption strength, and immediate encrypted storage of certain recordings.", "from": "#executive-assessment", "quote": "The Federal Trade Commission alleged that Zoom misrepresented end-to-end encryption, the strength of encryption, and the immediate encrypted storage of certain recordings"}
+      - {"text": "Zoom neither admitted nor denied the allegations, so they remain allegations, not findings after a contested trial.", "from": "#executive-assessment", "quote": "The allegations must therefore remain allegations rather than being rewritten as findings after a contested trial"}
+  case-studies/ESTONIA_DDOS_2007.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Estonia's 2007 cyberattacks are significant without being the complete shutdown of a country.", "from": "#executive-assessment", "quote": "Estonia's 2007 cyberattacks are significant without being described as the complete shutdown of a country"}
+      - {"text": "They showed how interference with public-facing services could become a national coordination problem and accelerate cyber-defence attention.", "from": "#executive-assessment", "quote": "interference with public-facing digital services could become a national coordination problem, attract international assistance and accelerate institutional attention to cyber defence"}
+      - {"text": "The study separates recorded service effects from policy responses and an analyst's hypothesis from proven attribution.", "from": "#executive-assessment", "quote": "It separates recorded service effects from policy responses and distinguishes an analyst's hypothesis from proven attribution"}
+      - {"text": "It does not claim access to complete traffic records or offer a total economic-loss estimate.", "from": "#executive-assessment", "quote": "It does not claim access to complete traffic records or offer a total economic-loss estimate"}

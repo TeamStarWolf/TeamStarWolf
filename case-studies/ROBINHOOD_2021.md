@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Robinhood's November 2021 breach shows why social engineering cannot be reduced to an employee making a bad decision. ([Executive assessment](#executive-assessment))
+- An outsider persuaded an employee to allow remote control of a company computer that already had access to internal systems. ([Executive assessment](#executive-assessment))
+- A June 2021 warning involving remote-access software went unheeded; a known signature was blocked but the broader restriction stayed incomplete. ([Executive assessment](#executive-assessment))
+- Central to the case: the failure to generalize a lesson from one observed tool to the underlying access capability. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 Historical focus: the November 3, 2021 customer-information incident, contemporaneous disclosures, and relevant findings in the Massachusetts January 2024 consent order and SEC January 2025 order. This is defensive research, not investment advice, a present-day compliance assessment or a complete review of Robinhood litigation.

@@ -4800,3 +4800,106 @@ studies:
       - {"date": "2018-10-25", "label": "IAG revises the payment-card group to 244,000 and notifies two reward-booking groups"}
       - {"date": "2020-10-16", "label": "The ICO imposes a 20 million pound penalty (down from a 183.39 million pound proposal)"}
       - {"date": "2021-07", "label": "A group claim is resolved on confidential terms with no admission of liability"}
+  case-studies/CODECOV_2021.md:
+    kind: "incident"
+    title: "Codecov 2021: When the Build Helper Became a Credential Boundary"
+    start: "2021"
+    end: "2021"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["supply chain", "CI/CD", "credential theft", "Bash Uploader", "build security"]
+    pdf: "Codecov_2021_Case_Study.pdf"
+    events:
+      - {"date": "2021-01-31", "label": "Start of the reported period containing unauthorized Bash Uploader changes"}
+      - {"date": "2021-04-01", "label": "A customer reports a checksum discrepancy; Codecov discovers and remediates"}
+      - {"date": "2021-04-15", "label": "Codecov publicly discloses and notifies affected users"}
+      - {"date": "2021-04-22", "label": "HashiCorp discloses an exposed GPG signing key; Twilio later notes a GitHub notification the same day"}
+      - {"date": "2021-04-29", "label": "Codecov publishes additional environment-variable and impact information"}
+      - {"date": "2021-05-04", "label": "Twilio publishes its response account"}
+      - {"date": "2021-05-13", "label": "Rapid7 publishes its response account"}
+  case-studies/EVENT_STREAM_2018.md:
+    kind: "incident"
+    title: "event-stream 2018: A Dependency Handoff Reached a Wallet Release"
+    start: "2018"
+    end: "2018"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["supply chain", "npm", "dependency", "Copay", "cryptocurrency wallet", "build security"]
+    pdf: "event-stream_2018_Case_Study.pdf"
+    events:
+      - {"date": "2018-09-09", "label": "flatmap-stream is added as a dependency through event-stream 3.3.6"}
+      - {"date": "2018-10-05", "label": "The malicious flatmap-stream 0.1.1 is published (per Snyk)"}
+      - {"date": "2018-11-20", "label": "A public GitHub issue surfaces the problem"}
+      - {"date": "2018-11-26", "label": "npm is notified and responds at the registry"}
+      - {"date": "2018-11-27", "label": "npm publishes its incident analysis; a Copay-specific wallet-targeting payload"}
+      - {"date": "2018-12-06", "label": "Snyk publishes its post-mortem"}
+      - {"date": "2018-12-12", "label": "BitPay confirms malicious code in Copay 5.0.2 to 5.1.0 and describes fixes"}
+  case-studies/NETSARANG_SHADOWPAD_2017.md:
+    kind: "incident"
+    title: "NetSarang / ShadowPad, 2017: A Trusted Software Release Became an Intrusion Path"
+    start: "2017"
+    end: "2017"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["supply chain", "code signing", "ShadowPad", "backdoor", "software distribution", "build integrity"]
+    pdf: "NetSarang_ShadowPad_2017_Case_Study.pdf"
+    events:
+      - {"date": "2017-07-18", "label": "NetSarang ships a release containing a backdoor in nssock2.dll (distributed to 4 August)"}
+      - {"date": "2017-08-05", "label": "A clean update is released (per MyCERT)"}
+      - {"date": "2017-08-15", "label": "Kaspersky discloses ShadowPad; one confirmed activation at a Hong Kong company; NetSarang acknowledges the backdoor"}
+      - {"date": "2017-08-17", "label": "The Canadian Centre for Cyber Security publishes an alert with five affected builds"}
+      - {"date": "2017-08-20", "label": "MyCERT publishes affected-build guidance"}
+      - {"date": "2017-08-23", "label": "Tenable publishes a detection check for the compromised library"}
+  case-studies/VPNFILTER_2018.md:
+    kind: "campaign"
+    title: "VPNFilter, 2018: When the Network Edge Became the Intrusion Platform"
+    start: "2018"
+    end: "2022"
+    core_start: "2018"
+    core_end: "2018"
+    sectors: ["cross-sector"]
+    cves: []
+    actors: []
+    tags: ["botnet", "routers", "network devices", "VPNFilter", "takedown", "critical infrastructure"]
+    pdf: "VPNFilter_2018_Case_Study.pdf"
+    events:
+      - {"date": "2018-05-08", "label": "Talos observes increases in Ukrainian victims (also 17 May)"}
+      - {"date": "2018-05-23", "label": "Talos discloses VPNFilter (at least 500,000 devices, 54+ countries); DOJ announces the botnet disruption and domain seizure"}
+      - {"date": "2018-05-29", "label": "FBI Portland explains rebooting as an interruption, not eradication"}
+      - {"date": "2018-06-06", "label": "Talos expands the device scope and describes the ssler and dstr modules"}
+      - {"date": "2022-02-23", "label": "The NCSC attributes the framework to Sandworm (GRU) and describes Cyclops Blink as its successor"}
+  case-studies/CLOUD_HOPPER_APT10.md:
+    kind: "campaign"
+    title: "Cloud Hopper / APT10, 2016-2018: When Provider Access Became Customer Exposure"
+    start: "2016"
+    end: "2018"
+    sectors: ["cross-sector"]
+    cves: []
+    actors: ["G0045"]
+    tags: ["managed service provider", "supply chain", "espionage", "APT10", "delegated access", "China"]
+    pdf: "Cloud_Hopper_APT10_Case_Study.pdf"
+    events:
+      - {"date": "2014", "label": "The MSP-focused campaign begins (at least around 2014, per the indictment)"}
+      - {"date": "2016", "label": "Research describes increased scale and MSP-focused activity (Cloud Hopper active since at least 2016 per the NCSC)"}
+      - {"date": "2017-04", "label": "PwC UK and BAE Systems publish the Operation Cloud Hopper report and technical annex"}
+      - {"date": "2018-12-20", "label": "The UK attributes the campaign to APT10 (China); the US charges Zhu Hua and Zhang Shilong"}
+  case-studies/ASUS_SHADOWHAMMER_2019.md:
+    kind: "incident"
+    title: "ASUS ShadowHammer 2018-2019: Broad Distribution, Narrow Selection, Broken Release Trust"
+    start: "2018"
+    end: "2019"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["supply chain", "code signing", "ShadowHammer", "ASUS Live Update", "software distribution", "selective targeting"]
+    pdf: "ASUS_ShadowHammer_2019_Case_Study.pdf"
+    events:
+      - {"date": "2018-06", "label": "The observed ASUS Live Update campaign period (June to November 2018)"}
+      - {"date": "2019-01", "label": "Kaspersky discovers the campaign"}
+      - {"date": "2019-03-25", "label": "Kaspersky discloses Operation ShadowHammer; more than 57,000 affected users in its telemetry; 600+ MAC-address selectors"}
+      - {"date": "2019-03-26", "label": "CERT-EU publishes a response advisory (revised 27 March); ASUS releases Live Update 3.6.8"}
+      - {"date": "2019-03-27", "label": "ReversingLabs publishes additional sample analysis"}
+      - {"date": "2019-04-23", "label": "Kaspersky publishes its expanded technical report"}

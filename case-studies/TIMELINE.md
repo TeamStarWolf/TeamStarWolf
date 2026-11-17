@@ -865,6 +865,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 3 March 2022: CISA adds CVE-2020-1938 to KEV in a batch of 95 entries
   - October 2026: DShield still records about 950 to 6,200 port 8009 events a day
   - 3 November 2026: KEV still lists the CVE; the TeamStarWolf lab run
+- [Garmin's 2020 Outage: Connected-Service Recovery and the WastedLocker Evidence Boundary](/case-studies/GARMIN_WASTEDLOCKER_2020.md). Incident, 2020. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Garmin_WastedLocker_2020_Case_Study.pdf).
+  - 25 June 2020: Symantec reports the WastedLocker campaign (at least 31 organizations), predating the Garmin outage
+  - 23 July 2020: Garmin says some systems were encrypted and online services interrupted
+  - 27 July 2020: Garmin's public statement (filed with the SEC); no indication customer data was accessed
+  - 29 July 2020: Microsoft publishes its WastedLocker entry
+  - 2020: Garmin's 2020 Form 10-K reports independent forensic analysis found no indication of customer-data access
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md). Period record, January to December 2020. Sectors: cross-sector, healthcare. CVEs: CVE-2017-5638, CVE-2017-11882, CVE-2018-7600, CVE-2018-13379, CVE-2019-0604, CVE-2019-1652 and 27 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly and 12 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2020_Case_Study.pptx).
   - 14 January 2020: CISA ED 20-02 for CryptoAPI CVE-2020-0601 and the RD Gateway flaws
   - 10 February 2020: Equifax indictment of four PLA 54th Research Institute members announced
@@ -908,6 +914,26 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 6 August 2020: OCC announces an $80 million civil penalty and a consent order
   - February 2021: Company update identifies about 4,700 additional people whose SSNs were accessed
   - 17 June 2022: DOJ announces Paige Thompson's conviction on wire fraud and computer-intrusion counts
+- [Travelex 2019-2020: Ransomware, Business Continuity and the Long Tail of Lost Evidence](/case-studies/TRAVELEX_2020.md). Incident, 2019 to 2022 (core: 2019 to 2020). Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Travelex_2020_Case_Study.pdf).
+  - 31 December 2019: Travelex detects the Sodinokibi (REvil) ransomware and takes systems offline
+  - 8 January 2020: Finablr discloses the incident; no evidence at that time of data exfiltration or encryption of structured personal data
+  - 2 March 2020: Travelex announces restoration of customer-facing systems; a ~25 million pound Q1 EBITDA estimate (mostly malware, with COVID-19)
+  - 6 August 2020: Restructuring completes via administration; 1,802 UK jobs safeguarded, 1,309 UK redundancies
+  - 29 November 2021: KPMG disclaims an audit opinion, citing evidence limitations from the restructuring and the malware incident
+  - April 2022: An Employment Tribunal records agreed background facts recognizing multiple business pressures
+- [Norsk Hydro and LockerGoga, 2019: Recovery Had to Reach the Factory Floor](/case-studies/NORSK_HYDRO_LOCKERGOGA_2019.md). Incident, 2018 to 2020 (core: 2019). Sectors: manufacturing. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Norsk_Hydro_LockerGoga_2019_Case_Study.pdf).
+  - December 2018: A malicious attachment establishes an initial foothold (per Microsoft's later responder account)
+  - 19 March 2019: Hydro discloses the attack; plants isolated and moved to manual operation where possible
+  - 21 March 2019: An intermediate operating-status update
+  - 5 April 2019: Most production is normal or near normal while reporting, billing and invoicing still lag
+  - 16 December 2019: Microsoft publishes a responder account (credential capture, manual ransomware push from domain controllers)
+  - 2020: The 2020 financial statements revise the estimated impact to NOK 800 million to 1 billion; NOK 769 million total insurance received
+- [Maze 2019-2020: Encryption, Data Theft and the Limits of Containment](/case-studies/MAZE_2019_2020.md). Campaign, 2019 to 2020 (core: 2019 to 2020). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Maze_2019_2020_Case_Study.pdf).
+  - May 2019: Maze activity observed from at least May 2019 (per Mandiant); shift to post-intrusion deployment and double extortion
+  - 18 April 2020: Cognizant confirms a Maze incident affecting internal systems and some client services
+  - 20 April 2020: Cognizant files an 8-K with an early assessment and financial-risk warning
+  - 7 May 2020: Cognizant reports it believes the attack is contained; projects a $50 to 70 million quarterly impact
+  - July 2020: A Sophos casebook describes an unnamed Maze incident: repeated blocked encryption attempts, prior data theft, a $15 million demand not paid
 - [The Year 2019 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2019.md). Period record, January to December 2019. Sectors: cross-sector. CVEs: CVE-2009-1151, CVE-2014-6271, CVE-2017-3881, CVE-2017-6736, CVE-2017-12617, CVE-2018-0296 and 31 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0045 menuPass and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2019_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2019_Case_Study.pptx).
   - 22 January 2019: CISA Emergency Directive 19-01 orders federal agencies to audit DNS records
   - 19 March 2019: Norsk Hydro hit by ransomware; plants switch to manual operations
@@ -921,6 +947,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 5 December 2019: Treasury sanctions Evil Corp and Maksim Yakubets
   - 17 December 2019: Citrix discloses CVE-2019-19781 with interim mitigations
   - 31 December 2019: Travelex hit by Sodinokibi; more than 1,500 stores affected
+- [Baltimore and RobbinHood, 2019: When a Network Outage Becomes a Transaction Crisis](/case-studies/BALTIMORE_ROBBINHOOD_2019.md). Incident, 2019 to 2025 (core: 2019). Sectors: government. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Baltimore_RobbinHood_2019_Case_Study.pdf).
+  - 7 May 2019: The RobbinHood attack is discovered; systems taken offline for containment
+  - 17 May 2019: The city describes containment, manual alternatives and a temporary property-transaction process
+  - 10 June 2019: About 65 percent of employees regain computer and email access; service-specific limits continue
+  - 2019: The city council enacts a $10 million supplementary appropriation for ransomware response
+  - 24 January 2020: A Maryland fiscal note records an early ~$18 million estimate (including potential lost or delayed revenue)
+  - 27 May 2025: The Justice Department announces Sina Gholinejad's guilty plea; Baltimore losses exceeding $19 million
 
 ### 2018 <!-- {docsify-ignore} -->
 
@@ -1009,6 +1042,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 25 October 2018: IAG revises the payment-card group to 244,000 and notifies two reward-booking groups
   - 16 October 2020: The ICO imposes a 20 million pound penalty (down from a 183.39 million pound proposal)
   - July 2021: A group claim is resolved on confidential terms with no admission of liability
+- [Atlanta and SamSam, 2018: Restoring a City Requires More Than Decrypting Its Files](/case-studies/ATLANTA_SAMSAM_2018.md). Incident, 2018 to 2019. Sectors: government. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Atlanta_SamSam_2018_Case_Study.pdf).
+  - 10 March 2018: The Atlanta intrusion and encryption activity window (about 10-22 March 2018, per the federal account)
+  - 22 March 2018: Major operational disruption; the city does not pay the ~$51,000 demand
+  - 28 November 2018: Treasury designates two Iran-based financial facilitators; the SamSam campaign indictment is announced (200+ victims)
+  - 5 December 2018: DOJ announces Atlanta-specific charges against Savandi and Mansouri (about 3,789 affected computers)
+  - 25 June 2019: Mayor Bottoms testifies to Congress; about $7.2 million in recovery costs to date
 - [ASUS ShadowHammer 2018-2019: Broad Distribution, Narrow Selection, Broken Release Trust](/case-studies/ASUS_SHADOWHAMMER_2019.md). Incident, 2018 to 2019. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ASUS_ShadowHammer_2019_Case_Study.pdf).
   - June 2018: The observed ASUS Live Update campaign period (June to November 2018)
   - January 2019: Kaspersky discovers the campaign

@@ -1330,3 +1330,59 @@ pages:
       - {"text": "Distribution through an official store did not by itself reveal the earlier contamination.", "from": "#executive-assessment", "quote": "Distribution through an official store did not automatically reveal that earlier contamination"}
       - {"text": "Different telemetry counts of apps, versions, DNS queries, source IPs and customers measure different things and cannot be swapped.", "from": "#executive-assessment", "quote": "Counts of named applications, versions, DNS queries, source IPs and customers cannot be substituted for one another"}
       - {"text": "The account separates researcher observations from hypotheses and a litigant's proposed findings from a court's conclusions.", "from": "#executive-assessment", "quote": "It distinguishes researcher observations from hypotheses, supplier statements from independent validation, and a litigant's proposed findings from a court's conclusions"}
+  case-studies/KERANGER_2016.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Getting an app from its real download site with a valid code signature was not, by itself, assurance of safety.", "from": "#executive-assessment", "quote": "obtaining an application from its legitimate distribution site and seeing a valid code signature were not, together, a complete assurance of safety"}
+      - {"text": "This was not a user grabbing an obvious fake; it was trust in a familiar project, a release artifact, and signed code.", "from": "#executive-assessment", "quote": "It is a story about the trust placed in a familiar project, a release artifact, and the platform's acceptance of signed code"}
+      - {"text": "Distinct work addressed distribution, already-executed malware, and damaged data, which later summaries often blur.", "from": "#executive-assessment", "quote": "Which actions addressed distribution, which addressed already executed malware, and which addressed damaged data?"}
+      - {"text": "The sources do not supply a verified worldwide infection count, total ransom revenue, or a definitive attacker identity.", "from": "#executive-assessment", "quote": "it does not supply a verified worldwide infection count, a total ransom revenue figure, or a definitive identity for the attacker"}
+  case-studies/KEYDNAP_2016.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "An installer investigation can stop too early, removing the file while the account access tied to the computer stays unresolved.", "from": "#executive-assessment", "quote": "An organization discovers an unwanted application, removes it, and resumes work, while the account access associated with the affected computer remains unresolved"}
+      - {"text": "The real question is not just whether a malicious file was present but what would justify trusting the device and its accounts again.", "from": "#executive-assessment", "quote": "It is what evidence would justify trusting the device, its accounts, and its software acquisition process again"}
+      - {"text": "The sources do not establish a complete worldwide victim population, a definitive attacker identity, or every user's outcome.", "from": "#executive-assessment", "quote": "They do not establish a complete worldwide victim population, a definitive attacker identity, or every affected user's outcome"}
+      - {"text": "Keeping the modern recommendations separate from the 2016 reporting prevents sensible advice from becoming invented facts.", "from": "#executive-assessment", "quote": "Keeping those sections separate from historical reporting prevents sensible modern recommendations from becoming invented facts about what happened in 2016"}
+  case-studies/DRIDEX_ENFORCEMENT_2019.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The December 2019 action combined charges, sanctions, a reward and publicity, not a claim that every infection was removed.", "from": "#executive-assessment", "quote": "It was not an announcement that every Dridex infection had been removed or that every named defendant had been arrested"}
+      - {"text": "Reading it requires separating what had happened, accusations awaiting adjudication, institutional assessments, and technical outcomes.", "from": "#executive-assessment", "quote": "Its central distinction is between actions that had actually occurred, accusations awaiting adjudication, institutional assessments and measured technical outcomes"}
+      - {"text": "Authorities had achieved concrete disruption and an earlier conviction, then exposed more alleged participants.", "from": "#executive-assessment", "quote": "The authorities had achieved concrete disruption and a conviction in an earlier case"}
+      - {"text": "Later sources describe the group adapting rather than permanently disappearing, each outcome tied to its own window.", "from": "#executive-assessment", "quote": "Subsequent sources describe adaptation rather than permanent disappearance"}
+  case-studies/PROLOCK_2020.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The key questions are not answered by naming the final executable: predecessor, successor, intrusion paths and operator changes differ.", "from": "#executive-assessment", "quote": "the most important questions are not answered by identifying its final executable"}
+      - {"text": "The criminal promise to reverse encryption could itself add more corruption to the files.", "from": "#executive-assessment", "quote": "the promise to reverse encryption could itself introduce additional corruption"}
+      - {"text": "A damaged file might still keep a normal-looking beginning, hiding the loss.", "from": "#executive-assessment", "quote": "A damaged file might still retain a normal-looking beginning"}
+      - {"text": "One ransomware name disappearing would not necessarily remove the access operations that had delivered it.", "from": "#executive-assessment", "quote": "the disappearance of one ransomware name would not necessarily remove the access operations that had delivered it"}
+  case-studies/TEXAS_MUNICIPAL_RANSOMWARE_2019.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "A regional incident is not just a bigger single-organization one: many governments can need help at once from the same provider.", "from": "#executive-assessment", "quote": "Multiple local governments can require help at the same time, depend on the same service provider, and compete for a limited pool of responders"}
+      - {"text": "Here the coordination problem can matter as much as the malware itself.", "from": "#executive-assessment", "quote": "The coordination problem can become as important as the malware itself"}
+      - {"text": "A careful account preserves distinctions like twenty-two versus twenty-three entities and an indictment versus a conviction.", "from": "#executive-assessment", "quote": "twenty-two versus twenty-three entities at different reporting stages, restoration of critical services versus complete normal operations, and an indictment versus a conviction"}
+      - {"text": "Some earlier official source URLs returned not-found errors, a limit recorded rather than concealed.", "from": "#executive-assessment", "quote": "That limitation is recorded rather than concealed"}
+  case-studies/NIST_AES_2000.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The October 2000 Rijndael announcement was a selection decision, not the final publication of the federal standard.", "from": "#executive-assessment", "quote": "The announcement was a selection decision, not the final publication of the federal standard"}
+      - {"text": "This is an advancement case: a public competition became a precise, interoperable specification weighing security with efficiency.", "from": "#executive-assessment", "quote": "Its importance lies in how a public technical competition became a precise interoperable specification"}
+      - {"text": "Selection did not prove the losing finalists were broken or that every implementation of the winner was secure.", "from": "#executive-assessment", "quote": "It did not establish that losing finalists were broken, that every implementation of the winner was secure, or that encryption alone supplied all the properties a secure application needs"}
+      - {"text": "In the three AES variants the numbers 128, 192 and 256 describe key lengths, while all use 128-bit blocks.", "from": "#executive-assessment", "quote": "the numbers 128, 192 and 256 in their names describe key lengths"}
+  case-studies/NIST_ZERO_TRUST_2020.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "SP 800-207's value is not a new appliance but a neutral language for access when the network boundary no longer explains the work.", "from": "#executive-assessment", "quote": "It provided a technology-neutral language for discussing access to resources when the traditional inside-versus-outside network boundary no longer explains where people work, where applications run or which devices belong to the enterprise"}
+      - {"text": "Its scope is an abstract architecture, deployment models and use cases, not one universal implementation plan.", "from": "#executive-assessment", "quote": "Its scope is an abstract architecture, deployment models and use cases, not one universal implementation plan"}
+      - {"text": "For every action the essential question is what evidence justifies it on this resource and what component enforces the answer.", "from": "#executive-assessment", "quote": "what evidence justifies this action on this resource, and what component actually enforces the answer"}
+      - {"text": "A workable design also needs a usable failure mode, not one that blocks essential work or silently grants broad access during an outage.", "from": "#executive-assessment", "quote": "An architecture that indiscriminately blocks essential work or silently grants broad access during an outage has not resolved the business problem merely because its diagram uses the correct terminology"}
+  case-studies/TLS_1_0_1_1_DEPRECATION_2021.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "RFC 8996 in March 2021 formally deprecated TLS 1.0 and TLS 1.1, along with DTLS 1.0.", "from": "#executive-assessment", "quote": "formally deprecated TLS 1.0 and TLS 1.1, along with DTLS 1.0"}
+      - {"text": "It was a standards decision, not evidence that every deployed service stopped accepting old connections that month.", "from": "#executive-assessment", "quote": "The document was a standards decision, not evidence that every deployed service stopped accepting old connections that month"}
+      - {"text": "Several vendors announced coordinated retirement in 2018, then revised schedules or split disablement from removal.", "from": "#executive-assessment", "quote": "several vendors announced coordinated retirement plans in 2018, then revised schedules or distinguished disablement from removal"}
+      - {"text": "Compressing it all into a single end-date claim misstates both the technology and the operational history.", "from": "#executive-assessment", "quote": "misstates both the technology and the operational history"}

@@ -4,4 +4,12 @@
 # Per page: reviewed: "YYYY-MM-DD" and items:, a list of 3 to 5 takeaways, each
 # {"text": ..., "from": "#anchor", "quote": ...} on one line, as in the draft file.
 
-pages: {}
+pages:
+  case-studies/CHANGE_HEALTHCARE_2024.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "The intrusion started with stolen credentials on a Citrix remote-access portal that required no second factor, not with any software flaw.", "from": "#executive-summary", "quote": "The portal did not require a second factor"}
+      - {"text": "The data loss became the largest on the federal health breach portal, affecting about 192.7 million people.", "from": "#executive-summary", "quote": "The data loss became the largest in the history of the federal health breach portal"}
+      - {"text": "One clearinghouse was a national dependency: UnitedHealth puts Change at about 6 percent of all US health care payments.", "from": "#scale-of-the-dependency", "quote": "Change's payment processing is about 6 percent of all U.S. health care payments"}
+      - {"text": "The outage reached care, not only billing: in an AHA survey, 74 percent of hospitals reported effects on direct patient care.", "from": "#the-providers", "quote": "74 percent reported effects on direct patient care"}
+      - {"text": "Paying the $22 million ransom did not end the extortion, and the stolen data was still offered for sale weeks later.", "from": "#part-4-the-ransom-and-the-second-extortion", "quote": "one ransom paid, data still offered for sale five weeks later"}

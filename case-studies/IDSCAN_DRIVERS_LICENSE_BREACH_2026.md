@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- IDScan.net says an unauthorized third party accessed part of its cloud environment, limited to the VeriScan platform, from April to September 2026. ([Executive summary](#executive-summary))
+- Driver's license scans were sold in a search service called Nexus, where a seller offered a reporter's own license as a free sample. ([Executive summary](#executive-summary))
+- The reporter found licenses of nine friends and family who agreed to a search, among others. ([Executive summary](#executive-summary))
+- The vendor learned of it only after a source pointed a journalist to the listing on a Russian-language criminal forum. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- A supply-chain compromise of the Trivy scanner was the way in: a malicious release and repointed GitHub Actions ran credential-stealing code. ([Executive summary](#executive-summary))
+- The Commission and CERT-EU assess with high confidence that the Trivy compromise was the initial access vector. ([Executive summary](#executive-summary))
+- The attacker obtained a Commission AWS secret with management rights over other Commission AWS accounts on the day of the compromise. ([Executive summary](#executive-summary))
+- ShinyHunters published about 91.7 GB compressed on its leak site, touching up to 71 hosting clients. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

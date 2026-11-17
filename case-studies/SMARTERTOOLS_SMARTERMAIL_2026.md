@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Three SmarterMail flaws went from patch to mass exploitation in days in January 2026. ([Executive summary](#executive-summary))
+- Many admins first heard of it from researchers and CISA, not the vendor. ([Executive summary](#executive-summary))
+- A 15 January build fixed a password-reset bypass and an unauthenticated command-execution flaw. ([Executive summary](#executive-summary))
+- All three flaws were in CISA's KEV catalog by 5 February and marked as used in ransomware by April. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

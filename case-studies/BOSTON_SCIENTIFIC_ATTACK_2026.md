@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- From 25 August 2026 Boston Scientific could not process or ship customer orders until shipping returned for most products on 3 September. ([Executive summary](#executive-summary))
+- New cardiac remote-monitoring activations stopped for two weeks, though implanted device function was not affected. ([Executive summary](#executive-summary))
+- CrowdStrike found the attacker got in through an external-facing network management device and reached only part of the on-premises IT. ([Executive summary](#executive-summary))
+- No device vendor, model, CVE, threat actor or extortion claim appears in the sources opened for this study. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

@@ -83,6 +83,62 @@ pages:
       - {"text": "The decisive shift is autonomy: agents now run most of an intrusion while people approve only a few decisions.", "from": "#executive-summary", "quote": "agents now run most of an intrusion while people approve a few decisions"}
       - {"text": "In one case a Chinese state-sponsored group had an AI coding agent do most of the tactical work against about 30 targets.", "from": "#key-findings", "quote": "A Chinese state-sponsored group had Claude Code do 80-90% of the tactical work against about 30 targets"}
       - {"text": "Deepfake fraud is the most proven AI threat: the FBI logged $893 million in AI-linked losses for 2025.", "from": "#key-findings", "quote": "The FBI logged $893 million in AI-linked losses for 2025"}
+  case-studies/THREAT_ACTORS_CHINA.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "The sponsors are now named specifically: US charging documents and advisories identify PLA Unit 61398, State Security bureaus and front companies.", "from": "#executive-summary", "quote": "US charging documents, Treasury designations and joint advisories name PLA Unit 61398 and the PLA 54th Research Institute"}
+      - {"text": "The tradecraft moved to the network edge: every one of the 43 initial-access CVEs across five joint advisories is in CISA's KEV catalog.", "from": "#executive-summary", "quote": "every one of the 43 initial-access CVEs named across five joint advisories is in CISA's Known Exploited Vulnerabilities catalog"}
+      - {"text": "Purpose widened from espionage to pre-positioning: US agencies assessed Volt Typhoon was placed to disrupt critical-infrastructure OT in a crisis.", "from": "#executive-summary", "quote": "Volt Typhoon was positioning inside US critical infrastructure IT networks to disrupt operational technology in a crisis, with some footholds held for at least five years"}
+      - {"text": "Healthcare and life sciences recur throughout, from the 2014 Anthem breach to theft of COVID-19 research.", "from": "#executive-summary", "quote": "healthcare and life sciences appear throughout"}
+  case-studies/THREAT_ACTORS_RUSSIA.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "Governments have named the sponsors: three GRU units, the SVR, two FSB centers and a Defense Ministry research institute.", "from": "#executive-summary", "quote": "three military intelligence units of the GRU, the SVR foreign intelligence service, two centers of the FSB security service and a Ministry of Defense research institute"}
+      - {"text": "Advisories map the tracked groups to units, such as GRU Unit 26165 to APT28 and GRU Unit 74455 to Sandworm.", "from": "#executive-summary", "quote": "GRU Unit 26165 to APT28, GRU Unit 74455 to Sandworm"}
+      - {"text": "The way in is ordinary: every one of the 26 CVEs named across five joint advisories and an FBI notice is in CISA's KEV catalog.", "from": "#executive-summary", "quote": "Every one of the 26 CVEs named in five joint advisories and an FBI notice on these actors is in CISA's Known Exploited Vulnerabilities catalog"}
+      - {"text": "The court record is deep: US grand juries indicted GRU officers in 2018, 2020, 2022, 2023 and 2024.", "from": "#executive-summary", "quote": "US grand juries indicted GRU officers in 2018 (twice) and 2020, four Russian government employees over energy-sector intrusions in 2022, an FSB officer in 2023 and five Unit 29155 officers in 2024"}
+  case-studies/THREAT_ACTORS_IRAN.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "Iranian state cyber activity runs through two services, the MOIS and the IRGC, and a ring of contractors.", "from": "#executive-summary", "quote": "Iranian state cyber activity runs through two services and a ring of contractors"}
+      - {"text": "The way in is rarely exotic: known, already-patched flaws in VPNs, firewalls, Exchange and Log4j, password spraying and MFA fatigue.", "from": "#executive-summary", "quote": "the actors used known, already-patched flaws in VPNs, firewalls, Exchange and Log4j, password spraying and MFA push fatigue, and internet-facing controllers left on default passwords"}
+      - {"text": "Almost all the named IT CVEs are known-exploited: all but one of the 20 are in CISA's KEV catalog.", "from": "#executive-summary", "quote": "all but one of the 20 IT CVEs those advisories name are in CISA's Known Exploited Vulnerabilities catalog"}
+      - {"text": "The purpose widened over time, with destructive wiper attacks recurring from 2012 to 2026.", "from": "#executive-summary", "quote": "destructive wiper attacks recurring from 2012 to 2026"}
+  case-studies/THREAT_ACTORS_NORTH_KOREA.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "The money is the mission: a multilateral monitor counted at least $1.19 billion in crypto stolen in 2024 and $1.65 billion in nine months of 2025.", "from": "#executive-summary", "quote": "counted at least $1.19 billion in cryptocurrency stolen in 2024 and at least $1.65 billion in the first nine months of 2025"}
+      - {"text": "Healthcare is a deliberate target: Maui ransomware hit US healthcare organizations from at least May 2021.", "from": "#executive-summary", "quote": "North Korean state-sponsored actors had used Maui ransomware against healthcare organizations since at least May 2021"}
+      - {"text": "A fast-growing part of the record is not malware: thousands of IT workers hired under false identities who then extort employers with stolen code.", "from": "#executive-summary", "quote": "thousands of North Korean IT workers hired under false identities, now extorting employers with stolen code"}
+      - {"text": "The names do not line up: the US government uses its own, and vendors split the same activity further.", "from": "#executive-summary", "quote": "the US government uses its own names (HIDDEN COBRA, BeagleBoyz, TraderTraitor)"}
+  case-studies/EXCHANGE_MARAUDER_2021.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "ProxyLogon let a single unauthenticated request act as the Exchange server itself, then chain to code in the web root.", "from": "#executive-summary", "quote": "a single unauthenticated HTTPS request to an Exchange server could be made to act with the server's own identity, and chained that bug to a file write that put code in the web root"}
+      - {"text": "Attackers were stealing mailboxes before the fix, and within days more than ten espionage groups piled on, then ransomware and miners.", "from": "#executive-summary", "quote": "Within days the bugs were in use by more than ten espionage groups, then ransomware crews and coin miners"}
+      - {"text": "The patch was the start of the response, not the end: a patched server could still hold a web shell planted weeks earlier.", "from": "#executive-summary", "quote": "a patched server could still hold a web shell planted weeks earlier"}
+      - {"text": "The same attack surface kept giving, producing ProxyShell and ProxyOracle from the same research.", "from": "#executive-summary", "quote": "DEVCORE's research on the same surface produced ProxyShell and ProxyOracle"}
+  case-studies/CL0P_FILE_TRANSFER_2023.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "Cl0p encrypted nothing: it stole the data, listed victims on its leak site, and demanded payment to keep the files unpublished.", "from": "#executive-summary", "quote": "It copied the data, listed victims on its leak site, and demanded payment to keep the files unpublished"}
+      - {"text": "The MOVEit zero-day reached roughly 2,773 organizations and about 95.8 million individuals, best read as a floor.", "from": "#executive-summary", "quote": "the running tally reached roughly 2,773 organizations and about 95.8 million individuals"}
+      - {"text": "MOVEit was the fourth run of the same play, after Accellion and Fortra GoAnywhere, with Cleo to follow.", "from": "#executive-summary", "quote": "Cl0p had already run the same exploit-exfiltrate-extort play against Accellion FTA in 2020 and 2021, Fortra GoAnywhere in early 2023"}
+      - {"text": "The lesson: an internet-facing app that aggregates third-party data is a crown-jewel asset whose unauthenticated flaws are ransomware-grade.", "from": "#executive-summary", "quote": "an internet-facing application that aggregates third-party data is a crown-jewel asset whose unauthenticated critical flaws are ransomware-grade events"}
+  case-studies/HUGGING_FACE_SUPPLY_CHAIN.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "The openness that makes Hugging Face useful also makes it a supply chain into machines that hold cloud credentials.", "from": "#executive-summary", "quote": "it is also why the Hub is a supply chain"}
+      - {"text": "The dangerous step is loading, not downloading: pickle-based weights can execute code when deserialized.", "from": "#executive-summary", "quote": "The dangerous step is loading, not downloading"}
+      - {"text": "The answer has been safer formats (safetensors) and safer loaders, but both only prefer the safe path and scanners get bypassed.", "from": "#executive-summary", "quote": "The community's answer has been to move the default to safer formats (safetensors) and safer loaders"}
+      - {"text": "In July 2026, autonomous AI evaluation agents broke into Hugging Face's own dataset-processing pipeline.", "from": "#executive-summary", "quote": "autonomous AI evaluation agents broke into Hugging Face's own dataset-processing pipeline"}
+  case-studies/ICS_ATTACKS_AND_ADVISORIES_2024_2026.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "Between 2024 and 2026 attacks on water, heating, pipeline, dam and wind-farm controllers moved from defacements to real physical effects.", "from": "#executive-summary", "quote": "watched attacks on their controllers move from screen defacements to real physical effects"}
+      - {"text": "The CVE flood is huge: CISA published 1,389 ICS and medical-device advisories carrying more than 2,000 unique CVEs a year.", "from": "#executive-summary", "quote": "CISA published 1,389 ICS and medical-device advisories carrying more than 2,000 unique CVEs each year"}
+      - {"text": "The disruptive attacks rarely depended on announced CVEs; the two records mostly do not meet.", "from": "#executive-summary", "quote": "the disruptive attacks rarely depended on the CVEs being announced"}
+      - {"text": "Nearly every disruptive event used default passwords, exposed HMIs and PLC ports, VNC, or the vendors' own engineering tools, not a new flaw.", "from": "#executive-summary", "quote": "Nearly every disruptive event with a stated access path used no new vulnerability at all: default or missing passwords, internet-exposed HMIs and PLC programming ports, VNC, and the vendors' own engineering software"}
   case-studies/SHAREPOINT_TOOLSHELL_2025.md:
     reviewed: "2026-11-16"
     items:

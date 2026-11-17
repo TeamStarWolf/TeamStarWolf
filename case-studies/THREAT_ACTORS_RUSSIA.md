@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- Governments have named the sponsors: three GRU units, the SVR, two FSB centers and a Defense Ministry research institute. ([Executive summary](#executive-summary))
+- Advisories map the tracked groups to units, such as GRU Unit 26165 to APT28 and GRU Unit 74455 to Sandworm. ([Executive summary](#executive-summary))
+- The way in is ordinary: every one of the 26 CVEs named across five joint advisories and an FBI notice is in CISA's KEV catalog. ([Executive summary](#executive-summary))
+- The court record is deep: US grand juries indicted GRU officers in 2018, 2020, 2022, 2023 and 2024. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Severity cannot be measured only by the number of payment cards or identity documents involved; context makes ordinary identifiers consequential. ([Executive assessment](#executive-assessment))
+- An email address tied to a sensitive service can cause reputational harm even when the association is false. ([Executive assessment](#executive-assessment))
+- Product promises carry security weight: a deletion option creates an expectation about what remains after the user leaves. ([Executive assessment](#executive-assessment))
+- The study relies on the joint Canadian and Australian privacy investigation and US FTC and state materials. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

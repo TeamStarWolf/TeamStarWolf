@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- A customer can see the right brand and get a legitimate confirmation while a compromised component handles information in an unauthorized way. ([Executive assessment](#executive-assessment))
+- Successful business functionality is not enough to establish the security of a transaction. ([Executive assessment](#executive-assessment))
+- Runtime observation of what customers actually receive is a distinct control from deployment and scanning. ([Executive assessment](#executive-assessment))
+- A review should not assume that passing a vulnerability scan proves payment-page integrity. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Research position

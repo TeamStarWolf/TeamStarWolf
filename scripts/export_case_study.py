@@ -223,6 +223,9 @@ EXPORT_NAMES = {
     "DIRTY_COW_2016": "Dirty_COW_2016",
     "IMAGETRAGICK_2016": "ImageTragick_2016",
     "DRUPALGEDDON2_2018": "Drupalgeddon2_2018",
+    "PROLOCK_2020": "ProLock_2020",
+    "QAKBOT_2020_2021": "QakBot_2020_2021",
+    "UCSF_NETWALKER_2020": "UCSF_NetWalker_2020",
 }
 
 

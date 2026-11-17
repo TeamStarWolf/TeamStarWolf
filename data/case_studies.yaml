@@ -5861,3 +5861,104 @@ studies:
       - {"date": "2017-02", "label": "A guilty plea is entered"}
       - {"date": "2018-12", "label": "A sentence differs from the earlier stated maximum"}
       - {"date": "2019-12-05", "label": "US charges, Treasury sanctions and a reward target the Evil Corp network"}
+  case-studies/XCODEGHOST_2015.md:
+    kind: "campaign"
+    title: "XcodeGhost 2015: A Compromised Build Tool Behind Legitimate Apps"
+    start: "2015-09"
+    end: "2015-11"
+    core_start: "2015"
+    core_end: "2015"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["XcodeGhost", "supply chain", "iOS", "build tool", "App Store"]
+    pdf: "XcodeGhost_2015_Case_Study.pdf"
+    events:
+      - {"date": "2015-09-14", "label": "Early investigation identifies a malicious compiler affecting iOS apps"}
+      - {"date": "2015-09-18", "label": "Palo Alto Networks names XcodeGhost as the scope grows beyond a few apps"}
+      - {"date": "2015-09-22", "label": "Apple publishes guidance on verifying the build environment"}
+      - {"date": "2015-10", "label": "Hong Kong CERT observations show the recovery problem"}
+      - {"date": "2015-11", "label": "Later evidence prevents a premature ending to the account"}
+  case-studies/KERANGER_2016.md:
+    kind: "campaign"
+    title: "KeRanger 2016: A Signed Installer Crossed a Trusted Download Boundary"
+    start: "2016-03"
+    end: "2016-03"
+    core_start: "2016"
+    core_end: "2016"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["KeRanger", "macOS", "ransomware", "software distribution", "code signing"]
+    pdf: "KeRanger_2016_Case_Study.pdf"
+    events:
+      - {"date": "2016-03-04", "label": "Malicious, signed Transmission installers for OS X carry KeRanger ransomware"}
+      - {"date": "2016-03-05", "label": "Transmission and Apple respond; a removal update follows a misleading quiet period"}
+  case-studies/KEYDNAP_2016.md:
+    kind: "campaign"
+    title: "Transmission and Keydnap 2016: The Download Was Only the Beginning"
+    start: "2016-07"
+    end: "2016-08"
+    core_start: "2016"
+    core_end: "2016"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["Keydnap", "macOS", "credential theft", "Transmission", "supply chain"]
+    pdf: "Keydnap_2016_Case_Study.pdf"
+    events:
+      - {"date": "2016-07", "label": "ESET reports Keydnap, a macOS credential-stealer"}
+      - {"date": "2016-08", "label": "Keydnap is distributed through a compromised Transmission build"}
+  case-studies/ESTONIA_DDOS_2007.md:
+    kind: "campaign"
+    title: "Estonia, 2007: DDoS, Public-Service Resilience, and the Limits of a Simple Cyberwar Story"
+    start: "2007-04"
+    end: "2008"
+    core_start: "2007"
+    core_end: "2007"
+    sectors: ["cross-sector"]
+    cves: []
+    actors: []
+    tags: ["Estonia", "DDoS", "resilience", "CCDCOE", "public services"]
+    pdf: "Estonia_DDoS_2007_Case_Study.pdf"
+    events:
+      - {"date": "2007-04-27", "label": "DDoS and defacement attacks on Estonian public-facing services begin amid a monument dispute"}
+      - {"date": "2007-05-18", "label": "The main campaign window ends per early research; NATO notes continued varying activity to 23 May"}
+      - {"date": "2008", "label": "The NATO Cooperative Cyber Defence Centre of Excellence is established in Tallinn"}
+  case-studies/EASYJET_2020.md:
+    kind: "incident"
+    title: "easyJet 2020: Customer Data Exposure and the Long Regulatory Aftermath"
+    start: "2020-05"
+    end: "2025-08"
+    core_start: "2020"
+    core_end: "2020"
+    sectors: ["transport"]
+    cves: []
+    actors: []
+    tags: ["easyJet", "data breach", "airline", "ICO", "regulatory"]
+    pdf: "easyJet_2020_Case_Study.pdf"
+    events:
+      - {"date": "2020-05-19", "label": "easyJet discloses a customer-data breach affecting about 9 million customers"}
+      - {"date": "2023-05", "label": "The ICO investigation is still live"}
+      - {"date": "2023-08", "label": "An ICO letter explains why the investigation was closed"}
+      - {"date": "2023-12-01", "label": "An FOI response describes the closure process"}
+      - {"date": "2025-08-07", "label": "A later FOI response surfaces a date discrepancy in the closure record"}
+  case-studies/RIVER_CITY_MEDIA_2017.md:
+    kind: "incident"
+    title: "River City Media 2017: Exposure Claims, a Mailing Dataset, and Research Litigation"
+    start: "2017-01"
+    end: "2018-09"
+    core_start: "2017"
+    core_end: "2017"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["River City Media", "data exposure", "email marketing", "Chris Vickery", "litigation"]
+    pdf: "River_City_Media_2017_Case_Study.pdf"
+    events:
+      - {"date": "2017-01", "label": "Publicly exposed River City Media files are encountered; Have I Been Pwned records the exposure"}
+      - {"date": "2017-03-06", "label": "Chris Vickery publishes the disclosure describing a large mailing dataset"}
+      - {"date": "2017-03-09", "label": "River City Media issues a rebuttal denying an open server and the alleged techniques"}
+      - {"date": "2017-03-21", "label": "River City Media sues the researchers and reporters in federal court"}
+      - {"date": "2017-08-28", "label": "A jurisdiction order proceeds without resolving the merits"}
+      - {"date": "2018-09-04", "label": "The case is dismissed with prejudice by stipulation; no merits finding or payment disclosed"}

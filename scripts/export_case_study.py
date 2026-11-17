@@ -175,6 +175,9 @@ EXPORT_NAMES = {
     "DNS_OVER_HTTPS_2018": "DNS_over_HTTPS_2018",
     "NOTPETYA_2017": "NotPetya_2017",
     "WANNACRY_2017": "WannaCry_2017",
+    "DIGINOTAR_2011": "DigiNotar_2011",
+    "KRACK_2017": "KRACK_2017",
+    "RSA_SECURID_2011": "RSA_SecurID_2011",
 }
 
 

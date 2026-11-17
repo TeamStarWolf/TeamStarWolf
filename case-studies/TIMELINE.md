@@ -956,6 +956,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2017 <!-- {docsify-ignore} -->
 
+- [KRACK 2017: Wi-Fi Key Reinstallation and the Problem of Security State](/case-studies/KRACK_2017.md). Vulnerability, July to November 2017 (core: October 2017). Sectors: technology. CVEs: CVE-2017-13082. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/KRACK_2017_Case_Study.pdf).
+  - 14 July 2017: Initial vendor notifications
+  - 28 August 2017: Broader CERT/CC notification
+  - 16 October 2017: Public disclosure; CERT/CC VU#228519 covering CVE-2017-13082
+  - 17 October 2017: CERT-EU advisory 2017-021
+  - 27 October 2017: Cisco publishes wireless-controller guidance
+  - 6 November 2017: Android's November bulletin places KRACK fixes at that patch level
 - [Bad Rabbit, 2017: One Fake Update, Several Ways to Spread](/case-studies/BAD_RABBIT_2017.md). Campaign, March 2017 to January 2018 (core: October 2017). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Bad_Rabbit_2017_Case_Study.pdf).
   - 14 March 2017: Microsoft publishes MS17-010, the SMB update that predates the outbreak
   - 24 October 2017: Bad Rabbit outbreak and the initial Kaspersky, Talos and ESET technical reports
@@ -1009,6 +1016,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2016 <!-- {docsify-ignore} -->
 
+- [Mirai and Dyn, 2016: When Unmanaged Devices Became an Internet Availability Problem](/case-studies/MIRAI_DYN_2016.md). Campaign, August 2016 to December 2020 (core: September to October 2016). Sectors: technology, cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Mirai_Dyn_2016_Case_Study.pdf).
+  - August 2016: Observation window of the published Mirai retrospective begins
+  - 20 September 2016: Record DDoS against KrebsOnSecurity
+  - 21 October 2016: A Mirai-variant attack disrupts Dyn and dependent services
+  - 17 October 2017: FBI consumer guidance on insecure IoT recruitment
+  - 18 September 2018: DOJ announces the original-botnet sentencing (Jha, White, Norman)
+  - 9 December 2020: DOJ announces the Dyn-related guilty plea
 - [The Shadow Brokers and Vault 7: The NSA and CIA Tool Leaks, 2016 to 2017](/case-studies/NSA_CIA_TOOL_LEAKS.md). Incident, August 2016 to November 2017. Sectors: government, healthcare, technology, cross-sector. CVEs: CVE-2016-6366, CVE-2016-6367, CVE-2016-6909, CVE-2017-0005, CVE-2017-0143, CVE-2017-0144 and 10 more. ATT&CK groups: G0020 Equation, G0032 Lazarus Group, G0034 Sandworm Team, G0022 APT3, G0128 ZIRCONIUM, G1003 Ember Bear and 3 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/NSA_CIA_Tool_Leaks_2016_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/NSA_CIA_Tool_Leaks_2016_2017_Case_Study.pptx).
   - 20 April 2016: A CIA developer restores revoked privileges, copies the CCI tool-development archives and deletes hundreds of log files
   - 13 August 2016: The Shadow Brokers leak begins: a bitcoin auction of "Equation Group" files and a free sample archive
@@ -1082,6 +1096,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 4 February 2015: Forecast Pictures results, as the close could not be completed
   - 6 September 2018: The US makes public a complaint against Park Jin Hyok
   - 17 February 2021: DOJ announces an expanded indictment naming three North Korean hackers
+- [Shellshock 2014: When Process Metadata Became Executable Input](/case-studies/SHELLSHOCK_2014.md). Vulnerability, September 2014. Sectors: technology, cross-sector. CVEs: CVE-2014-6271, CVE-2014-6277, CVE-2014-6278, CVE-2014-7169, CVE-2014-7186, CVE-2014-7187. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Shellshock_2014_Case_Study.pdf).
+  - 24 September 2014: Public disclosure (Weimer, oss-security), CVE-2014-6271; Twilio reports same-day upgrades
+  - 25 September 2014: CERT/CC note; Ubuntu USN-2363-1 for the incomplete-fix CVE-2014-7169
+  - 26 September 2014: Ubuntu USN-2363-2 build correction; FFIEC advisory; Red Hat FAQ on CVE-2014-7186 and CVE-2014-7187
+  - 29 September 2014: Cloudflare enables Shellshock protection for all customers
+  - 30 September 2014: Cloudflare and Cisco Talos publish attempt telemetry; Red Hat notes CVE-2014-6277 and CVE-2014-6278 mitigated
 - [Heartbleed 2014: When Repairing the Library Was Only the Beginning](/case-studies/HEARTBLEED_2014.md). Vulnerability, April to May 2014. Sectors: cross-sector, technology. CVEs: CVE-2014-0160, CVE-2014-0346. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Heartbleed_2014_Case_Study.pdf).
   - 1 April 2014: Google's details and a patch reach OpenSSL participants (Cox's timeline)
   - 7 April 2014: OpenSSL publishes its advisory and the 1.0.1g fix for CVE-2014-0160
@@ -1191,6 +1211,27 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2011 <!-- {docsify-ignore} -->
 
+- [DigiNotar 2011: When a Compromised Issuer Became a Trust-Infrastructure Crisis](/case-studies/DIGINOTAR_2011.md). Incident, June 2011 to August 2012 (core: August to September 2011). Sectors: government, technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DigiNotar_2011_Case_Study.pdf).
+  - 17 June 2011: Earliest entry dated by the final forensic reconstruction
+  - 1 July 2011: Intrusion reaches the protected network
+  - 10 July 2011: Earliest surviving evidence of successful rogue issuance
+  - 19 July 2011: Internal detection via certificate reconciliation
+  - 29 August 2011: Google reports attempted interception; Microsoft begins trust-list action
+  - 30 August 2011: Mozilla's first advisory; VASCO's public account
+  - 2 September 2011: Government reverses the planned removal after discovering the BAPI dependency
+  - 3 September 2011: Google rejects all DigiNotar-operated authorities
+  - 6 September 2011: Mozilla adds explicit distrust; Microsoft releases its first expanded package
+  - 19 September 2011: Bankruptcy petition, followed by a court declaration on 20 September
+  - 28 June 2012: The Dutch Safety Board publishes its report
+  - 13 August 2012: The final Fox-IT report is dated
+- [RSA SecurID, 2011: When the Authentication Supplier Becomes Part of the Incident](/case-studies/RSA_SECURID_2011.md). Incident, March to December 2011 (core: March 2011). Sectors: technology, defense. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/RSA_SecurID_2011_Case_Study.pdf).
+  - 17 March 2011: RSA discloses an attack and extraction of SecurID-related information
+  - 21 May 2011: Lockheed Martin detects a significant attack
+  - 28 May 2011: Lockheed Martin says customer, program and employee data were not compromised
+  - 7 June 2011: EMC responds to SEC staff on the first-quarter disclosure
+  - 30 June 2011: EMC's 10-Q reports a $66.3 million charge and an $81.3 million reserve
+  - 4 October 2011: RSA's executive testifies, citing one indicated downstream use
+  - 31 December 2011: The annual-report note reports a $46.6 million remaining reserve
 - [Iran-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_IRAN.md). Threat actor, 2011 to October 2026. Sectors: government, finance, energy, healthcare, education, defense, telecommunications, technology. CVEs: CVE-2017-11882, CVE-2018-13379, CVE-2019-0604, CVE-2019-5591, CVE-2019-11510, CVE-2019-11539 and 19 more. ATT&CK groups: G0003 Cleaver, G0043 Group5, G0049 OilRig, G0052 CopyKittens, G0059 Magic Hound, G0064 APT33 and 13 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_Iran_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_Iran_Case_Study.pptx).
   - 2011: Coordinated DDoS attacks on the US financial sector begin (2011 to 2013), later charged against ITSecTeam and Mersad staff
   - 2012: Shamoon wiper first used, by a group calling itself Cutting Sword of Justice
@@ -1246,6 +1287,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2010 <!-- {docsify-ignore} -->
 
+- [Operation Aurora, 2009-2010: A Browser Exploit, an Enterprise Breach, and a Public Policy Turning Point](/case-studies/OPERATION_AURORA_2010.md). Campaign, December 2009 to March 2010 (core: January 2010). Sectors: technology. CVEs: CVE-2010-0249. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Operation_Aurora_2010_Case_Study.pdf).
+  - December 2009: Detection period in Google's later statement
+  - 12 January 2010: Google publicly discloses its findings
+  - 14 January 2010: McAfee technical account; Microsoft advisory first published
+  - 20 January 2010: Microsoft advance notice; observed exploitation on Internet Explorer 6
+  - 21 January 2010: MS10-002 published, addressing CVE-2010-0249
+  - 22 March 2010: Google announces a changed China search arrangement
 - [The Year 2010 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2010.md). Period record, January to December 2010. Sectors: cross-sector, technology, energy, manufacturing, government, defense, finance, retail, telecommunications, media. CVEs: CVE-2010-0188, CVE-2010-0232, CVE-2010-0249, CVE-2010-0738, CVE-2010-0806, CVE-2010-0840 and 24 more. ATT&CK groups: G0066 Elderwood, G0001 Axiom. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2010_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2010_Case_Study.pptx).
   - 12 January 2010: Google discloses a targeted attack originating from China, detected in mid-December 2009; Gmail turns on HTTPS by default
   - 21 January 2010: MS10-002 fixes the Internet Explorer flaw exploited during Operation Aurora (CVE-2010-0249)

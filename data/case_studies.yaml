@@ -2126,6 +2126,31 @@ studies:
       - {"date": "2026-07-17", "label": "Individual notification by mail begins"}
       - {"date": "2026-07-23", "label": "23 to 27 July: trade press reports a 23 million estimate, a dedupe of name and birth-date pairs (Reported)"}
       - {"date": "2026-11-11", "label": "HHS export: 15,000,000 is the largest 2026 entry, ahead of Aesto and iRhythm Technologies"}
+  case-studies/DIGINOTAR_2011.md:
+    kind: "incident"
+    title: "DigiNotar 2011: When a Compromised Issuer Became a Trust-Infrastructure Crisis"
+    start: "2011-06"
+    end: "2012-08"
+    core_start: "2011-08"
+    core_end: "2011-09"
+    sectors: ["government", "technology"]
+    cves: []
+    actors: []
+    tags: ["certificate authority", "PKI", "rogue certificates", "trust withdrawal", "continuity"]
+    pdf: "DigiNotar_2011_Case_Study.pdf"
+    events:
+      - {"date": "2011-06-17", "label": "Earliest entry dated by the final forensic reconstruction"}
+      - {"date": "2011-07-01", "label": "Intrusion reaches the protected network"}
+      - {"date": "2011-07-10", "label": "Earliest surviving evidence of successful rogue issuance"}
+      - {"date": "2011-07-19", "label": "Internal detection via certificate reconciliation"}
+      - {"date": "2011-08-29", "label": "Google reports attempted interception; Microsoft begins trust-list action"}
+      - {"date": "2011-08-30", "label": "Mozilla's first advisory; VASCO's public account"}
+      - {"date": "2011-09-02", "label": "Government reverses the planned removal after discovering the BAPI dependency"}
+      - {"date": "2011-09-03", "label": "Google rejects all DigiNotar-operated authorities"}
+      - {"date": "2011-09-06", "label": "Mozilla adds explicit distrust; Microsoft releases its first expanded package"}
+      - {"date": "2011-09-19", "label": "Bankruptcy petition, followed by a court declaration on 20 September"}
+      - {"date": "2012-06-28", "label": "The Dutch Safety Board publishes its report"}
+      - {"date": "2012-08-13", "label": "The final Fox-IT report is dated"}
   case-studies/DIRTY_PIPE_2022.md:
     kind: "vulnerability"
     title: "Dirty Pipe: When Read-Only Data Lost Its Integrity"
@@ -2832,6 +2857,25 @@ studies:
       - {"date": "2026-04-08", "label": "KEV adds CVE-2026-1340, due 11 Apr; Canada relays that Ivanti says both were exploited"}
       - {"date": "2026-05-20", "label": "Justice and Security annual report records that the prison service DJI was hit via the Ivanti hack"}
       - {"date": "2026-06-25", "label": "Dutch parliamentary Digital Affairs committee debates the two government letters"}
+  case-studies/KRACK_2017.md:
+    kind: "vulnerability"
+    title: "KRACK 2017: Wi-Fi Key Reinstallation and the Problem of Security State"
+    start: "2017-07"
+    end: "2017-11"
+    core_start: "2017-10"
+    core_end: "2017-10"
+    sectors: ["technology"]
+    cves: ["CVE-2017-13082"]
+    actors: []
+    tags: ["Wi-Fi", "WPA2", "key reinstallation", "coordinated disclosure", "endpoint patching"]
+    pdf: "KRACK_2017_Case_Study.pdf"
+    events:
+      - {"date": "2017-07-14", "label": "Initial vendor notifications"}
+      - {"date": "2017-08-28", "label": "Broader CERT/CC notification"}
+      - {"date": "2017-10-16", "label": "Public disclosure; CERT/CC VU#228519 covering CVE-2017-13082"}
+      - {"date": "2017-10-17", "label": "CERT-EU advisory 2017-021"}
+      - {"date": "2017-10-27", "label": "Cisco publishes wireless-controller guidance"}
+      - {"date": "2017-11-06", "label": "Android's November bulletin places KRACK fixes at that patch level"}
   case-studies/LINUX_TCP_UAF_2026.md:
     kind: "vulnerability"
     title: "The CVE-2026-98432 Linux Kernel Flaw and an AI-Written Exploit: A 2026 Case Study"
@@ -2989,6 +3033,25 @@ studies:
       - {"date": "2026-02-10", "label": "KEV adds CVE-2026-21514, a Word flaw with the same CWE-807"}
       - {"date": "2026-02-16", "label": "KEV due date for federal agencies"}
       - {"date": "2026-03-10", "label": "ESET ties the January campaigns to Sednit's Covenant (Reported)"}
+  case-studies/MIRAI_DYN_2016.md:
+    kind: "campaign"
+    title: "Mirai and Dyn, 2016: When Unmanaged Devices Became an Internet Availability Problem"
+    start: "2016-08"
+    end: "2020-12"
+    core_start: "2016-09"
+    core_end: "2016-10"
+    sectors: ["technology", "cross-sector"]
+    cves: []
+    actors: []
+    tags: ["IoT", "botnet", "DDoS", "DNS", "availability"]
+    pdf: "Mirai_Dyn_2016_Case_Study.pdf"
+    events:
+      - {"date": "2016-08", "label": "Observation window of the published Mirai retrospective begins"}
+      - {"date": "2016-09-20", "label": "Record DDoS against KrebsOnSecurity"}
+      - {"date": "2016-10-21", "label": "A Mirai-variant attack disrupts Dyn and dependent services"}
+      - {"date": "2017-10-17", "label": "FBI consumer guidance on insecure IoT recruitment"}
+      - {"date": "2018-09-18", "label": "DOJ announces the original-botnet sentencing (Jha, White, Norman)"}
+      - {"date": "2020-12-09", "label": "DOJ announces the Dyn-related guilty plea"}
   case-studies/MITNICK_INTRUSIONS.md:
     kind: "actor"
     title: "Kevin Mitnick: Ghost in the Wires and The Art of Intrusion"
@@ -3214,6 +3277,25 @@ studies:
       - {"date": "2018-02-12", "label": "Cisco Talos publishes its analysis; conclusions change over 12 to 13 February"}
       - {"date": "2018-03", "label": "Kaspersky's Rich-header research concludes the Lazarus resemblance was a false flag"}
       - {"date": "2020-10-19", "label": "US charges six alleged GRU officers"}
+  case-studies/OPERATION_AURORA_2010.md:
+    kind: "campaign"
+    title: "Operation Aurora, 2009-2010: A Browser Exploit, an Enterprise Breach, and a Public Policy Turning Point"
+    start: "2009-12"
+    end: "2010-03"
+    core_start: "2010-01"
+    core_end: "2010-01"
+    sectors: ["technology"]
+    cves: ["CVE-2010-0249"]
+    actors: []
+    tags: ["espionage", "browser exploit", "Internet Explorer", "intellectual property", "attribution"]
+    pdf: "Operation_Aurora_2010_Case_Study.pdf"
+    events:
+      - {"date": "2009-12", "label": "Detection period in Google's later statement"}
+      - {"date": "2010-01-12", "label": "Google publicly discloses its findings"}
+      - {"date": "2010-01-14", "label": "McAfee technical account; Microsoft advisory first published"}
+      - {"date": "2010-01-20", "label": "Microsoft advance notice; observed exploitation on Internet Explorer 6"}
+      - {"date": "2010-01-21", "label": "MS10-002 published, addressing CVE-2010-0249"}
+      - {"date": "2010-03-22", "label": "Google announces a changed China search arrangement"}
   case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026.md:
     kind: "campaign"
     title: "Oracle PeopleSoft CVE-2026-35273 and the ShinyHunters Mass Exploitation of 2026: A Case Study"
@@ -3401,6 +3483,26 @@ studies:
       - {"date": "2025-08", "label": "Jaguar Land Rover incident, rated Category 3 at an estimated 1.9 billion pounds"}
       - {"date": "2026-07-16", "label": "Thalha Jubair and Owen Flowers, called leading Scattered Spider members by the NCA, each sentenced to five years six months"}
       - {"date": "2026-11-10", "label": "KEV catalog version 2026.11.10: 361 of 1,779 entries flagged for known ransomware use"}
+  case-studies/RSA_SECURID_2011.md:
+    kind: "incident"
+    title: "RSA SecurID, 2011: When the Authentication Supplier Becomes Part of the Incident"
+    start: "2011-03"
+    end: "2011-12"
+    core_start: "2011-03"
+    core_end: "2011-03"
+    sectors: ["technology", "defense"]
+    cves: []
+    actors: []
+    tags: ["supplier compromise", "authentication", "SecurID", "token replacement", "APT"]
+    pdf: "RSA_SecurID_2011_Case_Study.pdf"
+    events:
+      - {"date": "2011-03-17", "label": "RSA discloses an attack and extraction of SecurID-related information"}
+      - {"date": "2011-05-21", "label": "Lockheed Martin detects a significant attack"}
+      - {"date": "2011-05-28", "label": "Lockheed Martin says customer, program and employee data were not compromised"}
+      - {"date": "2011-06-07", "label": "EMC responds to SEC staff on the first-quarter disclosure"}
+      - {"date": "2011-06-30", "label": "EMC's 10-Q reports a $66.3 million charge and an $81.3 million reserve"}
+      - {"date": "2011-10-04", "label": "RSA's executive testifies, citing one indicated downstream use"}
+      - {"date": "2011-12-31", "label": "The annual-report note reports a $46.6 million remaining reserve"}
   case-studies/RYUK_HEALTHCARE_2020.md:
     kind: "campaign"
     title: "Ryuk and Healthcare in 2020: The Sector Warning and the Continuity Problem"
@@ -3501,6 +3603,22 @@ studies:
       - {"date": "2025-07-19", "label": "Microsoft ships out-of-band updates, 19 to 20 July"}
       - {"date": "2025-07-20", "label": "CISA adds CVE-2025-53770 to the KEV catalog"}
       - {"date": "2025-09", "label": "Warlock's leak site lists roughly 60 victims"}
+  case-studies/SHELLSHOCK_2014.md:
+    kind: "vulnerability"
+    title: "Shellshock 2014: When Process Metadata Became Executable Input"
+    start: "2014-09"
+    end: "2014-09"
+    sectors: ["technology", "cross-sector"]
+    cves: ["CVE-2014-6271", "CVE-2014-6277", "CVE-2014-6278", "CVE-2014-7169", "CVE-2014-7186", "CVE-2014-7187"]
+    actors: []
+    tags: ["Bash", "remote code execution", "CGI", "patch management", "incomplete fix"]
+    pdf: "Shellshock_2014_Case_Study.pdf"
+    events:
+      - {"date": "2014-09-24", "label": "Public disclosure (Weimer, oss-security), CVE-2014-6271; Twilio reports same-day upgrades"}
+      - {"date": "2014-09-25", "label": "CERT/CC note; Ubuntu USN-2363-1 for the incomplete-fix CVE-2014-7169"}
+      - {"date": "2014-09-26", "label": "Ubuntu USN-2363-2 build correction; FFIEC advisory; Red Hat FAQ on CVE-2014-7186 and CVE-2014-7187"}
+      - {"date": "2014-09-29", "label": "Cloudflare enables Shellshock protection for all customers"}
+      - {"date": "2014-09-30", "label": "Cloudflare and Cisco Talos publish attempt telemetry; Red Hat notes CVE-2014-6277 and CVE-2014-6278 mitigated"}
   case-studies/SMARTERTOOLS_SMARTERMAIL_2026.md:
     kind: "vulnerability"
     title: "SmarterTools SmarterMail Exploitation and Ransomware, 2026 (CVE-2026-23760, CVE-2026-24423, CVE-2025-52691): A Case Study"

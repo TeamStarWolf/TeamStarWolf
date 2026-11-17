@@ -3585,6 +3585,48 @@ pages:
     start_at: "[Executive assessment](#executive-assessment), [3. December disclosure and the revised estimate](#_3-december-disclosure-and-the-revised-estimate), [6. Product security and customer security](#_6-product-security-and-customer-security)"
     pairs_with: "[Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
     reviewed: null
+  case-studies/TLS_1_3_2018.md:
+    audience: "Network, platform and application engineers, TLS and load-balancer administrators, and security architects planning protocol upgrades"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of what RFC 8446 changed in 2018, you need to separate channel encryption from identity and application security, or you are weighing TLS 1.3 early data against replay risk"
+    start_at: "[Executive assessment](#executive-assessment), [A channel model that avoids false promises](#a-channel-model-that-avoids-false-promises), [Forward secrecy needs a qualified explanation](#forward-secrecy-needs-a-qualified-explanation)"
+    pairs_with: "[Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md), [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [Network Protocols Reference](/NETWORK_PROTOCOLS_REFERENCE.md), [Post-Quantum Migration Reference](/POST_QUANTUM_MIGRATION_REFERENCE.md)"
+    reviewed: null
+  case-studies/WEBAUTHN_2019.md:
+    audience: "Identity and application engineers, IAM and platform administrators, and security leaders planning phishing-resistant authentication"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the March 2019 WebAuthn Recommendation, you need to separate a stronger sign-in from a secure account, or you are planning passkey or recovery design"
+    start_at: "[Executive assessment](#executive-assessment), [3. Why phishing resistance is a specific property](#_3-why-phishing-resistance-is-a-specific-property), [9. Recovery is another path to account control](#_9-recovery-is-another-path-to-account-control)"
+    pairs_with: "[Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Password Security Reference](/PASSWORD_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md)"
+    reviewed: null
+  case-studies/DNS_OVER_TLS_2016.md:
+    audience: "Network and platform engineers, resolver and endpoint administrators, and privacy engineers"
+    level: "Intermediate"
+    read_when: "You want a focused, evidence-bounded account of RFC 7858 and DoT deployment, you need to separate attempted encryption from authenticated encryption, or you are deciding a resolver and fallback policy"
+    start_at: "[Executive assessment](#executive-assessment), [3. Authentication changed the meaning of success](#_3-authentication-changed-the-meaning-of-success), [10. The 2021 privacy assessment retained resolver trust](#_10-the-2021-privacy-assessment-retained-resolver-trust)"
+    pairs_with: "[Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md), [Privacy Engineering Reference](/PRIVACY_ENGINEERING_REFERENCE.md), [DNS over HTTPS: Encrypting the Lookup Without Eliminating Resolver Trust](/case-studies/DNS_OVER_HTTPS_2018.md), [Network Protocols Reference](/NETWORK_PROTOCOLS_REFERENCE.md)"
+    reviewed: null
+  case-studies/QUIC_2021.md:
+    audience: "Network and platform engineers, transport and CDN operators, and security architects"
+    level: "Intermediate"
+    read_when: "You want a focused, evidence-bounded account of the May 2021 QUIC RFCs, you need to separate a transport standard from an HTTP revision, or you are weighing 0-RTT and network-visibility tradeoffs"
+    start_at: "[Executive assessment](#executive-assessment), [2. Standardization included subtraction](#_2-standardization-included-subtraction), [9. Early data moves responsibility into the application](#_9-early-data-moves-responsibility-into-the-application)"
+    pairs_with: "[Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md), [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [Network Protocols Reference](/NETWORK_PROTOCOLS_REFERENCE.md), [Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md)"
+    reviewed: null
+  case-studies/CERTIFICATE_TRANSPARENCY_2013_2021.md:
+    audience: "PKI and web-platform owners, certificate-monitoring and detection teams, and security architects"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of RFC 6962 and RFC 9162 and the browser policies around them, you need to separate a logged certificate from an authorized one, or you are building certificate monitoring and response"
+    start_at: "[Executive assessment](#executive-assessment), [The original mechanism in bounded terms](#the-original-mechanism-in-bounded-terms), [Log lifecycle and time-dependent trust](#log-lifecycle-and-time-dependent-trust)"
+    pairs_with: "[Certificate Trust Incident Response](/CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md), [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [DigiNotar 2011](/case-studies/DIGINOTAR_2011.md), [Let's Encrypt and ACME: Making Web Encryption an Operable Default](/case-studies/LETS_ENCRYPT_ACME_2014_2021.md)"
+    reviewed: null
+  case-studies/LETS_ENCRYPT_ACME_2014_2021.md:
+    audience: "PKI, platform and web-operations engineers, certificate-automation owners, and security architects"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded history of automated certificate issuance from 2014 to 2021, you need to separate cumulative from active adoption counts, or you are planning ACME automation and trust-chain changes"
+    start_at: "[Executive summary](#executive-summary), [3. What the automation actually automated](#_3-what-the-automation-actually-automated), [8. Reading the advancement and the failures together](#_8-reading-the-advancement-and-the-failures-together)"
+    pairs_with: "[Certificate Trust Incident Response](/CERTIFICATE_TRUST_INCIDENT_RESPONSE_REFERENCE.md), [Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [Network Protocols Security](/NETWORK_PROTOCOLS_SECURITY.md), [Certificate Transparency: Public Evidence, Private Trust and the Limits of a Timestamp](/case-studies/CERTIFICATE_TRANSPARENCY_2013_2021.md)"
+    reviewed: null
   commands/aws-cli.md:
     audience: "Cloud engineers, administrators and security teams who work in AWS from a terminal"
     level: "Beginner to intermediate"

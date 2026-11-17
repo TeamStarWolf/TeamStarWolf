@@ -1153,6 +1153,11 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 November 2018: npm publishes its incident analysis; a Copay-specific wallet-targeting payload
   - 6 December 2018: Snyk publishes its post-mortem
   - 12 December 2018: BitPay confirms malicious code in Copay 5.0.2 to 5.1.0 and describes fixes
+- [Drupalgeddon2: The Difference Between a Patched Website and a Recovered Service](/case-studies/DRUPALGEDDON2_2018.md). Vulnerability, March to April 2018 (core: 2018). Sectors: technology. CVEs: CVE-2018-7600, CVE-2018-7602. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Drupalgeddon2_2018_Case_Study.pdf).
+  - 21 March 2018: Drupal publishes advance notice of a highly critical fix
+  - 28 March 2018: Drupal releases the CVE-2018-7600 correction
+  - 13 April 2018: Automated exploitation of CVE-2018-7600 is widely observed
+  - 25 April 2018: A separate follow-up, CVE-2018-7602, is corrected
 - [The Year 2018 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2018.md). Period record, January to December 2018. Sectors: cross-sector, government, energy, finance, technology, education, healthcare, transport, retail. CVEs: CVE-2017-5715, CVE-2017-5753, CVE-2017-5754, CVE-2018-0101, CVE-2018-0171, CVE-2018-0296 and 26 more. ATT&CK groups: G0007 APT28, G0008 Carbanak, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly, G0045 menuPass and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2018_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2018_Case_Study.pptx).
   - 3 January 2018: Google Project Zero publishes the speculative-execution flaws CVE-2017-5753, CVE-2017-5715 and CVE-2017-5754 (Spectre and Meltdown)
   - 9 February 2018: Olympic Destroyer disrupts PyeongChang Winter Olympics systems during the opening ceremony; recovery within about 12 hours
@@ -1303,6 +1308,9 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 21 September 2017: Avast corrects its earlier statement; second-stage delivery to 20 machines in eight organizations
   - 25 September 2017: Expanded records show 40 computers received a second-stage payload, with a 40-hour evidence gap
   - April 2018: Avast publishes its supplier-side access findings (initial access 11 March 2017)
+- [Broadpwn: The Wi-Fi Chip as a Security Boundary](/case-studies/BROADPWN_2017.md). Vulnerability, July 2017 to 2017 (core: 2017). Sectors: technology. CVEs: CVE-2017-9417. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Broadpwn_2017_Case_Study.pdf).
+  - 5 July 2017: The July Android security bulletin addresses CVE-2017-9417
+  - 27 July 2017: Nitay Artenstein presents Broadpwn at Black Hat USA
 - [BlueBorne: Bluetooth Exposure Beyond the Pairing Prompt](/case-studies/BLUEBORNE_2017.md). Vulnerability, 2017. Sectors: technology. CVEs: CVE-2017-0781, CVE-2017-8628, CVE-2017-14315, CVE-2017-1000250, CVE-2017-1000251. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/BlueBorne_2017_Case_Study.pdf).
   - 12 September 2017: Public disclosure of BlueBorne (Armis); CERT/CC note VU#240311; Android bulletin and Ubuntu BlueZ (USN-3413-1) updates
   - 18 September 2017: Ubuntu ships the kernel fix (USN-3420-1) for CVE-2017-1000251
@@ -1341,6 +1349,10 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 November 2017: WikiLeaks begins Vault 8 with source code for the CIA Hive tool
   - 13 July 2022: Joshua Schulte convicted on eight counts at retrial over the Vault 7 theft
   - 1 February 2024: Schulte sentenced to 40 years
+- [QuadRooter: Mobile Driver Trust, Scanner Evidence and the Last Mile of Patching](/case-studies/QUADROOTER_2016.md). Vulnerability, July to September 2016 (core: 2016). Sectors: technology. CVEs: CVE-2016-2503, CVE-2016-2504, CVE-2016-2059, CVE-2016-5340. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/QuadRooter_2016_Case_Study.pdf).
+  - July 2016: The first supplier patch level addresses part of the QuadRooter set
+  - August 2016: Check Point publicly discloses QuadRooter; a further patch level follows
+  - September 2016: September Android bulletins provide three patch levels completing the set
 - [MySpace 2016 Disclosure: Old Credentials, New Exposure, and a Disputed Breach Date](/case-studies/MYSPACE_2016.md). Incident, 2016 to 2021. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/MySpace_2016_Case_Study.pdf).
   - 31 May 2016: Time Inc. announces that stolen legacy login data is circulating; user notices are sent
   - 1 June 2016: Troy Hunt's independent analysis estimates the data as roughly 2008-2009, with explicit uncertainty
@@ -1351,6 +1363,9 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 16 February 2016: Locky distribution is first widely reported via malicious document attachments
   - 31 March 2016: Reporting describes a shift to script attachments and intermediate downloaders (RockLoader)
   - 1 April 2016: Exploit-kit delivery is documented as an additional route; a Canadian government alert follows
+- [ImageTragick: When an Image Upload Crossed Into Command Execution](/case-studies/IMAGETRAGICK_2016.md). Vulnerability, May 2016 to 2016 (core: 2016). Sectors: technology. CVEs: CVE-2016-3714. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ImageTragick_2016_Case_Study.pdf).
+  - 3 May 2016: ImageTragick (CVE-2016-3714 and related issues) is publicly disclosed with mitigations
+  - May 2016: ImageMagick updates and distribution packages follow
 - [DROWN: How an Obsolete Protocol Extended the Reach of a Shared Private Key](/case-studies/DROWN_2016.md). Vulnerability, 2016. Sectors: technology. CVEs: CVE-2015-3197, CVE-2016-0800. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DROWN_2016_Case_Study.pdf).
   - March 2011: RFC 6176 prohibits negotiating SSL 2.0
   - 1 March 2016: Public disclosure of DROWN (CVE-2016-0800); OpenSSL ships 1.0.2g/1.0.1s disabling SSLv2 by default; CERT/CC note VU#583776
@@ -1363,6 +1378,10 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - January 2019: Google announces a public DNS over TLS service for its resolver
   - October 2020: RFC 8932 gives operational and privacy guidance for DoT and DoH resolvers
   - July 2021: RFC 9076 updates DNS privacy considerations and retains resolver trust
+- [Dirty COW: A Kernel Race, a Broken Permission Boundary and the Work of Proving a Fix](/case-studies/DIRTY_COW_2016.md). Vulnerability, October to November 2016 (core: 2016). Sectors: technology. CVEs: CVE-2016-5195. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Dirty_COW_2016_Case_Study.pdf).
+  - 19 October 2016: Dirty COW (CVE-2016-5195) is disclosed with evidence of in-the-wild use; Red Hat and others issue fixes
+  - 20 October 2016: Distribution patches ship (Debian DSA-3696, Ubuntu USN-3104)
+  - November 2016: Android's supplemental patch level addresses the kernel race
 - [Cloud Hopper / APT10, 2016-2018: When Provider Access Became Customer Exposure](/case-studies/CLOUD_HOPPER_APT10.md). Campaign, 2016 to 2018. Sectors: cross-sector. ATT&CK groups: G0045 menuPass. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cloud_Hopper_APT10_Case_Study.pdf).
   - 2014: The MSP-focused campaign begins (at least around 2014, per the indictment)
   - 2016: Research describes increased scale and MSP-focused activity (Cloud Hopper active since at least 2016 per the NCSC)
@@ -1408,6 +1427,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 2 February 2016: A trading update estimates a 15 million pound trading impact and about 95,000 attack-attributed customer losses
   - 5 October 2016: The ICO announces a 400,000 pound penalty under the Data Protection Act
   - 1 November 2016: The matter settles; a 320,000 pound early-payment amount is reported
+- [Stagefright: Media Parsing, Patch Completeness and Android's Trust Boundaries](/case-studies/STAGEFRIGHT_2015.md). Vulnerability, July 2015 to 2016 (core: 2015 to 2016). Sectors: technology. CVEs: CVE-2015-1538, CVE-2015-3864. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Stagefright_2015_Case_Study.pdf).
+  - 27 July 2015: Zimperium discloses the Stagefright media-parsing vulnerabilities in Android
+  - August 2015: Android ships initial corrections; CVE-2015-3864 shows the first patch was incomplete
+  - September 2015: A follow-up correction addresses the incomplete fix
+  - October 2015: Stagefright 2.0, with further media CVEs, is disclosed
+  - 2016: Android media-stack hardening follows as an architectural response
 - [Logjam: Export Cryptography, Shared Primes and Imperfect Forward Secrecy](/case-studies/LOGJAM_2015.md). Vulnerability, 2015 to 2017 (core: 2015). Sectors: technology. CVEs: CVE-2015-4000. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Logjam_2015_Case_Study.pdf).
   - 20 May 2015: Public disclosure of Logjam; OpenSSL announces its response plan
   - 11 June 2015: OpenSSL ships a client floor rejecting Diffie-Hellman groups below 768 bits (CVE-2015-4000)

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- A production line can remain mechanically capable while its surrounding information system prevents dependable work. ([Executive summary](#executive-summary))
+- An organization may preserve output through manual procedures while carrying a burden that normal production figures do not show. ([Executive summary](#executive-summary))
+- The record contains a responder account of an intrusion that preceded the visible ransomware event. ([Executive summary](#executive-summary))
+- The study models recovery as separate acceptance gates: safe operation, trusted administration, usable production information, delivery and reconciliation. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

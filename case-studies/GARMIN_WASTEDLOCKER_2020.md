@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- A connected product has more than one definition of working: local functions can continue while sync, accounts and support are down. ([Executive summary](#executive-summary))
+- Garmin publicly confirmed encryption of systems and disruption of online services in July 2020. ([Executive summary](#executive-summary))
+- A general WastedLocker campaign description is not a substitute for a victim-specific forensic report. ([Executive summary](#executive-summary))
+- A service is ready only when identities, data, queued work and monitoring support a customer operation without duplicating, losing or corrupting work. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

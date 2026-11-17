@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The Travelex ransomware incident began at the end of 2019 and became a major operational crisis in early 2020. ([Executive assessment](#executive-assessment))
+- A less obvious consequence: difficulty obtaining evidence needed for financial reporting after operations had moved forward. ([Executive assessment](#executive-assessment))
+- The study does not assert a proven initial-access vulnerability, a verified ransom payment or a complete inventory of stolen data. ([Executive assessment](#executive-assessment))
+- Numbers measure different things: a forecast is not a final loss calculation. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

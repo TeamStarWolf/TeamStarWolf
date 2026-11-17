@@ -4579,3 +4579,113 @@ studies:
       - {"date": "2017-06-27", "label": "NotPetya arrives through the M.E.Doc updater"}
       - {"date": "2021-09-13", "label": "Citizen Lab reports FORCEDENTRY; Apple ships iOS 14.8"}
       - {"date": "2021-11-04", "label": "NSO Group, Candiru, Positive Technologies and a Singapore firm added to the Entity List"}
+  case-studies/YAHOO_2014_2016.md:
+    kind: "incident"
+    title: "Yahoo, 2014-2016: Account Trust, Targeted Access and the Disclosure Gap"
+    start: "2014"
+    end: "2018"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["account breach", "session trust", "disclosure", "acquisition diligence", "identity data"]
+    pdf: "Yahoo_2014_2016_Case_Study.pdf"
+    events:
+      - {"date": "2014", "label": "The 2014 intrusion occurs (disclosed in 2016)"}
+      - {"date": "2016-09-22", "label": "Yahoo discloses the 2014 incident; about 500 million accounts"}
+      - {"date": "2017-03-15", "label": "The Justice Department charges four defendants, including two FSB officers"}
+      - {"date": "2017-11", "label": "Karim Baratov pleads guilty"}
+      - {"date": "2018-04-24", "label": "The SEC announces a $35 million settlement with Altaba (formerly Yahoo)"}
+      - {"date": "2018-05-29", "label": "Baratov is sentenced to five years"}
+  case-studies/JPMORGAN_2014.md:
+    kind: "incident"
+    title: "JPMorgan Chase 2014: Contact-Data Theft and the Wider Fraud Economy"
+    start: "2014"
+    end: "2021"
+    sectors: ["finance"]
+    cves: []
+    actors: []
+    tags: ["financial breach", "contact data", "fraud", "bulk access", "securities fraud"]
+    pdf: "JPMorgan_Chase_2014_Case_Study.pdf"
+    events:
+      - {"date": "2014-06", "label": "Alleged intrusion window begins at Victim-1 (June to August 2014, per the 2015 indictment)"}
+      - {"date": "2014-09-10", "label": "JPMorgan Chase makes its first disclosure (per the 10-Q)"}
+      - {"date": "2014-10-02", "label": "An 8-K reports about 76 million households and 7 million small businesses affected, with no evidence account credentials were taken"}
+      - {"date": "2015-11", "label": "A superseding indictment alleges a multi-victim intrusion campaign"}
+      - {"date": "2019-09-23", "label": "Andrei Tyurin pleads guilty"}
+      - {"date": "2021-01-07", "label": "Tyurin is sentenced to 144 months; JPMorgan Chase is named; a $19,214,956 forfeiture is ordered"}
+  case-studies/HOME_DEPOT_2014.md:
+    kind: "incident"
+    title: "Home Depot 2014: Payment Data, Vendor Access and the Cost of Unverified Boundaries"
+    start: "2014"
+    end: "2020"
+    sectors: ["retail"]
+    cves: []
+    actors: []
+    tags: ["payment cards", "point of sale", "vendor access", "PCI DSS", "EMV", "retail breach"]
+    pdf: "Home_Depot_2014_Case_Study.pdf"
+    events:
+      - {"date": "2014-04-10", "label": "Start of the exposure window later identified by the New York attorney general (10 April to 13 September 2014)"}
+      - {"date": "2014-09-02", "label": "Investigation begins after information from banking partners and law enforcement"}
+      - {"date": "2014-09-08", "label": "Home Depot confirms the payment-system breach"}
+      - {"date": "2014-09-18", "label": "Malware eliminated; about 56 million cards at risk; US encryption rollout completed 13 September"}
+      - {"date": "2014-11-06", "label": "Company findings: a third-party vendor's credentials used to enter; a separate 53 million email-address files"}
+      - {"date": "2020-11-24", "label": "A $17.5 million multistate settlement (46 states and DC) is announced"}
+      - {"date": "2020-12-21", "label": "The New Jersey assurance of voluntary compliance takes effect"}
+  case-studies/ASHLEY_MADISON_2015.md:
+    kind: "incident"
+    title: "Ashley Madison 2015: Sensitive Context, False Associations and the Meaning of Deletion"
+    start: "2015"
+    end: "2016"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["data breach", "privacy", "sensitive data", "data retention", "deletion", "Impact Team"]
+    pdf: "Ashley_Madison_2015_Case_Study.pdf"
+    events:
+      - {"date": "2014", "label": "Alleged unauthorized network access begins (late 2014 into early 2015, per the FTC complaint)"}
+      - {"date": "2015-07-12", "label": "The company becomes aware; employees detect a large data transfer"}
+      - {"date": "2015-07-15", "label": "The Impact Team publicly threatens the company"}
+      - {"date": "2015-08-18", "label": "Major publication of the stolen data begins (18 and 20 August)"}
+      - {"date": "2016-08-22", "label": "OPC and OAIC publish the joint investigation (PIPEDA 2016-005); about 36 million accounts"}
+      - {"date": "2016-12-14", "label": "The FTC complaint is filed and a federal and state settlement is announced"}
+  case-studies/CAMBRIDGE_ANALYTICA_2018.md:
+    kind: "incident"
+    title: "Cambridge Analytica and Facebook: Consent, Data Provenance and Platform Accountability"
+    start: "2014"
+    end: "2020"
+    core_start: "2018"
+    core_end: "2018"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["data privacy", "consent", "Facebook", "data lineage", "FTC", "platform governance"]
+    pdf: "Cambridge_Analytica_2018_Case_Study.pdf"
+    events:
+      - {"date": "2014", "label": "Graph API collection arrangements for app users' and friends' data (2014 to 2015, per the FTC complaint)"}
+      - {"date": "2015", "label": "Facebook learns Kogan passed data to third parties; it removes the app and requests deletion certifications"}
+      - {"date": "2018-03", "label": "Facebook publicly suspends Cambridge Analytica"}
+      - {"date": "2018-04", "label": "Facebook estimates up to 87 million people may have had data improperly shared"}
+      - {"date": "2018-10", "label": "The ICO issues a 500,000 pound monetary penalty under the Data Protection Act 1998"}
+      - {"date": "2019-07-24", "label": "The FTC announces a $5 billion Facebook settlement; the SEC announces a $100 million settlement"}
+      - {"date": "2019-11-25", "label": "The FTC issues its opinion and final order against Cambridge Analytica"}
+      - {"date": "2019-12", "label": "The FTC finalizes settlements with Nix and Kogan"}
+      - {"date": "2020-04-23", "label": "The federal court enters the Facebook settlement order; the FTC modifies its administrative order"}
+  case-studies/CCLEANER_2017.md:
+    kind: "incident"
+    title: "CCleaner 2017: Signed, Distributed and Still Compromised"
+    start: "2017"
+    end: "2018"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["supply chain", "code signing", "build integrity", "software distribution", "Piriform", "Avast"]
+    pdf: "CCleaner_2017_Case_Study.pdf"
+    events:
+      - {"date": "2017-03-11", "label": "Vendor later reports remote access to a developer workstation via TeamViewer"}
+      - {"date": "2017-08-15", "label": "The compromised, validly signed CCleaner 5.33 release is distributed"}
+      - {"date": "2017-09-13", "label": "Talos detects the malicious signed binary (separately reported by Morphisec)"}
+      - {"date": "2017-09-19", "label": "Avast publishes an early assessment; about 2.27 million affected users"}
+      - {"date": "2017-09-20", "label": "Talos reports targeted second-stage delivery from partial server records"}
+      - {"date": "2017-09-21", "label": "Avast corrects its earlier statement; second-stage delivery to 20 machines in eight organizations"}
+      - {"date": "2017-09-25", "label": "Expanded records show 40 computers received a second-stage payload, with a 40-hour evidence gap"}
+      - {"date": "2018-04", "label": "Avast publishes its supplier-side access findings (initial access 11 March 2017)"}

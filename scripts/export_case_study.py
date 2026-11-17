@@ -112,6 +112,8 @@ EM_DASH = "\u2014"
 # Study file stem -> export name stem. The first eight are the names on main before the
 # exporter existed; keep them.
 EXPORT_NAMES = {
+    "JPMORGAN_2014": "JPMorgan_Chase_2014",
+    "CCLEANER_2017": "CCleaner_2017",
     "AI_THREATS_2026": "AI_Threats_2026",
     "PHP2SHELL_OCTOBER_2026": "PHP2Shell_October_2026",
     "XZ_UTILS_BACKDOOR_2024": "XZ_Utils_Backdoor_2024",

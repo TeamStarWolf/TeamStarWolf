@@ -969,6 +969,16 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 28 November 2018: DOJ unseals the SamSam indictment; OFAC designates two Iran-based exchangers and publishes bitcoin addresses for the first time
   - 30 November 2018: Marriott discloses access to the Starwood network since 2014: up to about 500 million guests
   - 20 December 2018: DOJ unseals the APT10 indictment and the UK and allies attribute APT 10 to China's MSS
+- [Cambridge Analytica and Facebook: Consent, Data Provenance and Platform Accountability](/case-studies/CAMBRIDGE_ANALYTICA_2018.md). Incident, 2014 to 2020 (core: 2018). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cambridge_Analytica_2018_Case_Study.pdf).
+  - 2014: Graph API collection arrangements for app users' and friends' data (2014 to 2015, per the FTC complaint)
+  - 2015: Facebook learns Kogan passed data to third parties; it removes the app and requests deletion certifications
+  - March 2018: Facebook publicly suspends Cambridge Analytica
+  - April 2018: Facebook estimates up to 87 million people may have had data improperly shared
+  - October 2018: The ICO issues a 500,000 pound monetary penalty under the Data Protection Act 1998
+  - 24 July 2019: The FTC announces a $5 billion Facebook settlement; the SEC announces a $100 million settlement
+  - 25 November 2019: The FTC issues its opinion and final order against Cambridge Analytica
+  - December 2019: The FTC finalizes settlements with Nix and Kogan
+  - 23 April 2020: The federal court enters the Facebook settlement order; the FTC modifies its administrative order
 
 ### 2017 <!-- {docsify-ignore} -->
 
@@ -1039,6 +1049,15 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 24 October 2017: Bad Rabbit spreads through compromised websites serving a fake Flash Player update
   - 14 December 2017: Mandiant publishes TRITON, used to reprogram Triconex safety controllers
   - 19 December 2017: The United States, with the UK, Australia, Canada, New Zealand and Japan, attributes WannaCry to North Korea
+- [CCleaner 2017: Signed, Distributed and Still Compromised](/case-studies/CCLEANER_2017.md). Incident, 2017 to 2018. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/CCleaner_2017_Case_Study.pdf).
+  - 11 March 2017: Vendor later reports remote access to a developer workstation via TeamViewer
+  - 15 August 2017: The compromised, validly signed CCleaner 5.33 release is distributed
+  - 13 September 2017: Talos detects the malicious signed binary (separately reported by Morphisec)
+  - 19 September 2017: Avast publishes an early assessment; about 2.27 million affected users
+  - 20 September 2017: Talos reports targeted second-stage delivery from partial server records
+  - 21 September 2017: Avast corrects its earlier statement; second-stage delivery to 20 machines in eight organizations
+  - 25 September 2017: Expanded records show 40 computers received a second-stage payload, with a 40-hour evidence gap
+  - April 2018: Avast publishes its supplier-side access findings (initial access 11 March 2017)
 
 ### 2016 <!-- {docsify-ignore} -->
 
@@ -1111,6 +1130,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 December 2015: Juniper's out-of-band advisory on unauthorized code in ScreenOS (CVE-2015-7755, CVE-2015-7756)
   - 18 December 2015: Public Law 114-113 enacted, carrying the Cybersecurity Act of 2015
   - 23 December 2015: Intrusions at three Ukrainian distribution companies cut power to about 225,000 customers
+- [Ashley Madison 2015: Sensitive Context, False Associations and the Meaning of Deletion](/case-studies/ASHLEY_MADISON_2015.md). Incident, 2015 to 2016. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ashley_Madison_2015_Case_Study.pdf).
+  - 2014: Alleged unauthorized network access begins (late 2014 into early 2015, per the FTC complaint)
+  - 12 July 2015: The company becomes aware; employees detect a large data transfer
+  - 15 July 2015: The Impact Team publicly threatens the company
+  - 18 August 2015: Major publication of the stolen data begins (18 and 20 August)
+  - 22 August 2016: OPC and OAIC publish the joint investigation (PIPEDA 2016-005); about 36 million accounts
+  - 14 December 2016: The FTC complaint is filed and a federal and state settlement is announced
 - [Anthem, 2015: Health Identity, Privileged Access and the Enterprise Data Warehouse](/case-studies/ANTHEM_2015.md). Incident, February 2014 to October 2020 (core: January to February 2015). Sectors: healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Anthem_2015_Case_Study.pdf).
   - 18 February 2014: Phishing message to an Anthem subsidiary's employees (alleged)
   - 13 May 2014: Unauthorized Anthem access begins (alleged)
@@ -1161,6 +1187,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 April 2014: Cloudflare reports completed certificate replacement and mass revocation
   - 23 April 2014: Netcraft examines inconsistent browser revocation handling
   - 29 May 2014: The Linux Foundation announces Core Infrastructure Initiative support for OpenSSL
+- [Yahoo, 2014-2016: Account Trust, Targeted Access and the Disclosure Gap](/case-studies/YAHOO_2014_2016.md). Incident, 2014 to 2018. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Yahoo_2014_2016_Case_Study.pdf).
+  - 2014: The 2014 intrusion occurs (disclosed in 2016)
+  - 22 September 2016: Yahoo discloses the 2014 incident; about 500 million accounts
+  - 15 March 2017: The Justice Department charges four defendants, including two FSB officers
+  - November 2017: Karim Baratov pleads guilty
+  - 24 April 2018: The SEC announces a $35 million settlement with Altaba (formerly Yahoo)
+  - 29 May 2018: Baratov is sentenced to five years
 - [Russia-Attributed Threat Actors: The Public Record](/case-studies/THREAT_ACTORS_RUSSIA.md). Threat actor, 2003 to July 2026 (core: 2014 to 2026). Sectors: government, energy, healthcare, defense, transport. CVEs: CVE-2008-4128, CVE-2017-6742, CVE-2018-0171, CVE-2018-13379, CVE-2019-1653, CVE-2019-2725 and 28 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0034 Sandworm Team, G0035 Dragonfly, G0047 Gamaredon Group and 7 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Threat_Actors_Russia_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Threat_Actors_Russia_Case_Study.pptx).
   - 27 October 2014: First public APT28 report
   - December 2015: BlackEnergy attack on Ukraine's grid; 230,000 people without power
@@ -1174,6 +1207,21 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 April 2024: Mandiant graduates Sandworm to APT44
   - 29 December 2025: Poland energy attack: RTUs damaged at more than 30 wind and PV farms
   - 13 July 2026: UK and EU formally attribute the Poland attack to FSB Centre 16; first joint cyber sanctions
+- [JPMorgan Chase 2014: Contact-Data Theft and the Wider Fraud Economy](/case-studies/JPMORGAN_2014.md). Incident, 2014 to 2021. Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/JPMorgan_Chase_2014_Case_Study.pdf).
+  - June 2014: Alleged intrusion window begins at Victim-1 (June to August 2014, per the 2015 indictment)
+  - 10 September 2014: JPMorgan Chase makes its first disclosure (per the 10-Q)
+  - 2 October 2014: An 8-K reports about 76 million households and 7 million small businesses affected, with no evidence account credentials were taken
+  - November 2015: A superseding indictment alleges a multi-victim intrusion campaign
+  - 23 September 2019: Andrei Tyurin pleads guilty
+  - 7 January 2021: Tyurin is sentenced to 144 months; JPMorgan Chase is named; a $19,214,956 forfeiture is ordered
+- [Home Depot 2014: Payment Data, Vendor Access and the Cost of Unverified Boundaries](/case-studies/HOME_DEPOT_2014.md). Incident, 2014 to 2020. Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Home_Depot_2014_Case_Study.pdf).
+  - 10 April 2014: Start of the exposure window later identified by the New York attorney general (10 April to 13 September 2014)
+  - 2 September 2014: Investigation begins after information from banking partners and law enforcement
+  - 8 September 2014: Home Depot confirms the payment-system breach
+  - 18 September 2014: Malware eliminated; about 56 million cards at risk; US encryption rollout completed 13 September
+  - 6 November 2014: Company findings: a third-party vendor's credentials used to enter; a separate 53 million email-address files
+  - 24 November 2020: A $17.5 million multistate settlement (46 states and DC) is announced
+  - 21 December 2020: The New Jersey assurance of voluntary compliance takes effect
 - [The Year 2014 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2014.md). Period record, January to December 2014. Sectors: cross-sector, technology, retail, finance, government, defense, energy, healthcare, manufacturing, media, telecommunications. CVEs: CVE-2013-3346, CVE-2013-5065, CVE-2013-5211, CVE-2014-0160, CVE-2014-0224, CVE-2014-0322 and 24 more. ATT&CK groups: G0001 Axiom, G0010 Turla, G0012 Darkhotel, G0022 APT3, G0024 Putter Panda, G0027 Threat Group-3390 and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2014_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2014_Case_Study.pptx).
   - 13 January 2014: US-CERT alert on NTP amplification DDoS using the monlist feature, CVE-2013-5211
   - 12 February 2014: NIST publishes Cybersecurity Framework 1.0

@@ -3753,6 +3753,48 @@ pages:
     start_at: "[Executive assessment](#executive-assessment), [What the application failure means](#what-the-application-failure-means), [Why the population dispute cannot be resolved by choosing the largest number](#why-the-population-dispute-cannot-be-resolved-by-choosing-the-largest-number)"
     pairs_with: "[Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [API Security Reference](/API_SECURITY_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
     reviewed: null
+  case-studies/STAGEFRIGHT_2015.md:
+    audience: "Mobile platform and vulnerability-management owners, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of Stagefright, you need to separate a family name from an individual CVE or an incomplete patch from a complete one, or you are reasoning about media-parsing trust boundaries and fleet patch coverage"
+    start_at: "[Executive assessment](#executive-assessment), [6. Why the incomplete patch mattered](#_6-why-the-incomplete-patch-mattered), [8. Exposure estimates are not victim counts](#_8-exposure-estimates-are-not-victim-counts)"
+    pairs_with: "[Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
+  case-studies/QUADROOTER_2016.md:
+    audience: "Mobile platform and vulnerability-management owners, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of QuadRooter, you need to separate a public label from four distinct issues or a chipset brand from a real inventory, or you are reasoning about the last mile of mobile driver patching"
+    start_at: "[Executive assessment](#executive-assessment), [2. A public label and four distinct issues](#_2-a-public-label-and-four-distinct-issues), [12. Exposure scale and victim scale must remain separate](#_12-exposure-scale-and-victim-scale-must-remain-separate)"
+    pairs_with: "[Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md), [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
+  case-studies/BROADPWN_2017.md:
+    audience: "Mobile, wireless and firmware security owners, vulnerability-management leads and incident responders"
+    level: "Intermediate"
+    read_when: "You want a shorter, evidence-bounded account of Broadpwn, you need to separate a separate Wi-Fi processor from the application processor or related research from borrowed proof, or you are reasoning about chip-level security boundaries"
+    start_at: "[Executive assessment](#executive-assessment), [3. What the presentation does and does not establish](#_3-what-the-presentation-does-and-does-not-establish), [8. Supplier scope extended beyond phones](#_8-supplier-scope-extended-beyond-phones)"
+    pairs_with: "[Wireless Security Reference](/WIRELESS_SECURITY_REFERENCE.md), [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
+  case-studies/DIRTY_COW_2016.md:
+    audience: "Linux platform and vulnerability-management owners, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of Dirty COW, you need to separate installing an update from proving code is no longer vulnerable or a temporary mitigation from a durable fix, or you are assessing Linux privilege-boundary exposure"
+    start_at: "[Executive assessment](#executive-assessment), [Why a race condition is a security problem](#why-a-race-condition-is-a-security-problem), [A downloaded or installed fix can remain inactive](#a-downloaded-or-installed-fix-can-remain-inactive)"
+    pairs_with: "[Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md), [Privilege Escalation Reference](/PRIVESC_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
+  case-studies/IMAGETRAGICK_2016.md:
+    audience: "Application-security and web teams, vulnerability-management leads and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of ImageTragick, you need to separate the named collection from an individual CVE or attempts from confirmed victims, or you are hardening image-processing pipelines against command execution"
+    start_at: "[Executive assessment](#executive-assessment), [3. The command boundary](#_3-the-command-boundary), [7. Attempts, exploitation reports and confirmed victims](#_7-attempts-exploitation-reports-and-confirmed-victims)"
+    pairs_with: "[Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
+  case-studies/DRUPALGEDDON2_2018.md:
+    audience: "Web-platform and vulnerability-management owners, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of Drupalgeddon2, you need to separate the CVE-2018-7600 and CVE-2018-7602 labels or a patched website from a recovered service, or you are reasoning about mass-exploitation response and forgotten sites"
+    start_at: "[Executive assessment](#executive-assessment), [2. Three labels that should not be collapsed](#_2-three-labels-that-should-not-be-collapsed), [6. Remote execution does not automatically mean operating-system root](#_6-remote-execution-does-not-automatically-mean-operating-system-root)"
+    pairs_with: "[Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Internet-Facing Services Reference](/INTERNET_FACING_SERVICES_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
   commands/aws-cli.md:
     audience: "Cloud engineers, administrators and security teams who work in AWS from a terminal"
     level: "Beginner to intermediate"

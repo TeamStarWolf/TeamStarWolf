@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Equifax is compressed into one lesson, patch vulnerable software; that lesson is correct but incomplete. ([Executive summary](#executive-summary))
+- The real questions: why a vulnerability notice still left an app exposed, why a compromise reached unrelated data, and why monitoring stayed silent. ([Executive summary](#executive-summary))
+- The study treats patch deployment, asset ownership, service identity, data access, detection health and communication as independently testable controls. ([Executive summary](#executive-summary))
+- A patch is one interruption point, not a substitute for limiting what an application can reach after compromise. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

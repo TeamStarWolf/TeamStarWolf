@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Microsoft published MS17-010 on 14 March 2017; the public EternalBlue exploit and May's WannaCry made the gap consequential. ([Executive assessment](#executive-assessment))
+- A correction that exists in a catalog does not establish the state of a particular machine. ([Executive assessment](#executive-assessment))
+- A check for one historical update identifier is a weak substitute for understanding the installed OS and its update history. ([Executive assessment](#executive-assessment))
+- A patch for one exploitation method does not remove every other route available to malware. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

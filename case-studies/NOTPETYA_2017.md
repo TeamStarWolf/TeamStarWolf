@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- On 27 June 2017, NotPetya turned a software-distribution relationship into a destructive international incident. ([Executive summary](#executive-summary))
+- Microsoft observed the legitimate M.E.Doc updater initiating malicious execution in a subset of infections. ([Executive summary](#executive-summary))
+- Inside a network it spread using credentials and administrative facilities as well as vulnerable SMB services. ([Executive summary](#executive-summary))
+- It was not real ransomware: Kaspersky found the ransom screen's installation identifier could not carry what the decryption mechanism needed. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

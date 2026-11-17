@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Someone reached refrigeration controllers at about 700 French retail sites and set defrost parameters high; food spoiled and at least 15 fires started. ([Executive summary](#executive-summary))
+- A second wave in November reached stores in seven more countries, and three sites of France's national blood service. ([Executive summary](#executive-summary))
+- On 9 November France attributed the October wave to the Shahid Kaveh unit of Iran's IRGC. ([Executive summary](#executive-summary))
+- No CVE is named for initial access; the record points to exposed, often end-of-life controllers and, at one site, default credentials. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

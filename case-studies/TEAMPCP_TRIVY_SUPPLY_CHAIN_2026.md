@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- An attacker published a malicious Trivy release and moved almost every tag of its GitHub Actions, so pipelines ran a credential stealer before the scan. ([Executive summary](#executive-summary))
+- For hours, a trusted step in every affected pipeline was the one stealing its secrets. ([Executive summary](#executive-summary))
+- The stolen secrets spread: Checkmarx says the Trivy attack reached its GitHub repositories, leading to poisoned actions and IDE extensions. ([Executive summary](#executive-summary))
+- LiteLLM believes its malicious PyPI releases of 24 March started with Trivy in its CI. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

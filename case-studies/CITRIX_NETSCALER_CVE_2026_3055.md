@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- CVE-2026-3055 is an input-validation flaw that lets an unauthenticated request read memory it should not from the NetScaler SAML IdP. ([Executive summary](#executive-summary))
+- Citrix found it internally, but four days after disclosure a research team's honeypots saw exploitation. ([Executive summary](#executive-summary))
+- In testing, the memory overread returned an authenticated administrative session ID. ([Executive summary](#executive-summary))
+- That is the session-theft pattern that made CitrixBleed a ransomware entry point in 2023. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

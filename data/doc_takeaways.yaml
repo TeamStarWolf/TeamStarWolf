@@ -377,3 +377,59 @@ pages:
       - {"text": "Many admins first heard of it from researchers and CISA, not the vendor.", "from": "#executive-summary", "quote": "the first many of them heard of it was from researchers and CISA, not the vendor"}
       - {"text": "A 15 January build fixed a password-reset bypass and an unauthenticated command-execution flaw.", "from": "#executive-summary", "quote": "Build 9511 fixed a password-reset bypass and an unauthenticated command-execution flaw on 15 January"}
       - {"text": "All three flaws were in CISA's KEV catalog by 5 February and marked as used in ransomware by April.", "from": "#executive-summary", "quote": "all three were in CISA's Known Exploited Vulnerabilities (KEV) catalog by 5 February and marked as used in ransomware by April"}
+  case-studies/CHECK_POINT_GAIA_CVE_2026_123039.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Where the Mobile Access portal was unpatched, attackers chained PHP2Shell to this flaw to go from the portal service account to root.", "from": "#executive-summary", "quote": "an attacker exploited PHP2Shell (CVE-2026-109618 and CVE-2026-109619) on the portal, became the portal's service account, and then used a second flaw, not yet public at the time, to become root"}
+      - {"text": "The root flaw is a local privilege escalation: the DynamicCLI daemon runs as root on a world-writable socket without checking who connects.", "from": "#executive-summary", "quote": "The DynamicCLI daemon runs as root and listens on a world-writable local socket without checking who connects to it"}
+      - {"text": "Any authenticated local user can hand it a command and have that command run as root.", "from": "#executive-summary", "quote": "Any authenticated local user can hand it a command and have that command run as root"}
+      - {"text": "It was exploited before any fix or public record existed, which makes it a zero-day in practice.", "from": "#executive-summary", "quote": "The flaw was exploited before any fix or public record existed, which makes it a zero-day in practice"}
+  case-studies/CITRIX_NETSCALER_CVE_2026_3055.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "CVE-2026-3055 is an input-validation flaw that lets an unauthenticated request read memory it should not from the NetScaler SAML IdP.", "from": "#executive-summary", "quote": "an input-validation flaw that lets an unauthenticated request read memory it should not, which it said it found internally"}
+      - {"text": "Citrix found it internally, but four days after disclosure a research team's honeypots saw exploitation.", "from": "#executive-summary", "quote": "Four days later a research team's honeypots saw exploitation"}
+      - {"text": "In testing, the memory overread returned an authenticated administrative session ID.", "from": "#executive-summary", "quote": "in watchTowr's testing the overread returned an authenticated administrative session ID"}
+      - {"text": "That is the session-theft pattern that made CitrixBleed a ransomware entry point in 2023.", "from": "#executive-summary", "quote": "the session-theft pattern that made CitrixBleed (CVE-2023-4966) a ransomware entry point in 2023"}
+  case-studies/SSHOLE_CVE_2026_123158.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "On 4 November 2026 OpenSSH learned that on some Linux systems sshd would accept a password login it should have refused.", "from": "#executive-summary", "quote": "sshd would accept a password login it should have refused"}
+      - {"text": "The fix moved fast: within a day OpenSSH shipped 10.6p2 and Alpine published fixed packages back to branch 3.16.", "from": "#executive-summary", "quote": "By the next day OpenSSH had shipped Portable 10.6p2, Alpine Linux had published fixed packages for every branch back to 3.16"}
+      - {"text": "The flaw is narrow: OpenSSH on Linux built against musl and run without PAM, with password authentication on.", "from": "#executive-summary", "quote": "It affects OpenSSH on Linux built against the musl C library and run without PAM, with password authentication on"}
+      - {"text": "Where the conditions hold, an attacker who can reach the SSH port and knows an eligible account logs in without a password, reliably.", "from": "#executive-summary", "quote": "an attacker who can reach the SSH port and knows an eligible account name logs in without a password, in one connection, reliably"}
+  case-studies/NABLE_NCENTRAL_ABLE2SHELL_2026.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "An RMM server is one of the most valuable hosts on a network: when it falls, every customer behind it is exposed, as Kaseya showed in 2021.", "from": "#executive-summary", "quote": "When the RMM server falls, every customer behind it is exposed, as Kaseya's customers learned in July 2021"}
+      - {"text": "A researcher's GitHub account published 33 alleged N-central vulnerabilities in four exploit chains, with no advance notice to the vendor.", "from": "#executive-summary", "quote": "a researcher's GitHub account published a folder of 33 alleged N-central vulnerabilities, grouped into four exploit chains, with a proof-of-concept script for each and no advance notice to the vendor"}
+      - {"text": "Within hours N-able took its whole hosted N-central service offline worldwide and told on-premises customers to disconnect.", "from": "#executive-summary", "quote": "Within hours N-able took its whole hosted N-central service offline in the Americas, Europe and Asia-Pacific and told on-premises customers to disconnect their servers"}
+      - {"text": "On 10 November it shipped a hotfix and published seven CVEs, two rated CVSS 9.3 with no privileges needed.", "from": "#executive-summary", "quote": "published seven CVE records, two of them rated CVSS v4.0 9.3"}
+  case-studies/TEAMPCP_TRIVY_SUPPLY_CHAIN_2026.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "An attacker published a malicious Trivy release and moved almost every tag of its GitHub Actions, so pipelines ran a credential stealer before the scan.", "from": "#executive-summary", "quote": "an attacker published a malicious Trivy release and moved almost every version tag of the official GitHub Actions that run it, so pipelines that pulled the action by tag ran a credential stealer before the real scan"}
+      - {"text": "For hours, a trusted step in every affected pipeline was the one stealing its secrets.", "from": "#executive-summary", "quote": "For hours, a trusted step in every affected pipeline was the one stealing its secrets"}
+      - {"text": "The stolen secrets spread: Checkmarx says the Trivy attack reached its GitHub repositories, leading to poisoned actions and IDE extensions.", "from": "#executive-summary", "quote": "the Trivy attack gave the attacker access to its GitHub repositories on the same day, which led to poisoned Checkmarx GitHub Actions and IDE extensions"}
+      - {"text": "LiteLLM believes its malicious PyPI releases of 24 March started with Trivy in its CI.", "from": "#executive-summary", "quote": "LiteLLM believes its malicious PyPI releases of 24 March started with Trivy in its CI"}
+  case-studies/MICROSOFT_OFFICE_CVE_2026_21509.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Microsoft shipped an out-of-band fix for an Office flaw that let a mailed document load risky COM/OLE controls, already being exploited.", "from": "#executive-summary", "quote": "an Office flaw that let a mailed document slip past the protections that keep risky COM/OLE controls from loading, and said it was already being exploited"}
+      - {"text": "Within three days, emails with a weather-bulletin exploit document reached more than 60 addresses, mostly at Ukrainian central executive bodies.", "from": "#executive-summary", "quote": "emails with a weather-bulletin document carrying the exploit had gone to more than 60 addresses, mostly at Ukrainian central executive bodies"}
+      - {"text": "The lure was themed on EU consultations about Ukraine.", "from": "#executive-summary", "quote": "a lure themed on EU consultations about Ukraine had surfaced"}
+      - {"text": "CERT-UA attributed the attacks to UAC-0001, which it tracks as APT28.", "from": "#executive-summary", "quote": "CERT-UA attributed the attacks to UAC-0001 (APT28)"}
+  case-studies/EUROPEAN_REFRIGERATION_ATTACKS_2026.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Someone reached refrigeration controllers at about 700 French retail sites and set defrost parameters high; food spoiled and at least 15 fires started.", "from": "#executive-summary", "quote": "someone reached the remote controllers of refrigeration installations at about 700 French retail sites and set their defrost parameters to high temperatures"}
+      - {"text": "A second wave in November reached stores in seven more countries, and three sites of France's national blood service.", "from": "#executive-summary", "quote": "A second wave on the night of 1 to 2 November reached stores in Belgium, Luxembourg, Sweden, Ireland, Estonia, the Netherlands and the UK"}
+      - {"text": "On 9 November France attributed the October wave to the Shahid Kaveh unit of Iran's IRGC.", "from": "#executive-summary", "quote": "On 9 November France attributed the October wave to the Shahid Kaveh unit of Iran's IRGC"}
+      - {"text": "No CVE is named for initial access; the record points to exposed, often end-of-life controllers and, at one site, default credentials.", "from": "#executive-summary", "quote": "The record points to exposed, often end-of-life controllers and, at one examined site, default credentials"}
+  case-studies/ATF_MAJOR_INCIDENT_2026.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "On 26 August 2026 the Qilin ransomware operation added the US ATF to its leak site.", "from": "#executive-summary", "quote": "the Qilin ransomware-as-a-service operation added ATF to its leak site"}
+      - {"text": "The listing named the agency and little else: no proof screenshots, no leak timer, no word on stolen files or a ransom.", "from": "#executive-summary", "quote": "The listing named the agency and little else: no proof screenshots, no leak timer, and no word on stolen files or a ransom"}
+      - {"text": "ATF said one standalone system, separate from its enterprise network, was affected and its missions were not.", "from": "#executive-summary", "quote": "It said one standalone system, which operates separately from the ATF enterprise network, was affected"}
+      - {"text": "ATF's own page returned HTTP 403 for this study, so its words reach the brief through two publishers that quote it.", "from": "#executive-summary", "quote": "ATF's own page returned HTTP 403 when opened for this study, so its words reach this brief through two publishers"}

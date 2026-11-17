@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- This tier is real and long-running: the groups have been active since at least 2004, with most first seen between 2012 and 2017. ([Executive summary](#executive-summary))
+- Attribution here is softer: only Dark Caracal is tied by ATT&CK to a named government body, Lebanon's security directorate. ([Executive summary](#executive-summary))
+- The tradecraft is mostly document-and-lure work: a malicious file opened by a user, spearphishing attachments and old Office flaws. ([Executive summary](#executive-summary))
+- The most damaging routes used no software flaw: Sea Turtle hijacked DNS and MoustachedBouncer faked Windows Update at ISP level. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

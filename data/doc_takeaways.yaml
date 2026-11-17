@@ -139,3 +139,59 @@ pages:
       - {"text": "The CVE flood is huge: CISA published 1,389 ICS and medical-device advisories carrying more than 2,000 unique CVEs a year.", "from": "#executive-summary", "quote": "CISA published 1,389 ICS and medical-device advisories carrying more than 2,000 unique CVEs each year"}
       - {"text": "The disruptive attacks rarely depended on announced CVEs; the two records mostly do not meet.", "from": "#executive-summary", "quote": "the disruptive attacks rarely depended on the CVEs being announced"}
       - {"text": "Nearly every disruptive event used default passwords, exposed HMIs and PLC ports, VNC, or the vendors' own engineering tools, not a new flaw.", "from": "#executive-summary", "quote": "Nearly every disruptive event with a stated access path used no new vulnerability at all: default or missing passwords, internet-exposed HMIs and PLC programming ports, VNC, and the vendors' own engineering software"}
+  case-studies/SHAREPOINT_TOOLSHELL_2025.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "The decisive move was not the code execution but the next step: attackers stole the SharePoint server's ASP.NET machine keys.", "from": "#executive-summary", "quote": "they stole the SharePoint server's ASP.NET machine keys"}
+      - {"text": "With the keys stolen, a server that is merely patched is still compromised.", "from": "#executive-summary", "quote": "a server that is merely patched is still compromised"}
+      - {"text": "More than 400 servers across about 148 organizations were hit, including the US nuclear security agency.", "from": "#executive-summary", "quote": "More than 400 servers across roughly 148 organizations were hit, including the US National Nuclear Security Administration"}
+      - {"text": "The lesson: for a secret-stealing flaw, remediation is patch plus key rotation, not patch alone.", "from": "#executive-summary", "quote": "for a secret-stealing vulnerability, remediation is patch plus key rotation, not patch alone"}
+  case-studies/THREAT_ACTORS_UNITED_STATES.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "The US record is unlike the others: no self-indictments, no advisories naming American operations, and no sanctions.", "from": "#executive-summary", "quote": "There are no self-indictments, no advisories naming American operations, and no sanctions"}
+      - {"text": "What exists is malware platforms researchers took apart between 2011 and 2023, such as Equation, Regin and Flame.", "from": "#executive-summary", "quote": "a set of malware platforms that security researchers took apart in technical depth between 2011 and 2023"}
+      - {"text": "National attribution rests on three softer pillars: leak journalism, adversary-government statements, and one US court case.", "from": "#executive-summary", "quote": "National attribution in the public record rests on three other pillars: journalism built on leaked documents, statements by adversary governments that published little or no testable evidence, and one United States court case"}
+      - {"text": "The closest any vendor comes is Symantec, which says Longhorn's indicators point to an English-speaking North American country, and stops there.", "from": "#executive-summary", "quote": "Symantec, the closest any vendor comes, says the indicators behind its Longhorn group point to an English-speaking North American country, and stops there"}
+  case-studies/THREAT_ACTORS_OTHER_STATES.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "This tier is real and long-running: the groups have been active since at least 2004, with most first seen between 2012 and 2017.", "from": "#executive-summary", "quote": "the groups in scope have been active since at least 2004 (Darkhotel), with most first seen between 2012 and 2017"}
+      - {"text": "Attribution here is softer: only Dark Caracal is tied by ATT&CK to a named government body, Lebanon's security directorate.", "from": "#executive-summary", "quote": "Only one group in the set, Dark Caracal, is attributed by ATT&CK to a named government body (Lebanon's General Directorate of General Security)"}
+      - {"text": "The tradecraft is mostly document-and-lure work: a malicious file opened by a user, spearphishing attachments and old Office flaws.", "from": "#executive-summary", "quote": "the tradecraft is mostly document-and-lure work"}
+      - {"text": "The most damaging routes used no software flaw: Sea Turtle hijacked DNS and MoustachedBouncer faked Windows Update at ISP level.", "from": "#executive-summary", "quote": "Sea Turtle took over DNS registrar accounts and registries to hijack name resolution, and MoustachedBouncer injected a fake Windows Update at internet service provider level"}
+  case-studies/MANDIANT_INTRUSION_2020.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "The breach was caught on the identity plane: an alert flagged a second phone registered to an employee's account for two-factor codes.", "from": "#executive-summary", "quote": "an employee's account had registered a second phone to receive two-factor codes, and the employee had not registered a new device"}
+      - {"text": "Chasing its own breach, FireEye decompiled its SolarWinds Orion server and found the implant it named SUNBURST.", "from": "#executive-summary", "quote": "FireEye decompiled its own SolarWinds Orion server and found the implant it named SUNBURST"}
+      - {"text": "That made FireEye's own breach the first public thread of the SolarWinds campaign.", "from": "#executive-summary", "quote": "That made its own breach the first public thread of the SolarWinds campaign"}
+      - {"text": "The stolen Red Team tools held no zero-days; FireEye released free countermeasures and a ranked list of 16 CVEs to patch.", "from": "#executive-summary", "quote": "The stolen tools held no zero-day exploits, many were already public, and FireEye released hundreds of free countermeasures and a ranked list of 16 CVEs to patch"}
+  case-studies/GHOSTCAT_CVE_2020_1938.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "Tomcat shipped a second front door: an AJP connector on port 8009, enabled by default and trusted more than HTTP.", "from": "#executive-summary", "quote": "that connector was enabled by default and listened on every configured address, and Tomcat trusts an AJP connection more than an HTTP one"}
+      - {"text": "Anyone who could reach port 8009 could make Tomcat return any file in a web application, including protected folders.", "from": "#executive-summary", "quote": "anyone who could reach port 8009 to make Tomcat return any file in a web application"}
+      - {"text": "The fix shipped quietly before disclosure, switching the AJP connector off by default and binding it to loopback.", "from": "#executive-summary", "quote": "each switching the AJP connector off by default, binding it to loopback, requiring a shared secret"}
+      - {"text": "CISA added Ghostcat (CVE-2020-1938) to its Known Exploited Vulnerabilities catalog in March 2022.", "from": "#executive-summary", "quote": "CISA added CVE-2020-1938 to the Known Exploited Vulnerabilities catalog on 3 March 2022"}
+  case-studies/PROFTPD_MOD_COPY_CVE_2015_3306.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "The mod_copy module answered its copy commands before login, so anyone reaching the FTP port could copy files with no account.", "from": "#executive-summary", "quote": "Anyone who could reach the FTP port could copy any file the daemon could read to any place the daemon could write, with no account at all"}
+      - {"text": "The project fixed it the day it was filed in April 2015 and shipped 1.3.5a in May 2015.", "from": "#executive-summary", "quote": "The project fixed it on 7 April 2015, the day Bug 4169 was filed, shipped the fix in ProFTPD 1.3.5a on 27 May 2015"}
+      - {"text": "For eleven years this was a solved problem with public exploits.", "from": "#executive-summary", "quote": "For eleven years this was a solved problem with public exploits"}
+      - {"text": "It returned in October 2026 when CISA added the eleven-year-old flaw to its KEV catalog with a three-day due date.", "from": "#executive-summary", "quote": "on 8 October 2026, CISA added it to the Known Exploited Vulnerabilities catalog with a three-day due date"}
+  case-studies/MPTCP_ATTACK_SURFACE_2026.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "Multipath TCP has shipped in the Linux kernel since 5.6 and defaults to on, yet almost nothing uses it.", "from": "#executive-summary", "quote": "The Linux kernel has shipped it since version 5.6 in 2020"}
+      - {"text": "That leaves a feature switched on across much of the Linux fleet while delivering value on a tiny fraction of it.", "from": "#executive-summary", "quote": "a feature that is present and switched on across a large part of the Linux fleet while delivering value on a tiny fraction of it"}
+      - {"text": "The gap is an attack surface: new memory-unsafe networking code produces memory-safety bugs on a schedule.", "from": "#executive-summary", "quote": "new networking code written in a memory-unsafe language produces memory-safety bugs on a schedule"}
+      - {"text": "Worse, MPTCP can turn a bug that is elsewhere a mere crash into something far more serious, as with CVE-2026-98432.", "from": "#executive-summary", "quote": "MPTCP can turn a bug that is elsewhere a mere crash into something far more serious"}
+  case-studies/LINUX_TCP_UAF_2026.md:
+    reviewed: "2026-11-16"
+    items:
+      - {"text": "CVE-2026-98432 is an unauthenticated remote use-after-free in the IPv4 TCP setup path, scored 9.8, with a two-line fix.", "from": "#executive-summary", "quote": "a use-after-free in the IPv4 TCP connection-setup path that a remote, unauthenticated attacker can reach by sending crafted packets to a listening socket"}
+      - {"text": "What made it a landmark was Anthropic's report that an unreleased model wrote a working remote-root exploit in under an hour.", "from": "#executive-summary", "quote": "wrote a working zero-click remote-root exploit against servers running a Multipath TCP listener, reaching a root shell in under an hour of model time"}
+      - {"text": "Two facts are kept apart: the vulnerability is confirmed, while the AI-written exploit was withheld and unreproduced.", "from": "#executive-summary", "quote": "the code and test configuration were deliberately withheld, and no independent public reproduction had appeared by late October"}
+      - {"text": "The marker that matters: the time from a memory-corruption CVE to a working exploit is collapsing toward the length of a lunch break.", "from": "#executive-summary", "quote": "the time between a memory-corruption CVE landing and a working exploit existing is collapsing toward the length of a lunch break"}

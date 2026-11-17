@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The flaw was not broken cryptography: a correctly signed program could still run attacker-controlled code after its signature check passed. ([Executive assessment](#executive-assessment))
+- Patching the parser was not enough, because older signed-but-vulnerable binaries still had to be distrusted. ([Executive assessment](#executive-assessment))
+- This was not a remote worm; the reviewed advisories require existing access such as administrative privilege or physical access. ([Executive assessment](#executive-assessment))
+- Secure Boot is meant to constrain what runs before the operating system even when an attacker already holds privilege inside it. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

@@ -1267,3 +1267,66 @@ pages:
       - {"text": "They showed how interference with public-facing services could become a national coordination problem and accelerate cyber-defence attention.", "from": "#executive-assessment", "quote": "interference with public-facing digital services could become a national coordination problem, attract international assistance and accelerate institutional attention to cyber defence"}
       - {"text": "The study separates recorded service effects from policy responses and an analyst's hypothesis from proven attribution.", "from": "#executive-assessment", "quote": "It separates recorded service effects from policy responses and distinguishes an analyst's hypothesis from proven attribution"}
       - {"text": "It does not claim access to complete traffic records or offer a total economic-loss estimate.", "from": "#executive-assessment", "quote": "It does not claim access to complete traffic records or offer a total economic-loss estimate"}
+  case-studies/BOOTHOLE_CVE_2020_10713.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The flaw was not broken cryptography: a correctly signed program could still run attacker-controlled code after its signature check passed.", "from": "#executive-assessment", "quote": "A correctly signed program could process attacker-controlled configuration unsafely and execute unintended code after the signature check had succeeded"}
+      - {"text": "Patching the parser was not enough, because older signed-but-vulnerable binaries still had to be distrusted.", "from": "#executive-assessment", "quote": "replacing binaries alone did not close that path"}
+      - {"text": "This was not a remote worm; the reviewed advisories require existing access such as administrative privilege or physical access.", "from": "#executive-assessment", "quote": "The reviewed advisories require substantial existing access, such as administrative privilege or physical access"}
+      - {"text": "Secure Boot is meant to constrain what runs before the operating system even when an attacker already holds privilege inside it.", "from": "#executive-assessment", "quote": "Secure Boot is intended to constrain what executes before the operating system even when an attacker has acquired privileged access within that operating system"}
+  case-studies/BROADPWN_2017.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The case is about the difference between compromising one component and proving the whole device is compromised.", "from": "#executive-assessment", "quote": "the difference between compromising a component and proving compromise of an entire device"}
+      - {"text": "The research reached the Wi-Fi chip but a later scope statement set kernel execution outside the work.", "from": "#executive-assessment", "quote": "a later scope statement explicitly set kernel execution outside the current research"}
+      - {"text": "A chip that processes outside input is a real security boundary even when the evidence stops short of full takeover.", "from": "#executive-assessment", "quote": "A chip that processes externally supplied input can represent a serious security boundary even when the evidence stops short of demonstrating every possible consequence"}
+      - {"text": "Security assurance has to follow the actual processing path, not product labels or update announcements.", "from": "#executive-assessment", "quote": "security assurance must follow the actual processing path"}
+  case-studies/EXIM_CVE_2019_10149.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The flaw let externally influenced address data reach command interpretation in a privileged mail server.", "from": "#executive-assessment", "quote": "externally influenced address data could reach command interpretation"}
+      - {"text": "The fix already existed upstream before its security weight was recognized, making this a distribution-and-verification problem.", "from": "#executive-assessment", "quote": "The correction already existed in upstream 4.92 before researchers recognized its security significance"}
+      - {"text": "Evidence moved from no known exploitation to a confirmed worm and later Sandworm attribution across different dates and scopes.", "from": "#executive-assessment", "quote": "They do not justify turning every exposed Exim server into a confirmed victim or assigning every attack to one actor"}
+      - {"text": "Installing the fix and rebuilding confidence in an already-exposed server are different pieces of work.", "from": "#executive-assessment", "quote": "installing a correction and establishing confidence in an already exposed server are different work products"}
+  case-studies/IMAGETRAGICK_2016.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The flaw was a mismatch between a site's apparent job and the authority of its image-processing backend.", "from": "#executive-assessment", "quote": "a dangerous mismatch between a web application's apparent job and the authority available to its image-processing backend"}
+      - {"text": "Crafted uploads could run commands as the account invoking ImageMagick, consequential in affected workflows but not automatic admin everywhere.", "from": "#executive-assessment", "quote": "This was consequential remote execution in affected workflows, not an automatic claim of administrator privileges on every installation"}
+      - {"text": "The core question is what a processing service can do with an untrusted object after accepting it.", "from": "#executive-assessment", "quote": "what a processing service can do with an untrusted object after accepting it"}
+      - {"text": "Reports of malicious traffic did not establish which organizations were actually compromised.", "from": "#executive-assessment", "quote": "Contemporary reports of malicious traffic did not establish a complete list of successfully compromised organizations"}
+  case-studies/MSHTML_CVE_2021_40444.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The component was reachable through a document's embedded-content machinery, so the risk went beyond whether macros were enabled.", "from": "#executive-assessment", "quote": "The relevant component could be reached through a document's embedded-content machinery, and the resulting security question extended beyond whether a user had enabled VBA macros"}
+      - {"text": "An advisory, interim restrictions, and the September updates were not equivalent stages of response.", "from": "#executive-assessment", "quote": "Those stages were not equivalent"}
+      - {"text": "Blocking one content path was not the same as correcting the vulnerable component.", "from": "#executive-assessment", "quote": "A temporary restriction on one content path was not a correction of the vulnerable component"}
+      - {"text": "A later bypass claim was overstated; the corrected account says the attack worked only on unpatched systems.", "from": "#executive-assessment", "quote": "The correction says the attack succeeded only against unpatched Windows systems"}
+  case-studies/PETITPOTAM_CVE_2021_36942.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "An authentication-coercion technique combined with weakly protected certificate enrollment could threaten an Active Directory environment.", "from": "#executive-assessment", "quote": "a Windows authentication-coercion technique could be combined with insufficiently protected certificate enrollment services to threaten an Active Directory environment"}
+      - {"text": "The research tool's existence is not proof that every Windows domain is open to certificate-based compromise.", "from": "#executive-assessment", "quote": "it does not make the existence of the tool proof that every Windows domain is vulnerable to certificate-based compromise"}
+      - {"text": "The patch was partial: it blocked one unauthenticated call while authenticated routes remained.", "from": "#executive-assessment", "quote": "it blocked the unauthenticated call exposed through LSARPC, while authenticated EFSRPC routes remained"}
+      - {"text": "The correction and the service-hardening guidance each addressed different parts of the risk.", "from": "#executive-assessment", "quote": "The correction and the service-hardening guidance addressed different parts of the risk"}
+  case-studies/QUADROOTER_2016.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Software close to the hardware can undermine app isolation, while the finder is often several handoffs from whoever ships the fix.", "from": "#executive-assessment", "quote": "software close to a device's hardware can undermine application isolation, while the organization that discovers the defect may be several handoffs away from the people who can deliver its correction"}
+      - {"text": "The name grouped four Qualcomm-related flaws; it did not show every affected handset had been compromised.", "from": "#executive-assessment", "quote": "It did not identify a single malware family or demonstrate that every potentially affected handset had been compromised"}
+      - {"text": "The headline 900 million figure was potential exposure, not an observed victim count.", "from": "#executive-assessment", "quote": "Its headline estimate of 900 million devices represented potential exposure, not an observed victim count"}
+      - {"text": "Mobile response needs an auditable link between a specific issue, the actual device variant, and evidence the fix is running.", "from": "#executive-assessment", "quote": "mobile vulnerability response needs an auditable connection between a specific issue, the actual device variant and evidence of the running correction"}
+  case-studies/STAGEFRIGHT_2015.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The shorthand name hides the key distinctions: original flaws, an incomplete fix, later findings, and hardening were related developments.", "from": "#executive-assessment", "quote": "were related developments rather than one identical flaw with one universal update"}
+      - {"text": "The disclosure listed seven CVEs and estimated exposure, which were capability claims, not a census of compromised devices.", "from": "#executive-assessment", "quote": "Those were vulnerability and capability claims, not a census of compromised devices"}
+      - {"text": "A shared media component receives content through many apps, and a source fix still has to reach the actual device.", "from": "#executive-assessment", "quote": "A shared media component could receive content through different applications, and a source correction still had to become a product update that reached the actual device"}
+      - {"text": "A parser handling untrusted content should not hold more access than its task requires.", "from": "#executive-assessment", "quote": "A parser processing untrusted content should not possess more access than its task requires"}
+  case-studies/XCODEGHOST_2015.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Malicious code entered through unofficial copies of the build tools, so a developer could ship code they never wrote.", "from": "#executive-assessment", "quote": "A developer could then produce an application containing code the developer had not intentionally written"}
+      - {"text": "Distribution through an official store did not by itself reveal the earlier contamination.", "from": "#executive-assessment", "quote": "Distribution through an official store did not automatically reveal that earlier contamination"}
+      - {"text": "Different telemetry counts of apps, versions, DNS queries, source IPs and customers measure different things and cannot be swapped.", "from": "#executive-assessment", "quote": "Counts of named applications, versions, DNS queries, source IPs and customers cannot be substituted for one another"}
+      - {"text": "The account separates researcher observations from hypotheses and a litigant's proposed findings from a court's conclusions.", "from": "#executive-assessment", "quote": "It distinguishes researcher observations from hypotheses, supplier statements from independent validation, and a litigant's proposed findings from a court's conclusions"}

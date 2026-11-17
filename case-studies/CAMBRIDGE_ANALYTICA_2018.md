@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- It is a cybersecurity case even though the collection mechanism did not resemble ransomware or a conventional network intrusion. ([Executive assessment](#executive-assessment))
+- It concerns the authority to collect information, what people were told, and the movement of data between organizations. ([Executive assessment](#executive-assessment))
+- Access through a functioning application interface is not proof of meaningful consent. ([Executive assessment](#executive-assessment))
+- The study separates adjudicated FTC and SEC findings from allegations resolved by settlement. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

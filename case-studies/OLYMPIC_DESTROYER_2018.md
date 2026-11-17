@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Olympic Destroyer brings together destructive malware, access across organizational boundaries, and an attribution record with deliberate distractions. ([Executive summary](#executive-summary))
+- The attack affected the 2018 PyeongChang Winter Olympics. ([Executive summary](#executive-summary))
+- A US indictment unsealed in October 2020 alleged a wider intrusion and deployment operation; the indictment is not a conviction. ([Executive summary](#executive-summary))
+- The central recommendation is to prepare two restoration plans, not one, with separate completion criteria. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

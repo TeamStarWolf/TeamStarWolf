@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- In event-stream, authority over an upstream package became a route into a downstream application's release process. ([Executive assessment](#executive-assessment))
+- A package can be installed across a large ecosystem while its harmful behavior is designed for a much narrower environment. ([Executive assessment](#executive-assessment))
+- The malicious payload targeted the Copay build; the evidence comes from npm, BitPay and Snyk, not an audited worldwide theft total. ([Executive assessment](#executive-assessment))
+- A registry removal can limit future distribution without repairing artifacts already built and delivered. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

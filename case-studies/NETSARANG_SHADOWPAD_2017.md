@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- A supplier compromise reverses the update relationship: an ordinary install can introduce malicious code through a trusted package. ([Executive summary](#executive-summary))
+- The question is not whether you downloaded from the right place, but whether the artifact matches an authorized, independently reviewed release. ([Executive summary](#executive-summary))
+- A compromised package, execution of its embedded code, activation of further capabilities and verified data theft are different findings. ([Executive summary](#executive-summary))
+- The record is bounded: Kaspersky documented the discovery and design, and NetSarang acknowledged the affected release. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

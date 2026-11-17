@@ -3501,6 +3501,48 @@ pages:
     start_at: "[Executive assessment](#executive-assessment), [3. Radio proximity and remote access](#_3-radio-proximity-and-remote-access), [4. Discovery, pairing and input processing](#_4-discovery-pairing-and-input-processing)"
     pairs_with: "[Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md), [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Endpoint Security Reference](/ENDPOINT_SECURITY_REFERENCE.md)"
     reviewed: null
+  case-studies/ATLANTA_SAMSAM_2018.md:
+    audience: "Public-sector CISOs and IT leaders, municipal incident responders, business-continuity and communications owners, and finance leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2018 Atlanta SamSam incident, you need to separate Atlanta-specific figures from campaign-wide totals or criminal from geopolitical attribution, or you are reviewing municipal recovery, reconciliation and public communication"
+    start_at: "[Executive summary](#executive-summary), [Analytical model: five recovery states](#analytical-model-five-recovery-states), [Reconciliation is a distinct recovery programme](#reconciliation-is-a-distinct-recovery-programme)"
+    pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Cyber Resilience BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md), [Baltimore and RobbinHood, 2019](/case-studies/BALTIMORE_ROBBINHOOD_2019.md)"
+    reviewed: null
+  case-studies/NORSK_HYDRO_LOCKERGOGA_2019.md:
+    audience: "Industrial and OT security teams, incident commanders, manufacturing and business-continuity leaders, and identity engineers"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2019 Norsk Hydro LockerGoga incident, you need to separate production recovery from IT recovery or malware capability from the incident timeline, or you are reviewing manufacturing continuity and trusted administrative recovery"
+    start_at: "[Executive summary](#executive-summary), [Safe continuity requires a stopping rule](#safe-continuity-requires-a-stopping-rule), [Trusted recovery: five acceptance gates](#trusted-recovery-five-acceptance-gates)"
+    pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [ICS and OT Security Reference](/ICS_OT_SECURITY_REFERENCE.md), [Cyber Resilience BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
+  case-studies/GARMIN_WASTEDLOCKER_2020.md:
+    audience: "Connected-product and service-reliability engineers, incident commanders, customer-support leaders and security researchers"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2020 Garmin outage, you need to separate an outage from confirmed data theft or a malware-family label from a company-confirmed attribution, or you are reviewing connected-service recovery, backlog replay and availability, integrity and confidentiality evidence"
+    start_at: "[Executive summary](#executive-summary), [Connected products: identify the actual failure boundary](#connected-products-identify-the-actual-failure-boundary), [Recovery is a dependency problem, not a server count](#recovery-is-a-dependency-problem-not-a-server-count)"
+    pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Cyber Resilience BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [SaaS Security Reference](/SAAS_SECURITY_REFERENCE.md)"
+    reviewed: null
+  case-studies/BALTIMORE_ROBBINHOOD_2019.md:
+    audience: "Public-sector security and IT leaders, municipal incident responders, finance and legal owners, and communications leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2019 Baltimore RobbinHood incident, you need to keep a disputed EternalBlue claim out or separate three cost numbers or a plea from an indictment, or you are reviewing transaction continuity and provisional-data integrity"
+    start_at: "[Executive summary](#executive-summary), [Original framework: transaction continuity has four layers](#original-framework-transaction-continuity-has-four-layers), [Cost reconciliation: three numbers, three meanings](#cost-reconciliation-three-numbers-three-meanings)"
+    pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Cyber Resilience BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md), [Atlanta and SamSam, 2018](/case-studies/ATLANTA_SAMSAM_2018.md)"
+    reviewed: null
+  case-studies/MAZE_2019_2020.md:
+    audience: "Enterprise and service-provider security teams, incident responders, data-protection owners and risk leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the Maze ransomware ecosystem and the 2020 Cognizant incident, you need to keep an unnamed response case separate from a named company or a forecast from a final cost, or you are reviewing double extortion, provider disruption and confidentiality investigation"
+    start_at: "[Executive assessment](#executive-assessment), [Analysis: three outcomes that require separate acceptance](#analysis-three-outcomes-that-require-separate-acceptance), [Service-provider disruption extends beyond encrypted systems](#service-provider-disruption-extends-beyond-encrypted-systems)"
+    pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [SaaS Security Reference](/SAAS_SECURITY_REFERENCE.md)"
+    reviewed: null
+  case-studies/TRAVELEX_2020.md:
+    audience: "Operational-resilience and business-continuity owners, incident responders, finance and audit leaders, and communications owners"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2019-2020 Travelex incident, you need to separate ransomware from pandemic and restructuring causes or operational restoration from auditable evidence, or you are reviewing degraded trading, partner dependencies and audit-trail preservation"
+    start_at: "[Executive assessment](#executive-assessment), [Original analysis: resilience has more than one finish line](#original-analysis-resilience-has-more-than-one-finish-line), [The audit trail is a recovery asset](#the-audit-trail-is-a-recovery-asset)"
+    pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Cyber Resilience BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Maze 2019-2020](/case-studies/MAZE_2019_2020.md)"
+    reviewed: null
   commands/aws-cli.md:
     audience: "Cloud engineers, administrators and security teams who work in AWS from a terminal"
     level: "Beginner to intermediate"

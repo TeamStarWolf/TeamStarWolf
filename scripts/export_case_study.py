@@ -114,6 +114,10 @@ EM_DASH = "\u2014"
 EXPORT_NAMES = {
     "JPMORGAN_2014": "JPMorgan_Chase_2014",
     "CCLEANER_2017": "CCleaner_2017",
+    "EBAY_2014": "eBay_2014",
+    "LINKEDIN_2012_2016": "LinkedIn_2012_2016",
+    "MYSPACE_2016": "MySpace_2016",
+    "TALKTALK_2015": "TalkTalk_2015",
     "AI_THREATS_2026": "AI_Threats_2026",
     "PHP2SHELL_OCTOBER_2026": "PHP2Shell_October_2026",
     "XZ_UTILS_BACKDOOR_2024": "XZ_Utils_Backdoor_2024",

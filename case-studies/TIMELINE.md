@@ -979,6 +979,14 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 25 November 2019: The FTC issues its opinion and final order against Cambridge Analytica
   - December 2019: The FTC finalizes settlements with Nix and Kogan
   - 23 April 2020: The federal court enters the Facebook settlement order; the FTC modifies its administrative order
+- [British Airways 2018: The Payment Page Was Not the Whole Breach](/case-studies/BRITISH_AIRWAYS_2018.md). Incident, 2018 to 2021. Sectors: transport. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/British_Airways_2018_Case_Study.pdf).
+  - 22 June 2018: The intrusion period begins (22 June to 5 September 2018, per the ICO)
+  - 21 August 2018: The customer booking exposure window begins (21 August to 5 September)
+  - 6 September 2018: IAG discloses the breach; an initial estimate of about 380,000 payment cards
+  - 11 September 2018: RiskIQ attributes the web skimming to Magecart
+  - 25 October 2018: IAG revises the payment-card group to 244,000 and notifies two reward-booking groups
+  - 16 October 2020: The ICO imposes a 20 million pound penalty (down from a 183.39 million pound proposal)
+  - July 2021: A group claim is resolved on confidential terms with no admission of liability
 
 ### 2017 <!-- {docsify-ignore} -->
 
@@ -1092,6 +1100,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 November 2017: WikiLeaks begins Vault 8 with source code for the CIA Hive tool
   - 13 July 2022: Joshua Schulte convicted on eight counts at retrial over the Vault 7 theft
   - 1 February 2024: Schulte sentenced to 40 years
+- [MySpace 2016 Disclosure: Old Credentials, New Exposure, and a Disputed Breach Date](/case-studies/MYSPACE_2016.md). Incident, 2016 to 2021. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/MySpace_2016_Case_Study.pdf).
+  - 31 May 2016: Time Inc. announces that stolen legacy login data is circulating; user notices are sent
+  - 1 June 2016: Troy Hunt's independent analysis estimates the data as roughly 2008-2009, with explicit uncertainty
+  - August 2016: Time Inc.'s Form 10-Q reports about 360 million accounts and a likely June 2013 to mid-2015 breach interval
+  - 2017: The Form 10-K for 2016 repeats the likely intrusion interval
+  - 2021: A later Viant Form 10-K reiterates roughly 360 million accounts using pre-June 2013 framing
 - [The Year 2016 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2016.md). Period record, January to December 2016. Sectors: cross-sector, government, finance, energy, healthcare, technology, transport. CVEs: CVE-2015-5374, CVE-2016-0189, CVE-2016-0800, CVE-2016-1019, CVE-2016-2118, CVE-2016-3081 and 12 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0020 Equation, G0032 Lazarus Group, G0034 Sandworm Team and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2016_Case_Study.pptx).
   - February 2016: An attacker in Bangladesh Bank's SWIFT system attempts $951 million in transfers; $81 million is not recovered
   - 31 March 2016: TA16-091A: Locky in hospitals in the US, New Zealand and Germany; Samas into healthcare networks through web servers
@@ -1117,6 +1131,14 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 19 July 2019: Related flaw CVE-2019-12815 published
   - 8 October 2026: CISA adds CVE-2015-3306 to KEV; joint advisory AA26-281A lists it
   - 4 November 2026: Lab run: the vulnerable build copies a file without login; the fixed build refuses
+- [TalkTalk, 2015: The Acquired Attack Surface and the Cost of Unfinished Security Work](/case-studies/TALKTALK_2015.md). Incident, 2015 to 2016. Sectors: telecommunications. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/TalkTalk_2015_Case_Study.pdf).
+  - 17 July 2015: An earlier, unaddressed injection attack occurs (also 2-3 September 2015)
+  - 15 October 2015: The attack window begins (15 to 21 October), through three pages inherited from Tiscali in 2009
+  - 21 October 2015: TalkTalk detects the attack, removes the pages and notifies the ICO the next day
+  - 30 October 2015: A provisional update: fewer than 21,000 bank-detail combinations and under 1.2 million names, emails and phone numbers
+  - 2 February 2016: A trading update estimates a 15 million pound trading impact and about 95,000 attack-attributed customer losses
+  - 5 October 2016: The ICO announces a 400,000 pound penalty under the Data Protection Act
+  - 1 November 2016: The matter settles; a 320,000 pound early-payment amount is reported
 - [The Year 2015 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2015.md). Period record, January to December 2015. Sectors: cross-sector, government, healthcare, energy, finance, technology, telecommunications, media, transport. CVEs: CVE-2015-0204, CVE-2015-0235, CVE-2015-1538, CVE-2015-1635, CVE-2015-1641, CVE-2015-1701 and 13 more. ATT&CK groups: G0034 Sandworm Team, G0020 Equation, G0016 APT29, G0007 APT28, G0008 Carbanak, G0027 Threat Group-3390 and 5 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2015_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2015_Case_Study.pptx).
   - 2 January 2015: Treasury announces sanctions on North Korea's government and Workers' Party, citing the Sony Pictures attack
   - 16 February 2015: Kaspersky names the Equation group, with a module that could reprogram hard-drive firmware
@@ -1222,6 +1244,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 6 November 2014: Company findings: a third-party vendor's credentials used to enter; a separate 53 million email-address files
   - 24 November 2020: A $17.5 million multistate settlement (46 states and DC) is announced
   - 21 December 2020: The New Jersey assurance of voluntary compliance takes effect
+- [eBay 2014: Employee Credentials, Customer Passwords and Marketplace Recovery](/case-studies/EBAY_2014.md). Incident, 2014. Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/eBay_2014_Case_Study.pdf).
+  - February 2014: The authentication-database compromise window begins (late February to early March 2014)
+  - May 2014: eBay detects the employee-credential compromise (about two weeks before disclosure)
+  - 21 May 2014: eBay discloses the breach and asks all users to change passwords; records of up to 145 million users
+  - 22 May 2014: Montana's consumer-protection office issues a public alert
+  - 23 May 2014: eBay UK advises changing each account and any reused passwords
 - [The Year 2014 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2014.md). Period record, January to December 2014. Sectors: cross-sector, technology, retail, finance, government, defense, energy, healthcare, manufacturing, media, telecommunications. CVEs: CVE-2013-3346, CVE-2013-5065, CVE-2013-5211, CVE-2014-0160, CVE-2014-0224, CVE-2014-0322 and 24 more. ATT&CK groups: G0001 Axiom, G0010 Turla, G0012 Darkhotel, G0022 APT3, G0024 Putter Panda, G0027 Threat Group-3390 and 6 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2014_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2014_Case_Study.pptx).
   - 13 January 2014: US-CERT alert on NTP amplification DDoS using the monlist feature, CVE-2013-5211
   - 12 February 2014: NIST publishes Cybersecurity Framework 1.0
@@ -1264,6 +1292,18 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2012 <!-- {docsify-ignore} -->
 
+- [LinkedIn 2012-2016: Password-Store Exposure and the Limits of a Targeted Reset](/case-studies/LINKEDIN_2012_2016.md). Incident, 2012 to 2021 (core: 2012 to 2016). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/LinkedIn_2012_2016_Case_Study.pdf).
+  - March 2012: Charged LinkedIn intrusion window (about 3-4 March 2012, per the indictment)
+  - 6 June 2012: LinkedIn learns of a published list of about 6.5 million passwords
+  - 12 June 2012: LinkedIn summarizes the theft and reports salted hashing completed for the live store
+  - 15 September 2015: A federal court approves a $1.25 million civil settlement for a defined premium-subscriber class
+  - 17 May 2016: LinkedIn learns 2012-stolen data (more than 100 million members) is being offered online
+  - 18 May 2016: LinkedIn publicly notifies and begins invalidating affected passwords
+  - 5 October 2016: Yevgeniy Nikulin is arrested in the Czech Republic
+  - 30 March 2018: Nikulin is extradited to the US and appears in San Francisco
+  - 10 July 2020: A jury convicts Nikulin for intrusions at LinkedIn, Dropbox and Formspring
+  - 30 September 2020: Nikulin is sentenced to 88 months
+  - 22 December 2021: The Ninth Circuit rejects the restitution award but sustains the sentence
 - [Cyber Operations as Statecraft: The Cases in The Hacker and the State](/case-studies/HACKER_AND_THE_STATE_CASES.md). Period record, 2006 to December 2020 (core: 2012 to 2018). Sectors: government, media, energy, finance, telecommunications, healthcare, cross-sector. CVEs: CVE-2017-0143, CVE-2017-0144, CVE-2017-0148. ATT&CK groups: G0006 APT1, G0007 APT28, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0082 APT38. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Hacker_And_The_State_Cases_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Hacker_And_The_State_Cases_Case_Study.pptx).
   - 2006: APT1's observed compromises begin, per Mandiant
   - July 2012: First known adversarial access to the US Office of Personnel Management (OPM)
@@ -1277,6 +1317,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 3 April 2017: 3 April to 3 May 2017: GRU spearphishing of the French presidential campaign
   - 19 December 2017: The US and five partner governments attribute WannaCry to North Korea
   - 13 July 2018: Twelve GRU officers indicted over the 2016 election hacking
+- [Dropbox 2012-2016: Historical Credentials, Delayed Exposure and Account Recovery](/case-studies/DROPBOX_2012_2016.md). Incident, 2012 to 2021 (core: 2012 to 2016). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Dropbox_2012_2016_Case_Study.pdf).
+  - 31 July 2012: Dropbox discloses reused-credential account access and an employee document containing user email addresses
+  - 25 August 2016: Dropbox confirms a genuine 2012 credential collection and resets unchanged pre-mid-2012 passwords
+  - 21 October 2016: The Justice Department announces Nikulin's indictment involving three companies
+  - 10 July 2020: A jury convicts Nikulin
+  - 30 September 2020: Nikulin is sentenced to 88 months
+  - 22 December 2021: The Ninth Circuit rejects the restitution award but sustains the sentence
 - [The Year 2012 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2012.md). Period record, January to December 2012. Sectors: cross-sector, finance, energy, government, technology, media, retail, telecommunications, defense, manufacturing. CVEs: CVE-2008-5353, CVE-2010-2568, CVE-2011-3402, CVE-2011-3544, CVE-2012-0002, CVE-2012-0152 and 18 more. ATT&CK groups: G0066 Elderwood, G0006 APT1. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2012_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2012_Case_Study.pptx).
   - 19 January 2012: Megaupload arrests in Auckland and more than 20 search warrants in the US and eight countries; DHS and FBI advise on recovering erased files
   - 23 March 2012: Microsoft's Operation b71 seizes Zeus-family command servers under a civil court order

@@ -414,7 +414,7 @@
       border-bottom: 1px solid var(--tsw-border-soft);
       text-align: right;
       height: 52px; line-height: 52px;
-      padding-right: 64px;   /* room for the theme button (#tsw-theme) */
+      padding-right: 104px;   /* room for the search and theme buttons (#tsw-search-btn, #tsw-theme) */
     }
     .app-nav li ul { background: var(--tsw-surface); border: 1px solid var(--tsw-border-soft); border-radius: 10px; box-shadow: 0 10px 28px var(--tsw-shadow); }
     .app-nav li ul li { line-height: 1.6; }
@@ -468,8 +468,10 @@
     #tsw-theme .tsw-i-moon { display: none; }
     :root[data-theme="light"] #tsw-theme .tsw-i-sun { display: none; }
     :root[data-theme="light"] #tsw-theme .tsw-i-moon { display: block; }
-    /* Search button beside it, on small screens only (the 768px block shows it); wider
-       screens have the search box at the top of the sidebar. */
+    /* Search button beside the theme toggle. Shown on small screens (the 768px block) and,
+       since the sidebar box scrolls away with the rest of the nav, kept persistent in the
+       top-right of wide screens too (the min-width 769px rule below), so search is always
+       one click away whatever is scrolled into view. */
     #tsw-search-btn {
       display: none; position: fixed; top: 6px; right: 48px; z-index: 30;
       width: 36px; height: 36px; padding: 0; border-radius: 8px;
@@ -479,6 +481,10 @@
     }
     #tsw-search-btn:hover { border-color: var(--tsw-link); color: var(--tsw-link); }
     #tsw-search-btn svg { width: 18px; height: 18px; display: block; }
+    /* Wide screens: sit it just left of the theme toggle (top 8px, right 14px), always on. */
+    @media screen and (min-width: 769px) {
+      #tsw-search-btn { display: inline-flex; top: 8px; right: 54px; }
+    }
 
     /* ===================== Keyboard focus and skip link ===================== */
     a:focus-visible, button:focus-visible, summary:focus-visible,
@@ -1038,6 +1044,17 @@
        those floats, so each entry stepped further right. The block has its own heading. */
     .sidebar .tsw-toc li::before { content: none; display: none; }
     .sidebar .tsw-toc li a { display: block; font-size: .84rem; line-height: 1.4; padding: 3px 0; }
+    /* h3 entries nested under their h2: indented and quieter. */
+    .sidebar .tsw-toc li.tsw-toc-l3 a { padding-left: 14px; font-size: .8rem; color: var(--tsw-text-muted); }
+    /* The section the reader is in (set by the scroll-spy): tinted with a left marker. */
+    .sidebar .tsw-toc li a.tsw-toc-on { color: var(--tsw-link); font-weight: 650; box-shadow: inset 2px 0 0 var(--tsw-link); }
+    /* Pin the contents to the top of the sidebar so they stay put while the nav below scrolls;
+       an opaque sidebar background keeps the scrolling nav from showing through. */
+    .sidebar .tsw-toc {
+      position: sticky; top: 0; z-index: 2;
+      margin-left: 0; padding-left: 15px;
+      background: var(--tsw-sidebar-bg);
+    }
     .sidebar-nav li.tsw-in-section > a { color: var(--tsw-green); font-weight: 650; }
 
     /* ===================== Header card and folds =====================
@@ -1657,6 +1674,7 @@
 
       // ---------- 1. breadcrumbs, section highlight, "On this page"
       window.$docsify.plugins.push(function (hook, vm) {
+        var tocSpy = null;   // teardown for the previous page's on-this-page scroll-spy
         hook.init(function () { getJson('assets/site-nav.json'); });
         hook.afterEach(function (html, next) {
           getJson('assets/site-nav.json').then(function (nav) {
@@ -1694,32 +1712,66 @@
               if (a && a.parentElement) { a.parentElement.classList.add('tsw-in-section'); break; }
             }
           });
-          // The sections of a page the sidebar does not list, at the top of the sidebar
+          // The on-this-page contents for a page the sidebar does not itself list, pinned at
+          // the top of the sidebar (see the sticky .tsw-toc CSS). It lists every h2 and h3 so a
+          // reader can jump straight into a long reference instead of scrolling; the h3 entries
+          // sit indented under their h2 and the whole list scrolls inside its own capped box, so
+          // the density that once made this h2-only (an 84-entry reference) no longer pushes the
+          // site sections down. A scroll-spy marks the section in view and keeps it visible here.
+          // The TOC for this page is already built (a repeat doneEach for the same render);
+          // keep it and its live scroll-spy rather than tearing the listener down.
           if (side.querySelector('.tsw-toc')) { return; }
-          var ul = sections && sections.querySelector('li') ? sections : null;
-          // top-level sections only: with every h3 too, a long reference listed 84 entries.
-          // docsify puts each nested list beside its parent item (ul > ul), not inside it.
-          if (ul && ul.querySelectorAll(':scope > li').length >= 2) {
-            Array.prototype.slice.call(ul.querySelectorAll(':scope > ul, :scope > li > ul')).forEach(function (n) { n.remove(); });
-          }
-          if (!ul) {
-            var heads = Array.prototype.slice.call(document.querySelectorAll('#main h2[id]'));
-            if (heads.length < 2) { if (sections) { sections.remove(); } return; }
-            ul = el('ul', {});
-            heads.forEach(function (h) {
-              var anchor = h.querySelector('a.anchor');
-              var a = el('a', { href: anchor ? anchor.getAttribute('href') : '#' + h.id }, h.textContent.replace(/\s+/g, ' ').trim());
-              var li = el('li', {});
-              li.appendChild(a);
-              ul.appendChild(li);
-            });
-          }
+          // Past the guard we are rebuilding, so retire the previous page's scroll-spy first.
+          if (tocSpy) { tocSpy.remove(); tocSpy = null; }
+          // Drop docsify's own nested sub-sidebar; this block replaces it.
+          if (sections) { sections.remove(); }
+          var heads = Array.prototype.slice.call(document.querySelectorAll('#main h2[id], #main h3[id]'));
+          if (heads.length < 2) { return; }
+          var ul = el('ul', {}), spied = [];
+          heads.forEach(function (h) {
+            var lvl3 = h.tagName === 'H3';
+            var anchor = h.querySelector('a.anchor');
+            var a = el('a', { href: anchor ? anchor.getAttribute('href') : '#' + h.id }, h.textContent.replace(/\s+/g, ' ').trim());
+            var li = el('li', { className: lvl3 ? 'tsw-toc-l3' : 'tsw-toc-l2' });
+            li.appendChild(a);
+            ul.appendChild(li);
+            spied.push({ el: h, a: a });
+          });
           // open on wide screens; closed on a phone, where the sidebar is the menu
           var box = el('details', { className: 'tsw-toc' });
           if (!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches)) { box.open = true; }
           box.appendChild(el('summary', {}, 'On this page'));
           box.appendChild(ul);
           side.insertBefore(box, side.firstChild);
+          // Scroll-spy: mark the lowest heading whose top has passed under the header band, and
+          // keep that entry in view inside the list, without ever moving the page itself. Driven
+          // by an IntersectionObserver so it works whatever element owns the scroll, and a
+          // rAF-coalesced pass reads the geometry once per frame.
+          var current = null, ticking = false;
+          function mark() {
+            ticking = false;
+            var best = null, bestTop = -Infinity;
+            for (var i = 0; i < spied.length; i++) {
+              var t = spied[i].el.getBoundingClientRect().top;
+              if (t <= 120 && t > bestTop) { bestTop = t; best = spied[i]; }
+            }
+            if (!best) { best = spied[0]; }
+            if (best === current) { return; }
+            if (current) { current.a.classList.remove('tsw-toc-on'); }
+            current = best;
+            best.a.classList.add('tsw-toc-on');
+            if (box.open) {
+              var aR = best.a.getBoundingClientRect(), uR = ul.getBoundingClientRect();
+              var rel = aR.top - uR.top + ul.scrollTop;
+              if (rel < ul.scrollTop) { ul.scrollTop = rel - 8; }
+              else if (rel + aR.height > ul.scrollTop + ul.clientHeight) { ul.scrollTop = rel + aR.height - ul.clientHeight + 8; }
+            }
+          }
+          function schedule() { if (!ticking) { ticking = true; requestAnimationFrame(mark); } }
+          var io = new IntersectionObserver(schedule, { rootMargin: '-118px 0px 0px 0px', threshold: [0, 1] });
+          spied.forEach(function (s) { io.observe(s.el); });
+          tocSpy = { remove: function () { io.disconnect(); } };
+          mark();
         });
       });
 

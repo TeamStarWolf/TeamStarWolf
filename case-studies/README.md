@@ -139,9 +139,12 @@ Every study follows the same rules.
 
 | Grade | Meaning |
 |---|---|
-| Confirmed | An observed, attributed incident with technical detail from the victim, a government agency, or the AI provider |
-| Reported | A single vendor's account of in-the-wild activity, not independently corroborated |
-| Demonstrated | A research proof of concept or a fixed vulnerability with no known in-the-wild use |
+| Confirmed | An observed, attributed fact stated in a primary source opened for the study: the victim or affected organization, a government agency, the AI provider, the KEV feed, or the library's own data. A party's account of its own investigation is Confirmed as that party's statement |
+| Reported | A single vendor's account of in-the-wild activity, or a secondary account such as journalism or an analyst note, not independently corroborated |
+| Inferred | This study's own reasoning from the cited facts, including conclusions drawn from absence, labelled where it appears |
+| Demonstrated | A research proof of concept, a fixed vulnerability with no known in-the-wild use, or a check the library ran in a lab |
+
+Grades are applied inline, next to each claim, in the body of every study. Many studies carry their own version of this table, headed "Meaning in this study" and tuned to the sources they opened, and the slide decks gather a section's grades into a single "Grades:" line.
 
 ## About the figures
 

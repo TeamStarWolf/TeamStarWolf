@@ -227,6 +227,25 @@ studies:
       - {"date": "2026-11-01", "label": "Phase-one withdrawals resume on 15 networks"}
       - {"date": "2026-11-02", "label": "Kim Yo Jong denies North Korea's role (Reported)"}
       - {"date": "2026-11-03", "label": "Binance publishes its preliminary post-mortem; Chainalysis and TRM publish follow-ups"}
+  case-studies/BLUEKEEP_2019.md:
+    kind: "vulnerability"
+    title: "BlueKeep, 2019: The Distance Between a Warning and a Verified Fix"
+    start: "2019-05"
+    end: "2019-11"
+    core_start: "2019-05"
+    core_end: "2019-05"
+    sectors: ["technology", "cross-sector"]
+    cves: ["CVE-2019-0708"]
+    actors: []
+    tags: ["RDP", "wormable", "legacy platforms", "patch verification", "remote services"]
+    pdf: "BlueKeep_2019_Case_Study.pdf"
+    events:
+      - {"date": "2019-05-14", "label": "Microsoft discloses CVE-2019-0708 with exceptional legacy patches; no observed exploitation"}
+      - {"date": "2019-06-04", "label": "NSA advisory on BlueKeep"}
+      - {"date": "2019-06-17", "label": "CISA reports remote code execution on a Windows 2000 test machine"}
+      - {"date": "2019-07-25", "label": "NHS Digital notes a commercial CANVAS exploitation module"}
+      - {"date": "2019-09-06", "label": "A public Metasploit module is released"}
+      - {"date": "2019-11-07", "label": "Microsoft reports mining-related exploitation, operator-driven, not a worm"}
   case-studies/BOSTON_SCIENTIFIC_ATTACK_2026.md:
     kind: "incident"
     title: "The Boston Scientific Network Outage of August 2026: A Case Study"
@@ -2283,6 +2302,24 @@ studies:
       - {"date": "2018-08-30", "label": "GAO-18-559 describes the breach and federal response"}
       - {"date": "2019-07", "label": "FTC announces a settlement of at least $575 million; about 147 million people affected"}
       - {"date": "2020-02-10", "label": "DOJ charges four alleged members of China's PLA"}
+  case-studies/ETERNALBLUE_MS17_010_2017.md:
+    kind: "vulnerability"
+    title: "EternalBlue and MS17-010: What a Patch Response Must Prove"
+    start: "2017-03"
+    end: "2018-02"
+    core_start: "2017-05"
+    core_end: "2017-05"
+    sectors: ["technology", "cross-sector"]
+    cves: ["CVE-2017-0143", "CVE-2017-0144", "CVE-2017-0145", "CVE-2017-0147"]
+    actors: []
+    tags: ["SMBv1", "EternalBlue", "patch assurance", "WannaCry", "NotPetya"]
+    pdf: "EternalBlue_MS17_010_2017_Case_Study.pdf"
+    events:
+      - {"date": "2017-03-14", "label": "Microsoft publishes MS17-010"}
+      - {"date": "2017-04-14", "label": "The Shadow Brokers release makes EternalBlue public"}
+      - {"date": "2017-05-12", "label": "The WannaCry campaign begins"}
+      - {"date": "2017-05-13", "label": "Microsoft issues emergency updates for older platforms; Canada issues AV17-068"}
+      - {"date": "2018-02-05", "label": "Microsoft's Petya retrospective finds impersonation outpaced SMB exploitation"}
   case-studies/EUROPEAN_COMMISSION_CLOUD_BREACH_2026.md:
     kind: "incident"
     title: "The European Commission Cloud Breach of 2026: AWS Data Theft Through the Poisoned Trivy Scanner"
@@ -3296,6 +3333,28 @@ studies:
       - {"date": "2010-01-20", "label": "Microsoft advance notice; observed exploitation on Internet Explorer 6"}
       - {"date": "2010-01-21", "label": "MS10-002 published, addressing CVE-2010-0249"}
       - {"date": "2010-03-22", "label": "Google announces a changed China search arrangement"}
+  case-studies/OPM_2014_2015.md:
+    kind: "incident"
+    title: "OPM 2014-2015: Personnel Records, Vetting Data and the Limits of Recovery"
+    start: "2014-05"
+    end: "2020-07"
+    core_start: "2014-05"
+    core_end: "2015-07"
+    sectors: ["government"]
+    cves: []
+    actors: []
+    tags: ["personnel records", "background investigations", "biometrics", "containment", "audit validation"]
+    pdf: "OPM_2014_2015_Case_Study.pdf"
+    events:
+      - {"date": "2014-05", "label": "A second intrusion gains access with contractor credentials (per the House report)"}
+      - {"date": "2014-07", "label": "Background-investigation data exfiltration (July to August 2014)"}
+      - {"date": "2014-12", "label": "Personnel-data exfiltration"}
+      - {"date": "2015-06", "label": "OPM discloses the personnel-records incident (4.2 million)"}
+      - {"date": "2015-07", "label": "OPM discloses the background-investigation incident (21.5 million)"}
+      - {"date": "2016-09-07", "label": "The House Oversight majority staff report"}
+      - {"date": "2017-08-03", "label": "GAO-17-614 assesses the response to 19 US-CERT recommendations"}
+      - {"date": "2018-11-13", "label": "GAO-19-143R follow-up: 51 of 80 recommendations implemented"}
+      - {"date": "2020-07-07", "label": "The FBI publicly attributes the theft to China"}
   case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026.md:
     kind: "campaign"
     title: "Oracle PeopleSoft CVE-2026-35273 and the ShinyHunters Mass Exploitation of 2026: A Case Study"
@@ -3603,6 +3662,22 @@ studies:
       - {"date": "2025-07-19", "label": "Microsoft ships out-of-band updates, 19 to 20 July"}
       - {"date": "2025-07-20", "label": "CISA adds CVE-2025-53770 to the KEV catalog"}
       - {"date": "2025-09", "label": "Warlock's leak site lists roughly 60 victims"}
+  case-studies/SHATTERED_SHA1_2017.md:
+    kind: "vulnerability"
+    title: "SHAttered: The SHA-1 Collision That Made Migration Tangible"
+    start: "2017-02"
+    end: "2017-03"
+    core_start: "2017-02"
+    core_end: "2017-02"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["SHA-1", "hash collision", "cryptographic migration", "Git", "Subversion"]
+    pdf: "SHAttered_SHA1_2017_Case_Study.pdf"
+    events:
+      - {"date": "2017-02-23", "label": "Google and CWI announce the first practical SHA-1 collision"}
+      - {"date": "2017-02-24", "label": "NIST responds, noting SHA-1 deprecation since 2011 and disallowance since 2013"}
+      - {"date": "2017-03-20", "label": "GitHub announces collision detection and explains Git's object boundary"}
   case-studies/SHELLSHOCK_2014.md:
     kind: "vulnerability"
     title: "Shellshock 2014: When Process Metadata Became Executable Input"
@@ -4292,6 +4367,29 @@ studies:
       - {"date": "2017-11-15", "label": "The White House publishes the unclassified VEP charter"}
       - {"date": "2023-06-01", "label": "Kaspersky discloses Operation Triangulation; the FSB blames US intelligence the same day"}
       - {"date": "2025-10-19", "label": "China's Ministry of State Security alleges an NSA campaign against the National Time Service Center"}
+  case-studies/UBER_2016.md:
+    kind: "incident"
+    title: "Uber 2016: A Data Breach, a Concealment Decision and Separate Legal Outcomes"
+    start: "2016-10"
+    end: "2026-06"
+    core_start: "2016-10"
+    core_end: "2017-11"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["data breach", "concealment", "bug bounty", "cloud secrets", "disclosure governance"]
+    pdf: "Uber_2016_Case_Study.pdf"
+    events:
+      - {"date": "2016-10", "label": "Intruders use stolen credentials to copy about 57 million user records"}
+      - {"date": "2016-12", "label": "Uber pays $100,000 through a bounty program and obtains a deletion agreement"}
+      - {"date": "2017-11", "label": "New leadership discloses the breach"}
+      - {"date": "2018-04", "label": "The FTC announces an expanded settlement"}
+      - {"date": "2018-09-26", "label": "A $148 million nationwide state settlement"}
+      - {"date": "2022-07-22", "label": "Uber enters a non-prosecution agreement"}
+      - {"date": "2022-10-05", "label": "The former CSO Joseph Sullivan is convicted"}
+      - {"date": "2023-05-05", "label": "Sullivan is sentenced to probation and a fine"}
+      - {"date": "2025-11-12", "label": "The Ninth Circuit affirms the convictions"}
+      - {"date": "2026-06-29", "label": "The Supreme Court denies review"}
   case-studies/WANNACRY_2017.md:
     kind: "campaign"
     title: "WannaCry 2017: How an Unclosed Patch Gap Became a Healthcare Service Crisis"
@@ -4398,6 +4496,27 @@ studies:
       - {"date": "2024-02-24", "label": "XZ Utils 5.6.0 tarball, carrying the backdoor, released"}
       - {"date": "2024-03-09", "label": "5.6.1 tarball released"}
       - {"date": "2024-03-29", "label": "Andres Freund discloses the backdoor; distributions pull the versions; CISA issues an alert"}
+  case-studies/ZEROLOGON_2020.md:
+    kind: "vulnerability"
+    title: "Zerologon 2020: Domain Trust, Phased Enforcement and the Cost of Exceptions"
+    start: "2020-08"
+    end: "2021-02"
+    core_start: "2020-09"
+    core_end: "2020-10"
+    sectors: ["technology", "government"]
+    cves: ["CVE-2020-1472"]
+    actors: []
+    tags: ["Active Directory", "Netlogon", "domain controller", "phased enforcement", "exceptions"]
+    pdf: "Zerologon_2020_Case_Study.pdf"
+    events:
+      - {"date": "2020-08-11", "label": "Microsoft's August phase enforces secure RPC for Windows accounts"}
+      - {"date": "2020-09-16", "label": "CERT/CC VU#490028 describes the insecure AES-CFB8 IV"}
+      - {"date": "2020-09-18", "label": "CISA Emergency Directive 20-04 assumes active exploitation"}
+      - {"date": "2020-09-24", "label": "CISA reports awareness of active exploitation"}
+      - {"date": "2020-10-09", "label": "CISA and FBI AA20-283A: APT actors chain Zerologon against SLTT and elections systems"}
+      - {"date": "2020-11-30", "label": "Microsoft reports observed malicious use beginning 13 September"}
+      - {"date": "2021-01-14", "label": "Microsoft announces default enforcement from the 9 February update"}
+      - {"date": "2021-02-09", "label": "Domain-controller enforcement is enabled by default"}
   case-studies/ZERO_DAY_MARKET_EVENTS.md:
     kind: "era"
     title: "The Zero-Day Trade and Its Fallout: The Events in This Is How They Tell Me the World Ends"

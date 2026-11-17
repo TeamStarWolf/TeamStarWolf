@@ -810,6 +810,15 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 4 October 2021: FireEye, Inc. becomes Mandiant, Inc.; the products business sale closes on 8 October
   - 27 April 2022: Mandiant merges UNC2452 into APT29
   - 12 September 2022: Google completes its acquisition of Mandiant
+- [Zerologon 2020: Domain Trust, Phased Enforcement and the Cost of Exceptions](/case-studies/ZEROLOGON_2020.md). Vulnerability, August 2020 to February 2021 (core: September to October 2020). Sectors: technology, government. CVEs: CVE-2020-1472. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Zerologon_2020_Case_Study.pdf).
+  - 11 August 2020: Microsoft's August phase enforces secure RPC for Windows accounts
+  - 16 September 2020: CERT/CC VU#490028 describes the insecure AES-CFB8 IV
+  - 18 September 2020: CISA Emergency Directive 20-04 assumes active exploitation
+  - 24 September 2020: CISA reports awareness of active exploitation
+  - 9 October 2020: CISA and FBI AA20-283A: APT actors chain Zerologon against SLTT and elections systems
+  - 30 November 2020: Microsoft reports observed malicious use beginning 13 September
+  - 14 January 2021: Microsoft announces default enforcement from the 9 February update
+  - 9 February 2021: Domain-controller enforcement is enabled by default
 - [Ryuk and Healthcare in 2020: The Sector Warning and the Continuity Problem](/case-studies/RYUK_HEALTHCARE_2020.md). Campaign, January 2020 to March 2021 (core: September to November 2020). Sectors: healthcare. CVEs: CVE-2020-1472. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ryuk_Healthcare_2020_Case_Study.pdf).
   - 29 January 2020: Mandiant investigates activity later tracked as UNC1878
   - 31 March 2020: Mandiant publishes its actor-tracking account
@@ -877,6 +886,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - August 2025: Jaguar Land Rover incident, rated Category 3 at an estimated 1.9 billion pounds
   - 16 July 2026: Thalha Jubair and Owen Flowers, called leading Scattered Spider members by the NCA, each sentenced to five years six months
   - 10 November 2026: KEV catalog version 2026.11.10: 361 of 1,779 entries flagged for known ransomware use
+- [BlueKeep, 2019: The Distance Between a Warning and a Verified Fix](/case-studies/BLUEKEEP_2019.md). Vulnerability, May to November 2019 (core: May 2019). Sectors: technology, cross-sector. CVEs: CVE-2019-0708. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/BlueKeep_2019_Case_Study.pdf).
+  - 14 May 2019: Microsoft discloses CVE-2019-0708 with exceptional legacy patches; no observed exploitation
+  - 4 June 2019: NSA advisory on BlueKeep
+  - 17 June 2019: CISA reports remote code execution on a Windows 2000 test machine
+  - 25 July 2019: NHS Digital notes a commercial CANVAS exploitation module
+  - 6 September 2019: A public Metasploit module is released
+  - 7 November 2019: Microsoft reports mining-related exploitation, operator-driven, not a worm
 - [Capital One 2019: When a Request Became Data Authority](/case-studies/CAPITAL_ONE_2019.md). Incident, March 2019 to June 2022 (core: March to July 2019). Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Capital_One_2019_Case_Study.pdf).
   - March 2019: Principal access window in the company's later disclosure
   - July 2019: Outside report, company determination and public announcement of about 100 million US and 6 million Canada affected
@@ -992,6 +1008,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - February 2018: The NHS CIO lessons-learned review explains the trust reclassification
   - April 2018: Public Accounts Committee scrutiny and the revised NAO printing
   - 6 September 2018: The US makes public a complaint against Park Jin Hyok
+- [EternalBlue and MS17-010: What a Patch Response Must Prove](/case-studies/ETERNALBLUE_MS17_010_2017.md). Vulnerability, March 2017 to February 2018 (core: May 2017). Sectors: technology, cross-sector. CVEs: CVE-2017-0143, CVE-2017-0144, CVE-2017-0145, CVE-2017-0147. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/EternalBlue_MS17_010_2017_Case_Study.pdf).
+  - 14 March 2017: Microsoft publishes MS17-010
+  - 14 April 2017: The Shadow Brokers release makes EternalBlue public
+  - 12 May 2017: The WannaCry campaign begins
+  - 13 May 2017: Microsoft issues emergency updates for older platforms; Canada issues AV17-068
+  - 5 February 2018: Microsoft's Petya retrospective finds impersonation outpaced SMB exploitation
 - [Equifax 2017: When a Patch Ticket Is Not Proof](/case-studies/EQUIFAX_2017.md). Incident, March 2017 to February 2020 (core: May to July 2017). Sectors: finance. CVEs: CVE-2017-5638. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Equifax_2017_Case_Study.pdf).
   - March 2017: Apache S2-045 advisory for CVE-2017-5638 and historical fixed Struts versions available
   - 13 May 2017: Start of the intrusion in GAO's account
@@ -1000,6 +1022,10 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 30 August 2018: GAO-18-559 describes the breach and federal response
   - July 2019: FTC announces a settlement of at least $575 million; about 147 million people affected
   - 10 February 2020: DOJ charges four alleged members of China's PLA
+- [SHAttered: The SHA-1 Collision That Made Migration Tangible](/case-studies/SHATTERED_SHA1_2017.md). Vulnerability, February to March 2017 (core: February 2017). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SHAttered_SHA1_2017_Case_Study.pdf).
+  - 23 February 2017: Google and CWI announce the first practical SHA-1 collision
+  - 24 February 2017: NIST responds, noting SHA-1 deprecation since 2011 and disallowance since 2013
+  - 20 March 2017: GitHub announces collision detection and explains Git's object boundary
 - [The Year 2017 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2017.md). Period record, January to December 2017. Sectors: cross-sector, healthcare, energy, finance, government, technology. CVEs: CVE-2017-0005, CVE-2017-0101, CVE-2017-0143, CVE-2017-0144, CVE-2017-0145, CVE-2017-0146 and 28 more. ATT&CK groups: G0020 Equation, G0022 APT3, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly, G0045 menuPass and 4 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2017_Case_Study.pptx).
   - 7 March 2017: WikiLeaks publishes Vault 7 Part 1, "Year Zero", 8,761 documents it says came from the CIA
   - 14 March 2017: Microsoft publishes MS17-010, fixing the SMBv1 flaws later used by WannaCry and NotPetya
@@ -1016,6 +1042,17 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2016 <!-- {docsify-ignore} -->
 
+- [Uber 2016: A Data Breach, a Concealment Decision and Separate Legal Outcomes](/case-studies/UBER_2016.md). Incident, October 2016 to June 2026 (core: October 2016 to November 2017). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Uber_2016_Case_Study.pdf).
+  - October 2016: Intruders use stolen credentials to copy about 57 million user records
+  - December 2016: Uber pays $100,000 through a bounty program and obtains a deletion agreement
+  - November 2017: New leadership discloses the breach
+  - April 2018: The FTC announces an expanded settlement
+  - 26 September 2018: A $148 million nationwide state settlement
+  - 22 July 2022: Uber enters a non-prosecution agreement
+  - 5 October 2022: The former CSO Joseph Sullivan is convicted
+  - 5 May 2023: Sullivan is sentenced to probation and a fine
+  - 12 November 2025: The Ninth Circuit affirms the convictions
+  - 29 June 2026: The Supreme Court denies review
 - [Mirai and Dyn, 2016: When Unmanaged Devices Became an Internet Availability Problem](/case-studies/MIRAI_DYN_2016.md). Campaign, August 2016 to December 2020 (core: September to October 2016). Sectors: technology, cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Mirai_Dyn_2016_Case_Study.pdf).
   - August 2016: Observation window of the published Mirai retrospective begins
   - 20 September 2016: Record DDoS against KrebsOnSecurity
@@ -1102,6 +1139,16 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 26 September 2014: Ubuntu USN-2363-2 build correction; FFIEC advisory; Red Hat FAQ on CVE-2014-7186 and CVE-2014-7187
   - 29 September 2014: Cloudflare enables Shellshock protection for all customers
   - 30 September 2014: Cloudflare and Cisco Talos publish attempt telemetry; Red Hat notes CVE-2014-6277 and CVE-2014-6278 mitigated
+- [OPM 2014-2015: Personnel Records, Vetting Data and the Limits of Recovery](/case-studies/OPM_2014_2015.md). Incident, May 2014 to July 2020 (core: May 2014 to July 2015). Sectors: government. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/OPM_2014_2015_Case_Study.pdf).
+  - May 2014: A second intrusion gains access with contractor credentials (per the House report)
+  - July 2014: Background-investigation data exfiltration (July to August 2014)
+  - December 2014: Personnel-data exfiltration
+  - June 2015: OPM discloses the personnel-records incident (4.2 million)
+  - July 2015: OPM discloses the background-investigation incident (21.5 million)
+  - 7 September 2016: The House Oversight majority staff report
+  - 3 August 2017: GAO-17-614 assesses the response to 19 US-CERT recommendations
+  - 13 November 2018: GAO-19-143R follow-up: 51 of 80 recommendations implemented
+  - 7 July 2020: The FBI publicly attributes the theft to China
 - [Heartbleed 2014: When Repairing the Library Was Only the Beginning](/case-studies/HEARTBLEED_2014.md). Vulnerability, April to May 2014. Sectors: cross-sector, technology. CVEs: CVE-2014-0160, CVE-2014-0346. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Heartbleed_2014_Case_Study.pdf).
   - 1 April 2014: Google's details and a patch reach OpenSSL participants (Cox's timeline)
   - 7 April 2014: OpenSSL publishes its advisory and the 1.0.1g fix for CVE-2014-0160

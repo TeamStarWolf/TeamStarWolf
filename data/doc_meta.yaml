@@ -2372,6 +2372,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: what happened](#part-1-what-happened), [Part 5: the defender and vulnerability-management view](#part-5-the-defender-and-vulnerability-management-view)"
     pairs_with: "[Blockchain Security Reference](/BLOCKCHAIN_SECURITY_REFERENCE.md), [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md), [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md), [North Korea-attributed threat actors](/case-studies/THREAT_ACTORS_NORTH_KOREA.md)"
     reviewed: null
+  case-studies/BLUEKEEP_2019.md:
+    audience: "Windows and vulnerability-management teams, network and remote-access owners, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of CVE-2019-0708, you need to tell an affected system from a reachable one or a deployment job from a verified fix, or you are acting on a wormable warning before an incident"
+    start_at: "[Executive assessment](#executive-assessment), [8. Original analysis: patching is a chain of evidence](#_8-original-analysis-patching-is-a-chain-of-evidence), [11. Original analysis: patch completion is not incident clearance](#_11-original-analysis-patch-completion-is-not-incident-clearance)"
+    pairs_with: "[Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
   case-studies/BOSTON_SCIENTIFIC_ATTACK_2026.md:
     audience: "Medical-technology and manufacturing security teams, network and edge-device owners, incident responders, business continuity leads and vulnerability management leads"
     level: "Intermediate"
@@ -2794,6 +2801,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Attack-path analysis: six separate trust decisions](#attack-path-analysis-six-separate-trust-decisions), [Exposure management: from notification to verified closure](#exposure-management-from-notification-to-verified-closure)"
     pairs_with: "[Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
     reviewed: null
+  case-studies/ETERNALBLUE_MS17_010_2017.md:
+    audience: "Windows and vulnerability-management teams, network and infrastructure owners, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of MS17-010 and EternalBlue, you need to tell a released correction from a verified fix or one propagation method from a whole campaign, or you are proving a patch response"
+    start_at: "[Executive assessment](#executive-assessment), [8. Patch verification and supersedence](#_8-patch-verification-and-supersedence), [13. The limits of patching one propagation method](#_13-the-limits-of-patching-one-propagation-method)"
+    pairs_with: "[Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Network Security Architecture](/NETWORK_SECURITY_ARCHITECTURE.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
   case-studies/EUROPEAN_COMMISSION_CLOUD_BREACH_2026.md:
     audience: "Cloud and platform security engineers, DevOps teams who run CI/CD pipelines, incident responders, vulnerability management leads and public-sector security teams"
     level: "Intermediate"
@@ -3059,6 +3073,13 @@ pages:
     start_at: "[Executive assessment](#executive-assessment), [Four boundaries in the attack model](#four-boundaries-in-the-attack-model), [Attribution without collapsing different questions](#attribution-without-collapsing-different-questions)"
     pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Browser Security Reference](/BROWSER_SECURITY_REFERENCE.md), [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
     reviewed: null
+  case-studies/OPM_2014_2015.md:
+    audience: "Identity, data-protection and privacy teams, incident responders, governance and audit staff, and security leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2014 to 2015 OPM breaches, you need to count overlapping populations and a revised biometric subset correctly, or you need to tell a completed control from an effective one"
+    start_at: "[Executive assessment](#executive-assessment), [4. The congressional reconstruction and its limits](#_4-the-congressional-reconstruction-and-its-limits), [8. A model of the trust boundaries](#_8-a-model-of-the-trust-boundaries)"
+    pairs_with: "[Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [GRC Reference](/GRC_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
   case-studies/ORACLE_PEOPLESOFT_SHINYHUNTERS_2026.md:
     audience: "Higher education and public-sector IT and security leaders, ERP and PeopleSoft administrators, vulnerability management leads, detection engineers and incident responders"
     level: "Intermediate"
@@ -3142,6 +3163,13 @@ pages:
     read_when: "You need the facts of the ToolShell SharePoint exploitation, you run on-premises SharePoint Server, or you want to know why patching alone did not remove the attacker"
     start_at: "[Executive summary](#executive-summary), [Part 1: the vulnerability chain](#part-1-the-vulnerability-chain), [Part 2: why patching alone did not fix it](#part-2-why-patching-alone-did-not-fix-it)"
     pairs_with: "[Edge & Network Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [PHP2Shell and the October 2026 Attack Wave: A Case Study](/case-studies/PHP2SHELL_OCTOBER_2026.md), [Notable Incidents](/NOTABLE_INCIDENTS.md)"
+    reviewed: null
+  case-studies/SHATTERED_SHA1_2017.md:
+    audience: "Cryptography and application engineers, secure-development and supply-chain teams, and security architects"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2017 SHA-1 collision, you need to tell a collision from a second preimage or a detector from a stronger hash, or you are planning a hash migration"
+    start_at: "[Executive assessment](#executive-assessment), [2. What a collision establishes](#_2-what-a-collision-establishes), [7. Subversion exposed an application-level failure](#_7-subversion-exposed-an-application-level-failure)"
+    pairs_with: "[Cryptography Reference](/CRYPTOGRAPHY_REFERENCE.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Post-Quantum Migration Reference](/POST_QUANTUM_MIGRATION_REFERENCE.md), [DevSecOps Reference](/DEVSECOPS_REFERENCE.md)"
     reviewed: null
   case-studies/SHELLSHOCK_2014.md:
     audience: "Linux and application operators, vulnerability-management teams, appliance and service owners, detection engineers and incident responders"
@@ -3263,6 +3291,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 1: identity and aliases](#part-1-identity-and-aliases), [Part 8: the defender view](#part-8-the-defender-view)"
     pairs_with: "[Threat Actors](/THREAT_ACTORS.md), [Malware Families](/MALWARE_FAMILIES.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)"
     reviewed: null
+  case-studies/UBER_2016.md:
+    audience: "Security and privacy leaders, incident responders, cloud and identity engineers, and legal and governance teams"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2016 Uber breach and its concealment, you need to tell a corporate settlement from an individual conviction or a bounty from unauthorized conduct, or you are designing incident escalation"
+    start_at: "[Executive assessment](#executive-assessment), [7. Incident classification must remain open to contrary evidence](#_7-incident-classification-must-remain-open-to-contrary-evidence), [11. Independent escalation and conflicts of interest](#_11-independent-escalation-and-conflicts-of-interest)"
+    pairs_with: "[Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [GRC Reference](/GRC_REFERENCE.md)"
+    reviewed: null
   case-studies/WANNACRY_2017.md:
     audience: "Vulnerability-management teams, incident responders, healthcare technology leaders and infrastructure owners"
     level: "Intermediate"
@@ -3283,6 +3318,13 @@ pages:
     read_when: "You need the facts of the XZ Utils backdoor and the maintainer takeover behind it, you are checking whether your systems were affected, or you want the detection and remediation steps by platform"
     start_at: "[Executive summary](#executive-summary), [The social-engineering campaign](#the-social-engineering-campaign), [Remediation by platform](#remediation-by-platform)"
     pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Notable Incidents](/NOTABLE_INCIDENTS.md), [Package Managers](/PACKAGE_MANAGERS_REFERENCE.md), [Linux Hardening Reference](/LINUX_HARDENING_REFERENCE.md)"
+    reviewed: null
+  case-studies/ZEROLOGON_2020.md:
+    audience: "Active Directory and identity engineers, vulnerability-management teams, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of CVE-2020-1472, you need to tell an installed update from an enforced policy or an exception from a removed one, or you are running a phased domain-controller enforcement"
+    start_at: "[Executive assessment](#executive-assessment), [What the August deployment actually changed](#what-the-august-deployment-actually-changed), [Original recommendation: manage exceptions as expiring decisions](#original-recommendation-manage-exceptions-as-expiring-decisions)"
+    pairs_with: "[Active Directory Security Reference](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
     reviewed: null
   case-studies/ZERO_DAY_MARKET_EVENTS.md:
     audience: "Vulnerability managers, threat intelligence analysts, security leaders and readers of the book who want the primary record behind it"

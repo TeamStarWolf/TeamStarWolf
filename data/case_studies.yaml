@@ -6053,3 +6053,35 @@ studies:
     events:
       - {"date": "2020-07-29", "label": "BootHole (CVE-2020-10713) is disclosed; a GRUB2 parser flaw affects UEFI Secure Boot, requiring revocation not just patching"}
       - {"date": "2020-08", "label": "Distribution updates and a regression affecting Ubuntu and Red Hat follow"}
+  case-studies/EXIM_CVE_2019_10149.md:
+    kind: "vulnerability"
+    title: "Exim CVE-2019-10149: The Mail Server Patch That Became a Long-Term Exposure"
+    start: "2019-06"
+    end: "2020"
+    core_start: "2019"
+    core_end: "2019"
+    sectors: ["technology"]
+    cves: ["CVE-2019-10149"]
+    actors: []
+    tags: ["Exim", "CVE-2019-10149", "mail server", "remote code execution", "Linux"]
+    pdf: "Exim_CVE_2019_10149_Case_Study.pdf"
+    events:
+      - {"date": "2019-06-05", "label": "Qualys discloses CVE-2019-10149 (Return of the WIZard) in Exim 4.87-4.91; the fix already shipped in 4.92"}
+      - {"date": "2019-06", "label": "CERT-FR reports active exploitation; Microsoft confirms a worm using the flaw"}
+      - {"date": "2020-05-28", "label": "An NSA advisory attributes later exploitation to Sandworm actors"}
+  case-studies/MSHTML_CVE_2021_40444.md:
+    kind: "vulnerability"
+    title: "MSHTML CVE-2021-40444: Document Trust, Emergency Mitigations, and a Corrected Patch-Bypass Claim"
+    start: "2021-09"
+    end: "2021-12"
+    core_start: "2021"
+    core_end: "2021"
+    sectors: ["technology"]
+    cves: ["CVE-2021-40444"]
+    actors: []
+    tags: ["MSHTML", "CVE-2021-40444", "Office", "remote code execution", "document trust"]
+    pdf: "MSHTML_CVE_2021_40444_Case_Study.pdf"
+    events:
+      - {"date": "2021-09-07", "label": "Microsoft discloses CVE-2021-40444 (MSHTML) with interim mitigations amid active exploitation"}
+      - {"date": "2021-09-14", "label": "September security updates correct the vulnerable component"}
+      - {"date": "2021-12-23", "label": "Sophos corrects an overstated CAB-less patch-bypass claim; the attack worked only on unpatched systems"}

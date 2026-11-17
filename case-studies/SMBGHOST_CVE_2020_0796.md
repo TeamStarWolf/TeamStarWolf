@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- SMBGhost (CVE-2020-0796) was a Windows SMB 3.1.1 implementation vulnerability disclosed in March 2020. ([Executive assessment](#executive-assessment))
+- The flaw crossed a trust boundary processing compressed network data before authentication, affecting both servers and connecting clients. ([Executive assessment](#executive-assessment))
+- CERT/CC describes possible arbitrary code execution with SYSTEM privileges. ([Executive assessment](#executive-assessment))
+- The lesson is distinctions summaries erase: a server workaround versus client protection, a crash versus code execution. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

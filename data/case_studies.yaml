@@ -4689,3 +4689,114 @@ studies:
       - {"date": "2017-09-21", "label": "Avast corrects its earlier statement; second-stage delivery to 20 machines in eight organizations"}
       - {"date": "2017-09-25", "label": "Expanded records show 40 computers received a second-stage payload, with a 40-hour evidence gap"}
       - {"date": "2018-04", "label": "Avast publishes its supplier-side access findings (initial access 11 March 2017)"}
+  case-studies/EBAY_2014.md:
+    kind: "incident"
+    title: "eBay 2014: Employee Credentials, Customer Passwords and Marketplace Recovery"
+    start: "2014"
+    end: "2014"
+    sectors: ["retail"]
+    cves: []
+    actors: []
+    tags: ["credential theft", "account breach", "password reset", "marketplace", "employee credentials"]
+    pdf: "eBay_2014_Case_Study.pdf"
+    events:
+      - {"date": "2014-02", "label": "The authentication-database compromise window begins (late February to early March 2014)"}
+      - {"date": "2014-05", "label": "eBay detects the employee-credential compromise (about two weeks before disclosure)"}
+      - {"date": "2014-05-21", "label": "eBay discloses the breach and asks all users to change passwords; records of up to 145 million users"}
+      - {"date": "2014-05-22", "label": "Montana's consumer-protection office issues a public alert"}
+      - {"date": "2014-05-23", "label": "eBay UK advises changing each account and any reused passwords"}
+  case-studies/LINKEDIN_2012_2016.md:
+    kind: "incident"
+    title: "LinkedIn 2012-2016: Password-Store Exposure and the Limits of a Targeted Reset"
+    start: "2012"
+    end: "2021"
+    core_start: "2012"
+    core_end: "2016"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["credential theft", "password storage", "account breach", "password reset", "Nikulin"]
+    pdf: "LinkedIn_2012_2016_Case_Study.pdf"
+    events:
+      - {"date": "2012-03", "label": "Charged LinkedIn intrusion window (about 3-4 March 2012, per the indictment)"}
+      - {"date": "2012-06-06", "label": "LinkedIn learns of a published list of about 6.5 million passwords"}
+      - {"date": "2012-06-12", "label": "LinkedIn summarizes the theft and reports salted hashing completed for the live store"}
+      - {"date": "2015-09-15", "label": "A federal court approves a $1.25 million civil settlement for a defined premium-subscriber class"}
+      - {"date": "2016-05-17", "label": "LinkedIn learns 2012-stolen data (more than 100 million members) is being offered online"}
+      - {"date": "2016-05-18", "label": "LinkedIn publicly notifies and begins invalidating affected passwords"}
+      - {"date": "2016-10-05", "label": "Yevgeniy Nikulin is arrested in the Czech Republic"}
+      - {"date": "2018-03-30", "label": "Nikulin is extradited to the US and appears in San Francisco"}
+      - {"date": "2020-07-10", "label": "A jury convicts Nikulin for intrusions at LinkedIn, Dropbox and Formspring"}
+      - {"date": "2020-09-30", "label": "Nikulin is sentenced to 88 months"}
+      - {"date": "2021-12-22", "label": "The Ninth Circuit rejects the restitution award but sustains the sentence"}
+  case-studies/DROPBOX_2012_2016.md:
+    kind: "incident"
+    title: "Dropbox 2012-2016: Historical Credentials, Delayed Exposure and Account Recovery"
+    start: "2012"
+    end: "2021"
+    core_start: "2012"
+    core_end: "2016"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["credential theft", "password storage", "cloud storage", "account recovery", "Nikulin"]
+    pdf: "Dropbox_2012_2016_Case_Study.pdf"
+    events:
+      - {"date": "2012-07-31", "label": "Dropbox discloses reused-credential account access and an employee document containing user email addresses"}
+      - {"date": "2016-08-25", "label": "Dropbox confirms a genuine 2012 credential collection and resets unchanged pre-mid-2012 passwords"}
+      - {"date": "2016-10-21", "label": "The Justice Department announces Nikulin's indictment involving three companies"}
+      - {"date": "2020-07-10", "label": "A jury convicts Nikulin"}
+      - {"date": "2020-09-30", "label": "Nikulin is sentenced to 88 months"}
+      - {"date": "2021-12-22", "label": "The Ninth Circuit rejects the restitution award but sustains the sentence"}
+  case-studies/MYSPACE_2016.md:
+    kind: "incident"
+    title: "MySpace 2016 Disclosure: Old Credentials, New Exposure, and a Disputed Breach Date"
+    start: "2016"
+    end: "2021"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["credential theft", "legacy data", "disputed date", "password storage", "disclosure"]
+    pdf: "MySpace_2016_Case_Study.pdf"
+    events:
+      - {"date": "2016-05-31", "label": "Time Inc. announces that stolen legacy login data is circulating; user notices are sent"}
+      - {"date": "2016-06-01", "label": "Troy Hunt's independent analysis estimates the data as roughly 2008-2009, with explicit uncertainty"}
+      - {"date": "2016-08", "label": "Time Inc.'s Form 10-Q reports about 360 million accounts and a likely June 2013 to mid-2015 breach interval"}
+      - {"date": "2017", "label": "The Form 10-K for 2016 repeats the likely intrusion interval"}
+      - {"date": "2021", "label": "A later Viant Form 10-K reiterates roughly 360 million accounts using pre-June 2013 framing"}
+  case-studies/TALKTALK_2015.md:
+    kind: "incident"
+    title: "TalkTalk, 2015: The Acquired Attack Surface and the Cost of Unfinished Security Work"
+    start: "2015"
+    end: "2016"
+    sectors: ["telecommunications"]
+    cves: []
+    actors: []
+    tags: ["SQL injection", "legacy systems", "data breach", "ICO", "acquisition security", "telecom"]
+    pdf: "TalkTalk_2015_Case_Study.pdf"
+    events:
+      - {"date": "2015-07-17", "label": "An earlier, unaddressed injection attack occurs (also 2-3 September 2015)"}
+      - {"date": "2015-10-15", "label": "The attack window begins (15 to 21 October), through three pages inherited from Tiscali in 2009"}
+      - {"date": "2015-10-21", "label": "TalkTalk detects the attack, removes the pages and notifies the ICO the next day"}
+      - {"date": "2015-10-30", "label": "A provisional update: fewer than 21,000 bank-detail combinations and under 1.2 million names, emails and phone numbers"}
+      - {"date": "2016-02-02", "label": "A trading update estimates a 15 million pound trading impact and about 95,000 attack-attributed customer losses"}
+      - {"date": "2016-10-05", "label": "The ICO announces a 400,000 pound penalty under the Data Protection Act"}
+      - {"date": "2016-11-01", "label": "The matter settles; a 320,000 pound early-payment amount is reported"}
+  case-studies/BRITISH_AIRWAYS_2018.md:
+    kind: "incident"
+    title: "British Airways 2018: The Payment Page Was Not the Whole Breach"
+    start: "2018"
+    end: "2021"
+    sectors: ["transport"]
+    cves: []
+    actors: []
+    tags: ["Magecart", "web skimming", "payment data", "supply chain", "GDPR", "client-side security"]
+    pdf: "British_Airways_2018_Case_Study.pdf"
+    events:
+      - {"date": "2018-06-22", "label": "The intrusion period begins (22 June to 5 September 2018, per the ICO)"}
+      - {"date": "2018-08-21", "label": "The customer booking exposure window begins (21 August to 5 September)"}
+      - {"date": "2018-09-06", "label": "IAG discloses the breach; an initial estimate of about 380,000 payment cards"}
+      - {"date": "2018-09-11", "label": "RiskIQ attributes the web skimming to Magecart"}
+      - {"date": "2018-10-25", "label": "IAG revises the payment-card group to 244,000 and notifies two reward-booking groups"}
+      - {"date": "2020-10-16", "label": "The ICO imposes a 20 million pound penalty (down from a 183.39 million pound proposal)"}
+      - {"date": "2021-07", "label": "A group claim is resolved on confidential terms with no admission of liability"}

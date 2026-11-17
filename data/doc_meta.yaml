@@ -3375,6 +3375,48 @@ pages:
     start_at: "[Executive assessment](#executive-assessment), [1. The 2014 incident and the 2016 disclosure](#_1-the-2014-incident-and-the-2016-disclosure), [2. The separate 2013 breach must remain separate](#_2-the-separate-2013-breach-must-remain-separate)"
     pairs_with: "[Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), [Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md)"
     reviewed: null
+  case-studies/EBAY_2014.md:
+    audience: "Marketplace and consumer-platform security engineers, identity and access owners, incident responders and customer-support leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2014 eBay breach, you need to separate employee-credential access from customer-data exposure or account counts from unique people, or you are reviewing corporate access boundaries and a large-scale password reset"
+    start_at: "[Executive assessment](#executive-assessment), [1. The disclosed intrusion](#_1-the-disclosed-intrusion), [4. Password protection and uncertainty](#_4-password-protection-and-uncertainty)"
+    pairs_with: "[Password Security Reference](/PASSWORD_SECURITY_REFERENCE.md), [Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Yahoo, 2014-2016](/case-studies/YAHOO_2014_2016.md)"
+    reviewed: null
+  case-studies/LINKEDIN_2012_2016.md:
+    audience: "Identity and password-security engineers, incident responders, threat-intelligence teams and communications leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2012 LinkedIn breach and its 2016 re-disclosure, you need to separate a published list from the full intrusion or civil from criminal figures, or you are reviewing password-store protection, employee-endpoint access and targeted resets"
+    start_at: "[Executive assessment](#executive-assessment), [2. The renewed 2016 response](#_2-the-renewed-2016-response), [4. Password storage as a provider responsibility](#_4-password-storage-as-a-provider-responsibility)"
+    pairs_with: "[Password Security Reference](/PASSWORD_SECURITY_REFERENCE.md), [Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [eBay 2014](/case-studies/EBAY_2014.md)"
+    reviewed: null
+  case-studies/DROPBOX_2012_2016.md:
+    audience: "Cloud-service and password-security engineers, incident responders, data-protection owners and customer-support leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2012 Dropbox incident and its 2016 exposure, you need to separate a credential leak from file theft or an incident date from a disclosure date, or you are reviewing password-store migration, session and device revocation and historical-data response"
+    start_at: "[Executive assessment](#executive-assessment), [2. The 2016 evidence and reset](#_2-the-2016-evidence-and-reset), [4. Password protection and historical migration](#_4-password-protection-and-historical-migration)"
+    pairs_with: "[Password Security Reference](/PASSWORD_SECURITY_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [LinkedIn 2012-2016](/case-studies/LINKEDIN_2012_2016.md)"
+    reviewed: null
+  case-studies/MYSPACE_2016.md:
+    audience: "Security and privacy engineers, incident communicators, threat-intelligence analysts and researchers of breach evidence"
+    level: "Intermediate"
+    read_when: "You want a shorter, evidence-bounded account of the 2016 MySpace disclosure, you need to keep a disputed breach date and competing population figures honest, or you are reviewing legacy-credential risk and the limits of a targeted reset"
+    start_at: "[Executive assessment](#executive-assessment), [The later SEC filings materially complicate the date](#the-later-sec-filings-materially-complicate-the-date), [What independent dataset analysis can and cannot date](#what-independent-dataset-analysis-can-and-cannot-date)"
+    pairs_with: "[Password Security Reference](/PASSWORD_SECURITY_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [LinkedIn 2012-2016](/case-studies/LINKEDIN_2012_2016.md)"
+    reviewed: null
+  case-studies/TALKTALK_2015.md:
+    audience: "Application-security and vulnerability-management engineers, identity and database owners, incident responders and risk leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2015 TalkTalk breach, you need to separate preliminary from final population figures or a pre-GDPR penalty from a later regime, or you are reviewing inherited attack surface, SQL-injection boundaries and database authority"
+    start_at: "[Executive assessment](#executive-assessment), [4. Acquisition does not end at legal completion](#_4-acquisition-does-not-end-at-legal-completion), [9. Population estimates need dates and definitions](#_9-population-estimates-need-dates-and-definitions)"
+    pairs_with: "[Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [GRC Reference](/GRC_REFERENCE.md)"
+    reviewed: null
+  case-studies/BRITISH_AIRWAYS_2018.md:
+    audience: "Web and payment-application security engineers, client-side and supply-chain owners, incident responders and privacy leaders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2018 British Airways Magecart breach, you need to separate the proposed from the final penalty or cards from people from notices, or you are reviewing client-side integrity, remote access and payment-data logging"
+    start_at: "[Executive assessment](#executive-assessment), [1. The documented core](#_1-the-documented-core), [11. Scope accounting: cards, people, records, and notices](#_11-scope-accounting-cards-people-records-and-notices)"
+    pairs_with: "[Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Target, 2013](/case-studies/TARGET_2013.md)"
+    reviewed: null
   commands/aws-cli.md:
     audience: "Cloud engineers, administrators and security teams who work in AWS from a terminal"
     level: "Beginner to intermediate"

@@ -5962,3 +5962,94 @@ studies:
       - {"date": "2017-03-21", "label": "River City Media sues the researchers and reporters in federal court"}
       - {"date": "2017-08-28", "label": "A jurisdiction order proceeds without resolving the merits"}
       - {"date": "2018-09-04", "label": "The case is dismissed with prejudice by stipulation; no merits finding or payment disclosed"}
+  case-studies/NIST_ZERO_TRUST_2020.md:
+    kind: "reference"
+    title: "NIST Zero Trust Architecture, 2020: Decisions, Enforcement and the Paths Between Them"
+    start: "2020-08"
+    end: "2020"
+    core_start: "2020"
+    core_end: "2020"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["zero trust", "NIST SP 800-207", "architecture", "policy enforcement", "identity"]
+    pdf: "NIST_Zero_Trust_2020_Case_Study.pdf"
+    events:
+      - {"date": "2019", "label": "NIST circulates draft versions of SP 800-207 for public comment"}
+      - {"date": "2020-08-11", "label": "NIST publishes the final SP 800-207, defining Zero Trust Architecture and its components"}
+  case-studies/NIST_AES_2000.md:
+    kind: "reference"
+    title: "Selecting AES: How Rijndael Became a Standard Without Becoming a Complete Security System"
+    start: "2000-10"
+    end: "2001-11"
+    core_start: "2000"
+    core_end: "2001"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["AES", "Rijndael", "NIST", "cryptography", "FIPS 197"]
+    pdf: "NIST_AES_2000_Case_Study.pdf"
+    events:
+      - {"date": "2000-10-02", "label": "NIST announces Rijndael as the proposed Advanced Encryption Standard"}
+      - {"date": "2001-11-26", "label": "FIPS 197 publishes AES as a federal standard"}
+  case-studies/TLS_1_0_1_1_DEPRECATION_2021.md:
+    kind: "reference"
+    title: "Retiring TLS 1.0 and 1.1: A Protocol Standard Was Not a Universal Shutdown Switch"
+    start: "2018"
+    end: "2021-03"
+    core_start: "2021"
+    core_end: "2021"
+    sectors: ["technology"]
+    cves: []
+    actors: []
+    tags: ["TLS 1.0", "TLS 1.1", "RFC 8996", "deprecation", "protocol"]
+    pdf: "TLS_1_0_1_1_Deprecation_2021_Case_Study.pdf"
+    events:
+      - {"date": "2018-10", "label": "Major browser vendors announce coordinated plans to retire TLS 1.0 and 1.1"}
+      - {"date": "2020", "label": "Vendors disable TLS 1.0 and 1.1 by default, with some schedule revisions"}
+      - {"date": "2021-03", "label": "RFC 8996 formally deprecates TLS 1.0, TLS 1.1 and DTLS 1.0"}
+  case-studies/STRUTS_CVE_2017_5638.md:
+    kind: "vulnerability"
+    title: "Struts CVE-2017-5638: The Error Path That Turned Request Data Into Execution"
+    start: "2017-03"
+    end: "2017"
+    core_start: "2017"
+    core_end: "2017"
+    sectors: ["technology"]
+    cves: ["CVE-2017-5638"]
+    actors: []
+    tags: ["Apache Struts", "CVE-2017-5638", "remote code execution", "OGNL", "web application"]
+    pdf: "Struts_CVE_2017_5638_Case_Study.pdf"
+    events:
+      - {"date": "2017-03-06", "label": "Apache publishes S2-045 for CVE-2017-5638 in the Jakarta Multipart parser"}
+      - {"date": "2017-03-20", "label": "S2-046 documents an additional vector for the same flaw"}
+  case-studies/PETITPOTAM_CVE_2021_36942.md:
+    kind: "vulnerability"
+    title: "PetitPotam: Authentication Coercion, Certificate Enrollment, and the Limits of a Single Patch"
+    start: "2021-07"
+    end: "2021-08"
+    core_start: "2021"
+    core_end: "2021"
+    sectors: ["technology"]
+    cves: ["CVE-2021-36942"]
+    actors: []
+    tags: ["PetitPotam", "CVE-2021-36942", "NTLM relay", "Active Directory", "AD CS"]
+    pdf: "PetitPotam_CVE_2021_36942_Case_Study.pdf"
+    events:
+      - {"date": "2021-07", "label": "PetitPotam authentication-coercion research draws attention to NTLM relay against AD CS"}
+      - {"date": "2021-08-10", "label": "Microsoft issues KB5005413 and CVE-2021-36942, a partial correction for the unauthenticated call"}
+  case-studies/BOOTHOLE_CVE_2020_10713.md:
+    kind: "vulnerability"
+    title: "BootHole: A Fatal Error That Returned and the Secure Boot Revocation Problem"
+    start: "2020-07"
+    end: "2020"
+    core_start: "2020"
+    core_end: "2020"
+    sectors: ["technology"]
+    cves: ["CVE-2020-10713"]
+    actors: []
+    tags: ["BootHole", "CVE-2020-10713", "GRUB2", "Secure Boot", "UEFI"]
+    pdf: "BootHole_CVE_2020_10713_Case_Study.pdf"
+    events:
+      - {"date": "2020-07-29", "label": "BootHole (CVE-2020-10713) is disclosed; a GRUB2 parser flaw affects UEFI Secure Boot, requiring revocation not just patching"}
+      - {"date": "2020-08", "label": "Distribution updates and a regression affecting Ubuntu and Red Hat follow"}

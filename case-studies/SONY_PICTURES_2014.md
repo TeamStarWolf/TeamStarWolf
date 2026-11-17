@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The Sony Pictures attack combined destruction, theft, public exposure and coercive pressure in one incident. ([Executive assessment](#executive-assessment))
+- Disclosure of information creates a problem that cannot be undone by restoring a server, unlike the destruction. ([Executive assessment](#executive-assessment))
+- Threats against people and business partners added a safety and decision-making dimension beyond technical recovery. ([Executive assessment](#executive-assessment))
+- The public record supports strong statements about the disruption and the US government's attribution. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 This historical case study distinguishes contemporaneous company reports, the FBI's attribution assessment and later criminal allegations. It examines operational disruption, employee harm and recovery governance without reproducing stolen information. It is not a current assessment of Sony's security or an exhaustive review of subsequent litigation.

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Target connects third-party access, internal trust boundaries, payment systems, detection decisions and remediation coverage. ([Executive assessment](#executive-assessment))
+- It is not explained by saying a vendor was compromised or a security product generated an alert. ([Executive assessment](#executive-assessment))
+- Familiar statistics mislead: payment-card accounts and people whose contact information was taken are different units with possible overlap. ([Executive assessment](#executive-assessment))
+- The remediation lesson: an enterprise-wide action is only complete when its coverage and exceptions are known. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 This study examines the 2013 Target breach through dated retailer disclosures, congressional materials and a later state investigation. It distinguishes card accounts from people, preliminary testimony from later filings, and a government staff synthesis from independent forensic findings. Recommendations and the tabletop are original defensive analysis, not a current audit of Target.

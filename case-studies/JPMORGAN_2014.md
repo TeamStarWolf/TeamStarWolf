@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Contact information deserves protection even when no evidence shows passwords or account numbers were taken. ([Executive assessment](#executive-assessment))
+- The value may lie in later deception rather than an immediate unauthorized withdrawal. ([Executive assessment](#executive-assessment))
+- The disclosures and the criminal record answer different questions; the latter describes a broader campaign across multiple organizations. ([Executive assessment](#executive-assessment))
+- A January 2021 announcement, naming the bank and Andrei Tyurin's plea, ties the earlier anonymized record to a primary source. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

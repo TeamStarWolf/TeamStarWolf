@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- An Isolated Web App is a signed bundle installed like an app, not served live, so a compromised web server cannot push code to users. ([Executive summary](#executive-summary))
+- The honest answer from the record is that there is no known in-the-wild exploitation of IWAs. ([Executive summary](#executive-summary))
+- What 2026 has is Google-found bugs: ten CVEs in the IWA component and three in Controlled Frame, all Medium or Low, none in KEV. ([Executive summary](#executive-summary))
+- Offensive researchers sideloaded an IWA and used its Direct Sockets access as a SOCKS proxy for command and control. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- For about eleven hours on 29 October 2026, Cursor's marketplace served a tampered build of the Claude Code extension under its usual name. ([Executive summary](#executive-summary))
+- Installing it brought a loader that planted an attacker SSH key, set up persistence and tried to open a reverse SSH tunnel. ([Executive summary](#executive-summary))
+- The backdoor mostly failed at the last step: enabling the local SSH service needs admin rights the extension lacks on most hosts. ([Executive summary](#executive-summary))
+- How the attacker got publishing access to Cursor's marketplace has not been published. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

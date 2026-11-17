@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Six weeks after a December 2025 fix, attackers were logging into fully upgraded FortiGate devices through FortiCloud SSO anyway. ([Executive summary](#executive-summary))
+- CISA put it plainly: systems patched for the December flaws remained vulnerable. ([Executive summary](#executive-summary))
+- Anyone with a FortiCloud account and a registered device could log into devices registered to other accounts where SSO was enabled. ([Executive summary](#executive-summary))
+- Fortinet locked out the two accounts abusing it and switched FortiCloud SSO off on its own side for a day. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

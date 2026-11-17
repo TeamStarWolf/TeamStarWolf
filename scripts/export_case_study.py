@@ -219,6 +219,10 @@ EXPORT_NAMES = {
     "DOPPELPAYMER_2019_2021": "DoppelPaymer_2019_2021",
     "DOORDASH_2019": "DoorDash_2019",
     "ZOOM_FTC_2020": "Zoom_FTC_2020",
+    "QUADROOTER_2016": "QuadRooter_2016",
+    "DIRTY_COW_2016": "Dirty_COW_2016",
+    "IMAGETRAGICK_2016": "ImageTragick_2016",
+    "DRUPALGEDDON2_2018": "Drupalgeddon2_2018",
 }
 
 

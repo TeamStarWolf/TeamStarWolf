@@ -5662,3 +5662,100 @@ studies:
       - {"date": "2018-04-03", "label": "The researcher's disclosure retrospective and news coverage follow"}
       - {"date": "2018-04-05", "label": "A civil complaint is filed"}
       - {"date": "2018-06-04", "label": "The civil case is voluntarily dismissed, amended on 12 June"}
+  case-studies/STAGEFRIGHT_2015.md:
+    kind: "vulnerability"
+    title: "Stagefright: Media Parsing, Patch Completeness and Android's Trust Boundaries"
+    start: "2015-07"
+    end: "2016"
+    core_start: "2015"
+    core_end: "2016"
+    sectors: ["technology"]
+    cves: ["CVE-2015-1538", "CVE-2015-3864"]
+    actors: []
+    tags: ["Stagefright", "Android", "media parsing", "patch completeness", "mobile"]
+    pdf: "Stagefright_2015_Case_Study.pdf"
+    events:
+      - {"date": "2015-07-27", "label": "Zimperium discloses the Stagefright media-parsing vulnerabilities in Android"}
+      - {"date": "2015-08", "label": "Android ships initial corrections; CVE-2015-3864 shows the first patch was incomplete"}
+      - {"date": "2015-09", "label": "A follow-up correction addresses the incomplete fix"}
+      - {"date": "2015-10", "label": "Stagefright 2.0, with further media CVEs, is disclosed"}
+      - {"date": "2016", "label": "Android media-stack hardening follows as an architectural response"}
+  case-studies/QUADROOTER_2016.md:
+    kind: "vulnerability"
+    title: "QuadRooter: Mobile Driver Trust, Scanner Evidence and the Last Mile of Patching"
+    start: "2016-07"
+    end: "2016-09"
+    core_start: "2016"
+    core_end: "2016"
+    sectors: ["technology"]
+    cves: ["CVE-2016-2503", "CVE-2016-2504", "CVE-2016-2059", "CVE-2016-5340"]
+    actors: []
+    tags: ["QuadRooter", "Android", "Qualcomm drivers", "mobile", "patching"]
+    pdf: "QuadRooter_2016_Case_Study.pdf"
+    events:
+      - {"date": "2016-07", "label": "The first supplier patch level addresses part of the QuadRooter set"}
+      - {"date": "2016-08", "label": "Check Point publicly discloses QuadRooter; a further patch level follows"}
+      - {"date": "2016-09", "label": "September Android bulletins provide three patch levels completing the set"}
+  case-studies/BROADPWN_2017.md:
+    kind: "vulnerability"
+    title: "Broadpwn: The Wi-Fi Chip as a Security Boundary"
+    start: "2017-07"
+    end: "2017"
+    core_start: "2017"
+    core_end: "2017"
+    sectors: ["technology"]
+    cves: ["CVE-2017-9417"]
+    actors: []
+    tags: ["Broadpwn", "Wi-Fi", "Broadcom", "firmware", "mobile"]
+    pdf: "Broadpwn_2017_Case_Study.pdf"
+    events:
+      - {"date": "2017-07-05", "label": "The July Android security bulletin addresses CVE-2017-9417"}
+      - {"date": "2017-07-27", "label": "Nitay Artenstein presents Broadpwn at Black Hat USA"}
+  case-studies/DIRTY_COW_2016.md:
+    kind: "vulnerability"
+    title: "Dirty COW: A Kernel Race, a Broken Permission Boundary and the Work of Proving a Fix"
+    start: "2016-10"
+    end: "2016-11"
+    core_start: "2016"
+    core_end: "2016"
+    sectors: ["technology"]
+    cves: ["CVE-2016-5195"]
+    actors: []
+    tags: ["Dirty COW", "Linux kernel", "race condition", "privilege escalation", "patching"]
+    pdf: "Dirty_COW_2016_Case_Study.pdf"
+    events:
+      - {"date": "2016-10-19", "label": "Dirty COW (CVE-2016-5195) is disclosed with evidence of in-the-wild use; Red Hat and others issue fixes"}
+      - {"date": "2016-10-20", "label": "Distribution patches ship (Debian DSA-3696, Ubuntu USN-3104)"}
+      - {"date": "2016-11", "label": "Android's supplemental patch level addresses the kernel race"}
+  case-studies/IMAGETRAGICK_2016.md:
+    kind: "vulnerability"
+    title: "ImageTragick: When an Image Upload Crossed Into Command Execution"
+    start: "2016-05"
+    end: "2016"
+    core_start: "2016"
+    core_end: "2016"
+    sectors: ["technology"]
+    cves: ["CVE-2016-3714"]
+    actors: []
+    tags: ["ImageTragick", "ImageMagick", "image processing", "remote code execution", "web application"]
+    pdf: "ImageTragick_2016_Case_Study.pdf"
+    events:
+      - {"date": "2016-05-03", "label": "ImageTragick (CVE-2016-3714 and related issues) is publicly disclosed with mitigations"}
+      - {"date": "2016-05", "label": "ImageMagick updates and distribution packages follow"}
+  case-studies/DRUPALGEDDON2_2018.md:
+    kind: "vulnerability"
+    title: "Drupalgeddon2: The Difference Between a Patched Website and a Recovered Service"
+    start: "2018-03"
+    end: "2018-04"
+    core_start: "2018"
+    core_end: "2018"
+    sectors: ["technology"]
+    cves: ["CVE-2018-7600", "CVE-2018-7602"]
+    actors: []
+    tags: ["Drupalgeddon2", "Drupal", "web application", "remote code execution", "patching"]
+    pdf: "Drupalgeddon2_2018_Case_Study.pdf"
+    events:
+      - {"date": "2018-03-21", "label": "Drupal publishes advance notice of a highly critical fix"}
+      - {"date": "2018-03-28", "label": "Drupal releases the CVE-2018-7600 correction"}
+      - {"date": "2018-04-13", "label": "Automated exploitation of CVE-2018-7600 is widely observed"}
+      - {"date": "2018-04-25", "label": "A separate follow-up, CVE-2018-7602, is corrected"}

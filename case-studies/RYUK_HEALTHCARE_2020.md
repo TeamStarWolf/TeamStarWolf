@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- On 28 October 2020, CISA, FBI and HHS issued a joint warning of an imminent ransomware threat to US healthcare. ([Executive summary](#executive-summary))
+- The advisory highlighted Ryuk and TrickBot in a sector already responding to COVID-19. ([Executive summary](#executive-summary))
+- The study treats it as a campaign-level case, not pretending every hospital experienced the same intrusion. ([Executive summary](#executive-summary))
+- A sector advisory identifies recurring behavior, but does not establish the access method, malware family or outcome at each organization. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

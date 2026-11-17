@@ -874,3 +874,31 @@ pages:
       - {"text": "The affected system held legal-process returns, such as pen register and trap and trace surveillance, and PII on people under investigation.", "from": "#executive-summary", "quote": "The affected system held returns from legal process, such as pen register and trap and trace surveillance returns, and personal information on people the FBI was investigating"}
       - {"text": "Sources said the phone numbers of people under FBI monitoring were likely exposed.", "from": "#executive-summary", "quote": "the phone numbers of people under FBI monitoring were likely exposed"}
       - {"text": "No official source names an actor; the China link rests only on anonymous US officials.", "from": "#executive-summary", "quote": "No official source names an actor"}
+  case-studies/BAD_RABBIT_2017.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Bad Rabbit shows why an infection chain needs more than one label.", "from": "#executive-summary", "quote": "Bad Rabbit illustrates why an infection chain needs more than one label"}
+      - {"text": "The first visible step can be a person running a deceptive software installer, with later steps using credentials or an exploit to spread.", "from": "#executive-summary", "quote": "The first visible step can be a person running a deceptive software installer"}
+      - {"text": "Calling the whole event a fake-update attack understates the network risk; calling it exploit-driven hides the software-trust failure.", "from": "#executive-summary", "quote": "Calling the entire event a fake-update attack understates the network risk"}
+      - {"text": "No exploit needed for the web-delivered installer does not mean no exploit was present anywhere in the malware's spreading behavior.", "from": "#executive-summary", "quote": "A statement that no exploit was needed for the initial web-delivered installer does not mean no exploit was present anywhere in the malware's spreading behavior"}
+  case-studies/DIRTY_PIPE_2022.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Dirty Pipe (CVE-2022-0847) let a local unprivileged process modify cached content of files it could only read.", "from": "#executive-assessment", "quote": "a Linux kernel failure that allowed a local unprivileged process to modify cached content associated with files it could read"}
+      - {"text": "Its significance was the violation of an integrity boundary: affecting content despite lacking ordinary write permission.", "from": "#executive-assessment", "quote": "the process could affect content despite lacking ordinary write permission"}
+      - {"text": "Not every Linux install was equally exploitable: Red Hat found RHEL 8 kept the flaw but the known attack path did not work there.", "from": "#executive-assessment", "quote": "Red Hat's assessment of RHEL 8 preserved the underlying flaw while explaining why the then-known attack path did not work there"}
+      - {"text": "The later record includes a supplier warning about indications of targeted exploitation, raising the urgency of an evidence-based response.", "from": "#executive-assessment", "quote": "the later record includes a supplier warning about indications of targeted exploitation"}
+  case-studies/DNS_OVER_HTTPS_2018.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "RFC 8484 (October 2018) standardized DNS queries and responses carried in HTTPS exchanges.", "from": "#executive-assessment", "quote": "RFC 8484, published in October 2018, standardized DNS queries and responses carried in HTTPS exchanges"}
+      - {"text": "It changed how DNS traffic travelled; it did not make the resolver unable to read the question.", "from": "#executive-assessment", "quote": "It changed how that traffic travelled; it did not make the resolver unable to read the question"}
+      - {"text": "Browser vendors did not all select the same default model, and enterprises distinguished approved resolvers from silent external ones.", "from": "#executive-assessment", "quote": "Browser vendors did not all select the same default model"}
+      - {"text": "The study separates transport confidentiality, resolver trust, DNS data validation and the visibility retained by network observers.", "from": "#executive-assessment", "quote": "It separates transport confidentiality, resolver trust, DNS data validation and the visibility retained by network observers"}
+  case-studies/RYUK_HEALTHCARE_2020.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "On 28 October 2020, CISA, FBI and HHS issued a joint warning of an imminent ransomware threat to US healthcare.", "from": "#executive-summary", "quote": "CISA, FBI and HHS issued a joint warning of an imminent ransomware threat to U.S. healthcare"}
+      - {"text": "The advisory highlighted Ryuk and TrickBot in a sector already responding to COVID-19.", "from": "#executive-summary", "quote": "The initial advisory highlighted Ryuk and TrickBot in a sector already responding to COVID-19"}
+      - {"text": "The study treats it as a campaign-level case, not pretending every hospital experienced the same intrusion.", "from": "#executive-summary", "quote": "This study examines that warning as a campaign-level case, rather than pretending that every hospital experienced the same intrusion"}
+      - {"text": "A sector advisory identifies recurring behavior, but does not establish the access method, malware family or outcome at each organization.", "from": "#executive-summary", "quote": "It does not establish the initial access method, malware family, patient outcomes or ransom payment at each organization"}

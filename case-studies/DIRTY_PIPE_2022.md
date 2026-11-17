@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Dirty Pipe (CVE-2022-0847) let a local unprivileged process modify cached content of files it could only read. ([Executive assessment](#executive-assessment))
+- Its significance was the violation of an integrity boundary: affecting content despite lacking ordinary write permission. ([Executive assessment](#executive-assessment))
+- Not every Linux install was equally exploitable: Red Hat found RHEL 8 kept the flaw but the known attack path did not work there. ([Executive assessment](#executive-assessment))
+- The later record includes a supplier warning about indications of targeted exploitation, raising the urgency of an evidence-based response. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

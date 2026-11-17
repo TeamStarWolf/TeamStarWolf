@@ -559,3 +559,66 @@ pages:
       - {"text": "Mandiant found the 2024 Snowflake campaign came not from a Snowflake breach but from compromised customer credentials, mostly without MFA.", "from": "#executive-summary", "quote": "Mandiant found no evidence that the 2024 Snowflake campaign came from a breach of Snowflake's enterprise environment; every incident Mandiant responded to traced back to compromised customer credentials"}
       - {"text": "Google said the 2025 Salesloft Drift theft did not stem from a core Salesforce vulnerability.", "from": "#executive-summary", "quote": "Google's threat intelligence team said the 2025 Salesloft Drift theft did not stem from a core Salesforce vulnerability"}
       - {"text": "The study runs from the first documented credential incidents at a consumer cloud service in 2012 to the 2026 multi-tenant app compromises.", "from": "#executive-summary", "quote": "the first well-documented credential incidents at a consumer cloud service in 2012 to the multi-tenant application compromises of October and November 2026"}
+  case-studies/HEALTHCARE_THREAT_WATCHLIST.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The HHS breach portal records cover about 702 million individual health records across 2023 to 2026.", "from": "#executive-summary", "quote": "covering about 702 million individual records in total"}
+      - {"text": "One entry dominates: Change Healthcare, at 192,700,000 individuals.", "from": "#executive-summary", "quote": "One entry dominates: Change Healthcare, at 192,700,000 individuals"}
+      - {"text": "After a December 2023 takedown, an ALPHV Blackcat administrator urged affiliates to target hospitals, and healthcare was hit most often.", "from": "#executive-summary", "quote": "an ALPHV Blackcat administrator urged affiliates to target hospitals"}
+      - {"text": "State-linked groups are in the record too: North Korea's Andariel funds espionage through ransomware against US healthcare.", "from": "#executive-summary", "quote": "North Korea's Andariel unit funds espionage through ransomware against US healthcare"}
+  case-studies/WATER_TREATMENT_NETWORKS.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Water is a sector the joint incident response guide calls target-rich and resource-poor.", "from": "#executive-summary", "quote": "Water is a sector the joint incident response guide calls target-rich and resource-poor"}
+      - {"text": "The sector is large and mostly small: CISA counts about 152,000 public drinking water systems and more than 16,000 wastewater systems.", "from": "#executive-summary", "quote": "CISA counts about 152,000 public drinking water systems and more than 16,000 wastewater systems"}
+      - {"text": "EPA states that more than 97 percent of public water systems serve 10,000 or fewer people.", "from": "#executive-summary", "quote": "EPA states that more than 97 percent of public water systems serve 10,000 or fewer people"}
+      - {"text": "Federal cyber rules are thin: EPA's 2023 cybersecurity-assessment interpretation was withdrawn seven months later after legal challenges.", "from": "#executive-summary", "quote": "EPA's March 2023 interpretation of existing law to include cybersecurity assessments at drinking water systems was withdrawn seven months later after legal challenges"}
+  case-studies/EQUIFAX_2017.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Equifax is compressed into one lesson, patch vulnerable software; that lesson is correct but incomplete.", "from": "#executive-summary", "quote": "Equifax is frequently compressed into a one-line lesson: patch vulnerable software. That lesson is correct but incomplete"}
+      - {"text": "The real questions: why a vulnerability notice still left an app exposed, why a compromise reached unrelated data, and why monitoring stayed silent.", "from": "#executive-summary", "quote": "why an organization could distribute a critical vulnerability notice and still leave an exposed application vulnerable, why an application compromise could reach unrelated data, and why an installed monitoring control could remain ineffective"}
+      - {"text": "The study treats patch deployment, asset ownership, service identity, data access, detection health and communication as independently testable controls.", "from": "#executive-summary", "quote": "It treats patch deployment, asset ownership, service identity, data access, detection health and incident communication as connected but independently testable controls"}
+      - {"text": "A patch is one interruption point, not a substitute for limiting what an application can reach after compromise.", "from": "#executive-summary", "quote": "A patch is one interruption point. It is not a substitute for limiting what an application can reach after compromise"}
+  case-studies/WANNACRY_2017.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "On 12 May 2017, ransomware with automated SMB propagation created an international emergency.", "from": "#executive-summary", "quote": "On 12 May 2017, ransomware with automated SMB propagation created an international emergency"}
+      - {"text": "Microsoft connected the spread to vulnerabilities addressed by MS17-010, published on 14 March, two months earlier.", "from": "#executive-summary", "quote": "Microsoft's analysis connected the spread to vulnerabilities addressed by MS17-010, published on 14 March"}
+      - {"text": "The lesson is not that a patch existed, but that the distance between a published remedy and verified protection can mean interrupted care.", "from": "#executive-summary", "quote": "the distance between a published remedy and verified protection can become the distance between normal work and interrupted care"}
+      - {"text": "A defender needed to know which machines existed, which were reachable, who could change them, and what those changes would interrupt.", "from": "#executive-summary", "quote": "A defender needed to know which machines existed, which were reachable, who could change them, what those changes would interrupt"}
+  case-studies/NOTPETYA_2017.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "On 27 June 2017, NotPetya turned a software-distribution relationship into a destructive international incident.", "from": "#executive-summary", "quote": "On 27 June 2017, NotPetya turned a software-distribution relationship into a destructive international incident"}
+      - {"text": "Microsoft observed the legitimate M.E.Doc updater initiating malicious execution in a subset of infections.", "from": "#executive-summary", "quote": "Microsoft observed the legitimate M.E.Doc updater initiating malicious execution in a subset of infections"}
+      - {"text": "Inside a network it spread using credentials and administrative facilities as well as vulnerable SMB services.", "from": "#executive-summary", "quote": "the malware could use credentials and administrative facilities as well as vulnerable SMB services"}
+      - {"text": "It was not real ransomware: Kaspersky found the ransom screen's installation identifier could not carry what the decryption mechanism needed.", "from": "#executive-summary", "quote": "Kaspersky found that the disk ransom screen's installation identifier could not convey the information needed by the expected decryption mechanism"}
+  case-studies/HEARTBLEED_2014.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Heartbleed was a memory-disclosure defect in certain OpenSSL releases, not a broken algorithm or one central breach.", "from": "#executive-summary", "quote": "It was a memory-disclosure defect in certain OpenSSL releases that created many separate exposure and recovery problems"}
+      - {"text": "The April 2014 advisory described a missing bounds check that could reveal up to 64k of memory to a connected client or server.", "from": "#executive-summary", "quote": "a missing bounds check affecting the heartbeat implementation and potentially revealing up to 64k of memory to a connected client or server"}
+      - {"text": "Patching did not invalidate a previously copied password, session credential or private key.", "from": "#executive-summary", "quote": "Installing a replacement did not invalidate a previously copied password, session credential or private key"}
+      - {"text": "Cloudflare's deliberately vulnerable challenge produced successful private-key extractions, overturning its initial confidence.", "from": "#executive-summary", "quote": "Cloudflare's deliberately vulnerable challenge produced successful private-key extractions"}
+  case-studies/SHELLSHOCK_2014.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Shellshock was a family of Bash vulnerabilities whose disclosure created an urgent, distributed response, not one intrusion.", "from": "#executive-assessment", "quote": "It was a family of Bash vulnerabilities whose disclosure created an urgent, distributed response"}
+      - {"text": "Its importance is an unexpected trust boundary: data received by one program could become executable input in another.", "from": "#executive-assessment", "quote": "information received by one program could become executable input when passed into another"}
+      - {"text": "The study distinguishes susceptible software from remotely reachable paths, and attempted exploitation from confirmed compromise.", "from": "#executive-assessment", "quote": "It distinguishes susceptible software from remotely reachable execution paths, attempted exploitation from confirmed compromise"}
+      - {"text": "A worldwide vulnerability event can produce impressive telemetry without producing a trustworthy worldwide victim count.", "from": "#executive-assessment", "quote": "a worldwide vulnerability event can produce impressive telemetry without producing a trustworthy worldwide victim count"}
+  case-studies/ETERNALBLUE_MS17_010_2017.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Microsoft published MS17-010 on 14 March 2017; the public EternalBlue exploit and May's WannaCry made the gap consequential.", "from": "#executive-assessment", "quote": "Microsoft published the bulletin on 14 March 2017"}
+      - {"text": "A correction that exists in a catalog does not establish the state of a particular machine.", "from": "#executive-assessment", "quote": "A correction that exists in a catalog does not establish the state of a particular machine"}
+      - {"text": "A check for one historical update identifier is a weak substitute for understanding the installed OS and its update history.", "from": "#executive-assessment", "quote": "why a check for one historical update identifier is a weak substitute for understanding the installed operating system and its update history"}
+      - {"text": "A patch for one exploitation method does not remove every other route available to malware.", "from": "#executive-assessment", "quote": "a patch for one exploitation method does not remove every other route available to malware"}
+  case-studies/MIRAI_DYN_2016.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The study examines the 2016 Mirai episode and the 21 October disruption involving DNS provider Dyn.", "from": "#executive-summary", "quote": "This study examines the 2016 Mirai episode and the October 21 disruption involving DNS provider Dyn"}
+      - {"text": "Those who can prevent device recruitment may have no relationship with those who suffer the downstream outage.", "from": "#executive-summary", "quote": "The people who can prevent device recruitment may have no contractual relationship with the people who suffer the downstream outage"}
+      - {"text": "The recommendation: stop your assets becoming attack infrastructure, and show critical services tolerate failures outside your control.", "from": "#executive-summary", "quote": "stop assets under your control from becoming attack infrastructure, and demonstrate that critical business services can tolerate failures outside your control"}
+      - {"text": "A clean vulnerability scan of your servers does not answer whether your services survive an outage you do not control.", "from": "#executive-summary", "quote": "A clean vulnerability scan of your servers does not answer the second question"}

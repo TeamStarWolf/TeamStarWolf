@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Shellshock was a family of Bash vulnerabilities whose disclosure created an urgent, distributed response, not one intrusion. ([Executive assessment](#executive-assessment))
+- Its importance is an unexpected trust boundary: data received by one program could become executable input in another. ([Executive assessment](#executive-assessment))
+- The study distinguishes susceptible software from remotely reachable paths, and attempted exploitation from confirmed compromise. ([Executive assessment](#executive-assessment))
+- A worldwide vulnerability event can produce impressive telemetry without producing a trustworthy worldwide victim count. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

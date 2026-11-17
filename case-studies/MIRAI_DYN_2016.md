@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The study examines the 2016 Mirai episode and the 21 October disruption involving DNS provider Dyn. ([Executive summary](#executive-summary))
+- Those who can prevent device recruitment may have no relationship with those who suffer the downstream outage. ([Executive summary](#executive-summary))
+- The recommendation: stop your assets becoming attack infrastructure, and show critical services tolerate failures outside your control. ([Executive summary](#executive-summary))
+- A clean vulnerability scan of your servers does not answer whether your services survive an outage you do not control. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

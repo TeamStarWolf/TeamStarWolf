@@ -49,6 +49,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Heartbleed was a memory-disclosure defect in certain OpenSSL releases, not a broken algorithm or one central breach. ([Executive summary](#executive-summary))
+- The April 2014 advisory described a missing bounds check that could reveal up to 64k of memory to a connected client or server. ([Executive summary](#executive-summary))
+- Patching did not invalidate a previously copied password, session credential or private key. ([Executive summary](#executive-summary))
+- Cloudflare's deliberately vulnerable challenge produced successful private-key extractions, overturning its initial confidence. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Dependency exposure, uncertain secret theft and the reconstruction of trust

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Water is a sector the joint incident response guide calls target-rich and resource-poor. ([Executive summary](#executive-summary))
+- The sector is large and mostly small: CISA counts about 152,000 public drinking water systems and more than 16,000 wastewater systems. ([Executive summary](#executive-summary))
+- EPA states that more than 97 percent of public water systems serve 10,000 or fewer people. ([Executive summary](#executive-summary))
+- Federal cyber rules are thin: EPA's 2023 cybersecurity-assessment interpretation was withdrawn seven months later after legal challenges. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

@@ -1736,6 +1736,44 @@
         return e;
       }
 
+      // ---------- 1a. Pretty lowercase-kebab URL aliases
+      // Most references sit at SCREAMING_SNAKE_CASE routes (e.g. /ACTIVE_DIRECTORY_ATTACK_REFERENCE).
+      // Register a lowercase-hyphen alias for each (e.g. /active-directory-attack-reference) so a
+      // shared or typed pretty link resolves and keeps its URL, with no file renamed and the
+      // generated alias block untouched. The map is read from assets/site-nav.json (the page
+      // list); a kebab form that is already a real route is skipped, so nothing is shadowed. The
+      // fetch is kicked off here, before docsify resolves the first route, so a cold load to a
+      // pretty link usually resolves on the first paint; the recovery below covers a lost race.
+      var tswAliasReady = getJson('assets/site-nav.json').then(function (nav) {
+        var pages = (nav && nav.pages) || {}, real = {}, aliases = window.$docsify.alias;
+        function routeOf(f) { return f.replace(/\.md$/i, ''); }
+        Object.keys(pages).forEach(function (f) { real[routeOf(f)] = 1; });
+        Object.keys(pages).forEach(function (f) {
+          var r = routeOf(f);
+          if (/(^|\/)README$/i.test(r)) { return; }
+          var seg = r.split('/');
+          seg[seg.length - 1] = seg[seg.length - 1].toLowerCase().replace(/_/g, '-');
+          var k = seg.join('/');
+          if (k === r || real[k] || aliases['/' + k]) { return; }
+          aliases['/' + k] = '/' + r;
+        });
+      });
+      // A cold load straight to a pretty link can 404 if it arrives before the map is ready;
+      // once it is, send it on to the page it aliases.
+      window.$docsify.plugins.push(function (hook) {
+        hook.doneEach(function () {
+          var h1 = document.querySelector('#main h1');
+          if (!h1 || h1.textContent.trim() !== 'Page not found') { return; }
+          var path = location.hash.replace(/^#\/?/, '').split('?')[0];
+          if (!path) { return; }
+          tswAliasReady.then(function () {
+            if (location.hash.replace(/^#\/?/, '').split('?')[0] !== path) { return; }
+            var t = window.$docsify.alias['/' + path];
+            if (t) { location.replace(location.href.split('#')[0] + '#' + t); }
+          });
+        });
+      });
+
       // ---------- 1. breadcrumbs, section highlight, "On this page"
       window.$docsify.plugins.push(function (hook, vm) {
         var tocSpy = null;   // teardown for the previous page's on-this-page scroll-spy

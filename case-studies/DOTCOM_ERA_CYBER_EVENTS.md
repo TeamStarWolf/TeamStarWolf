@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The era's biggest worms used flaws that already had a fix, from Code Red to Slammer to Blaster. ([Executive summary](#executive-summary))
+- Melissa exploited no new vulnerability; it needed a person to open a document. ([Executive summary](#executive-summary))
+- The speed outran human response: CAIDA measured Slammer reaching more than 90 percent of vulnerable hosts in about ten minutes. ([Executive summary](#executive-summary))
+- Institutions we take for granted were assembled in response, including the CVE List, which launched in September 1999. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The book argues states hack less to send messages than to change the balance of power, day after day, in peacetime. ([Executive summary](#executive-summary))
+- A House report traces the theft of 21.5 million background-investigation records from OPM back to a first intrusion in July 2012. ([Executive summary](#executive-summary))
+- Mandiant watched APT1, which it assessed to be a Chinese military unit, compromise 141 organizations across 20 industries. ([Executive summary](#executive-summary))
+- An FBI affidavit ties the same North Korean operators to Sony in 2014, the Bangladesh Bank theft in 2016, and WannaCry in 2017. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

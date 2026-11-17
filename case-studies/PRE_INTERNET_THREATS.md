@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- By 1972 an Air Force study said experienced programmers had little difficulty penetrating off-the-shelf systems, and it defined the Trojan horse. ([Executive summary](#executive-summary))
+- In 1979 Morris and Thompson found that 86 percent of the UNIX passwords they studied were short strings or dictionary words. ([Executive summary](#executive-summary))
+- When the Morris worm ran in November 1988, two of its four ways in were trusted hosts and password guessing. ([Executive summary](#executive-summary))
+- The study covers the thirty years from 1960, when the Bell System published its signaling, to 1990. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

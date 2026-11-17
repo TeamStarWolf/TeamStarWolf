@@ -3795,6 +3795,48 @@ pages:
     start_at: "[Executive assessment](#executive-assessment), [2. Three labels that should not be collapsed](#_2-three-labels-that-should-not-be-collapsed), [6. Remote execution does not automatically mean operating-system root](#_6-remote-execution-does-not-automatically-mean-operating-system-root)"
     pairs_with: "[Web Application Security Reference](/WEB_APPLICATION_SECURITY_REFERENCE.md), [Internet-Facing Services Reference](/INTERNET_FACING_SERVICES_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
     reviewed: null
+  case-studies/PROLOCK_2020.md:
+    audience: "Ransomware defenders, malware analysts, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of ProLock, you need to separate a predecessor's recoverable weakness from a successor's unreliable decryptor or containment from impact, or you are judging what a credible recovery result would demonstrate"
+    start_at: "[Executive assessment](#executive-assessment), [The predecessor: PwndLocker recovery was conditional](#the-predecessor-pwndlocker-recovery-was-conditional), [The first 8,192 bytes were not a recovery service](#the-first-8192-bytes-were-not-a-recovery-service)"
+    pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Attack Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
+  case-studies/QAKBOT_2020_2021.md:
+    audience: "Threat intelligence analysts, malware analysts, email-security and detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of QakBot in 2020-2021, you need to separate a count of campaigns from a single breach or stolen conversations from later intrusions, or you need why infrastructure disruption is not complete remediation"
+    start_at: "[Executive assessment](#executive-assessment), [What the configuration count can and cannot tell us](#what-the-configuration-count-can-and-cannot-tell-us), [The stolen-conversation loop](#the-stolen-conversation-loop)"
+    pairs_with: "[Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md), [Attack Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md)"
+    reviewed: null
+  case-studies/RAGNAR_LOCKER_2020.md:
+    audience: "Ransomware defenders, detection engineers, virtualization and platform owners and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of Ragnar Locker, you need to understand why running inside a virtual machine does not isolate reachable host files, or you are tuning detection across the host and guest boundary"
+    start_at: "[Executive summary](#executive-summary), [The mechanism: shared access changes the meaning of isolation](#the-mechanism-shared-access-changes-the-meaning-of-isolation), [Containment should follow access, not only the executable](#containment-should-follow-access-not-only-the-executable)"
+    pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Hypervisor Security Reference](/HYPERVISOR_SECURITY_REFERENCE.md), [Attack Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md)"
+    reviewed: null
+  case-studies/TEXAS_MUNICIPAL_RANSOMWARE_2019.md:
+    audience: "Local-government and public-sector security teams, managed service providers, incident responders and resilience planners"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2019 Texas municipal ransomware event, you need to separate a regional incident from a single-organization one or a provider dependency from the malware, or you are planning coordinated multi-jurisdiction recovery"
+    start_at: "[Executive assessment](#executive-assessment), [Provider authority is a concentration of risk](#provider-authority-is-a-concentration-of-risk), [No payment is not the same as no cost](#no-payment-is-not-the-same-as-no-cost)"
+    pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Cyber Resilience and BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md)"
+    reviewed: null
+  case-studies/UCSF_NETWALKER_2020.md:
+    audience: "Healthcare, research and higher-education security teams, data-protection owners and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2020 UCSF NetWalker incident, you need to separate four meanings of affected or a payment from an outcome, or you are planning research-data recovery and privacy review"
+    start_at: "[Executive assessment](#executive-assessment), [Four meanings of affected](#four-meanings-of-affected), [Payment and outcome should not be collapsed](#payment-and-outcome-should-not-be-collapsed)"
+    pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Data Security Reference](/DATA_SECURITY_REFERENCE.md)"
+    reviewed: null
+  case-studies/DRIDEX_ENFORCEMENT_2019.md:
+    audience: "Threat intelligence analysts, financial-crime and fraud teams, malware analysts and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2019 Dridex enforcement action, you need to separate disruption from arrest or sinkhole figures from a global victim total, or you need the earlier prosecution history behind the Evil Corp charges and sanctions"
+    start_at: "[Executive assessment](#executive-assessment), [Why the sinkhole figures are not a global victim total](#why-the-sinkhole-figures-are-not-a-global-victim-total), [December 5, 2019: two criminal matters, not one combined malware case](#december-5-2019-two-criminal-matters-not-one-combined-malware-case)"
+    pairs_with: "[Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Fraud Framework Reference](/FRAUD_FRAMEWORK_REFERENCE.md), [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md), [Attack Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md)"
+    reviewed: null
   commands/aws-cli.md:
     audience: "Cloud engineers, administrators and security teams who work in AWS from a terminal"
     level: "Beginner to intermediate"

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Twitch's October 2021 incident is best studied as a confidentiality and response problem, not automatically a password breach. ([Executive assessment](#executive-assessment))
+- A platform can need urgent protective action without evidence that every account password has been taken. ([Executive assessment](#executive-assessment))
+- Preserving login security does not make confidential business information unimportant. ([Executive assessment](#executive-assessment))
+- It is evidence-limited: the study does not manufacture a network diagram, attacker identity, first-access date or recovery bill. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

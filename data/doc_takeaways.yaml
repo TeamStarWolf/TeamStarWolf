@@ -910,3 +910,66 @@ pages:
       - {"text": "In 2026 that window was often hours, and in six of nine dated edge cases it was negative: exploitation came first and the advisory followed.", "from": "#executive-summary", "quote": "that window was often hours, and in six of the nine edge cases the paper dates it was negative: exploitation came first and the advisory followed"}
       - {"text": "The central claim: those who do well in the next decade can know what they run, prove what they did, and act inside a window attackers now set.", "from": "#executive-summary", "quote": "the organizations, vendors and governments that do well in the next decade will be the ones that can know what they run, prove what they did, and act inside a window that attackers now set"}
       - {"text": "AI changes the speed, cost and failure surface of all this, but not the kinds of failure: it does not change the thesis, it makes it urgent.", "from": "#executive-summary", "quote": "but not new kinds of failure. It does not change the thesis. It makes it urgent"}
+  case-studies/ATLANTA_SAMSAM_2018.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "A municipal ransomware incident is not simply an endpoint-security failure; it disrupts the relationships between records, people, deadlines and public services.", "from": "#executive-summary", "quote": "It is a disruption to the relationships between records, people, deadlines, public services and the authority to make decisions"}
+      - {"text": "A functioning login page does not establish that the records are complete or that an interrupted payment will not be processed twice.", "from": "#executive-summary", "quote": "A functioning login page does not establish that the underlying records are complete, that a resident's request was preserved or that an interrupted payment will not be processed twice"}
+      - {"text": "The record supports serious disruption but not describing every Atlanta city function as destroyed.", "from": "#executive-summary", "quote": "The public record supports serious disruption, but it does not support describing every city function as destroyed"}
+      - {"text": "Recovery is modeled as separate workstreams: containment, clean restoration, service acceptance, backlog reconciliation and public communication.", "from": "#executive-summary", "quote": "The framework treats containment, clean restoration, service acceptance, backlog reconciliation and public communication as separate workstreams"}
+  case-studies/BALTIMORE_ROBBINHOOD_2019.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Baltimore's 2019 ransomware shows how municipal technology connects to transactions outside city hall, not just employees.", "from": "#executive-summary", "quote": "how municipal technology connects to transactions outside city hall"}
+      - {"text": "Early recovery estimates, spending authority and later loss statements measure different things.", "from": "#executive-summary", "quote": "Early recovery estimates, spending authority and later loss statements measure different things"}
+      - {"text": "Malware research can explain what a sample can do without revealing the exact path used to compromise a particular city.", "from": "#executive-summary", "quote": "Malware research can explain what a sample is capable of doing without revealing the exact path used to compromise a particular city"}
+      - {"text": "The sources reviewed do not justify repeating EternalBlue as Baltimore's established entry mechanism.", "from": "#executive-summary", "quote": "the sources reviewed here do not justify repeating that exploit as Baltimore's established entry mechanism"}
+  case-studies/MAZE_2019_2020.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Maze's impact cannot be reduced to encrypted files: the record includes data theft, extortion and service disruption.", "from": "#executive-assessment", "quote": "its impact cannot be reduced to encrypted files"}
+      - {"text": "A defender can prevent one attempted encryption event while still facing a confidentiality incident.", "from": "#executive-assessment", "quote": "A defender can prevent one attempted encryption event while still facing a confidentiality incident"}
+      - {"text": "Maze pioneered extortion beyond encryption, with public data-theft threats alongside the lock.", "from": "#executive-assessment", "quote": "public descriptions of data theft and extortion, adaptive intrusions, and service disruption"}
+      - {"text": "The study keeps the evidence sets separate: the unnamed Sophos organization is not identified as Cognizant.", "from": "#executive-assessment", "quote": "The unnamed Sophos organization is not identified as Cognizant, and no technical detail from one is silently transferred to the other"}
+  case-studies/NORSK_HYDRO_LOCKERGOGA_2019.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "A production line can remain mechanically capable while its surrounding information system prevents dependable work.", "from": "#executive-summary", "quote": "A production line can remain mechanically capable while its surrounding information system prevents dependable work"}
+      - {"text": "An organization may preserve output through manual procedures while carrying a burden that normal production figures do not show.", "from": "#executive-summary", "quote": "an organization may preserve output through manual procedures while carrying a substantial burden that normal production figures fail to show"}
+      - {"text": "The record contains a responder account of an intrusion that preceded the visible ransomware event.", "from": "#executive-summary", "quote": "It also contains a responder account of an intrusion that preceded the visible ransomware event"}
+      - {"text": "The study models recovery as separate acceptance gates: safe operation, trusted administration, usable production information, delivery and reconciliation.", "from": "#executive-summary", "quote": "It treats safe operation, trusted administration, usable production information, customer delivery and transaction reconciliation as separate acceptance gates"}
+  case-studies/GARMIN_WASTEDLOCKER_2020.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "A connected product has more than one definition of working: local functions can continue while sync, accounts and support are down.", "from": "#executive-summary", "quote": "Its local functions may continue while synchronization, account services, customer support and organizational communications are unavailable"}
+      - {"text": "Garmin publicly confirmed encryption of systems and disruption of online services in July 2020.", "from": "#executive-summary", "quote": "The company publicly confirmed encryption of systems and disruption of online services"}
+      - {"text": "A general WastedLocker campaign description is not a substitute for a victim-specific forensic report.", "from": "#executive-summary", "quote": "a general campaign description is not a substitute for a victim-specific forensic report"}
+      - {"text": "A service is ready only when identities, data, queued work and monitoring support a customer operation without duplicating, losing or corrupting work.", "from": "#executive-summary", "quote": "A service is ready when its identities, data, queued work and monitoring can support a defined customer operation without silently duplicating, losing or corrupting work"}
+  case-studies/MGM_2019.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "MGM's 2019 guest-data breach is not the same incident as its September 2023 cyberattack.", "from": "#executive-assessment", "quote": "MGM's 2019 guest-data breach is not the same incident as its September 2023 cyberattack"}
+      - {"text": "The most revealing feature is the difference between stopping an intrusion and completing a response.", "from": "#executive-assessment", "quote": "The most revealing feature is the difference between stopping an intrusion and completing a response"}
+      - {"text": "A technically contained incident can still leave unresolved population analysis, notification and accountability obligations.", "from": "#executive-assessment", "quote": "A technically contained incident can still leave an organization with unresolved population analysis, notification and accountability obligations"}
+      - {"text": "The study follows the 2019 incident through the Canadian regulator, US pleading-stage litigation and the joint settlement.", "from": "#executive-assessment", "quote": "This study follows the 2019 incident through the Canadian regulator's investigation, the American pleading-stage litigation and the eventual joint settlement process"}
+  case-studies/TRAVELEX_2020.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The Travelex ransomware incident began at the end of 2019 and became a major operational crisis in early 2020.", "from": "#executive-assessment", "quote": "The Travelex ransomware incident began at the end of 2019 and became a major operational crisis in early 2020"}
+      - {"text": "A less obvious consequence: difficulty obtaining evidence needed for financial reporting after operations had moved forward.", "from": "#executive-assessment", "quote": "difficulties obtaining evidence needed to support financial reporting after operations had moved forward"}
+      - {"text": "The study does not assert a proven initial-access vulnerability, a verified ransom payment or a complete inventory of stolen data.", "from": "#executive-assessment", "quote": "The article deliberately does not assert a proven initial-access vulnerability, a verified ransom payment or a complete inventory of stolen data"}
+      - {"text": "Numbers measure different things: a forecast is not a final loss calculation.", "from": "#executive-assessment", "quote": "A forecast is not a final loss calculation"}
+  case-studies/TMOBILE_2021.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The 2021 T-Mobile breach is about boundaries that did not contain risk, from lab environments to populations of retained customer data.", "from": "#executive-assessment", "quote": "a case about boundaries that did not contain risk: boundaries between laboratory environments and other systems, between different populations of retained customer information"}
+      - {"text": "The documented chain moved from an initially reached environment to additional systems and ultimately to stored customer information.", "from": "#executive-assessment", "quote": "The documented chain moved from an initially reached environment to additional systems and ultimately to stored customer information"}
+      - {"text": "Even after access is contained, affected populations, notices, settlement funds and regulatory obligations must be examined separately.", "from": "#executive-assessment", "quote": "even after access is contained, the meaning of affected populations, customer notices, settlement funds and regulatory obligations must be examined separately"}
+      - {"text": "The later record spans a company account, an FCC consent decree, appellate litigation and a state complaint, each a different kind of fact.", "from": "#executive-assessment", "quote": "The FCC published an agreed factual account in a negotiated resolution covering several incidents"}
+  case-studies/TWITCH_2021.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Twitch's October 2021 incident is best studied as a confidentiality and response problem, not automatically a password breach.", "from": "#executive-assessment", "quote": "best studied as a confidentiality and response problem, not automatically as a password breach, ransomware event or proven compromise of every platform component"}
+      - {"text": "A platform can need urgent protective action without evidence that every account password has been taken.", "from": "#executive-assessment", "quote": "A platform can need urgent protective action without evidence that every account password has been taken"}
+      - {"text": "Preserving login security does not make confidential business information unimportant.", "from": "#executive-assessment", "quote": "preserving login security does not make confidential business information unimportant"}
+      - {"text": "It is evidence-limited: the study does not manufacture a network diagram, attacker identity, first-access date or recovery bill.", "from": "#executive-assessment", "quote": "It does not manufacture a network diagram, attacker identity, first-access date, quantified recovery bill or judicial outcome"}

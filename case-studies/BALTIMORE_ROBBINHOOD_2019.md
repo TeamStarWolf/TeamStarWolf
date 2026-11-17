@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Baltimore's 2019 ransomware shows how municipal technology connects to transactions outside city hall, not just employees. ([Executive summary](#executive-summary))
+- Early recovery estimates, spending authority and later loss statements measure different things. ([Executive summary](#executive-summary))
+- Malware research can explain what a sample can do without revealing the exact path used to compromise a particular city. ([Executive summary](#executive-summary))
+- The sources reviewed do not justify repeating EternalBlue as Baltimore's established entry mechanism. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

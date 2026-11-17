@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The 2021 T-Mobile breach is about boundaries that did not contain risk, from lab environments to populations of retained customer data. ([Executive assessment](#executive-assessment))
+- The documented chain moved from an initially reached environment to additional systems and ultimately to stored customer information. ([Executive assessment](#executive-assessment))
+- Even after access is contained, affected populations, notices, settlement funds and regulatory obligations must be examined separately. ([Executive assessment](#executive-assessment))
+- The later record spans a company account, an FCC consent decree, appellate litigation and a state complaint, each a different kind of fact. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

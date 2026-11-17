@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- A device that has not accepted a pairing request is not necessarily insulated from hostile Bluetooth input. ([Executive assessment](#executive-assessment))
+- Armis described eight implementation vulnerabilities across major operating-system families. ([Executive assessment](#executive-assessment))
+- The attacks did not require the target to be discoverable or previously paired to the attacker. ([Executive assessment](#executive-assessment))
+- The study invents no victim count and does not describe BlueBorne as a confirmed self-propagating global outbreak. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

@@ -973,3 +973,66 @@ pages:
       - {"text": "A platform can need urgent protective action without evidence that every account password has been taken.", "from": "#executive-assessment", "quote": "A platform can need urgent protective action without evidence that every account password has been taken"}
       - {"text": "Preserving login security does not make confidential business information unimportant.", "from": "#executive-assessment", "quote": "preserving login security does not make confidential business information unimportant"}
       - {"text": "It is evidence-limited: the study does not manufacture a network diagram, attacker identity, first-access date or recovery bill.", "from": "#executive-assessment", "quote": "It does not manufacture a network diagram, attacker identity, first-access date, quantified recovery bill or judicial outcome"}
+  case-studies/DROWN_2016.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "A modern website could inherit risk from a separate legacy service because both used the same RSA private key.", "from": "#executive-assessment", "quote": "A modern-looking website could inherit risk from a separate legacy service because both used the same RSA private key"}
+      - {"text": "DROWN showed a vulnerable obsolete service could assist attacks against traffic associated with another service.", "from": "#executive-assessment", "quote": "DROWN demonstrated that a vulnerable service could assist attacks against traffic associated with another service"}
+      - {"text": "The dependency followed cryptographic key use rather than the application name displayed to the user.", "from": "#executive-assessment", "quote": "The dependency followed cryptographic key use rather than the application name displayed to the user"}
+      - {"text": "It was a research demonstration: the study invents no victim, threat actor, ransom demand or count of stolen records.", "from": "#executive-assessment", "quote": "It does not invent a victim, a threat actor, a ransom demand or a count of stolen records"}
+  case-studies/FREAK_2015.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "FREAK let a client appear to request strong encryption while accepting a weak key from a different negotiation path.", "from": "#executive-assessment", "quote": "FREAK demonstrated that a client could appear to request strong encryption while accepting a weak key that belonged to a different negotiation path"}
+      - {"text": "It was neither a universal break of RSA nor simply a website with an expired certificate.", "from": "#executive-assessment", "quote": "It was neither a universal break of RSA nor simply a website with an expired certificate"}
+      - {"text": "The lesson is the gap between installing an update and removing a vulnerable capability.", "from": "#executive-assessment", "quote": "the operational gap between installing an update and removing a vulnerable capability"}
+      - {"text": "No reviewed source establishes an aggregate loss total or one attacker behind all possible exploitation.", "from": "#executive-assessment", "quote": "No reviewed source establishes an aggregate loss total or identifies one attacker behind all possible exploitation"}
+  case-studies/LOGJAM_2015.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Logjam exposed two weaknesses in how finite-field Diffie-Hellman key exchange was deployed.", "from": "#executive-assessment", "quote": "Logjam exposed two related but different weaknesses in the way finite-field Diffie-Hellman key exchange was deployed"}
+      - {"text": "Researchers demonstrated an active downgrade against TLS connections that still allowed export-grade cryptography.", "from": "#executive-assessment", "quote": "researchers demonstrated an active downgrade against vulnerable TLS connections that still allowed export-grade cryptography"}
+      - {"text": "The argument about 1024-bit groups and national intelligence was a feasibility assessment, not a public demonstration.", "from": "#executive-assessment", "quote": "The wider argument about 1024-bit groups and national intelligence capabilities was a feasibility assessment, not a public demonstration"}
+      - {"text": "It challenged an oversimplified forward secrecy: ephemeral secrets help only when the underlying key exchange stays computationally hard.", "from": "#executive-assessment", "quote": "Ephemeral secrets protect against the later loss of a server's long-term authentication key only when the underlying key exchange remains computationally hard"}
+  case-studies/POODLE_2014.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "POODLE exposed a dangerous interaction between an obsolete encryption protocol and software designed to keep connections working.", "from": "#executive-assessment", "quote": "POODLE exposed a dangerous interaction between an obsolete encryption protocol and software designed to keep connections working"}
+      - {"text": "It mattered even with newer protocols supported, because compatibility retries could bring the older protocol back into use.", "from": "#executive-assessment", "quote": "because compatibility retries could bring the older protocol back into use"}
+      - {"text": "The study separates a protocol-design defect from an implementation defect.", "from": "#executive-assessment", "quote": "It separates a protocol-design defect from an implementation defect"}
+      - {"text": "It is a vulnerability-response study, not a named victim's breach reconstruction.", "from": "#executive-assessment", "quote": "This is a vulnerability-response study rather than a named victim's breach reconstruction"}
+  case-studies/BLUEBORNE_2017.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "A device that has not accepted a pairing request is not necessarily insulated from hostile Bluetooth input.", "from": "#executive-assessment", "quote": "a device that has not accepted a pairing request is not necessarily insulated from hostile Bluetooth input"}
+      - {"text": "Armis described eight implementation vulnerabilities across major operating-system families.", "from": "#executive-assessment", "quote": "Armis's research described eight implementation vulnerabilities across major operating-system families"}
+      - {"text": "The attacks did not require the target to be discoverable or previously paired to the attacker.", "from": "#executive-assessment", "quote": "the relevant attacks did not require the target to be discoverable or previously paired to the attacker"}
+      - {"text": "The study invents no victim count and does not describe BlueBorne as a confirmed self-propagating global outbreak.", "from": "#executive-assessment", "quote": "It does not invent a victim count, identify an attacker, or describe BlueBorne as a confirmed self-propagating global outbreak"}
+  case-studies/ROCA_2017.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "A key can stay inside protective hardware while the mathematics of its public counterpart exposes a weakness in how it was generated.", "from": "#executive-assessment", "quote": "a cryptographic key can remain inside protective hardware while the mathematics of its public counterpart exposes a weakness in how it was generated"}
+      - {"text": "The response cannot stop at checking whether a private key was exported.", "from": "#executive-assessment", "quote": "The operational response therefore cannot stop at checking whether a private key was exported"}
+      - {"text": "The study covers the 2017 disclosure, CERT coordination, a vendor example and Estonia's electronic-identity response.", "from": "#executive-assessment", "quote": "It examines the 2017 research disclosure, CERT coordination, a bounded vendor example and Estonia's electronic-identity response"}
+      - {"text": "It distinguishes detection of an affected key from recovery of a private key, and both from evidence of actual abuse.", "from": "#executive-assessment", "quote": "It also distinguishes detection of an affected key from recovery of a private key, and both from evidence of actual abuse"}
+  case-studies/CANVA_2019_2020.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Canva's breach shows how a technically qualified explanation can produce an overly reassuring message.", "from": "#executive-assessment", "quote": "Canva's breach is especially useful as a study of how a technically qualified explanation can produce an overly reassuring message"}
+      - {"text": "The record distinguishes access to protected password records from recovery of usable passwords, and both from account entry.", "from": "#executive-assessment", "quote": "The historical record distinguishes access to protected password records from recovery of usable passwords, and both from unauthorized entry into a user's account"}
+      - {"text": "Those distinctions should guide the response but not obscure the action a user needs to take.", "from": "#executive-assessment", "quote": "Those distinctions should guide the response, but they should not obscure the action a user needs to take"}
+      - {"text": "Its main contribution is an evidence comparison and an editorial audit of how to communicate residual risk.", "from": "#executive-assessment", "quote": "Its main contribution is an evidence comparison and an editorial audit of how to communicate residual risk"}
+  case-studies/CATHAY_PACIFIC_2018.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Cathay Pacific shows how personal-data security can fail across several organizational boundaries at once.", "from": "#executive-assessment", "quote": "Cathay Pacific's case illustrates how personal-data security can fail across several organizational boundaries at once"}
+      - {"text": "Removing a compromised server reduces exposure but can make later independent review harder if evidence is not preserved first.", "from": "#executive-assessment", "quote": "An organization can remove a compromised server and reduce immediate exposure while making a later independent review harder if it does not preserve sufficient evidence first"}
+      - {"text": "Passenger information is not a homogeneous dataset; different people had different fields exposed.", "from": "#executive-assessment", "quote": "Passenger information is not a homogeneous dataset"}
+      - {"text": "A statement about passwords does not answer questions about travel history or identity-document numbers.", "from": "#executive-assessment", "quote": "a statement about passwords does not answer questions about travel history or identity-document numbers"}
+  case-studies/LEDGER_2020.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Protecting a security product and protecting the people who buy it are related but different responsibilities.", "from": "#executive-assessment", "quote": "protecting a security product and protecting the people who purchase it are related but different responsibilities"}
+      - {"text": "A device can keep its technical boundary while commerce records expose its owner to deception, harassment or unwanted attention.", "from": "#executive-assessment", "quote": "A device can retain its intended technical boundary while commerce records expose its owner to deception, harassment or unwanted attention"}
+      - {"text": "The study does not describe the leaked commerce database as a repository of wallet private keys.", "from": "#executive-assessment", "quote": "It does not describe the commerce database as a repository of wallet private keys"}
+      - {"text": "Estimates need dates and denominators: email addresses, customer records, customers and merchants are not interchangeable units.", "from": "#executive-assessment", "quote": "Email addresses, detailed customer records, customers and merchants are not interchangeable units"}

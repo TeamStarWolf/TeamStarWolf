@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- POODLE exposed a dangerous interaction between an obsolete encryption protocol and software designed to keep connections working. ([Executive assessment](#executive-assessment))
+- It mattered even with newer protocols supported, because compatibility retries could bring the older protocol back into use. ([Executive assessment](#executive-assessment))
+- The study separates a protocol-design defect from an implementation defect. ([Executive assessment](#executive-assessment))
+- It is a vulnerability-response study, not a named victim's breach reconstruction. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

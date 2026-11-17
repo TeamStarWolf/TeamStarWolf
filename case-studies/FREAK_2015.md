@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- FREAK let a client appear to request strong encryption while accepting a weak key from a different negotiation path. ([Executive assessment](#executive-assessment))
+- It was neither a universal break of RSA nor simply a website with an expired certificate. ([Executive assessment](#executive-assessment))
+- The lesson is the gap between installing an update and removing a vulnerable capability. ([Executive assessment](#executive-assessment))
+- No reviewed source establishes an aggregate loss total or one attacker behind all possible exploitation. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

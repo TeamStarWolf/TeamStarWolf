@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- Between 2024 and 2026 attacks on water, heating, pipeline, dam and wind-farm controllers moved from defacements to real physical effects. ([Executive summary](#executive-summary))
+- The CVE flood is huge: CISA published 1,389 ICS and medical-device advisories carrying more than 2,000 unique CVEs a year. ([Executive summary](#executive-summary))
+- The disruptive attacks rarely depended on announced CVEs; the two records mostly do not meet. ([Executive summary](#executive-summary))
+- Nearly every disruptive event used default passwords, exposed HMIs and PLC ports, VNC, or the vendors' own engineering tools, not a new flaw. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

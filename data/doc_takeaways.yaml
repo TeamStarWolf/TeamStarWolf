@@ -1078,3 +1078,66 @@ pages:
       - {"text": "The central distinction is between a stronger authentication transaction and a completely secure account.", "from": "#executive-assessment", "quote": "The central distinction is between a stronger authentication transaction and a completely secure account"}
       - {"text": "What it does not fix: a strong sign-in does not repair account recovery, enrollment, authorization, endpoint security or session handling.", "from": "#executive-assessment", "quote": "A carefully designed sign-in method does not automatically repair account recovery, enrollment, authorization, endpoint security or session handling"}
       - {"text": "The study anchors the milestone in the March 2019 W3C Recommendation, with later passkey developments as context.", "from": "#executive-assessment", "quote": "This article anchors the historical milestone in the fixed March 2019 W3C Recommendation"}
+  case-studies/GANDCRAB_2018_2019.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "GandCrab is a case about an adaptable criminal service and a sustained recovery effort, not a malicious executable followed by a universal cure.", "from": "#executive-assessment", "quote": "GandCrab is a case about an adaptable criminal service and a sustained recovery effort, not simply a malicious executable followed by a universal cure"}
+      - {"text": "Its affiliate model separated development from distribution.", "from": "#executive-assessment", "quote": "Its affiliate model separated development from distribution"}
+      - {"text": "The study distinguishes a reported operator shutdown from elimination of criminal capability.", "from": "#executive-assessment", "quote": "It distinguishes a malware family from an affiliate campaign, a reported operator shutdown from elimination of criminal capability"}
+      - {"text": "It does not claim that every GandCrab victim could recover every file.", "from": "#executive-assessment", "quote": "It does not claim that every GandCrab victim could recover every file"}
+  case-studies/LOCKY_2016.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Locky challenges the idea that a ransomware family has one delivery method, one operator and one simple preventive control.", "from": "#executive-assessment", "quote": "a ransomware family has one delivery method, one operator, and one simple preventive control"}
+      - {"text": "Reporting described malicious documents, script attachments, intermediate downloaders and exploit-kit delivery, different routes to the same outcome.", "from": "#executive-assessment", "quote": "Contemporary reporting described malicious documents, script attachments, intermediate downloaders, and exploit-kit delivery"}
+      - {"text": "Prevention, containment and restoration are separate responsibilities.", "from": "#executive-assessment", "quote": "prevention, containment, and restoration are separate responsibilities"}
+      - {"text": "Removing a malicious executable does not reconstruct encrypted data.", "from": "#executive-assessment", "quote": "Removing a malicious executable does not reconstruct encrypted data"}
+  case-studies/CERBER_2016_2017.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Cerber shows how a malware family can support many campaigns without those campaigns being a single intrusion.", "from": "#executive-assessment", "quote": "a malware family can support many campaigns without those campaigns being a single intrusion"}
+      - {"text": "A count of campaigns is not a count of criminals.", "from": "#executive-assessment", "quote": "A count of campaigns is not a count of criminals"}
+      - {"text": "A researcher's recovery breakthrough does not guarantee that an old tool will work today.", "from": "#executive-assessment", "quote": "A researcher's recovery breakthrough does not guarantee that an old tool will work today"}
+      - {"text": "The malware label helps organize research but cannot substitute for incident scope.", "from": "#executive-assessment", "quote": "The label helps organize research. It cannot substitute for incident scope"}
+  case-studies/AVADDON_2020_2021.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Avaddon combined encryption with threatened disclosure and threatened denial of service.", "from": "#executive-assessment", "quote": "Threat reporting described encryption, threatened disclosure and threatened denial of service"}
+      - {"text": "The study avoids a single definitive launch date because the sources do not agree about the earliest observation.", "from": "#executive-assessment", "quote": "It deliberately avoids a single definitive launch date because the sources do not agree about the earliest observation"}
+      - {"text": "It avoids combining message volume, published victim listings and released keys into a fictitious total.", "from": "#executive-assessment", "quote": "It also avoids combining message volume, published victim listings and released keys into a fictitious total"}
+      - {"text": "No single development establishes that every organization recovered or every participant stopped committing crime.", "from": "#executive-assessment", "quote": "None of those developments alone establishes that every organization recovered, every stolen copy disappeared or every participant stopped committing crime"}
+  case-studies/EGREGOR_2020_2021.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "In Egregor, the actors who obtain access, the code that encrypts, and the recovery opportunities can change on different timelines.", "from": "#executive-assessment", "quote": "the actors who obtain access, the code used to encrypt files, and the opportunities for recovery can change on different timelines"}
+      - {"text": "A law-enforcement operation may disrupt a group without proving that every participant has disappeared.", "from": "#executive-assessment", "quote": "A law-enforcement operation may disrupt a group without proving that every participant has disappeared"}
+      - {"text": "A later decryptor may create a recovery opportunity long after a report correctly said none was available.", "from": "#executive-assessment", "quote": "A later decryptor may create a recovery opportunity long after an earlier technical report correctly said that no such tool was available"}
+      - {"text": "The study examines an ecosystem and the decisions its history raises for defenders, not a single assembled victim.", "from": "#executive-assessment", "quote": "It studies an ecosystem and the decisions that its history raises for defenders"}
+  case-studies/DOPPELPAYMER_2019_2021.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "DoppelPaymer's technical record concerns a code fork; its operational record concerns interruption of services people depend on.", "from": "#executive-assessment", "quote": "The technical record concerns a code fork. The operational record concerns interruption of services that people depend on"}
+      - {"text": "The coercion record includes efforts to move pressure from an organization's systems to individual employees.", "from": "#executive-assessment", "quote": "The coercion record includes efforts to move pressure from an organization's systems to individual employees"}
+      - {"text": "The study does not claim that ransomware caused a reported patient's death; the FBI account does not support that.", "from": "#executive-assessment", "quote": "It also does not claim that ransomware caused a reported patient's death"}
+      - {"text": "Raids and warrants are consequential investigative events without being equivalent to convictions or complete eradication.", "from": "#executive-assessment", "quote": "raids and warrants are consequential investigative events without being equivalent to convictions or complete eradication"}
+  case-studies/QAKBOT_2020_2021.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "QakBot was a long-lived banking trojan that also collected correspondence, maintained access and enabled subsequent attacks.", "from": "#executive-assessment", "quote": "a long-lived banking trojan also served as a mechanism for collecting correspondence, maintaining access and enabling subsequent attacks"}
+      - {"text": "Stolen business conversations could become material for another round of intrusion.", "from": "#executive-assessment", "quote": "stolen business conversations could become material for another round of intrusion"}
+      - {"text": "A QakBot detection does not, by itself, identify a ransomware operator.", "from": "#executive-assessment", "quote": "A QakBot detection does not, by itself, identify a ransomware operator"}
+      - {"text": "Infrastructure disruption should not be confused with complete victim remediation.", "from": "#executive-assessment", "quote": "infrastructure disruption should not be confused with complete victim remediation"}
+  case-studies/RAGNAR_LOCKER_2020.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Running a program inside a virtual machine does not mean every file it can reach belongs exclusively to that virtual machine.", "from": "#executive-summary", "quote": "Running a program inside a virtual machine does not mean that every file it can reach belongs exclusively to that virtual machine"}
+      - {"text": "Deliberate integration features can expose host data to guest software.", "from": "#executive-summary", "quote": "Deliberate integration features can expose host data to guest software"}
+      - {"text": "Ragnar Locker deployed ransomware inside a VirtualBox virtual machine with a small Windows XP guest, per Sophos's May 2020 investigation.", "from": "#executive-summary", "quote": "Sophos's May 2020 investigation of a ransomware deployment that used VirtualBox and a small Windows XP guest"}
+      - {"text": "The recommendation: examine the authority and data access granted to an execution environment, not just the software's name and reputation.", "from": "#executive-summary", "quote": "examine the authority and data access granted to an execution environment, alongside the name and reputation of the software running it"}
+  case-studies/UCSF_NETWALKER_2020.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "A ransom payment answers none of a research institution's recovery questions by itself, even when made for a decryption tool.", "from": "#executive-assessment", "quote": "A ransom payment answers none of these questions by itself, even when it is made in pursuit of a decryption tool"}
+      - {"text": "UCSF's 2020 incident is useful because the institution published multiple dated updates.", "from": "#executive-assessment", "quote": "The University of California, San Francisco's 2020 incident is particularly useful because the institution published multiple dated updates"}
+      - {"text": "Stopping at the widely circulated payment headline would omit important distinctions about scope.", "from": "#executive-assessment", "quote": "Stopping at the most widely circulated payment headline would omit important distinctions about scope"}
+      - {"text": "The UCSF incident statements do not name the malware family; an Emsisoft profile associates it with NetWalker.", "from": "#executive-assessment", "quote": "The consulted UCSF incident statements do not name the malware family"}

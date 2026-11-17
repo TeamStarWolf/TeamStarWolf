@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- RFC 8484 (October 2018) standardized DNS queries and responses carried in HTTPS exchanges. ([Executive assessment](#executive-assessment))
+- It changed how DNS traffic travelled; it did not make the resolver unable to read the question. ([Executive assessment](#executive-assessment))
+- Browser vendors did not all select the same default model, and enterprises distinguished approved resolvers from silent external ones. ([Executive assessment](#executive-assessment))
+- The study separates transport confidentiality, resolver trust, DNS data validation and the visibility retained by network observers. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

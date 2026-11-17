@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Let's Encrypt turned a recurring administrative task into a service that software and hosting platforms could consume. ([Executive summary](#executive-summary))
+- The advancement was not TLS itself but free issuance, an automated protocol, client integration, a running CA and a route into browser trust. ([Executive summary](#executive-summary))
+- The history includes constraints a success story misses: a 2020 CAA-recheck defect and a dispute over delayed revocation. ([Executive summary](#executive-summary))
+- What it does not fix: those events show where the system's promises ended and where separate operational obligations began. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
  This is an advancement case study, not an intrusion report. Its principal period is 2014-2021. Later documentation is identified as retrospective explanation, not evidence that every current feature existed at launch. Historical client versions and compatibility advice are not present-day installation recommendations.

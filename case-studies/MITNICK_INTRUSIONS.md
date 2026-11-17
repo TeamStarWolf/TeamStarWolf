@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- In a 1999 plea, Mitnick admitted breaking in and stealing proprietary software from Motorola, Novell, Fujitsu, Sun and others. ([Executive summary](#executive-summary))
+- His methods were social engineering, cloned cellular phones, sniffers and impersonating employees, not novel exploits. ([Executive summary](#executive-summary))
+- His 68 months was then the longest sentence any computer hacker had received, yet restitution was a nominal sum over $4,125. ([Executive summary](#executive-summary))
+- The record is narrower than the legend: the 1994 IP-spoofing attack on Shimomura is not part of any charge in the records opened here. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

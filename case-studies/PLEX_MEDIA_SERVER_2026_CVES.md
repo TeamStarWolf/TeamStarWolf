@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Four flaws in Plex Media Server chain into unauthenticated remote code execution with the server process's privileges. ([Executive summary](#executive-summary))
+- The researcher calls the chain Plex2Shell and rates it 9.8 Critical; it matters most if you ever turned on Remote Access. ([Executive summary](#executive-summary))
+- By 19 October Plex described the flaws as actively and widely exploited, with compromised servers running miners and proxy software. ([Executive summary](#executive-summary))
+- A trap the lab found: a host package check returned nothing while two Plex servers ran in containers. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

@@ -3837,6 +3837,48 @@ pages:
     start_at: "[Executive assessment](#executive-assessment), [Why the sinkhole figures are not a global victim total](#why-the-sinkhole-figures-are-not-a-global-victim-total), [December 5, 2019: two criminal matters, not one combined malware case](#december-5-2019-two-criminal-matters-not-one-combined-malware-case)"
     pairs_with: "[Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Fraud Framework Reference](/FRAUD_FRAMEWORK_REFERENCE.md), [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md), [Attack Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md)"
     reviewed: null
+  case-studies/XCODEGHOST_2015.md:
+    audience: "Supply-chain and application-security teams, mobile platform owners, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of XcodeGhost, you need to separate a compromised build tool from the apps it produced or naming from scope, or you are planning a build-environment investigation"
+    start_at: "[Executive assessment](#executive-assessment), [Download convenience became a trust decision](#download-convenience-became-a-trust-decision), [The capability correction is central to the case](#the-capability-correction-is-central-to-the-case)"
+    pairs_with: "[Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Mobile Security Reference](/MOBILE_SECURITY_REFERENCE.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)"
+    reviewed: null
+  case-studies/KERANGER_2016.md:
+    audience: "macOS platform owners, software publishers, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of KeRanger, you need to separate a legitimate download and valid signature from a harmlessness guarantee or a distribution compromise from initial access, or you are planning release assurance"
+    start_at: "[Executive assessment](#executive-assessment), [A valid signature is not a harmlessness guarantee](#a-valid-signature-is-not-a-harmlessness-guarantee), [March KeRanger and August Keydnap were different incidents](#march-keranger-and-august-keydnap-were-different-incidents)"
+    pairs_with: "[macOS Security Reference](/MACOS_SECURITY_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md)"
+    reviewed: null
+  case-studies/KEYDNAP_2016.md:
+    audience: "macOS platform owners, identity and access teams, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of Keydnap and its Transmission distribution, you need to separate removing a file from resolving account access or acquisition from execution, or you are deciding when a device can be trusted again"
+    start_at: "[Executive assessment](#executive-assessment), [The boundary between acquisition and execution](#the-boundary-between-acquisition-and-execution), [Credential exposure is a separate workstream](#credential-exposure-is-a-separate-workstream)"
+    pairs_with: "[macOS Security Reference](/MACOS_SECURITY_REFERENCE.md), [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md)"
+    reviewed: null
+  case-studies/ESTONIA_DDOS_2007.md:
+    audience: "Network defenders, resilience and continuity planners, public-sector security teams and security historians"
+    level: "Beginner to intermediate"
+    read_when: "You want an evidence-bounded account of the 2007 Estonia attacks, you need to separate service interference from a national shutdown or assistance from an Article 5 invocation, or you want the origins of public-service cyber resilience doctrine"
+    start_at: "[Executive assessment](#executive-assessment), [Dates that should not be forced into false agreement](#dates-that-should-not-be-forced-into-false-agreement), [NATO assistance was not Article 5 invocation](#nato-assistance-was-not-article-5-invocation)"
+    pairs_with: "[Network Defense Reference](/NETWORK_DEFENSE_REFERENCE.md), [Cyber Resilience and BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md), [Attack Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
+  case-studies/EASYJET_2020.md:
+    audience: "Data-protection, security and compliance teams, incident responders and anyone reading a regulator's closure record"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of the 2020 easyJet breach and its long regulatory aftermath, you need to separate an affected-customer count from the meaning of the aftermath or pandemic disruption from cyber impact, or you are reading an ICO closure letter"
+    start_at: "[Executive assessment](#executive-assessment), [4. Pandemic disruption must not become invented cyber impact](#_4-pandemic-disruption-must-not-become-invented-cyber-impact), [7. What the August 2023 closure letter actually says](#_7-what-the-august-2023-closure-letter-actually-says)"
+    pairs_with: "[Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Regulatory Landscape Reference](/REGULATORY_LANDSCAPE_REFERENCE.md), [Privacy Engineering Reference](/PRIVACY_ENGINEERING_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
+  case-studies/RIVER_CITY_MEDIA_2017.md:
+    audience: "Data-protection and privacy teams, security researchers, disclosure-policy owners and incident responders"
+    level: "Intermediate"
+    read_when: "You want a shorter, evidence-bounded account of the 2017 River City Media exposure, you need to separate total records from unique addresses or a procedural order from a merits finding, or you want a careful account of contested security-research litigation"
+    start_at: "[Scope and status](#scope-and-status), [March-August 2017: the lawsuit and the jurisdiction ruling](#march-august-2017-the-lawsuit-and-the-jurisdiction-ruling), [What the case demonstrates, and what it does not](#what-the-case-demonstrates-and-what-it-does-not)"
+    pairs_with: "[Data Security Reference](/DATA_SECURITY_REFERENCE.md), [Privacy Engineering Reference](/PRIVACY_ENGINEERING_REFERENCE.md), [OSINT Reference](/OSINT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
   commands/aws-cli.md:
     audience: "Cloud engineers, administrators and security teams who work in AWS from a terminal"
     level: "Beginner to intermediate"

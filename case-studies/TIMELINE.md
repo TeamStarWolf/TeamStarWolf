@@ -956,6 +956,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 February 2021: A law-enforcement operation disrupts affiliates
   - 17 February 2021: Enforcement actions are announced
   - 9 February 2022: A later decryptor creates a new recovery opportunity
+- [easyJet 2020: Customer Data Exposure and the Long Regulatory Aftermath](/case-studies/EASYJET_2020.md). Incident, May 2020 to August 2025 (core: 2020). Sectors: transport. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/easyJet_2020_Case_Study.pdf).
+  - 19 May 2020: easyJet discloses a customer-data breach affecting about 9 million customers
+  - May 2023: The ICO investigation is still live
+  - August 2023: An ICO letter explains why the investigation was closed
+  - 1 December 2023: An FOI response describes the closure process
+  - 7 August 2025: A later FOI response surfaces a date discrepancy in the closure record
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md). Period record, January to December 2020. Sectors: cross-sector, healthcare. CVEs: CVE-2017-5638, CVE-2017-11882, CVE-2018-7600, CVE-2018-13379, CVE-2019-0604, CVE-2019-1652 and 27 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly and 12 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2020_Case_Study.pptx).
   - 14 January 2020: CISA ED 20-02 for CryptoAPI CVE-2020-0601 and the RD Gateway flaws
   - 10 February 2020: Equifax indictment of four PLA 54th Research Institute members announced
@@ -1303,6 +1309,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 2 November 2017: Estonia announces blocking certificates on about 760,000 at-risk ID cards
   - 3 November 2017: Estonia blocks the affected certificates (about 740,000 cards)
   - 1 April 2018: Estonia finally revokes the affected certificates
+- [River City Media 2017: Exposure Claims, a Mailing Dataset, and Research Litigation](/case-studies/RIVER_CITY_MEDIA_2017.md). Incident, January 2017 to September 2018 (core: 2017). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/River_City_Media_2017_Case_Study.pdf).
+  - January 2017: Publicly exposed River City Media files are encountered; Have I Been Pwned records the exposure
+  - 6 March 2017: Chris Vickery publishes the disclosure describing a large mailing dataset
+  - 9 March 2017: River City Media issues a rebuttal denying an open server and the alleged techniques
+  - 21 March 2017: River City Media sues the researchers and reporters in federal court
+  - 28 August 2017: A jurisdiction order proceeds without resolving the merits
+  - 4 September 2018: The case is dismissed with prejudice by stipulation; no merits finding or payment disclosed
 - [Panera Bread 2017-2018: An Exposure Report That Outlived Its Acknowledgment](/case-studies/PANERA_2017_2018.md). Incident, August 2017 to June 2018 (core: 2017 to 2018). Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Panera_2017_2018_Case_Study.pdf).
   - August 2017: A researcher reports readable customer data to Panera
   - 2 April 2018: Brian Krebs publishes the exposure after months without a fix
@@ -1393,6 +1406,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 16 February 2016: Locky distribution is first widely reported via malicious document attachments
   - 31 March 2016: Reporting describes a shift to script attachments and intermediate downloaders (RockLoader)
   - 1 April 2016: Exploit-kit delivery is documented as an additional route; a Canadian government alert follows
+- [Transmission and Keydnap 2016: The Download Was Only the Beginning](/case-studies/KEYDNAP_2016.md). Campaign, July to August 2016 (core: 2016). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Keydnap_2016_Case_Study.pdf).
+  - July 2016: ESET reports Keydnap, a macOS credential-stealer
+  - August 2016: Keydnap is distributed through a compromised Transmission build
+- [KeRanger 2016: A Signed Installer Crossed a Trusted Download Boundary](/case-studies/KERANGER_2016.md). Campaign, March 2016 (core: 2016). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/KeRanger_2016_Case_Study.pdf).
+  - 4 March 2016: Malicious, signed Transmission installers for OS X carry KeRanger ransomware
+  - 5 March 2016: Transmission and Apple respond; a removal update follows a misleading quiet period
 - [ImageTragick: When an Image Upload Crossed Into Command Execution](/case-studies/IMAGETRAGICK_2016.md). Vulnerability, May 2016 to 2016 (core: 2016). Sectors: technology. CVEs: CVE-2016-3714. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ImageTragick_2016_Case_Study.pdf).
   - 3 May 2016: ImageTragick (CVE-2016-3714 and related issues) is publicly disclosed with mitigations
   - May 2016: ImageMagick updates and distribution packages follow
@@ -1449,6 +1468,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 19 July 2019: Related flaw CVE-2019-12815 published
   - 8 October 2026: CISA adds CVE-2015-3306 to KEV; joint advisory AA26-281A lists it
   - 4 November 2026: Lab run: the vulnerable build copies a file without login; the fixed build refuses
+- [XcodeGhost 2015: A Compromised Build Tool Behind Legitimate Apps](/case-studies/XCODEGHOST_2015.md). Campaign, September to November 2015 (core: 2015). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/XcodeGhost_2015_Case_Study.pdf).
+  - 14 September 2015: Early investigation identifies a malicious compiler affecting iOS apps
+  - 18 September 2015: Palo Alto Networks names XcodeGhost as the scope grows beyond a few apps
+  - 22 September 2015: Apple publishes guidance on verifying the build environment
+  - October 2015: Hong Kong CERT observations show the recovery problem
+  - November 2015: Later evidence prevents a premature ending to the account
 - [TalkTalk, 2015: The Acquired Attack Surface and the Cost of Unfinished Security Work](/case-studies/TALKTALK_2015.md). Incident, 2015 to 2016. Sectors: telecommunications. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/TalkTalk_2015_Case_Study.pdf).
   - 17 July 2015: An earlier, unaddressed injection attack occurs (also 2-3 September 2015)
   - 15 October 2015: The attack window begins (15 to 21 October), through three pages inherited from Tiscali in 2009
@@ -1869,6 +1894,10 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2007 <!-- {docsify-ignore} -->
 
+- [Estonia, 2007: DDoS, Public-Service Resilience, and the Limits of a Simple Cyberwar Story](/case-studies/ESTONIA_DDOS_2007.md). Campaign, April 2007 to 2008 (core: 2007). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Estonia_DDoS_2007_Case_Study.pdf).
+  - 27 April 2007: DDoS and defacement attacks on Estonian public-facing services begin amid a monument dispute
+  - 18 May 2007: The main campaign window ends per early research; NATO notes continued varying activity to 23 May
+  - 2008: The NATO Cooperative Cyber Defence Centre of Excellence is established in Tallinn
 - [The Year 2007 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2007.md). Period record, January to December 2007. Sectors: cross-sector, government, defense, retail, finance, technology, telecommunications, energy, media, education. CVEs: CVE-2006-3877, CVE-2006-5994, CVE-2006-6456, CVE-2006-6561, CVE-2007-0015, CVE-2007-0038 and 14 more. ATT&CK groups: G0006 APT1, G0007 APT28, G1023 APT5, G0012 Darkhotel. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2007_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2007_Case_Study.pptx).
   - 12 January 2007: Storm Worm floods several anti-spam sites; Spamhaus is hit on 30 January
   - 17 January 2007: TJX announces an intrusion into its systems that handle customer transaction data

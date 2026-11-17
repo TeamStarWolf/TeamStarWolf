@@ -706,6 +706,14 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2022 <!-- {docsify-ignore} -->
 
+- [Dirty Pipe: When Read-Only Data Lost Its Integrity](/case-studies/DIRTY_PIPE_2022.md). Vulnerability, April 2021 to May 2022 (core: February to March 2022). Sectors: technology. CVEs: CVE-2022-0847. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Dirty_Pipe_2022_Case_Study.pdf).
+  - 29 April 2021: First support ticket over repeated corruption in downloadable access logs (discoverer's timeline)
+  - 19 February 2022: Max Kellermann recognizes the kernel vulnerability
+  - 20 February 2022: Reported to the kernel security team
+  - 23 February 2022: Stable fixes released as Linux 5.16.11, 5.15.25 and 5.10.102
+  - 7 March 2022: Public disclosure of Dirty Pipe, CVE-2022-0847
+  - 8 March 2022: Ubuntu USN-5317-1 ships the fix and notes a reboot and kernel ABI change
+  - 2 May 2022: Android May 2022 bulletin lists the CVE and notes indications of limited, targeted exploitation
 - [The Year 2022 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2022.md). Period record, January to December 2022. Sectors: cross-sector, government, energy, healthcare, finance, technology, telecommunications, defense, education, transport. CVEs: CVE-2018-13379, CVE-2019-0604, CVE-2019-11510, CVE-2020-0688, CVE-2020-1472, CVE-2020-12812 and 44 more. ATT&CK groups: G0007 APT28, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly, G0047 Gamaredon Group and 11 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2022_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2022_Case_Study.pptx).
   - 13 January 2022: WhisperGate first appears on Ukrainian systems; Ukrainian government websites defaced
   - 23 February 2022: HermeticWiper hits hundreds of computers in Ukrainian organizations; Cyclops Blink exposed as Sandworm's replacement for VPNFilter
@@ -748,6 +756,18 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 11 July 2022: The CSRB publishes its report
   - 10 December 2025: Sonatype: about 13 percent of 2025 Log4j downloads still contained Log4Shell
   - 23 January 2026: OMB M-26-05 rescinds M-22-18 and M-23-16
+- [Colonial Pipeline and DarkSide in 2021: An IT Incident with Operational Consequences](/case-studies/COLONIAL_DARKSIDE_2021.md). Incident, April 2021 to January 2025 (core: April to June 2021). Sectors: energy. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Colonial_Darkside_2021_Case_Study.pdf).
+  - 29 April 2021: Earliest identified VPN login with employee credentials on a legacy profile without MFA (investigator testimony)
+  - 7 May 2021: Ransom note found in IT; employees shut down the pipeline; FBI notified
+  - 8 May 2021: Ransom paid (about 75 bitcoin), per DOJ and company testimony
+  - 10 May 2021: FBI publicly attributes the compromise to DarkSide ransomware
+  - 11 May 2021: CISA and FBI issue advisory AA21-131A
+  - 12 May 2021: Return of pipelines to service begins (company testimony)
+  - 13 May 2021: DOE records a systemwide restart and delivery to all markets
+  - 15 May 2021: Normal-system-operation announcement reported by EIA
+  - 7 June 2021: DOJ announces seizure of 63.7 bitcoin tied to the payment
+  - 8 June 2021: Senate and House hearings add detail on entry, decryption and continuing restoration
+  - 17 January 2025: DHS Federal Register notice ratifies the 2021 pipeline security directives (historical aftermath)
 - [Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation](/case-studies/EXCHANGE_MARAUDER_2021.md). Campaign, January to November 2021. Sectors: cross-sector, government, education. CVEs: CVE-2020-0688, CVE-2021-26412, CVE-2021-26854, CVE-2021-26855, CVE-2021-26857, CVE-2021-26858 and 11 more. ATT&CK groups: G0027 Threat Group-3390, G0044 Winnti Group, G0046 FIN7, G0059 Magic Hound, G0060 BRONZE BUTLER, G0065 Leviathan and 7 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Exchange_Marauder_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Exchange_Marauder_2021_Case_Study.pptx).
   - 10 December 2020: DEVCORE finds the pre-auth proxy bug, later CVE-2021-26855
   - 3 January 2021: Earliest SSRF mailbox theft Volexity observed
@@ -790,6 +810,18 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 4 October 2021: FireEye, Inc. becomes Mandiant, Inc.; the products business sale closes on 8 October
   - 27 April 2022: Mandiant merges UNC2452 into APT29
   - 12 September 2022: Google completes its acquisition of Mandiant
+- [Ryuk and Healthcare in 2020: The Sector Warning and the Continuity Problem](/case-studies/RYUK_HEALTHCARE_2020.md). Campaign, January 2020 to March 2021 (core: September to November 2020). Sectors: healthcare. CVEs: CVE-2020-1472. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ryuk_Healthcare_2020_Case_Study.pdf).
+  - 29 January 2020: Mandiant investigates activity later tracked as UNC1878
+  - 31 March 2020: Mandiant publishes its actor-tracking account
+  - 27 September 2020: Universal Health Services dates the start of an IT security incident
+  - 2 October 2020: HHS HC3 publishes a BazarLoader, Cobalt Strike and Ryuk sector alert
+  - 12 October 2020: Microsoft announces action against TrickBot infrastructure
+  - 18 October 2020: The DFIR Report publishes a five-hour Ryuk case using Zerologon, CVE-2020-1472
+  - 28 October 2020: CISA, FBI and HHS issue the joint healthcare ransomware warning
+  - 29 October 2020: UK NCSC statement and Red Canary's interrupted medical-center account
+  - 12 November 2020: HHS publishes a TrickBot, Ryuk and HPH sector technical briefing
+  - 25 February 2021: UHS discloses an approximately $67 million 2020 pre-tax impact
+  - March 2021: CERT-FR report and NHS updates describe a later self-propagating variant
 - [SolarWinds and SUNBURST: The Supply-Chain Intrusion, 2019 to 2021](/case-studies/SOLARWINDS_SUNBURST.md). Campaign, January 2019 to 2021 (core: February to December 2020). Sectors: technology, government. CVEs: CVE-2018-13379, CVE-2019-9670, CVE-2019-11510, CVE-2019-19781, CVE-2020-0688, CVE-2020-1472 and 2 more. ATT&CK groups: G0010 Turla, G0016 APT29. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SolarWinds_SUNBURST_2019_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/SolarWinds_SUNBURST_2019_2021_Case_Study.pptx).
   - 4 September 2019: Threat actor accesses SolarWinds
   - 12 September 2019: Test code injection trial run, to 4 November 2019
@@ -861,6 +893,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2018 <!-- {docsify-ignore} -->
 
+- [DNS over HTTPS: Encrypting the Lookup Without Eliminating Resolver Trust](/case-studies/DNS_OVER_HTTPS_2018.md). Attack surface, October 2018 to July 2021. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DNS_over_HTTPS_2018_Case_Study.pdf).
+  - October 2018: RFC 8484 standardizes DNS queries and responses carried in HTTPS
+  - 25 February 2020: Mozilla begins a by-default DoH rollout for US Firefox users with Cloudflare as default
+  - 19 May 2020: Google describes Chrome Secure DNS upgrading the existing provider to DoH
+  - January 2021: NSA publishes enterprise guidance favoring a designated enterprise resolver
+  - 8 July 2021: Mozilla announces a staged Canadian rollout with CIRA; RFC 9076 replaces RFC 7626
 - [npm Supply-Chain Attacks, 2018 to 2026: The Record and the Defenses](/case-studies/NPM_SUPPLY_CHAIN_ATTACKS.md). Attack surface, September 2018 to October 2026. Sectors: technology. CVEs: CVE-2022-23812. ATT&CK groups: G0082 APT38, G1052 Contagious Interview, G1056 TeamPCP. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/npm_Supply_Chain_Attacks_2018_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/npm_Supply_Chain_Attacks_2018_2026_Case_Study.pptx).
   - 9 September 2018: event-stream: a new maintainer who took over by social engineering adds flatmap-stream
   - 9 February 2021: Dependency confusion: internal package names uploaded to public registries are detected inside more than 35 organizations
@@ -890,6 +928,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2017 <!-- {docsify-ignore} -->
 
+- [Bad Rabbit, 2017: One Fake Update, Several Ways to Spread](/case-studies/BAD_RABBIT_2017.md). Campaign, March 2017 to January 2018 (core: October 2017). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Bad_Rabbit_2017_Case_Study.pdf).
+  - 14 March 2017: Microsoft publishes MS17-010, the SMB update that predates the outbreak
+  - 24 October 2017: Bad Rabbit outbreak and the initial Kaspersky, Talos and ESET technical reports
+  - 25 October 2017: Talos adds encryption, propagation and code-linkage analysis over 25 to 26 October
+  - 27 October 2017: ESET adds a patch test: MS17-010 stopped the tested IPC-share propagation
+  - 10 January 2018: Microsoft publishes a retrospective comparing the 2017 ransomware outbreaks
 - [The Year 2017 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2017.md). Period record, January to December 2017. Sectors: cross-sector, healthcare, energy, finance, government, technology. CVEs: CVE-2017-0005, CVE-2017-0101, CVE-2017-0143, CVE-2017-0144, CVE-2017-0145, CVE-2017-0146 and 28 more. ATT&CK groups: G0020 Equation, G0022 APT3, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly, G0045 menuPass and 4 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2017_Case_Study.pptx).
   - 7 March 2017: WikiLeaks publishes Vault 7 Part 1, "Year Zero", 8,761 documents it says came from the CIA
   - 14 March 2017: Microsoft publishes MS17-010, fixing the SMBv1 flaws later used by WannaCry and NotPetya

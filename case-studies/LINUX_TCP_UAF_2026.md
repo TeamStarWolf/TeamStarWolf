@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- CVE-2026-98432 is an unauthenticated remote use-after-free in the IPv4 TCP setup path, scored 9.8, with a two-line fix. ([Executive summary](#executive-summary))
+- What made it a landmark was Anthropic's report that an unreleased model wrote a working remote-root exploit in under an hour. ([Executive summary](#executive-summary))
+- Two facts are kept apart: the vulnerability is confirmed, while the AI-written exploit was withheld and unreproduced. ([Executive summary](#executive-summary))
+- The marker that matters: the time from a memory-corruption CVE to a working exploit is collapsing toward the length of a lunch break. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

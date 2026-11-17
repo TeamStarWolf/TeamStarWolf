@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- The US record is unlike the others: no self-indictments, no advisories naming American operations, and no sanctions. ([Executive summary](#executive-summary))
+- What exists is malware platforms researchers took apart between 2011 and 2023, such as Equation, Regin and Flame. ([Executive summary](#executive-summary))
+- National attribution rests on three softer pillars: leak journalism, adversary-government statements, and one US court case. ([Executive summary](#executive-summary))
+- The closest any vendor comes is Symantec, which says Longhorn's indicators point to an English-speaking North American country, and stops there. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

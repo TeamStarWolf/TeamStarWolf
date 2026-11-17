@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- Tomcat shipped a second front door: an AJP connector on port 8009, enabled by default and trusted more than HTTP. ([Executive summary](#executive-summary))
+- Anyone who could reach port 8009 could make Tomcat return any file in a web application, including protected folders. ([Executive summary](#executive-summary))
+- The fix shipped quietly before disclosure, switching the AJP connector off by default and binding it to loopback. ([Executive summary](#executive-summary))
+- CISA added Ghostcat (CVE-2020-1938) to its Known Exploited Vulnerabilities catalog in March 2022. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

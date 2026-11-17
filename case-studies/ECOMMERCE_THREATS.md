@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The target moved from the card file to the checkout page over twenty-seven years of online-store attacks. ([Executive summary](#executive-summary))
+- The big breaches of 2005 to 2014 took card data from where it was stored or swiped, from TJX to Target and Home Depot. ([Executive summary](#executive-summary))
+- From 2018 the loss shifts to the browser, where a modified script copies what the shopper types. ([Executive summary](#executive-summary))
+- As chip cards cut in-person fraud in 2015 to 2016, remote card fraud rose from $3.40 billion to $4.57 billion. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

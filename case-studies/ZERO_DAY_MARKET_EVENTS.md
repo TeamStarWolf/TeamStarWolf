@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The study traces how software flaws became a traded commodity, and what happened when the stock escaped. ([Executive summary](#executive-summary))
+- It takes the events Perlroth's book is said to cover and checks each against the primary record. ([Executive summary](#executive-summary))
+- The book itself was not opened; nothing here states its claims unless a review or the publisher says so. ([Executive summary](#executive-summary))
+- What the study shows is the record underneath the book's events, which is unusually rich. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

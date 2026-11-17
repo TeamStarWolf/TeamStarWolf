@@ -496,3 +496,66 @@ pages:
       - {"text": "His methods were social engineering, cloned cellular phones, sniffers and impersonating employees, not novel exploits.", "from": "#executive-summary", "quote": "using social engineering, cloned cellular phones, sniffers and hacker software"}
       - {"text": "His 68 months was then the longest sentence any computer hacker had received, yet restitution was a nominal sum over $4,125.", "from": "#executive-summary", "quote": "restitution was set at a nominal sum of just over $4,125 against victim claims in the hundreds of millions"}
       - {"text": "The record is narrower than the legend: the 1994 IP-spoofing attack on Shimomura is not part of any charge in the records opened here.", "from": "#executive-summary", "quote": "the 1994 IP-spoofing attack on Shimomura, is not described as part of any charge in the records opened here"}
+  case-studies/FANCY_BEAR_GOES_PHISHING_CASES.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The book's thesis: cybercrime has less to do with defective programming than with the faulty wiring of psyches and society.", "from": "#executive-summary", "quote": "cybercrime has less to do with defective programming than with the faulty wiring of psyches and society"}
+      - {"text": "It tells the story through five cases: the Morris worm, the Dark Avenger, a 2005 phone break-in, the 2016 DNC intrusions, and Mirai.", "from": "#executive-summary", "quote": "the Morris worm of 1988, the Bulgarian virus writer known as the Dark Avenger, the 2005 break-in to a celebrity's phone, the 2016 intrusions at the Democratic National Committee (DNC), and the Mirai botnet of 2016"}
+      - {"text": "This study does not retell the book; it goes to the primary record behind each chapter.", "from": "#executive-summary", "quote": "This study does not retell the book"}
+      - {"text": "The DNC record it checks includes the July 2018 indictment of twelve GRU officers and the Special Counsel's report.", "from": "#executive-summary", "quote": "the July 2018 indictment of twelve GRU officers, the Special Counsel's report, the DHS and FBI GRIZZLY STEPPE report and the CrowdStrike DNC report"}
+  case-studies/HACKER_AND_THE_STATE_CASES.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The book argues states hack less to send messages than to change the balance of power, day after day, in peacetime.", "from": "#executive-summary", "quote": "states hack less to send messages than to change the balance of power, day after day, in peacetime"}
+      - {"text": "A House report traces the theft of 21.5 million background-investigation records from OPM back to a first intrusion in July 2012.", "from": "#executive-summary", "quote": "the theft of 21.5 million background-investigation records and 5.6 million fingerprints from the US Office of Personnel Management (OPM) back to a first intrusion in July 2012"}
+      - {"text": "Mandiant watched APT1, which it assessed to be a Chinese military unit, compromise 141 organizations across 20 industries.", "from": "#executive-summary", "quote": "Mandiant watched one group, which it named APT1 and assessed to be a Chinese military unit, compromise 141 organizations across 20 industries"}
+      - {"text": "An FBI affidavit ties the same North Korean operators to Sony in 2014, the Bangladesh Bank theft in 2016, and WannaCry in 2017.", "from": "#executive-summary", "quote": "the same North Korean operators most likely phished their way into Sony Pictures Entertainment in September 2014 and wiped its computers that November, stole about $81 million from Bangladesh Bank in 2016 and released WannaCry in 2017"}
+  case-studies/CYBERCRIME_FOUR_BOOKS.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Four reading-list books tell the story of the criminal and activist internet before ransomware and state espionage took the headlines.", "from": "#executive-summary", "quote": "Four books on the library's reading list tell the story of the criminal and activist internet before ransomware and state espionage took over the headlines"}
+      - {"text": "Together they cover about 30 years, from the Legion of Doom in 1984 to Hector Monsegur's sentencing in 2014.", "from": "#executive-summary", "quote": "Together they cover about 30 years, from the Legion of Doom in 1984 to Hector Monsegur's sentencing in 2014"}
+      - {"text": "This study rebuilds each story from the primary record and grades a claim Reported only where the record is silent.", "from": "#executive-summary", "quote": "This study rebuilds each story from that record first, and grades a claim Reported, attributed to the book or the press outlet by name, only where the record is silent"}
+      - {"text": "The record largely supports the books on what happened and corrects them on several numbers.", "from": "#executive-summary", "quote": "The result largely supports the books on what happened and corrects them on several numbers"}
+  case-studies/ZERO_DAY_MARKET_EVENTS.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The study traces how software flaws became a traded commodity, and what happened when the stock escaped.", "from": "#executive-summary", "quote": "how software flaws became a traded commodity, and what happened when the stock escaped"}
+      - {"text": "It takes the events Perlroth's book is said to cover and checks each against the primary record.", "from": "#executive-summary", "quote": "It takes the events that the book's reviewers and publisher say it covers, and checks each one against the primary record"}
+      - {"text": "The book itself was not opened; nothing here states its claims unless a review or the publisher says so.", "from": "#executive-summary", "quote": "The book itself was not opened for this study"}
+      - {"text": "What the study shows is the record underneath the book's events, which is unusually rich.", "from": "#executive-summary", "quote": "What the study can show is the record underneath the book's events, which is unusually rich"}
+  case-studies/NSA_CIA_TOOL_LEAKS.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The people who paid were patients: the UK found at least 81 of 236 NHS trusts infected by WannaCry.", "from": "#executive-summary", "quote": "the UK National Audit Office found at least 81 of the 236 NHS trusts in England and 603 other NHS organisations, 595 of them GP practices, infected by WannaCry"}
+      - {"text": "A US grand jury says a health system, shipping firm and drug maker lost nearly $1 billion to NotPetya six weeks after WannaCry.", "from": "#executive-summary", "quote": "a US grand jury says lost nearly $1 billion between them to NotPetya six weeks later"}
+      - {"text": "The Shadow Brokers began posting stolen NSA-linked tools on 13 August 2016 and later released a Windows exploit set.", "from": "#executive-summary", "quote": "A group calling itself the Shadow Brokers began posting on 13 August 2016"}
+      - {"text": "Over the same months WikiLeaks published Vault 7 and Vault 8 from the CIA's Center for Cyber Intelligence.", "from": "#executive-summary", "quote": "WikiLeaks published Vault 7 and Vault 8, internal material from the CIA's Center for Cyber Intelligence, starting on 7 March 2017"}
+  case-studies/DOTCOM_ERA_CYBER_EVENTS.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The era's biggest worms used flaws that already had a fix, from Code Red to Slammer to Blaster.", "from": "#executive-summary", "quote": "the era's biggest worms used flaws that already had a fix"}
+      - {"text": "Melissa exploited no new vulnerability; it needed a person to open a document.", "from": "#executive-summary", "quote": "Melissa was not known to exploit any new vulnerability; it needed a person to open a document"}
+      - {"text": "The speed outran human response: CAIDA measured Slammer reaching more than 90 percent of vulnerable hosts in about ten minutes.", "from": "#executive-summary", "quote": "Slammer reaching more than 90 percent of vulnerable hosts in about ten minutes"}
+      - {"text": "Institutions we take for granted were assembled in response, including the CVE List, which launched in September 1999.", "from": "#executive-summary", "quote": "the CVE List launched in September 1999"}
+  case-studies/PRE_INTERNET_THREATS.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "By 1972 an Air Force study said experienced programmers had little difficulty penetrating off-the-shelf systems, and it defined the Trojan horse.", "from": "#executive-summary", "quote": "an Air Force planning study already said that experienced programmers had little difficulty penetrating off-the-shelf systems, and it defined the Trojan horse"}
+      - {"text": "In 1979 Morris and Thompson found that 86 percent of the UNIX passwords they studied were short strings or dictionary words.", "from": "#executive-summary", "quote": "In 1979 Morris and Thompson found that 86 percent of the UNIX passwords they studied were short strings or dictionary words"}
+      - {"text": "When the Morris worm ran in November 1988, two of its four ways in were trusted hosts and password guessing.", "from": "#executive-summary", "quote": "When the Morris worm ran in November 1988, two of its four ways in were trusted hosts and password guessing"}
+      - {"text": "The study covers the thirty years from 1960, when the Bell System published its signaling, to 1990.", "from": "#executive-summary", "quote": "It covers the thirty years from 1960, when the Bell System published how its long-distance network signaled, to 1990"}
+  case-studies/ECOMMERCE_THREATS.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The target moved from the card file to the checkout page over twenty-seven years of online-store attacks.", "from": "#executive-summary", "quote": "the target moved from the card file to the checkout page"}
+      - {"text": "The big breaches of 2005 to 2014 took card data from where it was stored or swiped, from TJX to Target and Home Depot.", "from": "#executive-summary", "quote": "The big breaches of 2005 to 2014 took card data from where it was stored or swiped: TJX's transaction systems, Heartland's processing network, Target's and Home Depot's point-of-sale terminals"}
+      - {"text": "From 2018 the loss shifts to the browser, where a modified script copies what the shopper types.", "from": "#executive-summary", "quote": "From 2018 the loss shifts to the browser, where a modified script copies what the shopper types"}
+      - {"text": "As chip cards cut in-person fraud in 2015 to 2016, remote card fraud rose from $3.40 billion to $4.57 billion.", "from": "#executive-summary", "quote": "as chip cards cut in-person fraud between 2015 and 2016, remote card fraud rose from $3.40 billion to $4.57 billion"}
+  case-studies/CLOUD_SECURITY_INCIDENTS.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The record tells a different story: cloud breaches were mostly failures in the band providers say always belongs to the customer.", "from": "#executive-summary", "quote": "mostly failures in the band that every major provider says always belongs to the customer: identities, access policy, configuration and data"}
+      - {"text": "Mandiant found the 2024 Snowflake campaign came not from a Snowflake breach but from compromised customer credentials, mostly without MFA.", "from": "#executive-summary", "quote": "Mandiant found no evidence that the 2024 Snowflake campaign came from a breach of Snowflake's enterprise environment; every incident Mandiant responded to traced back to compromised customer credentials"}
+      - {"text": "Google said the 2025 Salesloft Drift theft did not stem from a core Salesforce vulnerability.", "from": "#executive-summary", "quote": "Google's threat intelligence team said the 2025 Salesloft Drift theft did not stem from a core Salesforce vulnerability"}
+      - {"text": "The study runs from the first documented credential incidents at a consumer cloud service in 2012 to the 2026 multi-tenant app compromises.", "from": "#executive-summary", "quote": "the first well-documented credential incidents at a consumer cloud service in 2012 to the multi-tenant application compromises of October and November 2026"}

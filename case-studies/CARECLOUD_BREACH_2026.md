@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- HHS records 3,756,469 individuals affected in the CareCloud breach, with CareCloud listed as a business associate. ([Executive summary](#executive-summary))
+- Most affected people had no direct relationship with CareCloud; their doctors and clinics chose the vendor. ([Executive summary](#executive-summary))
+- Forensics found an unauthorized third party accessed a cloud account supporting an EHR environment and exfiltrated PII and PHI. ([Executive summary](#executive-summary))
+- No filing or letter names an actor, a malware family, a CVE or an entry method. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

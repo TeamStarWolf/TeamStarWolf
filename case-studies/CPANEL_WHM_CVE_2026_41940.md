@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- An emergency fix addressed a login-flow flaw that let anyone who could reach the cPanel/WHM panel skip authentication entirely. ([Executive summary](#executive-summary))
+- It sits behind a huge footprint: the vendor puts cPanel behind north of 70 million domains. ([Executive summary](#executive-summary))
+- Exploits succeeded in the wild before any fix existed. ([Executive summary](#executive-summary))
+- From about 30 April it was mass-exploited; news citing Shadowserver put compromised cPanel IP addresses at 44,000 or more. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

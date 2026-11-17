@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Between 4 October and 3 November 2026 CISA added 34 vulnerabilities to its KEV catalog; this study builds a check for each testable one. ([Executive summary](#executive-summary))
+- The lesson: a version string is where an exposure check starts, not where it ends. ([Executive summary](#executive-summary))
+- Several fixed and vulnerable builds print the same banner, and several flaws are reachable only when one configuration line is set. ([Executive summary](#executive-summary))
+- A workaround changes the configuration while leaving the version a scanner reads untouched. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

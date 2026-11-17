@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- On 21 October 2026 PHP shipped security releases for two flaws in the interpreter itself, CVE-2026-109618 and CVE-2026-109619. ([Executive summary](#executive-summary))
+- Both let an unauthenticated attacker run code on the server. ([Executive summary](#executive-summary))
+- The vendor validated it on Apache mod_php, where one of the flaws fires before any application code runs. ([Executive summary](#executive-summary))
+- CISA added both to the Known Exploited Vulnerabilities catalog on 26 October with a three-day due date. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- PolyShell (CVE-2026-48356) lets an unauthenticated guest-cart call attach a file to a product option and write it to the web server's disk. ([Executive summary](#executive-summary))
+- Whether the planted file runs as code depends on the web server configuration in front of Magento. ([Executive summary](#executive-summary))
+- Sansec reported an automated wave that compromised 471 stores in one hour on 30 March. ([Executive summary](#executive-summary))
+- The record is split: Adobe rated it Priority 2 and said it was not aware of exploits, even as CISA listed it as known-exploited. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- From August 1986 a persistent intruder used Lawrence Berkeley Lab as a way station into ARPANET and MILNET. ([Executive summary](#executive-summary))
+- Rather than lock him out, LBL printed virtually every session and traced him, a decision that took nearly a year. ([Executive summary](#executive-summary))
+- Over 10 months he tried about 450 computers and got into more than 30, mostly with default accounts and guessed or cracked passwords. ([Executive summary](#executive-summary))
+- Fake Strategic Defense Initiative files, alarmed to reveal who read them, held him on the line long enough to finish the trace to West Germany. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

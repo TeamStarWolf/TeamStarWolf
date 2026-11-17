@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Protecting a security product and protecting the people who buy it are related but different responsibilities. ([Executive assessment](#executive-assessment))
+- A device can keep its technical boundary while commerce records expose its owner to deception, harassment or unwanted attention. ([Executive assessment](#executive-assessment))
+- The study does not describe the leaked commerce database as a repository of wallet private keys. ([Executive assessment](#executive-assessment))
+- Estimates need dates and denominators: email addresses, customer records, customers and merchants are not interchangeable units. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 Historical focus: the June-December 2020 customer-data incident and the related Shopify disclosure in January 2021. This study distinguishes company statements, a contemporaneous court record and original defensive analysis. It does not identify victims, reproduce stolen records, assess current Ledger products or provide investment advice.

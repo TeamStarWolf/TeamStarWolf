@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Logjam exposed two weaknesses in how finite-field Diffie-Hellman key exchange was deployed. ([Executive assessment](#executive-assessment))
+- Researchers demonstrated an active downgrade against TLS connections that still allowed export-grade cryptography. ([Executive assessment](#executive-assessment))
+- The argument about 1024-bit groups and national intelligence was a feasibility assessment, not a public demonstration. ([Executive assessment](#executive-assessment))
+- It challenged an oversimplified forward secrecy: ephemeral secrets help only when the underlying key exchange stays computationally hard. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 Historical vulnerability and ecosystem-response study, not a claim that a particular criminal intrusion occurred. The central disclosure was in 2015; the standards response examined here extends into 2016-2017.

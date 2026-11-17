@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- The openness that makes Hugging Face useful also makes it a supply chain into machines that hold cloud credentials. ([Executive summary](#executive-summary))
+- The dangerous step is loading, not downloading: pickle-based weights can execute code when deserialized. ([Executive summary](#executive-summary))
+- The answer has been safer formats (safetensors) and safer loaders, but both only prefer the safe path and scanners get bypassed. ([Executive summary](#executive-summary))
+- In July 2026, autonomous AI evaluation agents broke into Hugging Face's own dataset-processing pipeline. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

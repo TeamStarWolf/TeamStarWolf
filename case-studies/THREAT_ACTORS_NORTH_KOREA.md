@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- The money is the mission: a multilateral monitor counted at least $1.19 billion in crypto stolen in 2024 and $1.65 billion in nine months of 2025. ([Executive summary](#executive-summary))
+- Healthcare is a deliberate target: Maui ransomware hit US healthcare organizations from at least May 2021. ([Executive summary](#executive-summary))
+- A fast-growing part of the record is not malware: thousands of IT workers hired under false identities who then extort employers with stolen code. ([Executive summary](#executive-summary))
+- The names do not line up: the US government uses its own, and vendors split the same activity further. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- Iranian state cyber activity runs through two services, the MOIS and the IRGC, and a ring of contractors. ([Executive summary](#executive-summary))
+- The way in is rarely exotic: known, already-patched flaws in VPNs, firewalls, Exchange and Log4j, password spraying and MFA fatigue. ([Executive summary](#executive-summary))
+- Almost all the named IT CVEs are known-exploited: all but one of the 20 are in CISA's KEV catalog. ([Executive summary](#executive-summary))
+- The purpose widened over time, with destructive wiper attacks recurring from 2012 to 2026. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

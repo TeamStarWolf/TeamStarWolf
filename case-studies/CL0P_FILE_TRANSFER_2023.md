@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- Cl0p encrypted nothing: it stole the data, listed victims on its leak site, and demanded payment to keep the files unpublished. ([Executive summary](#executive-summary))
+- The MOVEit zero-day reached roughly 2,773 organizations and about 95.8 million individuals, best read as a floor. ([Executive summary](#executive-summary))
+- MOVEit was the fourth run of the same play, after Accellion and Fortra GoAnywhere, with Cleo to follow. ([Executive summary](#executive-summary))
+- The lesson: an internet-facing app that aggregates third-party data is a crown-jewel asset whose unauthenticated flaws are ransomware-grade. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

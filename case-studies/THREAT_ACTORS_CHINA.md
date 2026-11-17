@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- The sponsors are now named specifically: US charging documents and advisories identify PLA Unit 61398, State Security bureaus and front companies. ([Executive summary](#executive-summary))
+- The tradecraft moved to the network edge: every one of the 43 initial-access CVEs across five joint advisories is in CISA's KEV catalog. ([Executive summary](#executive-summary))
+- Purpose widened from espionage to pre-positioning: US agencies assessed Volt Typhoon was placed to disrupt critical-infrastructure OT in a crisis. ([Executive summary](#executive-summary))
+- Healthcare and life sciences recur throughout, from the 2014 Anthem breach to theft of COVID-19 research. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

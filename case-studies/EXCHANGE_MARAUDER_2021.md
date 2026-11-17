@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-16):
+
+- ProxyLogon let a single unauthenticated request act as the Exchange server itself, then chain to code in the web root. ([Executive summary](#executive-summary))
+- Attackers were stealing mailboxes before the fix, and within days more than ten espionage groups piled on, then ransomware and miners. ([Executive summary](#executive-summary))
+- The patch was the start of the response, not the end: a patched server could still hold a web shell planted weeks earlier. ([Executive summary](#executive-summary))
+- The same attack surface kept giving, producing ProxyShell and ProxyOracle from the same research. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

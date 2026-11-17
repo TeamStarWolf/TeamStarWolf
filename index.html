@@ -1067,6 +1067,23 @@
     }
     .sidebar-nav li.tsw-in-section > a { color: var(--tsw-green); font-weight: 650; }
 
+    /* Contextual sibling references ("More in <domain>") under the on-this-page block, so a
+       reference page shows the pages beside it and marks where you are. */
+    .sidebar .tsw-siblings { margin: 0 0 12px 15px; padding: 0 0 10px; border-bottom: 1px solid var(--tsw-border-soft); }
+    .sidebar .tsw-siblings summary {
+      cursor: pointer; padding: 2px 0 4px; font-family: var(--tsw-mono);
+      font-size: .705rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--tsw-text-dim);
+    }
+    .sidebar .tsw-siblings ul {
+      display: block; margin: 2px 0 0; padding: 0 8px 0 2px; list-style: none;
+      max-height: 38vh; overflow-y: auto; overscroll-behavior: contain;
+    }
+    .sidebar .tsw-siblings li { margin: 0; float: none; clear: both; }
+    .sidebar .tsw-siblings li::before { content: none; display: none; }
+    .sidebar .tsw-siblings li a { display: block; font-size: .84rem; line-height: 1.4; padding: 3px 0; }
+    .sidebar .tsw-siblings a.tsw-sib-on { color: var(--tsw-green); font-weight: 650; box-shadow: inset 2px 0 0 var(--tsw-green); padding-left: 6px; }
+    .sidebar .tsw-siblings-all { display: block; margin-top: 6px; font-size: .78rem; color: var(--tsw-link); }
+
     /* ===================== Collapsible sections (long references) =====================
        Each h2 section on a long reference is folded into a <details> (built by the plugin
        above). The summary carries the h2 and a rotating chevron; the body holds the section
@@ -1935,6 +1952,69 @@
           sync();
           // A deep link or search result may have set the hash before the folds existed.
           openForHash();
+        });
+      });
+
+      // ---------- 1c. Sibling references for the current domain (contextual sub-nav)
+      // A reference the sidebar does not list is otherwise a dead end: no "you are here" and
+      // no way to the pages beside it. Under the on-this-page block, add a "More in <domain>"
+      // list of the sibling references in the same hub, with the current page marked, built
+      // from that hub page's own curated References table so the titles and order match it.
+      window.$docsify.plugins.push(function (hook, vm) {
+        var textCache = {};
+        function getText(url) {
+          if (!textCache[url]) {
+            textCache[url] = fetch(url).then(function (r) { return r.ok ? r.text() : ''; }).catch(function () { return ''; });
+          }
+          return textCache[url];
+        }
+        function parseRefs(md) {
+          var m = /\n##\s+References?\b[^\n]*\n([\s\S]*?)(?:\n#{1,2}\s|$)/.exec('\n' + md);
+          var block = m ? m[1] : '';
+          var re = /\[([^\]]+)\]\((\/[^)]+?)\.md\)/g, out = [], seen = {}, x;
+          while ((x = re.exec(block))) {
+            var href = '#' + x[2];
+            if (seen[href]) { continue; }
+            seen[href] = 1;
+            out.push({ title: x[1].replace(/\s+/g, ' ').trim(), href: href });
+          }
+          return out;
+        }
+        hook.doneEach(function () {
+          var side = document.querySelector('.sidebar-nav');
+          if (!side || side.querySelector('.tsw-siblings')) { return; }
+          var myFile = vm.route.file;
+          getJson('assets/site-nav.json').then(function (nav) {
+            var chain = nav && nav.pages ? nav.pages[myFile] : null;
+            if (!chain || !chain.length) { return; }
+            var hub = chain[chain.length - 1];   // [label, route like "hubs/offensive-security"]
+            if (!/^hubs\//.test(hub[1])) { return; }
+            var here = '#/' + myFile.replace(/\.md$/i, '');
+            if (here === '#/' + hub[1]) { return; }   // on the hub page itself
+            getText(hub[1] + '.md').then(function (md) {
+              // The route may have changed while the hub page was fetched.
+              side = document.querySelector('.sidebar-nav');
+              if (!side || vm.route.file !== myFile || side.querySelector('.tsw-siblings')) { return; }
+              var refs = parseRefs(md);
+              if (refs.length < 2) { return; }
+              var box = el('details', { className: 'tsw-siblings' });
+              if (!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches)) { box.open = true; }
+              box.appendChild(el('summary', {}, 'More in ' + hub[0]));
+              var ul = el('ul', {});
+              refs.forEach(function (r) {
+                var a = el('a', { href: r.href }, r.title);
+                if (r.href === here) { a.className = 'tsw-sib-on'; a.setAttribute('aria-current', 'page'); }
+                var li = el('li', {});
+                li.appendChild(a);
+                ul.appendChild(li);
+              });
+              box.appendChild(ul);
+              box.appendChild(el('a', { href: '#/' + hub[1], className: 'tsw-siblings-all' }, 'All of ' + hub[0]));
+              var toc = side.querySelector('.tsw-toc');
+              if (toc) { side.insertBefore(box, toc.nextSibling); }
+              else { side.insertBefore(box, side.firstChild); }
+            });
+          });
         });
       });
 

@@ -51,6 +51,14 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The thesis: cybersecurity is leaving the era of the perimeter and the patch and entering the era of the record and the window. ([Executive summary](#executive-summary))
+- The record is what an organization can prove about what it runs and did; the window is the time from a vendor's first word about a flaw to the first intrusion. ([Executive summary](#executive-summary))
+- In 2026 that window was often hours, and in six of nine dated edge cases it was negative: exploitation came first and the advisory followed. ([Executive summary](#executive-summary))
+- The central claim: those who do well in the next decade can know what they run, prove what they did, and act inside a window attackers now set. ([Executive summary](#executive-summary))
+- AI changes the speed, cost and failure surface of all this, but not the kinds of failure: it does not change the thesis, it makes it urgent. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

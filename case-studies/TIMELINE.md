@@ -916,6 +916,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 8 July 2020: An earlier mitigation is found bypassable and is revised
   - 14 July 2020: Guidance pairs correction with investigation
   - 24 July 2020: CISA reporting establishes confirmed incidents
+- [Egregor 2020-2021: Affiliate Migration, Disruption and Delayed Recovery](/case-studies/EGREGOR_2020_2021.md). Campaign, September 2020 to February 2022 (core: 2020 to 2021). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Egregor_2020_2021_Case_Study.pdf).
+  - September 2020: Egregor activity emerges, linked to affiliate migration from Maze
+  - 20 November 2020: The FBI issues a warning describing Egregor activity
+  - 8 January 2021: Vendor reporting documents changing delivery relationships
+  - 9 February 2021: A law-enforcement operation disrupts affiliates
+  - 17 February 2021: Enforcement actions are announced
+  - 9 February 2022: A later decryptor creates a new recovery opportunity
 - [The Year 2020 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2020.md). Period record, January to December 2020. Sectors: cross-sector, healthcare. CVEs: CVE-2017-5638, CVE-2017-11882, CVE-2018-7600, CVE-2018-13379, CVE-2019-0604, CVE-2019-1652 and 27 more. ATT&CK groups: G0007 APT28, G0010 Turla, G0016 APT29, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly and 12 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2020_Case_Study.pptx).
   - 14 January 2020: CISA ED 20-02 for CryptoAPI CVE-2020-0601 and the RD Gateway flaws
   - 10 February 2020: Equifax indictment of four PLA 54th Research Institute members announced
@@ -929,6 +936,14 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 15 October 2020: A grand jury indicts six GRU Unit 74455 officers
   - 28 October 2020: AA20-302A warns of ransomware against US hospitals
   - 8 December 2020: FireEye discloses the theft of its Red Team tools
+- [Avaddon 2020-2021: Extortion Pressure, Recovery Windows and the Limits of a Shutdown](/case-studies/AVADDON_2020_2021.md). Campaign, June 2020 to June 2021 (core: 2020 to 2021). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Avaddon_2020_2021_Case_Study.pdf).
+  - 25 June 2020: Avaddon email campaigns make the ransomware visible at scale
+  - January 2021: Official warnings describe encryption and extortion, with incompatible origin dates noted
+  - 29 April 2021: A conditional research recovery method is reported
+  - 8 May 2021: Threat reporting describes threatened disclosure and denial of service
+  - 11 June 2021: The operation reportedly shuts down and releases keys
+  - 16 June 2021: The Czech national cyber authority reports the shutdown, cause unknown
+  - 21 June 2021: Public decryption tools change the options for victims
 
 ### 2019 <!-- {docsify-ignore} -->
 
@@ -997,6 +1012,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 20 April 2020: Cognizant files an 8-K with an early assessment and financial-risk warning
   - 7 May 2020: Cognizant reports it believes the attack is contained; projects a $50 to 70 million quarterly impact
   - July 2020: A Sophos casebook describes an unnamed Maze incident: repeated blocked encryption attempts, prior data theft, a $15 million demand not paid
+- [DoppelPaymer: Code Lineage, Service Disruption and Personal Coercion](/case-studies/DOPPELPAYMER_2019_2021.md). Campaign, 2019 to 2023 (core: 2019 to 2021). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DoppelPaymer_2019_2021_Case_Study.pdf).
+  - 2019: DoppelPaymer emerges as a code fork linked to the BitPaymer lineage
+  - 10 September 2020: A ransomware outage disrupts services at a German hospital (causation later qualified)
+  - 17 September 2020: System access is restored, though services are not yet fully restored
+  - 10 December 2020: An FBI notice describes DoppelPaymer attacks on critical infrastructure
+  - 2023: German and Ukrainian authorities announce enforcement action
 - [Citrix CVE-2019-19781: Mitigation Revisions, Competing Intruders and the January 2020 Patch Race](/case-studies/CITRIX_CVE_2019_19781.md). Vulnerability, December 2019 to September 2020 (core: 2019 to 2020). Sectors: technology. CVEs: CVE-2019-19781. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Citrix_CVE_2019_19781_Case_Study.pdf).
   - 17 December 2019: Citrix discloses CVE-2019-19781 and publishes interim mitigation guidance (CTX267679)
   - 8 January 2020: Exposure measurements and public tooling appear; CERT/CC narrows the technical findings
@@ -1087,6 +1108,14 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 3 January 2018: Public disclosure by Project Zero and Google, ahead of the planned date
   - 9 January 2018: The originally coordinated disclosure date
   - 22 January 2018: Canonical reverts an Intel microcode update after instability
+- [GandCrab 2018-2019: Affiliate Ransomware and the Limits of a Decryptor](/case-studies/GANDCRAB_2018_2019.md). Campaign, January 2018 to October 2019 (core: 2018 to 2019). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/GandCrab_2018_2019_Case_Study.pdf).
+  - January 2018: GandCrab affiliate ransomware operations begin
+  - 28 February 2018: An early decryptor is released through No More Ransom
+  - 22 October 2018: A further decryptor release follows a changed version
+  - 19 February 2019: A later decryptor covers additional versions
+  - 31 May 2019: The operators announce they will stop
+  - 17 June 2019: A joint decryptor is released around the shutdown
+  - October 2019: Successor-operation reporting follows the retirement
 - [event-stream 2018: A Dependency Handoff Reached a Wallet Release](/case-studies/EVENT_STREAM_2018.md). Incident, 2018. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/event-stream_2018_Case_Study.pdf).
   - 9 September 2018: flatmap-stream is added as a dependency through event-stream 3.3.6
   - 5 October 2018: The malicious flatmap-stream 0.1.1 is published (per Snyk)
@@ -1283,6 +1312,10 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - August 2016: Time Inc.'s Form 10-Q reports about 360 million accounts and a likely June 2013 to mid-2015 breach interval
   - 2017: The Form 10-K for 2016 repeats the likely intrusion interval
   - 2021: A later Viant Form 10-K reiterates roughly 360 million accounts using pre-June 2013 framing
+- [Locky 2016: Ransomware Distribution as an Adaptable System](/case-studies/LOCKY_2016.md). Campaign, February to December 2016 (core: 2016). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Locky_2016_Case_Study.pdf).
+  - 16 February 2016: Locky distribution is first widely reported via malicious document attachments
+  - 31 March 2016: Reporting describes a shift to script attachments and intermediate downloaders (RockLoader)
+  - 1 April 2016: Exploit-kit delivery is documented as an additional route; a Canadian government alert follows
 - [DROWN: How an Obsolete Protocol Extended the Reach of a Shared Private Key](/case-studies/DROWN_2016.md). Vulnerability, 2016. Sectors: technology. CVEs: CVE-2015-3197, CVE-2016-0800. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DROWN_2016_Case_Study.pdf).
   - March 2011: RFC 6176 prohibits negotiating SSL 2.0
   - 1 March 2016: Public disclosure of DROWN (CVE-2016-0800); OpenSSL ships 1.0.2g/1.0.1s disabling SSLv2 by default; CERT/CC note VU#583776
@@ -1313,6 +1346,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 November 2016: Shamoon 2's hardcoded wipe time against at least one Saudi organization
   - 17 December 2016: Part of Kyiv without power for about one hour; ESET judges Industroyer's use highly probable
   - 29 December 2016: Sanctions, expulsions and compound closures; DHS and FBI release JAR-16-20296A
+- [Cerber 2016-2017: Ransomware as a Service, Measured Carefully](/case-studies/CERBER_2016_2017.md). Campaign, March 2016 to December 2017 (core: 2016 to 2017). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cerber_2016_2017_Case_Study.pdf).
+  - March 2016: Cerber ransomware-as-a-service distribution is observed
+  - July 2016: Check Point describes the CerberRing affiliate operation
+  - 16 August 2016: Analysis of the affiliate economics is published
+  - October 2016: Blank Slate and other delivery campaigns are documented
+  - February 2017: Payload behavior changes are reported
+  - March 2017: Later distribution shifts are documented
 
 ### 2015 <!-- {docsify-ignore} -->
 

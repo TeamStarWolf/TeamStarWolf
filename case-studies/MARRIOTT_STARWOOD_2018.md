@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Starwood is a case of inherited risk: an acquisition changes ownership but does not remove an intruder or validate every privileged account. ([Executive summary](#executive-summary))
+- The numbers need definitions: the count moved from up to 500 million guests to about 383 million records as an upper bound. ([Executive summary](#executive-summary))
+- In April 2024 Marriott amended its disclosure: card and some passport numbers were protected with SHA-1, not the previously described AES-128. ([Executive summary](#executive-summary))
+- Hashing and encryption are not synonyms, and a source correction must travel into derivative articles and slides. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

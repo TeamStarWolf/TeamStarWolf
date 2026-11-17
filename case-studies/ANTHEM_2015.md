@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The key question is how an initial foothold acquired enough authority to reach a consolidated repository of identity information. ([Executive assessment](#executive-assessment))
+- A mature defense interrupts that progression at several points: endpoint, credential misuse, privileged access, bulk retrieval and exfiltration. ([Executive assessment](#executive-assessment))
+- The data needs careful language: health-plan identifiers can be protected health information even without theft of clinical histories. ([Executive assessment](#executive-assessment))
+- Calling all the exposed information medical records can mislead readers about the actual categories. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 Historical scope: the intrusion disclosed in 2015, the 2018 federal HIPAA resolution, the 2019 criminal indictment and the 2020 multistate settlement. This study distinguishes allegations, regulator accounts, settlement provisions and original defensive analysis. It is not a current security assessment, medical guidance or legal advice. No live systems were tested.

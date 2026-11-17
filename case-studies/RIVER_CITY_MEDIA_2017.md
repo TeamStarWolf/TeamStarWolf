@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- River City Media is a public disclosure, a cataloged dataset, a forceful company denial and litigation that ended in a stipulated dismissal. ([Scope and status](#scope-and-status))
+- The public sources do not support treating every allegation on either side as a finding of fact. ([Scope and status](#scope-and-status))
+- The technical reconstruction is incomplete: the acquisition evidence and a definitive merits finding were not retrieved. ([Scope and status](#scope-and-status))
+- Three distinctions matter: total records versus unique emails, and files with a proposed technique versus proof it was deployed. ([Scope and status](#scope-and-status))
+
 <!-- meta:end -->
 
 ## Scope and status

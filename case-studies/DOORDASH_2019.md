@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- DoorDash 2019 shows the difficulty of explaining a platform breach when several communities use the same service. ([Executive assessment](#executive-assessment))
+- Consumers, delivery workers and merchants had different data: a single affected-population number cannot explain those differences. ([Executive assessment](#executive-assessment))
+- A company notice hosted by a regulator does not become an independent regulatory finding. ([Executive assessment](#executive-assessment))
+- The notices do not identify a named attacker, disclose a complete exploit chain or prove an exact duration of attacker access. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 Historical focus: the May 2019 access incident disclosed in September 2019, the original California notification record and relevant 2020 registration materials. The technical reconstruction is deliberately bounded. Most of the control design below is original defensive analysis, not a claim about DoorDash's undocumented architecture or current controls.

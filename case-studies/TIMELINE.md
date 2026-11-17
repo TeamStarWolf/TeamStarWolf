@@ -1073,6 +1073,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 23 February 2017: Google and CWI announce the first practical SHA-1 collision
   - 24 February 2017: NIST responds, noting SHA-1 deprecation since 2011 and disallowance since 2013
   - 20 March 2017: GitHub announces collision detection and explains Git's object boundary
+- [ROCA, 2017: A Key-Generation Flaw and the Work of Rebuilding Trust](/case-studies/ROCA_2017.md). Vulnerability, 2017 to 2018 (core: 2017). Sectors: technology, government. CVEs: CVE-2017-15361. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ROCA_2017_Case_Study.pdf).
+  - 1 February 2017: Researchers notify Infineon
+  - 6 June 2017: Yubico ships YubiKey 4 firmware 4.3.5 with a changed RSA generation path
+  - 16 October 2017: Public disclosure of ROCA (CVE-2017-15361); CERT/CC note VU#307015; Yubico advisory YSA-2017-01
+  - 2 November 2017: Estonia announces blocking certificates on about 760,000 at-risk ID cards
+  - 3 November 2017: Estonia blocks the affected certificates (about 740,000 cards)
+  - 1 April 2018: Estonia finally revokes the affected certificates
 - [NetSarang / ShadowPad, 2017: A Trusted Software Release Became an Intrusion Path](/case-studies/NETSARANG_SHADOWPAD_2017.md). Incident, 2017. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/NetSarang_ShadowPad_2017_Case_Study.pdf).
   - 18 July 2017: NetSarang ships a release containing a backdoor in nssock2.dll (distributed to 4 August)
   - 5 August 2017: A clean update is released (per MyCERT)
@@ -1102,6 +1109,10 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 21 September 2017: Avast corrects its earlier statement; second-stage delivery to 20 machines in eight organizations
   - 25 September 2017: Expanded records show 40 computers received a second-stage payload, with a 40-hour evidence gap
   - April 2018: Avast publishes its supplier-side access findings (initial access 11 March 2017)
+- [BlueBorne: Bluetooth Exposure Beyond the Pairing Prompt](/case-studies/BLUEBORNE_2017.md). Vulnerability, 2017. Sectors: technology. CVEs: CVE-2017-0781, CVE-2017-8628, CVE-2017-14315, CVE-2017-1000250, CVE-2017-1000251. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/BlueBorne_2017_Case_Study.pdf).
+  - 12 September 2017: Public disclosure of BlueBorne (Armis); CERT/CC note VU#240311; Android bulletin and Ubuntu BlueZ (USN-3413-1) updates
+  - 18 September 2017: Ubuntu ships the kernel fix (USN-3420-1) for CVE-2017-1000251
+  - 4 October 2017: Red Hat publishes its BlueBorne analysis
 
 ### 2016 <!-- {docsify-ignore} -->
 
@@ -1142,6 +1153,11 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - August 2016: Time Inc.'s Form 10-Q reports about 360 million accounts and a likely June 2013 to mid-2015 breach interval
   - 2017: The Form 10-K for 2016 repeats the likely intrusion interval
   - 2021: A later Viant Form 10-K reiterates roughly 360 million accounts using pre-June 2013 framing
+- [DROWN: How an Obsolete Protocol Extended the Reach of a Shared Private Key](/case-studies/DROWN_2016.md). Vulnerability, 2016. Sectors: technology. CVEs: CVE-2015-3197, CVE-2016-0800. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DROWN_2016_Case_Study.pdf).
+  - March 2011: RFC 6176 prohibits negotiating SSL 2.0
+  - 1 March 2016: Public disclosure of DROWN (CVE-2016-0800); OpenSSL ships 1.0.2g/1.0.1s disabling SSLv2 by default; CERT/CC note VU#583776
+  - 3 March 2016: The Canadian Centre for Cyber Security publishes advisory AV16-039
+  - August 2016: The USENIX Security paper (Breaking TLS using SSLv2) is published
 - [Cloud Hopper / APT10, 2016-2018: When Provider Access Became Customer Exposure](/case-studies/CLOUD_HOPPER_APT10.md). Campaign, 2016 to 2018. Sectors: cross-sector. ATT&CK groups: G0045 menuPass. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cloud_Hopper_APT10_Case_Study.pdf).
   - 2014: The MSP-focused campaign begins (at least around 2014, per the indictment)
   - 2016: Research describes increased scale and MSP-focused activity (Cloud Hopper active since at least 2016 per the NCSC)
@@ -1180,6 +1196,20 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 2 February 2016: A trading update estimates a 15 million pound trading impact and about 95,000 attack-attributed customer losses
   - 5 October 2016: The ICO announces a 400,000 pound penalty under the Data Protection Act
   - 1 November 2016: The matter settles; a 320,000 pound early-payment amount is reported
+- [Logjam: Export Cryptography, Shared Primes and Imperfect Forward Secrecy](/case-studies/LOGJAM_2015.md). Vulnerability, 2015 to 2017 (core: 2015). Sectors: technology. CVEs: CVE-2015-4000. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Logjam_2015_Case_Study.pdf).
+  - 20 May 2015: Public disclosure of Logjam; OpenSSL announces its response plan
+  - 11 June 2015: OpenSSL ships a client floor rejecting Diffie-Hellman groups below 768 bits (CVE-2015-4000)
+  - 2 July 2015: Mozilla's NSS 3.19.1 sets a 1023-bit minimum
+  - 13 October 2015: The research paper (Imperfect Forward Secrecy) is published
+  - August 2016: RFC 7919 defines negotiated named finite-field Diffie-Hellman groups for TLS
+  - December 2017: RFC 8270 raises the SSH Diffie-Hellman minimum to 2048 bits
+- [FREAK 2015: When Export-Grade RSA Returned Through a Client State Machine](/case-studies/FREAK_2015.md). Vulnerability, 2014 to 2015 (core: 2015). Sectors: technology. CVEs: CVE-2015-0204, CVE-2015-1067, CVE-2015-1637. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/FREAK_2015_Case_Study.pdf).
+  - 22 October 2014: Karthikeyan Bhargavan privately reports the client flaw to OpenSSL
+  - 8 January 2015: OpenSSL publishes the CVE-2015-0204 correction and branch releases
+  - 3 March 2015: Public FREAK announcement and research explanation (miTLS team, Matthew Green, Michigan measurement)
+  - 5 March 2015: Microsoft publishes advisory 3046015
+  - 10 March 2015: Microsoft ships MS15-031 (Schannel, CVE-2015-1637)
+  - 11 March 2015: OpenStack publishes security note OSSN-0045
 - [The Year 2015 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2015.md). Period record, January to December 2015. Sectors: cross-sector, government, healthcare, energy, finance, technology, telecommunications, media, transport. CVEs: CVE-2015-0204, CVE-2015-0235, CVE-2015-1538, CVE-2015-1635, CVE-2015-1641, CVE-2015-1701 and 13 more. ATT&CK groups: G0034 Sandworm Team, G0020 Equation, G0016 APT29, G0007 APT28, G0008 Carbanak, G0027 Threat Group-3390 and 5 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2015_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2015_Case_Study.pptx).
   - 2 January 2015: Treasury announces sanctions on North Korea's government and Workers' Party, citing the Sony Pictures attack
   - 16 February 2015: Kaspersky names the Equation group, with a module that could reprogram hard-drive firmware
@@ -1270,6 +1300,14 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 April 2024: Mandiant graduates Sandworm to APT44
   - 29 December 2025: Poland energy attack: RTUs damaged at more than 30 wind and PV farms
   - 13 July 2026: UK and EU formally attribute the Poland attack to FSB Centre 16; first joint cyber sanctions
+- [POODLE 2014: The Security Cost of Keeping SSL 3.0 Alive](/case-studies/POODLE_2014.md). Vulnerability, 2014 to 2015 (core: 2014). Sectors: technology. CVEs: CVE-2014-3566, CVE-2014-3568, CVE-2014-8730. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/POODLE_2014_Case_Study.pdf).
+  - 14 October 2014: Public disclosure of POODLE (SSL 3.0, CVE-2014-3566); Mozilla and Google announce browser responses; Cloudflare disables SSL 3.0 by default
+  - 15 October 2014: OpenSSL publishes TLS_FALLBACK_SCSV support and a separate build-option fix (CVE-2014-3568)
+  - 17 October 2014: CERT/CC publishes its vulnerability note (VU#577193)
+  - 1 December 2014: Firefox 34.0 ships with SSL 3.0 disabled by default
+  - 8 December 2014: Langley describes TLS implementations with faulty padding checks; A10 identifies CVE-2014-8730
+  - April 2015: RFC 7507 standardizes TLS_FALLBACK_SCSV
+  - June 2015: RFC 7568 deprecates SSL 3.0
 - [JPMorgan Chase 2014: Contact-Data Theft and the Wider Fraud Economy](/case-studies/JPMORGAN_2014.md). Incident, 2014 to 2021. Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/JPMorgan_Chase_2014_Case_Study.pdf).
   - June 2014: Alleged intrusion window begins at Victim-1 (June to August 2014, per the 2015 indictment)
   - 10 September 2014: JPMorgan Chase makes its first disclosure (per the 10-Q)

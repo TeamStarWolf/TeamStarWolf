@@ -806,6 +806,10 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 - [PetitPotam: Authentication Coercion, Certificate Enrollment, and the Limits of a Single Patch](/case-studies/PETITPOTAM_CVE_2021_36942.md). Vulnerability, July to August 2021 (core: 2021). Sectors: technology. CVEs: CVE-2021-36942. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/PetitPotam_CVE_2021_36942_Case_Study.pdf).
   - July 2021: PetitPotam authentication-coercion research draws attention to NTLM relay against AD CS
   - 10 August 2021: Microsoft issues KB5005413 and CVE-2021-36942, a partial correction for the unauthenticated call
+- [MSHTML CVE-2021-40444: Document Trust, Emergency Mitigations, and a Corrected Patch-Bypass Claim](/case-studies/MSHTML_CVE_2021_40444.md). Vulnerability, September to December 2021 (core: 2021). Sectors: technology. CVEs: CVE-2021-40444. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/MSHTML_CVE_2021_40444_Case_Study.pdf).
+  - 7 September 2021: Microsoft discloses CVE-2021-40444 (MSHTML) with interim mitigations amid active exploitation
+  - 14 September 2021: September security updates correct the vulnerable component
+  - 23 December 2021: Sophos corrects an overstated CAB-less patch-bypass claim; the attack worked only on unpatched systems
 - [Operation Exchange Marauder and the 2021 Exchange Server Mass Exploitation](/case-studies/EXCHANGE_MARAUDER_2021.md). Campaign, January to November 2021. Sectors: cross-sector, government, education. CVEs: CVE-2020-0688, CVE-2021-26412, CVE-2021-26854, CVE-2021-26855, CVE-2021-26857, CVE-2021-26858 and 11 more. ATT&CK groups: G0027 Threat Group-3390, G0044 Winnti Group, G0046 FIN7, G0059 Magic Hound, G0060 BRONZE BUTLER, G0065 Leviathan and 7 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Exchange_Marauder_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Exchange_Marauder_2021_Case_Study.pptx).
   - 10 December 2020: DEVCORE finds the pre-auth proxy bug, later CVE-2021-26855
   - 3 January 2021: Earliest SSRF mailbox theft Volexity observed
@@ -1074,6 +1078,10 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 20 April 2020: Cognizant files an 8-K with an early assessment and financial-risk warning
   - 7 May 2020: Cognizant reports it believes the attack is contained; projects a $50 to 70 million quarterly impact
   - July 2020: A Sophos casebook describes an unnamed Maze incident: repeated blocked encryption attempts, prior data theft, a $15 million demand not paid
+- [Exim CVE-2019-10149: The Mail Server Patch That Became a Long-Term Exposure](/case-studies/EXIM_CVE_2019_10149.md). Vulnerability, June 2019 to 2020 (core: 2019). Sectors: technology. CVEs: CVE-2019-10149. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Exim_CVE_2019_10149_Case_Study.pdf).
+  - 5 June 2019: Qualys discloses CVE-2019-10149 (Return of the WIZard) in Exim 4.87-4.91; the fix already shipped in 4.92
+  - June 2019: CERT-FR reports active exploitation; Microsoft confirms a worm using the flaw
+  - 28 May 2020: An NSA advisory attributes later exploitation to Sandworm actors
 - [Dridex Enforcement 2019: Financial Malware, Criminal Charges and Sanctions](/case-studies/DRIDEX_ENFORCEMENT_2019.md). Campaign, October 2015 to December 2019 (core: 2019). Sectors: finance, cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Dridex_Enforcement_2019_Case_Study.pdf).
   - October 2015: A disruption and an arrest occur as different events in the Dridex operation
   - February 2017: A guilty plea is entered

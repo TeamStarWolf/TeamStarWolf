@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- An RMM server is one of the most valuable hosts on a network: when it falls, every customer behind it is exposed, as Kaseya showed in 2021. ([Executive summary](#executive-summary))
+- A researcher's GitHub account published 33 alleged N-central vulnerabilities in four exploit chains, with no advance notice to the vendor. ([Executive summary](#executive-summary))
+- Within hours N-able took its whole hosted N-central service offline worldwide and told on-premises customers to disconnect. ([Executive summary](#executive-summary))
+- On 10 November it shipped a hotfix and published seven CVEs, two rated CVSS 9.3 with no privileges needed. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

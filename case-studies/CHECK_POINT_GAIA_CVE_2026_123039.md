@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Where the Mobile Access portal was unpatched, attackers chained PHP2Shell to this flaw to go from the portal service account to root. ([Executive summary](#executive-summary))
+- The root flaw is a local privilege escalation: the DynamicCLI daemon runs as root on a world-writable socket without checking who connects. ([Executive summary](#executive-summary))
+- Any authenticated local user can hand it a command and have that command run as root. ([Executive summary](#executive-summary))
+- It was exploited before any fix or public record existed, which makes it a zero-day in practice. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

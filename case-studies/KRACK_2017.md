@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- KRACK is a vulnerability-disclosure and engineering case: a serious weakness and a coordinated response, not a documented mass breach. ([Executive assessment](#executive-assessment))
+- The record gives no named criminal campaign, global victim count, stolen-data totals or financial-loss estimate. ([Executive assessment](#executive-assessment))
+- The central lesson is about state: a security system must remember what it has already done. ([Executive assessment](#executive-assessment))
+- An operation harmless during initial setup may become dangerous when repeated after communication has begun. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

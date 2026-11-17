@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- In February 2017 Google and CWI announced a practical SHA-1 collision: two PDFs with different contents but the same digest. ([Executive assessment](#executive-assessment))
+- It was a research demonstration, not a theft of signing keys or a ransomware incident. ([Executive assessment](#executive-assessment))
+- The artifacts did not show an attacker could replace any previously chosen file while preserving its hash. ([Executive assessment](#executive-assessment))
+- The lesson: matching digests could no longer bear the same adversarial trust. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

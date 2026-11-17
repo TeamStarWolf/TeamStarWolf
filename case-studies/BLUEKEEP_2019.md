@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- BlueKeep shows why a vulnerability response should begin before a spectacular incident makes the news. ([Executive assessment](#executive-assessment))
+- The name identifies CVE-2019-0708, not a single malware family or one organization's breach. ([Executive assessment](#executive-assessment))
+- A vulnerable service, exposed endpoint, exploitation attempt, successful compromise and malicious payload are different states. ([Executive assessment](#executive-assessment))
+- The feared worm did not materialize: Microsoft described operator-driven activity and cryptocurrency-mining payloads instead. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 Historical vulnerability and exploitation case study, with original defensive analysis. No operational exploit instructions, attack code, live infrastructure indicators or claims of a universal victim total are included. This is not a current operating-system support matrix.

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Zerologon (CVE-2020-1472) threatened a central source of enterprise authority: Active Directory domain controllers. ([Executive assessment](#executive-assessment))
+- The response was more than a patch: understanding incompatible connections and moving to stronger enforcement. ([Executive assessment](#executive-assessment))
+- Primary records support actual malicious use in 2020 but give no worldwide victim total or single attacker identity. ([Executive assessment](#executive-assessment))
+- A deployment is incomplete if it delivers updated software while losing track of accounts still allowed weaker behavior. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

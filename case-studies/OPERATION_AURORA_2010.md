@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Aurora is best studied as three problems: technical compromise, uncertainty about what was stolen, and the response when an intrusion meets user safety. ([Executive assessment](#executive-assessment))
+- Reducing it to a browser vulnerability misses the enterprise consequences. ([Executive assessment](#executive-assessment))
+- The study reconstructs a deliberately bounded public record from Google, McAfee and Microsoft. ([Executive assessment](#executive-assessment))
+- The central lesson: a patch can close a known entry condition without answering what an intruder already obtained. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

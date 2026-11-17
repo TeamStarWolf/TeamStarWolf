@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The attacker opened a Free-for-Teacher account and filed a support ticket carrying malicious code. ([Executive summary](#executive-summary))
+- When an agent opened the ticket, a cross-site scripting flaw gave the attacker an authorization token with elevated access in Canvas. ([Executive summary](#executive-summary))
+- After Instructure believed it contained, the same actor returned via a second XSS flaw and posted a ransom note on login pages. ([Executive summary](#executive-summary))
+- Instructure said it reached an agreement: the data was returned, destruction confirmed with shred logs, and no customer extorted. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

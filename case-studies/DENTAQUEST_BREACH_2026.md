@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- DentaQuest told regulators that more than 15 million people's protected health information was accessed. ([Executive summary](#executive-summary))
+- At 15,000,000, it is the year's largest entry on the HHS breach portal export. ([Executive summary](#executive-summary))
+- The intrusion needed no malware: social engineering got one employee to hand over credentials and an MFA code. ([Executive summary](#executive-summary))
+- The actor took data from a network file share over three days; forensics found no malware or privilege escalation. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

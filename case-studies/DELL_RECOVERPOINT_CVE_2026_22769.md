@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Dell RecoverPoint for VMs shipped with a hard-coded credential that let an unauthenticated remote attacker reach the OS with root persistence. ([Executive summary](#executive-summary))
+- Dell rated it Critical, CVSS 10.0, and said Google and Mandiant had reported limited active exploitation. ([Executive summary](#executive-summary))
+- Responders found the flaw in a victim environment that already had live BRICKSTORM and GRIMBOLT C2, with exploitation dating to mid-2024. ([Executive summary](#executive-summary))
+- GTIG attributes the activity to UNC6201, a suspected PRC-nexus cluster. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

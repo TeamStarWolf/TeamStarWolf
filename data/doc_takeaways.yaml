@@ -811,3 +811,66 @@ pages:
       - {"text": "If one group controls the investigation, payment, classification and what reaches leadership, the organization may lose the ability to notice the narrative no longer fits.", "from": "#executive-assessment", "quote": "the organization may lose the ability to notice that its preferred description no longer matches the evidence"}
       - {"text": "Calling an interaction a bounty does not establish that all conduct fell within an authorized research scope.", "from": "#executive-assessment", "quote": "Calling an interaction a bounty does not establish that all conduct fell within an authorized research scope"}
       - {"text": "A deletion promise is evidence of a promise, not proof that every copy disappeared.", "from": "#executive-assessment", "quote": "A deletion promise is evidence of a promise, not proof that every copy disappeared"}
+  case-studies/DROPBOX_2012_2016.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Dropbox is a case about the long life of stolen authentication data.", "from": "#executive-assessment", "quote": "The Dropbox credential incident is a case about the long life of stolen authentication data"}
+      - {"text": "The original incident occurred in 2012, while the large credential collection became a major public issue in 2016.", "from": "#executive-assessment", "quote": "The original incident occurred in 2012, while the large credential collection became a major public issue in 2016"}
+      - {"text": "Keep details attached to the right victim: an intrusion method described for LinkedIn cannot simply be copied into the Dropbox narrative.", "from": "#executive-assessment", "quote": "An intrusion method described for LinkedIn cannot simply be copied into the Dropbox narrative"}
+      - {"text": "Exposure of a credential collection is not identical to proof that every associated file account was opened.", "from": "#executive-assessment", "quote": "Exposure of a credential collection is not identical to proof that every associated file account was opened"}
+  case-studies/LINKEDIN_2012_2016.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The population visible in an early public leak may not represent everything an intruder obtained.", "from": "#executive-assessment", "quote": "the population visible in an early public leak may not represent everything an intruder obtained"}
+      - {"text": "The later criminal record describes compromise of an employee computer, access to corporate systems and theft of a user-login database.", "from": "#executive-assessment", "quote": "The later criminal record describes compromise of an employee computer, access to corporate systems and theft of a user-login database"}
+      - {"text": "Strong member behavior cannot replace the provider's duty to protect the password store and the employee access paths that reach it.", "from": "#executive-assessment", "quote": "it cannot replace the provider's responsibility to protect the password store and the employee access paths that reach it"}
+      - {"text": "The records are not interchangeable: their financial figures should not be combined into a single breach-loss number.", "from": "#executive-assessment", "quote": "their financial figures should not be combined into a single breach-loss number"}
+  case-studies/MYSPACE_2016.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The central uncertainty: the ages of the accounts and copied data, the extraction date and the sale date are not necessarily the same.", "from": "#executive-assessment", "quote": "The age of the accounts, the age of the copied data, the date of unauthorized extraction, and the date of public sale are not necessarily the same"}
+      - {"text": "Primary filings and independent dataset analysis do not support one unqualified historical breach date.", "from": "#executive-assessment", "quote": "primary company filings and independent dataset analysis do not support one unqualified historical breach date"}
+      - {"text": "The study distinguishes account records from people, password hashes from plaintext, and a seller's alias from a proven intruder identity.", "from": "#executive-assessment", "quote": "It also distinguishes account records from unique people, password hashes from plaintext passwords, a seller's alias from a proven intruder identity"}
+      - {"text": "There is substantial documentation for the disclosure, but no public forensic report reconstructing the original entry method.", "from": "#executive-assessment", "quote": "no publicly retrieved forensic report reconstructing the original entry method"}
+  case-studies/ASHLEY_MADISON_2015.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Severity cannot be measured only by the number of payment cards or identity documents involved; context makes ordinary identifiers consequential.", "from": "#executive-assessment", "quote": "the severity of a data breach cannot be measured only by the number of payment cards or identity documents involved"}
+      - {"text": "An email address tied to a sensitive service can cause reputational harm even when the association is false.", "from": "#executive-assessment", "quote": "An email address associated with a sensitive service can expose someone to reputational harm even when the association is false"}
+      - {"text": "Product promises carry security weight: a deletion option creates an expectation about what remains after the user leaves.", "from": "#executive-assessment", "quote": "A deletion option creates an expectation about what remains after the user leaves"}
+      - {"text": "The study relies on the joint Canadian and Australian privacy investigation and US FTC and state materials.", "from": "#executive-assessment", "quote": "The study relies on the joint Canadian and Australian privacy investigation"}
+  case-studies/TALKTALK_2015.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "The central subject is the gap between owning an online service and governing the routes through which it reaches customer information.", "from": "#executive-assessment", "quote": "The gap between owning an asset and governing its behavior is the central subject of this study"}
+      - {"text": "Incident numbers need definitions: records accessed, bank-detail subsets, departures, accounting charges and penalties measure different things.", "from": "#executive-assessment", "quote": "Customer records accessed, bank-detail subsets, preliminary notification estimates, customer departures, exceptional accounting charges and regulatory penalties measure different things"}
+      - {"text": "The recommendation is an acquisition-to-retirement control process: find inherited services, map their data access and assign owners.", "from": "#executive-assessment", "quote": "an acquisition-to-retirement control process: identify inherited services, map their data access, assign accountable owners"}
+      - {"text": "These are proposals for comparable organizations, not claims that the process existed at TalkTalk.", "from": "#executive-assessment", "quote": "These are proposals for comparable organizations"}
+  case-studies/BRITISH_AIRWAYS_2018.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "A customer can see the right brand and get a legitimate confirmation while a compromised component handles information in an unauthorized way.", "from": "#executive-assessment", "quote": "A customer may see the correct brand, complete an ordinary booking, and receive a legitimate confirmation while a compromised component handles information in an unauthorized way"}
+      - {"text": "Successful business functionality is not enough to establish the security of a transaction.", "from": "#executive-assessment", "quote": "Successful business functionality is therefore not enough to establish the security of a transaction"}
+      - {"text": "Runtime observation of what customers actually receive is a distinct control from deployment and scanning.", "from": "#executive-assessment", "quote": "Runtime observation examines what customers actually receive"}
+      - {"text": "A review should not assume that passing a vulnerability scan proves payment-page integrity.", "from": "#executive-assessment", "quote": "It should not assume that passing a vulnerability scan proves payment-page integrity"}
+  case-studies/HOME_DEPOT_2014.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "A legitimate business relationship can become an entry point without being the entire cause of a breach.", "from": "#executive-assessment", "quote": "a legitimate business relationship can become an entry point without being the entire cause of a breach"}
+      - {"text": "An account that does not itself reach payment terminals can still matter when later actions cross additional security boundaries.", "from": "#executive-assessment", "quote": "An account that does not itself permit access to payment terminals can still become consequential when subsequent actions cross additional security boundaries"}
+      - {"text": "A breach needs several ledgers: a technical one, a population one distinguishing cards, emails and people, and a financial one.", "from": "#executive-assessment", "quote": "A technical ledger describes affected systems and data. A population ledger distinguishes cards, email addresses and people"}
+      - {"text": "Different figures can all be accurate while answering different questions.", "from": "#executive-assessment", "quote": "Different figures can all be accurate while answering different questions"}
+  case-studies/IVANTI_EPMM_CVE_2026_1281.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "On 29 January 2026 Ivanti disclosed two code-injection flaws that let an attacker run code on EPMM without logging in, already exploited.", "from": "#executive-summary", "quote": "Ivanti disclosed two code injection flaws that let an attacker run code on EPMM without logging in, and said a very limited number of customers had already been exploited"}
+      - {"text": "NCSC-NL told every EPMM user to assume breach and saw the database copied out with device data, directory users and Office365 tokens.", "from": "#executive-summary", "quote": "NCSC-NL told every EPMM user to assume breach, reported misuse at several organisations, plausibly by more than one actor, and saw the EPMM database copied out with device data, directory user data and Office365 tokens and credentials in it"}
+      - {"text": "Dutch ministers named six public bodies and a municipality where misuse was found or could not be ruled out.", "from": "#executive-summary", "quote": "Dutch ministers later named six public bodies and a municipality where misuse was found or could not be ruled out"}
+      - {"text": "Unit 42 reported widespread, mostly automated exploitation, with telemetry showing over 4,400 EPMM instances.", "from": "#executive-summary", "quote": "Unit 42 reported widespread exploitation and mostly automated exploitation attempts, and its telemetry showed over 4,400 EPMM instances"}
+  case-studies/FBI_SURVEILLANCE_SYSTEM_BREACH_2026.md:
+    reviewed: "2026-11-17"
+    items:
+      - {"text": "Those most exposed are the subjects of FBI investigations and the people the FBI was monitoring.", "from": "#executive-summary", "quote": "The people most exposed by this breach are the subjects of FBI investigations and the people the FBI was monitoring"}
+      - {"text": "The affected system held legal-process returns, such as pen register and trap and trace surveillance, and PII on people under investigation.", "from": "#executive-summary", "quote": "The affected system held returns from legal process, such as pen register and trap and trace surveillance returns, and personal information on people the FBI was investigating"}
+      - {"text": "Sources said the phone numbers of people under FBI monitoring were likely exposed.", "from": "#executive-summary", "quote": "the phone numbers of people under FBI monitoring were likely exposed"}
+      - {"text": "No official source names an actor; the China link rests only on anonymous US officials.", "from": "#executive-summary", "quote": "No official source names an actor"}

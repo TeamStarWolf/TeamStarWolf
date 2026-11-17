@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The central uncertainty: the ages of the accounts and copied data, the extraction date and the sale date are not necessarily the same. ([Executive assessment](#executive-assessment))
+- Primary filings and independent dataset analysis do not support one unqualified historical breach date. ([Executive assessment](#executive-assessment))
+- The study distinguishes account records from people, password hashes from plaintext, and a seller's alias from a proven intruder identity. ([Executive assessment](#executive-assessment))
+- There is substantial documentation for the disclosure, but no public forensic report reconstructing the original entry method. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

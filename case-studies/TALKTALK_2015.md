@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The central subject is the gap between owning an online service and governing the routes through which it reaches customer information. ([Executive assessment](#executive-assessment))
+- Incident numbers need definitions: records accessed, bank-detail subsets, departures, accounting charges and penalties measure different things. ([Executive assessment](#executive-assessment))
+- The recommendation is an acquisition-to-retirement control process: find inherited services, map their data access and assign owners. ([Executive assessment](#executive-assessment))
+- These are proposals for comparable organizations, not claims that the process existed at TalkTalk. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 Historical focus: the October 2015 incident, the 2016 regulatory response and contemporaneous business disclosures. This is a defensive case study, not a current assessment of TalkTalk or legal advice. Findings, company statements, calculations and original recommendations are identified separately. No live systems were tested.

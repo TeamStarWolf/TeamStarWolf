@@ -3669,6 +3669,48 @@ pages:
     start_at: "[Executive assessment](#executive-assessment), [2. The privilege boundary in plain language](#_2-the-privilege-boundary-in-plain-language), [7. Exploitation reporting and what remains unproved](#_7-exploitation-reporting-and-what-remains-unproved)"
     pairs_with: "[Windows Hardening Reference](/WINDOWS_HARDENING_REFERENCE.md), [Active Directory Security Reference](/ACTIVE_DIRECTORY_SECURITY_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md)"
     reviewed: null
+  case-studies/LOCKY_2016.md:
+    audience: "Email and endpoint security teams, ransomware defenders, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of Locky's 2016 delivery system, you need to separate delivery, execution, reachable data and recovery as different stages, or you are countering a single-lure view of ransomware"
+    start_at: "[Executive assessment](#executive-assessment), [Delivery, execution, and impact are different stages](#delivery-execution-and-impact-are-different-stages), [Payment is not a recovery test](#payment-is-not-a-recovery-test)"
+    pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Email Security Reference](/EMAIL_SECURITY_REFERENCE.md), [Attack Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md)"
+    reviewed: null
+  case-studies/CERBER_2016_2017.md:
+    audience: "Ransomware defenders, malware analysts, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of Cerber's ransomware-as-a-service model, you need to separate a count of campaigns from a count of criminals or an encryption observation from every consequence, or you are judging a decryptor's current reliability"
+    start_at: "[Executive assessment](#executive-assessment), [Affiliate structure and the limits of actor attribution](#affiliate-structure-and-the-limits-of-actor-attribution), [Decryption opportunities require qualification](#decryption-opportunities-require-qualification)"
+    pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Attack Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md), [Maze 2019-2020: Encryption, Data Theft and the Limits of Containment](/case-studies/MAZE_2019_2020.md)"
+    reviewed: null
+  case-studies/GANDCRAB_2018_2019.md:
+    audience: "Ransomware defenders, malware analysts, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of GandCrab's affiliate model and decryptor history, you need to separate decryption from eradication or a shutdown claim from unresolved capability, or you are planning a recovery decision across changing versions"
+    start_at: "[Executive assessment](#executive-assessment), [Decryption is not eradication](#decryption-is-not-eradication), [Shutdown claims and unresolved capability](#shutdown-claims-and-unresolved-capability)"
+    pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Attack Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md), [Digital Forensics Reference](/DIGITAL_FORENSICS_REFERENCE.md)"
+    reviewed: null
+  case-studies/EGREGOR_2020_2021.md:
+    audience: "Ransomware defenders, threat intelligence analysts, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of Egregor, you need to separate the actors, the code and the recovery opportunities as different timelines, or you are weighing preservation against a later decryptor"
+    start_at: "[Executive assessment](#executive-assessment), [Data theft and encryption create different work streams](#data-theft-and-encryption-create-different-work-streams), [Disruption is a milestone with a scope](#disruption-is-a-milestone-with-a-scope)"
+    pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Attack Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md), [Maze 2019-2020: Encryption, Data Theft and the Limits of Containment](/case-studies/MAZE_2019_2020.md)"
+    reviewed: null
+  case-studies/DOPPELPAYMER_2019_2021.md:
+    audience: "Ransomware defenders, healthcare and public-service security teams, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of DoppelPaymer, you need to separate a code fork, service disruption and personal coercion as different problems, or you need the discipline that a chronology does not establish patient-harm causation"
+    start_at: "[Executive assessment](#executive-assessment), [Discovery and the meaning of a code fork](#discovery-and-the-meaning-of-a-code-fork), [Patient harm: chronology does not establish causation](#patient-harm-chronology-does-not-establish-causation)"
+    pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Attack Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md), [Healthcare Security Reference](/HEALTHCARE_SECURITY_REFERENCE.md)"
+    reviewed: null
+  case-studies/AVADDON_2020_2021.md:
+    audience: "Ransomware defenders, threat intelligence analysts, detection engineers and incident responders"
+    level: "Intermediate"
+    read_when: "You want an evidence-bounded account of Avaddon, you need to separate a campaign count from a victim count or a conditional recovery method from a break of modern encryption, or you are planning response under extortion pressure"
+    start_at: "[Executive assessment](#executive-assessment), [Research recovery was conditional, not a break of modern encryption](#research-recovery-was-conditional-not-a-break-of-modern-encryption), [The preservation dilemma is a decision, not a slogan](#the-preservation-dilemma-is-a-decision-not-a-slogan)"
+    pairs_with: "[Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md), [Malware Analysis Reference](/MALWARE_ANALYSIS_REFERENCE.md), [Attack Campaigns Reference](/ATTACK_CAMPAIGNS_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md)"
+    reviewed: null
   commands/aws-cli.md:
     audience: "Cloud engineers, administrators and security teams who work in AWS from a terminal"
     level: "Beginner to intermediate"

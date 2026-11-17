@@ -5443,3 +5443,115 @@ studies:
       - {"date": "2021-07-01", "label": "CERT/CC VU#383432 highlights the separate PrintNightmare behavior"}
       - {"date": "2021-07-06", "label": "Microsoft assigns CVE-2021-34527 and begins a phased out-of-band update"}
       - {"date": "2021-08-10", "label": "A later update changes a default amid continued Print Spooler issues"}
+  case-studies/LOCKY_2016.md:
+    kind: "campaign"
+    title: "Locky 2016: Ransomware Distribution as an Adaptable System"
+    start: "2016-02"
+    end: "2016-12"
+    core_start: "2016"
+    core_end: "2016"
+    sectors: ["cross-sector"]
+    cves: []
+    actors: []
+    tags: ["ransomware", "Locky", "email distribution", "downloader", "exploit kit"]
+    pdf: "Locky_2016_Case_Study.pdf"
+    events:
+      - {"date": "2016-02-16", "label": "Locky distribution is first widely reported via malicious document attachments"}
+      - {"date": "2016-03-31", "label": "Reporting describes a shift to script attachments and intermediate downloaders (RockLoader)"}
+      - {"date": "2016-04-01", "label": "Exploit-kit delivery is documented as an additional route; a Canadian government alert follows"}
+  case-studies/CERBER_2016_2017.md:
+    kind: "campaign"
+    title: "Cerber 2016-2017: Ransomware as a Service, Measured Carefully"
+    start: "2016-03"
+    end: "2017-12"
+    core_start: "2016"
+    core_end: "2017"
+    sectors: ["cross-sector"]
+    cves: []
+    actors: []
+    tags: ["ransomware", "Cerber", "ransomware-as-a-service", "affiliate", "decryptor"]
+    pdf: "Cerber_2016_2017_Case_Study.pdf"
+    events:
+      - {"date": "2016-03", "label": "Cerber ransomware-as-a-service distribution is observed"}
+      - {"date": "2016-07", "label": "Check Point describes the CerberRing affiliate operation"}
+      - {"date": "2016-08-16", "label": "Analysis of the affiliate economics is published"}
+      - {"date": "2016-10", "label": "Blank Slate and other delivery campaigns are documented"}
+      - {"date": "2017-02", "label": "Payload behavior changes are reported"}
+      - {"date": "2017-03", "label": "Later distribution shifts are documented"}
+  case-studies/GANDCRAB_2018_2019.md:
+    kind: "campaign"
+    title: "GandCrab 2018-2019: Affiliate Ransomware and the Limits of a Decryptor"
+    start: "2018-01"
+    end: "2019-10"
+    core_start: "2018"
+    core_end: "2019"
+    sectors: ["cross-sector"]
+    cves: []
+    actors: []
+    tags: ["ransomware", "GandCrab", "affiliate", "decryptor", "No More Ransom"]
+    pdf: "GandCrab_2018_2019_Case_Study.pdf"
+    events:
+      - {"date": "2018-01", "label": "GandCrab affiliate ransomware operations begin"}
+      - {"date": "2018-02-28", "label": "An early decryptor is released through No More Ransom"}
+      - {"date": "2018-10-22", "label": "A further decryptor release follows a changed version"}
+      - {"date": "2019-02-19", "label": "A later decryptor covers additional versions"}
+      - {"date": "2019-05-31", "label": "The operators announce they will stop"}
+      - {"date": "2019-06-17", "label": "A joint decryptor is released around the shutdown"}
+      - {"date": "2019-10", "label": "Successor-operation reporting follows the retirement"}
+  case-studies/EGREGOR_2020_2021.md:
+    kind: "campaign"
+    title: "Egregor 2020-2021: Affiliate Migration, Disruption and Delayed Recovery"
+    start: "2020-09"
+    end: "2022-02"
+    core_start: "2020"
+    core_end: "2021"
+    sectors: ["cross-sector"]
+    cves: []
+    actors: []
+    tags: ["ransomware", "Egregor", "double extortion", "affiliate migration", "law enforcement"]
+    pdf: "Egregor_2020_2021_Case_Study.pdf"
+    events:
+      - {"date": "2020-09", "label": "Egregor activity emerges, linked to affiliate migration from Maze"}
+      - {"date": "2020-11-20", "label": "The FBI issues a warning describing Egregor activity"}
+      - {"date": "2021-01-08", "label": "Vendor reporting documents changing delivery relationships"}
+      - {"date": "2021-02-09", "label": "A law-enforcement operation disrupts affiliates"}
+      - {"date": "2021-02-17", "label": "Enforcement actions are announced"}
+      - {"date": "2022-02-09", "label": "A later decryptor creates a new recovery opportunity"}
+  case-studies/DOPPELPAYMER_2019_2021.md:
+    kind: "campaign"
+    title: "DoppelPaymer: Code Lineage, Service Disruption and Personal Coercion"
+    start: "2019"
+    end: "2023"
+    core_start: "2019"
+    core_end: "2021"
+    sectors: ["cross-sector"]
+    cves: []
+    actors: []
+    tags: ["ransomware", "DoppelPaymer", "BitPaymer", "healthcare", "double extortion"]
+    pdf: "DoppelPaymer_2019_2021_Case_Study.pdf"
+    events:
+      - {"date": "2019", "label": "DoppelPaymer emerges as a code fork linked to the BitPaymer lineage"}
+      - {"date": "2020-09-10", "label": "A ransomware outage disrupts services at a German hospital (causation later qualified)"}
+      - {"date": "2020-09-17", "label": "System access is restored, though services are not yet fully restored"}
+      - {"date": "2020-12-10", "label": "An FBI notice describes DoppelPaymer attacks on critical infrastructure"}
+      - {"date": "2023", "label": "German and Ukrainian authorities announce enforcement action"}
+  case-studies/AVADDON_2020_2021.md:
+    kind: "campaign"
+    title: "Avaddon 2020-2021: Extortion Pressure, Recovery Windows and the Limits of a Shutdown"
+    start: "2020-06"
+    end: "2021-06"
+    core_start: "2020"
+    core_end: "2021"
+    sectors: ["cross-sector"]
+    cves: []
+    actors: []
+    tags: ["ransomware", "Avaddon", "double extortion", "decryptor", "shutdown"]
+    pdf: "Avaddon_2020_2021_Case_Study.pdf"
+    events:
+      - {"date": "2020-06-25", "label": "Avaddon email campaigns make the ransomware visible at scale"}
+      - {"date": "2021-01", "label": "Official warnings describe encryption and extortion, with incompatible origin dates noted"}
+      - {"date": "2021-04-29", "label": "A conditional research recovery method is reported"}
+      - {"date": "2021-05-08", "label": "Threat reporting describes threatened disclosure and denial of service"}
+      - {"date": "2021-06-11", "label": "The operation reportedly shuts down and releases keys"}
+      - {"date": "2021-06-16", "label": "The Czech national cyber authority reports the shutdown, cause unknown"}
+      - {"date": "2021-06-21", "label": "Public decryption tools change the options for victims"}

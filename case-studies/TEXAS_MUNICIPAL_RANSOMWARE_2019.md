@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- A regional incident is not just a bigger single-organization one: many governments can need help at once from the same provider. ([Executive assessment](#executive-assessment))
+- Here the coordination problem can matter as much as the malware itself. ([Executive assessment](#executive-assessment))
+- A careful account preserves distinctions like twenty-two versus twenty-three entities and an indictment versus a conviction. ([Executive assessment](#executive-assessment))
+- Some earlier official source URLs returned not-found errors, a limit recorded rather than concealed. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

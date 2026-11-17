@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The key questions are not answered by naming the final executable: predecessor, successor, intrusion paths and operator changes differ. ([Executive assessment](#executive-assessment))
+- The criminal promise to reverse encryption could itself add more corruption to the files. ([Executive assessment](#executive-assessment))
+- A damaged file might still keep a normal-looking beginning, hiding the loss. ([Executive assessment](#executive-assessment))
+- One ransomware name disappearing would not necessarily remove the access operations that had delivered it. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

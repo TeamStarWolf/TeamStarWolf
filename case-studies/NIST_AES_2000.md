@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- The October 2000 Rijndael announcement was a selection decision, not the final publication of the federal standard. ([Executive assessment](#executive-assessment))
+- This is an advancement case: a public competition became a precise, interoperable specification weighing security with efficiency. ([Executive assessment](#executive-assessment))
+- Selection did not prove the losing finalists were broken or that every implementation of the winner was secure. ([Executive assessment](#executive-assessment))
+- In the three AES variants the numbers 128, 192 and 256 describe key lengths, while all use 128-bit blocks. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

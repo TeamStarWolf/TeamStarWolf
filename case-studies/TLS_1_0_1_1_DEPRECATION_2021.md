@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- RFC 8996 in March 2021 formally deprecated TLS 1.0 and TLS 1.1, along with DTLS 1.0. ([Executive assessment](#executive-assessment))
+- It was a standards decision, not evidence that every deployed service stopped accepting old connections that month. ([Executive assessment](#executive-assessment))
+- Several vendors announced coordinated retirement in 2018, then revised schedules or split disablement from removal. ([Executive assessment](#executive-assessment))
+- Compressing it all into a single end-date claim misstates both the technology and the operational history. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

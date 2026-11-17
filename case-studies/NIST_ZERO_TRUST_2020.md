@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- SP 800-207's value is not a new appliance but a neutral language for access when the network boundary no longer explains the work. ([Executive assessment](#executive-assessment))
+- Its scope is an abstract architecture, deployment models and use cases, not one universal implementation plan. ([Executive assessment](#executive-assessment))
+- For every action the essential question is what evidence justifies it on this resource and what component enforces the answer. ([Executive assessment](#executive-assessment))
+- A workable design also needs a usable failure mode, not one that blocks essential work or silently grants broad access during an outage. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 Standards-development and architecture case study centered on the original August 2020 NIST SP 800-207. This is not an incident report, product endorsement, certification, legal compliance opinion or description of a named organization's production environment. Architecture examples and exercises are original, fictional and defensive. Section references below refer to the 2020 publication, not later supplements.

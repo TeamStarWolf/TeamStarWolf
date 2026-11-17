@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Getting an app from its real download site with a valid code signature was not, by itself, assurance of safety. ([Executive assessment](#executive-assessment))
+- This was not a user grabbing an obvious fake; it was trust in a familiar project, a release artifact, and signed code. ([Executive assessment](#executive-assessment))
+- Distinct work addressed distribution, already-executed malware, and damaged data, which later summaries often blur. ([Executive assessment](#executive-assessment))
+- The sources do not supply a verified worldwide infection count, total ransom revenue, or a definitive attacker identity. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

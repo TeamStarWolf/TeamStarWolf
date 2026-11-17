@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- A legitimate business relationship can become an entry point without being the entire cause of a breach. ([Executive assessment](#executive-assessment))
+- An account that does not itself reach payment terminals can still matter when later actions cross additional security boundaries. ([Executive assessment](#executive-assessment))
+- A breach needs several ledgers: a technical one, a population one distinguishing cards, emails and people, and a financial one. ([Executive assessment](#executive-assessment))
+- Different figures can all be accurate while answering different questions. ([Executive assessment](#executive-assessment))
+
 <!-- meta:end -->
 
 ## Executive assessment

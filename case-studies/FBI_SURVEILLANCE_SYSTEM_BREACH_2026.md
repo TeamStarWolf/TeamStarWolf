@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- Those most exposed are the subjects of FBI investigations and the people the FBI was monitoring. ([Executive summary](#executive-summary))
+- The affected system held legal-process returns, such as pen register and trap and trace surveillance, and PII on people under investigation. ([Executive summary](#executive-summary))
+- Sources said the phone numbers of people under FBI monitoring were likely exposed. ([Executive summary](#executive-summary))
+- No official source names an actor; the China link rests only on anonymous US officials. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

@@ -51,6 +51,13 @@ No review recorded yet
 
 </details>
 
+Key takeaways (reviewed 2026-11-17):
+
+- On 29 January 2026 Ivanti disclosed two code-injection flaws that let an attacker run code on EPMM without logging in, already exploited. ([Executive summary](#executive-summary))
+- NCSC-NL told every EPMM user to assume breach and saw the database copied out with device data, directory users and Office365 tokens. ([Executive summary](#executive-summary))
+- Dutch ministers named six public bodies and a municipality where misuse was found or could not be ruled out. ([Executive summary](#executive-summary))
+- Unit 42 reported widespread, mostly automated exploitation, with telemetry showing over 4,400 EPMM instances. ([Executive summary](#executive-summary))
+
 <!-- meta:end -->
 
 ## Executive summary

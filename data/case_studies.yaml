@@ -2295,6 +2295,7 @@ studies:
     actors: []
     tags: ["Apache Struts", "patch management", "data breach", "detection health", "blast radius"]
     pdf: "Equifax_2017_Case_Study.pdf"
+    pptx: "Equifax_2017_Case_Study.pptx"
     events:
       - {"date": "2017-03", "label": "Apache S2-045 advisory for CVE-2017-5638 and historical fixed Struts versions available"}
       - {"date": "2017-05-13", "label": "Start of the intrusion in GAO's account"}
@@ -2315,6 +2316,7 @@ studies:
     actors: []
     tags: ["SMBv1", "EternalBlue", "patch assurance", "WannaCry", "NotPetya"]
     pdf: "EternalBlue_MS17_010_2017_Case_Study.pdf"
+    pptx: "EternalBlue_MS17_010_2017_Case_Study.pptx"
     events:
       - {"date": "2017-03-14", "label": "Microsoft publishes MS17-010"}
       - {"date": "2017-04-14", "label": "The Shadow Brokers release makes EternalBlue public"}
@@ -3239,6 +3241,7 @@ studies:
     actors: []
     tags: ["wiper", "supply chain", "M.E.Doc", "EternalBlue", "attribution"]
     pdf: "NotPetya_2017_Case_Study.pdf"
+    pptx: "NotPetya_2017_Case_Study.pptx"
     events:
       - {"date": "2017-03-14", "label": "Microsoft publishes MS17-010"}
       - {"date": "2017-04-14", "label": "First backdoored M.E.Doc release identified by ESET"}
@@ -3690,6 +3693,7 @@ studies:
     actors: []
     tags: ["Bash", "remote code execution", "CGI", "patch management", "incomplete fix"]
     pdf: "Shellshock_2014_Case_Study.pdf"
+    pptx: "Shellshock_2014_Case_Study.pptx"
     events:
       - {"date": "2014-09-24", "label": "Public disclosure (Weimer, oss-security), CVE-2014-6271; Twilio reports same-day upgrades"}
       - {"date": "2014-09-25", "label": "CERT/CC note; Ubuntu USN-2363-1 for the incomplete-fix CVE-2014-7169"}
@@ -3888,6 +3892,7 @@ studies:
     actors: []
     tags: ["retail", "vendor access", "payment cards", "segmentation", "remediation coverage"]
     pdf: "Target_2013_Case_Study.pdf"
+    pptx: "Target_2013_Case_Study.pptx"
     events:
       - {"date": "2013-11-12", "label": "Vendor-credential access to a Target gateway (per the state investigation)"}
       - {"date": "2013-11-27", "label": "The payment-card theft window begins"}
@@ -4404,6 +4409,7 @@ studies:
     actors: []
     tags: ["ransomware", "worm", "EternalBlue", "NHS", "patch management"]
     pdf: "WannaCry_2017_Case_Study.pdf"
+    pptx: "WannaCry_2017_Case_Study.pptx"
     events:
       - {"date": "2017-03-14", "label": "MS17-010 published, covering CVE-2017-0143 through CVE-2017-0148"}
       - {"date": "2017-03-17", "label": "The vulnerability is included in an NHS CareCERT weekly advisory"}

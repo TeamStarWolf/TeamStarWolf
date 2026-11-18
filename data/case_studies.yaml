@@ -2912,6 +2912,7 @@ studies:
     actors: []
     tags: ["Wi-Fi", "WPA2", "key reinstallation", "coordinated disclosure", "endpoint patching"]
     pdf: "KRACK_2017_Case_Study.pdf"
+    pptx: "KRACK_2017_Case_Study.pptx"
     events:
       - {"date": "2017-07-14", "label": "Initial vendor notifications"}
       - {"date": "2017-08-28", "label": "Broader CERT/CC notification"}
@@ -3683,6 +3684,7 @@ studies:
     actors: []
     tags: ["SHA-1", "hash collision", "cryptographic migration", "Git", "Subversion"]
     pdf: "SHAttered_SHA1_2017_Case_Study.pdf"
+    pptx: "SHAttered_SHA1_2017_Case_Study.pptx"
     events:
       - {"date": "2017-02-23", "label": "Google and CWI announce the first practical SHA-1 collision"}
       - {"date": "2017-02-24", "label": "NIST responds, noting SHA-1 deprecation since 2011 and disallowance since 2013"}
@@ -3798,6 +3800,7 @@ studies:
     actors: []
     tags: ["speculative execution", "side channel", "KPTI", "coordinated disclosure", "mitigation"]
     pdf: "Spectre_Meltdown_2018_Case_Study.pdf"
+    pptx: "Spectre_Meltdown_2018_Case_Study.pptx"
     events:
       - {"date": "2017-06-01", "label": "Project Zero notifies Intel, AMD and ARM"}
       - {"date": "2018-01-03", "label": "Public disclosure by Project Zero and Google, ahead of the planned date"}
@@ -4932,6 +4935,7 @@ studies:
     actors: []
     tags: ["TLS", "SSL 3.0", "POODLE", "downgrade attack", "padding oracle", "protocol deprecation"]
     pdf: "POODLE_2014_Case_Study.pdf"
+    pptx: "POODLE_2014_Case_Study.pptx"
     events:
       - {"date": "2014-10-14", "label": "Public disclosure of POODLE (SSL 3.0, CVE-2014-3566); Mozilla and Google announce browser responses; Cloudflare disables SSL 3.0 by default"}
       - {"date": "2014-10-15", "label": "OpenSSL publishes TLS_FALLBACK_SCSV support and a separate build-option fix (CVE-2014-3568)"}
@@ -4952,6 +4956,7 @@ studies:
     actors: []
     tags: ["TLS", "export cryptography", "FREAK", "downgrade attack", "RSA", "state machine"]
     pdf: "FREAK_2015_Case_Study.pdf"
+    pptx: "FREAK_2015_Case_Study.pptx"
     events:
       - {"date": "2014-10-22", "label": "Karthikeyan Bhargavan privately reports the client flaw to OpenSSL"}
       - {"date": "2015-01-08", "label": "OpenSSL publishes the CVE-2015-0204 correction and branch releases"}
@@ -4971,6 +4976,7 @@ studies:
     actors: []
     tags: ["TLS", "Diffie-Hellman", "Logjam", "export cryptography", "forward secrecy", "downgrade attack"]
     pdf: "Logjam_2015_Case_Study.pdf"
+    pptx: "Logjam_2015_Case_Study.pptx"
     events:
       - {"date": "2015-05-20", "label": "Public disclosure of Logjam; OpenSSL announces its response plan"}
       - {"date": "2015-06-11", "label": "OpenSSL ships a client floor rejecting Diffie-Hellman groups below 768 bits (CVE-2015-4000)"}
@@ -4988,6 +4994,7 @@ studies:
     actors: []
     tags: ["TLS", "SSLv2", "DROWN", "key reuse", "cross-protocol attack", "protocol deprecation"]
     pdf: "DROWN_2016_Case_Study.pdf"
+    pptx: "DROWN_2016_Case_Study.pptx"
     events:
       - {"date": "2011-03", "label": "RFC 6176 prohibits negotiating SSL 2.0"}
       - {"date": "2016-03-01", "label": "Public disclosure of DROWN (CVE-2016-0800); OpenSSL ships 1.0.2g/1.0.1s disabling SSLv2 by default; CERT/CC note VU#583776"}
@@ -5005,6 +5012,7 @@ studies:
     actors: []
     tags: ["RSA", "key generation", "ROCA", "Infineon", "smart cards", "Estonia eID", "YubiKey"]
     pdf: "ROCA_2017_Case_Study.pdf"
+    pptx: "ROCA_2017_Case_Study.pptx"
     events:
       - {"date": "2017-02-01", "label": "Researchers notify Infineon"}
       - {"date": "2017-06-06", "label": "Yubico ships YubiKey 4 firmware 4.3.5 with a changed RSA generation path"}
@@ -5022,6 +5030,7 @@ studies:
     actors: []
     tags: ["Bluetooth", "BlueBorne", "remote code execution", "memory safety", "BlueZ", "mobile security"]
     pdf: "BlueBorne_2017_Case_Study.pdf"
+    pptx: "BlueBorne_2017_Case_Study.pptx"
     events:
       - {"date": "2017-09-12", "label": "Public disclosure of BlueBorne (Armis); CERT/CC note VU#240311; Android bulletin and Ubuntu BlueZ (USN-3413-1) updates"}
       - {"date": "2017-09-18", "label": "Ubuntu ships the kernel fix (USN-3420-1) for CVE-2017-1000251"}

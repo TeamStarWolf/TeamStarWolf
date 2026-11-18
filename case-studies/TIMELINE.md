@@ -27,7 +27,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 November 2026: CISA adds the CVE to KEV based on evidence of active exploitation, due 12 November, forensic triage required
   - 11 November 2026: GreyNoise counts 26 confirmed post-exploitation chains from 8 attacker addresses on its sensors (Reported)
   - 12 November 2026: KEV due date
-- [nginx2root 2026: The nginx HTTP/2 Remote Code Execution Flaws, CVE-2026-123007 and CVE-2026-123633](/case-studies/NGINX2ROOT_2026.md). Vulnerability, November 2026. Sectors: technology. CVEs: CVE-2026-123007, CVE-2026-123633. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/nginx2root_2026_Case_Study.pdf).
+- [nginx2root 2026: The nginx HTTP/2 Remote Code Execution Flaws, CVE-2026-123007 and CVE-2026-123633](/case-studies/NGINX2ROOT_2026.md). Vulnerability, November 2026. Sectors: technology. CVEs: CVE-2026-123007, CVE-2026-123633. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/nginx2root_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/nginx2root_2026_Case_Study.pptx).
   - 11 October 2026: Xint finds the nginx flaws
   - 16 October 2026: Xint reports the flaws to F5 through HackerOne; Wiz and others report the HTTP/2 pair independently
   - 18 November 2026: F5 discloses nginx2root and ships nginx 1.30.7 and 1.31.9 fixing all five flaws; Xint and Wiz publish write-ups; neither CVE is in CISA KEV
@@ -44,7 +44,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 10 November 2026: N-central 2026.4 Hotfix 2 (2026.4.1.26) posted; N-able publishes seven CVE records, two at CVSS v4.0 9.3
   - 11 November 2026: All hosted N-central servers upgraded (status update, 01:04 dashboard time)
   - 11 November 2026: N-able blog: unauthenticated paths fixed, more hotfixes to come, calls claims it ignored disclosure inaccurate
-- [Java4Shell, CVE-2026-114938: The OpenJDK Base64 Intrinsic Heap Overflow](/case-studies/JAVA4SHELL_CVE_2026_114938.md). Vulnerability, November 2026. Sectors: technology. CVEs: CVE-2026-114938. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Java4Shell_CVE_2026_114938_Case_Study.pdf).
+- [Java4Shell, CVE-2026-114938: The OpenJDK Base64 Intrinsic Heap Overflow](/case-studies/JAVA4SHELL_CVE_2026_114938.md). Vulnerability, November 2026. Sectors: technology. CVEs: CVE-2026-114938. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Java4Shell_CVE_2026_114938_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Java4Shell_CVE_2026_114938_Case_Study.pptx).
   - 17 November 2026: Oracle ships the November 2026 Critical Patch Update fixing CVE-2026-114938; an OpenJDK advisory is published
   - 17 November 2026: Calif discloses Java4Shell with a technical write-up and a proof-of-concept trigger; CISA issues an alert urging immediate patching
   - 18 November 2026: NVD still lists the record as undergoing analysis; the CVE is not in the CISA KEV catalog

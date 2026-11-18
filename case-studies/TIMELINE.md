@@ -1023,7 +1023,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 25 July 2019: NHS Digital notes a commercial CANVAS exploitation module
   - 6 September 2019: A public Metasploit module is released
   - 7 November 2019: Microsoft reports mining-related exploitation, operator-driven, not a worm
-- [Capital One 2019: When a Request Became Data Authority](/case-studies/CAPITAL_ONE_2019.md). Incident, March 2019 to June 2022 (core: March to July 2019). Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Capital_One_2019_Case_Study.pdf).
+- [Capital One 2019: When a Request Became Data Authority](/case-studies/CAPITAL_ONE_2019.md). Incident, March 2019 to June 2022 (core: March to July 2019). Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Capital_One_2019_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Capital_One_2019_Case_Study.pptx).
   - March 2019: Principal access window in the company's later disclosure
   - July 2019: Outside report, company determination and public announcement of about 100 million US and 6 million Canada affected
   - 19 November 2019: AWS announces EC2 instance metadata (IMDSv2) enhancements, postdating the access window
@@ -1153,7 +1153,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 21 November 2025: Shai-Hulud 2.0 trojanized uploads, 21 to 23 November
   - 30 March 2026: axios: social engineering and a RAT on the lead maintainer's PC expose the npm credentials
   - 4 August 2026: keyv maintainer's GitHub account compromised; the CHAINDROP worm follows
-- [Marriott and Starwood, 2014-2018: Acquiring a Business Does Not Reset Its Intrusion Clock](/case-studies/MARRIOTT_STARWOOD_2018.md). Incident, July 2014 to December 2024 (core: September to November 2018). Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Marriott_Starwood_2018_Case_Study.pdf).
+- [Marriott and Starwood, 2014-2018: Acquiring a Business Does Not Reset Its Intrusion Clock](/case-studies/MARRIOTT_STARWOOD_2018.md). Incident, July 2014 to December 2024 (core: September to November 2018). Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Marriott_Starwood_2018_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Marriott_Starwood_2018_Case_Study.pptx).
   - July 2014: The Starwood environment is compromised (FTC alleges)
   - September 2016: Marriott's acquisition of Starwood closes
   - September 2018: The reservation-system intrusion is detected
@@ -1385,7 +1385,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2016 <!-- {docsify-ignore} -->
 
-- [Uber 2016: A Data Breach, a Concealment Decision and Separate Legal Outcomes](/case-studies/UBER_2016.md). Incident, October 2016 to June 2026 (core: October 2016 to November 2017). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Uber_2016_Case_Study.pdf).
+- [Uber 2016: A Data Breach, a Concealment Decision and Separate Legal Outcomes](/case-studies/UBER_2016.md). Incident, October 2016 to June 2026 (core: October 2016 to November 2017). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Uber_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Uber_2016_Case_Study.pptx).
   - October 2016: Intruders use stolen credentials to copy about 57 million user records
   - December 2016: Uber pays $100,000 through a bounty program and obtains a deletion agreement
   - November 2017: New leadership discloses the breach
@@ -1546,7 +1546,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 18 August 2015: Major publication of the stolen data begins (18 and 20 August)
   - 22 August 2016: OPC and OAIC publish the joint investigation (PIPEDA 2016-005); about 36 million accounts
   - 14 December 2016: The FTC complaint is filed and a federal and state settlement is announced
-- [Anthem, 2015: Health Identity, Privileged Access and the Enterprise Data Warehouse](/case-studies/ANTHEM_2015.md). Incident, February 2014 to October 2020 (core: January to February 2015). Sectors: healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Anthem_2015_Case_Study.pdf).
+- [Anthem, 2015: Health Identity, Privileged Access and the Enterprise Data Warehouse](/case-studies/ANTHEM_2015.md). Incident, February 2014 to October 2020 (core: January to February 2015). Sectors: healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Anthem_2015_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Anthem_2015_Case_Study.pptx).
   - 18 February 2014: Phishing message to an Anthem subsidiary's employees (alleged)
   - 13 May 2014: Unauthorized Anthem access begins (alleged)
   - 29 January 2015: Anthem discovers the intrusion
@@ -1559,7 +1559,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2014 <!-- {docsify-ignore} -->
 
-- [Sony Pictures, 2014: Destruction, Disclosure and Coercion](/case-studies/SONY_PICTURES_2014.md). Incident, November 2014 to February 2021 (core: November to December 2014). Sectors: media. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Sony_Pictures_2014_Case_Study.pdf).
+- [Sony Pictures, 2014: Destruction, Disclosure and Coercion](/case-studies/SONY_PICTURES_2014.md). Incident, November 2014 to February 2021 (core: November to December 2014). Sectors: media. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Sony_Pictures_2014_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Sony_Pictures_2014_Case_Study.pptx).
   - 24 November 2014: Destructive system disruption at Sony Pictures
   - 1 December 2014: The company learns employee personal information may be compromised
   - 15 December 2014: Company notice to employees and dependents
@@ -1574,7 +1574,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 26 September 2014: Ubuntu USN-2363-2 build correction; FFIEC advisory; Red Hat FAQ on CVE-2014-7186 and CVE-2014-7187
   - 29 September 2014: Cloudflare enables Shellshock protection for all customers
   - 30 September 2014: Cloudflare and Cisco Talos publish attempt telemetry; Red Hat notes CVE-2014-6277 and CVE-2014-6278 mitigated
-- [OPM 2014-2015: Personnel Records, Vetting Data and the Limits of Recovery](/case-studies/OPM_2014_2015.md). Incident, May 2014 to July 2020 (core: May 2014 to July 2015). Sectors: government. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/OPM_2014_2015_Case_Study.pdf).
+- [OPM 2014-2015: Personnel Records, Vetting Data and the Limits of Recovery](/case-studies/OPM_2014_2015.md). Incident, May 2014 to July 2020 (core: May 2014 to July 2015). Sectors: government. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/OPM_2014_2015_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/OPM_2014_2015_Case_Study.pptx).
   - May 2014: A second intrusion gains access with contractor credentials (per the House report)
   - July 2014: Background-investigation data exfiltration (July to August 2014)
   - December 2014: Personnel-data exfiltration
@@ -1596,7 +1596,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 April 2014: Cloudflare reports completed certificate replacement and mass revocation
   - 23 April 2014: Netcraft examines inconsistent browser revocation handling
   - 29 May 2014: The Linux Foundation announces Core Infrastructure Initiative support for OpenSSL
-- [Yahoo, 2014-2016: Account Trust, Targeted Access and the Disclosure Gap](/case-studies/YAHOO_2014_2016.md). Incident, 2014 to 2018. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Yahoo_2014_2016_Case_Study.pdf).
+- [Yahoo, 2014-2016: Account Trust, Targeted Access and the Disclosure Gap](/case-studies/YAHOO_2014_2016.md). Incident, 2014 to 2018. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Yahoo_2014_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Yahoo_2014_2016_Case_Study.pptx).
   - 2014: The 2014 intrusion occurs (disclosed in 2016)
   - 22 September 2016: Yahoo discloses the 2014 incident; about 500 million accounts
   - 15 March 2017: The Justice Department charges four defendants, including two FSB officers
@@ -1634,14 +1634,14 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - March 2019: RFC 8555 standardizes the ACME protocol
   - February 2020: A CAA-rechecking defect leads to a mass revocation and a public dispute over timing
   - September 2021: The DST Root CA X3 cross-sign expires, exposing client trust-path assumptions
-- [JPMorgan Chase 2014: Contact-Data Theft and the Wider Fraud Economy](/case-studies/JPMORGAN_2014.md). Incident, 2014 to 2021. Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/JPMorgan_Chase_2014_Case_Study.pdf).
+- [JPMorgan Chase 2014: Contact-Data Theft and the Wider Fraud Economy](/case-studies/JPMORGAN_2014.md). Incident, 2014 to 2021. Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/JPMorgan_Chase_2014_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/JPMorgan_Chase_2014_Case_Study.pptx).
   - June 2014: Alleged intrusion window begins at Victim-1 (June to August 2014, per the 2015 indictment)
   - 10 September 2014: JPMorgan Chase makes its first disclosure (per the 10-Q)
   - 2 October 2014: An 8-K reports about 76 million households and 7 million small businesses affected, with no evidence account credentials were taken
   - November 2015: A superseding indictment alleges a multi-victim intrusion campaign
   - 23 September 2019: Andrei Tyurin pleads guilty
   - 7 January 2021: Tyurin is sentenced to 144 months; JPMorgan Chase is named; a $19,214,956 forfeiture is ordered
-- [Home Depot 2014: Payment Data, Vendor Access and the Cost of Unverified Boundaries](/case-studies/HOME_DEPOT_2014.md). Incident, 2014 to 2020. Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Home_Depot_2014_Case_Study.pdf).
+- [Home Depot 2014: Payment Data, Vendor Access and the Cost of Unverified Boundaries](/case-studies/HOME_DEPOT_2014.md). Incident, 2014 to 2020. Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Home_Depot_2014_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Home_Depot_2014_Case_Study.pptx).
   - 10 April 2014: Start of the exposure window later identified by the New York attorney general (10 April to 13 September 2014)
   - 2 September 2014: Investigation begins after information from banking partners and law enforcement
   - 8 September 2014: Home Depot confirms the payment-system breach

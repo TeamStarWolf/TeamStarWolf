@@ -3584,6 +3584,7 @@ studies:
     actors: []
     tags: ["ransomware", "Ryuk", "TrickBot", "healthcare", "business continuity"]
     pdf: "Ryuk_Healthcare_2020_Case_Study.pdf"
+    pptx: "Ryuk_Healthcare_2020_Case_Study.pptx"
     events:
       - {"date": "2020-01-29", "label": "Mandiant investigates activity later tracked as UNC1878"}
       - {"date": "2020-03-31", "label": "Mandiant publishes its actor-tracking account"}
@@ -5117,6 +5118,7 @@ studies:
     actors: []
     tags: ["ransomware", "Maze", "double extortion", "data theft", "service provider", "Cognizant"]
     pdf: "Maze_2019_2020_Case_Study.pdf"
+    pptx: "Maze_2019_2020_Case_Study.pptx"
     events:
       - {"date": "2019-05", "label": "Maze activity observed from at least May 2019 (per Mandiant); shift to post-intrusion deployment and double extortion"}
       - {"date": "2020-04-18", "label": "Cognizant confirms a Maze incident affecting internal systems and some client services"}
@@ -5481,6 +5483,7 @@ studies:
     actors: []
     tags: ["ransomware", "Locky", "email distribution", "downloader", "exploit kit"]
     pdf: "Locky_2016_Case_Study.pdf"
+    pptx: "Locky_2016_Case_Study.pptx"
     events:
       - {"date": "2016-02-16", "label": "Locky distribution is first widely reported via malicious document attachments"}
       - {"date": "2016-03-31", "label": "Reporting describes a shift to script attachments and intermediate downloaders (RockLoader)"}
@@ -5497,6 +5500,7 @@ studies:
     actors: []
     tags: ["ransomware", "Cerber", "ransomware-as-a-service", "affiliate", "decryptor"]
     pdf: "Cerber_2016_2017_Case_Study.pdf"
+    pptx: "Cerber_2016_2017_Case_Study.pptx"
     events:
       - {"date": "2016-03", "label": "Cerber ransomware-as-a-service distribution is observed"}
       - {"date": "2016-07", "label": "Check Point describes the CerberRing affiliate operation"}
@@ -5516,6 +5520,7 @@ studies:
     actors: []
     tags: ["ransomware", "GandCrab", "affiliate", "decryptor", "No More Ransom"]
     pdf: "GandCrab_2018_2019_Case_Study.pdf"
+    pptx: "GandCrab_2018_2019_Case_Study.pptx"
     events:
       - {"date": "2018-01", "label": "GandCrab affiliate ransomware operations begin"}
       - {"date": "2018-02-28", "label": "An early decryptor is released through No More Ransom"}
@@ -5536,6 +5541,7 @@ studies:
     actors: []
     tags: ["ransomware", "Egregor", "double extortion", "affiliate migration", "law enforcement"]
     pdf: "Egregor_2020_2021_Case_Study.pdf"
+    pptx: "Egregor_2020_2021_Case_Study.pptx"
     events:
       - {"date": "2020-09", "label": "Egregor activity emerges, linked to affiliate migration from Maze"}
       - {"date": "2020-11-20", "label": "The FBI issues a warning describing Egregor activity"}
@@ -5555,6 +5561,7 @@ studies:
     actors: []
     tags: ["ransomware", "DoppelPaymer", "BitPaymer", "healthcare", "double extortion"]
     pdf: "DoppelPaymer_2019_2021_Case_Study.pdf"
+    pptx: "DoppelPaymer_2019_2021_Case_Study.pptx"
     events:
       - {"date": "2019", "label": "DoppelPaymer emerges as a code fork linked to the BitPaymer lineage"}
       - {"date": "2020-09-10", "label": "A ransomware outage disrupts services at a German hospital (causation later qualified)"}
@@ -5573,6 +5580,7 @@ studies:
     actors: []
     tags: ["ransomware", "Avaddon", "double extortion", "decryptor", "shutdown"]
     pdf: "Avaddon_2020_2021_Case_Study.pdf"
+    pptx: "Avaddon_2020_2021_Case_Study.pptx"
     events:
       - {"date": "2020-06-25", "label": "Avaddon email campaigns make the ransomware visible at scale"}
       - {"date": "2021-01", "label": "Official warnings describe encryption and extortion, with incompatible origin dates noted"}
@@ -5834,6 +5842,7 @@ studies:
     actors: []
     tags: ["ransomware", "Ragnar Locker", "virtual machine", "defense evasion", "double extortion"]
     pdf: "Ragnar_Locker_2020_Case_Study.pdf"
+    pptx: "Ragnar_Locker_2020_Case_Study.pptx"
     events:
       - {"date": "2020", "label": "Ragnar Locker is observed deploying ransomware inside a virtual machine to evade host defenses"}
       - {"date": "2020-11", "label": "An FBI FLASH documents a later observation window"}

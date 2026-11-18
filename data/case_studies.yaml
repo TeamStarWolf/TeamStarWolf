@@ -4701,6 +4701,7 @@ studies:
     actors: []
     tags: ["supply chain", "code signing", "build integrity", "software distribution", "Piriform", "Avast"]
     pdf: "CCleaner_2017_Case_Study.pdf"
+    pptx: "CCleaner_2017_Case_Study.pptx"
     events:
       - {"date": "2017-03-11", "label": "Vendor later reports remote access to a developer workstation via TeamViewer"}
       - {"date": "2017-08-15", "label": "The compromised, validly signed CCleaner 5.33 release is distributed"}
@@ -4831,6 +4832,7 @@ studies:
     actors: []
     tags: ["supply chain", "CI/CD", "credential theft", "Bash Uploader", "build security"]
     pdf: "Codecov_2021_Case_Study.pdf"
+    pptx: "Codecov_2021_Case_Study.pptx"
     events:
       - {"date": "2021-01-31", "label": "Start of the reported period containing unauthorized Bash Uploader changes"}
       - {"date": "2021-04-01", "label": "A customer reports a checksum discrepancy; Codecov discovers and remediates"}
@@ -4849,6 +4851,7 @@ studies:
     actors: []
     tags: ["supply chain", "npm", "dependency", "Copay", "cryptocurrency wallet", "build security"]
     pdf: "event-stream_2018_Case_Study.pdf"
+    pptx: "event-stream_2018_Case_Study.pptx"
     events:
       - {"date": "2018-09-09", "label": "flatmap-stream is added as a dependency through event-stream 3.3.6"}
       - {"date": "2018-10-05", "label": "The malicious flatmap-stream 0.1.1 is published (per Snyk)"}
@@ -4867,6 +4870,7 @@ studies:
     actors: []
     tags: ["supply chain", "code signing", "ShadowPad", "backdoor", "software distribution", "build integrity"]
     pdf: "NetSarang_ShadowPad_2017_Case_Study.pdf"
+    pptx: "NetSarang_ShadowPad_2017_Case_Study.pptx"
     events:
       - {"date": "2017-07-18", "label": "NetSarang ships a release containing a backdoor in nssock2.dll (distributed to 4 August)"}
       - {"date": "2017-08-05", "label": "A clean update is released (per MyCERT)"}
@@ -4917,6 +4921,7 @@ studies:
     actors: []
     tags: ["supply chain", "code signing", "ShadowHammer", "ASUS Live Update", "software distribution", "selective targeting"]
     pdf: "ASUS_ShadowHammer_2019_Case_Study.pdf"
+    pptx: "ASUS_ShadowHammer_2019_Case_Study.pptx"
     events:
       - {"date": "2018-06", "label": "The observed ASUS Live Update campaign period (June to November 2018)"}
       - {"date": "2019-01", "label": "Kaspersky discovers the campaign"}
@@ -5908,6 +5913,7 @@ studies:
     actors: []
     tags: ["XcodeGhost", "supply chain", "iOS", "build tool", "App Store"]
     pdf: "XcodeGhost_2015_Case_Study.pdf"
+    pptx: "XcodeGhost_2015_Case_Study.pptx"
     events:
       - {"date": "2015-09-14", "label": "Early investigation identifies a malicious compiler affecting iOS apps"}
       - {"date": "2015-09-18", "label": "Palo Alto Networks names XcodeGhost as the scope grows beyond a few apps"}
@@ -5926,6 +5932,7 @@ studies:
     actors: []
     tags: ["KeRanger", "macOS", "ransomware", "software distribution", "code signing"]
     pdf: "KeRanger_2016_Case_Study.pdf"
+    pptx: "KeRanger_2016_Case_Study.pptx"
     events:
       - {"date": "2016-03-04", "label": "Malicious, signed Transmission installers for OS X carry KeRanger ransomware"}
       - {"date": "2016-03-05", "label": "Transmission and Apple respond; a removal update follows a misleading quiet period"}
@@ -5941,6 +5948,7 @@ studies:
     actors: []
     tags: ["Keydnap", "macOS", "credential theft", "Transmission", "supply chain"]
     pdf: "Keydnap_2016_Case_Study.pdf"
+    pptx: "Keydnap_2016_Case_Study.pptx"
     events:
       - {"date": "2016-07", "label": "ESET reports Keydnap, a macOS credential-stealer"}
       - {"date": "2016-08", "label": "Keydnap is distributed through a compromised Transmission build"}

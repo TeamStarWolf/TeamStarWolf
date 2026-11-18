@@ -934,7 +934,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 - [The Multipath TCP Attack Surface: A 2026 Case Study](/case-studies/MPTCP_ATTACK_SURFACE_2026.md). Attack surface, 2020 to 2026. Sectors: technology. CVEs: CVE-2021-47152, CVE-2022-50071, CVE-2025-40258, CVE-2026-31669, CVE-2026-80588, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/MPTCP_Attack_Surface_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/MPTCP_Attack_Surface_2026_Case_Study.pptx).
   - 2020: Linux kernel 5.6 ships a mainline Multipath TCP implementation
   - 3 November 2026: Lab readings on a host running Kali 2026.2 with kernel 7.1.5
-- [Ledger Customer-Data Breaches, 2020: Commerce Records, Phishing and the Limits of Product Security](/case-studies/LEDGER_2020.md). Incident, 2020 to 2021 (core: 2020). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ledger_2020_Case_Study.pdf).
+- [Ledger Customer-Data Breaches, 2020: Commerce Records, Phishing and the Limits of Product Security](/case-studies/LEDGER_2020.md). Incident, 2020 to 2021 (core: 2020). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ledger_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Ledger_2020_Case_Study.pptx).
   - 25 June 2020: Unauthorized commerce-data access through an API key (identified later)
   - 29 July 2020: Ledger discloses the breach: about one million email addresses and ~9,500 detailed records
   - 22 September 2020: Shopify discloses a separate support-staff data-access incident (fewer than 200 merchants)
@@ -970,7 +970,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 February 2021: A law-enforcement operation disrupts affiliates
   - 17 February 2021: Enforcement actions are announced
   - 9 February 2022: A later decryptor creates a new recovery opportunity
-- [easyJet 2020: Customer Data Exposure and the Long Regulatory Aftermath](/case-studies/EASYJET_2020.md). Incident, May 2020 to August 2025 (core: 2020). Sectors: transport. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/easyJet_2020_Case_Study.pdf).
+- [easyJet 2020: Customer Data Exposure and the Long Regulatory Aftermath](/case-studies/EASYJET_2020.md). Incident, May 2020 to August 2025 (core: 2020). Sectors: transport. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/easyJet_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/easyJet_2020_Case_Study.pptx).
   - 19 May 2020: easyJet discloses a customer-data breach affecting about 9 million customers
   - May 2023: The ICO investigation is still live
   - August 2023: An ICO letter explains why the investigation was closed
@@ -1064,7 +1064,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 5 April 2019: Most production is normal or near normal while reporting, billing and invoicing still lag
   - 16 December 2019: Microsoft publishes a responder account (credential capture, manual ransomware push from domain controllers)
   - 2020: The 2020 financial statements revise the estimated impact to NOK 800 million to 1 billion; NOK 769 million total insurance received
-- [MGM 2019: Guest Data, Developer Access and Delayed Notification](/case-studies/MGM_2019.md). Incident, 2019 to 2025 (core: 2019). Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/MGM_2019_Case_Study.pdf).
+- [MGM 2019: Guest Data, Developer Access and Delayed Notification](/case-studies/MGM_2019.md). Incident, 2019 to 2025 (core: 2019). Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/MGM_2019_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/MGM_2019_Case_Study.pptx).
   - 7 July 2019: Reused employee credentials open a developer platform; an MFA bypass and a temporary token enable about an hour of cloud-database access and exfiltration
   - 24 July 2019: MGM buys a copy of the data after law-enforcement consultation
   - 5 September 2019: Certain US notifications begin
@@ -1093,7 +1093,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 September 2020: System access is restored, though services are not yet fully restored
   - 10 December 2020: An FBI notice describes DoppelPaymer attacks on critical infrastructure
   - 2023: German and Ukrainian authorities announce enforcement action
-- [DoorDash, 2019: Vendor Access, Historical Data and the Discipline of Breach Scope](/case-studies/DOORDASH_2019.md). Incident, May 2019 to November 2020 (core: 2019). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DoorDash_2019_Case_Study.pdf).
+- [DoorDash, 2019: Vendor Access, Historical Data and the Discipline of Breach Scope](/case-studies/DOORDASH_2019.md). Incident, May 2019 to November 2020 (core: 2019). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DoorDash_2019_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/DoorDash_2019_Case_Study.pptx).
   - May 2019: Unauthorized access through a third party reaches historical DoorDash data
   - 26 September 2019: DoorDash discloses the May 2019 breach affecting about 4.9 million people
   - 12 March 2020: An SEC staff comment letter addresses the breach disclosure
@@ -1228,7 +1228,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 28 November 2018: DOJ unseals the SamSam indictment; OFAC designates two Iran-based exchangers and publishes bitcoin addresses for the first time
   - 30 November 2018: Marriott discloses access to the Starwood network since 2014: up to about 500 million guests
   - 20 December 2018: DOJ unseals the APT10 indictment and the UK and allies attribute APT 10 to China's MSS
-- [Cathay Pacific, 2018: Passenger Data, Migration Exceptions and Evidence That Survives Recovery](/case-studies/CATHAY_PACIFIC_2018.md). Incident, 2014 to 2020 (core: 2018). Sectors: transport. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cathay_Pacific_2018_Case_Study.pdf).
+- [Cathay Pacific, 2018: Passenger Data, Migration Exceptions and Evidence That Survives Recovery](/case-studies/CATHAY_PACIFIC_2018.md). Incident, 2014 to 2020 (core: 2018). Sectors: transport. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cathay_Pacific_2018_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Cathay_Pacific_2018_Case_Study.pptx).
   - October 2014: The earliest known compromise (per the later ICO chronology)
   - March 2018: Suspicious activity is discovered
   - 11 May 2018: The last unauthorized personal-data access (per the ICO)
@@ -1245,7 +1245,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 25 November 2019: The FTC issues its opinion and final order against Cambridge Analytica
   - December 2019: The FTC finalizes settlements with Nix and Kogan
   - 23 April 2020: The federal court enters the Facebook settlement order; the FTC modifies its administrative order
-- [British Airways 2018: The Payment Page Was Not the Whole Breach](/case-studies/BRITISH_AIRWAYS_2018.md). Incident, 2018 to 2021. Sectors: transport. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/British_Airways_2018_Case_Study.pdf).
+- [British Airways 2018: The Payment Page Was Not the Whole Breach](/case-studies/BRITISH_AIRWAYS_2018.md). Incident, 2018 to 2021. Sectors: transport. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/British_Airways_2018_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/British_Airways_2018_Case_Study.pptx).
   - 22 June 2018: The intrusion period begins (22 June to 5 September 2018, per the ICO)
   - 21 August 2018: The customer booking exposure window begins (21 August to 5 September)
   - 6 September 2018: IAG discloses the breach; an initial estimate of about 380,000 payment cards
@@ -1340,7 +1340,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 21 March 2017: River City Media sues the researchers and reporters in federal court
   - 28 August 2017: A jurisdiction order proceeds without resolving the merits
   - 4 September 2018: The case is dismissed with prejudice by stipulation; no merits finding or payment disclosed
-- [Panera Bread 2017-2018: An Exposure Report That Outlived Its Acknowledgment](/case-studies/PANERA_2017_2018.md). Incident, August 2017 to June 2018 (core: 2017 to 2018). Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Panera_2017_2018_Case_Study.pdf).
+- [Panera Bread 2017-2018: An Exposure Report That Outlived Its Acknowledgment](/case-studies/PANERA_2017_2018.md). Incident, August 2017 to June 2018 (core: 2017 to 2018). Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Panera_2017_2018_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Panera_2017_2018_Case_Study.pptx).
   - August 2017: A researcher reports readable customer data to Panera
   - 2 April 2018: Brian Krebs publishes the exposure after months without a fix
   - 3 April 2018: The researcher's disclosure retrospective and news coverage follow
@@ -1498,7 +1498,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 22 September 2015: Apple publishes guidance on verifying the build environment
   - October 2015: Hong Kong CERT observations show the recovery problem
   - November 2015: Later evidence prevents a premature ending to the account
-- [TalkTalk, 2015: The Acquired Attack Surface and the Cost of Unfinished Security Work](/case-studies/TALKTALK_2015.md). Incident, 2015 to 2016. Sectors: telecommunications. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/TalkTalk_2015_Case_Study.pdf).
+- [TalkTalk, 2015: The Acquired Attack Surface and the Cost of Unfinished Security Work](/case-studies/TALKTALK_2015.md). Incident, 2015 to 2016. Sectors: telecommunications. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/TalkTalk_2015_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/TalkTalk_2015_Case_Study.pptx).
   - 17 July 2015: An earlier, unaddressed injection attack occurs (also 2-3 September 2015)
   - 15 October 2015: The attack window begins (15 to 21 October), through three pages inherited from Tiscali in 2009
   - 21 October 2015: TalkTalk detects the attack, removes the pages and notifies the ICO the next day

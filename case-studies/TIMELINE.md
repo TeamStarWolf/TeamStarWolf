@@ -803,10 +803,10 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 1 July 2021: CERT/CC VU#383432 highlights the separate PrintNightmare behavior
   - 6 July 2021: Microsoft assigns CVE-2021-34527 and begins a phased out-of-band update
   - 10 August 2021: A later update changes a default amid continued Print Spooler issues
-- [PetitPotam: Authentication Coercion, Certificate Enrollment, and the Limits of a Single Patch](/case-studies/PETITPOTAM_CVE_2021_36942.md). Vulnerability, July to August 2021 (core: 2021). Sectors: technology. CVEs: CVE-2021-36942. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/PetitPotam_CVE_2021_36942_Case_Study.pdf).
+- [PetitPotam: Authentication Coercion, Certificate Enrollment, and the Limits of a Single Patch](/case-studies/PETITPOTAM_CVE_2021_36942.md). Vulnerability, July to August 2021 (core: 2021). Sectors: technology. CVEs: CVE-2021-36942. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/PetitPotam_CVE_2021_36942_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/PetitPotam_CVE_2021_36942_Case_Study.pptx).
   - July 2021: PetitPotam authentication-coercion research draws attention to NTLM relay against AD CS
   - 10 August 2021: Microsoft issues KB5005413 and CVE-2021-36942, a partial correction for the unauthenticated call
-- [MSHTML CVE-2021-40444: Document Trust, Emergency Mitigations, and a Corrected Patch-Bypass Claim](/case-studies/MSHTML_CVE_2021_40444.md). Vulnerability, September to December 2021 (core: 2021). Sectors: technology. CVEs: CVE-2021-40444. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/MSHTML_CVE_2021_40444_Case_Study.pdf).
+- [MSHTML CVE-2021-40444: Document Trust, Emergency Mitigations, and a Corrected Patch-Bypass Claim](/case-studies/MSHTML_CVE_2021_40444.md). Vulnerability, September to December 2021 (core: 2021). Sectors: technology. CVEs: CVE-2021-40444. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/MSHTML_CVE_2021_40444_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/MSHTML_CVE_2021_40444_Case_Study.pptx).
   - 7 September 2021: Microsoft discloses CVE-2021-40444 (MSHTML) with interim mitigations amid active exploitation
   - 14 September 2021: September security updates correct the vulnerable component
   - 23 December 2021: Sophos corrects an overstated CAB-less patch-bypass claim; the attack worked only on unpatched systems
@@ -915,7 +915,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 2020: Ragnar Locker is observed deploying ransomware inside a virtual machine to evade host defenses
   - November 2020: An FBI FLASH documents a later observation window
   - 2023: An international enforcement action targets the operation
-- [QakBot 2020-2021: Stolen Conversations and the Market for Intrusion Access](/case-studies/QAKBOT_2020_2021.md). Campaign, June 2020 to August 2023 (core: 2020 to 2021). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/QakBot_2020_2021_Case_Study.pdf).
+- [QakBot 2020-2021: Stolen Conversations and the Market for Intrusion Access](/case-studies/QAKBOT_2020_2021.md). Campaign, June 2020 to August 2023 (core: 2020 to 2021). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/QakBot_2020_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/QakBot_2020_2021_Case_Study.pptx).
   - June 2020: A captured document shows QakBot activity with missing delivery evidence
   - 17 July 2020: Emotet returns to observed QakBot email distribution
   - 28 August 2020: A Qbot affiliate change is observed in a larger campaign
@@ -989,7 +989,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 15 October 2020: A grand jury indicts six GRU Unit 74455 officers
   - 28 October 2020: AA20-302A warns of ransomware against US hospitals
   - 8 December 2020: FireEye discloses the theft of its Red Team tools
-- [BootHole: A Fatal Error That Returned and the Secure Boot Revocation Problem](/case-studies/BOOTHOLE_CVE_2020_10713.md). Vulnerability, July 2020 to 2020 (core: 2020). Sectors: technology. CVEs: CVE-2020-10713. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/BootHole_CVE_2020_10713_Case_Study.pdf).
+- [BootHole: A Fatal Error That Returned and the Secure Boot Revocation Problem](/case-studies/BOOTHOLE_CVE_2020_10713.md). Vulnerability, July 2020 to 2020 (core: 2020). Sectors: technology. CVEs: CVE-2020-10713. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/BootHole_CVE_2020_10713_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/BootHole_CVE_2020_10713_Case_Study.pptx).
   - 29 July 2020: BootHole (CVE-2020-10713) is disclosed; a GRUB2 parser flaw affects UEFI Secure Boot, requiring revocation not just patching
   - August 2020: Distribution updates and a regression affecting Ubuntu and Red Hat follow
 - [Avaddon 2020-2021: Extortion Pressure, Recovery Windows and the Limits of a Shutdown](/case-studies/AVADDON_2020_2021.md). Campaign, June 2020 to June 2021 (core: 2020 to 2021). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Avaddon_2020_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Avaddon_2020_2021_Case_Study.pptx).
@@ -1078,11 +1078,11 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 20 April 2020: Cognizant files an 8-K with an early assessment and financial-risk warning
   - 7 May 2020: Cognizant reports it believes the attack is contained; projects a $50 to 70 million quarterly impact
   - July 2020: A Sophos casebook describes an unnamed Maze incident: repeated blocked encryption attempts, prior data theft, a $15 million demand not paid
-- [Exim CVE-2019-10149: The Mail Server Patch That Became a Long-Term Exposure](/case-studies/EXIM_CVE_2019_10149.md). Vulnerability, June 2019 to 2020 (core: 2019). Sectors: technology. CVEs: CVE-2019-10149. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Exim_CVE_2019_10149_Case_Study.pdf).
+- [Exim CVE-2019-10149: The Mail Server Patch That Became a Long-Term Exposure](/case-studies/EXIM_CVE_2019_10149.md). Vulnerability, June 2019 to 2020 (core: 2019). Sectors: technology. CVEs: CVE-2019-10149. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Exim_CVE_2019_10149_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Exim_CVE_2019_10149_Case_Study.pptx).
   - 5 June 2019: Qualys discloses CVE-2019-10149 (Return of the WIZard) in Exim 4.87-4.91; the fix already shipped in 4.92
   - June 2019: CERT-FR reports active exploitation; Microsoft confirms a worm using the flaw
   - 28 May 2020: An NSA advisory attributes later exploitation to Sandworm actors
-- [Dridex Enforcement 2019: Financial Malware, Criminal Charges and Sanctions](/case-studies/DRIDEX_ENFORCEMENT_2019.md). Campaign, October 2015 to December 2019 (core: 2019). Sectors: finance, cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Dridex_Enforcement_2019_Case_Study.pdf).
+- [Dridex Enforcement 2019: Financial Malware, Criminal Charges and Sanctions](/case-studies/DRIDEX_ENFORCEMENT_2019.md). Campaign, October 2015 to December 2019 (core: 2019). Sectors: finance, cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Dridex_Enforcement_2019_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Dridex_Enforcement_2019_Case_Study.pptx).
   - October 2015: A disruption and an arrest occur as different events in the Dridex operation
   - February 2017: A guilty plea is entered
   - December 2018: A sentence differs from the earlier stated maximum
@@ -1761,7 +1761,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2011 <!-- {docsify-ignore} -->
 
-- [DigiNotar 2011: When a Compromised Issuer Became a Trust-Infrastructure Crisis](/case-studies/DIGINOTAR_2011.md). Incident, June 2011 to August 2012 (core: August to September 2011). Sectors: government, technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DigiNotar_2011_Case_Study.pdf).
+- [DigiNotar 2011: When a Compromised Issuer Became a Trust-Infrastructure Crisis](/case-studies/DIGINOTAR_2011.md). Incident, June 2011 to August 2012 (core: August to September 2011). Sectors: government, technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DigiNotar_2011_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/DigiNotar_2011_Case_Study.pptx).
   - 17 June 2011: Earliest entry dated by the final forensic reconstruction
   - 1 July 2011: Intrusion reaches the protected network
   - 10 July 2011: Earliest surviving evidence of successful rogue issuance

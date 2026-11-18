@@ -1584,7 +1584,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 3 August 2017: GAO-17-614 assesses the response to 19 US-CERT recommendations
   - 13 November 2018: GAO-19-143R follow-up: 51 of 80 recommendations implemented
   - 7 July 2020: The FBI publicly attributes the theft to China
-- [Heartbleed 2014: When Repairing the Library Was Only the Beginning](/case-studies/HEARTBLEED_2014.md). Vulnerability, April to May 2014. Sectors: cross-sector, technology. CVEs: CVE-2014-0160, CVE-2014-0346. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Heartbleed_2014_Case_Study.pdf).
+- [Heartbleed 2014: When Repairing the Library Was Only the Beginning](/case-studies/HEARTBLEED_2014.md). Vulnerability, April to May 2014. Sectors: cross-sector, technology. CVEs: CVE-2014-0160, CVE-2014-0346. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Heartbleed_2014_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Heartbleed_2014_Case_Study.pptx).
   - 1 April 2014: Google's details and a patch reach OpenSSL participants (Cox's timeline)
   - 7 April 2014: OpenSSL publishes its advisory and the 1.0.1g fix for CVE-2014-0160
   - 8 April 2014: GitHub and Twilio publish response accounts at different boundaries

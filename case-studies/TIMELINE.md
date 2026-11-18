@@ -27,6 +27,10 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 November 2026: CISA adds the CVE to KEV based on evidence of active exploitation, due 12 November, forensic triage required
   - 11 November 2026: GreyNoise counts 26 confirmed post-exploitation chains from 8 attacker addresses on its sensors (Reported)
   - 12 November 2026: KEV due date
+- [nginx2root 2026: The nginx HTTP/2 Remote Code Execution Flaws, CVE-2026-123007 and CVE-2026-123633](/case-studies/NGINX2ROOT_2026.md). Vulnerability, November 2026. Sectors: technology. CVEs: CVE-2026-123007, CVE-2026-123633. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/nginx2root_2026_Case_Study.pdf).
+  - 11 October 2026: Xint finds the nginx flaws
+  - 16 October 2026: Xint reports the flaws to F5 through HackerOne; Wiz and others report the HTTP/2 pair independently
+  - 18 November 2026: F5 discloses nginx2root and ships nginx 1.30.7 and 1.31.9 fixing all five flaws; Xint and Wiz publish write-ups; neither CVE is in CISA KEV
 - [Able2Shell and the RMM Attack Surface: The N-able N-central Disclosure of November 2026](/case-studies/NABLE_NCENTRAL_ABLE2SHELL_2026.md). Vulnerability, November 2026. Sectors: technology, cross-sector. CVEs: CVE-2026-125883, CVE-2026-125881, CVE-2026-125878, CVE-2026-125879, CVE-2026-125882, CVE-2026-91000 and 19 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Nable_Ncentral_Able2Shell_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Nable_Ncentral_Able2Shell_2026_Case_Study.pptx).
   - 2 July 2021: Kaseya VSA incident: SaaS shut down and on-premises customers told to shut servers down; REvil ransomware reaches MSP customers
   - 22 February 2024: CISA adds ScreenConnect CVE-2024-1709, an authentication bypass to an administrator account, to KEV

@@ -2555,6 +2555,20 @@ studies:
       - {"date": "2022-03-03", "label": "CISA adds CVE-2020-1938 to KEV in a batch of 95 entries"}
       - {"date": "2026-10", "label": "DShield still records about 950 to 6,200 port 8009 events a day"}
       - {"date": "2026-11-03", "label": "KEV still lists the CVE; the TeamStarWolf lab run"}
+  case-studies/NGINX2ROOT_2026.md:
+    kind: "vulnerability"
+    title: "nginx2root 2026: The nginx HTTP/2 Remote Code Execution Flaws, CVE-2026-123007 and CVE-2026-123633"
+    start: "2026-11"
+    end: "2026-11"
+    sectors: ["technology"]
+    cves: ["CVE-2026-123007", "CVE-2026-123633"]
+    actors: []
+    tags: ["nginx", "HTTP2", "reverse proxy", "memory corruption", "use-after-free", "AI-assisted discovery"]
+    pdf: "nginx2root_2026_Case_Study.pdf"
+    events:
+      - {"date": "2026-10-11", "label": "Xint finds the nginx flaws"}
+      - {"date": "2026-10-16", "label": "Xint reports the flaws to F5 through HackerOne; Wiz and others report the HTTP/2 pair independently"}
+      - {"date": "2026-11-18", "label": "F5 discloses nginx2root and ships nginx 1.30.7 and 1.31.9 fixing all five flaws; Xint and Wiz publish write-ups; neither CVE is in CISA KEV"}
   case-studies/JAVA4SHELL_CVE_2026_114938.md:
     kind: "vulnerability"
     title: "Java4Shell, CVE-2026-114938: The OpenJDK Base64 Intrinsic Heap Overflow"

@@ -2162,6 +2162,7 @@ studies:
     actors: []
     tags: ["certificate authority", "PKI", "rogue certificates", "trust withdrawal", "continuity"]
     pdf: "DigiNotar_2011_Case_Study.pdf"
+    pptx: "DigiNotar_2011_Case_Study.pptx"
     events:
       - {"date": "2011-06-17", "label": "Earliest entry dated by the final forensic reconstruction"}
       - {"date": "2011-07-01", "label": "Intrusion reaches the protected network"}
@@ -5878,6 +5879,7 @@ studies:
     actors: []
     tags: ["QakBot", "Qbot", "banking trojan", "access broker", "email thread hijacking"]
     pdf: "QakBot_2020_2021_Case_Study.pdf"
+    pptx: "QakBot_2020_2021_Case_Study.pptx"
     events:
       - {"date": "2020-06", "label": "A captured document shows QakBot activity with missing delivery evidence"}
       - {"date": "2020-07-17", "label": "Emotet returns to observed QakBot email distribution"}
@@ -5948,6 +5950,7 @@ studies:
     actors: []
     tags: ["Dridex", "Evil Corp", "banking trojan", "law enforcement", "sanctions"]
     pdf: "Dridex_Enforcement_2019_Case_Study.pdf"
+    pptx: "Dridex_Enforcement_2019_Case_Study.pptx"
     events:
       - {"date": "2015-10", "label": "A disruption and an arrest occur as different events in the Dridex operation"}
       - {"date": "2017-02", "label": "A guilty plea is entered"}
@@ -6134,6 +6137,7 @@ studies:
     actors: []
     tags: ["PetitPotam", "CVE-2021-36942", "NTLM relay", "Active Directory", "AD CS"]
     pdf: "PetitPotam_CVE_2021_36942_Case_Study.pdf"
+    pptx: "PetitPotam_CVE_2021_36942_Case_Study.pptx"
     events:
       - {"date": "2021-07", "label": "PetitPotam authentication-coercion research draws attention to NTLM relay against AD CS"}
       - {"date": "2021-08-10", "label": "Microsoft issues KB5005413 and CVE-2021-36942, a partial correction for the unauthenticated call"}
@@ -6149,6 +6153,7 @@ studies:
     actors: []
     tags: ["BootHole", "CVE-2020-10713", "GRUB2", "Secure Boot", "UEFI"]
     pdf: "BootHole_CVE_2020_10713_Case_Study.pdf"
+    pptx: "BootHole_CVE_2020_10713_Case_Study.pptx"
     events:
       - {"date": "2020-07-29", "label": "BootHole (CVE-2020-10713) is disclosed; a GRUB2 parser flaw affects UEFI Secure Boot, requiring revocation not just patching"}
       - {"date": "2020-08", "label": "Distribution updates and a regression affecting Ubuntu and Red Hat follow"}
@@ -6164,6 +6169,7 @@ studies:
     actors: []
     tags: ["Exim", "CVE-2019-10149", "mail server", "remote code execution", "Linux"]
     pdf: "Exim_CVE_2019_10149_Case_Study.pdf"
+    pptx: "Exim_CVE_2019_10149_Case_Study.pptx"
     events:
       - {"date": "2019-06-05", "label": "Qualys discloses CVE-2019-10149 (Return of the WIZard) in Exim 4.87-4.91; the fix already shipped in 4.92"}
       - {"date": "2019-06", "label": "CERT-FR reports active exploitation; Microsoft confirms a worm using the flaw"}
@@ -6180,6 +6186,7 @@ studies:
     actors: []
     tags: ["MSHTML", "CVE-2021-40444", "Office", "remote code execution", "document trust"]
     pdf: "MSHTML_CVE_2021_40444_Case_Study.pdf"
+    pptx: "MSHTML_CVE_2021_40444_Case_Study.pptx"
     events:
       - {"date": "2021-09-07", "label": "Microsoft discloses CVE-2021-40444 (MSHTML) with interim mitigations amid active exploitation"}
       - {"date": "2021-09-14", "label": "September security updates correct the vulnerable component"}

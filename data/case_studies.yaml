@@ -2565,6 +2565,7 @@ studies:
     actors: []
     tags: ["nginx", "HTTP2", "reverse proxy", "memory corruption", "use-after-free", "AI-assisted discovery"]
     pdf: "nginx2root_2026_Case_Study.pdf"
+    pptx: "nginx2root_2026_Case_Study.pptx"
     events:
       - {"date": "2026-10-11", "label": "Xint finds the nginx flaws"}
       - {"date": "2026-10-16", "label": "Xint reports the flaws to F5 through HackerOne; Wiz and others report the HTTP/2 pair independently"}
@@ -2579,6 +2580,7 @@ studies:
     actors: []
     tags: ["Java", "OpenJDK", "Base64", "memory corruption", "heap overflow", "AI-assisted discovery"]
     pdf: "Java4Shell_CVE_2026_114938_Case_Study.pdf"
+    pptx: "Java4Shell_CVE_2026_114938_Case_Study.pptx"
     events:
       - {"date": "2026-11-17", "label": "Oracle ships the November 2026 Critical Patch Update fixing CVE-2026-114938; an OpenJDK advisory is published"}
       - {"date": "2026-11-17", "label": "Calif discloses Java4Shell with a technical write-up and a proof-of-concept trigger; CISA issues an alert urging immediate patching"}

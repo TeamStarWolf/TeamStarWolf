@@ -706,7 +706,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2022 <!-- {docsify-ignore} -->
 
-- [Dirty Pipe: When Read-Only Data Lost Its Integrity](/case-studies/DIRTY_PIPE_2022.md). Vulnerability, April 2021 to May 2022 (core: February to March 2022). Sectors: technology. CVEs: CVE-2022-0847. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Dirty_Pipe_2022_Case_Study.pdf).
+- [Dirty Pipe: When Read-Only Data Lost Its Integrity](/case-studies/DIRTY_PIPE_2022.md). Vulnerability, April 2021 to May 2022 (core: February to March 2022). Sectors: technology. CVEs: CVE-2022-0847. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Dirty_Pipe_2022_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Dirty_Pipe_2022_Case_Study.pptx).
   - 29 April 2021: First support ticket over repeated corruption in downloadable access logs (discoverer's timeline)
   - 19 February 2022: Max Kellermann recognizes the kernel vulnerability
   - 20 February 2022: Reported to the kernel security team
@@ -1210,7 +1210,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 November 2018: npm publishes its incident analysis; a Copay-specific wallet-targeting payload
   - 6 December 2018: Snyk publishes its post-mortem
   - 12 December 2018: BitPay confirms malicious code in Copay 5.0.2 to 5.1.0 and describes fixes
-- [Drupalgeddon2: The Difference Between a Patched Website and a Recovered Service](/case-studies/DRUPALGEDDON2_2018.md). Vulnerability, March to April 2018 (core: 2018). Sectors: technology. CVEs: CVE-2018-7600, CVE-2018-7602. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Drupalgeddon2_2018_Case_Study.pdf).
+- [Drupalgeddon2: The Difference Between a Patched Website and a Recovered Service](/case-studies/DRUPALGEDDON2_2018.md). Vulnerability, March to April 2018 (core: 2018). Sectors: technology. CVEs: CVE-2018-7600, CVE-2018-7602. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Drupalgeddon2_2018_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Drupalgeddon2_2018_Case_Study.pptx).
   - 21 March 2018: Drupal publishes advance notice of a highly critical fix
   - 28 March 2018: Drupal releases the CVE-2018-7600 correction
   - 13 April 2018: Automated exploitation of CVE-2018-7600 is widely observed
@@ -1323,7 +1323,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 23 February 2017: Google and CWI announce the first practical SHA-1 collision
   - 24 February 2017: NIST responds, noting SHA-1 deprecation since 2011 and disallowance since 2013
   - 20 March 2017: GitHub announces collision detection and explains Git's object boundary
-- [Struts CVE-2017-5638: The Error Path That Turned Request Data Into Execution](/case-studies/STRUTS_CVE_2017_5638.md). Vulnerability, March 2017 to 2017 (core: 2017). Sectors: technology. CVEs: CVE-2017-5638. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Struts_CVE_2017_5638_Case_Study.pdf).
+- [Struts CVE-2017-5638: The Error Path That Turned Request Data Into Execution](/case-studies/STRUTS_CVE_2017_5638.md). Vulnerability, March 2017 to 2017 (core: 2017). Sectors: technology. CVEs: CVE-2017-5638. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Struts_CVE_2017_5638_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Struts_CVE_2017_5638_Case_Study.pptx).
   - 6 March 2017: Apache publishes S2-045 for CVE-2017-5638 in the Jakarta Multipart parser
   - 20 March 2017: S2-046 documents an additional vector for the same flaw
 - [ROCA, 2017: A Key-Generation Flaw and the Work of Rebuilding Trust](/case-studies/ROCA_2017.md). Vulnerability, 2017 to 2018 (core: 2017). Sectors: technology, government. CVEs: CVE-2017-15361. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ROCA_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/ROCA_2017_Case_Study.pptx).
@@ -1375,7 +1375,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 21 September 2017: Avast corrects its earlier statement; second-stage delivery to 20 machines in eight organizations
   - 25 September 2017: Expanded records show 40 computers received a second-stage payload, with a 40-hour evidence gap
   - April 2018: Avast publishes its supplier-side access findings (initial access 11 March 2017)
-- [Broadpwn: The Wi-Fi Chip as a Security Boundary](/case-studies/BROADPWN_2017.md). Vulnerability, July 2017 to 2017 (core: 2017). Sectors: technology. CVEs: CVE-2017-9417. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Broadpwn_2017_Case_Study.pdf).
+- [Broadpwn: The Wi-Fi Chip as a Security Boundary](/case-studies/BROADPWN_2017.md). Vulnerability, July 2017 to 2017 (core: 2017). Sectors: technology. CVEs: CVE-2017-9417. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Broadpwn_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Broadpwn_2017_Case_Study.pptx).
   - 5 July 2017: The July Android security bulletin addresses CVE-2017-9417
   - 27 July 2017: Nitay Artenstein presents Broadpwn at Black Hat USA
 - [BlueBorne: Bluetooth Exposure Beyond the Pairing Prompt](/case-studies/BLUEBORNE_2017.md). Vulnerability, 2017. Sectors: technology. CVEs: CVE-2017-0781, CVE-2017-8628, CVE-2017-14315, CVE-2017-1000250, CVE-2017-1000251. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/BlueBorne_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/BlueBorne_2017_Case_Study.pptx).
@@ -1416,7 +1416,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 November 2017: WikiLeaks begins Vault 8 with source code for the CIA Hive tool
   - 13 July 2022: Joshua Schulte convicted on eight counts at retrial over the Vault 7 theft
   - 1 February 2024: Schulte sentenced to 40 years
-- [QuadRooter: Mobile Driver Trust, Scanner Evidence and the Last Mile of Patching](/case-studies/QUADROOTER_2016.md). Vulnerability, July to September 2016 (core: 2016). Sectors: technology. CVEs: CVE-2016-2503, CVE-2016-2504, CVE-2016-2059, CVE-2016-5340. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/QuadRooter_2016_Case_Study.pdf).
+- [QuadRooter: Mobile Driver Trust, Scanner Evidence and the Last Mile of Patching](/case-studies/QUADROOTER_2016.md). Vulnerability, July to September 2016 (core: 2016). Sectors: technology. CVEs: CVE-2016-2503, CVE-2016-2504, CVE-2016-2059, CVE-2016-5340. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/QuadRooter_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/QuadRooter_2016_Case_Study.pptx).
   - July 2016: The first supplier patch level addresses part of the QuadRooter set
   - August 2016: Check Point publicly discloses QuadRooter; a further patch level follows
   - September 2016: September Android bulletins provide three patch levels completing the set
@@ -1436,7 +1436,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 - [KeRanger 2016: A Signed Installer Crossed a Trusted Download Boundary](/case-studies/KERANGER_2016.md). Campaign, March 2016 (core: 2016). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/KeRanger_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/KeRanger_2016_Case_Study.pptx).
   - 4 March 2016: Malicious, signed Transmission installers for OS X carry KeRanger ransomware
   - 5 March 2016: Transmission and Apple respond; a removal update follows a misleading quiet period
-- [ImageTragick: When an Image Upload Crossed Into Command Execution](/case-studies/IMAGETRAGICK_2016.md). Vulnerability, May 2016 to 2016 (core: 2016). Sectors: technology. CVEs: CVE-2016-3714. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ImageTragick_2016_Case_Study.pdf).
+- [ImageTragick: When an Image Upload Crossed Into Command Execution](/case-studies/IMAGETRAGICK_2016.md). Vulnerability, May 2016 to 2016 (core: 2016). Sectors: technology. CVEs: CVE-2016-3714. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ImageTragick_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/ImageTragick_2016_Case_Study.pptx).
   - 3 May 2016: ImageTragick (CVE-2016-3714 and related issues) is publicly disclosed with mitigations
   - May 2016: ImageMagick updates and distribution packages follow
 - [DROWN: How an Obsolete Protocol Extended the Reach of a Shared Private Key](/case-studies/DROWN_2016.md). Vulnerability, 2016. Sectors: technology. CVEs: CVE-2015-3197, CVE-2016-0800. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DROWN_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/DROWN_2016_Case_Study.pptx).
@@ -1451,7 +1451,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - January 2019: Google announces a public DNS over TLS service for its resolver
   - October 2020: RFC 8932 gives operational and privacy guidance for DoT and DoH resolvers
   - July 2021: RFC 9076 updates DNS privacy considerations and retains resolver trust
-- [Dirty COW: A Kernel Race, a Broken Permission Boundary and the Work of Proving a Fix](/case-studies/DIRTY_COW_2016.md). Vulnerability, October to November 2016 (core: 2016). Sectors: technology. CVEs: CVE-2016-5195. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Dirty_COW_2016_Case_Study.pdf).
+- [Dirty COW: A Kernel Race, a Broken Permission Boundary and the Work of Proving a Fix](/case-studies/DIRTY_COW_2016.md). Vulnerability, October to November 2016 (core: 2016). Sectors: technology. CVEs: CVE-2016-5195. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Dirty_COW_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Dirty_COW_2016_Case_Study.pptx).
   - 19 October 2016: Dirty COW (CVE-2016-5195) is disclosed with evidence of in-the-wild use; Red Hat and others issue fixes
   - 20 October 2016: Distribution patches ship (Debian DSA-3696, Ubuntu USN-3104)
   - November 2016: Android's supplemental patch level addresses the kernel race
@@ -1506,7 +1506,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 2 February 2016: A trading update estimates a 15 million pound trading impact and about 95,000 attack-attributed customer losses
   - 5 October 2016: The ICO announces a 400,000 pound penalty under the Data Protection Act
   - 1 November 2016: The matter settles; a 320,000 pound early-payment amount is reported
-- [Stagefright: Media Parsing, Patch Completeness and Android's Trust Boundaries](/case-studies/STAGEFRIGHT_2015.md). Vulnerability, July 2015 to 2016 (core: 2015 to 2016). Sectors: technology. CVEs: CVE-2015-1538, CVE-2015-3864. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Stagefright_2015_Case_Study.pdf).
+- [Stagefright: Media Parsing, Patch Completeness and Android's Trust Boundaries](/case-studies/STAGEFRIGHT_2015.md). Vulnerability, July 2015 to 2016 (core: 2015 to 2016). Sectors: technology. CVEs: CVE-2015-1538, CVE-2015-3864. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Stagefright_2015_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Stagefright_2015_Case_Study.pptx).
   - 27 July 2015: Zimperium discloses the Stagefright media-parsing vulnerabilities in Android
   - August 2015: Android ships initial corrections; CVE-2015-3864 shows the first patch was incomplete
   - September 2015: A follow-up correction addresses the incomplete fix

@@ -82,6 +82,7 @@ studies:
     actors: []
     tags: ["healthcare", "data warehouse", "privileged access", "PHI", "data breach"]
     pdf: "Anthem_2015_Case_Study.pdf"
+    pptx: "Anthem_2015_Case_Study.pptx"
     events:
       - {"date": "2014-02-18", "label": "Phishing message to an Anthem subsidiary's employees (alleged)"}
       - {"date": "2014-05-13", "label": "Unauthorized Anthem access begins (alleged)"}
@@ -171,6 +172,7 @@ studies:
     actors: []
     tags: ["ransomware", "Bad Rabbit", "EternalRomance", "fake update", "lateral movement"]
     pdf: "Bad_Rabbit_2017_Case_Study.pdf"
+    pptx: "Bad_Rabbit_2017_Case_Study.pptx"
     events:
       - {"date": "2017-03-14", "label": "Microsoft publishes MS17-010, the SMB update that predates the outbreak"}
       - {"date": "2017-10-24", "label": "Bad Rabbit outbreak and the initial Kaspersky, Talos and ESET technical reports"}
@@ -239,6 +241,7 @@ studies:
     actors: []
     tags: ["RDP", "wormable", "legacy platforms", "patch verification", "remote services"]
     pdf: "BlueKeep_2019_Case_Study.pdf"
+    pptx: "BlueKeep_2019_Case_Study.pptx"
     events:
       - {"date": "2019-05-14", "label": "Microsoft discloses CVE-2019-0708 with exceptional legacy patches; no observed exploitation"}
       - {"date": "2019-06-04", "label": "NSA advisory on BlueKeep"}
@@ -308,6 +311,7 @@ studies:
     actors: []
     tags: ["cloud", "SSRF", "IMDS", "workload identity", "data breach"]
     pdf: "Capital_One_2019_Case_Study.pdf"
+    pptx: "Capital_One_2019_Case_Study.pptx"
     events:
       - {"date": "2019-03", "label": "Principal access window in the company's later disclosure"}
       - {"date": "2019-07", "label": "Outside report, company determination and public announcement of about 100 million US and 6 million Canada affected"}
@@ -1959,6 +1963,7 @@ studies:
     actors: []
     tags: ["ransomware", "DarkSide", "pipeline", "operational technology", "incident response"]
     pdf: "Colonial_Darkside_2021_Case_Study.pdf"
+    pptx: "Colonial_Darkside_2021_Case_Study.pptx"
     events:
       - {"date": "2021-04-29", "label": "Earliest identified VPN login with employee credentials on a legacy profile without MFA (investigator testimony)"}
       - {"date": "2021-05-07", "label": "Ransom note found in IT; employees shut down the pipeline; FBI notified"}
@@ -2157,6 +2162,7 @@ studies:
     actors: []
     tags: ["certificate authority", "PKI", "rogue certificates", "trust withdrawal", "continuity"]
     pdf: "DigiNotar_2011_Case_Study.pdf"
+    pptx: "DigiNotar_2011_Case_Study.pptx"
     events:
       - {"date": "2011-06-17", "label": "Earliest entry dated by the final forensic reconstruction"}
       - {"date": "2011-07-01", "label": "Intrusion reaches the protected network"}
@@ -2182,6 +2188,7 @@ studies:
     actors: []
     tags: ["Linux kernel", "Dirty Pipe", "privilege escalation", "pipe_buffer", "patch management"]
     pdf: "Dirty_Pipe_2022_Case_Study.pdf"
+    pptx: "Dirty_Pipe_2022_Case_Study.pptx"
     events:
       - {"date": "2021-04-29", "label": "First support ticket over repeated corruption in downloadable access logs (discoverer's timeline)"}
       - {"date": "2022-02-19", "label": "Max Kellermann recognizes the kernel vulnerability"}
@@ -2200,6 +2207,7 @@ studies:
     actors: []
     tags: ["DNS", "DoH", "RFC 8484", "resolver trust", "privacy"]
     pdf: "DNS_over_HTTPS_2018_Case_Study.pdf"
+    pptx: "DNS_over_HTTPS_2018_Case_Study.pptx"
     events:
       - {"date": "2018-10", "label": "RFC 8484 standardizes DNS queries and responses carried in HTTPS"}
       - {"date": "2020-02-25", "label": "Mozilla begins a by-default DoH rollout for US Firefox users with Cloudflare as default"}
@@ -2294,6 +2302,7 @@ studies:
     actors: []
     tags: ["Apache Struts", "patch management", "data breach", "detection health", "blast radius"]
     pdf: "Equifax_2017_Case_Study.pdf"
+    pptx: "Equifax_2017_Case_Study.pptx"
     events:
       - {"date": "2017-03", "label": "Apache S2-045 advisory for CVE-2017-5638 and historical fixed Struts versions available"}
       - {"date": "2017-05-13", "label": "Start of the intrusion in GAO's account"}
@@ -2314,6 +2323,7 @@ studies:
     actors: []
     tags: ["SMBv1", "EternalBlue", "patch assurance", "WannaCry", "NotPetya"]
     pdf: "EternalBlue_MS17_010_2017_Case_Study.pdf"
+    pptx: "EternalBlue_MS17_010_2017_Case_Study.pptx"
     events:
       - {"date": "2017-03-14", "label": "Microsoft publishes MS17-010"}
       - {"date": "2017-04-14", "label": "The Shadow Brokers release makes EternalBlue public"}
@@ -2670,6 +2680,7 @@ studies:
     actors: []
     tags: ["OpenSSL", "Heartbleed", "TLS", "certificate revocation", "memory disclosure"]
     pdf: "Heartbleed_2014_Case_Study.pdf"
+    pptx: "Heartbleed_2014_Case_Study.pptx"
     events:
       - {"date": "2014-04-01", "label": "Google's details and a patch reach OpenSSL participants (Cox's timeline)"}
       - {"date": "2014-04-07", "label": "OpenSSL publishes its advisory and the 1.0.1g fix for CVE-2014-0160"}
@@ -2920,6 +2931,7 @@ studies:
     actors: []
     tags: ["Wi-Fi", "WPA2", "key reinstallation", "coordinated disclosure", "endpoint patching"]
     pdf: "KRACK_2017_Case_Study.pdf"
+    pptx: "KRACK_2017_Case_Study.pptx"
     events:
       - {"date": "2017-07-14", "label": "Initial vendor notifications"}
       - {"date": "2017-08-28", "label": "Broader CERT/CC notification"}
@@ -3048,6 +3060,7 @@ studies:
     actors: []
     tags: ["acquisition security", "data breach", "SHA-1", "long dwell time", "data minimization"]
     pdf: "Marriott_Starwood_2018_Case_Study.pdf"
+    pptx: "Marriott_Starwood_2018_Case_Study.pptx"
     events:
       - {"date": "2014-07", "label": "The Starwood environment is compromised (FTC alleges)"}
       - {"date": "2016-09", "label": "Marriott's acquisition of Starwood closes"}
@@ -3096,6 +3109,7 @@ studies:
     actors: []
     tags: ["IoT", "botnet", "DDoS", "DNS", "availability"]
     pdf: "Mirai_Dyn_2016_Case_Study.pdf"
+    pptx: "Mirai_Dyn_2016_Case_Study.pptx"
     events:
       - {"date": "2016-08", "label": "Observation window of the published Mirai retrospective begins"}
       - {"date": "2016-09-20", "label": "Record DDoS against KrebsOnSecurity"}
@@ -3251,6 +3265,7 @@ studies:
     actors: []
     tags: ["wiper", "supply chain", "M.E.Doc", "EternalBlue", "attribution"]
     pdf: "NotPetya_2017_Case_Study.pdf"
+    pptx: "NotPetya_2017_Case_Study.pptx"
     events:
       - {"date": "2017-03-14", "label": "Microsoft publishes MS17-010"}
       - {"date": "2017-04-14", "label": "First backdoored M.E.Doc release identified by ESET"}
@@ -3322,6 +3337,7 @@ studies:
     actors: []
     tags: ["wiper", "false flag", "supplier access", "event disruption", "attribution"]
     pdf: "Olympic_Destroyer_2018_Case_Study.pdf"
+    pptx: "Olympic_Destroyer_2018_Case_Study.pptx"
     events:
       - {"date": "2017-12", "label": "Alleged preparation and intrusion period begins (per the later indictment)"}
       - {"date": "2018-02-09", "label": "Destructive deployment during the PyeongChang opening-ceremony period"}
@@ -3340,6 +3356,7 @@ studies:
     actors: []
     tags: ["espionage", "browser exploit", "Internet Explorer", "intellectual property", "attribution"]
     pdf: "Operation_Aurora_2010_Case_Study.pdf"
+    pptx: "Operation_Aurora_2010_Case_Study.pptx"
     events:
       - {"date": "2009-12", "label": "Detection period in Google's later statement"}
       - {"date": "2010-01-12", "label": "Google publicly discloses its findings"}
@@ -3359,6 +3376,7 @@ studies:
     actors: []
     tags: ["personnel records", "background investigations", "biometrics", "containment", "audit validation"]
     pdf: "OPM_2014_2015_Case_Study.pdf"
+    pptx: "OPM_2014_2015_Case_Study.pptx"
     events:
       - {"date": "2014-05", "label": "A second intrusion gains access with contractor credentials (per the House report)"}
       - {"date": "2014-07", "label": "Background-investigation data exfiltration (July to August 2014)"}
@@ -3568,6 +3586,7 @@ studies:
     actors: []
     tags: ["supplier compromise", "authentication", "SecurID", "token replacement", "APT"]
     pdf: "RSA_SecurID_2011_Case_Study.pdf"
+    pptx: "RSA_SecurID_2011_Case_Study.pptx"
     events:
       - {"date": "2011-03-17", "label": "RSA discloses an attack and extraction of SecurID-related information"}
       - {"date": "2011-05-21", "label": "Lockheed Martin detects a significant attack"}
@@ -3588,6 +3607,7 @@ studies:
     actors: []
     tags: ["ransomware", "Ryuk", "TrickBot", "healthcare", "business continuity"]
     pdf: "Ryuk_Healthcare_2020_Case_Study.pdf"
+    pptx: "Ryuk_Healthcare_2020_Case_Study.pptx"
     events:
       - {"date": "2020-01-29", "label": "Mandiant investigates activity later tracked as UNC1878"}
       - {"date": "2020-03-31", "label": "Mandiant publishes its actor-tracking account"}
@@ -3688,6 +3708,7 @@ studies:
     actors: []
     tags: ["SHA-1", "hash collision", "cryptographic migration", "Git", "Subversion"]
     pdf: "SHAttered_SHA1_2017_Case_Study.pdf"
+    pptx: "SHAttered_SHA1_2017_Case_Study.pptx"
     events:
       - {"date": "2017-02-23", "label": "Google and CWI announce the first practical SHA-1 collision"}
       - {"date": "2017-02-24", "label": "NIST responds, noting SHA-1 deprecation since 2011 and disallowance since 2013"}
@@ -3702,6 +3723,7 @@ studies:
     actors: []
     tags: ["Bash", "remote code execution", "CGI", "patch management", "incomplete fix"]
     pdf: "Shellshock_2014_Case_Study.pdf"
+    pptx: "Shellshock_2014_Case_Study.pptx"
     events:
       - {"date": "2014-09-24", "label": "Public disclosure (Weimer, oss-security), CVE-2014-6271; Twilio reports same-day upgrades"}
       - {"date": "2014-09-25", "label": "CERT/CC note; Ubuntu USN-2363-1 for the incomplete-fix CVE-2014-7169"}
@@ -3780,6 +3802,7 @@ studies:
     actors: []
     tags: ["wiper", "data theft", "coercion", "attribution", "business continuity"]
     pdf: "Sony_Pictures_2014_Case_Study.pdf"
+    pptx: "Sony_Pictures_2014_Case_Study.pptx"
     events:
       - {"date": "2014-11-24", "label": "Destructive system disruption at Sony Pictures"}
       - {"date": "2014-12-01", "label": "The company learns employee personal information may be compromised"}
@@ -3801,6 +3824,7 @@ studies:
     actors: []
     tags: ["speculative execution", "side channel", "KPTI", "coordinated disclosure", "mitigation"]
     pdf: "Spectre_Meltdown_2018_Case_Study.pdf"
+    pptx: "Spectre_Meltdown_2018_Case_Study.pptx"
     events:
       - {"date": "2017-06-01", "label": "Project Zero notifies Intel, AMD and ARM"}
       - {"date": "2018-01-03", "label": "Public disclosure by Project Zero and Google, ahead of the planned date"}
@@ -3900,6 +3924,7 @@ studies:
     actors: []
     tags: ["retail", "vendor access", "payment cards", "segmentation", "remediation coverage"]
     pdf: "Target_2013_Case_Study.pdf"
+    pptx: "Target_2013_Case_Study.pptx"
     events:
       - {"date": "2013-11-12", "label": "Vendor-credential access to a Target gateway (per the state investigation)"}
       - {"date": "2013-11-27", "label": "The payment-card theft window begins"}
@@ -4393,6 +4418,7 @@ studies:
     actors: []
     tags: ["data breach", "concealment", "bug bounty", "cloud secrets", "disclosure governance"]
     pdf: "Uber_2016_Case_Study.pdf"
+    pptx: "Uber_2016_Case_Study.pptx"
     events:
       - {"date": "2016-10", "label": "Intruders use stolen credentials to copy about 57 million user records"}
       - {"date": "2016-12", "label": "Uber pays $100,000 through a bounty program and obtains a deletion agreement"}
@@ -4416,6 +4442,7 @@ studies:
     actors: []
     tags: ["ransomware", "worm", "EternalBlue", "NHS", "patch management"]
     pdf: "WannaCry_2017_Case_Study.pdf"
+    pptx: "WannaCry_2017_Case_Study.pptx"
     events:
       - {"date": "2017-03-14", "label": "MS17-010 published, covering CVE-2017-0143 through CVE-2017-0148"}
       - {"date": "2017-03-17", "label": "The vulnerability is included in an NHS CareCERT weekly advisory"}
@@ -4522,6 +4549,7 @@ studies:
     actors: []
     tags: ["Active Directory", "Netlogon", "domain controller", "phased enforcement", "exceptions"]
     pdf: "Zerologon_2020_Case_Study.pdf"
+    pptx: "Zerologon_2020_Case_Study.pptx"
     events:
       - {"date": "2020-08-11", "label": "Microsoft's August phase enforces secure RPC for Windows accounts"}
       - {"date": "2020-09-16", "label": "CERT/CC VU#490028 describes the insecure AES-CFB8 IV"}
@@ -4603,6 +4631,7 @@ studies:
     actors: []
     tags: ["account breach", "session trust", "disclosure", "acquisition diligence", "identity data"]
     pdf: "Yahoo_2014_2016_Case_Study.pdf"
+    pptx: "Yahoo_2014_2016_Case_Study.pptx"
     events:
       - {"date": "2014", "label": "The 2014 intrusion occurs (disclosed in 2016)"}
       - {"date": "2016-09-22", "label": "Yahoo discloses the 2014 incident; about 500 million accounts"}
@@ -4620,6 +4649,7 @@ studies:
     actors: []
     tags: ["financial breach", "contact data", "fraud", "bulk access", "securities fraud"]
     pdf: "JPMorgan_Chase_2014_Case_Study.pdf"
+    pptx: "JPMorgan_Chase_2014_Case_Study.pptx"
     events:
       - {"date": "2014-06", "label": "Alleged intrusion window begins at Victim-1 (June to August 2014, per the 2015 indictment)"}
       - {"date": "2014-09-10", "label": "JPMorgan Chase makes its first disclosure (per the 10-Q)"}
@@ -4637,6 +4667,7 @@ studies:
     actors: []
     tags: ["payment cards", "point of sale", "vendor access", "PCI DSS", "EMV", "retail breach"]
     pdf: "Home_Depot_2014_Case_Study.pdf"
+    pptx: "Home_Depot_2014_Case_Study.pptx"
     events:
       - {"date": "2014-04-10", "label": "Start of the exposure window later identified by the New York attorney general (10 April to 13 September 2014)"}
       - {"date": "2014-09-02", "label": "Investigation begins after information from banking partners and law enforcement"}
@@ -4655,6 +4686,7 @@ studies:
     actors: []
     tags: ["data breach", "privacy", "sensitive data", "data retention", "deletion", "Impact Team"]
     pdf: "Ashley_Madison_2015_Case_Study.pdf"
+    pptx: "Ashley_Madison_2015_Case_Study.pptx"
     events:
       - {"date": "2014", "label": "Alleged unauthorized network access begins (late 2014 into early 2015, per the FTC complaint)"}
       - {"date": "2015-07-12", "label": "The company becomes aware; employees detect a large data transfer"}
@@ -4674,6 +4706,7 @@ studies:
     actors: []
     tags: ["data privacy", "consent", "Facebook", "data lineage", "FTC", "platform governance"]
     pdf: "Cambridge_Analytica_2018_Case_Study.pdf"
+    pptx: "Cambridge_Analytica_2018_Case_Study.pptx"
     events:
       - {"date": "2014", "label": "Graph API collection arrangements for app users' and friends' data (2014 to 2015, per the FTC complaint)"}
       - {"date": "2015", "label": "Facebook learns Kogan passed data to third parties; it removes the app and requests deletion certifications"}
@@ -4694,6 +4727,7 @@ studies:
     actors: []
     tags: ["supply chain", "code signing", "build integrity", "software distribution", "Piriform", "Avast"]
     pdf: "CCleaner_2017_Case_Study.pdf"
+    pptx: "CCleaner_2017_Case_Study.pptx"
     events:
       - {"date": "2017-03-11", "label": "Vendor later reports remote access to a developer workstation via TeamViewer"}
       - {"date": "2017-08-15", "label": "The compromised, validly signed CCleaner 5.33 release is distributed"}
@@ -4713,6 +4747,7 @@ studies:
     actors: []
     tags: ["credential theft", "account breach", "password reset", "marketplace", "employee credentials"]
     pdf: "eBay_2014_Case_Study.pdf"
+    pptx: "eBay_2014_Case_Study.pptx"
     events:
       - {"date": "2014-02", "label": "The authentication-database compromise window begins (late February to early March 2014)"}
       - {"date": "2014-05", "label": "eBay detects the employee-credential compromise (about two weeks before disclosure)"}
@@ -4731,6 +4766,7 @@ studies:
     actors: []
     tags: ["credential theft", "password storage", "account breach", "password reset", "Nikulin"]
     pdf: "LinkedIn_2012_2016_Case_Study.pdf"
+    pptx: "LinkedIn_2012_2016_Case_Study.pptx"
     events:
       - {"date": "2012-03", "label": "Charged LinkedIn intrusion window (about 3-4 March 2012, per the indictment)"}
       - {"date": "2012-06-06", "label": "LinkedIn learns of a published list of about 6.5 million passwords"}
@@ -4755,6 +4791,7 @@ studies:
     actors: []
     tags: ["credential theft", "password storage", "cloud storage", "account recovery", "Nikulin"]
     pdf: "Dropbox_2012_2016_Case_Study.pdf"
+    pptx: "Dropbox_2012_2016_Case_Study.pptx"
     events:
       - {"date": "2012-07-31", "label": "Dropbox discloses reused-credential account access and an employee document containing user email addresses"}
       - {"date": "2016-08-25", "label": "Dropbox confirms a genuine 2012 credential collection and resets unchanged pre-mid-2012 passwords"}
@@ -4772,6 +4809,7 @@ studies:
     actors: []
     tags: ["credential theft", "legacy data", "disputed date", "password storage", "disclosure"]
     pdf: "MySpace_2016_Case_Study.pdf"
+    pptx: "MySpace_2016_Case_Study.pptx"
     events:
       - {"date": "2016-05-31", "label": "Time Inc. announces that stolen legacy login data is circulating; user notices are sent"}
       - {"date": "2016-06-01", "label": "Troy Hunt's independent analysis estimates the data as roughly 2008-2009, with explicit uncertainty"}
@@ -4788,6 +4826,7 @@ studies:
     actors: []
     tags: ["SQL injection", "legacy systems", "data breach", "ICO", "acquisition security", "telecom"]
     pdf: "TalkTalk_2015_Case_Study.pdf"
+    pptx: "TalkTalk_2015_Case_Study.pptx"
     events:
       - {"date": "2015-07-17", "label": "An earlier, unaddressed injection attack occurs (also 2-3 September 2015)"}
       - {"date": "2015-10-15", "label": "The attack window begins (15 to 21 October), through three pages inherited from Tiscali in 2009"}
@@ -4806,6 +4845,7 @@ studies:
     actors: []
     tags: ["Magecart", "web skimming", "payment data", "supply chain", "GDPR", "client-side security"]
     pdf: "British_Airways_2018_Case_Study.pdf"
+    pptx: "British_Airways_2018_Case_Study.pptx"
     events:
       - {"date": "2018-06-22", "label": "The intrusion period begins (22 June to 5 September 2018, per the ICO)"}
       - {"date": "2018-08-21", "label": "The customer booking exposure window begins (21 August to 5 September)"}
@@ -4824,6 +4864,7 @@ studies:
     actors: []
     tags: ["supply chain", "CI/CD", "credential theft", "Bash Uploader", "build security"]
     pdf: "Codecov_2021_Case_Study.pdf"
+    pptx: "Codecov_2021_Case_Study.pptx"
     events:
       - {"date": "2021-01-31", "label": "Start of the reported period containing unauthorized Bash Uploader changes"}
       - {"date": "2021-04-01", "label": "A customer reports a checksum discrepancy; Codecov discovers and remediates"}
@@ -4842,6 +4883,7 @@ studies:
     actors: []
     tags: ["supply chain", "npm", "dependency", "Copay", "cryptocurrency wallet", "build security"]
     pdf: "event-stream_2018_Case_Study.pdf"
+    pptx: "event-stream_2018_Case_Study.pptx"
     events:
       - {"date": "2018-09-09", "label": "flatmap-stream is added as a dependency through event-stream 3.3.6"}
       - {"date": "2018-10-05", "label": "The malicious flatmap-stream 0.1.1 is published (per Snyk)"}
@@ -4860,6 +4902,7 @@ studies:
     actors: []
     tags: ["supply chain", "code signing", "ShadowPad", "backdoor", "software distribution", "build integrity"]
     pdf: "NetSarang_ShadowPad_2017_Case_Study.pdf"
+    pptx: "NetSarang_ShadowPad_2017_Case_Study.pptx"
     events:
       - {"date": "2017-07-18", "label": "NetSarang ships a release containing a backdoor in nssock2.dll (distributed to 4 August)"}
       - {"date": "2017-08-05", "label": "A clean update is released (per MyCERT)"}
@@ -4879,6 +4922,7 @@ studies:
     actors: []
     tags: ["botnet", "routers", "network devices", "VPNFilter", "takedown", "critical infrastructure"]
     pdf: "VPNFilter_2018_Case_Study.pdf"
+    pptx: "VPNFilter_2018_Case_Study.pptx"
     events:
       - {"date": "2018-05-08", "label": "Talos observes increases in Ukrainian victims (also 17 May)"}
       - {"date": "2018-05-23", "label": "Talos discloses VPNFilter (at least 500,000 devices, 54+ countries); DOJ announces the botnet disruption and domain seizure"}
@@ -4895,6 +4939,7 @@ studies:
     actors: ["G0045"]
     tags: ["managed service provider", "supply chain", "espionage", "APT10", "delegated access", "China"]
     pdf: "Cloud_Hopper_APT10_Case_Study.pdf"
+    pptx: "Cloud_Hopper_APT10_Case_Study.pptx"
     events:
       - {"date": "2014", "label": "The MSP-focused campaign begins (at least around 2014, per the indictment)"}
       - {"date": "2016", "label": "Research describes increased scale and MSP-focused activity (Cloud Hopper active since at least 2016 per the NCSC)"}
@@ -4910,6 +4955,7 @@ studies:
     actors: []
     tags: ["supply chain", "code signing", "ShadowHammer", "ASUS Live Update", "software distribution", "selective targeting"]
     pdf: "ASUS_ShadowHammer_2019_Case_Study.pdf"
+    pptx: "ASUS_ShadowHammer_2019_Case_Study.pptx"
     events:
       - {"date": "2018-06", "label": "The observed ASUS Live Update campaign period (June to November 2018)"}
       - {"date": "2019-01", "label": "Kaspersky discovers the campaign"}
@@ -4929,6 +4975,7 @@ studies:
     actors: []
     tags: ["TLS", "SSL 3.0", "POODLE", "downgrade attack", "padding oracle", "protocol deprecation"]
     pdf: "POODLE_2014_Case_Study.pdf"
+    pptx: "POODLE_2014_Case_Study.pptx"
     events:
       - {"date": "2014-10-14", "label": "Public disclosure of POODLE (SSL 3.0, CVE-2014-3566); Mozilla and Google announce browser responses; Cloudflare disables SSL 3.0 by default"}
       - {"date": "2014-10-15", "label": "OpenSSL publishes TLS_FALLBACK_SCSV support and a separate build-option fix (CVE-2014-3568)"}
@@ -4949,6 +4996,7 @@ studies:
     actors: []
     tags: ["TLS", "export cryptography", "FREAK", "downgrade attack", "RSA", "state machine"]
     pdf: "FREAK_2015_Case_Study.pdf"
+    pptx: "FREAK_2015_Case_Study.pptx"
     events:
       - {"date": "2014-10-22", "label": "Karthikeyan Bhargavan privately reports the client flaw to OpenSSL"}
       - {"date": "2015-01-08", "label": "OpenSSL publishes the CVE-2015-0204 correction and branch releases"}
@@ -4968,6 +5016,7 @@ studies:
     actors: []
     tags: ["TLS", "Diffie-Hellman", "Logjam", "export cryptography", "forward secrecy", "downgrade attack"]
     pdf: "Logjam_2015_Case_Study.pdf"
+    pptx: "Logjam_2015_Case_Study.pptx"
     events:
       - {"date": "2015-05-20", "label": "Public disclosure of Logjam; OpenSSL announces its response plan"}
       - {"date": "2015-06-11", "label": "OpenSSL ships a client floor rejecting Diffie-Hellman groups below 768 bits (CVE-2015-4000)"}
@@ -4985,6 +5034,7 @@ studies:
     actors: []
     tags: ["TLS", "SSLv2", "DROWN", "key reuse", "cross-protocol attack", "protocol deprecation"]
     pdf: "DROWN_2016_Case_Study.pdf"
+    pptx: "DROWN_2016_Case_Study.pptx"
     events:
       - {"date": "2011-03", "label": "RFC 6176 prohibits negotiating SSL 2.0"}
       - {"date": "2016-03-01", "label": "Public disclosure of DROWN (CVE-2016-0800); OpenSSL ships 1.0.2g/1.0.1s disabling SSLv2 by default; CERT/CC note VU#583776"}
@@ -5002,6 +5052,7 @@ studies:
     actors: []
     tags: ["RSA", "key generation", "ROCA", "Infineon", "smart cards", "Estonia eID", "YubiKey"]
     pdf: "ROCA_2017_Case_Study.pdf"
+    pptx: "ROCA_2017_Case_Study.pptx"
     events:
       - {"date": "2017-02-01", "label": "Researchers notify Infineon"}
       - {"date": "2017-06-06", "label": "Yubico ships YubiKey 4 firmware 4.3.5 with a changed RSA generation path"}
@@ -5019,6 +5070,7 @@ studies:
     actors: []
     tags: ["Bluetooth", "BlueBorne", "remote code execution", "memory safety", "BlueZ", "mobile security"]
     pdf: "BlueBorne_2017_Case_Study.pdf"
+    pptx: "BlueBorne_2017_Case_Study.pptx"
     events:
       - {"date": "2017-09-12", "label": "Public disclosure of BlueBorne (Armis); CERT/CC note VU#240311; Android bulletin and Ubuntu BlueZ (USN-3413-1) updates"}
       - {"date": "2017-09-18", "label": "Ubuntu ships the kernel fix (USN-3420-1) for CVE-2017-1000251"}
@@ -5033,6 +5085,7 @@ studies:
     actors: []
     tags: ["ransomware", "SamSam", "municipal", "public sector", "recovery", "Atlanta"]
     pdf: "Atlanta_SamSam_2018_Case_Study.pdf"
+    pptx: "Atlanta_SamSam_2018_Case_Study.pptx"
     events:
       - {"date": "2018-03-10", "label": "The Atlanta intrusion and encryption activity window (about 10-22 March 2018, per the federal account)"}
       - {"date": "2018-03-22", "label": "Major operational disruption; the city does not pay the ~$51,000 demand"}
@@ -5051,6 +5104,7 @@ studies:
     actors: []
     tags: ["ransomware", "LockerGoga", "manufacturing", "OT", "business continuity", "Norsk Hydro"]
     pdf: "Norsk_Hydro_LockerGoga_2019_Case_Study.pdf"
+    pptx: "Norsk_Hydro_LockerGoga_2019_Case_Study.pptx"
     events:
       - {"date": "2018-12", "label": "A malicious attachment establishes an initial foothold (per Microsoft's later responder account)"}
       - {"date": "2019-03-19", "label": "Hydro discloses the attack; plants isolated and moved to manual operation where possible"}
@@ -5068,6 +5122,7 @@ studies:
     actors: []
     tags: ["ransomware", "WastedLocker", "connected services", "outage", "business continuity", "Garmin"]
     pdf: "Garmin_WastedLocker_2020_Case_Study.pdf"
+    pptx: "Garmin_WastedLocker_2020_Case_Study.pptx"
     events:
       - {"date": "2020-06-25", "label": "Symantec reports the WastedLocker campaign (at least 31 organizations), predating the Garmin outage"}
       - {"date": "2020-07-23", "label": "Garmin says some systems were encrypted and online services interrupted"}
@@ -5086,6 +5141,7 @@ studies:
     actors: []
     tags: ["ransomware", "RobbinHood", "municipal", "public sector", "business continuity", "Baltimore"]
     pdf: "Baltimore_RobbinHood_2019_Case_Study.pdf"
+    pptx: "Baltimore_RobbinHood_2019_Case_Study.pptx"
     events:
       - {"date": "2019-05-07", "label": "The RobbinHood attack is discovered; systems taken offline for containment"}
       - {"date": "2019-05-17", "label": "The city describes containment, manual alternatives and a temporary property-transaction process"}
@@ -5105,6 +5161,7 @@ studies:
     actors: []
     tags: ["ransomware", "Maze", "double extortion", "data theft", "service provider", "Cognizant"]
     pdf: "Maze_2019_2020_Case_Study.pdf"
+    pptx: "Maze_2019_2020_Case_Study.pptx"
     events:
       - {"date": "2019-05", "label": "Maze activity observed from at least May 2019 (per Mandiant); shift to post-intrusion deployment and double extortion"}
       - {"date": "2020-04-18", "label": "Cognizant confirms a Maze incident affecting internal systems and some client services"}
@@ -5123,6 +5180,7 @@ studies:
     actors: []
     tags: ["ransomware", "Sodinokibi", "REvil", "business continuity", "financial services", "Travelex"]
     pdf: "Travelex_2020_Case_Study.pdf"
+    pptx: "Travelex_2020_Case_Study.pptx"
     events:
       - {"date": "2019-12-31", "label": "Travelex detects the Sodinokibi (REvil) ransomware and takes systems offline"}
       - {"date": "2020-01-08", "label": "Finablr discloses the incident; no evidence at that time of data exfiltration or encryption of structured personal data"}
@@ -5142,6 +5200,7 @@ studies:
     actors: []
     tags: ["data breach", "guest data", "developer access", "MGM", "notification", "cloud"]
     pdf: "MGM_2019_Case_Study.pdf"
+    pptx: "MGM_2019_Case_Study.pptx"
     events:
       - {"date": "2019-07-07", "label": "Reused employee credentials open a developer platform; an MFA bypass and a temporary token enable about an hour of cloud-database access and exfiltration"}
       - {"date": "2019-07-24", "label": "MGM buys a copy of the data after law-enforcement consultation"}
@@ -5162,6 +5221,7 @@ studies:
     actors: []
     tags: ["data breach", "telecom", "lab access", "customer records", "T-Mobile", "notification"]
     pdf: "T-Mobile_2021_Case_Study.pdf"
+    pptx: "T-Mobile_2021_Case_Study.pptx"
     events:
       - {"date": "2021-03-18", "label": "Initial access to some systems (per the later SEC filing)"}
       - {"date": "2021-08-03", "label": "Access to and taking of customer data begins (per the SEC filing)"}
@@ -5182,6 +5242,7 @@ studies:
     actors: []
     tags: ["data breach", "source code", "configuration", "Twitch", "stream keys", "confidentiality"]
     pdf: "Twitch_2021_Case_Study.pdf"
+    pptx: "Twitch_2021_Case_Study.pptx"
     events:
       - {"date": "2021-10-06", "label": "Twitch attributes exposure to an erroneous server-configuration change and malicious third-party access; no indication of exposed login credentials"}
       - {"date": "2021-10-07", "label": "Twitch precautionarily replaces all stream keys"}
@@ -5199,6 +5260,7 @@ studies:
     actors: []
     tags: ["data breach", "password storage", "bcrypt", "Canva", "breach communication", "credential exposure"]
     pdf: "Canva_2019_2020_Case_Study.pdf"
+    pptx: "Canva_2019_2020_Case_Study.pptx"
     events:
       - {"date": "2019-05-24", "label": "Canva interrupts an attack; later reports up to 139 million profiles and bcrypt-protected passwords exposed"}
       - {"date": "2019-08-09", "label": "The collection is added to Have I Been Pwned (about 137 million addresses)"}
@@ -5217,6 +5279,7 @@ studies:
     actors: []
     tags: ["data breach", "aviation", "passenger data", "data retention", "ICO", "migration"]
     pdf: "Cathay_Pacific_2018_Case_Study.pdf"
+    pptx: "Cathay_Pacific_2018_Case_Study.pptx"
     events:
       - {"date": "2014-10", "label": "The earliest known compromise (per the later ICO chronology)"}
       - {"date": "2018-03", "label": "Suspicious activity is discovered"}
@@ -5236,6 +5299,7 @@ studies:
     actors: []
     tags: ["data breach", "cryptocurrency", "phishing", "Ledger", "Shopify", "customer data"]
     pdf: "Ledger_2020_Case_Study.pdf"
+    pptx: "Ledger_2020_Case_Study.pptx"
     events:
       - {"date": "2020-06-25", "label": "Unauthorized commerce-data access through an API key (identified later)"}
       - {"date": "2020-07-29", "label": "Ledger discloses the breach: about one million email addresses and ~9,500 detailed records"}
@@ -5255,6 +5319,7 @@ studies:
     actors: []
     tags: ["TLS 1.3", "RFC 8446", "forward secrecy", "0-RTT", "early data"]
     pdf: "TLS_1_3_2018_Case_Study.pdf"
+    pptx: "TLS_1_3_2018_Case_Study.pptx"
     events:
       - {"date": "2018-08", "label": "RFC 8446 publishes TLS 1.3, removing legacy options and reorganizing the handshake"}
       - {"date": "2018-09", "label": "RFC 8470 defines how servers handle HTTP early data sent in 0-RTT"}
@@ -5274,6 +5339,7 @@ studies:
     actors: []
     tags: ["WebAuthn", "FIDO2", "passkeys", "phishing resistance", "authentication"]
     pdf: "WebAuthn_2019_Case_Study.pdf"
+    pptx: "WebAuthn_2019_Case_Study.pptx"
     events:
       - {"date": "2019-03-04", "label": "W3C publishes WebAuthn Level 1 as a Recommendation, a public-key authentication API"}
       - {"date": "2022-05-05", "label": "FIDO Alliance, Apple, Google and Microsoft announce expanded cross-device passkey support"}
@@ -5289,6 +5355,7 @@ studies:
     actors: []
     tags: ["DNS", "DoT", "RFC 7858", "resolver trust", "privacy"]
     pdf: "DNS_over_TLS_2016_Case_Study.pdf"
+    pptx: "DNS_over_TLS_2016_Case_Study.pptx"
     events:
       - {"date": "2016-05", "label": "RFC 7858 specifies DNS over TLS on a dedicated TCP port 853"}
       - {"date": "2018-03", "label": "RFC 8310 adds authentication profiles and usage guidance for DoT"}
@@ -5308,6 +5375,7 @@ studies:
     actors: []
     tags: ["QUIC", "RFC 9000", "HTTP/3", "transport security", "0-RTT"]
     pdf: "QUIC_2021_Case_Study.pdf"
+    pptx: "QUIC_2021_Case_Study.pptx"
     events:
       - {"date": "2017-08", "label": "A SIGCOMM paper describes Google's pre-IETF QUIC design and deployment"}
       - {"date": "2020-10", "label": "A browser documents a QUIC rollout before final RFC publication"}
@@ -5326,6 +5394,7 @@ studies:
     actors: []
     tags: ["Certificate Transparency", "CT", "RFC 6962", "RFC 9162", "Web PKI"]
     pdf: "Certificate_Transparency_2013_2021_Case_Study.pdf"
+    pptx: "Certificate_Transparency_2013_2021_Case_Study.pptx"
     events:
       - {"date": "2013-06", "label": "RFC 6962 specifies Certificate Transparency, publishing issuance to append-only logs"}
       - {"date": "2021-12", "label": "RFC 9162 publishes CT version 2.0 (Experimental), obsoleting RFC 6962"}
@@ -5341,6 +5410,7 @@ studies:
     actors: []
     tags: ["Let's Encrypt", "ACME", "RFC 8555", "Web PKI", "certificate automation"]
     pdf: "Lets_Encrypt_ACME_2014_2021_Case_Study.pdf"
+    pptx: "Lets_Encrypt_ACME_2014_2021_Case_Study.pptx"
     events:
       - {"date": "2014-11", "label": "The Let's Encrypt initiative is announced as a free, automated certificate authority"}
       - {"date": "2015-06", "label": "Root and intermediate keys are generated"}
@@ -5363,6 +5433,7 @@ studies:
     actors: []
     tags: ["Citrix ADC", "CVE-2019-19781", "path traversal", "edge device", "NOTROBIN"]
     pdf: "Citrix_CVE_2019_19781_Case_Study.pdf"
+    pptx: "Citrix_CVE_2019_19781_Case_Study.pptx"
     events:
       - {"date": "2019-12-17", "label": "Citrix discloses CVE-2019-19781 and publishes interim mitigation guidance (CTX267679)"}
       - {"date": "2020-01-08", "label": "Exposure measurements and public tooling appear; CERT/CC narrows the technical findings"}
@@ -5383,6 +5454,7 @@ studies:
     actors: []
     tags: ["Pulse Connect Secure", "CVE-2019-11510", "VPN", "credential theft", "file disclosure"]
     pdf: "Pulse_Secure_CVE_2019_11510_Case_Study.pdf"
+    pptx: "Pulse_Secure_CVE_2019_11510_Case_Study.pptx"
     events:
       - {"date": "2019-04-24", "label": "Pulse Secure publishes advisory SA44101 for CVE-2019-11510 and related issues"}
       - {"date": "2019-08", "label": "Public technical details and mass scanning follow"}
@@ -5402,6 +5474,7 @@ studies:
     actors: []
     tags: ["F5 BIG-IP", "CVE-2020-5902", "TMUI", "management plane", "remote code execution"]
     pdf: "F5_BIG-IP_CVE_2020_5902_Case_Study.pdf"
+    pptx: "F5_BIG-IP_CVE_2020_5902_Case_Study.pptx"
     events:
       - {"date": "2020-06-30", "label": "F5 discloses CVE-2020-5902 in the TMUI management interface and urges mitigation"}
       - {"date": "2020-07-05", "label": "Scan evidence is published, with explicit limits"}
@@ -5420,6 +5493,7 @@ studies:
     actors: []
     tags: ["SMBv3", "CVE-2020-0796", "compression", "wormable", "Windows"]
     pdf: "SMBGhost_CVE_2020_0796_Case_Study.pdf"
+    pptx: "SMBGhost_CVE_2020_0796_Case_Study.pptx"
     events:
       - {"date": "2020-03-10", "label": "Details of CVE-2020-0796 in SMB 3.1.1 appear ahead of a patch"}
       - {"date": "2020-03-12", "label": "Microsoft releases KB4551762 to fix the compression flaw"}
@@ -5436,6 +5510,7 @@ studies:
     actors: []
     tags: ["Windows DNS Server", "CVE-2020-1350", "wormable", "DNS", "emergency directive"]
     pdf: "SIGRed_CVE_2020_1350_Case_Study.pdf"
+    pptx: "SIGRed_CVE_2020_1350_Case_Study.pptx"
     events:
       - {"date": "2020-07-14", "label": "Microsoft patches CVE-2020-1350 and offers a registry size workaround; Check Point publishes the research"}
       - {"date": "2020-07-16", "label": "CISA Emergency Directive 20-03 mandates mitigation and reporting"}
@@ -5451,6 +5526,7 @@ studies:
     actors: []
     tags: ["Print Spooler", "CVE-2021-34527", "CVE-2021-1675", "privilege escalation", "Windows"]
     pdf: "PrintNightmare_CVE_2021_34527_Case_Study.pdf"
+    pptx: "PrintNightmare_CVE_2021_34527_Case_Study.pptx"
     events:
       - {"date": "2021-06-08", "label": "CVE-2021-1675 is addressed as a Print Spooler elevation-of-privilege issue"}
       - {"date": "2021-06-21", "label": "The issue is reclassified to remote code execution"}
@@ -5469,6 +5545,7 @@ studies:
     actors: []
     tags: ["ransomware", "Locky", "email distribution", "downloader", "exploit kit"]
     pdf: "Locky_2016_Case_Study.pdf"
+    pptx: "Locky_2016_Case_Study.pptx"
     events:
       - {"date": "2016-02-16", "label": "Locky distribution is first widely reported via malicious document attachments"}
       - {"date": "2016-03-31", "label": "Reporting describes a shift to script attachments and intermediate downloaders (RockLoader)"}
@@ -5485,6 +5562,7 @@ studies:
     actors: []
     tags: ["ransomware", "Cerber", "ransomware-as-a-service", "affiliate", "decryptor"]
     pdf: "Cerber_2016_2017_Case_Study.pdf"
+    pptx: "Cerber_2016_2017_Case_Study.pptx"
     events:
       - {"date": "2016-03", "label": "Cerber ransomware-as-a-service distribution is observed"}
       - {"date": "2016-07", "label": "Check Point describes the CerberRing affiliate operation"}
@@ -5504,6 +5582,7 @@ studies:
     actors: []
     tags: ["ransomware", "GandCrab", "affiliate", "decryptor", "No More Ransom"]
     pdf: "GandCrab_2018_2019_Case_Study.pdf"
+    pptx: "GandCrab_2018_2019_Case_Study.pptx"
     events:
       - {"date": "2018-01", "label": "GandCrab affiliate ransomware operations begin"}
       - {"date": "2018-02-28", "label": "An early decryptor is released through No More Ransom"}
@@ -5524,6 +5603,7 @@ studies:
     actors: []
     tags: ["ransomware", "Egregor", "double extortion", "affiliate migration", "law enforcement"]
     pdf: "Egregor_2020_2021_Case_Study.pdf"
+    pptx: "Egregor_2020_2021_Case_Study.pptx"
     events:
       - {"date": "2020-09", "label": "Egregor activity emerges, linked to affiliate migration from Maze"}
       - {"date": "2020-11-20", "label": "The FBI issues a warning describing Egregor activity"}
@@ -5543,6 +5623,7 @@ studies:
     actors: []
     tags: ["ransomware", "DoppelPaymer", "BitPaymer", "healthcare", "double extortion"]
     pdf: "DoppelPaymer_2019_2021_Case_Study.pdf"
+    pptx: "DoppelPaymer_2019_2021_Case_Study.pptx"
     events:
       - {"date": "2019", "label": "DoppelPaymer emerges as a code fork linked to the BitPaymer lineage"}
       - {"date": "2020-09-10", "label": "A ransomware outage disrupts services at a German hospital (causation later qualified)"}
@@ -5561,6 +5642,7 @@ studies:
     actors: []
     tags: ["ransomware", "Avaddon", "double extortion", "decryptor", "shutdown"]
     pdf: "Avaddon_2020_2021_Case_Study.pdf"
+    pptx: "Avaddon_2020_2021_Case_Study.pptx"
     events:
       - {"date": "2020-06-25", "label": "Avaddon email campaigns make the ransomware visible at scale"}
       - {"date": "2021-01", "label": "Official warnings describe encryption and extortion, with incompatible origin dates noted"}
@@ -5581,6 +5663,7 @@ studies:
     actors: []
     tags: ["data breach", "Quora", "password hashes", "litigation", "evidence"]
     pdf: "Quora_2018_Case_Study.pdf"
+    pptx: "Quora_2018_Case_Study.pptx"
     events:
       - {"date": "2018-11-30", "label": "Quora discovers unauthorized access to its systems"}
       - {"date": "2018-12-03", "label": "Quora discloses the breach; reporting estimates about 100 million users affected"}
@@ -5600,6 +5683,7 @@ studies:
     actors: []
     tags: ["data breach", "Zynga", "credentials", "notification", "court record"]
     pdf: "Zynga_2019_Case_Study.pdf"
+    pptx: "Zynga_2019_Case_Study.pptx"
     events:
       - {"date": "2019-09", "label": "Zynga discloses a breach of player account data; a breach-index entry follows"}
       - {"date": "2021-01-06", "label": "An early ruling finds evidence of arbitration assent missing"}
@@ -5618,6 +5702,7 @@ studies:
     actors: []
     tags: ["data breach", "DoorDash", "third-party vendor", "supply chain", "notification"]
     pdf: "DoorDash_2019_Case_Study.pdf"
+    pptx: "DoorDash_2019_Case_Study.pptx"
     events:
       - {"date": "2019-05", "label": "Unauthorized access through a third party reaches historical DoorDash data"}
       - {"date": "2019-09-26", "label": "DoorDash discloses the May 2019 breach affecting about 4.9 million people"}
@@ -5634,6 +5719,7 @@ studies:
     actors: []
     tags: ["data breach", "Robinhood", "social engineering", "support access", "extortion"]
     pdf: "Robinhood_2021_Case_Study.pdf"
+    pptx: "Robinhood_2021_Case_Study.pptx"
     events:
       - {"date": "2021-11-03", "label": "A social-engineering call to support exposes customer information"}
       - {"date": "2021-11-08", "label": "Robinhood discloses the incident, citing roughly 7 million customers affected"}
@@ -5652,6 +5738,7 @@ studies:
     actors: []
     tags: ["FTC", "Zoom", "encryption claims", "consent order", "accountability"]
     pdf: "Zoom_FTC_2020_Case_Study.pdf"
+    pptx: "Zoom_FTC_2020_Case_Study.pptx"
     events:
       - {"date": "2020-04-03", "label": "Citizen Lab research questions Zoom's encryption claims"}
       - {"date": "2020-10-26", "label": "Zoom announces an end-to-end encryption technical preview"}
@@ -5670,6 +5757,7 @@ studies:
     actors: []
     tags: ["data exposure", "Panera", "vulnerability disclosure", "API", "web application"]
     pdf: "Panera_2017_2018_Case_Study.pdf"
+    pptx: "Panera_2017_2018_Case_Study.pptx"
     events:
       - {"date": "2017-08", "label": "A researcher reports readable customer data to Panera"}
       - {"date": "2018-04-02", "label": "Brian Krebs publishes the exposure after months without a fix"}
@@ -5688,6 +5776,7 @@ studies:
     actors: []
     tags: ["Stagefright", "Android", "media parsing", "patch completeness", "mobile"]
     pdf: "Stagefright_2015_Case_Study.pdf"
+    pptx: "Stagefright_2015_Case_Study.pptx"
     events:
       - {"date": "2015-07-27", "label": "Zimperium discloses the Stagefright media-parsing vulnerabilities in Android"}
       - {"date": "2015-08", "label": "Android ships initial corrections; CVE-2015-3864 shows the first patch was incomplete"}
@@ -5706,6 +5795,7 @@ studies:
     actors: []
     tags: ["QuadRooter", "Android", "Qualcomm drivers", "mobile", "patching"]
     pdf: "QuadRooter_2016_Case_Study.pdf"
+    pptx: "QuadRooter_2016_Case_Study.pptx"
     events:
       - {"date": "2016-07", "label": "The first supplier patch level addresses part of the QuadRooter set"}
       - {"date": "2016-08", "label": "Check Point publicly discloses QuadRooter; a further patch level follows"}
@@ -5722,6 +5812,7 @@ studies:
     actors: []
     tags: ["Broadpwn", "Wi-Fi", "Broadcom", "firmware", "mobile"]
     pdf: "Broadpwn_2017_Case_Study.pdf"
+    pptx: "Broadpwn_2017_Case_Study.pptx"
     events:
       - {"date": "2017-07-05", "label": "The July Android security bulletin addresses CVE-2017-9417"}
       - {"date": "2017-07-27", "label": "Nitay Artenstein presents Broadpwn at Black Hat USA"}
@@ -5737,6 +5828,7 @@ studies:
     actors: []
     tags: ["Dirty COW", "Linux kernel", "race condition", "privilege escalation", "patching"]
     pdf: "Dirty_COW_2016_Case_Study.pdf"
+    pptx: "Dirty_COW_2016_Case_Study.pptx"
     events:
       - {"date": "2016-10-19", "label": "Dirty COW (CVE-2016-5195) is disclosed with evidence of in-the-wild use; Red Hat and others issue fixes"}
       - {"date": "2016-10-20", "label": "Distribution patches ship (Debian DSA-3696, Ubuntu USN-3104)"}
@@ -5753,6 +5845,7 @@ studies:
     actors: []
     tags: ["ImageTragick", "ImageMagick", "image processing", "remote code execution", "web application"]
     pdf: "ImageTragick_2016_Case_Study.pdf"
+    pptx: "ImageTragick_2016_Case_Study.pptx"
     events:
       - {"date": "2016-05-03", "label": "ImageTragick (CVE-2016-3714 and related issues) is publicly disclosed with mitigations"}
       - {"date": "2016-05", "label": "ImageMagick updates and distribution packages follow"}
@@ -5768,6 +5861,7 @@ studies:
     actors: []
     tags: ["Drupalgeddon2", "Drupal", "web application", "remote code execution", "patching"]
     pdf: "Drupalgeddon2_2018_Case_Study.pdf"
+    pptx: "Drupalgeddon2_2018_Case_Study.pptx"
     events:
       - {"date": "2018-03-21", "label": "Drupal publishes advance notice of a highly critical fix"}
       - {"date": "2018-03-28", "label": "Drupal releases the CVE-2018-7600 correction"}
@@ -5785,6 +5879,7 @@ studies:
     actors: []
     tags: ["ransomware", "ProLock", "PwndLocker", "decryptor", "double extortion"]
     pdf: "ProLock_2020_Case_Study.pdf"
+    pptx: "ProLock_2020_Case_Study.pptx"
     events:
       - {"date": "2020-03", "label": "PwndLocker gives way to ProLock across multiple intrusion paths"}
       - {"date": "2020-05", "label": "A Diebold Nixdorf operational disruption is reported, without an ATM-malware claim"}
@@ -5803,6 +5898,7 @@ studies:
     actors: []
     tags: ["QakBot", "Qbot", "banking trojan", "access broker", "email thread hijacking"]
     pdf: "QakBot_2020_2021_Case_Study.pdf"
+    pptx: "QakBot_2020_2021_Case_Study.pptx"
     events:
       - {"date": "2020-06", "label": "A captured document shows QakBot activity with missing delivery evidence"}
       - {"date": "2020-07-17", "label": "Emotet returns to observed QakBot email distribution"}
@@ -5822,6 +5918,7 @@ studies:
     actors: []
     tags: ["ransomware", "Ragnar Locker", "virtual machine", "defense evasion", "double extortion"]
     pdf: "Ragnar_Locker_2020_Case_Study.pdf"
+    pptx: "Ragnar_Locker_2020_Case_Study.pptx"
     events:
       - {"date": "2020", "label": "Ragnar Locker is observed deploying ransomware inside a virtual machine to evade host defenses"}
       - {"date": "2020-11", "label": "An FBI FLASH documents a later observation window"}
@@ -5838,6 +5935,7 @@ studies:
     actors: []
     tags: ["ransomware", "local government", "managed service provider", "coordinated response", "REvil"]
     pdf: "Texas_Municipal_Ransomware_2019_Case_Study.pdf"
+    pptx: "Texas_Municipal_Ransomware_2019_Case_Study.pptx"
     events:
       - {"date": "2019-08-16", "label": "A coordinated ransomware attack hits about 22 Texas local governments through a shared service provider"}
       - {"date": "2019-08", "label": "Texas DIR coordinates a statewide response"}
@@ -5854,6 +5952,7 @@ studies:
     actors: []
     tags: ["ransomware", "NetWalker", "research data", "ransom payment", "privacy"]
     pdf: "UCSF_NetWalker_2020_Case_Study.pdf"
+    pptx: "UCSF_NetWalker_2020_Case_Study.pptx"
     events:
       - {"date": "2020-06-01", "label": "UCSF detects a NetWalker ransomware intrusion affecting its School of Medicine"}
       - {"date": "2020-06-29", "label": "UCSF discloses that it paid about $1.14 million for a decryption tool"}
@@ -5870,6 +5969,7 @@ studies:
     actors: []
     tags: ["Dridex", "Evil Corp", "banking trojan", "law enforcement", "sanctions"]
     pdf: "Dridex_Enforcement_2019_Case_Study.pdf"
+    pptx: "Dridex_Enforcement_2019_Case_Study.pptx"
     events:
       - {"date": "2015-10", "label": "A disruption and an arrest occur as different events in the Dridex operation"}
       - {"date": "2017-02", "label": "A guilty plea is entered"}
@@ -5887,6 +5987,7 @@ studies:
     actors: []
     tags: ["XcodeGhost", "supply chain", "iOS", "build tool", "App Store"]
     pdf: "XcodeGhost_2015_Case_Study.pdf"
+    pptx: "XcodeGhost_2015_Case_Study.pptx"
     events:
       - {"date": "2015-09-14", "label": "Early investigation identifies a malicious compiler affecting iOS apps"}
       - {"date": "2015-09-18", "label": "Palo Alto Networks names XcodeGhost as the scope grows beyond a few apps"}
@@ -5905,6 +6006,7 @@ studies:
     actors: []
     tags: ["KeRanger", "macOS", "ransomware", "software distribution", "code signing"]
     pdf: "KeRanger_2016_Case_Study.pdf"
+    pptx: "KeRanger_2016_Case_Study.pptx"
     events:
       - {"date": "2016-03-04", "label": "Malicious, signed Transmission installers for OS X carry KeRanger ransomware"}
       - {"date": "2016-03-05", "label": "Transmission and Apple respond; a removal update follows a misleading quiet period"}
@@ -5920,6 +6022,7 @@ studies:
     actors: []
     tags: ["Keydnap", "macOS", "credential theft", "Transmission", "supply chain"]
     pdf: "Keydnap_2016_Case_Study.pdf"
+    pptx: "Keydnap_2016_Case_Study.pptx"
     events:
       - {"date": "2016-07", "label": "ESET reports Keydnap, a macOS credential-stealer"}
       - {"date": "2016-08", "label": "Keydnap is distributed through a compromised Transmission build"}
@@ -5935,6 +6038,7 @@ studies:
     actors: []
     tags: ["Estonia", "DDoS", "resilience", "CCDCOE", "public services"]
     pdf: "Estonia_DDoS_2007_Case_Study.pdf"
+    pptx: "Estonia_DDoS_2007_Case_Study.pptx"
     events:
       - {"date": "2007-04-27", "label": "DDoS and defacement attacks on Estonian public-facing services begin amid a monument dispute"}
       - {"date": "2007-05-18", "label": "The main campaign window ends per early research; NATO notes continued varying activity to 23 May"}
@@ -5951,6 +6055,7 @@ studies:
     actors: []
     tags: ["easyJet", "data breach", "airline", "ICO", "regulatory"]
     pdf: "easyJet_2020_Case_Study.pdf"
+    pptx: "easyJet_2020_Case_Study.pptx"
     events:
       - {"date": "2020-05-19", "label": "easyJet discloses a customer-data breach affecting about 9 million customers"}
       - {"date": "2023-05", "label": "The ICO investigation is still live"}
@@ -5969,6 +6074,7 @@ studies:
     actors: []
     tags: ["River City Media", "data exposure", "email marketing", "Chris Vickery", "litigation"]
     pdf: "River_City_Media_2017_Case_Study.pdf"
+    pptx: "River_City_Media_2017_Case_Study.pptx"
     events:
       - {"date": "2017-01", "label": "Publicly exposed River City Media files are encountered; Have I Been Pwned records the exposure"}
       - {"date": "2017-03-06", "label": "Chris Vickery publishes the disclosure describing a large mailing dataset"}
@@ -5988,6 +6094,7 @@ studies:
     actors: []
     tags: ["zero trust", "NIST SP 800-207", "architecture", "policy enforcement", "identity"]
     pdf: "NIST_Zero_Trust_2020_Case_Study.pdf"
+    pptx: "NIST_Zero_Trust_2020_Case_Study.pptx"
     events:
       - {"date": "2019", "label": "NIST circulates draft versions of SP 800-207 for public comment"}
       - {"date": "2020-08-11", "label": "NIST publishes the final SP 800-207, defining Zero Trust Architecture and its components"}
@@ -6003,6 +6110,7 @@ studies:
     actors: []
     tags: ["AES", "Rijndael", "NIST", "cryptography", "FIPS 197"]
     pdf: "NIST_AES_2000_Case_Study.pdf"
+    pptx: "NIST_AES_2000_Case_Study.pptx"
     events:
       - {"date": "2000-10-02", "label": "NIST announces Rijndael as the proposed Advanced Encryption Standard"}
       - {"date": "2001-11-26", "label": "FIPS 197 publishes AES as a federal standard"}
@@ -6018,6 +6126,7 @@ studies:
     actors: []
     tags: ["TLS 1.0", "TLS 1.1", "RFC 8996", "deprecation", "protocol"]
     pdf: "TLS_1_0_1_1_Deprecation_2021_Case_Study.pdf"
+    pptx: "TLS_1_0_1_1_Deprecation_2021_Case_Study.pptx"
     events:
       - {"date": "2018-10", "label": "Major browser vendors announce coordinated plans to retire TLS 1.0 and 1.1"}
       - {"date": "2020", "label": "Vendors disable TLS 1.0 and 1.1 by default, with some schedule revisions"}
@@ -6034,6 +6143,7 @@ studies:
     actors: []
     tags: ["Apache Struts", "CVE-2017-5638", "remote code execution", "OGNL", "web application"]
     pdf: "Struts_CVE_2017_5638_Case_Study.pdf"
+    pptx: "Struts_CVE_2017_5638_Case_Study.pptx"
     events:
       - {"date": "2017-03-06", "label": "Apache publishes S2-045 for CVE-2017-5638 in the Jakarta Multipart parser"}
       - {"date": "2017-03-20", "label": "S2-046 documents an additional vector for the same flaw"}
@@ -6049,6 +6159,7 @@ studies:
     actors: []
     tags: ["PetitPotam", "CVE-2021-36942", "NTLM relay", "Active Directory", "AD CS"]
     pdf: "PetitPotam_CVE_2021_36942_Case_Study.pdf"
+    pptx: "PetitPotam_CVE_2021_36942_Case_Study.pptx"
     events:
       - {"date": "2021-07", "label": "PetitPotam authentication-coercion research draws attention to NTLM relay against AD CS"}
       - {"date": "2021-08-10", "label": "Microsoft issues KB5005413 and CVE-2021-36942, a partial correction for the unauthenticated call"}
@@ -6064,6 +6175,7 @@ studies:
     actors: []
     tags: ["BootHole", "CVE-2020-10713", "GRUB2", "Secure Boot", "UEFI"]
     pdf: "BootHole_CVE_2020_10713_Case_Study.pdf"
+    pptx: "BootHole_CVE_2020_10713_Case_Study.pptx"
     events:
       - {"date": "2020-07-29", "label": "BootHole (CVE-2020-10713) is disclosed; a GRUB2 parser flaw affects UEFI Secure Boot, requiring revocation not just patching"}
       - {"date": "2020-08", "label": "Distribution updates and a regression affecting Ubuntu and Red Hat follow"}
@@ -6079,6 +6191,7 @@ studies:
     actors: []
     tags: ["Exim", "CVE-2019-10149", "mail server", "remote code execution", "Linux"]
     pdf: "Exim_CVE_2019_10149_Case_Study.pdf"
+    pptx: "Exim_CVE_2019_10149_Case_Study.pptx"
     events:
       - {"date": "2019-06-05", "label": "Qualys discloses CVE-2019-10149 (Return of the WIZard) in Exim 4.87-4.91; the fix already shipped in 4.92"}
       - {"date": "2019-06", "label": "CERT-FR reports active exploitation; Microsoft confirms a worm using the flaw"}
@@ -6095,6 +6208,7 @@ studies:
     actors: []
     tags: ["MSHTML", "CVE-2021-40444", "Office", "remote code execution", "document trust"]
     pdf: "MSHTML_CVE_2021_40444_Case_Study.pdf"
+    pptx: "MSHTML_CVE_2021_40444_Case_Study.pptx"
     events:
       - {"date": "2021-09-07", "label": "Microsoft discloses CVE-2021-40444 (MSHTML) with interim mitigations amid active exploitation"}
       - {"date": "2021-09-14", "label": "September security updates correct the vulnerable component"}

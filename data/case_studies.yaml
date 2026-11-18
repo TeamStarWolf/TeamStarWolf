@@ -172,6 +172,7 @@ studies:
     actors: []
     tags: ["ransomware", "Bad Rabbit", "EternalRomance", "fake update", "lateral movement"]
     pdf: "Bad_Rabbit_2017_Case_Study.pdf"
+    pptx: "Bad_Rabbit_2017_Case_Study.pptx"
     events:
       - {"date": "2017-03-14", "label": "Microsoft publishes MS17-010, the SMB update that predates the outbreak"}
       - {"date": "2017-10-24", "label": "Bad Rabbit outbreak and the initial Kaspersky, Talos and ESET technical reports"}
@@ -3093,6 +3094,7 @@ studies:
     actors: []
     tags: ["IoT", "botnet", "DDoS", "DNS", "availability"]
     pdf: "Mirai_Dyn_2016_Case_Study.pdf"
+    pptx: "Mirai_Dyn_2016_Case_Study.pptx"
     events:
       - {"date": "2016-08", "label": "Observation window of the published Mirai retrospective begins"}
       - {"date": "2016-09-20", "label": "Record DDoS against KrebsOnSecurity"}
@@ -3320,6 +3322,7 @@ studies:
     actors: []
     tags: ["wiper", "false flag", "supplier access", "event disruption", "attribution"]
     pdf: "Olympic_Destroyer_2018_Case_Study.pdf"
+    pptx: "Olympic_Destroyer_2018_Case_Study.pptx"
     events:
       - {"date": "2017-12", "label": "Alleged preparation and intrusion period begins (per the later indictment)"}
       - {"date": "2018-02-09", "label": "Destructive deployment during the PyeongChang opening-ceremony period"}
@@ -3338,6 +3341,7 @@ studies:
     actors: []
     tags: ["espionage", "browser exploit", "Internet Explorer", "intellectual property", "attribution"]
     pdf: "Operation_Aurora_2010_Case_Study.pdf"
+    pptx: "Operation_Aurora_2010_Case_Study.pptx"
     events:
       - {"date": "2009-12", "label": "Detection period in Google's later statement"}
       - {"date": "2010-01-12", "label": "Google publicly discloses its findings"}
@@ -3567,6 +3571,7 @@ studies:
     actors: []
     tags: ["supplier compromise", "authentication", "SecurID", "token replacement", "APT"]
     pdf: "RSA_SecurID_2011_Case_Study.pdf"
+    pptx: "RSA_SecurID_2011_Case_Study.pptx"
     events:
       - {"date": "2011-03-17", "label": "RSA discloses an attack and extraction of SecurID-related information"}
       - {"date": "2011-05-21", "label": "Lockheed Martin detects a significant attack"}
@@ -4900,6 +4905,7 @@ studies:
     actors: []
     tags: ["botnet", "routers", "network devices", "VPNFilter", "takedown", "critical infrastructure"]
     pdf: "VPNFilter_2018_Case_Study.pdf"
+    pptx: "VPNFilter_2018_Case_Study.pptx"
     events:
       - {"date": "2018-05-08", "label": "Talos observes increases in Ukrainian victims (also 17 May)"}
       - {"date": "2018-05-23", "label": "Talos discloses VPNFilter (at least 500,000 devices, 54+ countries); DOJ announces the botnet disruption and domain seizure"}
@@ -4916,6 +4922,7 @@ studies:
     actors: ["G0045"]
     tags: ["managed service provider", "supply chain", "espionage", "APT10", "delegated access", "China"]
     pdf: "Cloud_Hopper_APT10_Case_Study.pdf"
+    pptx: "Cloud_Hopper_APT10_Case_Study.pptx"
     events:
       - {"date": "2014", "label": "The MSP-focused campaign begins (at least around 2014, per the indictment)"}
       - {"date": "2016", "label": "Research describes increased scale and MSP-focused activity (Cloud Hopper active since at least 2016 per the NCSC)"}
@@ -6009,6 +6016,7 @@ studies:
     actors: []
     tags: ["Estonia", "DDoS", "resilience", "CCDCOE", "public services"]
     pdf: "Estonia_DDoS_2007_Case_Study.pdf"
+    pptx: "Estonia_DDoS_2007_Case_Study.pptx"
     events:
       - {"date": "2007-04-27", "label": "DDoS and defacement attacks on Estonian public-facing services begin amid a monument dispute"}
       - {"date": "2007-05-18", "label": "The main campaign window ends per early research; NATO notes continued varying activity to 23 May"}

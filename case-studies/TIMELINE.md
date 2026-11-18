@@ -1163,13 +1163,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 April 2024: Marriott appends a correction: SHA-1, not the earlier AES-128
   - 9 October 2024: A $52 million multistate settlement is announced
   - December 2024: The FTC finalizes its order
-- [Olympic Destroyer, 2018: When the Event Clock Becomes the Attacker's Advantage](/case-studies/OLYMPIC_DESTROYER_2018.md). Incident, December 2017 to October 2020 (core: February 2018). Sectors: government, media. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Olympic_Destroyer_2018_Case_Study.pdf).
+- [Olympic Destroyer, 2018: When the Event Clock Becomes the Attacker's Advantage](/case-studies/OLYMPIC_DESTROYER_2018.md). Incident, December 2017 to October 2020 (core: February 2018). Sectors: government, media. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Olympic_Destroyer_2018_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Olympic_Destroyer_2018_Case_Study.pptx).
   - December 2017: Alleged preparation and intrusion period begins (per the later indictment)
   - 9 February 2018: Destructive deployment during the PyeongChang opening-ceremony period
   - 12 February 2018: Cisco Talos publishes its analysis; conclusions change over 12 to 13 February
   - March 2018: Kaspersky's Rich-header research concludes the Lazarus resemblance was a false flag
   - 19 October 2020: US charges six alleged GRU officers
-- [VPNFilter, 2018: When the Network Edge Became the Intrusion Platform](/case-studies/VPNFILTER_2018.md). Campaign, 2018 to 2022 (core: 2018). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/VPNFilter_2018_Case_Study.pdf).
+- [VPNFilter, 2018: When the Network Edge Became the Intrusion Platform](/case-studies/VPNFILTER_2018.md). Campaign, 2018 to 2022 (core: 2018). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/VPNFilter_2018_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/VPNFilter_2018_Case_Study.pptx).
   - 8 May 2018: Talos observes increases in Ukrainian victims (also 17 May)
   - 23 May 2018: Talos discloses VPNFilter (at least 500,000 devices, 54+ countries); DOJ announces the botnet disruption and domain seizure
   - 29 May 2018: FBI Portland explains rebooting as an interruption, not eradication
@@ -1276,7 +1276,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 October 2017: CERT-EU advisory 2017-021
   - 27 October 2017: Cisco publishes wireless-controller guidance
   - 6 November 2017: Android's November bulletin places KRACK fixes at that patch level
-- [Bad Rabbit, 2017: One Fake Update, Several Ways to Spread](/case-studies/BAD_RABBIT_2017.md). Campaign, March 2017 to January 2018 (core: October 2017). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Bad_Rabbit_2017_Case_Study.pdf).
+- [Bad Rabbit, 2017: One Fake Update, Several Ways to Spread](/case-studies/BAD_RABBIT_2017.md). Campaign, March 2017 to January 2018 (core: October 2017). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Bad_Rabbit_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Bad_Rabbit_2017_Case_Study.pptx).
   - 14 March 2017: Microsoft publishes MS17-010, the SMB update that predates the outbreak
   - 24 October 2017: Bad Rabbit outbreak and the initial Kaspersky, Talos and ESET technical reports
   - 25 October 2017: Talos adds encryption, propagation and code-linkage analysis over 25 to 26 October
@@ -1396,7 +1396,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 5 May 2023: Sullivan is sentenced to probation and a fine
   - 12 November 2025: The Ninth Circuit affirms the convictions
   - 29 June 2026: The Supreme Court denies review
-- [Mirai and Dyn, 2016: When Unmanaged Devices Became an Internet Availability Problem](/case-studies/MIRAI_DYN_2016.md). Campaign, August 2016 to December 2020 (core: September to October 2016). Sectors: technology, cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Mirai_Dyn_2016_Case_Study.pdf).
+- [Mirai and Dyn, 2016: When Unmanaged Devices Became an Internet Availability Problem](/case-studies/MIRAI_DYN_2016.md). Campaign, August 2016 to December 2020 (core: September to October 2016). Sectors: technology, cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Mirai_Dyn_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Mirai_Dyn_2016_Case_Study.pptx).
   - August 2016: Observation window of the published Mirai retrospective begins
   - 20 September 2016: Record DDoS against KrebsOnSecurity
   - 21 October 2016: A Mirai-variant attack disrupts Dyn and dependent services
@@ -1455,7 +1455,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 19 October 2016: Dirty COW (CVE-2016-5195) is disclosed with evidence of in-the-wild use; Red Hat and others issue fixes
   - 20 October 2016: Distribution patches ship (Debian DSA-3696, Ubuntu USN-3104)
   - November 2016: Android's supplemental patch level addresses the kernel race
-- [Cloud Hopper / APT10, 2016-2018: When Provider Access Became Customer Exposure](/case-studies/CLOUD_HOPPER_APT10.md). Campaign, 2016 to 2018. Sectors: cross-sector. ATT&CK groups: G0045 menuPass. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cloud_Hopper_APT10_Case_Study.pdf).
+- [Cloud Hopper / APT10, 2016-2018: When Provider Access Became Customer Exposure](/case-studies/CLOUD_HOPPER_APT10.md). Campaign, 2016 to 2018. Sectors: cross-sector. ATT&CK groups: G0045 menuPass. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cloud_Hopper_APT10_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Cloud_Hopper_APT10_Case_Study.pptx).
   - 2014: The MSP-focused campaign begins (at least around 2014, per the indictment)
   - 2016: Research describes increased scale and MSP-focused activity (Cloud Hopper active since at least 2016 per the NCSC)
   - April 2017: PwC UK and BAE Systems publish the Operation Cloud Hopper report and technical annex
@@ -1774,7 +1774,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 19 September 2011: Bankruptcy petition, followed by a court declaration on 20 September
   - 28 June 2012: The Dutch Safety Board publishes its report
   - 13 August 2012: The final Fox-IT report is dated
-- [RSA SecurID, 2011: When the Authentication Supplier Becomes Part of the Incident](/case-studies/RSA_SECURID_2011.md). Incident, March to December 2011 (core: March 2011). Sectors: technology, defense. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/RSA_SecurID_2011_Case_Study.pdf).
+- [RSA SecurID, 2011: When the Authentication Supplier Becomes Part of the Incident](/case-studies/RSA_SECURID_2011.md). Incident, March to December 2011 (core: March 2011). Sectors: technology, defense. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/RSA_SecurID_2011_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/RSA_SecurID_2011_Case_Study.pptx).
   - 17 March 2011: RSA discloses an attack and extraction of SecurID-related information
   - 21 May 2011: Lockheed Martin detects a significant attack
   - 28 May 2011: Lockheed Martin says customer, program and employee data were not compromised
@@ -1837,7 +1837,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2010 <!-- {docsify-ignore} -->
 
-- [Operation Aurora, 2009-2010: A Browser Exploit, an Enterprise Breach, and a Public Policy Turning Point](/case-studies/OPERATION_AURORA_2010.md). Campaign, December 2009 to March 2010 (core: January 2010). Sectors: technology. CVEs: CVE-2010-0249. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Operation_Aurora_2010_Case_Study.pdf).
+- [Operation Aurora, 2009-2010: A Browser Exploit, an Enterprise Breach, and a Public Policy Turning Point](/case-studies/OPERATION_AURORA_2010.md). Campaign, December 2009 to March 2010 (core: January 2010). Sectors: technology. CVEs: CVE-2010-0249. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Operation_Aurora_2010_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Operation_Aurora_2010_Case_Study.pptx).
   - December 2009: Detection period in Google's later statement
   - 12 January 2010: Google publicly discloses its findings
   - 14 January 2010: McAfee technical account; Microsoft advisory first published
@@ -1918,7 +1918,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2007 <!-- {docsify-ignore} -->
 
-- [Estonia, 2007: DDoS, Public-Service Resilience, and the Limits of a Simple Cyberwar Story](/case-studies/ESTONIA_DDOS_2007.md). Campaign, April 2007 to 2008 (core: 2007). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Estonia_DDoS_2007_Case_Study.pdf).
+- [Estonia, 2007: DDoS, Public-Service Resilience, and the Limits of a Simple Cyberwar Story](/case-studies/ESTONIA_DDOS_2007.md). Campaign, April 2007 to 2008 (core: 2007). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Estonia_DDoS_2007_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Estonia_DDoS_2007_Case_Study.pptx).
   - 27 April 2007: DDoS and defacement attacks on Estonian public-facing services begin amid a monument dispute
   - 18 May 2007: The main campaign window ends per early research; NATO notes continued varying activity to 23 May
   - 2008: The NATO Cooperative Cyber Defence Centre of Excellence is established in Tallinn

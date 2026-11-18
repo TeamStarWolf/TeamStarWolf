@@ -1282,7 +1282,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 25 October 2017: Talos adds encryption, propagation and code-linkage analysis over 25 to 26 October
   - 27 October 2017: ESET adds a patch test: MS17-010 stopped the tested IPC-share propagation
   - 10 January 2018: Microsoft publishes a retrospective comparing the 2017 ransomware outbreaks
-- [NotPetya 2017: A Trusted Update Becomes a Destructive Outage](/case-studies/NOTPETYA_2017.md). Campaign, March 2017 to October 2020 (core: June 2017). Sectors: cross-sector, transport, manufacturing. CVEs: CVE-2017-0199. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/NotPetya_2017_Case_Study.pdf).
+- [NotPetya 2017: A Trusted Update Becomes a Destructive Outage](/case-studies/NOTPETYA_2017.md). Campaign, March 2017 to October 2020 (core: June 2017). Sectors: cross-sector, transport, manufacturing. CVEs: CVE-2017-0199. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/NotPetya_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/NotPetya_2017_Case_Study.pptx).
   - 14 March 2017: Microsoft publishes MS17-010
   - 14 April 2017: First backdoored M.E.Doc release identified by ESET
   - 27 June 2017: NotPetya outbreak via the M.E.Doc update path, followed by network propagation
@@ -1293,7 +1293,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 7 November 2017: Maersk's Q3 report puts the impact at $250 to $300 million
   - 15 February 2018: The UK attributes NotPetya to the Russian military
   - 19 October 2020: US charges six alleged GRU officers; three-victim losses near $1 billion alleged
-- [WannaCry 2017: How an Unclosed Patch Gap Became a Healthcare Service Crisis](/case-studies/WANNACRY_2017.md). Campaign, March 2017 to September 2018 (core: May 2017). Sectors: healthcare, cross-sector. CVEs: CVE-2017-0143, CVE-2017-0145, CVE-2017-0148. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/WannaCry_2017_Case_Study.pdf).
+- [WannaCry 2017: How an Unclosed Patch Gap Became a Healthcare Service Crisis](/case-studies/WANNACRY_2017.md). Campaign, March 2017 to September 2018 (core: May 2017). Sectors: healthcare, cross-sector. CVEs: CVE-2017-0143, CVE-2017-0145, CVE-2017-0148. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/WannaCry_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/WannaCry_2017_Case_Study.pptx).
   - 14 March 2017: MS17-010 published, covering CVE-2017-0143 through CVE-2017-0148
   - 17 March 2017: The vulnerability is included in an NHS CareCERT weekly advisory
   - 14 April 2017: Shadow Brokers release referenced in the later malware profile
@@ -1305,13 +1305,13 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - February 2018: The NHS CIO lessons-learned review explains the trust reclassification
   - April 2018: Public Accounts Committee scrutiny and the revised NAO printing
   - 6 September 2018: The US makes public a complaint against Park Jin Hyok
-- [EternalBlue and MS17-010: What a Patch Response Must Prove](/case-studies/ETERNALBLUE_MS17_010_2017.md). Vulnerability, March 2017 to February 2018 (core: May 2017). Sectors: technology, cross-sector. CVEs: CVE-2017-0143, CVE-2017-0144, CVE-2017-0145, CVE-2017-0147. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/EternalBlue_MS17_010_2017_Case_Study.pdf).
+- [EternalBlue and MS17-010: What a Patch Response Must Prove](/case-studies/ETERNALBLUE_MS17_010_2017.md). Vulnerability, March 2017 to February 2018 (core: May 2017). Sectors: technology, cross-sector. CVEs: CVE-2017-0143, CVE-2017-0144, CVE-2017-0145, CVE-2017-0147. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/EternalBlue_MS17_010_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/EternalBlue_MS17_010_2017_Case_Study.pptx).
   - 14 March 2017: Microsoft publishes MS17-010
   - 14 April 2017: The Shadow Brokers release makes EternalBlue public
   - 12 May 2017: The WannaCry campaign begins
   - 13 May 2017: Microsoft issues emergency updates for older platforms; Canada issues AV17-068
   - 5 February 2018: Microsoft's Petya retrospective finds impersonation outpaced SMB exploitation
-- [Equifax 2017: When a Patch Ticket Is Not Proof](/case-studies/EQUIFAX_2017.md). Incident, March 2017 to February 2020 (core: May to July 2017). Sectors: finance. CVEs: CVE-2017-5638. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Equifax_2017_Case_Study.pdf).
+- [Equifax 2017: When a Patch Ticket Is Not Proof](/case-studies/EQUIFAX_2017.md). Incident, March 2017 to February 2020 (core: May to July 2017). Sectors: finance. CVEs: CVE-2017-5638. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Equifax_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Equifax_2017_Case_Study.pptx).
   - March 2017: Apache S2-045 advisory for CVE-2017-5638 and historical fixed Struts versions available
   - 13 May 2017: Start of the intrusion in GAO's account
   - 29 July 2017: Intrusion discovered after an expired inspection certificate is replaced
@@ -1568,7 +1568,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 4 February 2015: Forecast Pictures results, as the close could not be completed
   - 6 September 2018: The US makes public a complaint against Park Jin Hyok
   - 17 February 2021: DOJ announces an expanded indictment naming three North Korean hackers
-- [Shellshock 2014: When Process Metadata Became Executable Input](/case-studies/SHELLSHOCK_2014.md). Vulnerability, September 2014. Sectors: technology, cross-sector. CVEs: CVE-2014-6271, CVE-2014-6277, CVE-2014-6278, CVE-2014-7169, CVE-2014-7186, CVE-2014-7187. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Shellshock_2014_Case_Study.pdf).
+- [Shellshock 2014: When Process Metadata Became Executable Input](/case-studies/SHELLSHOCK_2014.md). Vulnerability, September 2014. Sectors: technology, cross-sector. CVEs: CVE-2014-6271, CVE-2014-6277, CVE-2014-6278, CVE-2014-7169, CVE-2014-7186, CVE-2014-7187. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Shellshock_2014_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Shellshock_2014_Case_Study.pptx).
   - 24 September 2014: Public disclosure (Weimer, oss-security), CVE-2014-6271; Twilio reports same-day upgrades
   - 25 September 2014: CERT/CC note; Ubuntu USN-2363-1 for the incomplete-fix CVE-2014-7169
   - 26 September 2014: Ubuntu USN-2363-2 build correction; FFIEC advisory; Red Hat FAQ on CVE-2014-7186 and CVE-2014-7187
@@ -1671,7 +1671,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2013 <!-- {docsify-ignore} -->
 
-- [Target, 2013: Vendor Access, Payment Boundaries and the Last Register](/case-studies/TARGET_2013.md). Incident, November 2013 to May 2017 (core: November to December 2013). Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Target_2013_Case_Study.pdf).
+- [Target, 2013: Vendor Access, Payment Boundaries and the Last Register](/case-studies/TARGET_2013.md). Incident, November 2013 to May 2017 (core: November to December 2013). Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Target_2013_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Target_2013_Case_Study.pptx).
   - 12 November 2013: Vendor-credential access to a Target gateway (per the state investigation)
   - 27 November 2013: The payment-card theft window begins
   - 12 December 2013: DOJ notifies Target of suspicious card activity

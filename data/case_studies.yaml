@@ -5059,6 +5059,7 @@ studies:
     actors: []
     tags: ["ransomware", "SamSam", "municipal", "public sector", "recovery", "Atlanta"]
     pdf: "Atlanta_SamSam_2018_Case_Study.pdf"
+    pptx: "Atlanta_SamSam_2018_Case_Study.pptx"
     events:
       - {"date": "2018-03-10", "label": "The Atlanta intrusion and encryption activity window (about 10-22 March 2018, per the federal account)"}
       - {"date": "2018-03-22", "label": "Major operational disruption; the city does not pay the ~$51,000 demand"}
@@ -5077,6 +5078,7 @@ studies:
     actors: []
     tags: ["ransomware", "LockerGoga", "manufacturing", "OT", "business continuity", "Norsk Hydro"]
     pdf: "Norsk_Hydro_LockerGoga_2019_Case_Study.pdf"
+    pptx: "Norsk_Hydro_LockerGoga_2019_Case_Study.pptx"
     events:
       - {"date": "2018-12", "label": "A malicious attachment establishes an initial foothold (per Microsoft's later responder account)"}
       - {"date": "2019-03-19", "label": "Hydro discloses the attack; plants isolated and moved to manual operation where possible"}
@@ -5094,6 +5096,7 @@ studies:
     actors: []
     tags: ["ransomware", "WastedLocker", "connected services", "outage", "business continuity", "Garmin"]
     pdf: "Garmin_WastedLocker_2020_Case_Study.pdf"
+    pptx: "Garmin_WastedLocker_2020_Case_Study.pptx"
     events:
       - {"date": "2020-06-25", "label": "Symantec reports the WastedLocker campaign (at least 31 organizations), predating the Garmin outage"}
       - {"date": "2020-07-23", "label": "Garmin says some systems were encrypted and online services interrupted"}
@@ -5112,6 +5115,7 @@ studies:
     actors: []
     tags: ["ransomware", "RobbinHood", "municipal", "public sector", "business continuity", "Baltimore"]
     pdf: "Baltimore_RobbinHood_2019_Case_Study.pdf"
+    pptx: "Baltimore_RobbinHood_2019_Case_Study.pptx"
     events:
       - {"date": "2019-05-07", "label": "The RobbinHood attack is discovered; systems taken offline for containment"}
       - {"date": "2019-05-17", "label": "The city describes containment, manual alternatives and a temporary property-transaction process"}
@@ -5150,6 +5154,7 @@ studies:
     actors: []
     tags: ["ransomware", "Sodinokibi", "REvil", "business continuity", "financial services", "Travelex"]
     pdf: "Travelex_2020_Case_Study.pdf"
+    pptx: "Travelex_2020_Case_Study.pptx"
     events:
       - {"date": "2019-12-31", "label": "Travelex detects the Sodinokibi (REvil) ransomware and takes systems offline"}
       - {"date": "2020-01-08", "label": "Finablr discloses the incident; no evidence at that time of data exfiltration or encryption of structured personal data"}
@@ -5833,6 +5838,7 @@ studies:
     actors: []
     tags: ["ransomware", "ProLock", "PwndLocker", "decryptor", "double extortion"]
     pdf: "ProLock_2020_Case_Study.pdf"
+    pptx: "ProLock_2020_Case_Study.pptx"
     events:
       - {"date": "2020-03", "label": "PwndLocker gives way to ProLock across multiple intrusion paths"}
       - {"date": "2020-05", "label": "A Diebold Nixdorf operational disruption is reported, without an ATM-malware claim"}
@@ -5887,6 +5893,7 @@ studies:
     actors: []
     tags: ["ransomware", "local government", "managed service provider", "coordinated response", "REvil"]
     pdf: "Texas_Municipal_Ransomware_2019_Case_Study.pdf"
+    pptx: "Texas_Municipal_Ransomware_2019_Case_Study.pptx"
     events:
       - {"date": "2019-08-16", "label": "A coordinated ransomware attack hits about 22 Texas local governments through a shared service provider"}
       - {"date": "2019-08", "label": "Texas DIR coordinates a statewide response"}
@@ -5903,6 +5910,7 @@ studies:
     actors: []
     tags: ["ransomware", "NetWalker", "research data", "ransom payment", "privacy"]
     pdf: "UCSF_NetWalker_2020_Case_Study.pdf"
+    pptx: "UCSF_NetWalker_2020_Case_Study.pptx"
     events:
       - {"date": "2020-06-01", "label": "UCSF detects a NetWalker ransomware intrusion affecting its School of Medicine"}
       - {"date": "2020-06-29", "label": "UCSF discloses that it paid about $1.14 million for a decryption tool"}

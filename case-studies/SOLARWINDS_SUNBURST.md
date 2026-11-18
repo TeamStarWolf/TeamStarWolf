@@ -176,6 +176,8 @@ SolarWinds' advisory describes SUPERNOVA, a web shell on Orion servers, as a sep
 
 ## Part 2: the timeline
 
+![At a glance: twelve SolarWinds SUNBURST milestones from this study's data, shaded by phase. Covert intrusion and implant run from September 2019 to June 2020, discovery and disclosure fall in December 2020, attribution and policy response run across 2021, and the legal aftermath runs from 2023 to 2025. The full dated record follows in the table below.](assets/solarwinds-sunburst-timeline.png)
+
 | Date | Event | Source | Grade |
 |---|---|---|---|
 | Nov 2017 | CyberArk's shimit, a public Golden SAML implementation, is published | [92] | Demonstrated |

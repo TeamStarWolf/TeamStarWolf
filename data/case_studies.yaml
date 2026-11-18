@@ -2186,6 +2186,7 @@ studies:
     actors: []
     tags: ["Linux kernel", "Dirty Pipe", "privilege escalation", "pipe_buffer", "patch management"]
     pdf: "Dirty_Pipe_2022_Case_Study.pdf"
+    pptx: "Dirty_Pipe_2022_Case_Study.pptx"
     events:
       - {"date": "2021-04-29", "label": "First support ticket over repeated corruption in downloadable access logs (discoverer's timeline)"}
       - {"date": "2022-02-19", "label": "Max Kellermann recognizes the kernel vulnerability"}
@@ -5748,6 +5749,7 @@ studies:
     actors: []
     tags: ["Stagefright", "Android", "media parsing", "patch completeness", "mobile"]
     pdf: "Stagefright_2015_Case_Study.pdf"
+    pptx: "Stagefright_2015_Case_Study.pptx"
     events:
       - {"date": "2015-07-27", "label": "Zimperium discloses the Stagefright media-parsing vulnerabilities in Android"}
       - {"date": "2015-08", "label": "Android ships initial corrections; CVE-2015-3864 shows the first patch was incomplete"}
@@ -5766,6 +5768,7 @@ studies:
     actors: []
     tags: ["QuadRooter", "Android", "Qualcomm drivers", "mobile", "patching"]
     pdf: "QuadRooter_2016_Case_Study.pdf"
+    pptx: "QuadRooter_2016_Case_Study.pptx"
     events:
       - {"date": "2016-07", "label": "The first supplier patch level addresses part of the QuadRooter set"}
       - {"date": "2016-08", "label": "Check Point publicly discloses QuadRooter; a further patch level follows"}
@@ -5782,6 +5785,7 @@ studies:
     actors: []
     tags: ["Broadpwn", "Wi-Fi", "Broadcom", "firmware", "mobile"]
     pdf: "Broadpwn_2017_Case_Study.pdf"
+    pptx: "Broadpwn_2017_Case_Study.pptx"
     events:
       - {"date": "2017-07-05", "label": "The July Android security bulletin addresses CVE-2017-9417"}
       - {"date": "2017-07-27", "label": "Nitay Artenstein presents Broadpwn at Black Hat USA"}
@@ -5797,6 +5801,7 @@ studies:
     actors: []
     tags: ["Dirty COW", "Linux kernel", "race condition", "privilege escalation", "patching"]
     pdf: "Dirty_COW_2016_Case_Study.pdf"
+    pptx: "Dirty_COW_2016_Case_Study.pptx"
     events:
       - {"date": "2016-10-19", "label": "Dirty COW (CVE-2016-5195) is disclosed with evidence of in-the-wild use; Red Hat and others issue fixes"}
       - {"date": "2016-10-20", "label": "Distribution patches ship (Debian DSA-3696, Ubuntu USN-3104)"}
@@ -5813,6 +5818,7 @@ studies:
     actors: []
     tags: ["ImageTragick", "ImageMagick", "image processing", "remote code execution", "web application"]
     pdf: "ImageTragick_2016_Case_Study.pdf"
+    pptx: "ImageTragick_2016_Case_Study.pptx"
     events:
       - {"date": "2016-05-03", "label": "ImageTragick (CVE-2016-3714 and related issues) is publicly disclosed with mitigations"}
       - {"date": "2016-05", "label": "ImageMagick updates and distribution packages follow"}
@@ -5828,6 +5834,7 @@ studies:
     actors: []
     tags: ["Drupalgeddon2", "Drupal", "web application", "remote code execution", "patching"]
     pdf: "Drupalgeddon2_2018_Case_Study.pdf"
+    pptx: "Drupalgeddon2_2018_Case_Study.pptx"
     events:
       - {"date": "2018-03-21", "label": "Drupal publishes advance notice of a highly critical fix"}
       - {"date": "2018-03-28", "label": "Drupal releases the CVE-2018-7600 correction"}
@@ -6103,6 +6110,7 @@ studies:
     actors: []
     tags: ["Apache Struts", "CVE-2017-5638", "remote code execution", "OGNL", "web application"]
     pdf: "Struts_CVE_2017_5638_Case_Study.pdf"
+    pptx: "Struts_CVE_2017_5638_Case_Study.pptx"
     events:
       - {"date": "2017-03-06", "label": "Apache publishes S2-045 for CVE-2017-5638 in the Jakarta Multipart parser"}
       - {"date": "2017-03-20", "label": "S2-046 documents an additional vector for the same flaw"}

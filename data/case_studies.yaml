@@ -4672,6 +4672,7 @@ studies:
     actors: []
     tags: ["data breach", "privacy", "sensitive data", "data retention", "deletion", "Impact Team"]
     pdf: "Ashley_Madison_2015_Case_Study.pdf"
+    pptx: "Ashley_Madison_2015_Case_Study.pptx"
     events:
       - {"date": "2014", "label": "Alleged unauthorized network access begins (late 2014 into early 2015, per the FTC complaint)"}
       - {"date": "2015-07-12", "label": "The company becomes aware; employees detect a large data transfer"}
@@ -4691,6 +4692,7 @@ studies:
     actors: []
     tags: ["data privacy", "consent", "Facebook", "data lineage", "FTC", "platform governance"]
     pdf: "Cambridge_Analytica_2018_Case_Study.pdf"
+    pptx: "Cambridge_Analytica_2018_Case_Study.pptx"
     events:
       - {"date": "2014", "label": "Graph API collection arrangements for app users' and friends' data (2014 to 2015, per the FTC complaint)"}
       - {"date": "2015", "label": "Facebook learns Kogan passed data to third parties; it removes the app and requests deletion certifications"}
@@ -5226,6 +5228,7 @@ studies:
     actors: []
     tags: ["data breach", "source code", "configuration", "Twitch", "stream keys", "confidentiality"]
     pdf: "Twitch_2021_Case_Study.pdf"
+    pptx: "Twitch_2021_Case_Study.pptx"
     events:
       - {"date": "2021-10-06", "label": "Twitch attributes exposure to an erroneous server-configuration change and malicious third-party access; no indication of exposed login credentials"}
       - {"date": "2021-10-07", "label": "Twitch precautionarily replaces all stream keys"}
@@ -5702,6 +5705,7 @@ studies:
     actors: []
     tags: ["data breach", "Robinhood", "social engineering", "support access", "extortion"]
     pdf: "Robinhood_2021_Case_Study.pdf"
+    pptx: "Robinhood_2021_Case_Study.pptx"
     events:
       - {"date": "2021-11-03", "label": "A social-engineering call to support exposes customer information"}
       - {"date": "2021-11-08", "label": "Robinhood discloses the incident, citing roughly 7 million customers affected"}
@@ -5720,6 +5724,7 @@ studies:
     actors: []
     tags: ["FTC", "Zoom", "encryption claims", "consent order", "accountability"]
     pdf: "Zoom_FTC_2020_Case_Study.pdf"
+    pptx: "Zoom_FTC_2020_Case_Study.pptx"
     events:
       - {"date": "2020-04-03", "label": "Citizen Lab research questions Zoom's encryption claims"}
       - {"date": "2020-10-26", "label": "Zoom announces an end-to-end encryption technical preview"}
@@ -6055,6 +6060,7 @@ studies:
     actors: []
     tags: ["River City Media", "data exposure", "email marketing", "Chris Vickery", "litigation"]
     pdf: "River_City_Media_2017_Case_Study.pdf"
+    pptx: "River_City_Media_2017_Case_Study.pptx"
     events:
       - {"date": "2017-01", "label": "Publicly exposed River City Media files are encountered; Have I Been Pwned records the exposure"}
       - {"date": "2017-03-06", "label": "Chris Vickery publishes the disclosure describing a large mailing dataset"}
@@ -6074,6 +6080,7 @@ studies:
     actors: []
     tags: ["zero trust", "NIST SP 800-207", "architecture", "policy enforcement", "identity"]
     pdf: "NIST_Zero_Trust_2020_Case_Study.pdf"
+    pptx: "NIST_Zero_Trust_2020_Case_Study.pptx"
     events:
       - {"date": "2019", "label": "NIST circulates draft versions of SP 800-207 for public comment"}
       - {"date": "2020-08-11", "label": "NIST publishes the final SP 800-207, defining Zero Trust Architecture and its components"}
@@ -6089,6 +6096,7 @@ studies:
     actors: []
     tags: ["AES", "Rijndael", "NIST", "cryptography", "FIPS 197"]
     pdf: "NIST_AES_2000_Case_Study.pdf"
+    pptx: "NIST_AES_2000_Case_Study.pptx"
     events:
       - {"date": "2000-10-02", "label": "NIST announces Rijndael as the proposed Advanced Encryption Standard"}
       - {"date": "2001-11-26", "label": "FIPS 197 publishes AES as a federal standard"}

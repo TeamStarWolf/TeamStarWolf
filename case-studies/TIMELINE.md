@@ -768,7 +768,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 7 June 2021: DOJ announces seizure of 63.7 bitcoin tied to the payment
   - 8 June 2021: Senate and House hearings add detail on entry, decryption and continuing restoration
   - 17 January 2025: DHS Federal Register notice ratifies the 2021 pipeline security directives (historical aftermath)
-- [Twitch 2021: Source Code, Payouts and the Limits of the Public Record](/case-studies/TWITCH_2021.md). Incident, 2021 to 2024 (core: 2021). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Twitch_2021_Case_Study.pdf).
+- [Twitch 2021: Source Code, Payouts and the Limits of the Public Record](/case-studies/TWITCH_2021.md). Incident, 2021 to 2024 (core: 2021). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Twitch_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Twitch_2021_Case_Study.pptx).
   - 6 October 2021: Twitch attributes exposure to an erroneous server-configuration change and malicious third-party access; no indication of exposed login credentials
   - 7 October 2021: Twitch precautionarily replaces all stream keys
   - 15 October 2021: Twitch reports remediation; exposed material was source-repository documents and some creator-payout data; passwords not exposed
@@ -785,7 +785,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - October 2018: Major browser vendors announce coordinated plans to retire TLS 1.0 and 1.1
   - 2020: Vendors disable TLS 1.0 and 1.1 by default, with some schedule revisions
   - March 2021: RFC 8996 formally deprecates TLS 1.0, TLS 1.1 and DTLS 1.0
-- [Robinhood, November 2021: Remote Support Abuse, Bulk Data and the Unfinished Corrective Action](/case-studies/ROBINHOOD_2021.md). Incident, November 2021 to January 2025 (core: 2021). Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Robinhood_2021_Case_Study.pdf).
+- [Robinhood, November 2021: Remote Support Abuse, Bulk Data and the Unfinished Corrective Action](/case-studies/ROBINHOOD_2021.md). Incident, November 2021 to January 2025 (core: 2021). Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Robinhood_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Robinhood_2021_Case_Study.pptx).
   - 3 November 2021: A social-engineering call to support exposes customer information
   - 8 November 2021: Robinhood discloses the incident, citing roughly 7 million customers affected
   - 16 November 2021: Robinhood updates the disclosure
@@ -894,7 +894,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 12 May 2021: Executive Order 14028 signed
   - 30 October 2023: SEC charges SolarWinds and its CISO
   - 20 November 2025: SEC case dismissed with prejudice by joint stipulation
-- [Zoom and the FTC, 2020: Encryption Claims, User Consent and Security Accountability](/case-studies/ZOOM_FTC_2020.md). Incident, April 2020 to February 2021 (core: 2020). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Zoom_FTC_2020_Case_Study.pdf).
+- [Zoom and the FTC, 2020: Encryption Claims, User Consent and Security Accountability](/case-studies/ZOOM_FTC_2020.md). Incident, April 2020 to February 2021 (core: 2020). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Zoom_FTC_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Zoom_FTC_2020_Case_Study.pptx).
   - 3 April 2020: Citizen Lab research questions Zoom's encryption claims
   - 26 October 2020: Zoom announces an end-to-end encryption technical preview
   - 9 November 2020: The FTC files a complaint over Zoom's security and encryption claims
@@ -928,7 +928,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - July 2020: Technical analysis shows the loader mattered and the first 8,192 bytes were not a recovery service
   - September 2020: A broader September intrusion toolkit is documented
   - October 2021: ANSSI documents the Lockean activity linked to ProLock
-- [NIST Zero Trust Architecture, 2020: Decisions, Enforcement and the Paths Between Them](/case-studies/NIST_ZERO_TRUST_2020.md). Attack surface, August 2020 to 2020 (core: 2020). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/NIST_Zero_Trust_2020_Case_Study.pdf).
+- [NIST Zero Trust Architecture, 2020: Decisions, Enforcement and the Paths Between Them](/case-studies/NIST_ZERO_TRUST_2020.md). Attack surface, August 2020 to 2020 (core: 2020). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/NIST_Zero_Trust_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/NIST_Zero_Trust_2020_Case_Study.pptx).
   - 2019: NIST circulates draft versions of SP 800-207 for public comment
   - 11 August 2020: NIST publishes the final SP 800-207, defining Zero Trust Architecture and its components
 - [The Multipath TCP Attack Surface: A 2026 Case Study](/case-studies/MPTCP_ATTACK_SURFACE_2026.md). Attack surface, 2020 to 2026. Sectors: technology. CVEs: CVE-2021-47152, CVE-2022-50071, CVE-2025-40258, CVE-2026-31669, CVE-2026-80588, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/MPTCP_Attack_Surface_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/MPTCP_Attack_Surface_2026_Case_Study.pptx).
@@ -1235,7 +1235,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 24 October 2018: Cathay discloses the breach: about 9.4 million affected, including ~860,000 passport numbers
   - 6 June 2019: The Hong Kong Privacy Commissioner publishes its investigation report (security and retention contraventions)
   - 10 February 2020: The UK ICO imposes a 500,000 pound penalty under the Data Protection Act 1998
-- [Cambridge Analytica and Facebook: Consent, Data Provenance and Platform Accountability](/case-studies/CAMBRIDGE_ANALYTICA_2018.md). Incident, 2014 to 2020 (core: 2018). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cambridge_Analytica_2018_Case_Study.pdf).
+- [Cambridge Analytica and Facebook: Consent, Data Provenance and Platform Accountability](/case-studies/CAMBRIDGE_ANALYTICA_2018.md). Incident, 2014 to 2020 (core: 2018). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cambridge_Analytica_2018_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Cambridge_Analytica_2018_Case_Study.pptx).
   - 2014: Graph API collection arrangements for app users' and friends' data (2014 to 2015, per the FTC complaint)
   - 2015: Facebook learns Kogan passed data to third parties; it removes the app and requests deletion certifications
   - March 2018: Facebook publicly suspends Cambridge Analytica
@@ -1333,7 +1333,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 2 November 2017: Estonia announces blocking certificates on about 760,000 at-risk ID cards
   - 3 November 2017: Estonia blocks the affected certificates (about 740,000 cards)
   - 1 April 2018: Estonia finally revokes the affected certificates
-- [River City Media 2017: Exposure Claims, a Mailing Dataset, and Research Litigation](/case-studies/RIVER_CITY_MEDIA_2017.md). Incident, January 2017 to September 2018 (core: 2017). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/River_City_Media_2017_Case_Study.pdf).
+- [River City Media 2017: Exposure Claims, a Mailing Dataset, and Research Litigation](/case-studies/RIVER_CITY_MEDIA_2017.md). Incident, January 2017 to September 2018 (core: 2017). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/River_City_Media_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/River_City_Media_2017_Case_Study.pptx).
   - January 2017: Publicly exposed River City Media files are encountered; Have I Been Pwned records the exposure
   - 6 March 2017: Chris Vickery publishes the disclosure describing a large mailing dataset
   - 9 March 2017: River City Media issues a rebuttal denying an open server and the alleged techniques
@@ -1539,7 +1539,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 December 2015: Juniper's out-of-band advisory on unauthorized code in ScreenOS (CVE-2015-7755, CVE-2015-7756)
   - 18 December 2015: Public Law 114-113 enacted, carrying the Cybersecurity Act of 2015
   - 23 December 2015: Intrusions at three Ukrainian distribution companies cut power to about 225,000 customers
-- [Ashley Madison 2015: Sensitive Context, False Associations and the Meaning of Deletion](/case-studies/ASHLEY_MADISON_2015.md). Incident, 2015 to 2016. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ashley_Madison_2015_Case_Study.pdf).
+- [Ashley Madison 2015: Sensitive Context, False Associations and the Meaning of Deletion](/case-studies/ASHLEY_MADISON_2015.md). Incident, 2015 to 2016. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ashley_Madison_2015_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Ashley_Madison_2015_Case_Study.pptx).
   - 2014: Alleged unauthorized network access begins (late 2014 into early 2015, per the FTC complaint)
   - 12 July 2015: The company becomes aware; employees detect a large data transfer
   - 15 July 2015: The Impact Team publicly threatens the company
@@ -2099,7 +2099,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 December 2025: AA25-343A: CARR, NoName057(16), Z-Pentest and Sector16 tamper with water HMIs through VNC
   - 7 April 2026: AA26-097A: Iranian-affiliated actors extract and modify project files on internet-facing PLCs
   - 27 July 2026: MicroLogix PLC wave reaches utilities in at least seven states; boil water notices and manual operations
-- [Selecting AES: How Rijndael Became a Standard Without Becoming a Complete Security System](/case-studies/NIST_AES_2000.md). Attack surface, October 2000 to November 2001 (core: 2000 to 2001). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/NIST_AES_2000_Case_Study.pdf).
+- [Selecting AES: How Rijndael Became a Standard Without Becoming a Complete Security System](/case-studies/NIST_AES_2000.md). Attack surface, October 2000 to November 2001 (core: 2000 to 2001). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/NIST_AES_2000_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/NIST_AES_2000_Case_Study.pptx).
   - 2 October 2000: NIST announces Rijndael as the proposed Advanced Encryption Standard
   - 26 November 2001: FIPS 197 publishes AES as a federal standard
 - [The Year 2000 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2000.md). Period record, January to December 2000. Sectors: cross-sector, government, defense, technology, retail, finance, media, manufacturing. CVEs: CVE-2000-0573, CVE-2000-0621, CVE-2000-0666, CVE-2000-0770, CVE-2000-0884, CVE-2000-0887 and 3 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2000_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2000_Case_Study.pptx).

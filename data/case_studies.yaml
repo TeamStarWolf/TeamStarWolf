@@ -4721,6 +4721,7 @@ studies:
     actors: []
     tags: ["credential theft", "account breach", "password reset", "marketplace", "employee credentials"]
     pdf: "eBay_2014_Case_Study.pdf"
+    pptx: "eBay_2014_Case_Study.pptx"
     events:
       - {"date": "2014-02", "label": "The authentication-database compromise window begins (late February to early March 2014)"}
       - {"date": "2014-05", "label": "eBay detects the employee-credential compromise (about two weeks before disclosure)"}
@@ -4739,6 +4740,7 @@ studies:
     actors: []
     tags: ["credential theft", "password storage", "account breach", "password reset", "Nikulin"]
     pdf: "LinkedIn_2012_2016_Case_Study.pdf"
+    pptx: "LinkedIn_2012_2016_Case_Study.pptx"
     events:
       - {"date": "2012-03", "label": "Charged LinkedIn intrusion window (about 3-4 March 2012, per the indictment)"}
       - {"date": "2012-06-06", "label": "LinkedIn learns of a published list of about 6.5 million passwords"}
@@ -4763,6 +4765,7 @@ studies:
     actors: []
     tags: ["credential theft", "password storage", "cloud storage", "account recovery", "Nikulin"]
     pdf: "Dropbox_2012_2016_Case_Study.pdf"
+    pptx: "Dropbox_2012_2016_Case_Study.pptx"
     events:
       - {"date": "2012-07-31", "label": "Dropbox discloses reused-credential account access and an employee document containing user email addresses"}
       - {"date": "2016-08-25", "label": "Dropbox confirms a genuine 2012 credential collection and resets unchanged pre-mid-2012 passwords"}
@@ -4780,6 +4783,7 @@ studies:
     actors: []
     tags: ["credential theft", "legacy data", "disputed date", "password storage", "disclosure"]
     pdf: "MySpace_2016_Case_Study.pdf"
+    pptx: "MySpace_2016_Case_Study.pptx"
     events:
       - {"date": "2016-05-31", "label": "Time Inc. announces that stolen legacy login data is circulating; user notices are sent"}
       - {"date": "2016-06-01", "label": "Troy Hunt's independent analysis estimates the data as roughly 2008-2009, with explicit uncertainty"}
@@ -5184,6 +5188,7 @@ studies:
     actors: []
     tags: ["data breach", "telecom", "lab access", "customer records", "T-Mobile", "notification"]
     pdf: "T-Mobile_2021_Case_Study.pdf"
+    pptx: "T-Mobile_2021_Case_Study.pptx"
     events:
       - {"date": "2021-03-18", "label": "Initial access to some systems (per the later SEC filing)"}
       - {"date": "2021-08-03", "label": "Access to and taking of customer data begins (per the SEC filing)"}
@@ -5221,6 +5226,7 @@ studies:
     actors: []
     tags: ["data breach", "password storage", "bcrypt", "Canva", "breach communication", "credential exposure"]
     pdf: "Canva_2019_2020_Case_Study.pdf"
+    pptx: "Canva_2019_2020_Case_Study.pptx"
     events:
       - {"date": "2019-05-24", "label": "Canva interrupts an attack; later reports up to 139 million profiles and bcrypt-protected passwords exposed"}
       - {"date": "2019-08-09", "label": "The collection is added to Have I Been Pwned (about 137 million addresses)"}
@@ -5611,6 +5617,7 @@ studies:
     actors: []
     tags: ["data breach", "Quora", "password hashes", "litigation", "evidence"]
     pdf: "Quora_2018_Case_Study.pdf"
+    pptx: "Quora_2018_Case_Study.pptx"
     events:
       - {"date": "2018-11-30", "label": "Quora discovers unauthorized access to its systems"}
       - {"date": "2018-12-03", "label": "Quora discloses the breach; reporting estimates about 100 million users affected"}
@@ -5630,6 +5637,7 @@ studies:
     actors: []
     tags: ["data breach", "Zynga", "credentials", "notification", "court record"]
     pdf: "Zynga_2019_Case_Study.pdf"
+    pptx: "Zynga_2019_Case_Study.pptx"
     events:
       - {"date": "2019-09", "label": "Zynga discloses a breach of player account data; a breach-index entry follows"}
       - {"date": "2021-01-06", "label": "An early ruling finds evidence of arbitration assent missing"}

@@ -773,7 +773,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 7 October 2021: Twitch precautionarily replaces all stream keys
   - 15 October 2021: Twitch reports remediation; exposed material was source-repository documents and some creator-payout data; passwords not exposed
   - 16 November 2024: Turkey's KVKK is reported to impose TRY 2 million in penalties (35,274 affected Turkey residents)
-- [T-Mobile 2021: Lab Access, Customer Records and the Long Accountability Trail](/case-studies/TMOBILE_2021.md). Incident, 2021 to 2025 (core: 2021). Sectors: telecommunications. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/T-Mobile_2021_Case_Study.pdf).
+- [T-Mobile 2021: Lab Access, Customer Records and the Long Accountability Trail](/case-studies/TMOBILE_2021.md). Incident, 2021 to 2025 (core: 2021). Sectors: telecommunications. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/T-Mobile_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/T-Mobile_2021_Case_Study.pptx).
   - 18 March 2021: Initial access to some systems (per the later SEC filing)
   - 3 August 2021: Access to and taking of customer data begins (per the SEC filing)
   - 12 August 2021: T-Mobile becomes aware of the issue
@@ -1030,7 +1030,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 6 August 2020: OCC announces an $80 million civil penalty and a consent order
   - February 2021: Company update identifies about 4,700 additional people whose SSNs were accessed
   - 17 June 2022: DOJ announces Paige Thompson's conviction on wire fraud and computer-intrusion counts
-- [Zynga 2019: Player Credentials, Notification and the Court Record](/case-studies/ZYNGA_2019.md). Incident, September 2019 to April 2022 (core: 2019). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Zynga_2019_Case_Study.pdf).
+- [Zynga 2019: Player Credentials, Notification and the Court Record](/case-studies/ZYNGA_2019.md). Incident, September 2019 to April 2022 (core: 2019). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Zynga_2019_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Zynga_2019_Case_Study.pptx).
   - September 2019: Zynga discloses a breach of player account data; a breach-index entry follows
   - 6 January 2021: An early ruling finds evidence of arbitration assent missing
   - 5 May 2021: A related case is transferred, which is not a breach-liability decision
@@ -1118,7 +1118,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 5 December 2019: Treasury sanctions Evil Corp and Maksim Yakubets
   - 17 December 2019: Citrix discloses CVE-2019-19781 with interim mitigations
   - 31 December 2019: Travelex hit by Sodinokibi; more than 1,500 stores affected
-- [Canva 2019-2020: Password-Store Exposure and the Cost of Reassuring Language](/case-studies/CANVA_2019_2020.md). Incident, 2019 to 2020 (core: 2019). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Canva_2019_2020_Case_Study.pdf).
+- [Canva 2019-2020: Password-Store Exposure and the Cost of Reassuring Language](/case-studies/CANVA_2019_2020.md). Incident, 2019 to 2020 (core: 2019). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Canva_2019_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Canva_2019_2020_Case_Study.pptx).
   - 24 May 2019: Canva interrupts an attack; later reports up to 139 million profiles and bcrypt-protected passwords exposed
   - 9 August 2019: The collection is added to Have I Been Pwned (about 137 million addresses)
   - 13 August 2019: The University of the Philippines issues a Canva advisory
@@ -1187,7 +1187,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 3 January 2018: Public disclosure by Project Zero and Google, ahead of the planned date
   - 9 January 2018: The originally coordinated disclosure date
   - 22 January 2018: Canonical reverts an Intel microcode update after instability
-- [Quora 2018: Breach Discovery, Private Activity and the Boundaries of Public Evidence](/case-studies/QUORA_2018.md). Incident, November 2018 to June 2021 (core: 2018). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Quora_2018_Case_Study.pdf).
+- [Quora 2018: Breach Discovery, Private Activity and the Boundaries of Public Evidence](/case-studies/QUORA_2018.md). Incident, November 2018 to June 2021 (core: 2018). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Quora_2018_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Quora_2018_Case_Study.pptx).
   - 30 November 2018: Quora discovers unauthorized access to its systems
   - 3 December 2018: Quora discloses the breach; reporting estimates about 100 million users affected
   - 18 December 2018: The first civil complaint is filed
@@ -1420,7 +1420,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - July 2016: The first supplier patch level addresses part of the QuadRooter set
   - August 2016: Check Point publicly discloses QuadRooter; a further patch level follows
   - September 2016: September Android bulletins provide three patch levels completing the set
-- [MySpace 2016 Disclosure: Old Credentials, New Exposure, and a Disputed Breach Date](/case-studies/MYSPACE_2016.md). Incident, 2016 to 2021. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/MySpace_2016_Case_Study.pdf).
+- [MySpace 2016 Disclosure: Old Credentials, New Exposure, and a Disputed Breach Date](/case-studies/MYSPACE_2016.md). Incident, 2016 to 2021. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/MySpace_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/MySpace_2016_Case_Study.pptx).
   - 31 May 2016: Time Inc. announces that stolen legacy login data is circulating; user notices are sent
   - 1 June 2016: Troy Hunt's independent analysis estimates the data as roughly 2008-2009, with explicit uncertainty
   - August 2016: Time Inc.'s Form 10-Q reports about 360 million accounts and a likely June 2013 to mid-2015 breach interval
@@ -1649,7 +1649,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 6 November 2014: Company findings: a third-party vendor's credentials used to enter; a separate 53 million email-address files
   - 24 November 2020: A $17.5 million multistate settlement (46 states and DC) is announced
   - 21 December 2020: The New Jersey assurance of voluntary compliance takes effect
-- [eBay 2014: Employee Credentials, Customer Passwords and Marketplace Recovery](/case-studies/EBAY_2014.md). Incident, 2014. Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/eBay_2014_Case_Study.pdf).
+- [eBay 2014: Employee Credentials, Customer Passwords and Marketplace Recovery](/case-studies/EBAY_2014.md). Incident, 2014. Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/eBay_2014_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/eBay_2014_Case_Study.pptx).
   - February 2014: The authentication-database compromise window begins (late February to early March 2014)
   - May 2014: eBay detects the employee-credential compromise (about two weeks before disclosure)
   - 21 May 2014: eBay discloses the breach and asks all users to change passwords; records of up to 145 million users
@@ -1700,7 +1700,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2012 <!-- {docsify-ignore} -->
 
-- [LinkedIn 2012-2016: Password-Store Exposure and the Limits of a Targeted Reset](/case-studies/LINKEDIN_2012_2016.md). Incident, 2012 to 2021 (core: 2012 to 2016). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/LinkedIn_2012_2016_Case_Study.pdf).
+- [LinkedIn 2012-2016: Password-Store Exposure and the Limits of a Targeted Reset](/case-studies/LINKEDIN_2012_2016.md). Incident, 2012 to 2021 (core: 2012 to 2016). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/LinkedIn_2012_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/LinkedIn_2012_2016_Case_Study.pptx).
   - March 2012: Charged LinkedIn intrusion window (about 3-4 March 2012, per the indictment)
   - 6 June 2012: LinkedIn learns of a published list of about 6.5 million passwords
   - 12 June 2012: LinkedIn summarizes the theft and reports salted hashing completed for the live store
@@ -1725,7 +1725,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 3 April 2017: 3 April to 3 May 2017: GRU spearphishing of the French presidential campaign
   - 19 December 2017: The US and five partner governments attribute WannaCry to North Korea
   - 13 July 2018: Twelve GRU officers indicted over the 2016 election hacking
-- [Dropbox 2012-2016: Historical Credentials, Delayed Exposure and Account Recovery](/case-studies/DROPBOX_2012_2016.md). Incident, 2012 to 2021 (core: 2012 to 2016). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Dropbox_2012_2016_Case_Study.pdf).
+- [Dropbox 2012-2016: Historical Credentials, Delayed Exposure and Account Recovery](/case-studies/DROPBOX_2012_2016.md). Incident, 2012 to 2021 (core: 2012 to 2016). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Dropbox_2012_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Dropbox_2012_2016_Case_Study.pptx).
   - 31 July 2012: Dropbox discloses reused-credential account access and an employee document containing user email addresses
   - 25 August 2016: Dropbox confirms a genuine 2012 credential collection and resets unchanged pre-mid-2012 passwords
   - 21 October 2016: The Justice Department announces Nikulin's indictment involving three companies

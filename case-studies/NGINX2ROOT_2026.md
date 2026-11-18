@@ -55,7 +55,7 @@ No review recorded yet
 
 ## Executive summary
 
-On 18 November 2026, F5 disclosed nginx2root, a set of five memory-corruption flaws in nginx, each an independent unauthenticated path to running code as the nginx worker, alongside a Linux kernel flaw that can raise that access to root on the host. This study covers the two that involve HTTP/2, which are also the two a single change blocks: CVE-2026-123007, an integer overflow in HTTP/2 flow control, and CVE-2026-123633, a use-after-free when an HTTP/2 connection is reused. F5 scores both at 9.2 under CVSS 4.0 and 8.1 under CVSS 3.1 (Confirmed [1][2][5]).
+On 18 November 2026, F5 disclosed nginx2root, a set of five memory-corruption flaws in nginx, each an independent unauthenticated path to running code as the nginx worker, alongside a Linux kernel flaw that can raise that access to root on the host. This study covers the two that involve HTTP/2, which are also the two a single change blocks: CVE-2026-123007, an integer underflow in HTTP/2 flow control, and CVE-2026-123633, a use-after-free when an HTTP/2 connection is reused. F5 scores both at 9.2 under CVSS 4.0 and 8.1 under CVSS 3.1 (Confirmed [1][2][5]).
 
 The record holds a real tension. The CVSS vector sets attack complexity high, nginx.org rates CVE-2026-123633 only medium, as of 18 November 2026 there is no reported exploitation in the wild and neither CVE is in the CISA Known Exploited Vulnerabilities catalog, and the finders withheld their exploits (Confirmed [5][10]; Reported [7][9]). At the same time, Wiz reports confirming code execution with an address-space-layout-randomization bypass on stock nginx builds serving ordinary static files, and Xint reports chaining the HTTP/2 flaw to reach root on a cloud host from inside a container (Reported [7][9]). Both can be true: a bug can be hard to weaponize in general and still have a working exploit for a common configuration.
 
@@ -102,7 +102,7 @@ A finder's demonstration of code execution against a stock build is strong evide
 
 ## Part 1: The two HTTP/2 flaws
 
-### CVE-2026-123007: a flow-control counter that overflows
+### CVE-2026-123007: a flow-control counter that wraps
 
 HTTP/2 flow control keeps a server from sending more response data than a client is ready to receive, using a per-connection credit that the protocol caps at a fixed maximum. The finders describe a bookkeeping error: when a stream is canceled while its data is still queued, nginx refunds the unsent amount to the connection credit without checking an upper bound. A client that has already restored the same credit, then cancels, can push the counter past the cap. Because the counter is an unsigned value, the later bounds check underflows and stops rejecting anything, so the client can set the credit to an arbitrary large value (Reported [7][9]).
 

@@ -44,6 +44,10 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 10 November 2026: N-central 2026.4 Hotfix 2 (2026.4.1.26) posted; N-able publishes seven CVE records, two at CVSS v4.0 9.3
   - 11 November 2026: All hosted N-central servers upgraded (status update, 01:04 dashboard time)
   - 11 November 2026: N-able blog: unauthenticated paths fixed, more hotfixes to come, calls claims it ignored disclosure inaccurate
+- [Java4Shell, CVE-2026-114938: The OpenJDK Base64 Intrinsic Heap Overflow](/case-studies/JAVA4SHELL_CVE_2026_114938.md). Vulnerability, November 2026. Sectors: technology. CVEs: CVE-2026-114938. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Java4Shell_CVE_2026_114938_Case_Study.pdf).
+  - 17 November 2026: Oracle ships the November 2026 Critical Patch Update fixing CVE-2026-114938; an OpenJDK advisory is published
+  - 17 November 2026: Calif discloses Java4Shell with a technical write-up and a proof-of-concept trigger; CISA issues an alert urging immediate patching
+  - 18 November 2026: NVD still lists the record as undergoing analysis; the CVE is not in the CISA KEV catalog
 - [CVE-2026-123039 and Root on the Check Point Gateway: The PHP2Shell Chain, the TSGA Implant and the ESXi Wiper of October and November 2026](/case-studies/CHECK_POINT_GAIA_CVE_2026_123039.md). Vulnerability, January 2019 to November 2026 (core: 30 October 2026 to 13 November 2026). Sectors: cross-sector, technology. CVEs: CVE-2026-123039, CVE-2026-107484, CVE-2026-109618, CVE-2026-109619, CVE-2026-50751, CVE-2024-24919 and 22 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Check_Point_Gaia_CVE_2026_123039_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Check_Point_Gaia_CVE_2026_123039_Case_Study.pptx).
   - 8 January 2019: sk144112 documents Dynamic CLI, the Gaia feature served by the vulnerable daemon
   - 28 May 2026: ESET's APT Activity Report assesses PhiliKit as part of UNC5221's SPAWN toolset

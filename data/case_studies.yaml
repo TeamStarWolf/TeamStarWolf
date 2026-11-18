@@ -2569,6 +2569,20 @@ studies:
       - {"date": "2026-10-11", "label": "Xint finds the nginx flaws"}
       - {"date": "2026-10-16", "label": "Xint reports the flaws to F5 through HackerOne; Wiz and others report the HTTP/2 pair independently"}
       - {"date": "2026-11-18", "label": "F5 discloses nginx2root and ships nginx 1.30.7 and 1.31.9 fixing all five flaws; Xint and Wiz publish write-ups; neither CVE is in CISA KEV"}
+  case-studies/JAVA4SHELL_CVE_2026_114938.md:
+    kind: "vulnerability"
+    title: "Java4Shell, CVE-2026-114938: The OpenJDK Base64 Intrinsic Heap Overflow"
+    start: "2026-11"
+    end: "2026-11"
+    sectors: ["technology"]
+    cves: ["CVE-2026-114938"]
+    actors: []
+    tags: ["Java", "OpenJDK", "Base64", "memory corruption", "heap overflow", "AI-assisted discovery"]
+    pdf: "Java4Shell_CVE_2026_114938_Case_Study.pdf"
+    events:
+      - {"date": "2026-11-17", "label": "Oracle ships the November 2026 Critical Patch Update fixing CVE-2026-114938; an OpenJDK advisory is published"}
+      - {"date": "2026-11-17", "label": "Calif discloses Java4Shell with a technical write-up and a proof-of-concept trigger; CISA issues an alert urging immediate patching"}
+      - {"date": "2026-11-18", "label": "NVD still lists the record as undergoing analysis; the CVE is not in the CISA KEV catalog"}
   case-studies/GITLAB_CVE_2026_97229.md:
     kind: "vulnerability"
     title: "GitLab, CVE-2026-97229: Lab-Verified Exposure and Fix"

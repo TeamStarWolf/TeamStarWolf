@@ -900,7 +900,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 November 2020: The FTC files a complaint over Zoom's security and encryption claims
   - January 2021: The FTC consent order is issued
   - 1 February 2021: The FTC finalizes the order
-- [UCSF Ransomware 2020: Research Recovery, Privacy and the Limits of a Payment](/case-studies/UCSF_NETWALKER_2020.md). Incident, June 2020 to January 2021 (core: 2020). Sectors: education, healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/UCSF_NetWalker_2020_Case_Study.pdf).
+- [UCSF Ransomware 2020: Research Recovery, Privacy and the Limits of a Payment](/case-studies/UCSF_NETWALKER_2020.md). Incident, June 2020 to January 2021 (core: 2020). Sectors: education, healthcare. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/UCSF_NetWalker_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/UCSF_NetWalker_2020_Case_Study.pptx).
   - 1 June 2020: UCSF detects a NetWalker ransomware intrusion affecting its School of Medicine
   - 29 June 2020: UCSF discloses that it paid about $1.14 million for a decryption tool
   - January 2021: An international action disrupts NetWalker; US Department of Justice actions follow
@@ -922,7 +922,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 15 October 2020: An XLSB delivery change is observed
   - November 2020: Election-themed delivery pretexts appear
   - 30 August 2023: CISA and FBI report the disruption of QakBot infrastructure
-- [ProLock 2020: A Ransomware Operation with an Unreliable Recovery Promise](/case-studies/PROLOCK_2020.md). Campaign, March 2020 to October 2021 (core: 2020). Sectors: cross-sector. CVEs: CVE-2019-0859. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ProLock_2020_Case_Study.pdf).
+- [ProLock 2020: A Ransomware Operation with an Unreliable Recovery Promise](/case-studies/PROLOCK_2020.md). Campaign, March 2020 to October 2021 (core: 2020). Sectors: cross-sector. CVEs: CVE-2019-0859. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ProLock_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/ProLock_2020_Case_Study.pptx).
   - March 2020: PwndLocker gives way to ProLock across multiple intrusion paths
   - May 2020: A Diebold Nixdorf operational disruption is reported, without an ATM-malware claim
   - July 2020: Technical analysis shows the loader mattered and the first 8,192 bytes were not a recovery service
@@ -951,7 +951,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 3 March 2022: CISA adds CVE-2020-1938 to KEV in a batch of 95 entries
   - October 2026: DShield still records about 950 to 6,200 port 8009 events a day
   - 3 November 2026: KEV still lists the CVE; the TeamStarWolf lab run
-- [Garmin's 2020 Outage: Connected-Service Recovery and the WastedLocker Evidence Boundary](/case-studies/GARMIN_WASTEDLOCKER_2020.md). Incident, 2020. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Garmin_WastedLocker_2020_Case_Study.pdf).
+- [Garmin's 2020 Outage: Connected-Service Recovery and the WastedLocker Evidence Boundary](/case-studies/GARMIN_WASTEDLOCKER_2020.md). Incident, 2020. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Garmin_WastedLocker_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Garmin_WastedLocker_2020_Case_Study.pptx).
   - 25 June 2020: Symantec reports the WastedLocker campaign (at least 31 organizations), predating the Garmin outage
   - 23 July 2020: Garmin says some systems were encrypted and online services interrupted
   - 27 July 2020: Garmin's public statement (filed with the SEC); no indication customer data was accessed
@@ -1039,14 +1039,14 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 - [WebAuthn, 2019: Standardizing Stronger Sign-In Without Pretending Recovery Disappears](/case-studies/WEBAUTHN_2019.md). Attack surface, March 2019 to May 2022 (core: 2019). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/WebAuthn_2019_Case_Study.pdf).
   - 4 March 2019: W3C publishes WebAuthn Level 1 as a Recommendation, a public-key authentication API
   - 5 May 2022: FIDO Alliance, Apple, Google and Microsoft announce expanded cross-device passkey support
-- [Travelex 2019-2020: Ransomware, Business Continuity and the Long Tail of Lost Evidence](/case-studies/TRAVELEX_2020.md). Incident, 2019 to 2022 (core: 2019 to 2020). Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Travelex_2020_Case_Study.pdf).
+- [Travelex 2019-2020: Ransomware, Business Continuity and the Long Tail of Lost Evidence](/case-studies/TRAVELEX_2020.md). Incident, 2019 to 2022 (core: 2019 to 2020). Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Travelex_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Travelex_2020_Case_Study.pptx).
   - 31 December 2019: Travelex detects the Sodinokibi (REvil) ransomware and takes systems offline
   - 8 January 2020: Finablr discloses the incident; no evidence at that time of data exfiltration or encryption of structured personal data
   - 2 March 2020: Travelex announces restoration of customer-facing systems; a ~25 million pound Q1 EBITDA estimate (mostly malware, with COVID-19)
   - 6 August 2020: Restructuring completes via administration; 1,802 UK jobs safeguarded, 1,309 UK redundancies
   - 29 November 2021: KPMG disclaims an audit opinion, citing evidence limitations from the restructuring and the malware incident
   - April 2022: An Employment Tribunal records agreed background facts recognizing multiple business pressures
-- [Texas Municipal Ransomware 2019: A Shared Dependency Became a Statewide Response](/case-studies/TEXAS_MUNICIPAL_RANSOMWARE_2019.md). Incident, August 2019 to November 2021 (core: 2019). Sectors: government. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Texas_Municipal_Ransomware_2019_Case_Study.pdf).
+- [Texas Municipal Ransomware 2019: A Shared Dependency Became a Statewide Response](/case-studies/TEXAS_MUNICIPAL_RANSOMWARE_2019.md). Incident, August 2019 to November 2021 (core: 2019). Sectors: government. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Texas_Municipal_Ransomware_2019_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Texas_Municipal_Ransomware_2019_Case_Study.pptx).
   - 16 August 2019: A coordinated ransomware attack hits about 22 Texas local governments through a shared service provider
   - August 2019: Texas DIR coordinates a statewide response
   - 8 November 2021: A federal indictment (Yevgeniy Polyanin, REvil) is unsealed
@@ -1057,7 +1057,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 16 April 2020: CISA AA20-107A describes continued exploitation and credential reuse
   - 14 September 2020: CISA and FBI reporting (AA20-258A, AA20-259A) records further activity
   - April 2021: Later Pulse Connect Secure issues, including CVE-2021-22893, are reported as distinct
-- [Norsk Hydro and LockerGoga, 2019: Recovery Had to Reach the Factory Floor](/case-studies/NORSK_HYDRO_LOCKERGOGA_2019.md). Incident, 2018 to 2020 (core: 2019). Sectors: manufacturing. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Norsk_Hydro_LockerGoga_2019_Case_Study.pdf).
+- [Norsk Hydro and LockerGoga, 2019: Recovery Had to Reach the Factory Floor](/case-studies/NORSK_HYDRO_LOCKERGOGA_2019.md). Incident, 2018 to 2020 (core: 2019). Sectors: manufacturing. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Norsk_Hydro_LockerGoga_2019_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Norsk_Hydro_LockerGoga_2019_Case_Study.pptx).
   - December 2018: A malicious attachment establishes an initial foothold (per Microsoft's later responder account)
   - 19 March 2019: Hydro discloses the attack; plants isolated and moved to manual operation where possible
   - 21 March 2019: An intermediate operating-status update
@@ -1124,7 +1124,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 13 August 2019: The University of the Philippines issues a Canva advisory
   - 11 January 2020: Canva learns of about four million accounts with recovered passwords; resets unchanged historical passwords the next day
   - 28 February 2020: Miami University issues a further advisory
-- [Baltimore and RobbinHood, 2019: When a Network Outage Becomes a Transaction Crisis](/case-studies/BALTIMORE_ROBBINHOOD_2019.md). Incident, 2019 to 2025 (core: 2019). Sectors: government. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Baltimore_RobbinHood_2019_Case_Study.pdf).
+- [Baltimore and RobbinHood, 2019: When a Network Outage Becomes a Transaction Crisis](/case-studies/BALTIMORE_ROBBINHOOD_2019.md). Incident, 2019 to 2025 (core: 2019). Sectors: government. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Baltimore_RobbinHood_2019_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Baltimore_RobbinHood_2019_Case_Study.pptx).
   - 7 May 2019: The RobbinHood attack is discovered; systems taken offline for containment
   - 17 May 2019: The city describes containment, manual alternatives and a temporary property-transaction process
   - 10 June 2019: About 65 percent of employees regain computer and email access; service-specific limits continue
@@ -1253,7 +1253,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 25 October 2018: IAG revises the payment-card group to 244,000 and notifies two reward-booking groups
   - 16 October 2020: The ICO imposes a 20 million pound penalty (down from a 183.39 million pound proposal)
   - July 2021: A group claim is resolved on confidential terms with no admission of liability
-- [Atlanta and SamSam, 2018: Restoring a City Requires More Than Decrypting Its Files](/case-studies/ATLANTA_SAMSAM_2018.md). Incident, 2018 to 2019. Sectors: government. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Atlanta_SamSam_2018_Case_Study.pdf).
+- [Atlanta and SamSam, 2018: Restoring a City Requires More Than Decrypting Its Files](/case-studies/ATLANTA_SAMSAM_2018.md). Incident, 2018 to 2019. Sectors: government. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Atlanta_SamSam_2018_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Atlanta_SamSam_2018_Case_Study.pptx).
   - 10 March 2018: The Atlanta intrusion and encryption activity window (about 10-22 March 2018, per the federal account)
   - 22 March 2018: Major operational disruption; the city does not pay the ~$51,000 demand
   - 28 November 2018: Treasury designates two Iran-based financial facilitators; the SamSam campaign indictment is announced (200+ victims)

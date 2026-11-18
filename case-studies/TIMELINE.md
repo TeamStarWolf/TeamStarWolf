@@ -823,7 +823,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 21 August 2021: CISA urgent alert on active ProxyShell exploitation
   - 3 November 2021: KEV launches with the seven ProxyLogon and ProxyShell CVEs
   - 3 July 2025: Xu Zewei arrested in Milan
-- [Codecov 2021: When the Build Helper Became a Credential Boundary](/case-studies/CODECOV_2021.md). Incident, 2021. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Codecov_2021_Case_Study.pdf).
+- [Codecov 2021: When the Build Helper Became a Credential Boundary](/case-studies/CODECOV_2021.md). Incident, 2021. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Codecov_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Codecov_2021_Case_Study.pptx).
   - 31 January 2021: Start of the reported period containing unauthorized Bash Uploader changes
   - 1 April 2021: A customer reports a checksum discrepancy; Codecov discovers and remediates
   - 15 April 2021: Codecov publicly discloses and notifies affected users
@@ -1202,7 +1202,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 31 May 2019: The operators announce they will stop
   - 17 June 2019: A joint decryptor is released around the shutdown
   - October 2019: Successor-operation reporting follows the retirement
-- [event-stream 2018: A Dependency Handoff Reached a Wallet Release](/case-studies/EVENT_STREAM_2018.md). Incident, 2018. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/event-stream_2018_Case_Study.pdf).
+- [event-stream 2018: A Dependency Handoff Reached a Wallet Release](/case-studies/EVENT_STREAM_2018.md). Incident, 2018. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/event-stream_2018_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/event-stream_2018_Case_Study.pptx).
   - 9 September 2018: flatmap-stream is added as a dependency through event-stream 3.3.6
   - 5 October 2018: The malicious flatmap-stream 0.1.1 is published (per Snyk)
   - 20 November 2018: A public GitHub issue surfaces the problem
@@ -1259,7 +1259,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 28 November 2018: Treasury designates two Iran-based financial facilitators; the SamSam campaign indictment is announced (200+ victims)
   - 5 December 2018: DOJ announces Atlanta-specific charges against Savandi and Mansouri (about 3,789 affected computers)
   - 25 June 2019: Mayor Bottoms testifies to Congress; about $7.2 million in recovery costs to date
-- [ASUS ShadowHammer 2018-2019: Broad Distribution, Narrow Selection, Broken Release Trust](/case-studies/ASUS_SHADOWHAMMER_2019.md). Incident, 2018 to 2019. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ASUS_ShadowHammer_2019_Case_Study.pdf).
+- [ASUS ShadowHammer 2018-2019: Broad Distribution, Narrow Selection, Broken Release Trust](/case-studies/ASUS_SHADOWHAMMER_2019.md). Incident, 2018 to 2019. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ASUS_ShadowHammer_2019_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/ASUS_ShadowHammer_2019_Case_Study.pptx).
   - June 2018: The observed ASUS Live Update campaign period (June to November 2018)
   - January 2019: Kaspersky discovers the campaign
   - 25 March 2019: Kaspersky discloses Operation ShadowHammer; more than 57,000 affected users in its telemetry; 600+ MAC-address selectors
@@ -1346,7 +1346,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 3 April 2018: The researcher's disclosure retrospective and news coverage follow
   - 5 April 2018: A civil complaint is filed
   - 4 June 2018: The civil case is voluntarily dismissed, amended on 12 June
-- [NetSarang / ShadowPad, 2017: A Trusted Software Release Became an Intrusion Path](/case-studies/NETSARANG_SHADOWPAD_2017.md). Incident, 2017. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/NetSarang_ShadowPad_2017_Case_Study.pdf).
+- [NetSarang / ShadowPad, 2017: A Trusted Software Release Became an Intrusion Path](/case-studies/NETSARANG_SHADOWPAD_2017.md). Incident, 2017. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/NetSarang_ShadowPad_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/NetSarang_ShadowPad_2017_Case_Study.pptx).
   - 18 July 2017: NetSarang ships a release containing a backdoor in nssock2.dll (distributed to 4 August)
   - 5 August 2017: A clean update is released (per MyCERT)
   - 15 August 2017: Kaspersky discloses ShadowPad; one confirmed activation at a Hong Kong company; NetSarang acknowledges the backdoor
@@ -1366,7 +1366,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 24 October 2017: Bad Rabbit spreads through compromised websites serving a fake Flash Player update
   - 14 December 2017: Mandiant publishes TRITON, used to reprogram Triconex safety controllers
   - 19 December 2017: The United States, with the UK, Australia, Canada, New Zealand and Japan, attributes WannaCry to North Korea
-- [CCleaner 2017: Signed, Distributed and Still Compromised](/case-studies/CCLEANER_2017.md). Incident, 2017 to 2018. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/CCleaner_2017_Case_Study.pdf).
+- [CCleaner 2017: Signed, Distributed and Still Compromised](/case-studies/CCLEANER_2017.md). Incident, 2017 to 2018. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/CCleaner_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/CCleaner_2017_Case_Study.pptx).
   - 11 March 2017: Vendor later reports remote access to a developer workstation via TeamViewer
   - 15 August 2017: The compromised, validly signed CCleaner 5.33 release is distributed
   - 13 September 2017: Talos detects the malicious signed binary (separately reported by Morphisec)
@@ -1430,10 +1430,10 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 16 February 2016: Locky distribution is first widely reported via malicious document attachments
   - 31 March 2016: Reporting describes a shift to script attachments and intermediate downloaders (RockLoader)
   - 1 April 2016: Exploit-kit delivery is documented as an additional route; a Canadian government alert follows
-- [Transmission and Keydnap 2016: The Download Was Only the Beginning](/case-studies/KEYDNAP_2016.md). Campaign, July to August 2016 (core: 2016). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Keydnap_2016_Case_Study.pdf).
+- [Transmission and Keydnap 2016: The Download Was Only the Beginning](/case-studies/KEYDNAP_2016.md). Campaign, July to August 2016 (core: 2016). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Keydnap_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Keydnap_2016_Case_Study.pptx).
   - July 2016: ESET reports Keydnap, a macOS credential-stealer
   - August 2016: Keydnap is distributed through a compromised Transmission build
-- [KeRanger 2016: A Signed Installer Crossed a Trusted Download Boundary](/case-studies/KERANGER_2016.md). Campaign, March 2016 (core: 2016). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/KeRanger_2016_Case_Study.pdf).
+- [KeRanger 2016: A Signed Installer Crossed a Trusted Download Boundary](/case-studies/KERANGER_2016.md). Campaign, March 2016 (core: 2016). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/KeRanger_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/KeRanger_2016_Case_Study.pptx).
   - 4 March 2016: Malicious, signed Transmission installers for OS X carry KeRanger ransomware
   - 5 March 2016: Transmission and Apple respond; a removal update follows a misleading quiet period
 - [ImageTragick: When an Image Upload Crossed Into Command Execution](/case-studies/IMAGETRAGICK_2016.md). Vulnerability, May 2016 to 2016 (core: 2016). Sectors: technology. CVEs: CVE-2016-3714. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ImageTragick_2016_Case_Study.pdf).
@@ -1492,7 +1492,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 19 July 2019: Related flaw CVE-2019-12815 published
   - 8 October 2026: CISA adds CVE-2015-3306 to KEV; joint advisory AA26-281A lists it
   - 4 November 2026: Lab run: the vulnerable build copies a file without login; the fixed build refuses
-- [XcodeGhost 2015: A Compromised Build Tool Behind Legitimate Apps](/case-studies/XCODEGHOST_2015.md). Campaign, September to November 2015 (core: 2015). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/XcodeGhost_2015_Case_Study.pdf).
+- [XcodeGhost 2015: A Compromised Build Tool Behind Legitimate Apps](/case-studies/XCODEGHOST_2015.md). Campaign, September to November 2015 (core: 2015). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/XcodeGhost_2015_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/XcodeGhost_2015_Case_Study.pptx).
   - 14 September 2015: Early investigation identifies a malicious compiler affecting iOS apps
   - 18 September 2015: Palo Alto Networks names XcodeGhost as the scope grows beyond a few apps
   - 22 September 2015: Apple publishes guidance on verifying the build environment

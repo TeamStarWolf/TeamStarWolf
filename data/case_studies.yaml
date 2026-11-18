@@ -82,6 +82,7 @@ studies:
     actors: []
     tags: ["healthcare", "data warehouse", "privileged access", "PHI", "data breach"]
     pdf: "Anthem_2015_Case_Study.pdf"
+    pptx: "Anthem_2015_Case_Study.pptx"
     events:
       - {"date": "2014-02-18", "label": "Phishing message to an Anthem subsidiary's employees (alleged)"}
       - {"date": "2014-05-13", "label": "Unauthorized Anthem access begins (alleged)"}
@@ -308,6 +309,7 @@ studies:
     actors: []
     tags: ["cloud", "SSRF", "IMDS", "workload identity", "data breach"]
     pdf: "Capital_One_2019_Case_Study.pdf"
+    pptx: "Capital_One_2019_Case_Study.pptx"
     events:
       - {"date": "2019-03", "label": "Principal access window in the company's later disclosure"}
       - {"date": "2019-07", "label": "Outside report, company determination and public announcement of about 100 million US and 6 million Canada affected"}
@@ -3038,6 +3040,7 @@ studies:
     actors: []
     tags: ["acquisition security", "data breach", "SHA-1", "long dwell time", "data minimization"]
     pdf: "Marriott_Starwood_2018_Case_Study.pdf"
+    pptx: "Marriott_Starwood_2018_Case_Study.pptx"
     events:
       - {"date": "2014-07", "label": "The Starwood environment is compromised (FTC alleges)"}
       - {"date": "2016-09", "label": "Marriott's acquisition of Starwood closes"}
@@ -3350,6 +3353,7 @@ studies:
     actors: []
     tags: ["personnel records", "background investigations", "biometrics", "containment", "audit validation"]
     pdf: "OPM_2014_2015_Case_Study.pdf"
+    pptx: "OPM_2014_2015_Case_Study.pptx"
     events:
       - {"date": "2014-05", "label": "A second intrusion gains access with contractor credentials (per the House report)"}
       - {"date": "2014-07", "label": "Background-investigation data exfiltration (July to August 2014)"}
@@ -3772,6 +3776,7 @@ studies:
     actors: []
     tags: ["wiper", "data theft", "coercion", "attribution", "business continuity"]
     pdf: "Sony_Pictures_2014_Case_Study.pdf"
+    pptx: "Sony_Pictures_2014_Case_Study.pptx"
     events:
       - {"date": "2014-11-24", "label": "Destructive system disruption at Sony Pictures"}
       - {"date": "2014-12-01", "label": "The company learns employee personal information may be compromised"}
@@ -4386,6 +4391,7 @@ studies:
     actors: []
     tags: ["data breach", "concealment", "bug bounty", "cloud secrets", "disclosure governance"]
     pdf: "Uber_2016_Case_Study.pdf"
+    pptx: "Uber_2016_Case_Study.pptx"
     events:
       - {"date": "2016-10", "label": "Intruders use stolen credentials to copy about 57 million user records"}
       - {"date": "2016-12", "label": "Uber pays $100,000 through a bounty program and obtains a deletion agreement"}
@@ -4597,6 +4603,7 @@ studies:
     actors: []
     tags: ["account breach", "session trust", "disclosure", "acquisition diligence", "identity data"]
     pdf: "Yahoo_2014_2016_Case_Study.pdf"
+    pptx: "Yahoo_2014_2016_Case_Study.pptx"
     events:
       - {"date": "2014", "label": "The 2014 intrusion occurs (disclosed in 2016)"}
       - {"date": "2016-09-22", "label": "Yahoo discloses the 2014 incident; about 500 million accounts"}
@@ -4614,6 +4621,7 @@ studies:
     actors: []
     tags: ["financial breach", "contact data", "fraud", "bulk access", "securities fraud"]
     pdf: "JPMorgan_Chase_2014_Case_Study.pdf"
+    pptx: "JPMorgan_Chase_2014_Case_Study.pptx"
     events:
       - {"date": "2014-06", "label": "Alleged intrusion window begins at Victim-1 (June to August 2014, per the 2015 indictment)"}
       - {"date": "2014-09-10", "label": "JPMorgan Chase makes its first disclosure (per the 10-Q)"}
@@ -4631,6 +4639,7 @@ studies:
     actors: []
     tags: ["payment cards", "point of sale", "vendor access", "PCI DSS", "EMV", "retail breach"]
     pdf: "Home_Depot_2014_Case_Study.pdf"
+    pptx: "Home_Depot_2014_Case_Study.pptx"
     events:
       - {"date": "2014-04-10", "label": "Start of the exposure window later identified by the New York attorney general (10 April to 13 September 2014)"}
       - {"date": "2014-09-02", "label": "Investigation begins after information from banking partners and law enforcement"}

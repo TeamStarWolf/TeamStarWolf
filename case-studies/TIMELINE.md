@@ -797,7 +797,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - May 2021: RFC 9000, 9001 and 9002 standardize QUIC transport, TLS integration and recovery
   - March 2022: RFC 9221 adds an unreliable datagram extension to QUIC
   - June 2022: RFC 9114 publishes HTTP/3 as a separate mapping over QUIC
-- [PrintNightmare, 2021: When a Security Fix Depends on the Policy Around It](/case-studies/PRINTNIGHTMARE_CVE_2021_34527.md). Vulnerability, June to September 2021 (core: 2021). Sectors: technology. CVEs: CVE-2021-1675, CVE-2021-34527. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/PrintNightmare_CVE_2021_34527_Case_Study.pdf).
+- [PrintNightmare, 2021: When a Security Fix Depends on the Policy Around It](/case-studies/PRINTNIGHTMARE_CVE_2021_34527.md). Vulnerability, June to September 2021 (core: 2021). Sectors: technology. CVEs: CVE-2021-1675, CVE-2021-34527. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/PrintNightmare_CVE_2021_34527_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/PrintNightmare_CVE_2021_34527_Case_Study.pptx).
   - 8 June 2021: CVE-2021-1675 is addressed as a Print Spooler elevation-of-privilege issue
   - 21 June 2021: The issue is reclassified to remote code execution
   - 1 July 2021: CERT/CC VU#383432 highlights the separate PrintNightmare behavior
@@ -860,7 +860,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 4 October 2021: FireEye, Inc. becomes Mandiant, Inc.; the products business sale closes on 8 October
   - 27 April 2022: Mandiant merges UNC2452 into APT29
   - 12 September 2022: Google completes its acquisition of Mandiant
-- [Zerologon 2020: Domain Trust, Phased Enforcement and the Cost of Exceptions](/case-studies/ZEROLOGON_2020.md). Vulnerability, August 2020 to February 2021 (core: September to October 2020). Sectors: technology, government. CVEs: CVE-2020-1472. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Zerologon_2020_Case_Study.pdf).
+- [Zerologon 2020: Domain Trust, Phased Enforcement and the Cost of Exceptions](/case-studies/ZEROLOGON_2020.md). Vulnerability, August 2020 to February 2021 (core: September to October 2020). Sectors: technology, government. CVEs: CVE-2020-1472. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Zerologon_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Zerologon_2020_Case_Study.pptx).
   - 11 August 2020: Microsoft's August phase enforces secure RPC for Windows accounts
   - 16 September 2020: CERT/CC VU#490028 describes the insecure AES-CFB8 IV
   - 18 September 2020: CISA Emergency Directive 20-04 assumes active exploitation
@@ -904,11 +904,11 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 1 June 2020: UCSF detects a NetWalker ransomware intrusion affecting its School of Medicine
   - 29 June 2020: UCSF discloses that it paid about $1.14 million for a decryption tool
   - January 2021: An international action disrupts NetWalker; US Department of Justice actions follow
-- [SMBGhost: Compression Arithmetic, Client Exposure and the 2020 Emergency Patch](/case-studies/SMBGHOST_CVE_2020_0796.md). Vulnerability, March to June 2020 (core: 2020). Sectors: technology. CVEs: CVE-2020-0796. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SMBGhost_CVE_2020_0796_Case_Study.pdf).
+- [SMBGhost: Compression Arithmetic, Client Exposure and the 2020 Emergency Patch](/case-studies/SMBGHOST_CVE_2020_0796.md). Vulnerability, March to June 2020 (core: 2020). Sectors: technology. CVEs: CVE-2020-0796. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SMBGhost_CVE_2020_0796_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/SMBGhost_CVE_2020_0796_Case_Study.pptx).
   - 10 March 2020: Details of CVE-2020-0796 in SMB 3.1.1 appear ahead of a patch
   - 12 March 2020: Microsoft releases KB4551762 to fix the compression flaw
   - June 2020: SMBleed (CVE-2020-1206) research and proof-of-concept activity follow
-- [SIGRed: Windows DNS Parsing, Emergency Mitigation and the Evidence Behind Wormability](/case-studies/SIGRED_CVE_2020_1350.md). Vulnerability, July to September 2020 (core: 2020). Sectors: technology. CVEs: CVE-2020-1350. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SIGRed_CVE_2020_1350_Case_Study.pdf).
+- [SIGRed: Windows DNS Parsing, Emergency Mitigation and the Evidence Behind Wormability](/case-studies/SIGRED_CVE_2020_1350.md). Vulnerability, July to September 2020 (core: 2020). Sectors: technology. CVEs: CVE-2020-1350. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SIGRed_CVE_2020_1350_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/SIGRed_CVE_2020_1350_Case_Study.pptx).
   - 14 July 2020: Microsoft patches CVE-2020-1350 and offers a registry size workaround; Check Point publishes the research
   - 16 July 2020: CISA Emergency Directive 20-03 mandates mitigation and reporting
 - [Ragnar Locker: Ransomware Inside a Virtual Machine](/case-studies/RAGNAR_LOCKER_2020.md). Campaign, 2020 to 2023 (core: 2020). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ragnar_Locker_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Ragnar_Locker_2020_Case_Study.pptx).
@@ -957,7 +957,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 27 July 2020: Garmin's public statement (filed with the SEC); no indication customer data was accessed
   - 29 July 2020: Microsoft publishes its WastedLocker entry
   - 2020: Garmin's 2020 Form 10-K reports independent forensic analysis found no indication of customer-data access
-- [F5 BIG-IP CVE-2020-5902: A Management-Plane Failure and the July 2020 Mitigation Race](/case-studies/F5_BIGIP_CVE_2020_5902.md). Vulnerability, June to July 2020 (core: 2020). Sectors: technology. CVEs: CVE-2020-5902. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/F5_BIG-IP_CVE_2020_5902_Case_Study.pdf).
+- [F5 BIG-IP CVE-2020-5902: A Management-Plane Failure and the July 2020 Mitigation Race](/case-studies/F5_BIGIP_CVE_2020_5902.md). Vulnerability, June to July 2020 (core: 2020). Sectors: technology. CVEs: CVE-2020-5902. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/F5_BIG-IP_CVE_2020_5902_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/F5_BIG-IP_CVE_2020_5902_Case_Study.pptx).
   - 30 June 2020: F5 discloses CVE-2020-5902 in the TMUI management interface and urges mitigation
   - 5 July 2020: Scan evidence is published, with explicit limits
   - 8 July 2020: An earlier mitigation is found bypassable and is revised
@@ -1016,7 +1016,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - August 2025: Jaguar Land Rover incident, rated Category 3 at an estimated 1.9 billion pounds
   - 16 July 2026: Thalha Jubair and Owen Flowers, called leading Scattered Spider members by the NCA, each sentenced to five years six months
   - 10 November 2026: KEV catalog version 2026.11.10: 361 of 1,779 entries flagged for known ransomware use
-- [BlueKeep, 2019: The Distance Between a Warning and a Verified Fix](/case-studies/BLUEKEEP_2019.md). Vulnerability, May to November 2019 (core: May 2019). Sectors: technology, cross-sector. CVEs: CVE-2019-0708. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/BlueKeep_2019_Case_Study.pdf).
+- [BlueKeep, 2019: The Distance Between a Warning and a Verified Fix](/case-studies/BLUEKEEP_2019.md). Vulnerability, May to November 2019 (core: May 2019). Sectors: technology, cross-sector. CVEs: CVE-2019-0708. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/BlueKeep_2019_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/BlueKeep_2019_Case_Study.pptx).
   - 14 May 2019: Microsoft discloses CVE-2019-0708 with exceptional legacy patches; no observed exploitation
   - 4 June 2019: NSA advisory on BlueKeep
   - 17 June 2019: CISA reports remote code execution on a Windows 2000 test machine
@@ -1050,7 +1050,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 16 August 2019: A coordinated ransomware attack hits about 22 Texas local governments through a shared service provider
   - August 2019: Texas DIR coordinates a statewide response
   - 8 November 2021: A federal indictment (Yevgeniy Polyanin, REvil) is unsealed
-- [Pulse Secure CVE-2019-11510: When a VPN Patch Could Not Revoke Stolen Trust](/case-studies/PULSE_SECURE_CVE_2019_11510.md). Vulnerability, April 2019 to April 2021 (core: 2019 to 2020). Sectors: technology. CVEs: CVE-2019-11510. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Pulse_Secure_CVE_2019_11510_Case_Study.pdf).
+- [Pulse Secure CVE-2019-11510: When a VPN Patch Could Not Revoke Stolen Trust](/case-studies/PULSE_SECURE_CVE_2019_11510.md). Vulnerability, April 2019 to April 2021 (core: 2019 to 2020). Sectors: technology. CVEs: CVE-2019-11510. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Pulse_Secure_CVE_2019_11510_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Pulse_Secure_CVE_2019_11510_Case_Study.pptx).
   - 24 April 2019: Pulse Secure publishes advisory SA44101 for CVE-2019-11510 and related issues
   - August 2019: Public technical details and mass scanning follow
   - January 2020: CISA warns that patched appliances can retain previously stolen credentials
@@ -1097,7 +1097,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - May 2019: Unauthorized access through a third party reaches historical DoorDash data
   - 26 September 2019: DoorDash discloses the May 2019 breach affecting about 4.9 million people
   - 12 March 2020: An SEC staff comment letter addresses the breach disclosure
-- [Citrix CVE-2019-19781: Mitigation Revisions, Competing Intruders and the January 2020 Patch Race](/case-studies/CITRIX_CVE_2019_19781.md). Vulnerability, December 2019 to September 2020 (core: 2019 to 2020). Sectors: technology. CVEs: CVE-2019-19781. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Citrix_CVE_2019_19781_Case_Study.pdf).
+- [Citrix CVE-2019-19781: Mitigation Revisions, Competing Intruders and the January 2020 Patch Race](/case-studies/CITRIX_CVE_2019_19781.md). Vulnerability, December 2019 to September 2020 (core: 2019 to 2020). Sectors: technology. CVEs: CVE-2019-19781. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Citrix_CVE_2019_19781_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Citrix_CVE_2019_19781_Case_Study.pptx).
   - 17 December 2019: Citrix discloses CVE-2019-19781 and publishes interim mitigation guidance (CTX267679)
   - 8 January 2020: Exposure measurements and public tooling appear; CERT/CC narrows the technical findings
   - 10 January 2020: US government guidance precedes permanent fixes

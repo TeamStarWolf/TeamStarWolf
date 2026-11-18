@@ -240,6 +240,7 @@ studies:
     actors: []
     tags: ["RDP", "wormable", "legacy platforms", "patch verification", "remote services"]
     pdf: "BlueKeep_2019_Case_Study.pdf"
+    pptx: "BlueKeep_2019_Case_Study.pptx"
     events:
       - {"date": "2019-05-14", "label": "Microsoft discloses CVE-2019-0708 with exceptional legacy patches; no observed exploitation"}
       - {"date": "2019-06-04", "label": "NSA advisory on BlueKeep"}
@@ -4526,6 +4527,7 @@ studies:
     actors: []
     tags: ["Active Directory", "Netlogon", "domain controller", "phased enforcement", "exceptions"]
     pdf: "Zerologon_2020_Case_Study.pdf"
+    pptx: "Zerologon_2020_Case_Study.pptx"
     events:
       - {"date": "2020-08-11", "label": "Microsoft's August phase enforces secure RPC for Windows accounts"}
       - {"date": "2020-09-16", "label": "CERT/CC VU#490028 describes the insecure AES-CFB8 IV"}
@@ -5393,6 +5395,7 @@ studies:
     actors: []
     tags: ["Citrix ADC", "CVE-2019-19781", "path traversal", "edge device", "NOTROBIN"]
     pdf: "Citrix_CVE_2019_19781_Case_Study.pdf"
+    pptx: "Citrix_CVE_2019_19781_Case_Study.pptx"
     events:
       - {"date": "2019-12-17", "label": "Citrix discloses CVE-2019-19781 and publishes interim mitigation guidance (CTX267679)"}
       - {"date": "2020-01-08", "label": "Exposure measurements and public tooling appear; CERT/CC narrows the technical findings"}
@@ -5413,6 +5416,7 @@ studies:
     actors: []
     tags: ["Pulse Connect Secure", "CVE-2019-11510", "VPN", "credential theft", "file disclosure"]
     pdf: "Pulse_Secure_CVE_2019_11510_Case_Study.pdf"
+    pptx: "Pulse_Secure_CVE_2019_11510_Case_Study.pptx"
     events:
       - {"date": "2019-04-24", "label": "Pulse Secure publishes advisory SA44101 for CVE-2019-11510 and related issues"}
       - {"date": "2019-08", "label": "Public technical details and mass scanning follow"}
@@ -5432,6 +5436,7 @@ studies:
     actors: []
     tags: ["F5 BIG-IP", "CVE-2020-5902", "TMUI", "management plane", "remote code execution"]
     pdf: "F5_BIG-IP_CVE_2020_5902_Case_Study.pdf"
+    pptx: "F5_BIG-IP_CVE_2020_5902_Case_Study.pptx"
     events:
       - {"date": "2020-06-30", "label": "F5 discloses CVE-2020-5902 in the TMUI management interface and urges mitigation"}
       - {"date": "2020-07-05", "label": "Scan evidence is published, with explicit limits"}
@@ -5450,6 +5455,7 @@ studies:
     actors: []
     tags: ["SMBv3", "CVE-2020-0796", "compression", "wormable", "Windows"]
     pdf: "SMBGhost_CVE_2020_0796_Case_Study.pdf"
+    pptx: "SMBGhost_CVE_2020_0796_Case_Study.pptx"
     events:
       - {"date": "2020-03-10", "label": "Details of CVE-2020-0796 in SMB 3.1.1 appear ahead of a patch"}
       - {"date": "2020-03-12", "label": "Microsoft releases KB4551762 to fix the compression flaw"}
@@ -5466,6 +5472,7 @@ studies:
     actors: []
     tags: ["Windows DNS Server", "CVE-2020-1350", "wormable", "DNS", "emergency directive"]
     pdf: "SIGRed_CVE_2020_1350_Case_Study.pdf"
+    pptx: "SIGRed_CVE_2020_1350_Case_Study.pptx"
     events:
       - {"date": "2020-07-14", "label": "Microsoft patches CVE-2020-1350 and offers a registry size workaround; Check Point publishes the research"}
       - {"date": "2020-07-16", "label": "CISA Emergency Directive 20-03 mandates mitigation and reporting"}
@@ -5481,6 +5488,7 @@ studies:
     actors: []
     tags: ["Print Spooler", "CVE-2021-34527", "CVE-2021-1675", "privilege escalation", "Windows"]
     pdf: "PrintNightmare_CVE_2021_34527_Case_Study.pdf"
+    pptx: "PrintNightmare_CVE_2021_34527_Case_Study.pptx"
     events:
       - {"date": "2021-06-08", "label": "CVE-2021-1675 is addressed as a Print Spooler elevation-of-privilege issue"}
       - {"date": "2021-06-21", "label": "The issue is reclassified to remote code execution"}

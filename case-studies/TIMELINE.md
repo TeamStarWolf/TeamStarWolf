@@ -869,7 +869,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 30 November 2020: Microsoft reports observed malicious use beginning 13 September
   - 14 January 2021: Microsoft announces default enforcement from the 9 February update
   - 9 February 2021: Domain-controller enforcement is enabled by default
-- [Ryuk and Healthcare in 2020: The Sector Warning and the Continuity Problem](/case-studies/RYUK_HEALTHCARE_2020.md). Campaign, January 2020 to March 2021 (core: September to November 2020). Sectors: healthcare. CVEs: CVE-2020-1472. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ryuk_Healthcare_2020_Case_Study.pdf).
+- [Ryuk and Healthcare in 2020: The Sector Warning and the Continuity Problem](/case-studies/RYUK_HEALTHCARE_2020.md). Campaign, January 2020 to March 2021 (core: September to November 2020). Sectors: healthcare. CVEs: CVE-2020-1472. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ryuk_Healthcare_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Ryuk_Healthcare_2020_Case_Study.pptx).
   - 29 January 2020: Mandiant investigates activity later tracked as UNC1878
   - 31 March 2020: Mandiant publishes its actor-tracking account
   - 27 September 2020: Universal Health Services dates the start of an IT security incident
@@ -911,7 +911,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 - [SIGRed: Windows DNS Parsing, Emergency Mitigation and the Evidence Behind Wormability](/case-studies/SIGRED_CVE_2020_1350.md). Vulnerability, July to September 2020 (core: 2020). Sectors: technology. CVEs: CVE-2020-1350. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SIGRed_CVE_2020_1350_Case_Study.pdf).
   - 14 July 2020: Microsoft patches CVE-2020-1350 and offers a registry size workaround; Check Point publishes the research
   - 16 July 2020: CISA Emergency Directive 20-03 mandates mitigation and reporting
-- [Ragnar Locker: Ransomware Inside a Virtual Machine](/case-studies/RAGNAR_LOCKER_2020.md). Campaign, 2020 to 2023 (core: 2020). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ragnar_Locker_2020_Case_Study.pdf).
+- [Ragnar Locker: Ransomware Inside a Virtual Machine](/case-studies/RAGNAR_LOCKER_2020.md). Campaign, 2020 to 2023 (core: 2020). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Ragnar_Locker_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Ragnar_Locker_2020_Case_Study.pptx).
   - 2020: Ragnar Locker is observed deploying ransomware inside a virtual machine to evade host defenses
   - November 2020: An FBI FLASH documents a later observation window
   - 2023: An international enforcement action targets the operation
@@ -963,7 +963,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 8 July 2020: An earlier mitigation is found bypassable and is revised
   - 14 July 2020: Guidance pairs correction with investigation
   - 24 July 2020: CISA reporting establishes confirmed incidents
-- [Egregor 2020-2021: Affiliate Migration, Disruption and Delayed Recovery](/case-studies/EGREGOR_2020_2021.md). Campaign, September 2020 to February 2022 (core: 2020 to 2021). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Egregor_2020_2021_Case_Study.pdf).
+- [Egregor 2020-2021: Affiliate Migration, Disruption and Delayed Recovery](/case-studies/EGREGOR_2020_2021.md). Campaign, September 2020 to February 2022 (core: 2020 to 2021). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Egregor_2020_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Egregor_2020_2021_Case_Study.pptx).
   - September 2020: Egregor activity emerges, linked to affiliate migration from Maze
   - 20 November 2020: The FBI issues a warning describing Egregor activity
   - 8 January 2021: Vendor reporting documents changing delivery relationships
@@ -992,7 +992,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 - [BootHole: A Fatal Error That Returned and the Secure Boot Revocation Problem](/case-studies/BOOTHOLE_CVE_2020_10713.md). Vulnerability, July 2020 to 2020 (core: 2020). Sectors: technology. CVEs: CVE-2020-10713. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/BootHole_CVE_2020_10713_Case_Study.pdf).
   - 29 July 2020: BootHole (CVE-2020-10713) is disclosed; a GRUB2 parser flaw affects UEFI Secure Boot, requiring revocation not just patching
   - August 2020: Distribution updates and a regression affecting Ubuntu and Red Hat follow
-- [Avaddon 2020-2021: Extortion Pressure, Recovery Windows and the Limits of a Shutdown](/case-studies/AVADDON_2020_2021.md). Campaign, June 2020 to June 2021 (core: 2020 to 2021). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Avaddon_2020_2021_Case_Study.pdf).
+- [Avaddon 2020-2021: Extortion Pressure, Recovery Windows and the Limits of a Shutdown](/case-studies/AVADDON_2020_2021.md). Campaign, June 2020 to June 2021 (core: 2020 to 2021). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Avaddon_2020_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Avaddon_2020_2021_Case_Study.pptx).
   - 25 June 2020: Avaddon email campaigns make the ransomware visible at scale
   - January 2021: Official warnings describe encryption and extortion, with incompatible origin dates noted
   - 29 April 2021: A conditional research recovery method is reported
@@ -1072,7 +1072,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 19 May 2022: The OPC publishes its findings (1,934,090 affected Canadians); well-founded and conditionally resolved
   - 2 November 2022: A Nevada court grants MGM's dismissal motion in part
   - 18 June 2025: A court grants final approval of a $45 million settlement covering the 2019 and 2023 incidents
-- [Maze 2019-2020: Encryption, Data Theft and the Limits of Containment](/case-studies/MAZE_2019_2020.md). Campaign, 2019 to 2020 (core: 2019 to 2020). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Maze_2019_2020_Case_Study.pdf).
+- [Maze 2019-2020: Encryption, Data Theft and the Limits of Containment](/case-studies/MAZE_2019_2020.md). Campaign, 2019 to 2020 (core: 2019 to 2020). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Maze_2019_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Maze_2019_2020_Case_Study.pptx).
   - May 2019: Maze activity observed from at least May 2019 (per Mandiant); shift to post-intrusion deployment and double extortion
   - 18 April 2020: Cognizant confirms a Maze incident affecting internal systems and some client services
   - 20 April 2020: Cognizant files an 8-K with an early assessment and financial-risk warning
@@ -1087,7 +1087,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - February 2017: A guilty plea is entered
   - December 2018: A sentence differs from the earlier stated maximum
   - 5 December 2019: US charges, Treasury sanctions and a reward target the Evil Corp network
-- [DoppelPaymer: Code Lineage, Service Disruption and Personal Coercion](/case-studies/DOPPELPAYMER_2019_2021.md). Campaign, 2019 to 2023 (core: 2019 to 2021). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DoppelPaymer_2019_2021_Case_Study.pdf).
+- [DoppelPaymer: Code Lineage, Service Disruption and Personal Coercion](/case-studies/DOPPELPAYMER_2019_2021.md). Campaign, 2019 to 2023 (core: 2019 to 2021). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DoppelPaymer_2019_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/DoppelPaymer_2019_2021_Case_Study.pptx).
   - 2019: DoppelPaymer emerges as a code fork linked to the BitPaymer lineage
   - 10 September 2020: A ransomware outage disrupts services at a German hospital (causation later qualified)
   - 17 September 2020: System access is restored, though services are not yet fully restored
@@ -1194,7 +1194,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 11 April 2019: The cases are consolidated into one proceeding
   - 21 December 2020: A summary-judgment order lets a negligence claim survive while resolving another
   - June 2021: A stipulated judgment closes the litigation record
-- [GandCrab 2018-2019: Affiliate Ransomware and the Limits of a Decryptor](/case-studies/GANDCRAB_2018_2019.md). Campaign, January 2018 to October 2019 (core: 2018 to 2019). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/GandCrab_2018_2019_Case_Study.pdf).
+- [GandCrab 2018-2019: Affiliate Ransomware and the Limits of a Decryptor](/case-studies/GANDCRAB_2018_2019.md). Campaign, January 2018 to October 2019 (core: 2018 to 2019). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/GandCrab_2018_2019_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/GandCrab_2018_2019_Case_Study.pptx).
   - January 2018: GandCrab affiliate ransomware operations begin
   - 28 February 2018: An early decryptor is released through No More Ransom
   - 22 October 2018: A further decryptor release follows a changed version
@@ -1426,7 +1426,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - August 2016: Time Inc.'s Form 10-Q reports about 360 million accounts and a likely June 2013 to mid-2015 breach interval
   - 2017: The Form 10-K for 2016 repeats the likely intrusion interval
   - 2021: A later Viant Form 10-K reiterates roughly 360 million accounts using pre-June 2013 framing
-- [Locky 2016: Ransomware Distribution as an Adaptable System](/case-studies/LOCKY_2016.md). Campaign, February to December 2016 (core: 2016). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Locky_2016_Case_Study.pdf).
+- [Locky 2016: Ransomware Distribution as an Adaptable System](/case-studies/LOCKY_2016.md). Campaign, February to December 2016 (core: 2016). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Locky_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Locky_2016_Case_Study.pptx).
   - 16 February 2016: Locky distribution is first widely reported via malicious document attachments
   - 31 March 2016: Reporting describes a shift to script attachments and intermediate downloaders (RockLoader)
   - 1 April 2016: Exploit-kit delivery is documented as an additional route; a Canadian government alert follows
@@ -1473,7 +1473,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 November 2016: Shamoon 2's hardcoded wipe time against at least one Saudi organization
   - 17 December 2016: Part of Kyiv without power for about one hour; ESET judges Industroyer's use highly probable
   - 29 December 2016: Sanctions, expulsions and compound closures; DHS and FBI release JAR-16-20296A
-- [Cerber 2016-2017: Ransomware as a Service, Measured Carefully](/case-studies/CERBER_2016_2017.md). Campaign, March 2016 to December 2017 (core: 2016 to 2017). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cerber_2016_2017_Case_Study.pdf).
+- [Cerber 2016-2017: Ransomware as a Service, Measured Carefully](/case-studies/CERBER_2016_2017.md). Campaign, March 2016 to December 2017 (core: 2016 to 2017). Sectors: cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cerber_2016_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Cerber_2016_2017_Case_Study.pptx).
   - March 2016: Cerber ransomware-as-a-service distribution is observed
   - July 2016: Check Point describes the CerberRing affiliate operation
   - 16 August 2016: Analysis of the affiliate economics is published

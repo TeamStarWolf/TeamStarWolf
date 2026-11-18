@@ -781,7 +781,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 29 July 2024: The Eighth Circuit reverses the attorneys' fee award in the $350 million class settlement
   - 30 September 2024: The FCC announces a $15.75 million penalty plus a $15.75 million security-spending commitment (multiple incidents)
   - 6 January 2025: Washington's attorney general sues T-Mobile (79+ million consumers nationally)
-- [Retiring TLS 1.0 and 1.1: A Protocol Standard Was Not a Universal Shutdown Switch](/case-studies/TLS_1_0_1_1_DEPRECATION_2021.md). Attack surface, 2018 to March 2021 (core: 2021). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/TLS_1_0_1_1_Deprecation_2021_Case_Study.pdf).
+- [Retiring TLS 1.0 and 1.1: A Protocol Standard Was Not a Universal Shutdown Switch](/case-studies/TLS_1_0_1_1_DEPRECATION_2021.md). Attack surface, 2018 to March 2021 (core: 2021). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/TLS_1_0_1_1_Deprecation_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/TLS_1_0_1_1_Deprecation_2021_Case_Study.pptx).
   - October 2018: Major browser vendors announce coordinated plans to retire TLS 1.0 and 1.1
   - 2020: Vendors disable TLS 1.0 and 1.1 by default, with some schedule revisions
   - March 2021: RFC 8996 formally deprecates TLS 1.0, TLS 1.1 and DTLS 1.0
@@ -791,7 +791,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 16 November 2021: Robinhood updates the disclosure
   - January 2024: A Massachusetts consent order records admitted factual allegations
   - 13 January 2025: An SEC administrative order follows
-- [QUIC in 2021: A Secure Transport Standard, Not Just Faster HTTP](/case-studies/QUIC_2021.md). Attack surface, August 2017 to June 2022 (core: 2021). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/QUIC_2021_Case_Study.pdf).
+- [QUIC in 2021: A Secure Transport Standard, Not Just Faster HTTP](/case-studies/QUIC_2021.md). Attack surface, August 2017 to June 2022 (core: 2021). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/QUIC_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/QUIC_2021_Case_Study.pptx).
   - August 2017: A SIGCOMM paper describes Google's pre-IETF QUIC design and deployment
   - October 2020: A browser documents a QUIC rollout before final RFC publication
   - May 2021: RFC 9000, 9001 and 9002 standardize QUIC transport, TLS integration and recovery
@@ -1036,7 +1036,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 5 May 2021: A related case is transferred, which is not a breach-liability decision
   - 30 July 2021: Renewed motions reach a different result on arbitration and standing
   - 29 April 2022: A later order is recovered that bounds the public record
-- [WebAuthn, 2019: Standardizing Stronger Sign-In Without Pretending Recovery Disappears](/case-studies/WEBAUTHN_2019.md). Attack surface, March 2019 to May 2022 (core: 2019). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/WebAuthn_2019_Case_Study.pdf).
+- [WebAuthn, 2019: Standardizing Stronger Sign-In Without Pretending Recovery Disappears](/case-studies/WEBAUTHN_2019.md). Attack surface, March 2019 to May 2022 (core: 2019). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/WebAuthn_2019_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/WebAuthn_2019_Case_Study.pptx).
   - 4 March 2019: W3C publishes WebAuthn Level 1 as a Recommendation, a public-key authentication API
   - 5 May 2022: FIDO Alliance, Apple, Google and Microsoft announce expanded cross-device passkey support
 - [Travelex 2019-2020: Ransomware, Business Continuity and the Long Tail of Lost Evidence](/case-studies/TRAVELEX_2020.md). Incident, 2019 to 2022 (core: 2019 to 2020). Sectors: finance. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Travelex_2020_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Travelex_2020_Case_Study.pptx).
@@ -1134,7 +1134,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2018 <!-- {docsify-ignore} -->
 
-- [DNS over HTTPS: Encrypting the Lookup Without Eliminating Resolver Trust](/case-studies/DNS_OVER_HTTPS_2018.md). Attack surface, October 2018 to July 2021. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DNS_over_HTTPS_2018_Case_Study.pdf).
+- [DNS over HTTPS: Encrypting the Lookup Without Eliminating Resolver Trust](/case-studies/DNS_OVER_HTTPS_2018.md). Attack surface, October 2018 to July 2021. Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DNS_over_HTTPS_2018_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/DNS_over_HTTPS_2018_Case_Study.pptx).
   - October 2018: RFC 8484 standardizes DNS queries and responses carried in HTTPS
   - 25 February 2020: Mozilla begins a by-default DoH rollout for US Firefox users with Cloudflare as default
   - 19 May 2020: Google describes Chrome Secure DNS upgrading the existing provider to DoH
@@ -1175,7 +1175,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 29 May 2018: FBI Portland explains rebooting as an interruption, not eradication
   - 6 June 2018: Talos expands the device scope and describes the ssler and dstr modules
   - 23 February 2022: The NCSC attributes the framework to Sandworm (GRU) and describes Cyclops Blink as its successor
-- [TLS 1.3 in 2018: A Security Standard Meets Real Deployment](/case-studies/TLS_1_3_2018.md). Attack surface, August 2018 to November 2022 (core: 2018). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/TLS_1_3_2018_Case_Study.pdf).
+- [TLS 1.3 in 2018: A Security Standard Meets Real Deployment](/case-studies/TLS_1_3_2018.md). Attack surface, August 2018 to November 2022 (core: 2018). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/TLS_1_3_2018_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/TLS_1_3_2018_Case_Study.pptx).
   - August 2018: RFC 8446 publishes TLS 1.3, removing legacy options and reorganizing the handshake
   - September 2018: RFC 8470 defines how servers handle HTTP early data sent in 0-RTT
   - January 2020: RFC 8701 documents the GREASE practice that keeps TLS extensibility working
@@ -1444,7 +1444,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 1 March 2016: Public disclosure of DROWN (CVE-2016-0800); OpenSSL ships 1.0.2g/1.0.1s disabling SSLv2 by default; CERT/CC note VU#583776
   - 3 March 2016: The Canadian Centre for Cyber Security publishes advisory AV16-039
   - August 2016: The USENIX Security paper (Breaking TLS using SSLv2) is published
-- [DNS over TLS: Authentication, Fallback and the Cost of Keeping DNS Private](/case-studies/DNS_OVER_TLS_2016.md). Attack surface, May 2016 to July 2021 (core: 2016). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DNS_over_TLS_2016_Case_Study.pdf).
+- [DNS over TLS: Authentication, Fallback and the Cost of Keeping DNS Private](/case-studies/DNS_OVER_TLS_2016.md). Attack surface, May 2016 to July 2021 (core: 2016). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DNS_over_TLS_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/DNS_over_TLS_2016_Case_Study.pptx).
   - May 2016: RFC 7858 specifies DNS over TLS on a dedicated TCP port 853
   - March 2018: RFC 8310 adds authentication profiles and usage guidance for DoT
   - October 2018: RFC 8467 describes padding to reduce DNS message-size side channels
@@ -1624,7 +1624,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 8 December 2014: Langley describes TLS implementations with faulty padding checks; A10 identifies CVE-2014-8730
   - April 2015: RFC 7507 standardizes TLS_FALLBACK_SCSV
   - June 2015: RFC 7568 deprecates SSL 3.0
-- [Let's Encrypt and ACME: Making Web Encryption an Operable Default](/case-studies/LETS_ENCRYPT_ACME_2014_2021.md). Attack surface, November 2014 to September 2021 (core: 2014 to 2021). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Lets_Encrypt_ACME_2014_2021_Case_Study.pdf).
+- [Let's Encrypt and ACME: Making Web Encryption an Operable Default](/case-studies/LETS_ENCRYPT_ACME_2014_2021.md). Attack surface, November 2014 to September 2021 (core: 2014 to 2021). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Lets_Encrypt_ACME_2014_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Lets_Encrypt_ACME_2014_2021_Case_Study.pptx).
   - November 2014: The Let's Encrypt initiative is announced as a free, automated certificate authority
   - June 2015: Root and intermediate keys are generated
   - September 2015: The first certificate is issued
@@ -1694,7 +1694,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 3 October 2013: Adobe discloses that data on 2.9 million customers was removed and source code accessed
   - 5 November 2013: US-CERT TA13-309A warns of CryptoLocker, which encrypts local, network, USB and some cloud-synced files
   - 27 November 2013: Cards used in Target's US stores exposed (27 Nov to 18 Dec); Target confirms about 40 million card accounts on 19 Dec
-- [Certificate Transparency: Public Evidence, Private Trust and the Limits of a Timestamp](/case-studies/CERTIFICATE_TRANSPARENCY_2013_2021.md). Attack surface, June 2013 to December 2021 (core: 2013 to 2021). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Certificate_Transparency_2013_2021_Case_Study.pdf).
+- [Certificate Transparency: Public Evidence, Private Trust and the Limits of a Timestamp](/case-studies/CERTIFICATE_TRANSPARENCY_2013_2021.md). Attack surface, June 2013 to December 2021 (core: 2013 to 2021). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Certificate_Transparency_2013_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Certificate_Transparency_2013_2021_Case_Study.pptx).
   - June 2013: RFC 6962 specifies Certificate Transparency, publishing issuance to append-only logs
   - December 2021: RFC 9162 publishes CT version 2.0 (Experimental), obsoleting RFC 6962
 

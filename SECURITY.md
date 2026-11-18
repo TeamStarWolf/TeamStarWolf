@@ -1,6 +1,6 @@
 # Security Policy
 
-TeamStarWolf is a documentation and data library: a collection of Markdown references, learning paths, and machine-readable mapping datasets. It ships no executable application, so it has no runtime attack surface of its own. The "security" concerns that matter here are the accuracy and integrity of the content and the safety of the small build/validation scripts in `scripts/`.
+TeamStarWolf is a documentation and data library: a collection of Markdown references, learning paths, and machine-readable mapping datasets. It ships no server-side application, so it has no server runtime attack surface of its own. It does, however, render in the reader's browser through a static site (docsify and its plugins, loaded with other assets from public CDNs) and it is built and published by a CI pipeline, so the client-side code, its third-party dependencies, the deployment pipeline and the hosting configuration are in scope alongside the accuracy and integrity of the content and the safety of the build/validation scripts in `scripts/`.
 
 ## What to report, and how
 
@@ -14,7 +14,7 @@ For anything sensitive, prefer the private advisory channel over a public issue 
 
 ## Scope
 
-- In scope: content accuracy and integrity; the `scripts/` build and validation code; the maintainer helper in `research/`; the CI workflows; the docsify site configuration.
+- In scope: content accuracy and integrity; the `scripts/` build and validation code; the maintainer helper in `research/`; the client-side site code and its third-party browser dependencies (docsify, its plugins, and other CDN-loaded assets); the CI workflows and the GitHub Actions deployment pipeline; the GitHub Pages hosting and custom-domain/DNS configuration; and the docsify site configuration.
 - Out of scope: the security of third-party sites, tools, or datasets this library *links to* or *describes*; report those to their respective owners. Descriptions of offensive techniques are documented for defensive purposes. The library ships no exploit kits or attack tools as software, but several references quote short attack and evasion snippets as analysis samples (most notably the AMSI-bypass example under "AMSI Bypass" in [MALWARE_ANALYSIS_REFERENCE.md](MALWARE_ANALYSIS_REFERENCE.md)). Some antivirus engines, including Microsoft Defender, flag those files, so do not copy the library into an environment where that would raise an incident. A Defender detection on that file is expected, not a compromise of the repository; see [Cloning on Windows](CONTRIBUTING.md#cloning-on-windows).
 
 ## Response

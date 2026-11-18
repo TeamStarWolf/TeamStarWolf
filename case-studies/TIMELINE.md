@@ -756,7 +756,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 11 July 2022: The CSRB publishes its report
   - 10 December 2025: Sonatype: about 13 percent of 2025 Log4j downloads still contained Log4Shell
   - 23 January 2026: OMB M-26-05 rescinds M-22-18 and M-23-16
-- [Colonial Pipeline and DarkSide in 2021: An IT Incident with Operational Consequences](/case-studies/COLONIAL_DARKSIDE_2021.md). Incident, April 2021 to January 2025 (core: April to June 2021). Sectors: energy. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Colonial_Darkside_2021_Case_Study.pdf).
+- [Colonial Pipeline and DarkSide in 2021: An IT Incident with Operational Consequences](/case-studies/COLONIAL_DARKSIDE_2021.md). Incident, April 2021 to January 2025 (core: April to June 2021). Sectors: energy. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Colonial_Darkside_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Colonial_Darkside_2021_Case_Study.pptx).
   - 29 April 2021: Earliest identified VPN login with employee credentials on a legacy profile without MFA (investigator testimony)
   - 7 May 2021: Ransom note found in IT; employees shut down the pipeline; FBI notified
   - 8 May 2021: Ransom paid (about 75 bitcoin), per DOJ and company testimony

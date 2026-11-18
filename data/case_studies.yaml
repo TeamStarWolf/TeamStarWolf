@@ -1959,6 +1959,7 @@ studies:
     actors: []
     tags: ["ransomware", "DarkSide", "pipeline", "operational technology", "incident response"]
     pdf: "Colonial_Darkside_2021_Case_Study.pdf"
+    pptx: "Colonial_Darkside_2021_Case_Study.pptx"
     events:
       - {"date": "2021-04-29", "label": "Earliest identified VPN login with employee credentials on a legacy profile without MFA (investigator testimony)"}
       - {"date": "2021-05-07", "label": "Ransom note found in IT; employees shut down the pipeline; FBI notified"}

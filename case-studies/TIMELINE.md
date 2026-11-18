@@ -1182,7 +1182,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - March 2021: RFC 8996 formally deprecates TLS 1.0 and TLS 1.1
   - May 2021: RFC 9001 specifies how QUIC carries the TLS 1.3 handshake
   - November 2022: RFC 9325 updates recommendations for secure TLS and DTLS configuration
-- [Spectre and Meltdown, 2018: When Isolation Became a Hardware-Software Responsibility](/case-studies/SPECTRE_MELTDOWN_2018.md). Vulnerability, June 2017 to January 2018 (core: January 2018). Sectors: technology. CVEs: CVE-2017-5753, CVE-2017-5715, CVE-2017-5754. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Spectre_Meltdown_2018_Case_Study.pdf).
+- [Spectre and Meltdown, 2018: When Isolation Became a Hardware-Software Responsibility](/case-studies/SPECTRE_MELTDOWN_2018.md). Vulnerability, June 2017 to January 2018 (core: January 2018). Sectors: technology. CVEs: CVE-2017-5753, CVE-2017-5715, CVE-2017-5754. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Spectre_Meltdown_2018_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Spectre_Meltdown_2018_Case_Study.pptx).
   - 1 June 2017: Project Zero notifies Intel, AMD and ARM
   - 3 January 2018: Public disclosure by Project Zero and Google, ahead of the planned date
   - 9 January 2018: The originally coordinated disclosure date
@@ -1269,7 +1269,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2017 <!-- {docsify-ignore} -->
 
-- [KRACK 2017: Wi-Fi Key Reinstallation and the Problem of Security State](/case-studies/KRACK_2017.md). Vulnerability, July to November 2017 (core: October 2017). Sectors: technology. CVEs: CVE-2017-13082. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/KRACK_2017_Case_Study.pdf).
+- [KRACK 2017: Wi-Fi Key Reinstallation and the Problem of Security State](/case-studies/KRACK_2017.md). Vulnerability, July to November 2017 (core: October 2017). Sectors: technology. CVEs: CVE-2017-13082. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/KRACK_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/KRACK_2017_Case_Study.pptx).
   - 14 July 2017: Initial vendor notifications
   - 28 August 2017: Broader CERT/CC notification
   - 16 October 2017: Public disclosure; CERT/CC VU#228519 covering CVE-2017-13082
@@ -1319,14 +1319,14 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 30 August 2018: GAO-18-559 describes the breach and federal response
   - July 2019: FTC announces a settlement of at least $575 million; about 147 million people affected
   - 10 February 2020: DOJ charges four alleged members of China's PLA
-- [SHAttered: The SHA-1 Collision That Made Migration Tangible](/case-studies/SHATTERED_SHA1_2017.md). Vulnerability, February to March 2017 (core: February 2017). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SHAttered_SHA1_2017_Case_Study.pdf).
+- [SHAttered: The SHA-1 Collision That Made Migration Tangible](/case-studies/SHATTERED_SHA1_2017.md). Vulnerability, February to March 2017 (core: February 2017). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/SHAttered_SHA1_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/SHAttered_SHA1_2017_Case_Study.pptx).
   - 23 February 2017: Google and CWI announce the first practical SHA-1 collision
   - 24 February 2017: NIST responds, noting SHA-1 deprecation since 2011 and disallowance since 2013
   - 20 March 2017: GitHub announces collision detection and explains Git's object boundary
 - [Struts CVE-2017-5638: The Error Path That Turned Request Data Into Execution](/case-studies/STRUTS_CVE_2017_5638.md). Vulnerability, March 2017 to 2017 (core: 2017). Sectors: technology. CVEs: CVE-2017-5638. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Struts_CVE_2017_5638_Case_Study.pdf).
   - 6 March 2017: Apache publishes S2-045 for CVE-2017-5638 in the Jakarta Multipart parser
   - 20 March 2017: S2-046 documents an additional vector for the same flaw
-- [ROCA, 2017: A Key-Generation Flaw and the Work of Rebuilding Trust](/case-studies/ROCA_2017.md). Vulnerability, 2017 to 2018 (core: 2017). Sectors: technology, government. CVEs: CVE-2017-15361. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ROCA_2017_Case_Study.pdf).
+- [ROCA, 2017: A Key-Generation Flaw and the Work of Rebuilding Trust](/case-studies/ROCA_2017.md). Vulnerability, 2017 to 2018 (core: 2017). Sectors: technology, government. CVEs: CVE-2017-15361. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ROCA_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/ROCA_2017_Case_Study.pptx).
   - 1 February 2017: Researchers notify Infineon
   - 6 June 2017: Yubico ships YubiKey 4 firmware 4.3.5 with a changed RSA generation path
   - 16 October 2017: Public disclosure of ROCA (CVE-2017-15361); CERT/CC note VU#307015; Yubico advisory YSA-2017-01
@@ -1378,7 +1378,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 - [Broadpwn: The Wi-Fi Chip as a Security Boundary](/case-studies/BROADPWN_2017.md). Vulnerability, July 2017 to 2017 (core: 2017). Sectors: technology. CVEs: CVE-2017-9417. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Broadpwn_2017_Case_Study.pdf).
   - 5 July 2017: The July Android security bulletin addresses CVE-2017-9417
   - 27 July 2017: Nitay Artenstein presents Broadpwn at Black Hat USA
-- [BlueBorne: Bluetooth Exposure Beyond the Pairing Prompt](/case-studies/BLUEBORNE_2017.md). Vulnerability, 2017. Sectors: technology. CVEs: CVE-2017-0781, CVE-2017-8628, CVE-2017-14315, CVE-2017-1000250, CVE-2017-1000251. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/BlueBorne_2017_Case_Study.pdf).
+- [BlueBorne: Bluetooth Exposure Beyond the Pairing Prompt](/case-studies/BLUEBORNE_2017.md). Vulnerability, 2017. Sectors: technology. CVEs: CVE-2017-0781, CVE-2017-8628, CVE-2017-14315, CVE-2017-1000250, CVE-2017-1000251. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/BlueBorne_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/BlueBorne_2017_Case_Study.pptx).
   - 12 September 2017: Public disclosure of BlueBorne (Armis); CERT/CC note VU#240311; Android bulletin and Ubuntu BlueZ (USN-3413-1) updates
   - 18 September 2017: Ubuntu ships the kernel fix (USN-3420-1) for CVE-2017-1000251
   - 4 October 2017: Red Hat publishes its BlueBorne analysis
@@ -1439,7 +1439,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 - [ImageTragick: When an Image Upload Crossed Into Command Execution](/case-studies/IMAGETRAGICK_2016.md). Vulnerability, May 2016 to 2016 (core: 2016). Sectors: technology. CVEs: CVE-2016-3714. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ImageTragick_2016_Case_Study.pdf).
   - 3 May 2016: ImageTragick (CVE-2016-3714 and related issues) is publicly disclosed with mitigations
   - May 2016: ImageMagick updates and distribution packages follow
-- [DROWN: How an Obsolete Protocol Extended the Reach of a Shared Private Key](/case-studies/DROWN_2016.md). Vulnerability, 2016. Sectors: technology. CVEs: CVE-2015-3197, CVE-2016-0800. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DROWN_2016_Case_Study.pdf).
+- [DROWN: How an Obsolete Protocol Extended the Reach of a Shared Private Key](/case-studies/DROWN_2016.md). Vulnerability, 2016. Sectors: technology. CVEs: CVE-2015-3197, CVE-2016-0800. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/DROWN_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/DROWN_2016_Case_Study.pptx).
   - March 2011: RFC 6176 prohibits negotiating SSL 2.0
   - 1 March 2016: Public disclosure of DROWN (CVE-2016-0800); OpenSSL ships 1.0.2g/1.0.1s disabling SSLv2 by default; CERT/CC note VU#583776
   - 3 March 2016: The Canadian Centre for Cyber Security publishes advisory AV16-039
@@ -1512,14 +1512,14 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - September 2015: A follow-up correction addresses the incomplete fix
   - October 2015: Stagefright 2.0, with further media CVEs, is disclosed
   - 2016: Android media-stack hardening follows as an architectural response
-- [Logjam: Export Cryptography, Shared Primes and Imperfect Forward Secrecy](/case-studies/LOGJAM_2015.md). Vulnerability, 2015 to 2017 (core: 2015). Sectors: technology. CVEs: CVE-2015-4000. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Logjam_2015_Case_Study.pdf).
+- [Logjam: Export Cryptography, Shared Primes and Imperfect Forward Secrecy](/case-studies/LOGJAM_2015.md). Vulnerability, 2015 to 2017 (core: 2015). Sectors: technology. CVEs: CVE-2015-4000. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Logjam_2015_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Logjam_2015_Case_Study.pptx).
   - 20 May 2015: Public disclosure of Logjam; OpenSSL announces its response plan
   - 11 June 2015: OpenSSL ships a client floor rejecting Diffie-Hellman groups below 768 bits (CVE-2015-4000)
   - 2 July 2015: Mozilla's NSS 3.19.1 sets a 1023-bit minimum
   - 13 October 2015: The research paper (Imperfect Forward Secrecy) is published
   - August 2016: RFC 7919 defines negotiated named finite-field Diffie-Hellman groups for TLS
   - December 2017: RFC 8270 raises the SSH Diffie-Hellman minimum to 2048 bits
-- [FREAK 2015: When Export-Grade RSA Returned Through a Client State Machine](/case-studies/FREAK_2015.md). Vulnerability, 2014 to 2015 (core: 2015). Sectors: technology. CVEs: CVE-2015-0204, CVE-2015-1067, CVE-2015-1637. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/FREAK_2015_Case_Study.pdf).
+- [FREAK 2015: When Export-Grade RSA Returned Through a Client State Machine](/case-studies/FREAK_2015.md). Vulnerability, 2014 to 2015 (core: 2015). Sectors: technology. CVEs: CVE-2015-0204, CVE-2015-1067, CVE-2015-1637. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/FREAK_2015_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/FREAK_2015_Case_Study.pptx).
   - 22 October 2014: Karthikeyan Bhargavan privately reports the client flaw to OpenSSL
   - 8 January 2015: OpenSSL publishes the CVE-2015-0204 correction and branch releases
   - 3 March 2015: Public FREAK announcement and research explanation (miTLS team, Matthew Green, Michigan measurement)
@@ -1616,7 +1616,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 April 2024: Mandiant graduates Sandworm to APT44
   - 29 December 2025: Poland energy attack: RTUs damaged at more than 30 wind and PV farms
   - 13 July 2026: UK and EU formally attribute the Poland attack to FSB Centre 16; first joint cyber sanctions
-- [POODLE 2014: The Security Cost of Keeping SSL 3.0 Alive](/case-studies/POODLE_2014.md). Vulnerability, 2014 to 2015 (core: 2014). Sectors: technology. CVEs: CVE-2014-3566, CVE-2014-3568, CVE-2014-8730. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/POODLE_2014_Case_Study.pdf).
+- [POODLE 2014: The Security Cost of Keeping SSL 3.0 Alive](/case-studies/POODLE_2014.md). Vulnerability, 2014 to 2015 (core: 2014). Sectors: technology. CVEs: CVE-2014-3566, CVE-2014-3568, CVE-2014-8730. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/POODLE_2014_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/POODLE_2014_Case_Study.pptx).
   - 14 October 2014: Public disclosure of POODLE (SSL 3.0, CVE-2014-3566); Mozilla and Google announce browser responses; Cloudflare disables SSL 3.0 by default
   - 15 October 2014: OpenSSL publishes TLS_FALLBACK_SCSV support and a separate build-option fix (CVE-2014-3568)
   - 17 October 2014: CERT/CC publishes its vulnerability note (VU#577193)

@@ -4796,6 +4796,7 @@ studies:
     actors: []
     tags: ["SQL injection", "legacy systems", "data breach", "ICO", "acquisition security", "telecom"]
     pdf: "TalkTalk_2015_Case_Study.pdf"
+    pptx: "TalkTalk_2015_Case_Study.pptx"
     events:
       - {"date": "2015-07-17", "label": "An earlier, unaddressed injection attack occurs (also 2-3 September 2015)"}
       - {"date": "2015-10-15", "label": "The attack window begins (15 to 21 October), through three pages inherited from Tiscali in 2009"}
@@ -4814,6 +4815,7 @@ studies:
     actors: []
     tags: ["Magecart", "web skimming", "payment data", "supply chain", "GDPR", "client-side security"]
     pdf: "British_Airways_2018_Case_Study.pdf"
+    pptx: "British_Airways_2018_Case_Study.pptx"
     events:
       - {"date": "2018-06-22", "label": "The intrusion period begins (22 June to 5 September 2018, per the ICO)"}
       - {"date": "2018-08-21", "label": "The customer booking exposure window begins (21 August to 5 September)"}
@@ -5161,6 +5163,7 @@ studies:
     actors: []
     tags: ["data breach", "guest data", "developer access", "MGM", "notification", "cloud"]
     pdf: "MGM_2019_Case_Study.pdf"
+    pptx: "MGM_2019_Case_Study.pptx"
     events:
       - {"date": "2019-07-07", "label": "Reused employee credentials open a developer platform; an MFA bypass and a temporary token enable about an hour of cloud-database access and exfiltration"}
       - {"date": "2019-07-24", "label": "MGM buys a copy of the data after law-enforcement consultation"}
@@ -5236,6 +5239,7 @@ studies:
     actors: []
     tags: ["data breach", "aviation", "passenger data", "data retention", "ICO", "migration"]
     pdf: "Cathay_Pacific_2018_Case_Study.pdf"
+    pptx: "Cathay_Pacific_2018_Case_Study.pptx"
     events:
       - {"date": "2014-10", "label": "The earliest known compromise (per the later ICO chronology)"}
       - {"date": "2018-03", "label": "Suspicious activity is discovered"}
@@ -5255,6 +5259,7 @@ studies:
     actors: []
     tags: ["data breach", "cryptocurrency", "phishing", "Ledger", "Shopify", "customer data"]
     pdf: "Ledger_2020_Case_Study.pdf"
+    pptx: "Ledger_2020_Case_Study.pptx"
     events:
       - {"date": "2020-06-25", "label": "Unauthorized commerce-data access through an API key (identified later)"}
       - {"date": "2020-07-29", "label": "Ledger discloses the breach: about one million email addresses and ~9,500 detailed records"}
@@ -5643,6 +5648,7 @@ studies:
     actors: []
     tags: ["data breach", "DoorDash", "third-party vendor", "supply chain", "notification"]
     pdf: "DoorDash_2019_Case_Study.pdf"
+    pptx: "DoorDash_2019_Case_Study.pptx"
     events:
       - {"date": "2019-05", "label": "Unauthorized access through a third party reaches historical DoorDash data"}
       - {"date": "2019-09-26", "label": "DoorDash discloses the May 2019 breach affecting about 4.9 million people"}
@@ -5695,6 +5701,7 @@ studies:
     actors: []
     tags: ["data exposure", "Panera", "vulnerability disclosure", "API", "web application"]
     pdf: "Panera_2017_2018_Case_Study.pdf"
+    pptx: "Panera_2017_2018_Case_Study.pptx"
     events:
       - {"date": "2017-08", "label": "A researcher reports readable customer data to Panera"}
       - {"date": "2018-04-02", "label": "Brian Krebs publishes the exposure after months without a fix"}
@@ -5980,6 +5987,7 @@ studies:
     actors: []
     tags: ["easyJet", "data breach", "airline", "ICO", "regulatory"]
     pdf: "easyJet_2020_Case_Study.pdf"
+    pptx: "easyJet_2020_Case_Study.pptx"
     events:
       - {"date": "2020-05-19", "label": "easyJet discloses a customer-data breach affecting about 9 million customers"}
       - {"date": "2023-05", "label": "The ICO investigation is still live"}

@@ -2657,6 +2657,7 @@ studies:
     actors: []
     tags: ["OpenSSL", "Heartbleed", "TLS", "certificate revocation", "memory disclosure"]
     pdf: "Heartbleed_2014_Case_Study.pdf"
+    pptx: "Heartbleed_2014_Case_Study.pptx"
     events:
       - {"date": "2014-04-01", "label": "Google's details and a patch reach OpenSSL participants (Cox's timeline)"}
       - {"date": "2014-04-07", "label": "OpenSSL publishes its advisory and the 1.0.1g fix for CVE-2014-0160"}

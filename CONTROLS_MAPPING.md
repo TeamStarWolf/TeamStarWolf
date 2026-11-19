@@ -36,7 +36,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Length</th><td>
 
-Lookup page: 1,954 words, 80% in tables; look entries up from Start at or the search (about 8 min end to end at 230 words a minute)
+Lookup page: 1,956 words, 80% in tables; look entries up from Start at or the search (about 9 min end to end at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>

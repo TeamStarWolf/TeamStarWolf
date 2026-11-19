@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 19 min (4,432 words at 230 words a minute)
+About 19 min (4,457 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -92,7 +92,7 @@ The new flaw, CVE-2026-24858, is an authentication bypass using an alternate pat
 
 ### Top recommendations
 
-1. Upgrade every affected Fortinet product to a fixed release [1] (**Confirmed** as the vendor's direction). The 22 January blog advised disabling FortiCloud SSO administrative login until fixed [2]; since FortiCloud began refusing vulnerable versions on 27 January, the advisory says disabling it on the device is no longer necessary, though it remains a harmless belt-and-braces step [1] (**Confirmed**; the last clause **Inferred**).
+1. Upgrade every affected Fortinet product to a fixed release [1] (**Confirmed** as the vendor's direction). The 22 January blog advised disabling FortiCloud SSO administrative login until fixed [2]; since FortiCloud began refusing vulnerable versions on 27 January, the advisory says disabling it on the device is no longer necessary, though it remains a reasonable belt-and-braces step; because it removes the FortiCloud SSO login method, confirm an alternate administrative path such as a local admin account or out-of-band management works first [1] (**Confirmed**; the last two clauses **Inferred**).
 2. Keep administrative interfaces off the internet: out-of-band management, or local-in policies that allowlist admin sources [2] (**Confirmed** as the vendor's direction).
 3. Review every administrator account, not only the names Fortinet listed, and every VPN user and policy change [1] [2] (**Confirmed**).
 4. If indicators are confirmed, treat the device and its configuration as compromised: restore a known-clean configuration and rotate every credential, including connected LDAP and Active Directory accounts [2] (**Confirmed** as the vendor's direction).

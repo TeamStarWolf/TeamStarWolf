@@ -111,12 +111,12 @@ Left: Fix and restrict
 - Upgrade every affected product to a fixed release.
 - Keep admin interfaces off the internet.
 - Allowlist admin sources with local-in policies.
-- Disabling FortiCloud SSO login remains harmless.
+- Disabling FortiCloud SSO login is safe, but removes that admin login path; confirm another path works first.
 Right: Assume someone got in
 - Review every administrator account, not only the listed names.
 - Check VPN users and policy changes.
 - Restore a known-clean configuration and rotate credentials.
-- Reset hashes from any exported configuration.
+- Rotate credentials and secrets exposed in any exported configuration.
 Notes: Fix [1][2]. Hunting and recovery [1][2][7]. Offline cracking, Reported [9].
 
 ## OVERSTATED AND UNDERSTATED | Both directions at once

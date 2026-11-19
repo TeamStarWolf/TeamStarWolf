@@ -118,12 +118,12 @@ Left: Fix the edge
 - Until then, a dedicated cookie certificate or override off.
 - Check management ports 4443 and 3879 are not exposed.
 - Patch Veeam CVE-2023-27532.
-Right: Assume someone got in
+Right: If exploitation is suspected or confirmed
 - Terminate active GlobalProtect sessions.
-- Rotate admin, service and cloud-storage credentials.
-- Reset KRBTGT twice.
+- If suspected: rotate admin, service, cloud-storage creds and KRBTGT twice, 10h apart (Microsoft).
+- If confirmed: assume full domain compromise.
 - Hunt Event ID 1102, PSEXESVC, C$ writes, hosting-provider VPN sources.
-Notes: Fix [1]. Management ports and Veeam, Unit 42's guidance [4][6]. Eviction and hunting, Arctic Wolf's guidance [7].
+Notes: Fix [1]. Management ports and Veeam, Unit 42's guidance [4][6]. Eviction and hunting, Arctic Wolf's guidance [7]; KRBTGT twice and the 10-hour interval, Microsoft [19].
 
 ## OVERSTATED AND UNDERSTATED | Both directions at once
 

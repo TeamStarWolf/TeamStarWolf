@@ -309,7 +309,7 @@ Email Security
 |---|---|---|
 | Initial Access | T1566 Phishing | SC-7, SC-8, AT-2, SI-3 |
 | Initial Access | T1190 Exploit Public App | SI-2, RA-5, CM-6, SC-7 |
-| Execution | T1059 Command-Line Interface | CM-7, SI-4, AU-12 |
+| Execution | T1059 Command and Scripting Interpreter | CM-7, SI-4, AU-12 |
 | Persistence | T1053 Scheduled Task | CM-7, SI-4, AU-2 |
 | Privilege Escalation | T1548 Abuse Elevation Control | AC-6, CM-6, AU-12 |
 | Defense Impairment | T1685 Disable or Modify Tools | AU-9, SI-7, SI-4 |

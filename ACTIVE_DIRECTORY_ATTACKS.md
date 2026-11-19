@@ -724,7 +724,7 @@ evil-winrm -i TARGET01 -u administrator -H NTLM_HASH
 - ATT&CK: T1550.002
 - Defense: Protected Users group (blocks NTLM caching and NTLM auth for members); Windows Defender Credential Guard (isolates LSASS); restrict NTLM (Network security: Restrict NTLM); LAPS for local accounts
 
-### Over-Pass-the-Hash (T1550.003)
+### Over-Pass-the-Hash (T1550.002)
 
 Convert an NTLM hash directly into a Kerberos TGT: avoids NTLM network traffic, bypasses NTLM blocking.
 

@@ -1739,8 +1739,8 @@ The following table maps this reference to ATT&CK techniques and recommended det
 | T1018 | Remote System Discovery | §5, §10 | Internal nmap/masscan alerts |
 | T1040 | Network Sniffing | §2, §4 | Promiscuous mode NIC detection |
 | T1046 | Network Service Discovery | §5, §10 | SMB enum, port scan detection |
-| T1557.001 | ARP Cache Poisoning | §2, §4 | DAI, arpwatch, NDR |
-| T1557.002 | LLMNR/NBT-NS Poisoning | §5 | MDI alert, Event 4648 |
+| T1557.001 | LLMNR/NBT-NS Poisoning | §5 | MDI alert, Event 4648 |
+| T1557.002 | ARP Cache Poisoning | §2, §4 | DAI, arpwatch, NDR |
 | T1498.001 | Direct Network Flood | §6 | Baseline + threshold |
 | T1498.002 | Reflection Amplification | §6 | Flow analysis, scrubbing |
 | T1499.002 | Service Exhaustion Flood | §6 | App-layer rate limiting |

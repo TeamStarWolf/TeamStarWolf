@@ -107,7 +107,7 @@ Evidence grade: the advisories, sanctions releases, FBI records, ATT&CK pages an
 
 ## Scope and method
 
-This study covers activity that a government, a security vendor or MITRE ATT&CK attributes to the Iranian state, to one of its services, or to a contractor or front company working for them, from the 2011 to 2013 DDoS campaign against US banks through the reporting available on 3 November 2026. It draws on five kinds of source: US and allied government advisories, sanctions releases, court records and FBI wanted notices; security vendor reports; the MITRE ATT&CK pages for the groups and campaigns; the CISA Known Exploited Vulnerabilities (KEV) catalog; and the TeamStarWolf library's own data files at commit `e85b559` (ATT&CK v20.0). Every source in the Sources table was opened on 3 November 2026.
+This study covers activity that a government, a security vendor or MITRE ATT&CK attributes to the Iranian state, to one of its services, or to a contractor or front company working for them, from the 2011 to 2013 DDoS campaign against US banks through the reporting available on 3 November 2026. It draws on five kinds of source: US and allied government advisories, sanctions releases, court records and FBI wanted notices; security vendor reports; the MITRE ATT&CK pages for the groups and campaigns; the CISA Known Exploited Vulnerabilities (KEV) catalog; and the TeamStarWolf library's own data files at commit `4652b96` (ATT&CK v20.0). Every source in the Sources table was opened on 3 November 2026.
 
 Each claim carries one of four grades.
 
@@ -492,7 +492,7 @@ The advisory guidance maps to D3FEND countermeasures that all have library pages
 
 ## Part 9: MITRE mappings
 
-This part binds the verified record to MITRE ATT&CK v20.0, CAPEC, CWE and D3FEND. Every ID was checked against the library's data files at commit `e85b559` or the live ATT&CK pages on 3 November 2026, and the technique tables and Navigator layers were regenerated from the library's data files at commit `0c5b7ca` on 11 November 2026 with identical results; IDs that could not be checked are left out. Revoked IDs that advisories still cite are shown under their v20 successors, as `data/attack/superseded_by.jsonl` records them: DLL Side-Loading `T1574.002` as DLL `T1574.001` (AA22-055A), Disable or Modify Tools `T1562.001` as `T1685` (AA22-055A, AA22-320A, AA24-241A), and Downgrade Attack `T1562.010` as `T1689` (AA24-241A) (**Confirmed** [1]).
+This part binds the verified record to MITRE ATT&CK v20.0, CAPEC, CWE and D3FEND. Every ID was checked against the library's data files at commit `4652b96` or the live ATT&CK pages on 3 November 2026, and the technique tables and Navigator layers were regenerated from the library's data files at commit `dfb1944` on 11 November 2026 with identical results; IDs that could not be checked are left out. Revoked IDs that advisories still cite are shown under their v20 successors, as `data/attack/superseded_by.jsonl` records them: DLL Side-Loading `T1574.002` as DLL `T1574.001` (AA22-055A), Disable or Modify Tools `T1562.001` as `T1685` (AA22-055A, AA22-320A, AA24-241A), and Downgrade Attack `T1562.010` as `T1689` (AA24-241A) (**Confirmed** [1]).
 
 ### Enterprise techniques
 
@@ -912,7 +912,7 @@ Every source below was opened on 3 November 2026. Grades apply to the source typ
 
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|
-| 1 | TeamStarWolf library data at commit e85b559 (ATT&CK v20.0): data/attack/groups.jsonl, group_profiles.jsonl, group_to_technique.jsonl, campaign_profiles.jsonl, software_profiles.jsonl, technique_profiles.jsonl, superseded_by.jsonl, ics/, mobile/, d3fend_countermeasures.jsonl, technique_to_d3fend.jsonl; data/weaknesses/; generated mitre/ pages | https://github.com/TeamStarWolf/TeamStarWolf/tree/e85b5594301fe061043fe92040135252c97b695d/data/attack | 2026-11-03 | Confirmed |
+| 1 | TeamStarWolf library data at commit 4652b96 (ATT&CK v20.0): data/attack/groups.jsonl, group_profiles.jsonl, group_to_technique.jsonl, campaign_profiles.jsonl, software_profiles.jsonl, technique_profiles.jsonl, superseded_by.jsonl, ics/, mobile/, d3fend_countermeasures.jsonl, technique_to_d3fend.jsonl; data/weaknesses/; generated mitre/ pages | https://github.com/TeamStarWolf/TeamStarWolf/tree/4652b9638eb0b0a81b6820e7bd74e9886132001e/data/attack | 2026-11-03 | Confirmed |
 | 2 | MITRE ATT&CK, Group G0059 Magic Hound (version 6.1, modified 31 July 2026) | https://attack.mitre.org/groups/G0059/ | 2026-11-03 | Confirmed |
 | 3 | MITRE ATT&CK, Group G0049 OilRig (version 5.0, modified 31 July 2026) | https://attack.mitre.org/groups/G0049/ | 2026-11-03 | Confirmed |
 | 4 | MITRE ATT&CK, Group G0069 MuddyWater (version 7.0, modified 31 July 2026) | https://attack.mitre.org/groups/G0069/ | 2026-11-03 | Confirmed |
@@ -925,7 +925,7 @@ Every source below was opened on 3 November 2026. Grades apply to the source typ
 | 11 | MITRE ATT&CK, Group G1030 Agrius (version 1.0) | https://attack.mitre.org/groups/G1030/ | 2026-11-03 | Confirmed |
 | 12 | MITRE ATT&CK, Group G1027 CyberAv3ngers (version 1.1, modified 7 October 2026) | https://attack.mitre.org/groups/G1027/ | 2026-11-03 | Confirmed |
 | 13 | MITRE ATT&CK, Campaign C0038 HomeLand Justice (version 1.1) | https://attack.mitre.org/campaigns/C0038/ | 2026-11-03 | Confirmed |
-| 14 | TeamStarWolf library, THREAT_ACTORS.md at commit e85b559 | https://github.com/TeamStarWolf/TeamStarWolf/blob/e85b5594301fe061043fe92040135252c97b695d/THREAT_ACTORS.md | 2026-11-03 | Confirmed |
+| 14 | TeamStarWolf library, THREAT_ACTORS.md at commit 4652b96 | https://github.com/TeamStarWolf/TeamStarWolf/blob/4652b9638eb0b0a81b6820e7bd74e9886132001e/THREAT_ACTORS.md | 2026-11-03 | Confirmed |
 | 15 | CISA with FBI, AA20-259A, Iran-based actor exploiting VPN and edge vulnerabilities (2020-09-15) | https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-259a | 2026-11-03 | Confirmed |
 | 16 | CISA, AA20-304A, Iranian APT targeting US voter information (2020-10-30) | https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-304a | 2026-11-03 | Confirmed |
 | 17 | FBI, CISA, ACSC and NCSC, AA21-321A, Iranian Government-Sponsored APT Cyber Actors Exploiting Microsoft Exchange and Fortinet Vulnerabilities (2021-11-17) | https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-321a | 2026-11-03 | Confirmed |

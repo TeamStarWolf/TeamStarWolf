@@ -40,7 +40,7 @@ Right: Weak wording to carry forward
 - LuminousMoth: Chinese-speaking; RedEcho: PRC-related.
 - None of the 47 appears in the ICS or Mobile group files.
 Caption: Eleven China-linked ATT&CK campaigns have no group object, from Night Dragon (2009) to an AI-orchestrated campaign (2025).
-Notes: Inventory, 47 of 178 groups at commit e85b559 [1]. Sponsor wording [1]. ICS and Mobile [7]. Groups left out for target-only or no China wording, such as APT18 and Tropic Trooper [1]. Campaigns C0002 to C0062 [2]. MirrorFace under the menuPass umbrella [1].
+Notes: Inventory, 47 of 178 groups at commit 4652b96 [1]. Sponsor wording [1]. ICS and Mobile [7]. Groups left out for target-only or no China wording, such as APT18 and Tropic Trooper [1]. Campaigns C0002 to C0062 [2]. MirrorFace under the menuPass umbrella [1].
 
 ## PART 2 | Governments name the PLA, five MSS bureaus and the MPS
 

@@ -415,7 +415,7 @@ These identity-plane techniques outlasted the Orion campaign (Inferred [32][45][
 
 ## Part 10: MITRE mappings
 
-This Part binds the verified record to MITRE ATT&CK v20.0, CAPEC, CWE and D3FEND. Every id was checked against the live MITRE page or the library's data files on 11 November 2026, and every linked page exists in the library's mitre/ tree at main 4be984e7 (Confirmed [32][33][34][67]; Demonstrated [68]). The record touches no industrial systems, so there is no ATT&CK for ICS table (Inferred).
+This Part binds the verified record to MITRE ATT&CK v20.0, CAPEC, CWE and D3FEND. Every id was checked against the live MITRE page or the library's data files on 11 November 2026, and every linked page exists in the library's mitre/ tree at main ac4ba05c (Confirmed [32][33][34][67]; Demonstrated [68]). The record touches no industrial systems, so there is no ATT&CK for ICS table (Inferred).
 
 ### ATT&CK Enterprise techniques
 
@@ -641,7 +641,7 @@ All sources were opened on 11 November 2026. "Primary" means the organization th
 | 65 | Bit9, Bit9 security incident update, 25 Feb 2013 (Wayback capture) | [web.archive.org/web/20130302090353/https://blog.bit9.com/2013/02/25/...](http://web.archive.org/web/20130302090353/https://blog.bit9.com/2013/02/25/bit9-security-incident-update/) | 2026-11-11 | Confirmed |
 | 66 | Kaspersky, Eugene Kaspersky's statement on the Duqu attack, 10 Jun 2015 | [kaspersky.com/blog/kaspersky-statement-duqu-attack/8997](https://www.kaspersky.com/blog/kaspersky-statement-duqu-attack/8997/) | 2026-11-11 | Confirmed |
 | 67 | MITRE ATT&CK, software pages S0154, S1071, S0357, S0521, S0012, S0038, S0009 and S0203, with C0024 | [attack.mitre.org/software/S0154](https://attack.mitre.org/software/S0154/) (and the same path for each id) | 2026-11-11 | Demonstrated |
-| 68 | TeamStarWolf library data at main 4be984e7: `data/attack/` (technique, group, campaign and software records, `technique_to_d3fend.jsonl`, `d3fend_countermeasures.jsonl`), `data/weaknesses/` and the `mitre/` tree | [github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack) | 2026-11-11 | Demonstrated |
+| 68 | TeamStarWolf library data at main ac4ba05c: `data/attack/` (technique, group, campaign and software records, `technique_to_d3fend.jsonl`, `d3fend_countermeasures.jsonl`), `data/weaknesses/` and the `mitre/` tree | [github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack) | 2026-11-11 | Demonstrated |
 | 69 | TeamStarWolf, SolarWinds and SUNBURST case study (home study for Orion and C0024) | [github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/SOLARWINDS_SUNBURST.md](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/case-studies/SOLARWINDS_SUNBURST.md) | 2026-11-11 | Demonstrated |
 
 *© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*

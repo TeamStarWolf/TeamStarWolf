@@ -84,7 +84,7 @@ Evidence grade: the technical findings in the vendor reports are **Confirmed** (
 | United States acknowledgment | No named intrusion acknowledged. Acknowledged in general: defend-forward strategy (2018, 2023), the Vulnerabilities Equities Process (2017 charter), statutes on military cyber operations (2017, 2018), declassified Operation Glowing Symphony against ISIS (2016), hunt-forward missions (**Confirmed**, [65], [67] to [70], [73], [75]) |
 | Most consequential downstream event | EternalBlue and related SMBv1 exploits from the April 2017 Shadow Brokers release, reused by WannaCry (12 May 2017) and NotPetya (27 June 2017) (**Confirmed**, [30], [31], [35], [36]) |
 | Healthcare | No healthcare sector in any opened victimology for Equation, Regin or the Lamberts; NHS harm from WannaCry is the downstream case (**Confirmed**, [15], [22], [25], [39]; the link between them is **Inferred**) |
-| Library basis | ATT&CK v20.0 data in the library at main `e85b559` |
+| Library basis | ATT&CK v20.0 data in the library at main `4652b96` |
 
 ### Key findings
 
@@ -483,7 +483,7 @@ Three hand-written library pages state attribution more strongly than any source
 - NOTABLE_INCIDENTS.md's 2016 to 2017 Shadow Brokers section names the target as the NSA's Equation Group (TAO division) (**Confirmed**, [82]).
 - CVE_REFERENCE.md's EternalBlue entry gives its origin as the NSA and the leak date as 14 April 2017 (**Confirmed**, [83]).
 
-These should either cite the source of the attribution (for example the leak journalism or Microsoft's statement, graded as such) or adopt ATT&CK's neutral wording. The library's THREAT_ACTORS.md does not mention Equation, Regin, Duqu, Flame or EternalBlue at all (**Confirmed**, checked in the library at main `e85b559`); this study fills that gap.
+These should either cite the source of the attribution (for example the leak journalism or Microsoft's statement, graded as such) or adopt ATT&CK's neutral wording. The library's THREAT_ACTORS.md does not mention Equation, Regin, Duqu, Flame or EternalBlue at all (**Confirmed**, checked in the library at main `4652b96`); this study fills that gap.
 
 ### What is overstated and what is understated
 
@@ -698,7 +698,7 @@ All sources were opened on 3 November 2026, except the two NVD records [84] and 
 | 6 | MITRE ATT&CK, S0690 Green Lambert (v1.0, created 21 March 2022) | https://attack.mitre.org/software/S0690/ | 2026-11-03 | Confirmed |
 | 7 | MITRE ATT&CK, S0366 WannaCry | https://attack.mitre.org/software/S0366/ | 2026-11-03 | Confirmed |
 | 8 | MITRE ATT&CK, S0368 NotPetya | https://attack.mitre.org/software/S0368/ | 2026-11-03 | Confirmed |
-| 9 | TeamStarWolf library, ATT&CK v20.0 data under data/attack (main e85b559) | https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack | 2026-11-03 | Confirmed |
+| 9 | TeamStarWolf library, ATT&CK v20.0 data under data/attack (main 4652b96) | https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack | 2026-11-03 | Confirmed |
 | 10 | TeamStarWolf library, MALWARE_FAMILIES.md | https://github.com/TeamStarWolf/TeamStarWolf/blob/main/MALWARE_FAMILIES.md | 2026-11-03 | Confirmed |
 | 11 | TeamStarWolf library, data/attack/software_to_technique.jsonl | https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/software_to_technique.jsonl | 2026-11-03 | Confirmed |
 | 12 | TeamStarWolf library, data/attack/technique_to_d3fend.jsonl | https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/technique_to_d3fend.jsonl | 2026-11-03 | Confirmed |

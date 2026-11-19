@@ -184,6 +184,9 @@ jobs:
     # revoked: hand-written pages may not cite a revoked/deprecated ATT&CK ID (per
     #   data/attack/superseded_by.jsonl) more often than scripts/baselines/revoked_ids.json
     #   records; the baseline holds the pre-existing citations and may only shrink.
+    # paths: no tracked file carries a path from the machine that built it. Pages may use
+    #   the stock example accounts in EXAMPLE_ACCOUNTS; Office files and PDFs are opened and
+    #   searched inside, including image alt text. The log names the file, never the path.
     # voice: hand-written pages follow docs/VOICE.md (no emoji, sentence-ending
     #   exclamation marks, marketing words or hand-typed headline counts) beyond what
     #   scripts/baselines/voice.json records. That baseline only shrinks: --update-baseline
@@ -211,6 +214,9 @@ jobs:
 
       - name: No new revoked/deprecated ATT&CK IDs in hand-written pages
         run: python scripts/check_repo_hygiene.py --only revoked --report
+
+      - name: No build-machine paths in pages, decks or PDFs
+        run: python scripts/check_repo_hygiene.py --only paths
 
       - name: Site theme colours meet WCAG AA in both themes (index.html tokens)
         run: python scripts/check_contrast.py

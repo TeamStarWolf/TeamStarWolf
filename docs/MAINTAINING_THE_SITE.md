@@ -94,7 +94,7 @@ Generated blocks inside pages sit between `<!-- name:start -->` and `<!-- name:e
 | `check_old_urls.py` | Every route in `scripts/old_urls.txt` still reaches its page and heading | Before a pull request that renames headings or touches aliases |
 | `check_voice.py` | The voice rules in [docs/VOICE.md](/docs/VOICE.md) on hand-written pages | Before every pull request |
 | `check_contrast.py` | Every text and background pair in the `index.html` theme tokens meets WCAG AA in both themes | A colour token changes |
-| `check_repo_hygiene.py` | No tracked junk, valid UTF-8, no new revoked ATT&CK IDs | Before every pull request |
+| `check_repo_hygiene.py` | No tracked junk, valid UTF-8, no new revoked ATT&CK IDs, no build-machine paths in pages, decks or PDFs | Before every pull request |
 | `validate_jsonl.py`, `validate_navigator.py` | The JSONL edge tables and the Navigator layers | A data change |
 
 Every writer has a `--check` mode that rebuilds in memory and fails on any difference from the committed files. Commit what the writers produce; never hand-edit their output.

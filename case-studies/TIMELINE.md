@@ -27,6 +27,10 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 November 2026: CISA adds the CVE to KEV based on evidence of active exploitation, due 12 November, forensic triage required
   - 11 November 2026: GreyNoise counts 26 confirmed post-exploitation chains from 8 attacker addresses on its sensors (Reported)
   - 12 November 2026: KEV due date
+- [Puppet Server, CVE-2026-115731: The Report Deserialization Code Execution Flaw](/case-studies/PUPPET_CVE_2026_115731.md). Vulnerability, November 2026. Sectors: technology. CVEs: CVE-2026-115731. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Puppet_CVE_2026_115731_Case_Study.pdf).
+  - 3 November 2026: Perforce publishes CVE-2026-115731 as the CNA, with fixed Puppet Enterprise releases 2023.8.13, 2025.12.1 and 2026.0.1
+  - 17 November 2026: CISA adds CVE-2026-115731 to the KEV catalog (due 1 December); its SSVC entry rates exploitation active
+  - 18 November 2026: NVD analysis completes; the Belgian CCB and press report active exploitation and a public proof of concept
 - [nginx2root 2026: The nginx HTTP/2 Remote Code Execution Flaws, CVE-2026-123007 and CVE-2026-123633](/case-studies/NGINX2ROOT_2026.md). Vulnerability, November 2026. Sectors: technology. CVEs: CVE-2026-123007, CVE-2026-123633. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/nginx2root_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/nginx2root_2026_Case_Study.pptx).
   - 11 October 2026: Xint finds the nginx flaws
   - 16 October 2026: Xint reports the flaws to F5 through HackerOne; Wiz and others report the HTTP/2 pair independently

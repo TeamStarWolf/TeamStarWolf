@@ -2877,6 +2877,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 2: Reach and preconditions](#part-2-reach-and-preconditions), [Part 4: Find and fix it](#part-4-find-and-fix-it)"
     pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md)"
     reviewed: null
+  case-studies/PUPPET_CVE_2026_115731.md:
+    audience: "Vulnerability management leads, Puppet and configuration management administrators, incident responders, and security engineers"
+    level: "Intermediate"
+    read_when: "You run Puppet Enterprise or Puppet Server, you need the facts of CVE-2026-115731, or you are deciding how urgently to patch, restart and review certificate signing"
+    start_at: "[Executive summary](#executive-summary), [Part 2: Reach, scores and status](#part-2-reach-scores-and-status), [Part 4: Find and fix it](#part-4-find-and-fix-it)"
+    pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Log4Shell](/case-studies/LOG4SHELL.md)"
+    reviewed: null
   case-studies/GITLAB_CVE_2026_97229.md:
     audience: "Vulnerability management leads, GitLab administrators, DevSecOps and platform engineers, and incident responders"
     level: "Intermediate"

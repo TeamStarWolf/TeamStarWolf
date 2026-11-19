@@ -17,7 +17,7 @@ Intermediate to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 14 min (3,285 words at 230 words a minute)
+About 14 min (3,289 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -1300,11 +1300,11 @@ OPC Unified Architecture is used in industrial IoT (IIoT) and SCADA systems.
 OPC-UA and industrial connectivity CVEs:
 | CVE | Description | Impact |
 |-----|-------------|--------|
-| CVE-2020-27263 | Kepware KEPServerEX OPC-UA heap-based buffer overflow | Remote code execution |
+| CVE-2020-27263 | Kepware KEPServerEX OPC-UA heap-based buffer overflow | Server crash, potential data leak |
 | CVE-2020-29457 | OPC UA .NET Standard Stack privilege elevation | Privilege escalation |
 | CVE-2021-27432 | OPC Foundation UA .NET Standard uncontrolled recursion | Denial of service |
 | CVE-2022-25164 | Mitsubishi MX OPC UA Module cleartext credential storage | Information disclosure |
-| CVE-2018-12086 | Buffer overflow in multiple OPC UA stacks | Remote code execution |
+| CVE-2018-12086 | Buffer overflow in multiple OPC UA stacks | Denial of service (stack overflow) |
 
 OPC-UA Security Assessment:
 ```python

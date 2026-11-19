@@ -540,8 +540,8 @@ This section catalogs notable Black Hat Arsenal and community offensive/defensiv
 | Seatbelt | T1087, T1082, T1083 | Windows Enum | .NET security config audit; 100+ checks for credentials, configs, and misconfigs |
 | PowerUp | T1548, T1083 | Windows Privesc | PowerShell privilege escalation checks; unquoted paths, weak service ACLs |
 | pspy | T1053, T1059 | Linux Process Monitor | Unprivileged Linux process monitor; catches cron jobs and SUID execution |
-| PrintSpoofer | T1548.002 | Token Impersonation | SeImpersonatePrivilege to SYSTEM via print spooler named pipe trick |
-| GodPotato | T1548.002 | Token Impersonation | SeImpersonatePrivilege to SYSTEM; works Windows 2012-2022 |
+| PrintSpoofer | T1134.001 | Token Impersonation | SeImpersonatePrivilege to SYSTEM via print spooler named pipe trick |
+| GodPotato | T1134.001 | Token Impersonation | SeImpersonatePrivilege to SYSTEM; works Windows 2012-2022 |
 
 ### OSINT and Reconnaissance Tools
 

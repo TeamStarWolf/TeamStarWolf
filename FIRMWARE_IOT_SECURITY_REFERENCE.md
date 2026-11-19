@@ -2691,7 +2691,7 @@ Tactic-Technique Mapping (Key T0800-T0900 Range):
 | Discovery | T0842 | Network Sniffing | Capture ICS protocol traffic |
 | Discovery | T0888 | Remote System Information Discovery | Enumerate SCADA/HMI hosts |
 | Lateral Movement | T1694.001 | Default Credentials | Cross-device lateral movement |
-| Lateral Movement | T0866 | Lateral Tool Transfer | Move tools between OT systems |
+| Lateral Movement | T0867 | Lateral Tool Transfer | Move tools between OT systems |
 | Collection | T0801 | Monitor Process State | Read PLC register values |
 | Collection | T0845 | Program Upload | Extract PLC ladder logic |
 | C2 | T0885 | Commonly Used Port | C2 over Modbus/DNP3 |

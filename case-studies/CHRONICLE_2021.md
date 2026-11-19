@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 69 min (15,925 words at 230 words a minute)
+About 70 min (16,003 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -256,7 +256,7 @@ The longer record of the Russia-attributed services and groups named here (the S
 
 ### North Korea
 
-**Researchers as targets.** On 25 January Google TAG attributed to a North Korea-based government-backed entity a campaign against security researchers that used a fake research blog, Twitter personas and a Visual Studio project whose build event ran a malicious DLL; some patched Windows 10 and Chrome visitors to the blog were also compromised, by a mechanism TAG had not confirmed (Confirmed [29]). Microsoft attributed the same campaign with high confidence to ZINC, starting in mid-2020, with the Comebacker malware (persisting through a Run key), Klackring (as a service), and abuse of the Vir.IT driver flaw CVE-2017-16238 (Confirmed [30]). ZINC is an alias of [G0032 Lazarus Group](/mitre/groups/G0032.md) in the library's ATT&CK data; Microsoft's page does not say Lazarus (Inferred link [30][134]).
+**Researchers as targets.** On 25 January Google TAG attributed to a North Korea-based government-backed entity a campaign against security researchers that used a fake research blog, Twitter personas and a Visual Studio project whose build event ran a malicious DLL; some patched Windows 10 and Chrome visitors to the blog were also compromised, by a mechanism TAG had not confirmed (Confirmed [29]). Microsoft attributed the same campaign with high confidence to ZINC, starting in mid-2020, with the Comebacker malware (persisting through a Run key), Klackring (as a service), and an attempt to exploit a Vir.IT eXplorer driver, which Microsoft labels CVE-2017-16238, an identifier with no published CVE or NVD record; Microsoft says the exploit code appeared buggy and crashed the victim's machine (Confirmed [30]; registry absence [136]). ZINC is an alias of [G0032 Lazarus Group](/mitre/groups/G0032.md) in the library's ATT&CK data; Microsoft's page does not say Lazarus (Inferred link [30][134]).
 
 **AppleJeus.** CISA, the FBI and Treasury's AA21-048A described seven AppleJeus versions disguised as cryptocurrency trading and wallet software (Celas Trade Pro, JMT Trading, Union Crypto, Kupay Wallet, CoinGoTrade, Dorusio and Ants2Whale), attributed to Lazarus on behalf of the DPRK, against targets in 32 countries since January 2020 (Confirmed [31]). ATT&CK records it as [S0584 AppleJeus](/mitre/software/S0584.md) (Confirmed [134]). The advisory's macOS Launchd mapping (T1053.004) is deprecated in the library's v20.0 data and is left out (Confirmed [134]).
 
@@ -625,7 +625,7 @@ The study's techniques are saved as an ATT&CK Navigator layer, [navigator/librar
 
 ## Sources
 
-All sources were opened on 3 November 2026, except [66] and [67], which were opened again on 10 November 2026. "Primary" means the organization that published the fact; grades apply to the source as used here.
+All sources were opened on 3 November 2026, except [66] and [67], which were opened again on 10 November 2026, and [136], opened on 19 November 2026. "Primary" means the organization that published the fact; grades apply to the source as used here.
 
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|
@@ -764,6 +764,7 @@ All sources were opened on 3 November 2026, except [66] and [67], which were ope
 | 133 | MITRE D3FEND, About | [d3fend.mitre.org](https://d3fend.mitre.org/about/) | 2026-11-03 | Confirmed |
 | 134 | TeamStarWolf library, ATT&CK, D3FEND and CWE data files (`data/attack/`, `data/weaknesses/`) and generated pages (`mitre/`) | [github.com/TeamStarWolf/TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack) | 2026-11-03 | Confirmed |
 | 135 | TeamStarWolf library, `scripts/validate_navigator.py` | [github.com/TeamStarWolf/TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/scripts/validate_navigator.py) | 2026-11-03 | Confirmed |
+| 136 | CVE Services API and NVD, no published record for CVE-2017-16238 | cveawg.mitre.org/api/cve/CVE-2017-16238 and services.nvd.nist.gov (plain text: the CVE API answers HTTP 404 with CVE_RECORD_DNE and the NVD API returns 0 results, which is what this row cites) | 2026-11-19 | Confirmed |
 
 *© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*
 

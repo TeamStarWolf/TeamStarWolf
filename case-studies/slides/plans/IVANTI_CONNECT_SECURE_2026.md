@@ -11,7 +11,7 @@
 - Volexity found the chain on a customer appliance fully patched at 22.8R2.4; exploitation began on 3 October.
 - Ivanti disclosed CVE-2026-104935 on 13 October as under limited exploitation.
 - The root escalation, CVE-2026-111357, was published on 15 October and fixed only on 29 October.
-- The actor left no implant, and Ivanti's Integrity Checker Tool missed the in-memory patching.
+- No web shell, backdoor or separate C2 channel, though a renamed packet-capture tool reached disk; the Integrity Checker Tool missed the in-memory patching.
 - KEV gave two of the three CVEs a three-day deadline with forensic triage.
 Caption: Evidence grade: Confirmed for the record; the exposed-host counts and the 1 October start are Reported.
 Notes: Discovery and start [12]. Disclosure [1]. Escalation [4][7][12]. No implant [10][12]. KEV [9].
@@ -19,7 +19,7 @@ Notes: Discovery and start [12]. Disclosure [1]. Escalation [4][7][12]. No impla
 ## KEY FACTS | Three CVEs, two fix dates, one described victim
 
 Stat: 3 | CVEs in the chain
-Stat: 16 | Days the root escalation stayed unpatched
+Stat: 16 | Days the chain had no complete fix
 Stat: 3 | Days KEV allowed for the two forensic-triage entries
 Stat: 5,000+ | Internet-facing hosts in early November (Reported)
 - Product: Ivanti Connect Secure, branches 22.8, 25.1.1 and 25.1.2.
@@ -59,7 +59,7 @@ Notes: Versions [3][4][7][10]. Weakness [4][7][9]. Score [7] and, Reported, [23]
 Caption: Mapping the upload handler's predictable path to CVE-2026-118527 is the study's own; Volexity does not name that CVE (Inferred).
 Notes: Classes and scores [3][4][5][6][7][8]. Chain as Volexity describes it [12]. KEV says each can be chained with the other two [9].
 
-## PART 2 | No implant to find
+## PART 2 | No web shell, but artifacts on disk
 
 Left: What the actor did with root
 - Extracted stored LDAP credentials.
@@ -120,9 +120,9 @@ Left: Patch and hunt
 - Treat any appliance exposed from 1 October on an affected build as possibly compromised.
 - Use memory and network forensics; an Integrity Checker pass is not proof.
 - Watch for bursts of welcome.cgi requests and path and routing-header mismatches.
-Right: Recover
-- Factory reset and upgrade, by CISA's sequence.
-- Reset every password, certificate and API key.
+Right: Recover (if compromise is suspected)
+- Back up config; factory-reset hardware or rebuild a virtual instance, then upgrade.
+- Reset passwords and API keys; revoke and reissue certificates.
 - Rotate LDAP bind, LAPS and BitLocker secrets the appliance could read.
 - Alert on auth failures from the appliance's internal interface (Reported).
 Notes: Patch [10][15]. Exposure window Inferred from [12][19]. Forensics [10][12]. Detection [12]. Recovery [10]. Directory secrets Inferred from [12]. Internal interface, Reported [21].
@@ -135,7 +135,7 @@ Left: Overstated
 - An AI-built chain goes further than Volexity's assessment.
 Right: Understated
 - The chain was first seen on a fully patched appliance.
-- The escalation stayed unpatched for 16 days while exploited.
+- No complete fix for 16 days (13-29 Oct); the escalation CVE, published 15 Oct, was unpatched for 14.
 - The 13 October builds did not close the chain.
 - The integrity check gave a false clean.
 Notes: Overstated [3][4][5][10][21][12], Inferred where labelled. Understated [12][15], Confirmed.

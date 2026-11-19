@@ -2585,6 +2585,20 @@ studies:
       - {"date": "2026-11-17", "label": "Oracle ships the November 2026 Critical Patch Update fixing CVE-2026-114938; an OpenJDK advisory is published"}
       - {"date": "2026-11-17", "label": "Calif discloses Java4Shell with a technical write-up and a proof-of-concept trigger; CISA issues an alert urging immediate patching"}
       - {"date": "2026-11-18", "label": "NVD still lists the record as undergoing analysis; the CVE is not in the CISA KEV catalog"}
+  case-studies/PUPPET_CVE_2026_115731.md:
+    kind: "vulnerability"
+    title: "Puppet Server, CVE-2026-115731: The Report Deserialization Code Execution Flaw"
+    start: "2026-11"
+    end: "2026-11"
+    sectors: ["technology"]
+    cves: ["CVE-2026-115731"]
+    actors: []
+    tags: ["Puppet", "Perforce", "configuration management", "deserialization", "certificate authority", "CISA KEV"]
+    pdf: "Puppet_CVE_2026_115731_Case_Study.pdf"
+    events:
+      - {"date": "2026-11-03", "label": "Perforce publishes CVE-2026-115731 as the CNA, with fixed Puppet Enterprise releases 2023.8.13, 2025.12.1 and 2026.0.1"}
+      - {"date": "2026-11-17", "label": "CISA adds CVE-2026-115731 to the KEV catalog (due 1 December); its SSVC entry rates exploitation active"}
+      - {"date": "2026-11-18", "label": "NVD analysis completes; the Belgian CCB and press report active exploitation and a public proof of concept"}
   case-studies/GITLAB_CVE_2026_97229.md:
     kind: "vulnerability"
     title: "GitLab, CVE-2026-97229: Lab-Verified Exposure and Fix"

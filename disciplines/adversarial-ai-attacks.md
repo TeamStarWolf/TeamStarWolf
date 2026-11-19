@@ -256,19 +256,19 @@ References: [Hugging Face Model Security](https://huggingface.co/docs/hub/securi
 | ATLAS ID | Technique Name | Description |
 |---|---|---|
 | AML.T0043 | Craft Adversarial Data | Generate perturbed inputs (images, text, audio) to cause misclassification or unexpected model behavior |
-| AML.T0018 | Backdoor ML Model | Insert a hidden trigger into a model during training or fine-tuning that activates on attacker-controlled inputs |
-| AML.T0020 | Poison Training Data | Introduce malicious examples into the training dataset to degrade performance or implant a backdoor |
-| AML.T0024 | Exfiltration via ML Inference API | Use the model inference endpoint to extract sensitive information about training data or model internals |
-| AML.T0025 | Exfiltrate Model Artifacts via Cyber Intrusion | Steal model weights, hyperparameters, or training data through traditional intrusion techniques |
-| AML.T0016 | Obtain Capabilities: ML Attack Tooling | Acquire adversarial ML libraries (ART, Foolbox, TextAttack) to conduct attacks |
-| AML.T0040 | ML Model Inference API Access | Query a model API to gather information for extraction, membership inference, or evasion attacks |
-| AML.T0031 | Erode ML Model Integrity | Degrade the reliability of a model through persistent interference with training updates |
+| AML.T0018 | Manipulate AI Model | Insert a hidden trigger into a model during training or fine-tuning that activates on attacker-controlled inputs |
+| AML.T0020 | Training Data Poisoning | Introduce malicious examples into the training dataset to degrade performance or implant a backdoor |
+| AML.T0024 | Exfiltration via AI Inference API | Use the model inference endpoint to extract sensitive information about training data or model internals |
+| AML.T0025 | Exfiltration via Cyber Means | Steal model weights, hyperparameters, or training data through traditional intrusion techniques |
+| AML.T0016 | Obtain Capabilities | Acquire adversarial ML libraries (ART, Foolbox, TextAttack) to conduct attacks |
+| AML.T0040 | AI Model Inference API Access | Query a model API to gather information for extraction, membership inference, or evasion attacks |
+| AML.T0031 | Erode AI Model Integrity | Degrade the reliability of a model through persistent interference with training updates |
 | AML.T0012 | Valid Accounts | Use legitimate credentials to access ML platforms, model repositories, or training infrastructure |
-| AML.T0048 | LLM Prompt Injection | Inject instructions into an LLM prompt via untrusted content to hijack the model's behavior |
-| AML.T0051 | LLM Jailbreak | Use adversarial prompting to cause an LLM to bypass its safety training and produce restricted outputs |
-| AML.T0054 | LLM Plugin Compromise | Exploit plugins or tool integrations connected to an LLM agent to achieve code execution or data exfiltration |
-| AML.T0035 | ML Supply Chain Compromise | Introduce malicious components at any stage of the ML pipeline: data, model, library, or infrastructure |
-| AML.T0044 | Full ML Model Access | Obtain complete access to model weights enabling white-box attacks and unrestricted analysis |
+| AML.T0051 | LLM Prompt Injection | Inject instructions into an LLM prompt via untrusted content to hijack the model's behavior |
+| AML.T0054 | LLM Jailbreak | Use adversarial prompting to cause an LLM to bypass its safety training and produce restricted outputs |
+| AML.T0053 | AI Agent Tool Invocation | Abuse plugins or tool integrations connected to an AI agent to achieve code execution or data exfiltration |
+| AML.T0010 | Supply Chain Compromise | Introduce malicious components at any stage of the ML pipeline: data, model, library, or infrastructure |
+| AML.T0044 | Full AI Model Access | Obtain complete access to model weights enabling white-box attacks and unrestricted analysis |
 
 ---
 
@@ -393,13 +393,13 @@ Key ATLAS Tactics and Techniques
 
 | Tactic | Technique | Example |
 |--------|-----------|---------|
-| Reconnaissance | AML.T0000 - Search for Victim | Finding ML model endpoints via API docs, LinkedIn, GitHub |
-| Resource Development | AML.T0008 - Develop Capabilities | Building surrogate model for black-box transfer attacks |
-| Initial Access | AML.T0012 - Valid ML Accounts | Compromising API keys for ML services |
-| Execution | AML.T0040 - ML Supply Chain Compromise | Malicious PyPI/Conda package injecting backdoor |
-| Evasion | AML.T0015 - Evade ML Model | Adversarial examples bypassing image classifier |
-| Exfiltration | AML.T0024 - Invert ML Model | Model inversion to reconstruct training data |
-| Impact | AML.T0031 - Erode ML Model Integrity | Poisoning deployed model's behavior |
+| Reconnaissance | AML.T0095 - Search Open Websites/Domains | Finding ML model endpoints via API docs, LinkedIn, GitHub |
+| Resource Development | AML.T0017 - Develop Capabilities | Building surrogate model for black-box transfer attacks |
+| Initial Access | AML.T0012 - Valid Accounts | Compromising API keys for ML services |
+| Execution | AML.T0011 - User Execution | Malicious PyPI/Conda package injecting backdoor |
+| Evasion | AML.T0015 - Evade AI Model | Adversarial examples bypassing image classifier |
+| Exfiltration | AML.T0137.002 - Invert AI Model | Model inversion to reconstruct training data |
+| Impact | AML.T0031 - Erode AI Model Integrity | Poisoning deployed model's behavior |
 
 Security AI Applications and Their Attack Surfaces
 

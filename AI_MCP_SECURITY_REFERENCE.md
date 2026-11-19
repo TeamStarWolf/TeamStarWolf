@@ -879,7 +879,9 @@ Tool Misuse:
 
 ## 5. MITRE ATLAS Techniques
 
-MITRE ATLAS (Adversarial Threat Landscape for Artificial-Intelligence Systems) is a knowledge base of adversarial tactics, techniques, and case studies for ML-enabled systems, analogous to MITRE ATT&CK for traditional cyber threats.
+MITRE ATLAS (Adversarial Threat Landscape for Artificial-Intelligence Systems) is a knowledge base of adversarial tactics, techniques, and case studies for AI-enabled systems, analogous to MITRE ATT&CK for traditional cyber threats.
+
+The tables below are a curated selection of ATLAS techniques most relevant to MCP and AI-agent deployments, with attack examples and mitigations written for that context. The technique IDs and names were reconciled against the [pinned ATLAS 2026.10 release](https://github.com/mitre-atlas/atlas-data/blob/f56c1468731d6428e5bf875263b4643b46d67437/dist/v6/ATLAS-2026.10.yaml) on 2026-11-19; the Attack Example and Mitigations columns are the library's own curation, not official ATLAS content. This is a selection rather than the full matrix, and a technique can appear under more than one tactic where it applies at different stages of an MCP attack. For the authoritative and complete matrix, see the [ATLAS Reference](/ATLAS_REFERENCE.md), which CI generates from the same pinned release.
 
 Reference: [https://atlas.mitre.org/](https://atlas.mitre.org/)
 
@@ -889,11 +891,11 @@ Reference: [https://atlas.mitre.org/](https://atlas.mitre.org/)
 
 | ID | Name | Description | Attack Example | Mitigations |
 |----|------|-------------|---------------|-------------|
-| AML.T0000 | Search for Victim's Publicly Available Research Materials | Adversary searches for public ML research, papers, models, and datasets related to the target. | Searching arXiv, GitHub, and Hugging Face for the target organization's published models. | Limit publication of details about production ML systems. |
-| AML.T0001 | Search Victim-Owned Websites | Adversary searches the target's websites for information about ML systems in use. | Scraping job postings to identify ML frameworks and models used by the organization. | Limit ML implementation details in public-facing content. |
-| AML.T0002 | Search Publicly Available Data Sources | Adversary searches public data sources (datasets, model cards, API docs) to understand the ML system. | Querying a public model API to map out its input/output behavior before attacking. | Minimize public documentation of model internals. |
-| AML.T0003 | Search ML Artifact Repositories | Adversary searches ML artifact repositories (Hugging Face, TensorFlow Hub, ONNX Model Zoo) for target-related models. | Searching Hugging Face for models published by the target organization. | Monitor for downloads of organization-published models. |
-| AML.T0004 | Search for Victim's Publicly Available Adversarial Vulnerability Research | Adversary searches for published adversarial ML research targeting the specific model architecture or task. | Finding papers that demonstrate successful attacks against transformer-based models of the type the target uses. | Limit disclosure of specific model architecture details. |
+| AML.T0000 | Search Open Technical Databases | Adversary searches for public ML research, papers, models, and datasets related to the target. | Searching arXiv, GitHub, and Hugging Face for the target organization's published models. | Limit publication of details about production ML systems. |
+| AML.T0003 | Search Victim-Owned Websites | Adversary searches the target's websites for information about ML systems in use. | Scraping job postings to identify ML frameworks and models used by the organization. | Limit ML implementation details in public-facing content. |
+| AML.T0095 | Search Open Websites/Domains | Adversary searches public data sources (datasets, model cards, API docs) to understand the ML system. | Querying a public model API to map out its input/output behavior before attacking. | Minimize public documentation of model internals. |
+| AML.T0004 | Search Application Repositories | Adversary searches ML artifact repositories (Hugging Face, TensorFlow Hub, ONNX Model Zoo) for target-related models. | Searching Hugging Face for models published by the target organization. | Monitor for downloads of organization-published models. |
+| AML.T0001 | Search Open AI Vulnerability Analysis | Adversary searches for published adversarial ML research targeting the specific model architecture or task. | Finding papers that demonstrate successful attacks against transformer-based models of the type the target uses. | Limit disclosure of specific model architecture details. |
 
 ---
 
@@ -901,11 +903,11 @@ Reference: [https://atlas.mitre.org/](https://atlas.mitre.org/)
 
 | ID | Name | Description | Attack Example | Mitigations |
 |----|------|-------------|---------------|-------------|
-| AML.T0008 | Acquire Public ML Artifacts | Adversary acquires publicly available ML artifacts (models, datasets, code) for use in attacks. | Downloading a public foundation model to develop adversarial examples for use against the target's fine-tuned version. | Monitor for download of organization's public artifacts. |
-| AML.T0009 | Obtain Capabilities | Adversary obtains or develops tools for conducting ML attacks (adversarial example generators, model extraction tools). | Using the Foolbox or ART library to generate adversarial examples. | N/A (adversary-side). |
-| AML.T0010 | Create Proxy ML Model | Adversary creates a local proxy/surrogate model that approximates the target model, for offline attack development. | Training a surrogate model using model extraction queries before generating transferable adversarial examples. | Rate limiting, query monitoring, output watermarking. |
+| AML.T0002 | Acquire Public AI Artifacts | Adversary acquires publicly available ML artifacts (models, datasets, code) for use in attacks. | Downloading a public foundation model to develop adversarial examples for use against the target's fine-tuned version. | Monitor for download of organization's public artifacts. |
+| AML.T0016 | Obtain Capabilities | Adversary obtains or develops tools for conducting ML attacks (adversarial example generators, model extraction tools). | Using the Foolbox or ART library to generate adversarial examples. | N/A (adversary-side). |
+| AML.T0005 | Replicate AI Model Behavior | Adversary creates a local proxy/surrogate model that approximates the target model, for offline attack development. | Training a surrogate model using model extraction queries before generating transferable adversarial examples. | Rate limiting, query monitoring, output watermarking. |
 | AML.T0115.000 | Publish Poisoned AI Artifacts: Datasets | Adversary publishes datasets to public repositories containing poisoned samples intended to be used for training. Supersedes AML.T0019 Publish Poisoned Datasets, retired in ATLAS 2026.07. | Publishing a poisoned image dataset to Kaggle that causes a specific misclassification when used for transfer learning. | Data provenance verification, anomaly detection. |
-| AML.T0011 | Develop Capabilities | Adversary develops novel attack tools, techniques, or adversarial examples from scratch. | Implementing a custom GCG (Greedy Coordinate Gradient) optimizer to generate adversarial suffixes. | Red teaming, monitoring research literature. |
+| AML.T0017 | Develop Capabilities | Adversary develops novel attack tools, techniques, or adversarial examples from scratch. | Implementing a custom GCG (Greedy Coordinate Gradient) optimizer to generate adversarial suffixes. | Red teaming, monitoring research literature. |
 
 ---
 
@@ -913,9 +915,9 @@ Reference: [https://atlas.mitre.org/](https://atlas.mitre.org/)
 
 | ID | Name | Description | Attack Example | Mitigations |
 |----|------|-------------|---------------|-------------|
-| AML.T0010.001 | ML Supply Chain Compromise | Adversary compromises a component in the ML supply chain (dataset, pre-trained model, ML library). | Compromising a popular Hugging Face model repository to add a backdoor before the victim downloads and fine-tunes it. | Verify checksums/signatures of downloaded models and datasets. |
-| AML.T0018 | Target ML Model via Inference API | Adversary targets the ML model via its public inference API for probing and attack delivery. | Making repeated API calls to map model behavior before a model extraction attack. | Rate limiting, authentication, query logging. |
-| AML.T0020 | Data Poisoning | Adversary injects malicious training data into the victim's training pipeline. | Compromising a data pipeline to inject mislabeled examples that create a backdoor in the trained model. | Input validation, data signing, anomaly detection. |
+| AML.T0010 | Supply Chain Compromise | Adversary compromises a component in the ML supply chain (dataset, pre-trained model, ML library). | Compromising a popular Hugging Face model repository to add a backdoor before the victim downloads and fine-tunes it. | Verify checksums/signatures of downloaded models and datasets. |
+| AML.T0049 | Exploit Public-Facing Application | Adversary targets the ML model via its public inference API for probing and attack delivery. | Making repeated API calls to map model behavior before a model extraction attack. | Rate limiting, authentication, query logging. |
+| AML.T0010.002 | Supply Chain Compromise: Data Repository | Adversary injects malicious training data into the victim's training pipeline. | Compromising a data pipeline to inject mislabeled examples that create a backdoor in the trained model. | Input validation, data signing, anomaly detection. |
 | AML.T0012 | Valid Accounts | Adversary uses compromised valid credentials to access ML infrastructure. | Using stolen API keys to access a commercial ML API for unauthorized use or model extraction. | MFA, API key rotation, anomaly detection on usage patterns. |
 
 ---
@@ -924,11 +926,11 @@ Reference: [https://atlas.mitre.org/](https://atlas.mitre.org/)
 
 | ID | Name | Description | Attack Example | Mitigations |
 |----|------|-------------|---------------|-------------|
-| AML.T0040 | ML Model Inference API Access | Adversary uses inference API access to execute attacks against the model at inference time. | Using API access to probe the model with adversarial inputs or trigger a backdoor. | Authentication, input validation, anomaly detection. |
+| AML.T0040 | AI Model Inference API Access | Adversary uses inference API access to execute attacks against the model at inference time. | Using API access to probe the model with adversarial inputs or trigger a backdoor. | Authentication, input validation, anomaly detection. |
 | AML.T0043 | Craft Adversarial Data | Adversary crafts inputs specifically designed to cause the ML model to malfunction. | Generating adversarial images that cause a vision model to misclassify stop signs as speed limit signs. | Adversarial training, input preprocessing, ensemble defenses. |
-| AML.T0044 | Full ML Model Access | Adversary with white-box access to the model exploits its architecture and weights to craft highly effective attacks. | Using gradient information from white-box access to generate near-imperceptible adversarial perturbations. | Limit model sharing, use model encryption. |
-| AML.T0047 | Backdoor ML Model | Adversary inserts a backdoor into the model during training or fine-tuning. The model behaves normally except when a specific trigger is present. | Fine-tuning a public model with poisoned examples so that it misclassifies inputs containing a specific logo as benign. | Model validation, backdoor scanning tools (Neural Cleanse, ABS). |
-| AML.T0038 | Deploy Adversarial Example | Adversary deploys crafted adversarial inputs against a production ML system. | Deploying adversarial stop-sign stickers that fool an autonomous vehicle's perception system. | Adversarial training, sensor redundancy, anomaly detection. |
+| AML.T0044 | Full AI Model Access | Adversary with white-box access to the model exploits its architecture and weights to craft highly effective attacks. | Using gradient information from white-box access to generate near-imperceptible adversarial perturbations. | Limit model sharing, use model encryption. |
+| AML.T0018.000 | Manipulate AI Model: Poison AI Model | Adversary inserts a backdoor into the model during training or fine-tuning. The model behaves normally except when a specific trigger is present. | Fine-tuning a public model with poisoned examples so that it misclassifies inputs containing a specific logo as benign. | Model validation, backdoor scanning tools (Neural Cleanse, ABS). |
+| AML.T0015 | Evade AI Model | Adversary deploys crafted adversarial inputs against a production ML system. | Deploying adversarial stop-sign stickers that fool an autonomous vehicle's perception system. | Adversarial training, sensor redundancy, anomaly detection. |
 
 ---
 
@@ -936,8 +938,8 @@ Reference: [https://atlas.mitre.org/](https://atlas.mitre.org/)
 
 | ID | Name | Description | Attack Example | Mitigations |
 |----|------|-------------|---------------|-------------|
-| AML.T0029 | Backdoor ML Model (Persistence) | Backdoors inserted during training persist across model updates if the poisoned training data is retained. | A poisoned training dataset used repeatedly ensures backdoors survive retraining cycles. | Data provenance, periodic data audits, clean room retraining. |
-| AML.T0030 | Poison Training Data (Persistence) | Attacker continuously poisons training data used in ongoing learning systems to maintain persistent influence. | Submitting feedback in an online learning system that continually reinforces the attacker's desired model behavior. | Monitor online learning systems for drift, anomaly detection on feedback data. |
+| AML.T0020 | Training Data Poisoning | Backdoors inserted during training persist across model updates if the poisoned training data is retained. | A poisoned training dataset used repeatedly ensures backdoors survive retraining cycles. | Data provenance, periodic data audits, clean room retraining. |
+| AML.T0145 | Poison AI Agent Learning Environment | Attacker continuously poisons training data used in ongoing learning systems to maintain persistent influence. | Submitting feedback in an online learning system that continually reinforces the attacker's desired model behavior. | Monitor online learning systems for drift, anomaly detection on feedback data. |
 
 ---
 
@@ -945,9 +947,9 @@ Reference: [https://atlas.mitre.org/](https://atlas.mitre.org/)
 
 | ID | Name | Description | Attack Example | Mitigations |
 |----|------|-------------|---------------|-------------|
-| AML.T0015 | Evade ML Model | Adversary crafts inputs to evade ML-based detection systems (e.g., malware classifiers, fraud detectors). | Generating adversarial malware binaries that evade ML-based antivirus. | Adversarial training, ensemble classifiers, anomaly detection. |
-| AML.T0031 | Erode ML Model Integrity | Adversary degrades model performance gradually to erode trust or cause failures over time. | Repeatedly submitting adversarial data to an online-learning model to shift its decision boundaries. | Concept drift detection, model performance monitoring, rollback capability. |
-| AML.T0032 | Backdoor Attack (Evasion) | Backdoored model evades detection by behaving normally on validation sets and only triggering on the attacker's specific input trigger. | Backdoored malware classifier that correctly classifies all test malware but allows attacker's malware through. | Backdoor scanning, independent validation datasets, red teaming. |
+| AML.T0015 | Evade AI Model | Adversary crafts inputs to evade ML-based detection systems (e.g., malware classifiers, fraud detectors). | Generating adversarial malware binaries that evade ML-based antivirus. | Adversarial training, ensemble classifiers, anomaly detection. |
+| AML.T0031 | Erode AI Model Integrity | Adversary degrades model performance gradually to erode trust or cause failures over time. | Repeatedly submitting adversarial data to an online-learning model to shift its decision boundaries. | Concept drift detection, model performance monitoring, rollback capability. |
+| AML.T0018 | Manipulate AI Model | Backdoored model evades detection by behaving normally on validation sets and only triggering on the attacker's specific input trigger. | Backdoored malware classifier that correctly classifies all test malware but allows attacker's malware through. | Backdoor scanning, independent validation datasets, red teaming. |
 
 ---
 
@@ -955,9 +957,9 @@ Reference: [https://atlas.mitre.org/](https://atlas.mitre.org/)
 
 | ID | Name | Description | Attack Example | Mitigations |
 |----|------|-------------|---------------|-------------|
-| AML.T0025 | Exfiltrate ML Model | Adversary extracts a functional copy of the target ML model via repeated inference queries. | Querying a commercial ML API thousands of times and training a shadow model that replicates its behavior. | Rate limiting, query watermarking, legal agreements. |
-| AML.T0037 | Data from Information Repositories | Adversary uses ML model outputs to infer sensitive information about the training data. | Using membership inference to determine which individuals' data was used to train a medical AI. | Differential privacy, output confidence limiting. |
-| AML.T0035 | ML Intellectual Property Theft | Adversary steals the ML model's architecture, weights, or training data through unauthorized access or extraction. | Gaining access to a model registry and exfiltrating model weights. | Access controls, encryption at rest, audit logging on model access. |
+| AML.T0024 | Exfiltration via AI Inference API | Adversary extracts a functional copy of the target ML model via repeated inference queries. | Querying a commercial ML API thousands of times and training a shadow model that replicates its behavior. | Rate limiting, query watermarking, legal agreements. |
+| AML.T0137.000 | Training Data Information from AI Models: Infer Membership | Adversary uses ML model outputs to infer sensitive information about the training data. | Using membership inference to determine which individuals' data was used to train a medical AI. | Differential privacy, output confidence limiting. |
+| AML.T0025 | Exfiltration via Cyber Means | Adversary steals the ML model's architecture, weights, or training data through unauthorized access or extraction. | Gaining access to a model registry and exfiltrating model weights. | Access controls, encryption at rest, audit logging on model access. |
 
 ---
 
@@ -966,9 +968,9 @@ Reference: [https://atlas.mitre.org/](https://atlas.mitre.org/)
 | ID | Name | Description | Attack Example | Mitigations |
 |----|------|-------------|---------------|-------------|
 | AML.T0034 | Cost Harvesting | Adversary uses the target's ML inference infrastructure at scale, causing financial harm. | Launching thousands of costly inference requests to a pay-per-query AI API to maximize the victim's bill. | Rate limiting, authentication, anomaly detection on query volume. |
-| AML.T0036 | Denial of ML Service | Adversary disrupts the availability of an ML service. | Flooding an inference API with adversarial inputs that cause high CPU usage per inference. | Rate limiting, input size limits, autoscaling with spend caps. |
-| AML.T0023 | Influence Operations | Adversary uses generative AI to create disinformation at scale. | Using a fine-tuned language model to generate targeted disinformation campaigns. | Content provenance (C2PA), detection classifiers, platform policies. |
-| AML.T0024 | Harmful ML Model Disclosure | Adversary triggers disclosure of model outputs that cause harm or embarrassment. | Jailbreaking a publicly deployed LLM to produce harmful content, then publishing screenshots. | Safety fine-tuning, output filtering, red teaming, responsible disclosure policy. |
+| AML.T0029 | Denial of AI Service | Adversary disrupts the availability of an ML service. | Flooding an inference API with adversarial inputs that cause high CPU usage per inference. | Rate limiting, input size limits, autoscaling with spend caps. |
+| AML.T0048.002 | External Harms: Societal Harm | Adversary uses generative AI to create disinformation at scale. | Using a fine-tuned language model to generate targeted disinformation campaigns. | Content provenance (C2PA), detection classifiers, platform policies. |
+| AML.T0048.003 | External Harms: User Harm | Adversary triggers disclosure of model outputs that cause harm or embarrassment. | Jailbreaking a publicly deployed LLM to produce harmful content, then publishing screenshots. | Safety fine-tuning, output filtering, red teaming, responsible disclosure policy. |
 
 ---
 

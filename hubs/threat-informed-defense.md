@@ -34,7 +34,7 @@ Part of the [domain hubs](/hubs/README.md). 16 reference documents in this domai
 | Reference | What it covers | Reading time |
 |---|---|---|
 | [Enterprise Security Pipeline](/SECURITY_PIPELINE.md) | End-to-end security lifecycle with vendor mapping across all 6 stages | 6 min |
-| [Controls Mapping](/CONTROLS_MAPPING.md) | The cross-reference chain from security vendors to the NIST 800-53 controls they implement and on to the ATT&CK techniques those controls mitigate | Lookup page (8 min end to end) |
+| [Controls Mapping](/CONTROLS_MAPPING.md) | The cross-reference chain from security vendors to the NIST 800-53 controls they implement and on to the ATT&CK techniques those controls mitigate | Lookup page (9 min end to end) |
 | [Coverage Schema](/COVERAGE_SCHEMA.md) | Data model for scoring vendor coverage gaps against ATT&CK techniques through NIST 800-53 controls | 2 min |
 
 ## Learning paths

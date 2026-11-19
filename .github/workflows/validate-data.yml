@@ -215,6 +215,9 @@ jobs:
       - name: No new revoked/deprecated ATT&CK IDs in hand-written pages
         run: python scripts/check_repo_hygiene.py --only revoked --report
 
+      - name: PDF reader self-test (the build-path gate reads every stream it should)
+        run: python scripts/check_repo_hygiene.py --self-test
+
       - name: No build-machine paths in pages, decks or PDFs
         run: python scripts/check_repo_hygiene.py --only paths
 

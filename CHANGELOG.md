@@ -95,6 +95,12 @@ by the date its pull requests merged to `main` rather than by tagged release.
   from the study page and the Case Studies hub
 
 ### Fixed
+- The build-path gate now reads the text of every PDF. It decodes each stream through the
+  filters its dictionary names (ASCII85, hex, Flate) and translates text set in an embedded
+  font through the font's ToUnicode map; before, it read only streams stored as plain Flate,
+  which left most PDF page text unchecked. A PDF with a stream it cannot decode now fails
+  instead of passing unread, and `--self-test` runs the reader on built-in cases in CI. All
+  236 PDFs pass the stricter check
 - A link to a heading (`?id=`) on a long page could leave the heading scrolled above the
   window, because docsify works out the scroll position before the header card and folds
   are laid out; the site now lines the heading up under the navbar once that scroll stops,

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Repository hygiene gates that no single generator owns. Three checks:
+"""Repository hygiene gates that no single generator owns. Four checks:
 
 1. junk     Fail if git tracks build/editor/OS junk (__pycache__/, *.pyc, venv/,
             node_modules/, .vs/, .idea/, .DS_Store, local DBs, the generator's old
@@ -22,9 +22,20 @@
             and migration notes are legitimate). The baseline is a ratchet: it records
             the pre-existing citations so the gate starts green, and may only shrink.
 
+4. paths    Fail if a tracked file carries a path from the machine that built it: a home
+            directory for an account that is not a stock example name, an agent tool's
+            encoded project directory, or, inside an Office file or a PDF, a temp-directory
+            path, a file URL, or image alt text that is a file path. Everything tracked is
+            published, and such a path names a local account and its folder layout. Pages
+            quote example paths all the time, so a home-directory path passes when its
+            account is in EXAMPLE_ACCOUNTS. Office files are unzipped and PDF streams
+            inflated, because a text search of the repository does not reach inside them.
+            A message names the file and the kind of path and never prints the path,
+            because the CI log is public too.
+
 Usage:
-    python scripts/check_repo_hygiene.py                    # all three gates
-    python scripts/check_repo_hygiene.py --only encoding    # one gate (junk|encoding|revoked)
+    python scripts/check_repo_hygiene.py                    # all four gates
+    python scripts/check_repo_hygiene.py --only encoding    # one gate (junk|encoding|revoked|paths)
     python scripts/check_repo_hygiene.py --report           # also list every baselined citation
     python scripts/check_repo_hygiene.py --update-baseline  # rewrite the revoked-ID baseline
 """
@@ -32,10 +43,13 @@ from __future__ import annotations
 
 import argparse
 import collections
+import io
 import json
 import os
 import re
 import sys
+import zipfile
+import zlib
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from repo_files import ROOT, read_bytes, tracked_files  # noqa: E402
@@ -175,13 +189,116 @@ def check_revoked(files: list[str], report: bool, update: bool) -> list[str]:
     return problems
 
 
+# ----------------------------------------------------------------------------- 4. build paths
+# Account names that pages use in example paths. A home-directory path under one of these
+# passes; under any other name it fails. Add a name here only when a page needs it as an
+# example, never to quiet a path that came from a real machine.
+EXAMPLE_ACCOUNTS = frozenset((
+    "public", "default", "administrator", "admin", "user", "username", "victim", "attacker",
+    "analyst", "guest", "test", "foo", "bar", "dev", "shared", "library", "alice", "bob",
+    "john", "jane", "jdoe", "cowrie", "vault", "pi", "node", "runner", "root", "ubuntu",
+    "ec2-user", "kali", "www-data",
+))
+# A separator is a slash or a backslash, single or doubled (JSON escapes double it).
+_SEP = rb"[\\/]{1,2}"
+_ACCOUNT = rb"([A-Za-z0-9._-]{1,40})"
+# A drive letter, the users folder and an account; or a rooted users or home folder, an
+# account and at least one more segment (which keeps an API route such as a SCIM users
+# endpoint from matching).
+HOME_RE = re.compile(rb"[A-Za-z]:" + _SEP + rb"(?i:users)" + _SEP + _ACCOUNT +
+                     rb"|(?<![\w.])/(?:Users|home)/" + _ACCOUNT + rb"/")
+# The form an agent tool gives a project directory: a drive letter, two hyphens, the
+# users folder, a hyphen.
+ENCODED_RE = re.compile(rb"(?<![\w-])[A-Za-z]--Users-")
+# Checked only inside Office files and PDFs. Pages document temp folders and file URLs
+# as subject matter; an exported file has no reason to hold either.
+TEMP_RE = re.compile(rb"AppData" + _SEP + rb"Local" + _SEP + rb"Temp" + _SEP)
+FILE_URL_RE = re.compile(rb"file:///")
+ALT_PATH_RE = re.compile(rb'descr="(?:[A-Za-z]:[\\/]|[\\/~])')
+OFFICE_EXT = (".pptx", ".potx", ".docx", ".xlsx")
+INNER_TEXT_EXT = (".xml", ".rels", ".vml", ".txt", ".json")
+
+
+def _home_path(blob: bytes) -> bool:
+    for m in HOME_RE.finditer(blob):
+        account = (m.group(1) or m.group(2)).decode("ascii", "replace").lower()
+        if account not in EXAMPLE_ACCOUNTS and not account.isdigit():
+            return True
+    return False
+
+
+def _path_kinds(blob: bytes, exported: bool) -> list[str]:
+    kinds = []
+    if _home_path(blob):
+        kinds.append("a home-directory path for an account that is not in EXAMPLE_ACCOUNTS")
+    if ENCODED_RE.search(blob):
+        kinds.append("an agent tool's encoded project directory")
+    if exported:
+        if TEMP_RE.search(blob):
+            kinds.append("a temp-directory path")
+        if FILE_URL_RE.search(blob):
+            kinds.append("a file URL")
+        if ALT_PATH_RE.search(blob):
+            kinds.append("image alt text that is a file path (describe the image instead)")
+    return kinds
+
+
+def _pdf_blobs(b: bytes):
+    yield b
+    for m in re.finditer(rb"stream\r?\n", b):
+        end = b.find(b"endstream", m.end())
+        if end == -1:
+            continue
+        raw = b[m.end():end]
+        try:
+            yield zlib.decompress(raw.rstrip(b"\r\n"))
+        except zlib.error:
+            try:
+                yield zlib.decompressobj().decompress(raw)
+            except zlib.error:
+                continue
+
+
+def check_paths(files: list[str]) -> list[str]:
+    problems = []
+    for f in files:
+        low = f.lower()
+        if not (is_text(f) or low.endswith(OFFICE_EXT) or low.endswith(".pdf")):
+            continue
+        b = read_bytes(f)
+        if b is None:
+            continue
+        if low.endswith(OFFICE_EXT):
+            try:
+                with zipfile.ZipFile(io.BytesIO(b)) as z:
+                    for part in z.namelist():
+                        if part.lower().endswith(INNER_TEXT_EXT):
+                            for kind in _path_kinds(z.read(part), True):
+                                problems.append(f + ": " + part + ": holds " + kind)
+            except zipfile.BadZipFile:
+                problems.append(f + ": not a readable Office file, so it cannot be checked")
+        elif low.endswith(".pdf"):
+            kinds = []
+            for blob in _pdf_blobs(b):
+                for kind in _path_kinds(blob, True):
+                    if kind not in kinds:
+                        kinds.append(kind)
+            for kind in kinds:
+                problems.append(f + ": holds " + kind)
+        else:
+            for i, line in enumerate(b.split(b"\n"), 1):
+                for kind in _path_kinds(line, False):
+                    problems.append(f + ":" + str(i) + ": holds " + kind)
+    return problems
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    ap.add_argument("--only", choices=("junk", "encoding", "revoked"), action="append")
+    ap.add_argument("--only", choices=("junk", "encoding", "revoked", "paths"), action="append")
     ap.add_argument("--report", action="store_true")
     ap.add_argument("--update-baseline", action="store_true")
     args = ap.parse_args()
-    only = set(args.only or ("junk", "encoding", "revoked"))
+    only = set(args.only or ("junk", "encoding", "revoked", "paths"))
     files = tracked_files()
     failed = False
     if args.update_baseline:
@@ -189,7 +306,8 @@ def main() -> int:
         return 0
     for name, fn in (("junk", lambda: check_junk(files)),
                      ("encoding", lambda: check_encoding(files)),
-                     ("revoked", lambda: check_revoked(files, args.report, False))):
+                     ("revoked", lambda: check_revoked(files, args.report, False)),
+                     ("paths", lambda: check_paths(files))):
         if name not in only:
             continue
         problems = fn()

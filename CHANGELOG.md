@@ -7,6 +7,11 @@ by the date its pull requests merged to `main` rather than by tagged release.
 ## Unreleased
 
 ### Added
+- A build-path gate in `scripts/check_repo_hygiene.py` (`--only paths`): it fails when a
+  page, an Office file or a PDF carries a path from the machine that built it, and it opens
+  decks and PDFs to read slide XML, image alt text and PDF streams. Example paths under the
+  stock accounts in `EXAMPLE_ACCOUNTS` pass. Six case-study decks whose cover image had a
+  file path as alt text now describe the image instead
 - [Maintaining the Site](docs/MAINTAINING_THE_SITE.md): how to add a page, where each piece of
   page metadata lives, what every script and CI check does, how the Actions deploy works, and
   how to roll the site back, down to switching the Pages source back to the branch

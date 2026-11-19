@@ -470,6 +470,12 @@ def self_test() -> int:
     cmap = (b"1 begincodespacerange\n<0000> <FFFF>\nendcodespacerange\n" + str(len(chars)).encode() +
             b" beginbfchar\n" + b"".join(b"<%04X> <%04X>\n" % (code[c], c) for c in chars) + b"endbfchar\n")
     glyphs = b"BT /F2 10 Tf <" + b"".join(b"%04X" % code[c] for c in plain) + b"> Tj ET"
+    # The two range forms of a ToUnicode map. Counting up: code 0100 + n stands for
+    # character n. Listed: one range over the codes above, its targets given one by one.
+    span_cmap = b"1 beginbfrange\n<0100> <01FF> <0000>\nendbfrange\n"
+    span_glyphs = b"BT /F2 10 Tf <" + b"".join(b"%04X" % (0x100 + c) for c in plain) + b"> Tj ET"
+    list_cmap = (b"1 beginbfrange\n<0001> <%04X> [" % len(chars) +
+                 b" ".join(b"<%04X>" % c for c in chars) + b"]\nendbfrange\n")
     font = (b"/Type /Font /Subtype /Type0 /Encoding /Identity-H", b"")
     home_kind = "a home-directory path for an account that is not in EXAMPLE_ACCOUNTS"
     cases = [
@@ -482,6 +488,10 @@ def self_test() -> int:
          [home_kind], 0),
         ("path split across kerned operands", [a85_flate(split)], [home_kind], 0),
         ("glyph-coded text with a ToUnicode map", [flate(cmap), flate(glyphs), font], [home_kind], 0),
+        ("glyph-coded text, ToUnicode range that counts up",
+         [flate(span_cmap), flate(span_glyphs), font], [home_kind], 0),
+        ("glyph-coded text, ToUnicode range that lists its targets",
+         [flate(list_cmap), flate(glyphs), font], [home_kind], 0),
         ("glyph-coded text with no ToUnicode map", [flate(glyphs), font], [], 1),
         ("image stream is left alone", [(b"/Filter /DCTDecode", b"\xff\xd8\xff\xe0 pixels")], [], 0),
         ("image under Flate is left alone", [(b"/Subtype /Image /Filter /FlateDecode", b"not zlib: pixels")], [], 0),

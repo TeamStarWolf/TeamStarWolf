@@ -17,7 +17,7 @@ Advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 11 min (2,642 words at 230 words a minute)
+About 11 min (2,641 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -559,14 +559,14 @@ CVE-2020-10713: BootHole (GRUB2)
 - Affected: All distros using GRUB2 + shim prior to 2020-07-29 patch
 - Detection: `sbverify` against updated db/dbx; check GRUB2 version ≥ 2.06
 
-CVE-2023-21894: BlackLotus UEFI Bootkit
-- Severity: CVSS 6.7 (requires physical or admin access)
+BlackLotus UEFI Bootkit
+- Severity: CVSS 4.4 for CVE-2022-21894 (requires admin or physical access)
 - Root Cause: Exploited CVE-2022-21894 (Secure Boot bypass via Windows Boot Manager)
 - Impact: First in-the-wild UEFI bootkit bypassing Secure Boot on fully-patched Win11
 - Technique: Installs vulnerable signed bootmgr, then boots into malicious UEFI app
 - Persistence: Writes to EFI System Partition, survives OS reinstall
 - Detection: Check for suspicious files in \EFI\Microsoft\Boot\; unusual MokList entries
-- Fix: KB5025885: revocation via dbx; enable Secure Boot CVE-2023-21894 mitigation
+- Fix: KB5025885: revocation via dbx; enable Secure Boot CVE-2023-24932 mitigation
 - Indicators: `bootmgr.efi` with hash matching revoked list, unexpected SbPolicy changes
 
 CVE-2022-21894: "Baton Drop"
@@ -693,7 +693,7 @@ prctl(PR_SET_SPECULATION_CTRL, PR_SPEC_STORE_BYPASS, PR_SPEC_DISABLE, 0, 0);
 ```
 
 MDS Attacks (Microarchitectural Data Sampling):
-- RIDL (CVE-2018-12127): Leak from Line Fill Buffers
+- RIDL (CVE-2018-12127): Leak from Load Ports (MLPDS)
 - Fallout (CVE-2018-12126): Leak from Store Buffers
 - ZombieLoad (CVE-2018-12130): Leak from Fill Buffers
 ```bash
@@ -772,7 +772,7 @@ Prime+Probe:
 4. Infers victim's memory access pattern without shared memory
 ```
 
-Rowhammer (CVE-2014-3122, CVE-2015-0573):
+Rowhammer:
 ```c
 // Classic rowhammer loop
 void hammer(volatile uint64_t *addr1, volatile uint64_t *addr2) {
@@ -2221,8 +2221,8 @@ SolarWinds Orion (2020): Software supply chain:
   - Hardware equivalent: Subverted programming station at manufacturer
 
 Supermicro BMC Vulnerabilities (legitimate, documented):
-  - CVE-2019-16649: Unauthenticated code execution in BMC web interface
-  - CVE-2020-15362: BMC IPMI authentication bypass
+  - CVE-2019-16649: Virtual media service authentication and encryption weakness (USBAnywhere)
+  - CVE-2013-4782: IPMI authentication bypass allowing arbitrary IPMI commands (Supermicro BMC)
   - Lesson: BMC firmware must be treated as supply chain risk
 ```
 
@@ -2353,7 +2353,7 @@ Risk Matrix:
 High-risk COTS categories:
   1. Network equipment (routers, switches, firewalls)
      - BMC/iDRAC/iLO firmware (Baseboard Management Controllers)
-     - JTAG/UART debug left exposed (CVE-2019-16649 Supermicro BMC)
+     - JTAG/UART debug left exposed
 
   2. Storage controllers (SAS HBA, NVMe controllers)
      - Firmware updates typically unsigned

@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 21 min (4,741 words at 230 words a minute)
+About 21 min (4,757 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -93,7 +93,7 @@ The flaw, CVE-2026-0257, rests on a cookie the appliance trusted without checkin
 
 1. Move every GlobalProtect portal and gateway to a fixed PAN-OS build, upgrading those that share cookies together, and move unsupported releases to a supported fixed version [1] (**Confirmed** as the vendor's direction).
 2. Until patched, use a certificate dedicated only to authentication override cookies, replacing any certificate that served other services, or disable authentication override [1] (**Confirmed**).
-3. Treat patching as the start, not the end: terminate active GlobalProtect sessions. If exploitation is suspected, rotate domain admin, service and cloud-storage credentials; if it is confirmed, run your full domain-compromise recovery, which includes resetting the KRBTGT account twice with at least the 10-hour interval Microsoft requires between the two resets [7] [19] (**Confirmed** as Arctic Wolf's and Microsoft's guidance).
+3. Treat patching as the start, not the end: terminate active GlobalProtect sessions. If exploitation is suspected, rotate all credentials, which Arctic Wolf lists as domain administrator and service account passwords, cloud-storage credentials, and the KRBTGT account twice, with at least the 10-hour interval Microsoft requires between the two resets; if exploitation is confirmed, assume full domain compromise [7] [19] (**Confirmed** as Arctic Wolf's and Microsoft's guidance).
 4. Hunt for Event ID 1102, PSEXESVC service creation, remote C$ writes, bursts of Type 3 logons, and VPN sessions from hosting providers or with "kali" or DESKTOP-style hostnames [7] (**Confirmed** as Arctic Wolf's guidance).
 5. Check whether GlobalProtect profiles expose the management interface on ports 4443 and 3879, a misconfiguration Unit 42 added to this brief from its Lunar Peak incident response, and patch Veeam CVE-2023-27532 [4] [6] (**Confirmed** as Unit 42's guidance).
 
@@ -263,7 +263,7 @@ The library relates CAPEC-31 to CWE-565 as well, and CAPEC-12, -36, -62, -166 an
 | D3FEND countermeasure | Techniques the library maps it to (from this study) | Where it meets the record |
 |---|---|---|
 | [Session Termination](/mitre/d3fend/session-termination.md) | T1133, T1021.001 | Terminate GlobalProtect sessions after patching [7] |
-| [Credential Rotation](/mitre/d3fend/credential-rotation.md), [Credential Revocation](/mitre/d3fend/credential-revocation.md) | T1606.001, T1003.003 | Rotate domain admin, service and cloud-storage credentials if exploitation is suspected; reset KRBTGT twice, 10 hours apart per Microsoft, in domain-compromise recovery [7] [19] |
+| [Credential Rotation](/mitre/d3fend/credential-rotation.md), [Credential Revocation](/mitre/d3fend/credential-revocation.md) | T1606.001, T1003.003 | If exploitation is suspected, rotate the credentials Arctic Wolf lists: domain admin and service account passwords, cloud-storage credentials, and KRBTGT twice, 10 hours apart per Microsoft; if confirmed, assume full domain compromise [7] [19] |
 | [Reissue Credential](/mitre/d3fend/reissue-credential.md), [Authentication Cache Invalidation](/mitre/d3fend/authentication-cache-invalidation.md) | T1606.001, T1003.003 | The fix regenerates cookies and forces one re-authentication [1] (**Inferred** fit) |
 | [Multi-factor Authentication](/mitre/d3fend/multi-factor-authentication.md) | T1606.001, T1003.003 | Mapped by the library, yet the forged cookie bypassed MFA [6] |
 | [User Geolocation Logon Pattern Analysis](/mitre/d3fend/user-geolocation-logon-pattern-analysis.md) | T1190, T1210, T1219, T1021.001, T1567.002 | Hosting-provider VPN sources [5] [7] (**Inferred** fit) |

@@ -854,7 +854,7 @@ Every source below was opened on 3 November 2026 unless its row says otherwise. 
 | 9 | MITRE ATT&CK, Group G1052 Contagious Interview (v1.0) | https://attack.mitre.org/groups/G1052/ | 2026-11-03 | Confirmed |
 | 10 | MITRE ATT&CK, Campaign C0022 Operation Dream Job (v1.2) | https://attack.mitre.org/campaigns/C0022/ | 2026-11-03 | Confirmed |
 | 11 | MITRE ATT&CK, Technique T1685 Disable or Modify Tools (v1.0) | https://attack.mitre.org/techniques/T1685/ | 2026-11-03 | Confirmed |
-| 12 | TeamStarWolf library data and generated pages at commit e85b559: data/attack/ (groups, group_profiles, group_to_technique, software, software_profiles, campaigns, technique_profiles, superseded_by, d3fend_countermeasures, technique_to_d3fend, ics/, mobile/), data/weaknesses/, mitre/ and navigator/ | https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack | 2026-11-03 | Confirmed |
+| 12 | TeamStarWolf library data and generated pages at commit 4652b96: data/attack/ (groups, group_profiles, group_to_technique, software, software_profiles, campaigns, technique_profiles, superseded_by, d3fend_countermeasures, technique_to_d3fend, ics/, mobile/), data/weaknesses/, mitre/ and navigator/ | https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack | 2026-11-03 | Confirmed |
 | 13 | Kaspersky, "The Kimsuky Operation: A North Korean APT?" (2013-09-11) | https://securelist.com/the-kimsuky-operation-a-north-korean-apt/57915/ | 2026-11-03 | Confirmed |
 | 14 | FBI, Update on Sony Investigation (2014-12-19) | https://www.fbi.gov/news/press-releases/update-on-sony-investigation | 2026-11-03 | Confirmed |
 | 15 | Kaspersky, "Lazarus Under the Hood" (2017-04-03) | https://securelist.com/lazarus-under-the-hood/77908/ | 2026-11-03 | Confirmed |

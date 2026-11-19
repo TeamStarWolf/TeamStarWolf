@@ -770,7 +770,7 @@
     {
       "path": "data/vocab/vocabulary.json",
       "bytes": 733264,
-      "sha256": "3f11c8e391d4c512020efce8a70d3e5dbbe98be674cd414b5de7eedae15698c6",
+      "sha256": "7d469287b561e37abefa2e15d75686dee3882875c3c85f626362dd115c5e6cc3",
       "provenance": {
         "upstream": "TeamStarWolf (first-party): entity vocabulary built by scripts/build_vocab.py from the platform pages, the vendor crosswalk and MITRE ATT&CK groups and software; vendor spellings from the CISA KEV catalog",
         "license": "MIT (derivation); ATT&CK names under MITRE Terms of Use; CISA KEV is a US-Government work",

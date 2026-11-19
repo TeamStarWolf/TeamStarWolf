@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 23 min (5,345 words at 230 words a minute)
+About 24 min (5,405 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -73,7 +73,7 @@ Within days, NCSC-NL told every EPMM user to assume breach, reported misuse at s
 | Product | Ivanti Endpoint Manager Mobile (EPMM), on-premises only; Neurons for MDM (cloud), EPM and Sentry stated unaffected by the vendor [1] |
 | CVEs | CVE-2026-1281 and CVE-2026-1340: code injection, unauthenticated remote code execution, CWE-94, CVSS 3.1 9.8 [2] [3] [4] [5] |
 | Affected versions | 12.5.0.0, 12.6.0.0 and 12.7.0.0 and prior, 12.5.1.0 and 12.6.1.0 and prior (CCCS); version lists differ across sources (Part 2) [9] [10] [4] [5] |
-| Fix | Hotfix RPMs for the 12.x.0.x and 12.x.1.x lines, which do not survive a version upgrade; permanent fix in 12.8.0.0, planned for Q1 2026 (release not checked) [2] [10] |
+| Fix | Hotfix RPMs for the 12.x.0.x and 12.x.1.x lines, which do not survive a version upgrade; permanent fix in 12.8.0.0, whose release notes list both CVEs and whose revision history records the 12.8.0.0 update on 18 March 2026 [2] [10] [29] [30] |
 | KEV | CVE-2026-1281 added 29 Jan 2026, due 1 Feb; CVE-2026-1340 added 8 Apr 2026, due 11 Apr; ransomware use Unknown for both [6] |
 | Actor | Not named by any source opened; NCSC-NL judges multiple actors plausible [12] [25] |
 | Bodies where misuse was found or not ruled out | Dutch Data Protection Authority, Council for the Judiciary, prison service (DJI), Repatriation and Departure Service, Justice ICT organisation (JIO), Medicines Evaluation Board (CBG), one municipality [13] [14] |
@@ -91,7 +91,7 @@ Within days, NCSC-NL told every EPMM user to assume breach, reported misuse at s
 1. Treat any on-premises EPMM that was internet-reachable on an affected build as possibly compromised, and investigate before or alongside patching: secure forensic evidence first, as CERT-EU advises [10], and report to your national CERT even after patching, as NCSC-NL asks [12] (**Confirmed** as their guidance).
 2. Reinstall rather than clean in place, treat configuration backups as exposed because NCSC-NL says they can also be taken, and rotate all secrets [12] (**Confirmed** as NCSC-NL's guidance), starting with the LDAP credentials and Office365 tokens the database held (**Inferred** from [12]).
 3. Check Ivanti Sentry for suspicious access originating from EPMM [11] (**Confirmed** as NCSC-NL's guidance).
-4. Confirm after every EPMM version upgrade that the hotfix RPM is still in place, until you run 12.8.0.0 or later [10] (**Confirmed** as CERT-EU's relay of the vendor; whether 12.8.0.0 shipped is not checked).
+4. Confirm after every EPMM version upgrade that the hotfix RPM is still in place, until you run 12.8.0.0 or later; Ivanti's 12.8.0.0 release notes list permanent fixes for both CVEs [10] [29] (**Confirmed**).
 5. Read SSVC and KEV together: CISA's enrichment marked both CVEs exploitation active, automatable, total impact [2] [3], which matches the three-day KEV windows [6] (**Inferred**; CISA states no rationale).
 
 ## Scope and method
@@ -203,7 +203,7 @@ An MDM server is a directory of the organisation's people and devices with the k
 
 | Control | Where it meets the record |
 |---|---|
-| Patch, then confirm the RPM survived each upgrade | The RPM does not survive a version upgrade; the permanent fix is 12.8.0.0 [10] |
+| Patch, then confirm the RPM survived each upgrade | The RPM does not survive a version upgrade; the permanent fix is 12.8.0.0 [10] [29] |
 | Investigate before trusting the patch | NCSC-NL: patching does not remove earlier compromise; report even after patching [12] |
 | Preserve evidence before rebuilding | CERT-EU's first recommendation [10] |
 | Reinstall, and treat configuration backups as exposed | NCSC-NL: backup configurations can also be taken [12] |
@@ -293,7 +293,7 @@ The study's techniques are saved as an ATT&CK Navigator layer, [`navigator/libra
 
 ## Sources
 
-All sources were opened on 11 November 2026.
+All sources were opened on 11 November 2026, except sources 29 and 30, opened on 19 November 2026.
 
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|
@@ -325,10 +325,12 @@ All sources were opened on 11 November 2026.
 | 26 | TeamStarWolf library data: `data/attack/technique_profiles.jsonl`, `groups.jsonl`, `software.jsonl`, `campaigns.jsonl`, `technique_to_d3fend.jsonl` (ATT&CK v20.0), `data/weaknesses/cwe.jsonl` and `capec.jsonl`, and the `mitre/` page tree | [github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack) | 2026-11-11 | Demonstrated |
 | 27 | TeamStarWolf, Threat Actors: China | [/case-studies/THREAT_ACTORS_CHINA.md](/case-studies/THREAT_ACTORS_CHINA.md) | 2026-11-11 | Confirmed |
 | 28 | TeamStarWolf, Log4Shell (CVE-2021-44228): The Case Study | [/case-studies/LOG4SHELL.md](/case-studies/LOG4SHELL.md) | 2026-11-11 | Confirmed |
+| 29 | Ivanti, EPMM 12.8.0.0 release notes, which list fixes for CVE-2026-1281 and CVE-2026-1340 | [docs.ivanti.com/epmm/release-upgrade-guide/kMzH-ivanti-epmm-12800](https://docs.ivanti.com/epmm/release-upgrade-guide/kMzH-ivanti-epmm-12800) | 2026-11-19 | Confirmed |
+| 30 | Ivanti, EPMM release and upgrade guide revision history, which records the 12.8.0.0 update on 18 March 2026 | [docs.ivanti.com/epmm/release-upgrade-guide/revision-history](https://docs.ivanti.com/epmm/release-upgrade-guide/revision-history) | 2026-11-19 | Confirmed |
 
 The [Team Star Wolf Intelligence Hub](https://teamstarwolf.github.io/intelligence-hub/) feed indexes KEV rows for both CVEs and the Canadian AV26-068 row, and has no news rows on these events; it was used as an index, not a source.
 
-Not opened, so not cited as sources: Ivanti's security advisory and Analysis Guidance on its support hub (rendered only a script shell), the hotfix RPM downloads, the Dutch Data Protection Authority's own statement (HTTP 403), Finland's national CERT (HTTP 403 and 404), and Shadowserver's exposure counts. Whether 12.8.0.0 shipped is not checked.
+Not opened, so not cited as sources: Ivanti's security advisory and Analysis Guidance on its support hub (rendered only a script shell), the hotfix RPM downloads, the Dutch Data Protection Authority's own statement (HTTP 403), Finland's national CERT (HTTP 403 and 404), and Shadowserver's exposure counts.
 
 *© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*
 

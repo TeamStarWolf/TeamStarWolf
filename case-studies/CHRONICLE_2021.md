@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 70 min (15,996 words at 230 words a minute)
+About 70 min (16,003 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -256,7 +256,7 @@ The longer record of the Russia-attributed services and groups named here (the S
 
 ### North Korea
 
-**Researchers as targets.** On 25 January Google TAG attributed to a North Korea-based government-backed entity a campaign against security researchers that used a fake research blog, Twitter personas and a Visual Studio project whose build event ran a malicious DLL; some patched Windows 10 and Chrome visitors to the blog were also compromised, by a mechanism TAG had not confirmed (Confirmed [29]). Microsoft attributed the same campaign with high confidence to ZINC, starting in mid-2020, with the Comebacker malware (persisting through a Run key), Klackring (as a service), and an attempt to exploit a Vir.IT eXplorer driver, which Microsoft labels CVE-2017-16238, an identifier with no published CVE or NVD record; Microsoft says the attempt failed (Confirmed [30]; registry absence [136]). ZINC is an alias of [G0032 Lazarus Group](/mitre/groups/G0032.md) in the library's ATT&CK data; Microsoft's page does not say Lazarus (Inferred link [30][134]).
+**Researchers as targets.** On 25 January Google TAG attributed to a North Korea-based government-backed entity a campaign against security researchers that used a fake research blog, Twitter personas and a Visual Studio project whose build event ran a malicious DLL; some patched Windows 10 and Chrome visitors to the blog were also compromised, by a mechanism TAG had not confirmed (Confirmed [29]). Microsoft attributed the same campaign with high confidence to ZINC, starting in mid-2020, with the Comebacker malware (persisting through a Run key), Klackring (as a service), and an attempt to exploit a Vir.IT eXplorer driver, which Microsoft labels CVE-2017-16238, an identifier with no published CVE or NVD record; Microsoft says the exploit code appeared buggy and crashed the victim's machine (Confirmed [30]; registry absence [136]). ZINC is an alias of [G0032 Lazarus Group](/mitre/groups/G0032.md) in the library's ATT&CK data; Microsoft's page does not say Lazarus (Inferred link [30][134]).
 
 **AppleJeus.** CISA, the FBI and Treasury's AA21-048A described seven AppleJeus versions disguised as cryptocurrency trading and wallet software (Celas Trade Pro, JMT Trading, Union Crypto, Kupay Wallet, CoinGoTrade, Dorusio and Ants2Whale), attributed to Lazarus on behalf of the DPRK, against targets in 32 countries since January 2020 (Confirmed [31]). ATT&CK records it as [S0584 AppleJeus](/mitre/software/S0584.md) (Confirmed [134]). The advisory's macOS Launchd mapping (T1053.004) is deprecated in the library's v20.0 data and is left out (Confirmed [134]).
 

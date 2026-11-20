@@ -2,7 +2,7 @@
   "generated_at": "2026-04-18T01:55:35+00:00",
   "counts": {
     "tool": 1032,
-    "channel": 94,
+    "channel": 93,
     "x-account": 203
   },
   "categories": {
@@ -770,7 +770,6 @@
     "@JackRhysider": 1,
     "@cyberbytes": 1,
     "@CyberWarriorsHQ": 1,
-    "@CyberWarriorsHQDispatch": 1,
     "@DEFCONConference": 1,
     "@BlackHatOfficialYT": 1,
     "@RSAConference": 1,
@@ -23733,20 +23732,6 @@
       "subcategory": "",
       "vendor": "@CyberWarriorsHQ",
       "handle": "@CyberWarriorsHQ",
-      "affiliation": "",
-      "attack_tactics": [],
-      "metadata": {}
-    },
-    {
-      "id": "channel:@cyberwarriorshqdispatch",
-      "type": "channel",
-      "title": "Cyber Warriors HQ Dispatch",
-      "url": "https://www.youtube.com/@CyberWarriorsHQDispatch",
-      "description": "Daily cybersecurity news briefings",
-      "category": "News, Commentary and Career",
-      "subcategory": "",
-      "vendor": "@CyberWarriorsHQDispatch",
-      "handle": "@CyberWarriorsHQDispatch",
       "affiliation": "",
       "attack_tactics": [],
       "metadata": {}

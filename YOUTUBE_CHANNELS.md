@@ -17,7 +17,7 @@ Beginner
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 7 min (1,670 words at 230 words a minute)
+About 7 min (1,657 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -204,8 +204,6 @@ A curated library of YouTube channels organized by discipline. Use it when you w
 - Jack Rhysider - https://www.youtube.com/@JackRhysider - Companion channel to the *Darknet Diaries* podcast; long-form cybercrime and intelligence-operation narratives
 - CyberBytes - https://www.youtube.com/@cyberbytes-the-podcast - Practitioner interviews and industry discussion
 - Cyber Warriors HQ - https://www.youtube.com/@CyberWarriorsHQ - Career development, community discussion, industry interviews
-- Cyber Warriors HQ Dispatch - `https://www.youtube.com/@CyberWarriorsHQDispatch` - Daily cybersecurity news briefings (channel not found, checked 2026-11-20)
-
 ## Conference Talks
 - DEF CON Conference - https://www.youtube.com/@DEFCONConference - All DEF CON main-stage talks
 - Black Hat - https://www.youtube.com/@BlackHatOfficialYT - Black Hat USA, EU, and Asia

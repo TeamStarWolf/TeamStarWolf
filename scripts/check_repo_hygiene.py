@@ -552,10 +552,9 @@ def check_own_repos(files: list[str]) -> list[str]:
         b = read_bytes(f)
         if b is None:
             continue
-        try:
-            t = b.decode("utf-8")
-        except UnicodeDecodeError:
-            continue
+        # Decode lossily rather than skip: a guard must not silently pass a file it could not
+        # read. The encoding gate reports a non-UTF-8 file on its own.
+        t = b.decode("utf-8", "replace")
         for i, line in enumerate(t.split("\n"), 1):
             if _own_repo_names(line):
                 problems.append(f + ":" + str(i) + ": a TeamStarWolf/<name> reference is not on the "

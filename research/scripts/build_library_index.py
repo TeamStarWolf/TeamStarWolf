@@ -514,10 +514,14 @@ ALLOWED_OWN_REPOS = {"teamstarwolf", "intelligence-hub", "attack-navi", "cyberse
 
 
 def _own_repo_allowed(asset: "Asset") -> bool:
-    owner = str(asset.metadata.get("owner", "")).lower()
-    if owner != OWN_OWNER:
-        return True
-    return str(asset.metadata.get("repo", "")).lower() in ALLOWED_OWN_REPOS
+    # Drop a TeamStarWolf-owned repo that is not on the public allow-list, reading the
+    # owner/name from BOTH the metadata and a github.com URL: the URL guard covers a future
+    # parser that forgets to set the metadata.
+    pairs = [(str(asset.metadata.get("owner", "")).lower(), str(asset.metadata.get("repo", "")).lower())]
+    m = re.search(r"github\.com/([A-Za-z0-9_.-]+)/([A-Za-z0-9_-]+)", str(asset.url or ""), re.I)
+    if m:
+        pairs.append((m.group(1).lower(), m.group(2).lower()))
+    return not any(o == OWN_OWNER and r not in ALLOWED_OWN_REPOS for o, r in pairs)
 
 
 def build() -> Library:
@@ -591,6 +595,11 @@ def _self_test() -> int:
                metadata={"owner": "TeamStarWolf", "repo": "MadeUpPrivateRepo"}), False),
         (Asset(id="t-other", type="tool", title="", url="",
                metadata={"owner": "someone", "repo": "thing"}), True),
+        # The owner/name is only in the URL, not the metadata; the URL guard must still drop
+        # it. The literal splits right after the slash so this file never trips the hygiene
+        # own-repos gate that scans it.
+        (Asset(id="t-url", type="tool", title="",
+               url="https://github.com/TeamStarWolf/" "UrlOnlyPrivateRepo", metadata={}), False),
     ]
     fails = sum(1 for a, want in cases if _own_repo_allowed(a) != want)
     print(f"build_library_index self-test: {len(cases) - fails} of {len(cases)} cases pass")

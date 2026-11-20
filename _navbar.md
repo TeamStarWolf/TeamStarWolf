@@ -120,7 +120,3 @@
   - [Tools research](/tools-research/README.md)
   - [About the data](/ABOUT_THE_DATA.md)
   - [Contributing](/CONTRIBUTING.md)
-- [Sites](https://teamstarwolf.github.io/ATTACK-Navi/)
-  - [ATT&CK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/)
-  - [Intelligence Hub](https://teamstarwolf.github.io/intelligence-hub/)
-  - [GitHub](https://github.com/TeamStarWolf/TeamStarWolf)

@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 10 min (2,204 words at 230 words a minute)
+About 10 min (2,291 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -86,10 +86,10 @@ Watch out: ATT&CK v18 rebuilt the detection model (Detection Strategies and Anal
 Vendor sample logs are not your logs. Capture real events from your own estate before you write a single parser line.
 
 1. Trigger or collect examples of every variant: success, failure, edge cases, and the multiline stack trace the vendor swears never happens. For the running example: create a scheduled task on a test host and capture the 4698 event it produces.
-2. Save the raw events as a test corpus in the same repo, next to the parser config they will test.
-3. Commit it. The corpus is what every future parser change regression-tests against.
+2. Build the test corpus next to the parser config, but sanitize before anything enters the repo: keep the raw originals in restricted storage, and commit only synthetic events or copies with real usernames, hostnames, IP addresses, tokens, and any command-line secrets scrubbed or replaced by stable placeholders.
+3. Commit the sanitized corpus. It is what every future parser change regression-tests against.
 
-Checkpoint: A committed corpus file containing real, representative events, including at least one failure-path and one edge-case event.
+Checkpoint: A committed corpus of synthetic or sanitized events (the raw originals kept in restricted storage), including at least one failure-path and one edge-case event.
 
 Watch out: Locale, product version, and audit-policy differences change field layouts. A corpus captured from one hardened gold image will not represent the unpatched fleet; sample more than one host class.
 
@@ -118,7 +118,7 @@ Watch out: Never filter at the agent what you could route at the pipeline tier. 
 Map the source to your house schema once, in the pipeline tier, not per destination.
 
 1. Pick the target event class: OCSF class, ASIM schema, CIM data model, or ECS field set, whichever your stack uses (decision table in the [Security Data Engineering Reference](/SECURITY_DATA_ENGINEERING_REFERENCE.md)). Browse OCSF classes at [schema.ocsf.io](https://schema.ocsf.io/). The 4698 example maps to scheduled-job/process activity classes plus your entity fields.
-2. Map the fields your detections consume. Send everything that does not map to a designated overflow/unmapped structure, never to /dev/null, and never renamed "helpfully" outside the schema.
+2. Map the fields your detections consume, and keep the rest in a designated overflow/unmapped structure rather than dropping it to /dev/null or renaming it "helpfully" outside the schema. The exception is sensitive data: command-line arguments and some fields carry passwords, tokens, and PII (Microsoft's own command-line process-auditing guidance warns the command line is logged in plain text and can contain passwords or user data), so mask or drop those through a documented exclusion list instead of forwarding everything verbatim.
 3. Preserve the raw event (or a durable pointer to it) alongside the normalized record. Normalization is lossy by design; incident response eventually wants the original bytes.
 4. Build it as reviewed, version-controlled config in a branch. If your pipeline tier is the OpenTelemetry Collector, check the config before it ships ([Collector docs](https://opentelemetry.io/docs/collector/configuration/)):
 

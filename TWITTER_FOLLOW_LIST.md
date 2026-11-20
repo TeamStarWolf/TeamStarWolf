@@ -17,7 +17,7 @@ Beginner
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 7 min (1,671 words at 230 words a minute)
+About 7 min (1,718 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -216,7 +216,7 @@ Scope: about 205 accounts organized into 19 main sections, plus a short Black Ha
 - @cybersecuritysf: Steve Morgan (Cybersecurity Ventures)
 - @hacks4pancakes: Lesley Carhart (Dragos IR)
 - @thedarktangent: Jeff Moss (DEF CON founder)
-- @TheColonial: identity unverified; account has left X (checked 2026-11-20)
+- @TheColonial: identity unverified; owner's bio says they no longer use X (checked 2026-11-20)
 
 ## Educators, Trainers & Content Creators
 - @_JohnHammond: John Hammond (CTF, malware); alt `@JohnHammond010` is 404 (checked 2026-11-20)

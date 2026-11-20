@@ -53,6 +53,7 @@ import os
 import posixpath
 import re
 import sys
+import urllib.parse
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from repo_files import ROOT, read_text, tracked_files  # noqa: E402
@@ -498,6 +499,186 @@ def with_home_domains(text: str, cfg: dict) -> str:
     return text[:m.start(2)] + "\n".join(rows) + "\n" + text[m.end(2):]
 
 
+# ----------------------------------------------------------------------------- platform band
+
+PLATFORM_NAV = "docs/platform-nav.json"
+BAND_RE = re.compile(r"(<!-- platform-band:start[^>]*-->\n)(.*?)(\n[ \t]*<!-- platform-band:end -->)", re.S)
+# Every address the band shows must be https and on one of these hosts; a github.com
+# path must be under /TeamStarWolf. The same rule is applied by every TeamStarWolf site,
+# since each copy of the band is refreshed from a file another site publishes.
+BAND_HOSTS = {"teamstarwolf.com", "library.teamstarwolf.com", "teamstarwolf.github.io", "github.com"}
+BAND_MAX = 14
+
+
+def load_platform_nav() -> dict:
+    return json.loads(read_text(PLATFORM_NAV))
+
+
+def band_href_bad(href: str) -> str | None:
+    """None if the address is allowed in the band, else why it is rejected. Besides the
+    host allow-list this blocks the traversal and host-spoofing tricks a canonical-name
+    check does not see: '.'/'..' path segments (plain or percent-encoded), a backslash,
+    an explicit port, a look-alike host suffix, a userinfo host, and a scheme-relative
+    address (which has no https:// scheme and is rejected on that alone)."""
+    if not href.startswith("https://"):
+        return "not https"
+    if "\\" in href:
+        return "backslash in address"
+    u = urllib.parse.urlsplit(href)
+    try:
+        port = u.port
+    except ValueError:
+        return "bad port"
+    if port is not None:
+        return "explicit port"
+    host = (u.hostname or "").lower()
+    if host not in BAND_HOSTS:
+        return "host not allow-listed: " + (host or "(none)")
+    for seg in u.path.split("/"):
+        if seg.lower().replace("%2e", ".") in (".", ".."):
+            return "'" + (seg or "/") + "' path segment"
+    if host == "github.com" and not (u.path == "/TeamStarWolf" or u.path.startswith("/TeamStarWolf/")):
+        return "github.com path not under /TeamStarWolf"
+    return None
+
+
+def band_entries(pnav: dict):
+    """(label, href) for every address in the file: home, items, menus and sub-menus."""
+    yield ("home", pnav["home"]["href"])
+    for it in pnav["items"]:
+        yield (it["label"], it["href"])
+        for e in it.get("menu", []):
+            yield (it["label"] + " > " + e["label"], e["href"])
+            for s in e.get("menu", []):
+                yield (it["label"] + " > " + e["label"] + " > " + s["label"], s["href"])
+
+
+def band_menus(pnav: dict):
+    """(name, entries) for every menu array: the top-level menus and the nested ones."""
+    for it in pnav["items"]:
+        if it.get("menu"):
+            yield (it["label"], it["menu"])
+        for e in it.get("menu", []):
+            if e.get("menu"):
+                yield (it["label"] + " > " + e["label"], e["menu"])
+
+
+def platform_band_problems(pnav: dict) -> list[str]:
+    out = []
+    for label, href in band_entries(pnav):
+        bad = band_href_bad(href)
+        if bad:
+            out.append(PLATFORM_NAV + ": " + label + ": " + bad + " (" + href + ")")
+    for name, menu in band_menus(pnav):
+        if len(menu) > BAND_MAX:
+            out.append(PLATFORM_NAV + ": menu '" + name + "' has " + str(len(menu))
+                       + " entries (max " + str(BAND_MAX) + ")")
+    # the Library menu covers every category of the library's own navbar (docs/site_nav.json)
+    def norm(p: str) -> str:
+        p = p.split("?", 1)[0].split("#", 1)[0].strip("/")
+        return p[:-3] if p.endswith(".md") else p
+
+    lib = next((it for it in pnav["items"] if it.get("id") == "library"), None)
+    if lib is not None:
+        lib_routes = {norm(e["href"].split("#/", 1)[1]) for e in lib.get("menu", []) if "#/" in e["href"]}
+        for entry in load_config().get("navbar", []):
+            label = entry.get("label") if isinstance(entry, dict) else entry[0]
+            path = entry.get("path") if isinstance(entry, dict) else (entry[1] if len(entry) > 1 else "")
+            if not isinstance(path, str) or not path.startswith("/") or path == "/":
+                continue
+            route = norm(path)
+            if route and route not in lib_routes:
+                out.append(PLATFORM_NAV + ": Library menu does not cover the navbar category "
+                           + repr(label) + " (" + path + ")")
+    return out
+
+
+def platform_band(pnav: dict) -> str:
+    """The band markup: a real link plus a toggle button per top-level item; for a
+    Bookmarks category that carries its own menu, a link plus a caret plus a side
+    fly-out. An entry with a 'pending' note (agreed but its address does not work yet)
+    is not rendered."""
+    out = ['  <nav class="tsw-bar" aria-label="TeamStarWolf platform">',
+           '    <ul class="tsw-bar__list">']
+    for it in pnav["items"]:
+        menu = [e for e in it.get("menu", []) if "pending" not in e]
+        out.append('      <li class="tsw-bar__item">')
+        out.append('        <a class="tsw-bar__link" href="' + html_esc(it["href"]) + '">'
+                   + html_esc(it["label"]) + "</a>")
+        if menu:
+            out.append('        <button class="tsw-bar__toggle" type="button" aria-expanded="false"'
+                       ' aria-label="' + html_esc(it["label"]) + ' menu">'
+                       '<span class="tsw-bar__chev" aria-hidden="true"></span></button>')
+            out.append('        <div class="tsw-bar__panel">')
+            for e in menu:
+                sub = [s for s in e.get("menu", []) if "pending" not in s]
+                if sub:
+                    out.append('          <div class="tsw-bar__group">')
+                    out.append('            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="'
+                               + html_esc(e["href"]) + '">' + html_esc(e["label"]) + "</a>")
+                    out.append('            <button class="tsw-bar__caret" type="button" aria-expanded="false"'
+                               ' aria-label="' + html_esc(e["label"]) + ' submenu">'
+                               '<span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>')
+                    out.append('            <div class="tsw-bar__flyout">')
+                    for s in sub:
+                        out.append('              <a class="tsw-bar__mlink" href="' + html_esc(s["href"])
+                                   + '">' + html_esc(s["label"]) + "</a>")
+                    out.append("            </div>")
+                    out.append("          </div>")
+                else:
+                    out.append('          <a class="tsw-bar__mlink" href="' + html_esc(e["href"])
+                               + '">' + html_esc(e["label"]) + "</a>")
+            out.append("        </div>")
+        out.append("      </li>")
+    out.append("    </ul>")
+    out.append("  </nav>")
+    return "\n".join(out)
+
+
+def with_platform_band(html: str, pnav: dict) -> str:
+    m = BAND_RE.search(html)
+    if not m:
+        raise SystemExit(INDEX_HTML + ": no '<!-- platform-band:start -->' ... "
+                         "'<!-- platform-band:end -->' block")
+    return html[:m.start(2)] + platform_band(pnav) + html[m.end(2):]
+
+
+def band_self_test() -> int:
+    """Planted cases for the band's address allow-list, cap and pending rule."""
+    reject = {
+        "http://teamstarwolf.com/": "not https",                               # non-https
+        "//evil.example/x": "not https",                                       # scheme-relative
+        "https://teamstarwolf.com:8443/": "explicit port",                     # explicit port
+        "https://teamstarwolf.com.evil.example/": "host not allow-listed",     # look-alike suffix
+        "https://teamstarwolf.com@evil.example/": "host not allow-listed",     # userinfo trick
+        "https://evil.example/x": "host not allow-listed",                     # bad host
+        "https://github.com/TeamStarWolf/../evil": "path segment",             # plain ..
+        "https://github.com/TeamStarWolf/%2e%2e/evil": "path segment",         # %2e%2e
+        "https://github.com/TeamStarWolf/%2E%2E/evil": "path segment",         # %2E%2E
+        "https://github.com/TeamStarWolf/./evil": "path segment",              # single .
+        "https://github.com/TeamStarWolf\\evil": "backslash",                  # backslash
+        "https://github.com/TeamStarWolfX/evil": "not under /TeamStarWolf",    # look-alike org prefix
+    }
+    for href, why in reject.items():
+        bad = band_href_bad(href)
+        assert bad and why in bad, (href, bad)
+    for href in ("https://teamstarwolf.com/", "https://library.teamstarwolf.com/#/INDEX",
+                 "https://teamstarwolf.github.io/intelligence-hub/#/kev", "https://github.com/TeamStarWolf",
+                 "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#%EF%B8%8F-offensive--tooling"):
+        assert band_href_bad(href) is None, (href, band_href_bad(href))
+    base = {"home": {"href": "https://teamstarwolf.com/"}}
+    big = {**base, "items": [{"id": "x", "label": "X", "href": "https://teamstarwolf.com/",
+                              "menu": [{"label": str(i), "href": "https://teamstarwolf.com/"} for i in range(15)]}]}
+    assert any("max " in p for p in platform_band_problems(big)), "14-entry cap not enforced"
+    pend = {**base, "items": [{"id": "x", "label": "X", "href": "https://teamstarwolf.com/", "menu": [
+        {"label": "Live", "href": "https://teamstarwolf.com/a"},
+        {"label": "Later", "href": "https://teamstarwolf.com/b", "pending": "x"}]}]}
+    m = platform_band(pend)
+    assert ">Live</a>" in m and ">Later</a>" not in m, "a pending entry was rendered"
+    print("build_site_nav band self-test: all cases pass")
+    return 0
+
+
 # ----------------------------------------------------------------------------- build + checks
 
 
@@ -615,6 +796,7 @@ def problems(cfg: dict, gen: dict[str, str]) -> list[str]:
         if p not in tracked:
             out.append(CONFIG + ": not_in_nav entry " + p + " does not exist")
     out += index_problems(files, read_text("INDEX.md") or "")
+    out += platform_band_problems(load_platform_nav())
     return out
 
 
@@ -656,6 +838,7 @@ def index_problems(files: list[str], index_text: str) -> list[str]:
 def block_edits(cfg: dict) -> list[tuple[str, str, object]]:
     """Generated blocks inside hand-written files: (file, what, text -> text)."""
     return [(INDEX_HTML, "nav-aliases block", lambda t: with_aliases(t, cfg)),
+            (INDEX_HTML, "platform band", lambda t: with_platform_band(t, load_platform_nav())),
             (HOMEPAGE, "Browse by domain cards", lambda t: with_home_domains(t, cfg))]
 
 
@@ -776,7 +959,10 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--check", action="store_true", help="fail on drift or a nav-coverage gap")
     ap.add_argument("--report", action="store_true", help="print link counts and click depths")
+    ap.add_argument("--self-test", action="store_true", help="planted cases for the platform-band checks")
     args = ap.parse_args()
+    if args.self_test:
+        return band_self_test()
     cfg = load_config()
     gen = build(cfg)
     probs = problems(cfg, gen)

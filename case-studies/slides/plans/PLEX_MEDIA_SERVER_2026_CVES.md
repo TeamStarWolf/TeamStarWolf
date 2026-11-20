@@ -1,7 +1,7 @@
-# Slide plan: Plex Media Server, CVE-2026-96652, CVE-2026-96654, CVE-2026-96655 and CVE-2026-96656: The Plex2Shell Chain in the Lab
+# Slide plan: Plex Media Server, CVE-2026-96652, CVE-2026-96654, CVE-2026-96655 and CVE-2026-96656: The Plex2Shell Chain, and Verifying Your Build in the Lab
 
 - Study: case-studies/PLEX_MEDIA_SERVER_2026_CVES.md
-- Cover title: Plex Media Server / The Plex2Shell Chain / In the Lab
+- Cover title: Plex Media Server / The Plex2Shell Chain / Verifying Your Build
 - Subtitle: Four modest bugs, one unauthenticated code-execution chain, and the checks that find it
 - Published: 4 November 2026
 - Notes: Slide plan for the deck of the study case-studies/PLEX_MEDIA_SERVER_2026_CVES.md. Bracketed numbers in the notes are the study's source numbers.
@@ -110,12 +110,11 @@ Notes: Versions by platform [9][18][21][22]. Container gap [38]. Workaround [9][
 
 | Step | Action |
 |---|---|
-| Rebuild | Clean install, not the old data directory |
-| Codecs | Delete its contents; new .so or .dll files are a finding |
-| Preferences | Check for transcoder options you did not set |
+| Update, then check | Patch to 1.43.3.10861+, then hunt indicators: miner/proxy processes started by Plex, new .so/.dll in Codecs, outbound to proxystream.st |
+| Preserve first | KEV flags -96656 for forensic triage: capture logs, preferences and suspicious Codecs files before deleting anything |
+| Rebuild if warranted | Only if indicators found or compromise can't be ruled out: clean install (at least empty Codecs, check transcoder options) |
 | Account | Sign out all devices and change the Plex password |
-| Hunt | Miner and proxy processes started by Plex; outbound to proxystream.st |
-Caption: KEV flags CVE-2026-96656 for forensic triage: patching closes the door but does not clear what came through it.
+Caption: Plex orders it update, then check, then rebuild where warranted; a Codecs wipe would remove the artifacts forensic triage reads (inferred).
 Notes: Plex guidance and indicators [9]. Honeypot indicators [14]. KEV flag [7]. Clean baselines [39][41].
 
 ## PART 7 | Triage the chain, not the scores

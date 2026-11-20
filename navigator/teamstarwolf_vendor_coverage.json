@@ -43,15 +43,15 @@
   },
   "legendItems": [
     {
-      "label": "1-9 controls: thin framework coverage (prioritize compensating controls)",
+      "label": "1-9 controls: thin framework mapping (prioritize compensating controls)",
       "color": "#e5f5f9"
     },
     {
-      "label": "10-19 controls: moderate coverage",
+      "label": "10-19 controls: moderate framework mapping",
       "color": "#2ca25f"
     },
     {
-      "label": "20+ controls: deep control coverage",
+      "label": "20+ controls: high framework mapping",
       "color": "#00441b"
     }
   ],

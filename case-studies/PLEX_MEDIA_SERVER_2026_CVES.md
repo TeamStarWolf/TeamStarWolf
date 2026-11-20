@@ -1,4 +1,4 @@
-# Plex Media Server, CVE-2026-96652, CVE-2026-96654, CVE-2026-96655 and CVE-2026-96656: The Plex2Shell Chain in the Lab
+# Plex Media Server, CVE-2026-96652, CVE-2026-96654, CVE-2026-96655 and CVE-2026-96656: The Plex2Shell Chain, and Verifying Your Build in the Lab
 
 *A TeamStarWolf case study. Published 4 November 2026; every source checked as of that date.*
 
@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 34 min (7,922 words at 230 words a minute)
+About 35 min (8,138 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -64,7 +64,7 @@ Key takeaways (reviewed 2026-11-17):
 
 If you run Plex Media Server for yourself, your family or your friends, and you ever turned on Remote Access or forwarded port 32400, this study is about your server. Four flaws in Plex Media Server before 1.43.3.10861, each rated Medium or High on its own, chain into code execution by an unauthenticated remote attacker with the privileges of the server process (**Confirmed**: Plex) [9]. The researcher who found them, Zach Main, calls the chain Plex2Shell and rates it 9.8 Critical [12]. Plex shipped the fixed build on 4 August 2026 [10]. The details went public on 16 October 2026, attacks on a honeypot began the next morning [14], and by 19 October Plex was describing the flaws as actively and widely exploited, with compromised servers running cryptocurrency miners and proxy software [9]. CISA added all four to the Known Exploited Vulnerabilities catalog on 20 October 2026 [7].
 
-This study is lab-backed, and the lab run was deliberately narrow. On 4 November 2026 UTC a lab host ran official `plexinc/pms-docker` images in matched pairs, a vulnerable build beside the fixed 1.43.3.10861, on loopback only. No exploit step ran: no request reached any endpoint in the chain [38] [39] [40] [41]. What the lab shows is how to find a vulnerable server and prove the fix, and it turned up three practical traps. A host package check returned nothing while two Plex servers ran in containers. A naive version parser read the XML declaration's `version="1.0"` and labelled the fixed build vulnerable. And the vendor's own advisory title can make 1.43.3.10828, the last vulnerable build, look safe (**Demonstrated** for the first two; **Inferred** for the third) [38] [39] [9].
+This study is lab-backed, and the lab run was deliberately narrow. On 4 November 2026 UTC a lab host ran official `plexinc/pms-docker` images in matched pairs, a vulnerable build beside the fixed 1.43.3.10861, on loopback only. No exploit step ran: no request reached any endpoint in the chain [38] [39] [40] [41]. What the lab shows is how to find a vulnerable server and verify it is on the fixed build, not that the fix blocks the chain, and it turned up three practical traps. A host package check returned nothing while two Plex servers ran in containers. A naive version parser read the XML declaration's `version="1.0"` and labelled the fixed build vulnerable. And the vendor's own advisory title can make 1.43.3.10828, the last vulnerable build, look safe (**Demonstrated** for the first two; **Inferred** for the third) [38] [39] [9].
 
 Evidence grade: the four vulnerabilities, the fixed build and the KEV listing are **Confirmed**; the chain mechanics are **Confirmed** from the researcher's own write-up; press coverage of the attacks is **Reported**; the lab's version checks, baselines and fix verification are **Demonstrated**.
 
@@ -100,7 +100,7 @@ Evidence grade: the four vulnerabilities, the fixed build and the KEV listing ar
 
 1. Update every Plex Media Server to 1.43.3.10861 or later, and check the full build number, not just "1.43.3" [9] [5].
 2. Inventory Plex in containers as well as packages: look for `plexinc/pms-docker` images and tags, not just `plexmediaserver` packages (**Demonstrated** gap) [38].
-3. If a server older than 1.43.3.10861 was reachable from the internet, treat it as possibly compromised: rebuild from a clean install, empty the Codecs folder, check the transcoder options in the server preferences, sign out all devices and change the Plex password [9].
+3. If a server older than 1.43.3.10861 was reachable from the internet, Plex says to assume it may be compromised. Update it, then check for the indicators in recommendation 5; preserve the logs, preferences and any suspicious Codecs files before wiping, because KEV flags CVE-2026-96656 for forensic triage and deleting the Codecs contents destroys the artifacts triage would read. Only if you find indicators or cannot rule out compromise, follow Plex's remediation: rebuild from a clean install, or at least empty the Codecs folder and check the transcoder options, then sign out all devices and change the Plex password [7] [9] (evidence preservation **Inferred** from the forensic-triage flag).
 4. Turn off Remote Access where you do not need it and stop forwarding port 32400 directly [9].
 5. Hunt for the vendor's indicators: processes named `myawesomeproxy`, `mylovelyminer` or `x12345` started by Plex, unfamiliar `.so` or `.dll` files in Codecs, outbound connections to `proxystream.st`, and high CPU while nothing plays [9].
 
@@ -351,14 +351,14 @@ The Codecs folder and, on Linux, `Preferences.xml` live in the data directory [1
 
 ### If the server was exposed
 
-Plex's guidance for any server older than 1.43.3.10861 that was reachable from the internet is to assume it may be compromised (**Confirmed**: Plex) [9]:
+Plex's guidance for any server older than 1.43.3.10861 that was reachable from the internet is to assume it may be compromised (**Confirmed**: Plex) [9]. Plex orders the response update first, then check, then rebuild only where warranted, and the forensic-triage flag adds a preservation step before any cleanup:
 
-1. Rebuild from a clean install rather than reusing the old data directory.
-2. At minimum, delete the contents of the Codecs folder and check the server preferences for transcoder options you did not set.
-3. Sign out of all devices and change the Plex password.
-4. Treat anything the server's service account could reach as exposed.
+1. Update to 1.43.3.10861 or later.
+2. Check for the compromise indicators in Part 6: processes named `myawesomeproxy`, `mylovelyminer` or `x12345` started by Plex, unfamiliar `.so` or `.dll` files in Codecs, outbound connections to `proxystream.st`, and high CPU while nothing plays [9] [14].
+3. Preserve evidence before any cleanup. KEV flags CVE-2026-96656 for forensic triage, so capture the logs, `Preferences.xml` (or the registry or plist) and any suspicious Codecs files before deleting them; deleting the Codecs contents first destroys the artifacts that triage would read (**Inferred** from the forensic-triage flag [7]).
+4. If you find indicators, or cannot rule out compromise, follow Plex's remediation: rebuild from a clean install rather than reusing the old data directory, or at minimum delete the contents of the Codecs folder and check the server preferences for transcoder options you did not set; sign out of all devices and change the Plex password; and treat anything the Plex service account could reach, such as mounted shares and credentials stored on the same machine or VM, as potentially exposed [9].
 
-KEV's forensic-triage flag on CVE-2026-96656 points the same way: on an exposed server, patching closes the door but does not clear what came through it [7].
+Patching closes the door but does not clear what came through it; KEV's forensic-triage flag on CVE-2026-96656 points the same way [7].
 
 ### If you cannot update today
 

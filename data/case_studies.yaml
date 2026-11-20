@@ -3512,7 +3512,7 @@ studies:
       - {"date": "2026-11-04", "label": "TeamStarWolf lab run: 8.4.26 and 8.4.27 told apart; both interim workarounds take effect"}
   case-studies/PLEX_MEDIA_SERVER_2026_CVES.md:
     kind: "vulnerability"
-    title: "Plex Media Server, CVE-2026-96652, CVE-2026-96654, CVE-2026-96655 and CVE-2026-96656: The Plex2Shell Chain in the Lab"
+    title: "Plex Media Server, CVE-2026-96652, CVE-2026-96654, CVE-2026-96655 and CVE-2026-96656: The Plex2Shell Chain, and Verifying Your Build in the Lab"
     start: "2026-07"
     end: "2026-11"
     sectors: ["technology", "media"]

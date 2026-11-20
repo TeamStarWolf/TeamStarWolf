@@ -114,7 +114,7 @@ Notes: Versions by platform [9][18][21][22]. Container gap [38]. Workaround [9][
 | Preserve first | KEV flags -96656 for forensic triage: capture logs, preferences and suspicious Codecs files before deleting anything |
 | Rebuild if warranted | Only if indicators found or compromise can't be ruled out: clean install (at least empty Codecs, check transcoder options) |
 | Account | Sign out all devices and change the Plex password |
-Caption: Plex orders it update, then check, then rebuild where warranted; deleting Codecs first destroys the forensic-triage artifacts.
+Caption: Plex orders it update, then check, then rebuild where warranted; a Codecs wipe would remove the artifacts forensic triage reads (inferred).
 Notes: Plex guidance and indicators [9]. Honeypot indicators [14]. KEV flag [7]. Clean baselines [39][41].
 
 ## PART 7 | Triage the chain, not the scores

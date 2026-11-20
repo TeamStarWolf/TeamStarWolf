@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 35 min (8,130 words at 230 words a minute)
+About 35 min (8,138 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -356,10 +356,9 @@ Plex's guidance for any server older than 1.43.3.10861 that was reachable from t
 1. Update to 1.43.3.10861 or later.
 2. Check for the compromise indicators in Part 6: processes named `myawesomeproxy`, `mylovelyminer` or `x12345` started by Plex, unfamiliar `.so` or `.dll` files in Codecs, outbound connections to `proxystream.st`, and high CPU while nothing plays [9] [14].
 3. Preserve evidence before any cleanup. KEV flags CVE-2026-96656 for forensic triage, so capture the logs, `Preferences.xml` (or the registry or plist) and any suspicious Codecs files before deleting them; deleting the Codecs contents first destroys the artifacts that triage would read (**Inferred** from the forensic-triage flag [7]).
-4. If you find indicators, or cannot rule out compromise, follow Plex's remediation: rebuild from a clean install rather than reusing the old data directory, or at minimum delete the contents of the Codecs folder and check the server preferences for transcoder options you did not set; then sign out of all devices and change the Plex password [9].
-5. Treat anything the server's service account could reach as exposed [9].
+4. If you find indicators, or cannot rule out compromise, follow Plex's remediation: rebuild from a clean install rather than reusing the old data directory, or at minimum delete the contents of the Codecs folder and check the server preferences for transcoder options you did not set; sign out of all devices and change the Plex password; and treat anything the Plex service account could reach, such as mounted shares and credentials stored on the same machine or VM, as potentially exposed [9].
 
-Patching closes the door but does not clear what came through it, which is why KEV flags CVE-2026-96656 for forensic triage on an exposed server [7].
+Patching closes the door but does not clear what came through it; KEV's forensic-triage flag on CVE-2026-96656 points the same way [7].
 
 ### If you cannot update today
 

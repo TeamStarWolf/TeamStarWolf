@@ -1,6 +1,6 @@
 # Starred Repositories Index
 
-> In one minute: This is the full map of 1032 starred GitHub repositories, sorted into cybersecurity disciplines like detection engineering, DFIR (digital forensics and incident response), red team tooling, and vulnerability management. Instead of scrolling a raw GitHub stars page, you get every tool, framework, and learning resource grouped by the job it does. Use it as the master index when you know roughly what kind of tool you need but not its name.
+> In one minute: This is the full map of 1053 starred GitHub repositories, sorted into cybersecurity disciplines like detection engineering, DFIR (digital forensics and incident response), red team tooling, and vulnerability management. Instead of scrolling a raw GitHub stars page, you get every tool, framework, and learning resource grouped by the job it does. Use it as the master index when you know roughly what kind of tool you need but not its name.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Beginner
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 15 min (3,454 words at 230 words a minute)
+About 15 min (3,513 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -67,7 +67,7 @@ No review recorded yet
 
 <!-- meta:end -->
 
-A categorized index of 1032 starred repositories grouped by cybersecurity discipline. Use it when you want a broad map of tools, frameworks, references, and learning material in one place.
+A categorized index of 1053 starred repositories grouped by cybersecurity discipline. Use it when you want a broad map of tools, frameworks, references, and learning material in one place.
 
 ## How To Use This File
 
@@ -511,7 +511,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [HavocFramework/Havoc](https://github.com/HavocFramework/Havoc) (archived)
 - [chvancooten/NimPlant](https://github.com/chvancooten/NimPlant)
 - [its-a-feature/Mythic](https://github.com/its-a-feature/Mythic)
-- mdsecactivebreach/SharpShooter
+- mdsecactivebreach/SharpShooter (removed from GitHub)
 - [mhaskar/Octopus](https://github.com/mhaskar/Octopus)
 - [n1nj4sec/pupy](https://github.com/n1nj4sec/pupy) (archived)
 - [rapid7/metasploit-framework](https://github.com/rapid7/metasploit-framework)
@@ -739,7 +739,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 ### IoT Security (5)
 
 - [ReFirmLabs/binwalk](https://github.com/ReFirmLabs/binwalk)
-- [craigz28/firmwalker](https://web.archive.org/web/20260109160817/https://github.com/craigz28/firmwalker)
+- [craigz28/firmwalker](https://web.archive.org/web/20260109160817/https://github.com/craigz28/firmwalker) (removed from GitHub; link is an archived copy)
 - [elastic/protections-artifacts](https://github.com/elastic/protections-artifacts)
 - [fkie-cad/FACT_core](https://github.com/fkie-cad/FACT_core)
 - [secretsquirrel/the-backdoor-factory](https://github.com/secretsquirrel/the-backdoor-factory)
@@ -838,9 +838,9 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 ### Evasion & Payloads (3)
 
-- [Nightmare-Eclipse/UnDefend](https://web.archive.org/web/20260413031343/https://github.com/Nightmare-Eclipse/UnDefend)
-- [Nightmare-Eclipse/BlueHammer](https://web.archive.org/web/20260406215456/https://github.com/Nightmare-Eclipse/BlueHammer)
-- [Nightmare-Eclipse/RedSun](https://web.archive.org/web/20260416031346/https://github.com/Nightmare-Eclipse/RedSun)
+- [Nightmare-Eclipse/UnDefend](https://web.archive.org/web/20260413031343/https://github.com/Nightmare-Eclipse/UnDefend) (removed from GitHub; link is an archived copy)
+- [Nightmare-Eclipse/BlueHammer](https://web.archive.org/web/20260406215456/https://github.com/Nightmare-Eclipse/BlueHammer) (removed from GitHub; link is an archived copy)
+- [Nightmare-Eclipse/RedSun](https://web.archive.org/web/20260416031346/https://github.com/Nightmare-Eclipse/RedSun) (removed from GitHub; link is an archived copy)
 
 ### Bug Bounty (15)
 
@@ -1083,7 +1083,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)
 - [Azure/counterfit](https://github.com/Azure/counterfit) (archived)
 - [MicrosoftDocs/azure-docs](https://github.com/MicrosoftDocs/azure-docs)
-- [MicrosoftDocs/defender-docs](https://web.archive.org/web/20260118151630/https://github.com/MicrosoftDocs/defender-docs)
+- [MicrosoftDocs/defender-docs](https://web.archive.org/web/20260118151630/https://github.com/MicrosoftDocs/defender-docs) (removed from GitHub; link is an archived copy)
 - [microsoft/CyberBattleSim](https://github.com/microsoft/CyberBattleSim)
 - [microsoft/Detours](https://github.com/microsoft/Detours)
 - [microsoft/MIEngine](https://github.com/microsoft/MIEngine)
@@ -1396,7 +1396,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [cipher387/osint_stuff_tool_collection](https://github.com/cipher387/osint_stuff_tool_collection)
 - [rmusser01/Infosec_Reference](https://github.com/rmusser01/Infosec_Reference)
 - [A-poc/RedTeam-Tools](https://github.com/A-poc/RedTeam-Tools)
-- [cloudcommunity/Free-Certifications](https://web.archive.org/web/20260404042403/https://github.com/cloudcommunity/Free-Certifications)
+- [cloudcommunity/Free-Certifications](https://web.archive.org/web/20260404042403/https://github.com/cloudcommunity/Free-Certifications) (removed from GitHub; link is an archived copy)
 
 ### Awesome Lists (31)
 
@@ -1560,7 +1560,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [JusticeRage/Gepetto](https://github.com/JusticeRage/Gepetto)
 - [JusticeRage/Manalyze](https://github.com/JusticeRage/Manalyze)
 - [Karneades/SigmaFilterCheck](https://github.com/Karneades/SigmaFilterCheck)
-- [KasperskyLab/klara](https://web.archive.org/web/20260201000310/https://github.com/KasperskyLab/klara)
+- [KasperskyLab/klara](https://web.archive.org/web/20260201000310/https://github.com/KasperskyLab/klara) (removed from GitHub; link is an archived copy)
 - [LadybirdBrowser/ladybird](https://github.com/LadybirdBrowser/ladybird)
 - [LongSoft/UEFITool](https://github.com/LongSoft/UEFITool)
 - [MWR-CyberSec/PXEThief](https://github.com/MWR-CyberSec/PXEThief)

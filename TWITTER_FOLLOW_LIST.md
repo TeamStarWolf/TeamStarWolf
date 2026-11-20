@@ -17,7 +17,7 @@ Beginner
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 7 min (1,671 words at 230 words a minute)
+About 7 min (1,718 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -106,10 +106,10 @@ Scope: about 205 accounts organized into 19 main sections, plus a short Black Ha
 - @MalwareJake: Jake Williams
 - @likethecoins: Katie Nickels (Red Canary)
 - @JohnHultquist: Mandiant threat intel head
-- @KatieNickels: (alt handle)
+- `@KatieNickels`: not Katie Nickels's account; hers is @likethecoins (checked 2026-11-20)
 - @JoeSlowik: Threat intel
 - @RidT: Thomas Rid (cyber strategy)
-- @craiu: Bitdefender researcher
+- @craiu: Costin Raiu (threat intelligence and APT research)
 - @inversecos: DFIR & IR research
 - @RedDrip7: Threat intel
 - @threatintel: General threat intel feed
@@ -128,7 +128,7 @@ Scope: about 205 accounts organized into 19 main sections, plus a short Black Ha
 ## Detection Engineering & Blue Team
 - @SBousseaden: Detection engineering / Sigma
 - @mattifestation: Matt Graeber (PowerShell, detection)
-- @IAmATrashPanda: Amanda Berlin (BlueTeamCon)
+- @IAmATrashPanda: not Amanda Berlin's account (new account, 0 followers, checked 2026-11-20)
 - @cyb3rward0g: Roberto Rodriguez (HELK, OTRF)
 - @swannysec: Detection engineering
 - @SigmaHQ: Sigma Project
@@ -137,18 +137,18 @@ Scope: about 205 accounts organized into 19 main sections, plus a short Black Ha
 - @letsdefendio: LetsDefend
 - @HuntressLabs: Huntress
 - @Velocidex: Velociraptor
-- @ElasticSecurity: Elastic Security
+- @elasticseclabs: Elastic Security Labs
 - @splunk: Splunk
 - @osquery: osquery
 
 ## Offensive Security & Red Team
 - @harmj0y: Will Schroeder (BloodHound, GhostPack)
 - @_wald0: Andy Robbins (BloodHound)
-- @TinkerSec: Phineas Vega
+- @TinkerSec: real name unverified (checked 2026-11-20)
 - @_RastaMouse: Daniel Duggan (red team training)
 - @gentilkiwi: Benjamin Delpy (Mimikatz)
-- @PayloadArtist: Mr. Un1k0d3r
-- @spotheplanet: Reza Soosahabi
+- @PayloadArtist: LLM-powered offensive security
+- @spotheplanet: real name unverified (checked 2026-11-20)
 - @cobbr_io: Ryan Cobb (Covenant)
 - @danielhbohannon: Daniel Bohannon (PowerShell obfuscation)
 - @OffSecTraining: Offensive Security
@@ -216,10 +216,10 @@ Scope: about 205 accounts organized into 19 main sections, plus a short Black Ha
 - @cybersecuritysf: Steve Morgan (Cybersecurity Ventures)
 - @hacks4pancakes: Lesley Carhart (Dragos IR)
 - @thedarktangent: Jeff Moss (DEF CON founder)
-- @TheColonial: Marcus J. Carey
+- @TheColonial: identity unverified; owner's bio says they no longer use X (checked 2026-11-20)
 
 ## Educators, Trainers & Content Creators
-- @_JohnHammond / @JohnHammond010: John Hammond (CTF, malware)
+- @_JohnHammond: John Hammond (CTF, malware); alt `@JohnHammond010` is 404 (checked 2026-11-20)
 - @LiveOverflow: LiveOverflow (CTF/RE education)
 - @ippsec: IppSec (HackTheBox writeups)
 - @malwareunicorn: Amanda Rousseau
@@ -244,7 +244,7 @@ Scope: about 205 accounts organized into 19 main sections, plus a short Black Ha
 - @CyberGovAU: Australian Cyber Security Centre
 - @ENISA_EU: EU Agency for Cybersecurity
 - @FIRSTdotOrg: Forum of Incident Response and Security Teams
-- @ISACs: Information Sharing and Analysis Centers
+- `@ISACs`: not the named organisation's account (checked 2026-11-20)
 - @Cloudflare: Cloudflare
 - @MicrosoftSec: Microsoft Security
 - @CiscoSecure: Cisco Security
@@ -268,7 +268,7 @@ Scope: about 205 accounts organized into 19 main sections, plus a short Black Ha
 - @deviantollam: Deviant Ollam (physical security, red team)
 - @joe_fitz: Joe FitzPatrick (hardware hacking)
 - @_mg_: MG (USB implants, hardware hacking)
-- @_sn0ww: DEF CON Co-Founder, 3x Black Badge
+- @_sn0ww: Snow - social engineer (Leading Human Threats at DivHex), @sec_defcon co-founder, 3x Black Badge
 
 ## Blockchain / Crypto Security
 - @samczsun: samczsun (DeFi / smart contract security)
@@ -277,7 +277,7 @@ Scope: about 205 accounts organized into 19 main sections, plus a short Black Ha
 
 ## CVE & Vulnerability Tracking
 - @CVEnew: MITRE CVE announcements (automated feed)
-- @VulnCheck: VulnCheck KEV intelligence
+- @VulnCheckAI: VulnCheck KEV intelligence
 - @wdormann: Will Dormann (former CERT/CC, deep CVE analysis)
 - @qualys: Qualys Threat Research (Patch Tuesday analysis)
 - @rapid7: Rapid7 (vulnerability disclosure + Metasploit)
@@ -343,11 +343,11 @@ Scope: about 205 accounts organized into 19 main sections, plus a short Black Ha
 | @cyb3rops | Florian Roth | YARA rules, detection, Sigma | Creator of Neo23x0/signature-base and Sigma; essential follow for detection engineers |
 | @Kostastsale | Kostas | Detection engineering, Sigma | Prolific detection rule author; SOC content |
 | @nas_bench | Nasreddine Bencherchali | Blue team, incident response | Solid IR and detection content |
-| @HackingLZ | Justin Elze | DFIR, threat hunting | Experienced IR practitioner; quality content |
+| @HackingLZ | Justin Elze | Offensive security (TrustedSec) | CTO at TrustedSec |
 | @svch0st | svch0st | Malware analysis, detection | Windows internals, malware analysis |
 | @SBousseaden | Samir Bousseaden | EDR detection, Windows internals | Elastic security researcher; deep Windows detection expertise |
 | @TazWake | Taz Wake | DFIR, forensics | Great forensics and IR threads |
-| @ionstorm | Jon Gorenflo | Threat hunting, Active Directory | AD security and detection content |
+| @ionstorm |  | Cyber defence architecture, DFIR | SIEM, Sysmon, and Sigma detection content |
 | @blueteamsec | Various curators | Blue team research aggregator | Curated blue team research links; high signal |
 
 
@@ -358,11 +358,11 @@ Scope: about 205 accounts organized into 19 main sections, plus a short Black Ha
 | @harmj0y | Will Harmj0y | Active Directory attacks, BloodHound | SpecterOps researcher; BloodHound co-creator; essential AD security resource |
 | @enigma0x3 | Matt Nelson | Windows security, AppLocker bypass | SpecterOps; Windows attack research |
 | @tifkin_ | Lee Christensen | AD exploitation, ADCS | SpecterOps; ESC1-ESC8 ADCS attack discoverer |
-| @GhostPack | SpecterOps | Offensive tool releases | Account for GhostPack tool releases (Rubeus, SharpHound, Seatbelt, etc.) |
+| `@GhostPack` |  |  | Not the GhostPack project's account (checked 2026-11-20) |
 | @armitagehacker | Raphael Mudge | Cobalt Strike creator | Original Cobalt Strike developer |
 | @rsmudge | Raphael Mudge | C2, Cobalt Strike | Cobalt Strike-adjacent research |
 | @_dirkjan | Dirk-jan Mollema | Azure AD, Kerberos, impacket | Creator of impacket contributions, Azure AD attack research; essential |
-| @decoder_it | Andrea Pierini | Windows privilege escalation | PrintSpoofer, RogueWinRM, token impersonation discoveries |
+| @decoder_it | Andrea Pierini | Windows privilege escalation | RogueWinRM, RoguePotato, and JuicyPotatoNG token-impersonation privesc (with @splinter_code) |
 | @splinter_code | Antonio Cocomazzi | Windows security, privesc | Potato exploits co-author |
 
 
@@ -370,14 +370,14 @@ Scope: about 205 accounts organized into 19 main sections, plus a short Black Ha
 
 | Account | Real Name / Org | Focus | Why Follow |
 |---|---|---|---|
-| @MandiantIntel | Mandiant | APT tracking, threat intelligence | Major IR firm; breaking threat intel |
+| `@MandiantIntel` |  |  | 404 as of 2026-11-20; Mandiant's active account is @Mandiant |
 | @Unit42_Intel | Palo Alto Unit 42 | APT research, malware analysis | High-quality APT reports |
 | @ESETresearch | ESET | APT research, malware | Sandworm/Industroyer researchers |
 | @VK_Intel | Vitali Kremez | Ransomware, cybercrime intel | Prolific ransomware researcher |
 | @malwrhunterteam | MalwareHunterTeam | Malware discovery | Prolific malware discovery; often first to identify new samples |
 | @craiu | Costin Raiu | APT research, Kaspersky GReAT | GReAT lead; APT29, Equation Group researcher |
 | @emgent | Emanuele De Lucia | Threat intel, dark web monitoring | Dark web intelligence; ransomware tracking |
-| @pancak3lullz | Brett Callow | Ransomware tracking | Emsisoft analyst; best ransomware incident tracker |
+| @pancak3lullz | pancak3 | Cybersecurity | General security account; earlier Brett Callow / Emsisoft attribution removed as incorrect (checked 2026-11-20) |
 | @Cybereason | Cybereason | Threat intelligence | IR firm threat research |
 
 

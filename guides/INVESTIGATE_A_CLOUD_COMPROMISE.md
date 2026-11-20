@@ -23,7 +23,7 @@ Advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 17 min (3,802 words at 230 words a minute)
+About 17 min (3,841 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -163,7 +163,7 @@ You cannot close what you cannot name. Work backward from the first confirmed ma
    - Illicit OAuth consent: the user (or an admin) consented to a malicious app; the app now holds a refresh token independent of the password. Look for the consent event and the app's granted scopes.
    - Password spray / legacy-auth: many failures then one success on a legacy protocol that bypasses MFA.
    - Misconfiguration / SSRF to metadata: a public resource or an app SSRF that reached the instance metadata service (IMDSv1) to steal role credentials.
-3. Fix the earliest-foothold time (UTC). Everything before it is normal; everything after is suspect. Record it; Step 6's timeline and Step 5's persistence hunt both key off it.
+3. Fix the earliest-foothold time (UTC): the earliest attacker action you can evidence. Treat it as a lower bound, not proof that everything before it was benign; where the logs that would show earlier activity were off or had aged out, say so (the coverage gaps from Step 3). Everything after it is suspect. Record it; Step 6's timeline and Step 5's persistence hunt both key off it.
 
 Checkpoint: Your notes state a supported initial-access hypothesis, the earliest-foothold UTC timestamp, and the pivot keys (IPs, user-agents, app/client IDs, key IDs) you'll sweep with.
 

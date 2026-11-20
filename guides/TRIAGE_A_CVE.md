@@ -6,7 +6,7 @@
 |---|---|---|---|
 | ~30 minutes | Intermediate | A CVE ID, asset-inventory access, a terminal with `curl` (or just a browser) | A decision (Track / Track\* / Attend / Act), an SLA tier with owner and due date, and the recorded input vector that justifies both |
 
-The method comes straight from this library's precedence rule: verified exploitation (KEV) > predicted exploitation (EPSS) > your environment > abstract severity (CVSS). Each step below collects one layer of that stack; the CISA SSVC decision tree then turns the collected inputs into an action. The worked example threaded through the checkpoints is CVE-2023-4966 (CitrixBleed).
+The method gates on applicability first: a CVE that affects no software you run, or that nothing reachable exposes, needs no further ranking. For the CVEs that do apply, verified exploitation (KEV) and any mandatory deadline come first, then predicted exploitation (EPSS) weighed alongside mission impact and your compensating controls, with abstract severity (CVSS) last. Each step below collects one layer of that stack; the CISA SSVC decision tree then turns the collected inputs into an action. The worked example threaded through the checkpoints is CVE-2023-4966 (CitrixBleed).
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -23,7 +23,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 11 min (2,499 words at 230 words a minute)
+About 11 min (2,549 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -219,7 +219,7 @@ Watch out: Don't run one clock for two jobs; closing the patch task while the fo
 
 - Reproducible: a colleague re-running Steps 2-7 with your recorded inputs reaches the same outcome.
 - Defensible in both directions: you can answer "why so urgent?" *and* "why did you defer that 9.8?" from the input vector alone, without reconstructing anything from memory.
-- Correctly ordered: verified exploitation outranked prediction, prediction outranked severity, and your environment promoted or demoted both; no EPSS×CVSS arithmetic anywhere.
+- Correctly ordered: applicability and reachability gated the triage first, then verified exploitation and any mandatory deadline outranked prediction, which was weighed alongside exposure and mission impact rather than ahead of them; no EPSS×CVSS arithmetic anywhere.
 - Time spent where it counts: the public-feed steps felt mechanical (they should: automate them next; see the pipeline sketch in [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)), and most of your 30 minutes went to exposure, mission impact, and the advisory's fine print.
 - Alive, not archived: the decision has named tripwires, so a KEV addition or EPSS jump reopens it automatically instead of waiting for next quarter's scan.
 

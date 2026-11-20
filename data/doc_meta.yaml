@@ -5898,7 +5898,7 @@ pages:
     audience: "Builders and maintainers who harden and run projects in public"
     level: "Intermediate"
     read_when: "You want the lessons from hardening and maintaining a real project in public, or you are about to do similar work and want to know what it surfaced"
-    start_at: "[Index](#index), [1. Hardening LimeWire v4](#_1-hardening-limewire-v4), [2. Bulk-bookkeeping the GitHub Stars API](#_2-bulk-bookkeeping-the-github-stars-api)"
+    start_at: "[Index](#index), [1. Bulk-bookkeeping the GitHub Stars API](#_1-bulk-bookkeeping-the-github-stars-api)"
     pairs_with: "[Curated GitHub Stars Lists](/research/CURATED_STARS_LISTS.md), [Starred Repositories](/STARRED_REPOS.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)"
     reviewed: null
   research/HTB_MACHINE_INDEX.md:

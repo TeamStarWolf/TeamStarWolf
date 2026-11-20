@@ -61,7 +61,7 @@ Part of the [domain hubs](/hubs/README.md). 40 reference documents in this domai
 | Reference | What it covers | Reading time |
 |---|---|---|
 | [Resources](/RESOURCES.md) | Books, courses, YouTube channels, podcasts, CTF platforms, and communities | Lookup page (8 min end to end) |
-| [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md) | Books, labs, and companion repos grouped for practical learning, with cert roadmaps and learning paths | 35 min |
+| [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md) | Books, labs, and companion repos grouped for practical learning, with cert roadmaps and learning paths | 36 min |
 | [YouTube Channel Library](/YOUTUBE_CHANNELS.md) | Active channels across multiple security disciplines | 7 min |
 | [X / Twitter Follow List](/TWITTER_FOLLOW_LIST.md) | Vetted accounts that regularly share original research, tooling, or operational insight | 7 min |
 | [Starred Repositories](/STARRED_REPOS.md) | Curated repos structured around Cybersecurity Technology | 15 min |

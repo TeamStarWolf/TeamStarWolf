@@ -23,7 +23,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 11 min (2,549 words at 230 words a minute)
+About 11 min (2,554 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -133,7 +133,7 @@ You can also browse the raw file in the Vulnrichment repo; records live at `<yea
 
 Checkpoint: Three values on paper with their source noted. For the example: Exploitation `active`, Automatable `yes`, Technical Impact `total`, from the CISA-ADP container.
 
-Watch out: Not every CVE is enriched, and enrichment lags disclosure (CISA commits to roughly three business days under BOD 26-04 guidance). If the ADP container is missing, set Exploitation yourself from Step 2 plus the vendor advisory, and mark the value as self-assessed. Conversely, `Exploitation: active` here often appears *before* formal KEV addition; treat it as an early warning, not a contradiction.
+Watch out: Not every CVE is enriched, and enrichment lags disclosure (it is added when there is enough supporting evidence, not instantly). If the ADP container is missing, set Exploitation yourself from Step 2 plus the vendor advisory, and mark the value as self-assessed. Conversely, `Exploitation: active` here often appears *before* formal KEV addition; treat it as an early warning, not a contradiction.
 
 ## Step 4: Read EPSS as a probability, not a rank (3 min)
 
@@ -206,7 +206,7 @@ Watch out: Never fake the bridge by walking CVE -> CWE -> CAPEC -> ATT&CK; that 
 
 Convert the outcome into work:
 
-1. Assign the SLA tier from your written policy: the editorial example ladder in [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md) runs P0 (3 days, KEV + exposed + automatable + total control) through P4 (scheduled maintenance). No policy yet? Use the KEV `dueDate` span and BOD 26-04's tier structure (3 / 6 / 14 / 30 / 60 days / fix-on-upgrade) as the public benchmark and write yours down afterward.
+1. Assign the SLA tier from your written policy: the editorial example ladder in [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md) runs P0 (3 days, KEV + exposed + automatable + total control) through P4 (scheduled maintenance). No policy yet? Use the KEV `dueDate` span and BOD 26-04's tier structure (3, 14, or 60 days, or fix-on-upgrade, per the directive's Table 1) as the public benchmark and write yours down afterward.
 2. If you landed in the fastest tier (or KEV said `forensicTriage: Yes`), open a second work item: determine whether the vulnerability was already exploited on those assets *before* your patch lands. "Patch" and "were we already hit?" are separate deliverables on the same clock; route the second through [IR Playbooks](/IR_PLAYBOOKS.md).
 3. Set re-evaluation triggers. A priority is a cached decision; write down what invalidates it: KEV addition, a large EPSS jump, a new or superseded VEX statement, an exposure change. Wire these to alerts if you can, a weekly diff if you can't.
 4. File the ticket: decision + SLA + owner + due date + the exported input vector + technique IDs.

@@ -23,7 +23,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 11 min (2,588 words at 230 words a minute)
+About 11 min (2,614 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -110,7 +110,7 @@ Extract every URL (the `emlAnalyzer --url` output from Step 2, or hover-and-copy
 
 1. Defang it immediately in your notes and in anything you share: `https://evil.example/pay` becomes `hxxps://evil[.]example/pay`. The URL-deobfuscation section of the [Email Security Reference](/EMAIL_SECURITY_REFERENCE.md) has the conventions and a refang helper.
 2. Unwrap rewriting first. Safe Links, Proofpoint URL Defense, and similar gateways wrap the real URL inside their own; decode to the true destination before judging it.
-3. Let a scanner visit it for you. Submit to [urlscan.io](https://urlscan.io/) and review the screenshot, redirect chain, and verdicts, but mind the visibility setting. A Public scan of a targeted phish leaks the campaign, and any token embedded in the URL, to the world and can tip off the attacker. Unlisted is not private: per [urlscan's FAQ](https://urlscan.io/docs/faq/), Unlisted results are still visible to vetted security researchers and companies subscribed to urlscan Pro. Only Private keeps a scan to you (urlscan does not share Private scans with its customers or partners). For a targeted lure, or any URL that carries a token or identifies your organization, use Private or an approved internal/offline tool rather than Unlisted.
+3. Let a scanner visit it for you. Submit to [urlscan.io](https://urlscan.io/) and review the screenshot, redirect chain, and verdicts, but mind the visibility setting. A Public scan of a targeted phish leaks the campaign, and any token embedded in the URL, to the world and can tip off the attacker. Unlisted is not private: per [urlscan's FAQ](https://docs.urlscan.io/pages/faq), Unlisted results are still visible to vetted security researchers and companies subscribed to urlscan Pro. A Private scan is the most restricted (urlscan does not share it with its customers or partners), but it can still be opened by anyone who holds its unique link, so do not paste a Private result URL into a ticket others can read. For a targeted lure, or any URL that carries a token or identifies your organization, use Private or an approved internal/offline tool rather than Unlisted.
 4. Check reputation: the domain's [VirusTotal](https://www.virustotal.com/) page (community verdicts, passive DNS, related samples) and WHOIS age. A domain registered days ago that renders a Microsoft 365 login page is not ambiguous.
 
 Checkpoint: Every URL in the message is listed defanged in your notes with a per-URL verdict: credential-harvesting page, malware download, redirector, or benign.

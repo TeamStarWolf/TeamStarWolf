@@ -509,19 +509,71 @@ def self_test() -> int:
                   str(len(why)) + " unread reason(s), expected " + str(len(want_kinds)) + " and " +
                   str(want_unread))
     print("hygiene self-test: " + str(len(cases) - failed) + " of " + str(len(cases)) + " cases pass")
-    return 1 if failed else 0
+    own_cases = [
+        # The two off-list fixtures split the literal right after the slash so this file never
+        # matches its own gate (Python joins the adjacent string literals at run time).
+        ("off-list owner/name fails", "see github.com/TeamStarWolf/" "SecretApp", 1),
+        ("allowed repo .git passes", "git clone https://github.com/TeamStarWolf/ATTACK-Navi.git", 0),
+        ("self repo passes", "github.com/TeamStarWolf/TeamStarWolf", 0),
+        ("pages path passes", "https://teamstarwolf.github.io/TeamStarWolf/assets/brand/og.jpg", 0),
+        ("bare off-list owner/name fails", "the TeamStarWolf/" "PrivateThing repo", 1),
+        ("intelligence-hub passes", "TeamStarWolf/intelligence-hub", 0),
+    ]
+    own_failed = 0
+    for nm, line, want in own_cases:
+        if (1 if _own_repo_names(line) else 0) != want:
+            own_failed += 1
+            print("FAIL self-test (own-repos): " + nm)
+    print("own-repos self-test: " + str(len(own_cases) - own_failed) + " of " + str(len(own_cases)) + " cases pass")
+    return 1 if (failed or own_failed) else 0
+
+
+# --------------------------------------------------------------- own-repository allow-list
+# The library may reference the owner's PUBLIC repositories by owner/name, but never a
+# private one. The allow-list holds only public names, which leak nothing; any other
+# TeamStarWolf/<name> in a tracked text file fails the gate. Clone URLs (<name>.git, the
+# .git is not part of the captured name) and the Pages path (<sub>.github.io/TeamStarWolf/
+# <path>, excluded by the lookbehind) are not owner/name references. The gate names the
+# file and line only, never the offending name.
+ALLOWED_OWN_REPOS = {"teamstarwolf", "intelligence-hub", "attack-navi", "cybersecurity-resources"}
+OWN_REPO_RE = re.compile(r"(?<!github\.io/)teamstarwolf/([A-Za-z0-9_-]+)", re.I)
+
+
+def _own_repo_names(line: str) -> list[str]:
+    return [m.group(1) for m in OWN_REPO_RE.finditer(line)
+            if m.group(1).lower() not in ALLOWED_OWN_REPOS]
+
+
+def check_own_repos(files: list[str]) -> list[str]:
+    problems = []
+    for f in files:
+        if not is_text(f):
+            continue
+        b = read_bytes(f)
+        if b is None:
+            continue
+        try:
+            t = b.decode("utf-8")
+        except UnicodeDecodeError:
+            continue
+        for i, line in enumerate(t.split("\n"), 1):
+            if _own_repo_names(line):
+                problems.append(f + ":" + str(i) + ": a TeamStarWolf/<name> reference is not on the "
+                                "public allow-list (an own private repository name must not appear in "
+                                "a tracked file)")
+    return problems
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    ap.add_argument("--only", choices=("junk", "encoding", "revoked", "paths"), action="append")
+    ap.add_argument("--only", choices=("junk", "encoding", "revoked", "paths", "own-repos"), action="append")
     ap.add_argument("--report", action="store_true")
     ap.add_argument("--update-baseline", action="store_true")
     ap.add_argument("--self-test", action="store_true")
     args = ap.parse_args()
     if args.self_test:
         return self_test()
-    only = set(args.only or ("junk", "encoding", "revoked", "paths"))
+    only = set(args.only or ("junk", "encoding", "revoked", "paths", "own-repos"))
     files = tracked_files()
     failed = False
     if args.update_baseline:
@@ -530,7 +582,8 @@ def main() -> int:
     for name, fn in (("junk", lambda: check_junk(files)),
                      ("encoding", lambda: check_encoding(files)),
                      ("revoked", lambda: check_revoked(files, args.report, False)),
-                     ("paths", lambda: check_paths(files))):
+                     ("paths", lambda: check_paths(files)),
+                     ("own-repos", lambda: check_own_repos(files))):
         if name not in only:
             continue
         problems = fn()

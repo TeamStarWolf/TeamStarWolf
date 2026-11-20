@@ -506,6 +506,20 @@ def classify_attack_tactics(asset: Asset) -> list[str]:
 # --------------------------------------------------------------------------- #
 
 
+# A TeamStarWolf-owned repository is emitted only if it is on the public allow-list. This
+# closes the path where the owner's untracked local exports would otherwise put a private
+# own-repo entry back on the next local regeneration. Public names only; it leaks nothing.
+OWN_OWNER = "teamstarwolf"
+ALLOWED_OWN_REPOS = {"teamstarwolf", "intelligence-hub", "attack-navi", "cybersecurity-resources"}
+
+
+def _own_repo_allowed(asset: "Asset") -> bool:
+    owner = str(asset.metadata.get("owner", "")).lower()
+    if owner != OWN_OWNER:
+        return True
+    return str(asset.metadata.get("repo", "")).lower() in ALLOWED_OWN_REPOS
+
+
 def build() -> Library:
     from datetime import datetime, timezone
 
@@ -528,6 +542,8 @@ def build() -> Library:
         for asset in parser(text):
             asset.vendor = normalize_vendor(asset.vendor)
             asset.attack_tactics = classify_attack_tactics(asset)
+            if not _own_repo_allowed(asset):
+                continue
             if asset.id in seen_ids:
                 continue
             seen_ids.add(asset.id)
@@ -565,7 +581,25 @@ def build() -> Library:
     return lib
 
 
+def _self_test() -> int:
+    # Ids are innocuous here (the filter reads metadata, not the id) so this file does not
+    # trip the hygiene own-repos gate that scans it.
+    cases = [
+        (Asset(id="t-allowed", type="tool", title="", url="",
+               metadata={"owner": "TeamStarWolf", "repo": "ATTACK-Navi"}), True),
+        (Asset(id="t-private", type="tool", title="", url="",
+               metadata={"owner": "TeamStarWolf", "repo": "MadeUpPrivateRepo"}), False),
+        (Asset(id="t-other", type="tool", title="", url="",
+               metadata={"owner": "someone", "repo": "thing"}), True),
+    ]
+    fails = sum(1 for a, want in cases if _own_repo_allowed(a) != want)
+    print(f"build_library_index self-test: {len(cases) - fails} of {len(cases)} cases pass")
+    return 1 if fails else 0
+
+
 def main() -> int:
+    if "--self-test" in sys.argv:
+        return _self_test()
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     print(f"Building library index from {PROFILE_ROOT}")
     lib = build()

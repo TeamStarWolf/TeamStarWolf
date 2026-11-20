@@ -227,6 +227,15 @@ jobs:
       - name: Library index allow-list self-test
         run: python research/scripts/build_library_index.py --self-test
 
+      # research/data/library.json is hand-maintained (its export sources are not in the
+      # repo), so its summary fields can drift from the assets they describe. This asserts
+      # counts[type], every vendors value and every tactic_counts value equal what the
+      # assets give, and that asset ids are unique. The self-test runs planted cases.
+      - name: Library index summary fields match its assets (counts, vendors, tactic_counts, ids)
+        run: |
+          python research/scripts/check_library_consistency.py --self-test
+          python research/scripts/check_library_consistency.py
+
       - name: Site theme colours meet WCAG AA in both themes (index.html tokens)
         run: python scripts/check_contrast.py
 

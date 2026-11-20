@@ -221,6 +221,12 @@ jobs:
       - name: No build-machine paths in pages, decks or PDFs
         run: python scripts/check_repo_hygiene.py --only paths
 
+      - name: No off-allow-list own repositories in tracked files
+        run: python scripts/check_repo_hygiene.py --only own-repos
+
+      - name: Library index allow-list self-test
+        run: python research/scripts/build_library_index.py --self-test
+
       - name: Site theme colours meet WCAG AA in both themes (index.html tokens)
         run: python scripts/check_contrast.py
 

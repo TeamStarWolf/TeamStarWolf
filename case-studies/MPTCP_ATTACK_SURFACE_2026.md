@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 21 min (4,774 words at 230 words a minute)
+About 21 min (4,925 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -56,7 +56,7 @@ Key takeaways (reviewed 2026-11-16):
 - Multipath TCP has shipped in the Linux kernel since 5.6 and defaults to on, yet almost nothing uses it. ([Executive summary](#executive-summary))
 - That leaves a feature switched on across much of the Linux fleet while delivering value on a tiny fraction of it. ([Executive summary](#executive-summary))
 - The gap is an attack surface: new memory-unsafe networking code produces memory-safety bugs on a schedule. ([Executive summary](#executive-summary))
-- Worse, MPTCP can turn a bug that is elsewhere a mere crash into something far more serious, as with CVE-2026-98432. ([Executive summary](#executive-summary))
+- MPTCP can make the worst case of a kernel bug reliably reachable, as CVE-2026-98432 showed when an MPTCP listener supplied the heap control the one demonstrated remote-root exploit needed. ([Executive summary](#executive-summary))
 
 <!-- meta:end -->
 
@@ -64,11 +64,11 @@ Key takeaways (reviewed 2026-11-16):
 
 Multipath TCP (MPTCP) is a protocol extension that lets a single TCP connection run over several network paths at once, for throughput and for failover. The Linux kernel has shipped it since version 5.6 in 2020, and on most modern distributions the `net.mptcp.enabled` switch defaults to on. Almost nothing uses it. An application only gets MPTCP if it deliberately asks for it when it opens a socket, and the overwhelming majority of servers run software that asks for ordinary TCP. The result is a feature that is present and switched on across a large part of the Linux fleet while delivering value on a tiny fraction of it.
 
-That gap between enabled and used is the subject of this study, because it is an attack surface. MPTCP is a large, relatively new body of kernel networking code, and new networking code written in a memory-unsafe language produces memory-safety bugs on a schedule. The kernel has fixed a steady run of MPTCP use-after-frees, memory leaks and resource-exhaustion flaws since the feature landed. For a host that never uses MPTCP, every one of those is pure downside: risk with no offsetting benefit. Worse, MPTCP can turn a bug that is elsewhere a mere crash into something far more serious, because its connection-management machinery hands an attacker more control over kernel memory. That is exactly what happened with CVE-2026-98432, where the presence of an MPTCP listener was the difference between a denial of service and a reported remote-root exploit.
+That gap between enabled and used is the subject of this study, because it is an attack surface. MPTCP is a large, relatively new body of kernel networking code, and new networking code written in a memory-unsafe language produces memory-safety bugs on a schedule. The kernel has fixed a steady run of MPTCP use-after-frees, memory leaks and resource-exhaustion flaws since the feature landed. For a host that never uses MPTCP, every one of those is pure downside: risk with no offsetting benefit. Worse, MPTCP can raise the reliability of the worst case of a bug elsewhere in the stack, because its connection-management machinery hands an attacker more control over kernel memory. That is what happened with CVE-2026-98432: Red Hat lists a crash, memory corruption or remote code execution for the plain IPv4 TCP flaw and says MPTCP is not a precondition, but an MPTCP listener supplied the precise heap control the one demonstrated remote-root exploit needed.
 
 The management problem is that none of this shows up in an ordinary vulnerability scan. Whether MPTCP is compiled in, whether it is enabled, and whether anything is actually using it are three separate questions, and a severity score answers none of them. This study explains what MPTCP is, why its mere presence raises the stakes on kernel memory bugs, how to check your own exposure across those three questions, why you would want to, and how to reduce the surface safely on the hosts that do not need it.
 
-Evidence grade: the protocol behaviour and default state are **Confirmed** from the kernel's own documentation; the memory-safety flaws are **Confirmed** fixed vulnerabilities from kernel and vendor advisories; the remote-code-execution amplification on CVE-2026-98432 is **Reported** (single-source, unreproduced), as graded in the companion study.
+Evidence grade: the protocol behaviour and default state are **Confirmed** from the kernel's own documentation; the memory-safety flaws are **Confirmed** fixed vulnerabilities from kernel and vendor advisories; Red Hat's scope for CVE-2026-98432 (a crash, memory corruption or code execution on plain IPv4 TCP, with MPTCP not a precondition) is **Confirmed**, while the one remote-root exploit demonstrated against an MPTCP host is **Reported** (single-source, unreproduced), as graded in the companion study.
 
 ### Key facts at a glance
 
@@ -80,7 +80,7 @@ Evidence grade: the protocol behaviour and default state are **Confirmed** from 
 | How an app uses it | The application must open the socket with `IPPROTO_MPTCP` (protocol number 262) instead of `IPPROTO_TCP`; ordinary TCP code never touches MPTCP |
 | Can be forced on | Yes, without changing the application, via `mptcpize` (LD_PRELOAD), `mptcpify` (eBPF) or SystemTAP |
 | Security relevance | A large, newer kernel code path; a recurring source of memory-safety CVEs; it can upgrade the impact of a reachable kernel bug |
-| The amplifier case | CVE-2026-98432 (CVSS 9.8): an MPTCP listener turned an IPv4 TCP use-after-free from a crash into a reported remote-root exploit |
+| The amplifier case | CVE-2026-98432 (CVSS 9.8): Red Hat scores the IPv4 TCP use-after-free as a possible crash, corruption or code execution and says MPTCP is not a precondition, but an MPTCP listener supplied the heap control the one demonstrated remote-root exploit (Reported) needed |
 | Safe reduction | On hosts that do not use MPTCP, set `net.mptcp.enabled=0` after confirming nothing requests it |
 | What disabling does not do | It removes the MPTCP code path from reach; it does not patch an underlying plain-TCP bug, so it reduces exposure rather than replacing patching |
 
@@ -89,7 +89,7 @@ Evidence grade: the protocol behaviour and default state are **Confirmed** from 
 - **MPTCP is on by default and used by almost nothing.** The kernel documentation states that `net.mptcp.enabled` defaults to 1, so MPTCP sockets can be created on a stock modern kernel. But MPTCP is opt-in: an application receives it only by creating its socket with `IPPROTO_MPTCP`, and standard server software requests ordinary TCP. A host can therefore have MPTCP enabled for years without a single MPTCP connection.
 - **Enabled is not the same as in use, and neither is the same as exposed.** Three questions have to be answered separately: is MPTCP compiled into this kernel, is it enabled by the sysctl, and is any process actually listening or connecting with it. A vulnerability scanner that reports a kernel version answers none of them, and the worst-case risk depends on all three.
 - **MPTCP is a recurring memory-safety surface.** Since the feature matured the kernel has fixed a series of MPTCP flaws, including use-after-free, memory leak and unbounded-memory-growth classes. Several carry high base scores, and for more than one the documented workaround is simply to disable MPTCP. For a host that never uses the feature, each is risk carried for no return.
-- **MPTCP can amplify a bug from crash to compromise.** In CVE-2026-98432 the underlying flaw was an IPv4 TCP use-after-free. On a plain-TCP host the reachable outcome was a crash or memory corruption; on a host with an MPTCP listener it was a reported unauthenticated remote-root exploit, because MPTCP's machinery gives an attacker more control over kernel allocations. The feature did not cause the bug, but it changed what the bug was worth.
+- **MPTCP amplifies the reliability of a bug's worst case.** In CVE-2026-98432 the underlying flaw was an IPv4 TCP use-after-free. Red Hat lists its impact as a crash, memory corruption or remote code execution and says MPTCP "is not a precondition," but reliable code execution needs precise heap control, which an MPTCP listener supplies: the one demonstrated unauthenticated remote-root exploit (Reported) ran against an MPTCP host. The feature did not cause the bug or gate code execution, but it changed how reliably the worst case could be reached.
 - **The exposure is invisible to normal inventory and cheap to remove.** Checking the three questions takes a few standard commands, and on a host that does not use MPTCP the fix is one sysctl setting. Because the control is a standing one, it also pre-reduces the blast radius of the next MPTCP CVE, before that CVE is disclosed.
 
 ### Top recommendations
@@ -173,12 +173,12 @@ Two things stand out. First, the list is not exhaustive and the classes repeat: 
 
 ### The amplifier
 
-The sharpest reason to care about MPTCP exposure is not an MPTCP bug at all. It is the way MPTCP changes the value of a bug elsewhere in the stack. CVE-2026-98432 (CVSS 9.8) was a use-after-free in the IPv4 TCP connection-setup path, not in MPTCP code. Yet its impact split on MPTCP:
+The sharpest reason to care about MPTCP exposure is not an MPTCP bug at all. It is the way MPTCP changes the value of a bug elsewhere in the stack. CVE-2026-98432 (CVSS 9.8) was a use-after-free in the IPv4 TCP connection-setup path, not in MPTCP code. Yet MPTCP changed how reliably its worst case could be reached:
 
-- On a host without an MPTCP listener, the reachable outcome on plain IPv4 TCP was a kernel crash, memory disclosure, or memory corruption, which is a denial of service and a possible stepping stone.
-- On a host with an MPTCP listener, researchers reported a full unauthenticated remote-code-execution chain, because MPTCP's extra connection-management machinery gave the attacker more control over kernel allocations, which is what turns a use-after-free into reliable code execution.
+- Red Hat lists the plain IPv4 TCP flaw's impact as a kernel crash (denial of service), memory disclosure, memory corruption, or remote code execution, and says MPTCP "is not a precondition." Reliable code execution, though, "requires precise heap control."
+- An MPTCP listener supplies that heap control, because its extra connection-management machinery gives the attacker more control over kernel allocations; the one demonstrated unauthenticated remote-code-execution chain (Reported) ran against an MPTCP host. So MPTCP raised the reliability of the worst case, not its possibility.
 
-The remote-code-execution demonstration is graded **Reported** in the companion study, resting on a single lab account that was not independently reproduced. But the structural point stands on the Confirmed vulnerability alone: the same bug was worth a crash on one host and a root shell on another, and the only difference was a protocol feature that the second host was not using for anything. The full account of that flaw, its two-line fix, and the AI-written exploit claim is in [the CVE-2026-98432 case study](/case-studies/LINUX_TCP_UAF_2026.md). Here it serves as the clearest evidence that MPTCP exposure is not an abstract concern: a dormant feature decided whether a kernel bug was an outage or a breach.
+The remote-code-execution demonstration is graded **Reported** in the companion study, resting on a single lab account that was not independently reproduced. But the structural point stands on the Confirmed record alone: Red Hat says the plain IPv4 TCP flaw can itself reach code execution and that MPTCP is not a precondition, yet the one host where a reliable root shell was demonstrated was running an MPTCP listener, because the feature supplied the heap control that reliable exploitation needs. The full account of that flaw, its two-line fix, and the AI-written exploit claim is in [the CVE-2026-98432 case study](/case-studies/LINUX_TCP_UAF_2026.md). Here it serves as the clearest evidence that MPTCP exposure is not an abstract concern: a dormant feature decided whether a kernel bug was an outage or a breach.
 
 ## Part 3: how to check your exposure, and why
 
@@ -265,13 +265,13 @@ Reading the lab output against the table above: `CONFIG_MPTCP=y` answers Questio
 - **What in use looks like:** a LISTEN row in `ss -Mlan` puts the host on the last row of the table; nonzero MPTcpExt counters show MPTCP traffic has been seen since boot and call for a closer look (re-check across a business cycle, as Question 3 says) before switching MPTCP off.
 - **What reduced looks like:** `0` from `/proc/sys/net/mptcp/enabled` after the change in Part 4, and still no MPTCP sockets.
 
-An empty socket list is a snapshot. For CVE-2026-98432 it means the configuration in which the remote-code-execution exploit was reported is absent at that moment, while the plain IPv4 TCP crash path remains; Red Hat's bulletin for that CVE treats a result with no MPTCP listeners as informational, not as reassurance. The full kernel, Multipath TCP and exposure checks for that CVE, with the bridge mitigation and the post-patch check, are in [How to check your own host](/case-studies/LINUX_TCP_UAF_2026.md#how-to-check-your-own-host) in the companion study.
+An empty socket list is a snapshot. For CVE-2026-98432 it means the host the one demonstrated reliable remote-code-execution exploit needed is absent at that moment, while the plain IPv4 TCP flaw remains, which Red Hat scores as a possible crash, corruption or code execution; its bulletin for that CVE treats a result with no MPTCP listeners as informational, not as reassurance. The full kernel, Multipath TCP and exposure checks for that CVE, with the bridge mitigation and the post-patch check, are in [How to check your own host](/case-studies/LINUX_TCP_UAF_2026.md#how-to-check-your-own-host) in the companion study.
 
 ## Part 4: reducing the surface safely
 
 ### The change
 
-On a host that is enabled but idle, the reduction is one setting. Runtime, taking effect immediately but not surviving a reboot:
+On a host that is enabled but idle, the reduction is one setting. Runtime, applied at once but governing only sockets created afterwards (a service already listening with MPTCP keeps its sockets until it restarts), and not surviving a reboot:
 
 ```bash
 sudo sysctl -w net.mptcp.enabled=0
@@ -294,7 +294,7 @@ Because `net.mptcp.enabled` is per network namespace, setting it in the host roo
 
 ### What disabling does, and does not, fix
 
-Disabling MPTCP removes the MPTCP code path from an attacker's reach. That closes the MPTCP-native flaws (the use-after-free, leak and exhaustion class in Part 2) on that host, and it removes the amplification path, so a bug like CVE-2026-98432 drops from its reported remote-code-execution worst case back to its plain-TCP outcome. What it does not do is patch the underlying plain-TCP bug where one exists: CVE-2026-98432's crash-and-corruption path on plain IPv4 TCP remained reachable with MPTCP off, and only the kernel patch closed it. Disabling MPTCP is therefore a reduction in reachability and severity, a standing control that shrinks the surface, not a substitute for patching the kernel.
+Disabling MPTCP removes the MPTCP code path from an attacker's reach. That closes the MPTCP-native flaws (the use-after-free, leak and exhaustion class in Part 2) on that host, and it removes the heap-control amplifier, so a bug like CVE-2026-98432 loses the one demonstrated reliable remote-code-execution path and falls back to the plain IPv4 TCP flaw. What it does not do is patch that flaw where one exists: CVE-2026-98432 remained reachable on plain IPv4 TCP with MPTCP off, which Red Hat scores as a possible crash, corruption or code execution, and only the kernel patch closed it. Disabling MPTCP is therefore a reduction in reachability and severity, a standing control that shrinks the surface, not a substitute for patching the kernel.
 
 ### Build-time removal
 
@@ -324,7 +324,7 @@ MPTCP is a clean example of a kind of risk that standard vulnerability managemen
 - RFC 8684 (Multipath TCP version 1) and the earlier RFC 6824 (version 0), for the protocol's purpose and design.
 - Red Hat's vulnerability page for CVE-2026-31669, for the use-after-free in IPv6 subflow child sockets, the "at least a denial of service via kernel crash" and "memory corruption class" impact statements, the CVSS 7.5 rating against cve.org's 9.8, and the statements that there is no known attack scenario and no confirmed practical trigger under default configurations.
 - Kernel stable-tree advisories and distribution vendor trackers for the other MPTCP flaws cited (CVE-2026-80588 receive-path memory growth, CVE-2025-40258 race-condition use-after-free, CVE-2022-50071 subflow resource leak with its `net.mptcp.enabled=0` workaround, and CVE-2021-47152 data-stream corruption); third-party aggregators were found to disagree on attack vector and severity, so the authoritative advisory governs in each case.
-- The companion TeamStarWolf case study on CVE-2026-98432, for the IPv4 TCP use-after-free, its dependence on an MPTCP listener for the reported remote-code-execution outcome versus denial of service otherwise, and the grading of that exploit claim as Reported.
+- The companion TeamStarWolf case study on CVE-2026-98432, for the IPv4 TCP use-after-free, the MPTCP listener that supplied the heap control the one demonstrated remote-code-execution exploit needed, and the grading of that exploit claim as Reported.
 - Red Hat security bulletin RHSB-2026-016 for CVE-2026-98432, opened 3 November 2026, for its statement that a result with no MPTCP listeners is informational rather than reassurance.
 - Command output captured on a lab host running Kali 2026.2 with kernel 7.1.5 on 3 November 2026, for the screenshot and the lab readings in How to check whether a host uses Multipath TCP.
 

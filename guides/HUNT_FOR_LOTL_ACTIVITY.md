@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 9 min (2,053 words at 230 words a minute)
+About 10 min (2,186 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -78,6 +78,8 @@ Pull the LOLBAS catalog's machine-readable feed, `https://lolbas-project.github.
 | `certutil.exe` | `C:\Windows\System32\certutil.exe` | [T1105](https://attack.mitre.org/techniques/T1105/), [T1140](https://attack.mitre.org/techniques/T1140/) per its [LOLBAS entry](https://lolbas-project.github.io/lolbas/Binaries/Certutil/) |
 | `regsvr32.exe` | `C:\Windows\System32\regsvr32.exe` | [T1218.010](https://attack.mitre.org/techniques/T1218/010/) per its [LOLBAS entry](https://lolbas-project.github.io/lolbas/Binaries/Regsvr32/) |
 | `wmic.exe` | `C:\Windows\System32\wbem\wmic.exe` | [T1047](https://attack.mitre.org/techniques/T1047/) (WMI); its [LOLBAS entry](https://lolbas-project.github.io/lolbas/Binaries/Wmic/) adds T1218 and T1105 |
+
+WMIC is legacy. Microsoft [removed it as a Feature on Demand on Windows 11, version 24H2 and later](https://learn.microsoft.com/en-us/windows/whats-new/deprecated-features) (it has been disabled by default since January 2024), so it is absent on current builds. Keep `wmic.exe` in your trio only if your estate still runs it (older Windows, or Windows Server releases that still ship it); on 24H2+ hosts swap in a binary that is actually present, such as `rundll32.exe` or `mshta.exe`, and treat `wmic.exe` appearing at all as its own signal.
 
 Then write the hypothesis down, one sentence per binary, in the hunt template's format. Example: *"If an adversary is using certutil.exe for ingress tool transfer (T1105), we will see certutil executions from parent processes or user accounts outside the baseline we establish in Step 3."* Give the hunt an ID, a date range, and a host scope.
 
@@ -174,7 +176,7 @@ Watch out: If a query returns pages of results, the baseline is incomplete; go b
 Work every row to a disposition, using the hypothesis template's findings section from the [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md):
 
 - Benign, explained: a legitimate use the baseline missed. Add it to the baseline table with a justification and an owner.
-- Benign, unexplained: nobody can say why it runs. That is a hygiene finding (shadow tooling, a stale scheduled task, an over-broad admin habit); route it to IT with a ticket.
+- Unexplained (open): nobody can yet say why it runs, so it is not cleared as benign. Treat it as a hygiene finding (shadow tooling, a stale scheduled task, an over-broad admin habit), route it to IT with a ticket, and keep it open until an owner and a justification are established.
 - Suspicious: no legitimate explanation and the context is wrong (odd hours, odd host, odd account). Escalate through your incident process (see [IR Playbooks](/IR_PLAYBOOKS.md)) and preserve the evidence before touching the host.
 
 Corroborate before you conclude. Pivot each suspicious hit to the surrounding session: the logon event, what the account did before and after, PowerShell 4104 content, and network events for the same process. The [LOTL Detection Reference](/LOTL_DETECTION_REFERENCE.md) warns that actors manipulate process ancestry, so never let a parent-child pair carry the whole verdict alone.
@@ -185,7 +187,7 @@ Watch out: Baseline rot. Every "benign, explained" addition needs a named owner 
 
 ## Step 6: Validate the logic in a lab
 
-Before trusting the queries, prove they fire. Atomic Red Team publishes small, technique-mapped tests; for this hunt the relevant technique IDs are T1105 (certutil), T1218.010 (regsvr32), and T1047 (wmic). Using the [Invoke-AtomicRedTeam documentation](https://github.com/redcanaryco/invoke-atomicredteam/wiki), list what is available with `Invoke-AtomicTest T1218.010 -ShowDetailsBrief` and check dependencies with `-CheckPrereqs`; follow the project's own execution and cleanup instructions for the tests you select.
+Before trusting the queries, prove they fire. Atomic Red Team publishes small, technique-mapped tests; for this hunt the relevant technique IDs are T1105 (certutil), T1218.010 (regsvr32), and T1047 (wmic). The WMI/wmic tests need a lab host where WMIC is still present; on Windows 11 24H2 and later they will not run, so substitute the binary you chose in Step 1. Using the [Invoke-AtomicRedTeam documentation](https://github.com/redcanaryco/invoke-atomicredteam/wiki), list what is available with `Invoke-AtomicTest T1218.010 -ShowDetailsBrief` and check dependencies with `-CheckPrereqs`; follow the project's own execution and cleanup instructions for the tests you select.
 
 Run tests only on the isolated lab host from your checklist, with written authorization; this is detection validation, not an exercise in tradecraft, so stay at the level of the tool's documented workflow. After each test, run your Step 4 queries against the lab telemetry and confirm the execution appears with parent, user, and command line intact.
 
@@ -238,7 +240,7 @@ Watch out: Broad `CommandLine|contains` matches drown the SOC; prefer image-plus
 - Each deployed rule fired on its lab validation test before it ever fired in production.
 - The hunt report answers the hypothesis explicitly: confirmed, refuted, or blocked by a telemetry gap; and telemetry gaps became tickets.
 - At least one finding left the hunt as something durable: a new detection, a baseline entry with an owner, or a hardening ticket.
-- Rerunning the whole procedure on three new catalog binaries would take you half the time; the process, not the queries, is the deliverable.
+- Rerunning the whole procedure on three new catalog binaries goes faster each time; the process, not the queries, is the deliverable.
 
 ## Go deeper
 

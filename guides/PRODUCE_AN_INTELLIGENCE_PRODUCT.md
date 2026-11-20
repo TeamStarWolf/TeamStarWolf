@@ -23,7 +23,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 16 min (3,629 words at 230 words a minute)
+About 16 min (3,727 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -97,7 +97,7 @@ Now decide *where the answer could come from* before you go looking, so you coll
 
 2. Lead with internal telemetry. What already happened in your environment outranks any external claim. Pull relevant history from the SIEM and past incidents first.
 3. Layer external sources by type: OSINT and government advisories (free, high-signal), ISAC/ISAO sharing communities, commercial finished intelligence, and structured feeds. For automated feeds, poll a TAXII 2.1 server into your TIP rather than copy-pasting; the [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md) covers STIX/TAXII ingestion, and [OSINT Reference](/OSINT_REFERENCE.md) covers pivoting techniques for the infrastructure questions. For the current public week, the [Intelligence Hub](https://teamstarwolf.github.io/intelligence-hub/) is the library's own lead list (publisher feeds, KEV, and CVE briefs). Treat each item as a lead with the hub's exploitation label still attached, and grade it in Step 3. [How to read the hub](/THREAT_INTELLIGENCE_REFERENCE.md#the-public-intelligence-hub) is the rule for what those labels mean.
-4. Record source and TLP at the moment of collection. Where each datum came from and how you may share it are metadata you cannot reconstruct later; capture them now.
+4. Record source, exact dataset or feed version, and TLP at the moment of collection. Where each datum came from, which release it came from, and how you may share it are metadata you cannot reconstruct later; capture them now.
 5. Decision point: collect or task? If a sub-question has no source, either accept the gap and caveat it in the product, or raise a Request for Information (RFI) to a peer, ISAC, or vendor. Naming the gap is itself a finding.
 
 Checkpoint: A collection plan where every sub-question maps to at least one source or an explicit gap, and raw material is landing in your TIP or working folder with source and TLP attached.
@@ -109,7 +109,7 @@ Watch out: Collection without a plan becomes feed-hoarding (thousands of indicat
 Raw data is not intelligence. Normalize it, strip the noise, enrich it, and, critically, grade it, so the analysis in Step 4 weights each input by how much it deserves.
 
 1. Normalize and deduplicate. Parse indicators into consistent types, merge duplicates, and run candidate IOCs against a known-good list: [MISP warninglists](https://github.com/MISP/misp-warninglists) flags CDNs, cloud ranges, and popular sites so you do not "discover" that `8.8.8.8` is in a feed.
-2. Enrich each indicator once, from many sources. Aggregate enrichment through a tool like [IntelOwl](https://github.com/intelowlproject/IntelOwl) or [Cortex](https://github.com/TheHive-Project/Cortex) rather than pivoting site by site: reputation (VirusTotal), passive DNS, WHOIS age, and sandbox behavior in one pass. Keep hostile URLs and hashes defanged in notes (`hxxps://bad[.]example`).
+2. Enrich each indicator once, from many sources. Aggregate enrichment through a tool like [IntelOwl](https://github.com/intelowlproject/IntelOwl) or [Cortex](https://github.com/TheHive-Project/Cortex) rather than pivoting site by site: reputation (VirusTotal), passive DNS, WHOIS age, and sandbox behavior in one pass. Use only approved enrichment services, and check an indicator's TLP and sharing restriction before you submit it: uploading a sample or querying a domain discloses it to that provider, which a sensitive indicator's handling may forbid. Keep hostile URLs and hashes defanged in notes (`hxxps://bad[.]example`).
 3. Grade source reliability and information credibility with the Admiralty (NATO AJP-2.1) code, a two-character grade on every source and claim ([SANS: the Admiralty System for CTI](https://www.sans.org/blog/enhance-your-cyber-threat-intelligence-with-the-admiralty-system)):
 
    | Source reliability | | Information credibility | |
@@ -133,7 +133,7 @@ This is where data becomes judgment. Resist the pull to pattern-match to the act
    - [Cyber Kill Chain](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html): *where in the sequence* is the activity (recon -> weaponization -> delivery -> exploitation -> installation -> C2 -> actions on objectives)? Good for spotting how early you can intervene.
    - [Diamond Model](https://www.threatintel.academy/diamond/): the four vertices *adversary, capability, infrastructure, victim* and the edges between them. This is your pivoting engine: a known C2 domain (infrastructure) links to a malware family (capability) links to other victims, expanding the picture from one indicator.
    - [MITRE ATT&CK](https://attack.mitre.org/): the shared vocabulary for *adversary behavior*. Map observed activity to techniques and sub-techniques; this is the mapping that carries straight into detection in Step 6, so it is not optional.
-2. Run Analysis of Competing Hypotheses (ACH) for any attribution or "what is this" question. List the plausible hypotheses (always include a mundane one and "a different actor is mimicking X"), lay the graded evidence against each in a matrix, and look for evidence that disconfirms hypotheses rather than confirms your favorite. The hypothesis with the least disconfirming evidence wins; that discipline is what separates analysis from a hunch (see the structured-analytic-techniques material referenced in the [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md)).
+2. Run Analysis of Competing Hypotheses (ACH) for any attribution or "what is this" question. List the plausible hypotheses (always include a mundane one and "a different actor is mimicking X"), lay the graded evidence against each in a matrix, and look for evidence that disconfirms hypotheses rather than confirms your favorite. The hypothesis with the least disconfirming evidence wins; that discipline is what separates analysis from a hunch. Record the hypotheses that survive, and any you could not resolve, in the product so the reader sees what the evidence did not settle (see the structured-analytic-techniques material referenced in the [Threat Intelligence Reference](/THREAT_INTELLIGENCE_REFERENCE.md)).
 3. Build an ATT&CK Navigator layer as your working coverage artifact: the same file feeds the detection conversation in Step 6. Keep the format to the current Navigator schema:
 
    ```json
@@ -148,7 +148,7 @@ This is where data becomes judgment. Resist the pull to pattern-match to the act
    }
    ```
 
-   Pin the layer to the ATT&CK version you analyzed against (v20 is the current release, published October 13, 2026; record it, because technique IDs and tactics move between versions: Defense Evasion, for instance, split in v19). Confirm the layer-format field against the current [ATT&CK Navigator](https://github.com/mitre/attack-navigator) before importing.
+   Pin the layer to the ATT&CK version you analyzed against (v20.1 is the current release, published October 13, 2026; record it, because technique IDs and tactics move between versions: Defense Evasion, for instance, split into Stealth and Defense Impairment in v19). Confirm the layer-format field against the current [ATT&CK Navigator](https://github.com/mitre/attack-navigator) before importing.
 4. State likelihood in calibrated estimative language, and keep it separate from confidence. Use the ODNI [ICD 203](https://www.intelligence.gov/assets/documents/intelligence-community-directives/ICD_203.pdf) yardstick so "likely" means the same thing to every reader:
 
    | Term | Probability | Term | Probability |
@@ -183,7 +183,7 @@ Watch out: Burying the lede kills the product. If the reader has to reach page t
 This is the half most CTI programs skip, and it is where intelligence becomes defense. Convert the product's findings into things the SOC runs, deliberately preferring durable behaviors over perishable indicators.
 
 1. Split the findings into IOCs and behaviors, and prioritize behaviors. Indicators (IPs, domains, hashes) are cheap to deploy but rot in days: the actor rotates infrastructure. Behaviors (ATT&CK techniques) are what the adversary must keep doing; a detection for the *technique* survives the actor changing domains. Climb the "pyramid of pain": IOC blocks first because they are free, technique detections next because they hurt the adversary.
-2. Route the IOCs into controls with an expiry. Push graded indicators from the TIP to the SIEM watchlist, firewall, and DNS/email gateways, but set a review or expiration date so a stale block does not become permanent invisible risk. The [SIEM Reference](/SIEM_REFERENCE.md) covers ingestion; watchlist hygiene matters as much as the block.
+2. Route the IOCs into controls with an expiry. Push graded indicators from the TIP, but follow your approved block policy: send only indicators above your confidence threshold, start with a monitoring watchlist, require human review before a hard block on the firewall or DNS/email gateways, and set a review or expiration date so a stale block does not become permanent invisible risk. The [SIEM Reference](/SIEM_REFERENCE.md) covers ingestion; watchlist hygiene matters as much as the block.
 3. Turn behaviors into detections with your engineering counterpart. Each prioritized technique becomes a candidate Sigma rule, audited and tuned before it pages anyone; that full procedure is [Build and Deploy Your First Detection](/guides/BUILD_YOUR_FIRST_DETECTION.md), and the doctrine is the [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md). Hand over the technique ID, the observable behavior, and any sample telemetry; check the [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md) for logic that may already exist.
 4. Package the handoff as structured data, not prose. A STIX 2.1 bundle linking indicators to the attack patterns they belong to makes the handoff machine-ingestible and unambiguous:
 

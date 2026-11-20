@@ -18,7 +18,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 20 min (4,619 words at 230 words a minute)
+About 20 min (4,650 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -897,9 +897,9 @@ On the Intelligence Hub: [CVE-2017-0144 brief](https://teamstarwolf.github.io/in
 
 <!-- hub-links:end -->
 
-Affected: Windows XP through Server 2016 (SMBv1)
-CVSS v2: 8.1 HIGH (practical severity ~10.0; wormable)
-CWE: CWE-119 (Improper Memory Restriction)
+Affected: Windows Vista SP2 through Server 2016 (SMBv1); XP and Server 2003 received an out-of-band patch after WannaCry
+CVSS v2: 9.3 HIGH; CVSS v3.1: 8.8 HIGH (NVD) (practical severity ~10.0; wormable)
+CWE: none assigned by NVD; a buffer overflow in SMBv1 (CWE-119 class)
 Origin: NSA ETERNALBLUE leaked by Shadow Brokers, April 14, 2017
 Patched: March 14, 2017 (MS17-010), one month before leak
 
@@ -1000,7 +1000,7 @@ On the Intelligence Hub: [CVE-2023-4966 brief](https://teamstarwolf.github.io/in
 <!-- hub-links:end -->
 
 Affected: Citrix NetScaler ADC and Gateway
-CVSS: 9.4 CRITICAL | AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N
+CVSS: 9.4 CRITICAL (Citrix CNA) AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:L; 7.5 HIGH (NVD base, confidentiality only)
 CWE: CWE-125 (Out-of-bounds Read)
 Exploited: 0-day before patch; mass exploitation November 2023
 

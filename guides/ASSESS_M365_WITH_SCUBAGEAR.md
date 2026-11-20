@@ -23,7 +23,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 10 min (2,198 words at 230 words a minute)
+About 10 min (2,204 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -94,7 +94,7 @@ Install-ScubaDependencies
 Invoke-SCuBA -Version
 ```
 
-`Install-ScubaDependencies` pulls the required `powershell-yaml` module and downloads the Open Policy Agent executable to `C:\Users\<you>\.scubagear\Tools`; `Microsoft.Graph.Authentication` comes in separately as a manifest dependency of ScubaGear itself. The older `Initialize-SCuBA` command also installs the dependencies.
+`Install-ScubaDependencies` pulls the one required module, `powershell-yaml`, and downloads the Open Policy Agent executable to `C:\Users\<you>\.scubagear\Tools` and the MSAL assemblies, used for Microsoft Graph authentication, to `C:\Users\<you>\.scubagear\MSAL`. The older `Initialize-SCuBA` command still works as a backward-compatible alias.
 
 Checkpoint: `Invoke-SCuBA -Version` prints a version number without errors.
 

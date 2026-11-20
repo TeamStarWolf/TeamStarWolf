@@ -398,7 +398,7 @@ Key ATLAS Tactics and Techniques
 | Initial Access | AML.T0012 - Valid Accounts | Compromising API keys for ML services |
 | Execution | AML.T0011 - User Execution | Malicious PyPI/Conda package injecting backdoor |
 | Evasion | AML.T0015 - Evade AI Model | Adversarial examples bypassing image classifier |
-| Exfiltration | AML.T0137.002 - Invert AI Model | Model inversion to reconstruct training data |
+| Collection | AML.T0137.002 - Invert AI Model | Model inversion to reconstruct training data |
 | Impact | AML.T0031 - Erode AI Model Integrity | Poisoning deployed model's behavior |
 
 Security AI Applications and Their Attack Surfaces

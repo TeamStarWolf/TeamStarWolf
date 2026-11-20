@@ -21,7 +21,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 11 min (2,481 words at 230 words a minute)
+About 11 min (2,574 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -58,7 +58,7 @@ No review recorded yet
 ## Before you start
 
 - [ ] Read the lens model in the [ATT&CK Matrix Analysis Reference](/ATTACK_MATRIX_ANALYSIS_REFERENCE.md): this guide operationalizes its five lens families and its eight-pass analysis workflow.
-- [ ] Skim the [Threat Group Profiles](/THREAT_GROUP_PROFILES.md): the 168 tracked ATT&CK groups you will scope from.
+- [ ] Skim the [Threat Group Profiles](/THREAT_GROUP_PROFILES.md): the ATT&CK groups you will scope from (the profiles track the current ATT&CK group set rather than a fixed count).
 - [ ] Skim the two precomputed reports you will reconcile against: the [ATT&CK Priority Gap Analysis](/scores/attack_priority_gaps.md) and the [vendor-stack Coverage Gap Analysis](/scores/coverage_gaps.md).
 - [ ] Know where the layers live: the [Navigator layer index](/navigator/index.md) lists every hosted heatmap with one-click load links.
 - [ ] Confirm you can open the [MITRE ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) in a browser; keep the official [Navigator usage doc](https://github.com/mitre-attack/attack-navigator/blob/master/USAGE.md) handy.
@@ -106,7 +106,7 @@ Watch out: Layers must share the same domain and ATT&CK version to be combined. 
 Now bring in the defensive side: how deeply NIST 800-53 controls (via CTID mappings) cover each technique.
 
 1. In a new Navigator tab, choose Open Existing Layer -> load from URL and paste the master coverage layer: `https://raw.githubusercontent.com/TeamStarWolf/TeamStarWolf/main/navigator/teamstarwolf_vendor_coverage.json` (it is also the first row of the [Navigator layer index](/navigator/index.md), with a one-click load link).
-2. The layer scores every live ATT&CK v20.0 technique that has at least one mapped NIST 800-53 R5 control by control depth (the layer index gives the current count). Use the score-interpretation table in the [layer index](/navigator/index.md): roughly, 20+ means broad control coverage, 1-9 means thin.
+2. The layer scores every live ATT&CK v20.0 technique that has at least one mapped NIST 800-53 R5 control by control depth (the layer index gives the current count). Use the score-interpretation table in the [layer index](/navigator/index.md): roughly, 20+ means many mapped controls, 1-9 means few. Read this as the count of CTID-mapped controls, not as proof any of them is deployed or tested in your environment.
 3. The layer is pinned to ATT&CK v20 (v20.0 technique IDs and tactics, including Stealth and Defense Impairment). If Navigator offers its layer upgrade interface (for example because the hosted Navigator has moved to a newer release, or your threat layer is on an older one), bring both layers to the same version, review the techniques it flags as added, changed, or removed, and click done. You need both on the same ATT&CK version before Step 5.
 
 Checkpoint: Two aligned layers open side by side (threat scores in one tab, NIST control depth in the other, both on the same ATT&CK version).
@@ -125,7 +125,7 @@ This is the money step: techniques that are heavily used and thinly covered.
 
 Checkpoint: A layer named like `priority-gaps-2026Q3` whose reddest cells are simultaneously popular with your adversaries and under-covered by controls.
 
-Watch out: Gradient shading is normalized to the maximum in view (the doctrine's "normalize thoughtfully" rule). If you change platform filters after scoring, the colors re-normalize and two screenshots become incomparable. Lock filters before you export anything.
+Watch out: Gradient shading maps scores linearly between the layer's configured low and high values (the doctrine's "normalize thoughtfully" rule). If you change platform filters or those bounds after scoring, the colors shift and two screenshots become incomparable. Lock filters and gradient bounds before you export anything.
 
 ## Step 6: Cross-check the gaps in ATT&CK-Navi's heatmap modes
 <a id="step-6-cross-check-the-gaps-in-attack-navi39s-heatmap-modes"></a>
@@ -193,7 +193,7 @@ Watch out: Resource Development and Reconnaissance techniques (T1588.002 tops th
 1. In Navigator's layer controls, use download layer as json on the Step 5 layer; this JSON is the assessment's reproducible artifact. Commit it beside the others under `navigator/` in your fork or team repo, named with the quarter.
 2. Use export to excel for the working copy owners will edit, and render layer to SVG for the leadership snapshot.
 3. Schedule the re-run: quarterly, or immediately when ATT&CK ships a new version or your threat model changes. Re-running is Steps 2-5 with the saved JSON reloaded via Open Existing Layer.
-4. Measure closure over time: combine last quarter's layer (`a`) and this quarter's (`b`) with the score expression `a-b`; positive cells are gaps you closed, negative cells are new exposure. Feed the trend into your program metrics per the [Security Metrics Reference](/SECURITY_METRICS_REFERENCE.md).
+4. Measure closure over time: combine last quarter's layer (`a`) and this quarter's (`b`) with the score expression `a-b`; positive cells moved toward coverage and negative cells toward exposure. Treat that as a change in the heatmap, not proof: it only compares if `a` and `b` used the same scope, ATT&CK version, and scoring inputs, and a cell is a genuinely closed gap only when local implementation and test evidence confirm the control works, not because the score moved. Feed the trend into your program metrics per the [Security Metrics Reference](/SECURITY_METRICS_REFERENCE.md).
 
 Checkpoint: A committed layer JSON, an Excel register in owners' hands, an SVG in the deck, and a calendar entry for the next run.
 

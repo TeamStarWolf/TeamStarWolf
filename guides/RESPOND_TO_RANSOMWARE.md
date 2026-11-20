@@ -6,7 +6,7 @@
 |---|---|---|---|
 | First 24-72 hours of the incident (steps run in parallel after Step 3) | Advanced: decisions under pressure, some irreversible | EDR/SIEM access, out-of-band comms, printed contact card, your IR plan | Contained systems, preserved evidence, filed law-enforcement and insurer reports, an OFAC-screened payment decision, restoration underway in tested order |
 
-This guide operationalizes the response checklist in Part 2 of the [#StopRansomware Guide](https://www.cisa.gov/stopransomware/ransomware-guide) (CISA/MS-ISAC/NSA/FBI, October 2023). The full NIST-lifecycle procedure with investigation tables, negotiation guidance, and AD-rebuild detail is the library's [IR Playbooks: Ransomware](/IR_PLAYBOOKS.md); the program you should have built before today is the [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md). This guide sequences those two documents for the first three days; it does not replace them.
+This guide operationalizes the response checklist in Part 2 of the [#StopRansomware Guide](https://www.cisa.gov/stopransomware/ransomware-guide) (CISA/MS-ISAC/NSA/FBI; the current version is the 2023 revision). The full NIST-lifecycle procedure with investigation tables, negotiation guidance, and AD-rebuild detail is the library's [IR Playbooks: Ransomware](/IR_PLAYBOOKS.md); the program you should have built before today is the [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md). This guide sequences those two documents for the first three days; it does not replace them.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -23,7 +23,7 @@ Advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 12 min (2,693 words at 230 words a minute)
+About 12 min (2,788 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -97,7 +97,7 @@ Watch out: Well-meaning admins deleting ransom notes, re-imaging machines, or ru
 
 Encryption is the end of the intrusion, not the start. The actor has typically been inside for days to weeks, and the public advisory stream is your fastest map of what they likely did.
 
-1. Identify the family. Upload a ransom note and an encrypted file sample to [ID Ransomware](https://id-ransomware.malwarehunterteam.com/) or No More Ransom's [Crypto Sheriff](https://www.nomoreransom.org/crypto-sheriff.php?lang=en). The family name unlocks everything else. Family profiles: [Malware Families](/MALWARE_FAMILIES.md).
+1. Identify the family. [ID Ransomware](https://id-ransomware.malwarehunterteam.com/) and No More Ransom's [Crypto Sheriff](https://www.nomoreransom.org/crypto-sheriff.php?lang=en) match the family from a ransom note and a sample encrypted file (not a malware binary). Preserve your originals first, and note these are third-party uploads that do not guarantee confidentiality: do not submit a note or file that itself carries sensitive data, and where your IR plan requires it, clear external submissions with counsel. The family name unlocks everything else. Family profiles: [Malware Families](/MALWARE_FAMILIES.md).
 2. Pull the matching #StopRansomware advisory from [stopransomware.gov](https://www.cisa.gov/stopransomware): the AA-numbered joint advisories carry ATT&CK-mapped TTPs (pinned to a stated ATT&CK version), IOCs with STIX downloads, and mitigations. How to read one: the advisory-anatomy section of the [Ransomware Defense Reference](/RANSOMWARE_DEFENSE_REFERENCE.md).
 3. Form the initial-access hypothesis. Review VPN/RDP and edge-appliance logs for the prior 30-60 days, and diff your internet-facing services against the [KEV catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) entries flagged `knownRansomwareCampaignUse: Known`. Exposed, unpatched KEV entries are the most common way affiliates buy or gain entry.
 4. Hunt the precursors and the spread. Search for precursor malware the guide names (QakBot-class loaders), lateral-movement fan-out, new privileged accounts, and persistence. Detection logic per technique: [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md).
@@ -113,9 +113,9 @@ This is the checklist's Reporting and Notification phase, and it runs in paralle
 
 1. Engage legal counsel first and route the investigation through them (privilege matters for everything that follows).
 2. Notify your cyber insurer against the policy clock: many policies require notice within 24-72 hours and require use of approved DFIR/negotiation panels.
-3. Report to CISA: [cisa.gov/report](https://www.cisa.gov/report) (the incident reporting portal: it currently forwards to the CISA Incident Reporting Form at myservices.cisa.gov/irf), Central@cisa.dhs.gov (the reporting address the #StopRansomware Guide lists), or 1-844-SAY-CISA (1-844-729-2472). CISA can provide no-cost technical assistance.
+3. Report to CISA: [cisa.gov/report](https://www.cisa.gov/report) (the incident reporting portal: it currently forwards to the CISA Incident Reporting Form at myservices.cisa.gov/irf), central@cisa.gov (CISA's current reporting email), or 1-844-SAY-CISA (1-844-729-2472). CISA can provide no-cost technical assistance.
 4. Report to the FBI via your local [field office](https://www.fbi.gov/contact-us/field-offices) and file with [IC3](https://www.ic3.gov/). The FBI sometimes holds decryption keys for specific variants; reporting does not obligate any decision about payment. Financial-fraud angles can also go to the [U.S. Secret Service](https://www.secretservice.gov/contact/field-offices).
-5. SLTT organizations: also engage MS-ISAC: soc@msisac.org or 866-787-4722.
+5. SLTT organizations: also engage MS-ISAC: soc@cisecurity.org or 866-787-4722.
 6. Brief leadership on a cadence (the guide: keep management and senior leaders informed via regular updates) and hold all public statements until counsel approves. Full escalation and regulatory-deadline tables: [IR Playbooks](/IR_PLAYBOOKS.md).
 
 Checkpoint: Counsel is engaged, the insurer notification is timestamped inside the policy window, CISA and FBI reports are filed with report numbers recorded, and a leadership update cadence exists.
@@ -166,7 +166,7 @@ Watch out: Backups made during the dwell window can contain the attacker's tooli
 
 ## Step 8: Close out the first 72 hours
 
-1. Work the breach-notification question with counsel against the deadlines that apply to you; several regimes are measured in hours or days (e.g., GDPR's 72-hour supervisory notification; the SEC's four-business-day Form 8-K for public companies). The regulatory deadline table is in [IR Playbooks](/IR_PLAYBOOKS.md).
+1. Work the breach-notification question with counsel against the deadlines that apply to you; several regimes are measured in hours or days (for example GDPR's notification to the supervisory authority within 72 hours of becoming aware of a breach, and the SEC's Form 8-K within four business days after a public company determines an incident is material). Start this assessment alongside containment, back in Step 4, not at hour 72: the clocks run from their triggering event, not from when you finish responding. The regulatory deadline table is in [IR Playbooks](/IR_PLAYBOOKS.md).
 2. Deliver the stakeholder communications your plan pre-drafted (employees, customers, partners): factual, counsel-approved, and consistent with what you told regulators.
 3. Consider sharing indicators of compromise with CISA to help the next victim, as the guide's recovery phase suggests.
 4. Schedule the after-action review while memories are fresh (the library standard: lessons-learned within 14 days, written AAR with owners and deadlines), and open tracked remediation work for every control gap the incident exposed.

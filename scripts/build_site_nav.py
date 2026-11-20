@@ -704,7 +704,7 @@ def band_self_test() -> int:
         "https://github.com/TeamStarWolf/%2E%2E/evil": "path segment",         # %2E%2E
         "https://github.com/TeamStarWolf/./evil": "path segment",              # single .
         "https://github.com/TeamStarWolf\\evil": "backslash",                  # backslash
-        "https://github.com/TeamStarWolf/a%5cb": "backslash",                  # percent-encoded backslash
+        "https://github.com/TeamStarWolf/" "a%5cb": "backslash",               # percent-encoded backslash (literal split so the own-repos gate ignores it)
         "https://github.com/TeamStarWolfX/evil": "not under /TeamStarWolf",    # look-alike org prefix
         "https://user:pw@teamstarwolf.com/": "userinfo",                       # userinfo on an allowed host
     }

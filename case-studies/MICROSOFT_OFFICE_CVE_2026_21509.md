@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 16 min (3,744 words at 230 words a minute)
+About 17 min (3,857 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -88,7 +88,7 @@ The people who carried this one were the staff and IT teams of Ukrainian central
 ### Top recommendations
 
 1. Make sure every Microsoft 365 Apps and Office 2021+ session has restarted since 26 January 2026 [1] (**Confirmed** as Microsoft's statement).
-2. Move Office 2016 to build 16.0.5539.1001 (KB5002713, MSI) and Office 2019 to 16.0.10417.20095; treat Microsoft's registry COM compatibility block as interim only [1] [8] (**Confirmed**).
+2. Office 2016 and Office 2019 reached end of support on 14 October 2025, and Office LTSC 2021 on 13 October 2026, so none receives further security fixes; for installs that remain, the January 2026 builds (Office 2016 16.0.5539.1001, KB5002713, MSI; Office 2019 16.0.10417.20095) are a floor, not a finished state, and the durable fix is to migrate to a supported release such as Microsoft 365 Apps or Office LTSC 2024. Treat Microsoft's registry COM compatibility block as interim only [1] [8] [15] (**Confirmed**).
 3. Block or monitor traffic to Filen hosts, as CERT-UA advises [9] (**Confirmed**), and restrict outbound WebDAV from Office clients (**Inferred** from the chain in [9]).
 4. Hunt for COM hijacks of shell-extension CLSIDs, a scheduled task named OneDriveHealth and forced explorer.exe restarts [9] (**Inferred** from CERT-UA's chain).
 5. Rank Office "local" bugs by KEV status and delivery path rather than the AV:L label [1] [6] (**Inferred**).
@@ -179,7 +179,7 @@ Office documents keep returning to the KEV catalog. It lists Follina (CVE-2022-3
 
 | Control | Where it meets the record |
 |---|---|
-| Patch 2016 and 2019 by build, not by "updated" | KB5002713 is MSI-only; 2019 is Click-to-Run [2] [8] |
+| Patch 2016 and 2019 by build, then migrate off | KB5002713 is MSI-only; 2019 is Click-to-Run; 2016 and 2019 out of support since 14 Oct 2025, LTSC 2021 since 13 Oct 2026 [2] [8] [15] |
 | Use the registry block only as a bridge | Microsoft and KEV call it interim [1] [6] |
 | Block or monitor Filen; restrict outbound WebDAV | Covenant C2 and the first fetch [9] |
 | Hunt COM hijacks and odd scheduled tasks | OneDriveHealth and the explorer.exe restart [9] |
@@ -271,7 +271,7 @@ The study's techniques are saved as an ATT&CK Navigator layer pinned to ATT&CK v
 
 ## Sources
 
-All sources were opened on 11 November 2026.
+All sources were opened on 11 November 2026, except source 15, opened on 19 November 2026.
 
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|
@@ -289,6 +289,7 @@ All sources were opened on 11 November 2026.
 | 12 | Sekoia TDR, APT28 Operation Phantom Net Voxel, 16 Sep 2025 | [sekoia.com/blog/apt28-operation-phantom-net-voxel](https://www.sekoia.com/blog/apt28-operation-phantom-net-voxel) | 2026-11-11 | Reported |
 | 13 | MITRE ATT&CK, APT28 (G0007) and Covenant (S1155) pages | [attack.mitre.org/software/S1155/](https://attack.mitre.org/software/S1155/) | 2026-11-11 | Confirmed |
 | 14 | TeamStarWolf library data: `data/attack/technique_profiles.jsonl`, `groups.jsonl`, `software.jsonl`, `campaigns.jsonl`, `technique_to_d3fend.jsonl` (ATT&CK v20.0), and `data/weaknesses/cwe.jsonl` and `capec.jsonl` | [github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack) | 2026-11-11 | Confirmed |
+| 15 | Microsoft, end-of-support dates for older versions of Office (Office 2016 and Office 2019: 14 October 2025; Office LTSC 2021: 13 October 2026) | [learn.microsoft.com/en-us/microsoft-365-apps/end-of-support/plan-upgrade-older-versions-office](https://learn.microsoft.com/en-us/microsoft-365-apps/end-of-support/plan-upgrade-older-versions-office) | 2026-11-19 | Confirmed |
 
 Not opened, so not cited as sources: Lab52's NotDoor report (connection failed), and any Microsoft, Google, CERT-EU or national-agency write-up of the campaign (not located).
 

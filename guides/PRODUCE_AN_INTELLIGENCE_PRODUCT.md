@@ -23,7 +23,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 16 min (3,727 words at 230 words a minute)
+About 16 min (3,736 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -148,7 +148,7 @@ This is where data becomes judgment. Resist the pull to pattern-match to the act
    }
    ```
 
-   Pin the layer to the ATT&CK version you analyzed against (v20.1 is the current release, published October 13, 2026; record it, because technique IDs and tactics move between versions: Defense Evasion, for instance, split into Stealth and Defense Impairment in v19). Confirm the layer-format field against the current [ATT&CK Navigator](https://github.com/mitre/attack-navigator) before importing.
+   Pin the layer to the ATT&CK version you analyzed against (ATT&CK v20 was released October 13, 2026, and v20.1 is the current point release; record the version you used, because technique IDs and tactics move between versions: Defense Evasion, for instance, split into Stealth and Defense Impairment in v19). Confirm the layer-format field against the current [ATT&CK Navigator](https://github.com/mitre/attack-navigator) before importing.
 4. State likelihood in calibrated estimative language, and keep it separate from confidence. Use the ODNI [ICD 203](https://www.intelligence.gov/assets/documents/intelligence-community-directives/ICD_203.pdf) yardstick so "likely" means the same thing to every reader:
 
    | Term | Probability | Term | Probability |

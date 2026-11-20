@@ -196,7 +196,7 @@ sigma convert -t splunk -p sysmon t1053_005_schtasks_staging_path.yml
 sigma convert -t kusto -p microsoft_xdr t1053_005_schtasks_staging_path.yml
 ```
 
-The `microsoft_xdr` pipeline emits KQL against the advanced-hunting tables that Microsoft Sentinel also receives through the Defender XDR connector; the backend's `sentinelasim` pipeline (Sentinel ASIM tables) exists but is flagged beta in the [backend's documentation](https://github.com/AttackIQ/pySigma-backend-kusto). Run `sigma list pipelines` and `sigma list formats splunk` to see every identifier your install supports, and add `-o <file>` to write the query to disk.
+The `microsoft_xdr` pipeline emits KQL against the advanced-hunting tables that Microsoft Sentinel also receives through the Defender XDR connector; the backend's `sentinel_asim` pipeline (Sentinel ASIM tables) exists but is flagged beta in the [backend's documentation](https://github.com/AttackIQ/pySigma-backend-kusto). Run `sigma list pipelines` and `sigma list formats splunk` to see every identifier your install supports, and add `-o <file>` to write the query to disk.
 
 Checkpoint: Two clean conversions (an SPL query and a KQL query), each visibly containing your image, flag, and path logic.
 

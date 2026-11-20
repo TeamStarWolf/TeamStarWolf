@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 10 min (2,186 words at 230 words a minute)
+About 10 min (2,195 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -79,7 +79,7 @@ Pull the LOLBAS catalog's machine-readable feed, `https://lolbas-project.github.
 | `regsvr32.exe` | `C:\Windows\System32\regsvr32.exe` | [T1218.010](https://attack.mitre.org/techniques/T1218/010/) per its [LOLBAS entry](https://lolbas-project.github.io/lolbas/Binaries/Regsvr32/) |
 | `wmic.exe` | `C:\Windows\System32\wbem\wmic.exe` | [T1047](https://attack.mitre.org/techniques/T1047/) (WMI); its [LOLBAS entry](https://lolbas-project.github.io/lolbas/Binaries/Wmic/) adds T1218 and T1105 |
 
-WMIC is legacy. Microsoft [removed it as a Feature on Demand on Windows 11, version 24H2 and later](https://learn.microsoft.com/en-us/windows/whats-new/deprecated-features) (it has been disabled by default since January 2024), so it is absent on current builds. Keep `wmic.exe` in your trio only if your estate still runs it (older Windows, or Windows Server releases that still ship it); on 24H2+ hosts swap in a binary that is actually present, such as `rundll32.exe` or `mshta.exe`, and treat `wmic.exe` appearing at all as its own signal.
+WMIC is legacy. Microsoft began disabling the WMIC Feature on Demand by default in Windows 11 24H2 (announced January 2024) and, as of the August 2026 update, [removed it entirely from Windows 11 24H2 and later](https://learn.microsoft.com/en-us/windows/whats-new/deprecated-features), so it is absent on current builds. Keep `wmic.exe` in your trio only if your estate still runs it (older Windows, or Windows Server releases that still ship it); on 24H2+ hosts swap in a binary that is actually present, such as `rundll32.exe` or `mshta.exe`, and treat `wmic.exe` appearing at all as its own signal.
 
 Then write the hypothesis down, one sentence per binary, in the hunt template's format. Example: *"If an adversary is using certutil.exe for ingress tool transfer (T1105), we will see certutil executions from parent processes or user accounts outside the baseline we establish in Step 3."* Give the hunt an ID, a date range, and a host scope.
 

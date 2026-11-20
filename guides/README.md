@@ -1,8 +1,8 @@
-# Guides: Step-by-Step How-To's
+# Guides: Step-by-Step How-Tos
 
 > The references tell you *what*; the guides tell you *how*. Each guide is a self-contained, start-to-finish procedure with prerequisites, numbered steps, checkpoints you can verify, and links back into the library's reference docs for the depth behind each move. Pick the task you need to do today.
 
-Every guide follows the same shape: a promise and a "who this is for" up top, an at-a-glance table (time, difficulty, what you need, what you'll produce), a before you start checklist, numbered steps with a Checkpoint after each, a what good looks like section, and a go deeper list of references. Commands are verified against current official documentation; still confirm them against the live docs before production use.
+Every guide follows the same shape: a promise and a "who this is for" up top, an at-a-glance table (time, difficulty, what you need, what you'll produce), a before you start checklist, numbered steps with a Checkpoint after each, a what good looks like section, and a go deeper list of references. The commands reflect the official documentation current when each guide was reviewed; confirm them against the vendor docs for the versions you run before relying on them in production.
 
 Related: [How to Use This Library](/guides/HOW_TO_USE_THIS_LIBRARY.md), [Reference Index](/INDEX.md), [Discipline Paths](/disciplines/README.md)
 

@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 21 min (4,925 words at 230 words a minute)
+About 21 min (4,923 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -80,7 +80,7 @@ Evidence grade: the protocol behaviour and default state are **Confirmed** from 
 | How an app uses it | The application must open the socket with `IPPROTO_MPTCP` (protocol number 262) instead of `IPPROTO_TCP`; ordinary TCP code never touches MPTCP |
 | Can be forced on | Yes, without changing the application, via `mptcpize` (LD_PRELOAD), `mptcpify` (eBPF) or SystemTAP |
 | Security relevance | A large, newer kernel code path; a recurring source of memory-safety CVEs; it can upgrade the impact of a reachable kernel bug |
-| The amplifier case | CVE-2026-98432 (CVSS 9.8): Red Hat scores the IPv4 TCP use-after-free as a possible crash, corruption or code execution and says MPTCP is not a precondition, but an MPTCP listener supplied the heap control the one demonstrated remote-root exploit (Reported) needed |
+| The amplifier case | CVE-2026-98432 (CVSS 9.8): Red Hat describes the IPv4 TCP use-after-free as a possible crash, corruption or code execution and says MPTCP is not a precondition, but an MPTCP listener supplied the heap control the one demonstrated remote-root exploit (Reported) needed |
 | Safe reduction | On hosts that do not use MPTCP, set `net.mptcp.enabled=0` after confirming nothing requests it |
 | What disabling does not do | It removes the MPTCP code path from reach; it does not patch an underlying plain-TCP bug, so it reduces exposure rather than replacing patching |
 
@@ -175,7 +175,7 @@ Two things stand out. First, the list is not exhaustive and the classes repeat: 
 
 The sharpest reason to care about MPTCP exposure is not an MPTCP bug at all. It is the way MPTCP changes the value of a bug elsewhere in the stack. CVE-2026-98432 (CVSS 9.8) was a use-after-free in the IPv4 TCP connection-setup path, not in MPTCP code. Yet MPTCP changed how reliably its worst case could be reached:
 
-- Red Hat lists the plain IPv4 TCP flaw's impact as a kernel crash (denial of service), memory disclosure, memory corruption, or remote code execution, and says MPTCP "is not a precondition." Reliable code execution, though, "requires precise heap control."
+- Red Hat lists the plain IPv4 TCP flaw's impact as a kernel crash (denial of service), memory corruption, or remote code execution, and says MPTCP "is not a precondition." Reliable code execution, though, "requires precise heap control."
 - An MPTCP listener supplies that heap control, because its extra connection-management machinery gives the attacker more control over kernel allocations; the one demonstrated unauthenticated remote-code-execution chain (Reported) ran against an MPTCP host. So MPTCP raised the reliability of the worst case, not its possibility.
 
 The remote-code-execution demonstration is graded **Reported** in the companion study, resting on a single lab account that was not independently reproduced. But the structural point stands on the Confirmed record alone: Red Hat says the plain IPv4 TCP flaw can itself reach code execution and that MPTCP is not a precondition, yet the one host where a reliable root shell was demonstrated was running an MPTCP listener, because the feature supplied the heap control that reliable exploitation needs. The full account of that flaw, its two-line fix, and the AI-written exploit claim is in [the CVE-2026-98432 case study](/case-studies/LINUX_TCP_UAF_2026.md). Here it serves as the clearest evidence that MPTCP exposure is not an abstract concern: a dormant feature decided whether a kernel bug was an outage or a breach.
@@ -265,7 +265,7 @@ Reading the lab output against the table above: `CONFIG_MPTCP=y` answers Questio
 - **What in use looks like:** a LISTEN row in `ss -Mlan` puts the host on the last row of the table; nonzero MPTcpExt counters show MPTCP traffic has been seen since boot and call for a closer look (re-check across a business cycle, as Question 3 says) before switching MPTCP off.
 - **What reduced looks like:** `0` from `/proc/sys/net/mptcp/enabled` after the change in Part 4, and still no MPTCP sockets.
 
-An empty socket list is a snapshot. For CVE-2026-98432 it means the host the one demonstrated reliable remote-code-execution exploit needed is absent at that moment, while the plain IPv4 TCP flaw remains, which Red Hat scores as a possible crash, corruption or code execution; its bulletin for that CVE treats a result with no MPTCP listeners as informational, not as reassurance. The full kernel, Multipath TCP and exposure checks for that CVE, with the bridge mitigation and the post-patch check, are in [How to check your own host](/case-studies/LINUX_TCP_UAF_2026.md#how-to-check-your-own-host) in the companion study.
+An empty socket list is a snapshot. For CVE-2026-98432 it means the host the one demonstrated reliable remote-code-execution exploit needed is absent at that moment, while the plain IPv4 TCP flaw remains, which Red Hat describes as a possible crash, corruption or code execution; its bulletin for that CVE treats a result with no MPTCP listeners as informational, not as reassurance. The full kernel, Multipath TCP and exposure checks for that CVE, with the bridge mitigation and the post-patch check, are in [How to check your own host](/case-studies/LINUX_TCP_UAF_2026.md#how-to-check-your-own-host) in the companion study.
 
 ## Part 4: reducing the surface safely
 
@@ -294,7 +294,7 @@ Because `net.mptcp.enabled` is per network namespace, setting it in the host roo
 
 ### What disabling does, and does not, fix
 
-Disabling MPTCP removes the MPTCP code path from an attacker's reach. That closes the MPTCP-native flaws (the use-after-free, leak and exhaustion class in Part 2) on that host, and it removes the heap-control amplifier, so a bug like CVE-2026-98432 loses the one demonstrated reliable remote-code-execution path and falls back to the plain IPv4 TCP flaw. What it does not do is patch that flaw where one exists: CVE-2026-98432 remained reachable on plain IPv4 TCP with MPTCP off, which Red Hat scores as a possible crash, corruption or code execution, and only the kernel patch closed it. Disabling MPTCP is therefore a reduction in reachability and severity, a standing control that shrinks the surface, not a substitute for patching the kernel.
+Disabling MPTCP removes the MPTCP code path from an attacker's reach. That closes the MPTCP-native flaws (the use-after-free, leak and exhaustion class in Part 2) on that host, and it removes the heap-control amplifier, so a bug like CVE-2026-98432 loses the one demonstrated reliable remote-code-execution path and falls back to the plain IPv4 TCP flaw. What it does not do is patch that flaw where one exists: CVE-2026-98432 remained reachable on plain IPv4 TCP with MPTCP off, which Red Hat describes as a possible crash, corruption or code execution, and only the kernel patch closed it. Disabling MPTCP is therefore a reduction in reachability and severity, a standing control that shrinks the surface, not a substitute for patching the kernel.
 
 ### Build-time removal
 

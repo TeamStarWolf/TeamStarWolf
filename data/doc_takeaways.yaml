@@ -192,9 +192,9 @@ pages:
     reviewed: "2026-11-16"
     items:
       - {"text": "CVE-2026-98432 is an unauthenticated remote use-after-free in the IPv4 TCP setup path, scored 9.8, with a two-line fix.", "from": "#executive-summary", "quote": "a use-after-free in the IPv4 TCP connection-setup path that a remote, unauthenticated attacker can reach by sending crafted packets to a listening socket"}
-      - {"text": "What made it a landmark was Anthropic's report that an unreleased model wrote a working remote-root exploit in under an hour.", "from": "#executive-summary", "quote": "wrote a working zero-click remote-root exploit against servers running a Multipath TCP listener, reaching a root shell in under an hour of model time"}
+      - {"text": "What made it a landmark was Anthropic's report that an unreleased model wrote a working remote-root exploit whose proof-of-concept run reached a root shell in under an hour.", "from": "#executive-summary", "quote": "its proof-of-concept run reached a root shell in under an hour"}
       - {"text": "Two facts are kept apart: the vulnerability is confirmed, while the AI-written exploit was withheld and unreproduced.", "from": "#executive-summary", "quote": "the code and test configuration were deliberately withheld, and no independent public reproduction had appeared by late October"}
-      - {"text": "The marker that matters: the time from a memory-corruption CVE to a working exploit is collapsing toward the length of a lunch break.", "from": "#executive-summary", "quote": "the time between a memory-corruption CVE landing and a working exploit existing is collapsing toward the length of a lunch break"}
+      - {"text": "The marker that matters: a capable model can write a working exploit for a fresh memory-corruption CVE after initial prompting, which this study reads as a shrinking exploit-availability window.", "from": "#executive-summary", "quote": "a capable model can write a working exploit for a fresh memory-corruption CVE after initial prompting"}
   case-studies/BINANCE_HEIST_2026.md:
     reviewed: "2026-11-16"
     items:

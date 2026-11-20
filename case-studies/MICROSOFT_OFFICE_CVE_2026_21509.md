@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 17 min (3,857 words at 230 words a minute)
+About 17 min (3,921 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -88,7 +88,7 @@ The people who carried this one were the staff and IT teams of Ukrainian central
 ### Top recommendations
 
 1. Make sure every Microsoft 365 Apps and Office 2021+ session has restarted since 26 January 2026 [1] (**Confirmed** as Microsoft's statement).
-2. Office 2016 and Office 2019 reached end of support on 14 October 2025, and Office LTSC 2021 on 13 October 2026, so none receives further security fixes; for installs that remain, the January 2026 builds (Office 2016 16.0.5539.1001, KB5002713, MSI; Office 2019 16.0.10417.20095) are a floor, not a finished state, and the durable fix is to migrate to a supported release such as Microsoft 365 Apps or Office LTSC 2024. Treat Microsoft's registry COM compatibility block as interim only [1] [8] [15] (**Confirmed**).
+2. Office 2016 and Office 2019 reached end of support on 14 October 2025 and Office LTSC 2021 on 13 October 2026, so all three are now out of support, and Microsoft's stated policy is to ship no security fixes after that date [15]. It made an exception for this exploited flaw: the January 2026 fixes for Office 2016 (16.0.5539.1001, KB5002713, MSI) and Office 2019 (16.0.10417.20095) landed about three months past those two versions' end date, while Office LTSC 2021 was still in support when they shipped. Such an out-of-cycle fix for an end-of-support release is not something to plan on, so for installs that remain those builds are a floor, not a finished state, and the durable fix is to migrate to a supported release such as Microsoft 365 Apps or Office LTSC 2024. Treat Microsoft's registry COM compatibility block as interim only [1] [8] [15] (**Confirmed**).
 3. Block or monitor traffic to Filen hosts, as CERT-UA advises [9] (**Confirmed**), and restrict outbound WebDAV from Office clients (**Inferred** from the chain in [9]).
 4. Hunt for COM hijacks of shell-extension CLSIDs, a scheduled task named OneDriveHealth and forced explorer.exe restarts [9] (**Inferred** from CERT-UA's chain).
 5. Rank Office "local" bugs by KEV status and delivery path rather than the AV:L label [1] [6] (**Inferred**).

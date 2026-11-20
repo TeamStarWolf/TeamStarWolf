@@ -54,7 +54,7 @@ Notes: Mitigation texts [1]. Word or Office [1][8]. DOC or RTF [9][10]. Revision
 - A bypass of the OLE mitigations that block vulnerable COM/OLE controls.
 - The user must open the file; the Preview Pane is not a vector.
 - Microsoft 365 and Office 2021+: a service-side fix, live after a restart.
-- Office 2016 (16.0.5539.1001, KB5002713) and 2019 (16.0.10417.20095): a build floor; both out of support since Oct 2025.
+- Office 2016 (16.0.5539.1001, KB5002713) and 2019 (16.0.10417.20095): a build floor; both out of support since Oct 2025, so this fix was an out-of-cycle exception, not the norm.
 - An interim registry COM compatibility block, for use only until patched.
 Caption: Take the registry values from Microsoft's page, not from secondary copies.
 Notes: Flaw and vector [1]. Fix by version [1][2][8]. Interim block [1][6].

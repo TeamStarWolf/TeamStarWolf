@@ -17,7 +17,7 @@ Intermediate to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 14 min (3,268 words at 230 words a minute)
+About 14 min (3,289 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -101,7 +101,7 @@ Common IoT SoC Families:
 SoC Attack Vectors:
 - Debug interface exposure: JTAG/SWD pins left accessible on PCB
 - Bootloader configuration: U-Boot `bootargs` manipulation via UART
-- Trusted Execution Environment (TEE): ARM TrustZone exploitation (CVE-2019-9506, OP-TEE vulns)
+- Trusted Execution Environment (TEE): ARM TrustZone exploitation (OP-TEE vulnerabilities)
 - Secure element bypass: Fault injection to skip secure boot verification
 - Memory-mapped I/O: Direct hardware register manipulation via /dev/mem
 
@@ -198,15 +198,15 @@ Linux-Based Firmware:
 
 | Rank | Category | CVE Examples | Description |
 |------|----------|--------------|-------------|
-| I1 | Weak/Guessable/Hardcoded Passwords | CVE-2016-1000245 | Default/hardcoded credentials |
+| I1 | Weak/Guessable/Hardcoded Passwords | CVE-2016-10401 | Default/hardcoded credentials |
 | I2 | Insecure Network Services | CVE-2019-7192 | Unnecessary open ports, insecure protocols |
 | I3 | Insecure Ecosystem Interfaces | CVE-2020-25506 | Web/API/mobile/cloud interfaces lack security |
-| I4 | Lack of Secure Update Mechanism | CVE-2021-20090 | No signature verification on firmware updates |
-| I5 | Use of Insecure/Outdated Components | CVE-2022-26134 | Third-party components with known vulns |
+| I4 | Lack of Secure Update Mechanism | CVE-2023-33768 | No signature verification on firmware updates |
+| I5 | Use of Insecure/Outdated Components | CVE-2021-44228 | Third-party components with known vulns |
 | I6 | Insufficient Privacy Protection | N/A | Personal data not protected adequately |
 | I7 | Insecure Data Transfer/Storage | CVE-2019-9494 | Plaintext transmission, unencrypted storage |
 | I8 | Lack of Device Management | N/A | No asset management, update policy |
-| I9 | Insecure Default Settings | CVE-2021-35003 | Unnecessary features enabled by default |
+| I9 | Insecure Default Settings | CVE-2017-10721 | Unnecessary features enabled by default |
 | I10 | Lack of Physical Hardening | N/A | Physical access enables compromise |
 
 ### 1.8 IoT Botnet Threat Landscape
@@ -947,7 +947,7 @@ Write to "normal" memory corrupts SMM handler
 Execute shellcode with SMM privileges
 ```
 
-ThinkPwn (CVE-2016-3699):
+ThinkPwn:
 ```
 Lenovo ThinkPad UEFI SMM callout vulnerability
 SMM handler called EFI Runtime Services without proper validation
@@ -1289,22 +1289,22 @@ Common DTLS misconfigurations in IoT:
 3. DTLS 1.0 with deprecated cipher suites (RC4, NULL)
 4. Replay protection disabled
 
-CVE-2020-27209: DTLS session resumption vulnerability in multiple IoT stacks
-CVE-2021-24082: TinyDTLS vulnerability allowing session hijacking
+DTLS session-resumption weaknesses have appeared in several lightweight IoT stacks (implementation-specific; no single CVE)
+CVE-2017-7243: Eclipse tinydtls denial of service via a crafted ChangeCipherSpec message (DTLS peer crash)
 ```
 
 ### 5.3 OPC-UA Security
 
 OPC Unified Architecture is used in industrial IoT (IIoT) and SCADA systems.
 
-OPC-UA Session Hijacking CVEs:
+OPC-UA and industrial connectivity CVEs:
 | CVE | Description | Impact |
 |-----|-------------|--------|
-| CVE-2019-13549 | Kepware OPC-UA heap overflow | Remote code execution |
-| CVE-2019-13550 | Kepware OPC-UA use-after-free | Remote code execution |
-| CVE-2021-27432 | OPC Foundation OPC-UA .NET | Denial of service |
-| CVE-2022-25164 | Mitsubishi OPC-UA server | Auth bypass |
-| CVE-2023-25155 | Multiple OPC-UA implementations | Heap corruption |
+| CVE-2020-27263 | Kepware KEPServerEX OPC-UA heap-based buffer overflow | Server crash, potential data leak |
+| CVE-2020-29457 | OPC UA .NET Standard Stack privilege elevation | Privilege escalation |
+| CVE-2021-27432 | OPC Foundation UA .NET Standard uncontrolled recursion | Denial of service |
+| CVE-2022-25164 | Mitsubishi MX OPC UA Module cleartext credential storage | Information disclosure |
+| CVE-2018-12086 | Buffer overflow in multiple OPC UA stacks | Denial of service (stack overflow) |
 
 OPC-UA Security Assessment:
 ```python
@@ -1819,8 +1819,7 @@ Common Embedded HTTP Servers:
 
 uhttpd (OpenWrt):
 ```
-CVE-2021-22220: uhttpd CSRF token bypass
-Primary attack vector: Long URI, malformed chunked encoding
+Primary attack surface: long URI and malformed chunked-encoding request parsing
 Binary location: /usr/sbin/uhttpd
 ```
 
@@ -1829,7 +1828,7 @@ mini_httpd:
 # CVE-2018-18778: mini_httpd path traversal → arbitrary file read
 curl http://192.168.1.1/../../../etc/passwd --path-as-is
 
-# CVE-2019-11395: mini_httpd < 1.28 buffer overflow in HTTP request parsing
+# CVE-2017-17663: mini_httpd before 1.28 buffer overflow (htpasswd implementation)
 python3 -c "print('GET /' + 'A'*8192 + ' HTTP/1.0
 
 ')" | nc 192.168.1.1 80

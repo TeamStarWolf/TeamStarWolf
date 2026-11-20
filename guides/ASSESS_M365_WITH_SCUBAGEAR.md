@@ -1,6 +1,6 @@
 # Assess Your M365 Tenant with ScubaGear
 
-> By the end of this guide you will have scored your Microsoft 365 tenant against CISA's SCuBA secure configuration baselines, read the conformance report like an assessor, and turned the failures into a prioritized remediation plan that won't lock anyone out. Written for M365 administrators and security engineers who can get read-level admin access to a tenant (no prior ScubaGear experience assumed).
+> By the end of this guide you will have scored your Microsoft 365 tenant against CISA's SCuBA secure configuration baselines, read the conformance report like an assessor, and turned the failures into a prioritized remediation plan you roll out safely, piloting each change with a rollback so it does not lock anyone out. Written for M365 administrators and security engineers who can get read-level admin access to a tenant (no prior ScubaGear experience assumed).
 
 | Time | Difficulty | You need | You'll produce |
 |---|---|---|---|
@@ -23,7 +23,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 9 min (2,121 words at 230 words a minute)
+About 10 min (2,198 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -94,7 +94,7 @@ Install-ScubaDependencies
 Invoke-SCuBA -Version
 ```
 
-`Install-ScubaDependencies` pulls the two required PowerShell modules (`Microsoft.Graph.Authentication` and `powershell-yaml`) and downloads the Open Policy Agent executable to `C:\Users\<you>\.scubagear\Tools`. The older `Initialize-SCuBA` command still works as a backward-compatible alias.
+`Install-ScubaDependencies` pulls the required `powershell-yaml` module and downloads the Open Policy Agent executable to `C:\Users\<you>\.scubagear\Tools`; `Microsoft.Graph.Authentication` comes in separately as a manifest dependency of ScubaGear itself. The older `Initialize-SCuBA` command also installs the dependencies.
 
 Checkpoint: `Invoke-SCuBA -Version` prints a version number without errors.
 
@@ -154,7 +154,7 @@ The output folder contains layers for different audiences ([reports doc](https:/
 
 - `BaselineReports.html`: the summary dashboard; one row per product with pass/fail counts.
 - `IndividualReports/`: a detailed HTML report per product: every policy ID, its requirement text, its criticality, the result, and a details column.
-- `ScubaResults_<UUID>.json`: the full machine-readable output (metadata, summary counts, results, raw provider data) for your SIEM or scripts.
+- `ScubaResults_<UUID>.json`: the full machine-readable output (metadata, summary counts, results, raw provider data) for your SIEM or scripts. These reports carry your tenant's full configuration detail, so treat them as sensitive and keep them in restricted, access-controlled storage.
 - `ScubaResults.csv`: results only, in flat parseable form.
 - `ActionPlan.csv`: pre-filtered to failing SHALL controls, with empty columns for the failure reason and remediation timeline. This file is your working artifact for Steps 6-7.
 
@@ -218,7 +218,7 @@ Watch out: An omission without an `Expiration` date is a permanent exception nob
 One assessment is a snapshot; configuration drifts back. Make it a cadence:
 
 - Monthly or better, using the Step 3 app registration and the Step 8 config file so runs are hands-off and identical.
-- Archive `ScubaResults_<UUID>.json` from every run and trend the SHALL-failure count per product over time; that number is a reportable posture metric ([Security Metrics Reference](/SECURITY_METRICS_REFERENCE.md)), and a regression (a control flipping from pass back to fail) is a drift signal worth alerting on in your SIEM ([SIEM Reference](/SIEM_REFERENCE.md)).
+- Archive `ScubaResults_<UUID>.json` from every run and trend the SHALL-failure count per product over time. Record the ScubaGear version, the SCuBA baseline revision, your product scope, and any omitted or annotated policies alongside each run so comparisons are like-for-like: a tool or baseline bump can move the count on its own, independent of real drift. That number is a reportable posture metric ([Security Metrics Reference](/SECURITY_METRICS_REFERENCE.md)), and a regression (a control flipping from pass back to fail) is a drift signal worth alerting on in your SIEM ([SIEM Reference](/SIEM_REFERENCE.md)).
 - Keep the tool and baselines current: run `Update-ScubaGear` before scheduled runs pick up a stale version, and re-check the baselines directory when policy IDs change; the Defender/Security Suite reorganization is a live example.
 
 Checkpoint: A second run's results archived next to the first, with the failure-count delta visible. You are now measuring drift, not just posture.

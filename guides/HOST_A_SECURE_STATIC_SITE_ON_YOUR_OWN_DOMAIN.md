@@ -25,7 +25,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 14 min (3,123 words at 230 words a minute)
+About 14 min (3,212 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -95,7 +95,7 @@ Check: `nslookup -type=TXT _github-pages-challenge-ACCOUNT.example.com 1.1.1.1` 
 
 ## Step 3: Add the records that point at GitHub Pages
 
-GitHub documents four IPv4 and four IPv6 addresses for apex domains and a CNAME for `www`. Add them with **Proxy status OFF** (grey cloud, "DNS only") for now: GitHub must see your domain resolve to its own addresses to issue the certificate in Step 4.
+GitHub documents four IPv4 and four IPv6 addresses for apex domains and a CNAME for `www`. Add them with **Proxy status OFF** (grey cloud, "DNS only") for now: GitHub must see your domain resolve to its own addresses to issue the certificate in Step 4. GitHub's own order is to add the domain in your repository's Pages settings (Step 4) before creating these records; doing DNS first is safe here only because you verified the domain at the account level in Step 2, which is what actually prevents a subdomain takeover.
 
 | Type | Name | Content | Proxy |
 |---|---|---|---|
@@ -166,7 +166,7 @@ If your site loads a script, style or font from a third-party host, that host mu
 Cloudflare caches static files at the edge, and GitHub Pages sets a ten-minute `Cache-Control` on its own. Cloudflare's **Browser Cache TTL** defaults to four hours and overrides an origin lifetime shorter than itself, so set **Caching**, **Configuration**, **Browser Cache TTL** to **Respect Existing Headers** first; otherwise repeat visitors keep scripts and styles for four hours [14]. With that set, two consequences:
 
 - After a deploy, some visitors see the old page for up to ten minutes. For a documentation site that is fine. For an app that loads data files and checks them against a manifest, give each data file URL the manifest's own hash as a query string so a new manifest always fetches a new file, and retry once past the cache when a check fails.
-- If you want an edit live at once, **Caching**, **Configuration**, **Purge Everything**, or purge the single URL.
+- To refresh Cloudflare's edge cache, use **Caching**, **Configuration**, **Purge Everything**, or purge the single URL. That clears Cloudflare's copy only; browser copies already cached still follow their own cache policy (the ten minutes above), so not every visitor sees the change at once.
 
 A **Cache Rule** can shorten or lengthen edge caching per path. Leave the defaults until you have a reason.
 
@@ -181,7 +181,7 @@ A custom domain set on a user or organization site covers every project site on 
 
 ## What GitHub Pages cannot do, and when to go further
 
-GitHub Pages serves files: a 1 GB site, a soft 100 GB a month, ten builds an hour, deployments that time out at ten minutes, no server-side code and no custom headers from the origin. With Cloudflare in front, that is enough for most static sites.
+GitHub Pages serves files: a 1 GB site, a soft 100 GB a month, a soft limit of ten builds an hour (which does not apply when you publish with a custom GitHub Actions workflow), deployments that time out at ten minutes, no server-side code and no custom headers from the origin. With Cloudflare in front, that is enough for most static sites.
 
 When you need a little server-side logic (a form endpoint, an API that reads a database, a scheduled job), Cloudflare Workers or Pages Functions run it on the same free plan up to 100,000 requests a day, with KV, D1 and R2 for state. When you need a long-running process, a non-HTTP listener, or software that must be self-hosted, you need a virtual server, and that is a different guide. A honeypot or any deliberately exposed listener never belongs on the host or in the zone that serves your site; it gets its own isolated host and network.
 

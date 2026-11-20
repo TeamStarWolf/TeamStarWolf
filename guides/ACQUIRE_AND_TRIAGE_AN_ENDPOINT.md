@@ -23,7 +23,7 @@ Advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 13 min (2,938 words at 230 words a minute)
+About 13 min (3,058 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -72,7 +72,7 @@ Forensics is separated from ordinary log-rummaging by one thing: everything is d
 
 1. Record the authority and scope in your case notes: who authorized it, the date/time, the in-scope systems and accounts, and the stated objective (attribution, root cause, blast radius, litigation support).
 2. Open the evidence log. Every item gets a line: what it is, where it came from (host, drive serial, source path), who collected it, the date/time (with time zone; record whether you are logging in UTC or local), and its hash once acquired.
-3. Start the chain-of-custody form for each physical item. Every transfer of possession (you to storage, storage to analyst) gets a signed, timestamped handoff entry. An unbroken custody record is what makes the evidence admissible; a gap is what gets it thrown out.
+3. Start the chain-of-custody form for each physical item. Every transfer of possession (you to storage, storage to analyst) gets a signed, timestamped handoff entry. An unbroken custody record is what keeps the evidence defensible; admissibility is a determination a court makes, and a custody gap is what gets your evidence challenged or thrown out.
 4. Photograph the scene for physical acquisitions: the running screen, cable layout, drive serials, and asset tags before you disturb anything.
 
 Checkpoint: You have a case ID, a written scope-and-authorization note, an open evidence log, and a custody form ready, before any collection command has run.
@@ -101,10 +101,10 @@ Watch out: "Just isolate it and we'll image it tomorrow" quietly discards the en
 
 Memory acquisition loads a kernel driver and writes a large file, so it changes the system slightly. That is expected and defensible; document that you did it, when, and with what tool.
 
-On Windows, [WinPMEM](https://github.com/Velocidex/WinPmem) (the Velocidex-maintained, community-supported successor to the Rekall pmem tools) writes a raw image to your evidence volume:
+On Windows, [WinPMEM](https://github.com/Velocidex/WinPmem) (the Velocidex-maintained, community-supported successor to the Rekall pmem tools) writes a raw image to your evidence volume. The current mini-imager build takes the output path as a positional argument (the legacy `-o` flag belonged to the retired AFF4 build), and the released binary carries a versioned name like `winpmem_mini_x64.exe`:
 
 ```
-winpmem.exe -o E:\evidence\HOST01\HOST01-mem.raw
+winpmem.exe E:\evidence\HOST01\HOST01-mem.raw
 ```
 
 Alternatives with similar output: Magnet RAM Capture, Belkasoft Live RAM Capturer, or Comae/DumpIt. Whichever you use, write to external evidence storage, never the suspect's own disk; writing locally overwrites the unallocated space and slack you may need later.
@@ -163,7 +163,7 @@ Watch out: Triage collectors run *on* the live host and leave their own footprin
 
 When the case needs the full disk (deleted-file recovery, unallocated space, defensible completeness), take a forensic image. For a powered-off host or a removed drive, use a hardware write blocker so the acquisition cannot alter the source.
 
-Windows workstation ([FTK Imager](https://www.exterro.com/digital-forensics-software/ftk-imager), free, currently 4.7.x): File -> Create Disk Image -> Physical Drive, choose E01 (EnCase Evidence Format; it embeds metadata and hashes), fill in the case/examiner fields, and let it run the built-in verify pass, which re-reads the image and confirms the hash matches the source.
+Windows workstation ([FTK Imager](https://www.exterro.com/digital-forensics-software/ftk-imager), currently 8.3; the base imager is free, though Exterro now also sells a paid FTK Imager Pro tier): File -> Create Disk Image -> Physical Drive, choose E01 (EnCase Evidence Format; it embeds metadata and hashes), fill in the case/examiner fields, and let it run the built-in verify pass, which re-reads the image and confirms the hash matches the source.
 
 On Linux, image with a hash-while-imaging tool so acquisition and verification are one pass:
 
@@ -180,7 +180,7 @@ sudo ewfacquire /dev/sdb
 
 [Guymager](https://guymager.sourceforge.io/) gives the same result with a GUI and inline verification. Plain `dd` works but is raw-only and does not hash; if you use it, `sha256sum` the source and the image separately and confirm they match.
 
-Record both hashes (source and image) in the evidence log; they must be identical. A hardware write blocker is the court-preferred method; software read-only flags are a backstop, not a substitute.
+Record both hashes (source and image) in the evidence log; they must be identical for a raw image and for the acquisition-stream hash that dc3dd (`hash=`) and FTK's verify pass compute. One caveat for E01: a file-level hash of the `.E01` container will not equal the source, because the container embeds metadata and compression; the hash that matches the source is the acquisition-stream hash stored inside it (which the verify pass checks), not `sha256sum host01.E01`. A hardware write blocker is the court-preferred method; software read-only flags are a backstop, not a substitute.
 
 Checkpoint: A verified disk image (E01 or raw + separate hash) exists, the source and image SHA-256 values match and are logged, and the write-blocking method is documented.
 

@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 11 min (2,440 words at 230 words a minute)
+About 11 min (2,504 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -85,7 +85,7 @@ Watch out: Scoping "the whole platform" on a first pass. Model one application a
 
 Checkpoint: An empty STRIDE diagram is open in the editor with your model's metadata filled in.
 
-Watch out: The web demo's local session lives in your browser. For a model your team will keep, use the desktop app and save the model file into the application's own repository; that's "threat model as code" and it's what makes Step 8's freshness check possible.
+Watch out: The web demo's local session lives in your browser. For a model your team will keep, use the desktop app and save the model file into the application's own version control; that's "threat model as code" and it's what makes Step 8's freshness check possible. Keep it access-controlled, though: a full model plus a red/yellow ATT&CK coverage layer is a map of your unmitigated weaknesses, so it belongs in a private, access-controlled repository, and any public artifact uses a reviewed, redacted version.
 
 ## Step 3: Draw the DFD with trust boundaries
 
@@ -145,7 +145,7 @@ Watch out: One mitigation is often a single point of failure. For your top threa
 
 ## Step 7: Map to ATT&CK where the mapping is honest
 
-Not every design flaw maps to an ATT&CK technique, and forcing it corrupts your coverage picture. The honest rule: map a threat only when it describes an operational technique an adversary executes, not a missing property of your design. From the cloud threats table in [THREAT_MODELING_REFERENCE.md](/THREAT_MODELING_REFERENCE.md): SSRF to the instance metadata service is T1552.005; a public storage bucket is T1530; container escape is T1611. A missing authorization check on an admin endpoint, by contrast, has no clean technique ID; record it as a design finding and move on. The STRIDE-to-tactic column in the reference is orientation, not citation.
+Not every design flaw maps to an ATT&CK technique, and forcing it corrupts your coverage picture. The honest rule: map a threat only when it describes an operational technique an adversary executes, not a missing property of your design. From the cloud threats table in [THREAT_MODELING_REFERENCE.md](/THREAT_MODELING_REFERENCE.md): SSRF to the instance metadata service is T1552.005; an adversary reading data from an exposed storage bucket is T1530, though the public-bucket misconfiguration itself is a configuration finding, not the technique; container escape is T1611. A missing authorization check on an admin endpoint, by contrast, has no clean technique ID; record it as a design finding and move on. The STRIDE-to-tactic column in the reference is orientation, not citation.
 
 For the threats that do map:
 
@@ -165,7 +165,7 @@ A threat model that lives in a tool nobody reopens is shelfware. Convert it:
 
 1. For each Open High/Critical threat, create a backlog item titled with the TM-ID, containing the threat description, the mitigation as the acceptance criterion, and a link to the model file. That's the security-story pattern from the sprint-level workflow in [THREAT_MODELING_REFERENCE.md](/THREAT_MODELING_REFERENCE.md).
 2. For Accepted threats, get the acceptance from someone entitled to accept it: the product owner or asset owner, by name, in writing (risk register or the ticket itself).
-3. Commit the Threat Dragon model JSON and the Navigator layer to the application's repository so model changes ride code review; the CI freshness-check pattern in the SDLC section of [THREAT_MODELING_REFERENCE.md](/THREAT_MODELING_REFERENCE.md) can then fail a PR that changes architecture without touching the model.
+3. Commit the Threat Dragon model JSON and the Navigator layer to the application's access-controlled repository so model changes ride code review; the CI freshness-check pattern in the SDLC section of [THREAT_MODELING_REFERENCE.md](/THREAT_MODELING_REFERENCE.md) can then fail a PR that changes architecture without touching the model.
 4. Write the re-model trigger into the team's working agreement, straight from the review-cadence table: new externally-facing feature or third-party integration -> sprint-level model of the delta; architecture change or security incident -> update the full model; and an annual refresh regardless.
 
 Checkpoint: Backlog items exist and are scheduled, the model and layer are in version control, and the team can say out loud what event forces the next threat modeling session.
@@ -178,7 +178,7 @@ Watch out: The trigger is the step teams skip, and it's the one that keeps the m
 - All six STRIDE categories appear in the threat list, or the gap is explained; category counts aren't lopsided by blind spot.
 - Every High/Critical threat has a buildable mitigation, an owner, and a backlog link; every Accepted risk has a named accepter.
 - ATT&CK mappings are defensible one by one, and design findings that don't map are reported alongside the layer, not hidden by it.
-- The model file and Navigator layer are in the application's repo, and the re-model trigger is written down where the team plans work.
+- The model file and Navigator layer are in the application's access-controlled repo (with any public copy redacted), and the re-model trigger is written down where the team plans work.
 - The real test arrives later: when the next pentest report lands, most findings should already be in your threat list. That overlap metric, from the outcome-metrics section of [THREAT_MODELING_REFERENCE.md](/THREAT_MODELING_REFERENCE.md), is how you know the model works.
 
 ## Go deeper

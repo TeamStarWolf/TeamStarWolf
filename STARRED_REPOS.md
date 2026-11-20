@@ -1,6 +1,6 @@
 # Starred Repositories Index
 
-> In one minute: This is the full map of 1053 starred GitHub repositories, sorted into cybersecurity disciplines like detection engineering, DFIR (digital forensics and incident response), red team tooling, and vulnerability management. Instead of scrolling a raw GitHub stars page, you get every tool, framework, and learning resource grouped by the job it does. Use it as the master index when you know roughly what kind of tool you need but not its name.
+> In one minute: This is the full map of 1051 starred GitHub repositories, sorted into cybersecurity disciplines like detection engineering, DFIR (digital forensics and incident response), red team tooling, and vulnerability management. Instead of scrolling a raw GitHub stars page, you get every tool, framework, and learning resource grouped by the job it does. Use it as the master index when you know roughly what kind of tool you need but not its name.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Beginner
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 15 min (3,513 words at 230 words a minute)
+About 15 min (3,509 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -67,7 +67,7 @@ No review recorded yet
 
 <!-- meta:end -->
 
-A categorized index of 1053 starred repositories grouped by cybersecurity discipline. Use it when you want a broad map of tools, frameworks, references, and learning material in one place.
+A categorized index of 1051 starred repositories grouped by cybersecurity discipline. Use it when you want a broad map of tools, frameworks, references, and learning material in one place.
 
 ## How To Use This File
 
@@ -1481,11 +1481,9 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 ## Personal & Misc
 
-### TeamStarWolf - Your Repos (4)
+### TeamStarWolf - Your Repos (2)
 
 - [TeamStarWolf/ATTACK-Navi](https://github.com/TeamStarWolf/ATTACK-Navi)
-- TeamStarWolf/LimeWire
-- TeamStarWolf/PokeNav
 - [TeamStarWolf/TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf)
 
 ### Pokemon Disassembly (8)

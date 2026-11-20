@@ -17,7 +17,7 @@ Beginner
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 14 min (3,326 words at 230 words a minute)
+About 15 min (3,454 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -111,9 +111,9 @@ These are not part of the starred index below. They are Arsenal-sourced candidat
 |---|---|
 | Cloud labs and assessment | [AWSGoat](https://github.com/ine-labs/AWSGoat), [AzureGoat](https://github.com/ine-labs/AzureGoat) |
 | Offensive and post-exploitation | [Merlin](https://github.com/Ne0nd0g/merlin), [MailSniper](https://github.com/dafthack/MailSniper) |
-| Mobile testing | [Needle](https://github.com/mwrlabs/needle) |
-| Malware and DFIR | [FLOSS](https://github.com/fireeye/flare-floss), [inVtero.net](https://github.com/ShaneK2/inVtero.net), [siembol](https://github.com/G-Research/siembol) |
-| AppSec and exposure work | [OWASP Dependency-Check](https://github.com/jeremylong/DependencyCheck), [OWTF](https://github.com/owtf/owtf), [CrowdSec](https://github.com/crowdsecurity/crowdsec) |
+| Mobile testing | [Needle](https://github.com/ReversecLabs/needle) (archived) |
+| Malware and DFIR | [FLOSS](https://github.com/mandiant/flare-floss), [inVtero.net](https://github.com/ShaneK2/inVtero.net), [siembol](https://github.com/G-Research/siembol) (archived) |
+| AppSec and exposure work | [OWASP Dependency-Check](https://github.com/jeremylong/DependencyCheck) (archived), [OWTF](https://github.com/owtf/owtf), [CrowdSec](https://github.com/crowdsecurity/crowdsec) |
 | Embedded, hardware, and OT | [EMBA](https://github.com/e-m-b-a/emba), [JTAGulator](https://github.com/grandideastudio/jtagulator), [DYODE](https://github.com/wavestone-cdt/dyode) |
 
 Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWALK.md) for the broader cross-reference, maintainer feeds, and direct demo links.
@@ -125,12 +125,12 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 - [mitre-attack/attack-arsenal](https://github.com/mitre-attack/attack-arsenal)
 - [mitre-attack/attack-navigator](https://github.com/mitre-attack/attack-navigator)
-- [mitre-attack/attack-scripts](https://github.com/mitre-attack/attack-scripts)
+- [mitre-attack/attack-scripts](https://github.com/mitre-attack/attack-scripts) (archived)
 - [mitre-attack/attack-stix-data](https://github.com/mitre-attack/attack-stix-data)
 - [mitre-attack/car](https://github.com/mitre-attack/car)
 - [mitre-attack/mitreattack-python](https://github.com/mitre-attack/mitreattack-python)
 - [mitre/atomic](https://github.com/mitre/atomic)
-- [mitre/caldera](https://github.com/mitre/caldera)
+- [apache/caldera](https://github.com/apache/caldera) (formerly `mitre/caldera`)
 - [mitre/caldera-ot](https://github.com/mitre/caldera-ot)
 - [mitre/mitre.github.io](https://github.com/mitre/mitre.github.io)
 - [mitre/saf](https://github.com/mitre/saf)
@@ -139,8 +139,8 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 - [center-for-threat-informed-defense/adversary_emulation_library](https://github.com/center-for-threat-informed-defense/adversary_emulation_library)
 - [center-for-threat-informed-defense/attack-flow](https://github.com/center-for-threat-informed-defense/attack-flow)
-- [center-for-threat-informed-defense/attack-workbench-frontend](https://github.com/center-for-threat-informed-defense/attack-workbench-frontend)
-- [center-for-threat-informed-defense/attack_to_cve](https://github.com/center-for-threat-informed-defense/attack_to_cve)
+- [mitre-attack/attack-workbench-frontend](https://github.com/mitre-attack/attack-workbench-frontend) (formerly `center-for-threat-informed-defense/attack-workbench-frontend`)
+- [center-for-threat-informed-defense/attack_to_cve](https://github.com/center-for-threat-informed-defense/attack_to_cve) (archived)
 - [center-for-threat-informed-defense/mappings-explorer](https://github.com/center-for-threat-informed-defense/mappings-explorer)
 - [center-for-threat-informed-defense/sensor-mappings-to-attack](https://github.com/center-for-threat-informed-defense/sensor-mappings-to-attack)
 - [center-for-threat-informed-defense/tram](https://github.com/center-for-threat-informed-defense/tram)
@@ -166,7 +166,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [OWASP/OWASPWebGoatPHP](https://github.com/OWASP/OWASPWebGoatPHP)
 - [OWASP/Top10](https://github.com/OWASP/Top10)
 - [OWASP/mastg](https://github.com/OWASP/mastg)
-- [OWASP/samm](https://github.com/OWASP/samm)
+- [OWASP/samm](https://github.com/OWASP/samm) (archived)
 - [OWASP/threat-dragon](https://github.com/OWASP/threat-dragon)
 - [OWASP/wstg](https://github.com/OWASP/wstg)
 
@@ -189,7 +189,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [MISP/misp-galaxy](https://github.com/MISP/misp-galaxy)
 - [MISP/misp-taxonomies](https://github.com/MISP/misp-taxonomies)
 - [MISP/misp-warninglists](https://github.com/MISP/misp-warninglists)
-- [OpenCTI-Platform/client-python](https://github.com/OpenCTI-Platform/client-python)
+- [OpenCTI-Platform/client-python](https://github.com/OpenCTI-Platform/client-python) (archived)
 - [OpenCTI-Platform/opencti](https://github.com/OpenCTI-Platform/opencti)
 - [yeti-platform/yeti](https://github.com/yeti-platform/yeti)
 
@@ -235,10 +235,10 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [SwiftOnSecurity/sysmon-config](https://github.com/SwiftOnSecurity/sysmon-config)
 - [olafhartong/sysmon-modular](https://github.com/olafhartong/sysmon-modular)
 - [palantir/windows-event-forwarding](https://github.com/palantir/windows-event-forwarding)
-- [palantir/Sysmon](https://github.com/palantir/Sysmon)
+- [palantir/Sysmon](https://github.com/palantir/Sysmon) (archived)
 - [williballenthin/python-evtx](https://github.com/williballenthin/python-evtx)
 - [omerbenamram/evtx](https://github.com/omerbenamram/evtx)
-- [microsoft/MSTIC-Sysmon](https://github.com/microsoft/MSTIC-Sysmon)
+- [microsoft/MSTIC-Sysmon](https://github.com/microsoft/MSTIC-Sysmon) (archived)
 
 ### Sigma Rules (5)
 
@@ -259,8 +259,8 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 ### YARA Rules (7)
 
-- [InQuest/ThreatIngestor](https://github.com/InQuest/ThreatIngestor)
-- [InQuest/awesome-yara](https://github.com/InQuest/awesome-yara)
+- [pedramamini/ThreatIngestor](https://github.com/pedramamini/ThreatIngestor) (formerly `InQuest/ThreatIngestor`)
+- [pedramamini/awesome-yara](https://github.com/pedramamini/awesome-yara) (formerly `InQuest/awesome-yara`)
 - [InQuest/yara-rules](https://github.com/InQuest/yara-rules)
 - [VirusTotal/yara](https://github.com/VirusTotal/yara)
 - [VirusTotal/yara-python](https://github.com/VirusTotal/yara-python)
@@ -271,7 +271,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 - [elastic/detection-rules](https://github.com/elastic/detection-rules)
 - [mdecrevoisier/SIGMA-detection-rules](https://github.com/mdecrevoisier/SIGMA-detection-rules)
-- [wazuh/wazuh-ruleset](https://github.com/wazuh/wazuh-ruleset)
+- [wazuh/wazuh-ruleset](https://github.com/wazuh/wazuh-ruleset) (archived)
 - [mthcht/ThreatHunting-Keywords](https://github.com/mthcht/ThreatHunting-Keywords)
 - [mthcht/awesome-lists](https://github.com/mthcht/awesome-lists)
 - [StamusNetworks/scirius](https://github.com/StamusNetworks/scirius)
@@ -285,7 +285,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 - [JPCERTCC/LogonTracer](https://github.com/JPCERTCC/LogonTracer)
 - [JPCERTCC/MalConfScan](https://github.com/JPCERTCC/MalConfScan)
-- [blackhillsinfosec/EventLogging](https://github.com/blackhillsinfosec/EventLogging)
+- [blackhillsinfosec/EventLogging](https://github.com/blackhillsinfosec/EventLogging) (archived)
 - [sans-blue-team/DeepBlueCLI](https://github.com/sans-blue-team/DeepBlueCLI)
 
 
@@ -308,8 +308,8 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [cisagov/decider](https://github.com/cisagov/decider)
 - [cisagov/development-guide](https://github.com/cisagov/development-guide)
 - [cisagov/kev-data](https://github.com/cisagov/kev-data)
-- [cisagov/log4j-affected-db](https://github.com/cisagov/log4j-affected-db)
-- [cisagov/log4j-scanner](https://github.com/cisagov/log4j-scanner)
+- [cisagov/log4j-affected-db](https://github.com/cisagov/log4j-affected-db) (archived)
+- [cisagov/log4j-scanner](https://github.com/cisagov/log4j-scanner) (archived)
 - [cisagov/untitledgoosetool](https://github.com/cisagov/untitledgoosetool)
 - [cisagov/vulnrichment](https://github.com/cisagov/vulnrichment)
 
@@ -366,13 +366,13 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [Yelp/detect-secrets](https://github.com/Yelp/detect-secrets)
 - [awslabs/git-secrets](https://github.com/awslabs/git-secrets)
 - [gitleaks/gitleaks](https://github.com/gitleaks/gitleaks)
-- [trufflesecurity/driftwood](https://github.com/trufflesecurity/driftwood)
+- [trufflesecurity/driftwood](https://github.com/trufflesecurity/driftwood) (archived)
 - [trufflesecurity/test_keys](https://github.com/trufflesecurity/test_keys)
 - [trufflesecurity/trufflehog](https://github.com/trufflesecurity/trufflehog)
 
 ### Secrets Management (3)
 
-- [bitnami-labs/sealed-secrets](https://github.com/bitnami-labs/sealed-secrets)
+- [bitnami/sealed-secrets](https://github.com/bitnami/sealed-secrets) (formerly `bitnami-labs/sealed-secrets`)
 - [getsops/sops](https://github.com/getsops/sops)
 - [hashicorp/vault](https://github.com/hashicorp/vault)
 
@@ -394,8 +394,8 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 ### Memory Forensics (3)
 
-- [504ensicsLabs/DAMM](https://github.com/504ensicsLabs/DAMM)
-- [volatilityfoundation/volatility](https://github.com/volatilityfoundation/volatility)
+- [504ensicsLabs/DAMM](https://github.com/504ensicsLabs/DAMM) (archived)
+- [volatilityfoundation/volatility](https://github.com/volatilityfoundation/volatility) (archived)
 - [volatilityfoundation/volatility3](https://github.com/volatilityfoundation/volatility3)
 
 ### Windows Forensics (3)
@@ -422,7 +422,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 - [TheHive-Project/Cortex](https://github.com/TheHive-Project/Cortex)
 - [TheHive-Project/Cortex-Analyzers](https://github.com/TheHive-Project/Cortex-Analyzers)
-- [TheHive-Project/TheHive](https://github.com/TheHive-Project/TheHive)
+- [TheHive-Project/TheHive](https://github.com/TheHive-Project/TheHive) (archived)
 - [cyb3rfox/Aurora-Incident-Response](https://github.com/cyb3rfox/Aurora-Incident-Response)
 - [mthcht/uac](https://github.com/mthcht/uac)
 - [omerbenamram/evtx](https://github.com/omerbenamram/evtx)
@@ -437,7 +437,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [WerWolv/ImHex](https://github.com/WerWolv/ImHex)
 - [horsicq/Detect-It-Easy](https://github.com/horsicq/Detect-It-Easy)
 - [horsicq/XELFViewer](https://github.com/horsicq/XELFViewer)
-- [icsharpcode/AvaloniaILSpy](https://github.com/icsharpcode/AvaloniaILSpy)
+- [icsharpcode/AvaloniaILSpy](https://github.com/icsharpcode/AvaloniaILSpy) (archived)
 - [icsharpcode/ILSpy](https://github.com/icsharpcode/ILSpy)
 - [radareorg/radare2](https://github.com/radareorg/radare2)
 - [rizinorg/cutter](https://github.com/rizinorg/cutter)
@@ -461,16 +461,16 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [hasherezade/pe-sieve](https://github.com/hasherezade/pe-sieve)
 - [hasherezade/process_doppelganging](https://github.com/hasherezade/process_doppelganging)
 - [jstrosch/learning-malware-analysis](https://github.com/jstrosch/learning-malware-analysis)
-- [mandiant/Mandiant-Azure-AD-Investigator](https://github.com/mandiant/Mandiant-Azure-AD-Investigator)
+- [mandiant/Mandiant-Azure-AD-Investigator](https://github.com/mandiant/Mandiant-Azure-AD-Investigator) (archived)
 - [mandiant/Vulnerability-Disclosures](https://github.com/mandiant/Vulnerability-Disclosures)
 - [mandiant/capa](https://github.com/mandiant/capa)
 - [mandiant/capa-rules](https://github.com/mandiant/capa-rules)
 - [mandiant/commando-vm](https://github.com/mandiant/commando-vm)
 - [mandiant/flare-fakenet-ng](https://github.com/mandiant/flare-fakenet-ng)
 - [mandiant/flare-floss](https://github.com/mandiant/flare-floss)
-- [mandiant/flare-ida](https://github.com/mandiant/flare-ida)
+- [mandiant/flare-ida](https://github.com/mandiant/flare-ida) (archived)
 - [mandiant/flare-vm](https://github.com/mandiant/flare-vm)
-- [mandiant/red_team_tool_countermeasures](https://github.com/mandiant/red_team_tool_countermeasures)
+- [mandiant/red_team_tool_countermeasures](https://github.com/mandiant/red_team_tool_countermeasures) (archived)
 
 ### Malware Sandboxes (1)
 
@@ -495,7 +495,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [mikesiko/PracticalMalwareAnalysis-Labs](https://github.com/mikesiko/PracticalMalwareAnalysis-Labs)
 - [PacktPublishing/Mastering-Reverse-Engineering](https://github.com/PacktPublishing/Mastering-Reverse-Engineering)
 - [redcode-labs/Coldfire](https://github.com/redcode-labs/Coldfire)
-- [ReversecLabs/needle](https://github.com/ReversecLabs/needle)
+- [ReversecLabs/needle](https://github.com/ReversecLabs/needle) (archived)
 
 
 ## Red Team - Offensive Security
@@ -506,14 +506,14 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [BishopFox/badPods](https://github.com/BishopFox/badPods)
 - [BishopFox/sliver](https://github.com/BishopFox/sliver)
 - [Cracked5pider/Ekko](https://github.com/Cracked5pider/Ekko)
-- [EmpireProject/Empire](https://github.com/EmpireProject/Empire)
+- [EmpireProject/Empire](https://github.com/EmpireProject/Empire) (archived)
 - [GH05TCREW/MetasploitMCP](https://github.com/GH05TCREW/MetasploitMCP)
-- [HavocFramework/Havoc](https://github.com/HavocFramework/Havoc)
+- [HavocFramework/Havoc](https://github.com/HavocFramework/Havoc) (archived)
 - [chvancooten/NimPlant](https://github.com/chvancooten/NimPlant)
 - [its-a-feature/Mythic](https://github.com/its-a-feature/Mythic)
 - mdsecactivebreach/SharpShooter
 - [mhaskar/Octopus](https://github.com/mhaskar/Octopus)
-- [n1nj4sec/pupy](https://github.com/n1nj4sec/pupy)
+- [n1nj4sec/pupy](https://github.com/n1nj4sec/pupy) (archived)
 - [rapid7/metasploit-framework](https://github.com/rapid7/metasploit-framework)
 - [t3l3machus/Villain](https://github.com/t3l3machus/Villain)
 - [rapid7/metasploit-payloads](https://github.com/rapid7/metasploit-payloads)
@@ -558,7 +558,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [SpecterOps/BloodHound-Legacy](https://github.com/SpecterOps/BloodHound-Legacy)
 - [SpecterOps/Nemesis](https://github.com/SpecterOps/Nemesis)
 - [SpecterOps/SharpHound](https://github.com/SpecterOps/SharpHound)
-- [byt3bl33d3r/CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec)
+- [byt3bl33d3r/CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec) (archived)
 - [cogiceo/GPOHound](https://github.com/cogiceo/GPOHound)
 - [dirkjanm/PrivExchange](https://github.com/dirkjanm/PrivExchange)
 - [dirkjanm/ROADtools](https://github.com/dirkjanm/ROADtools)
@@ -616,7 +616,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 - [Apr4h/GetInjectedThreads](https://github.com/Apr4h/GetInjectedThreads)
 - [Genetic-Malware/Ebowla](https://github.com/Genetic-Malware/Ebowla)
-- [Mr-Un1k0d3r/DKMC](https://github.com/Mr-Un1k0d3r/DKMC)
+- [Mr-Un1k0d3r/DKMC](https://github.com/Mr-Un1k0d3r/DKMC) (archived)
 - [Mr-Un1k0d3r/EDRs](https://github.com/Mr-Un1k0d3r/EDRs)
 - [Mr-Un1k0d3r/MaliciousMacroGenerator](https://github.com/Mr-Un1k0d3r/MaliciousMacroGenerator)
 - [Mr-Un1k0d3r/PowerLessShell](https://github.com/Mr-Un1k0d3r/PowerLessShell)
@@ -634,8 +634,8 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [guelfoweb/knockpy](https://github.com/guelfoweb/knockpy)
 - [infosec-au/altdns](https://github.com/infosec-au/altdns)
 - [m4ll0k/SecretFinder](https://github.com/m4ll0k/SecretFinder)
-- [michenriksen/aquatone](https://github.com/michenriksen/aquatone)
-- [michenriksen/gitrob](https://github.com/michenriksen/gitrob)
+- [michenriksen/aquatone](https://github.com/michenriksen/aquatone) (archived)
+- [michenriksen/gitrob](https://github.com/michenriksen/gitrob) (archived)
 - [owasp-amass/amass](https://github.com/owasp-amass/amass)
 - [projectdiscovery/cdncheck](https://github.com/projectdiscovery/cdncheck)
 - [projectdiscovery/chaos-client](https://github.com/projectdiscovery/chaos-client)
@@ -680,7 +680,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [smicallef/spiderfoot](https://github.com/smicallef/spiderfoot)
 - [soxoj/maigret](https://github.com/soxoj/maigret)
 - [soxoj/socid-extractor](https://github.com/soxoj/socid-extractor)
-- [twintproject/twint](https://github.com/twintproject/twint)
+- [twintproject/twint](https://github.com/twintproject/twint) (archived)
 - [lanmaster53/recon-ng](https://github.com/lanmaster53/recon-ng)
 
 ### Web Vulnerability Scanners (1)
@@ -798,7 +798,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 - [Arno0x/DivertTCPconn](https://github.com/Arno0x/DivertTCPconn)
 - [Arno0x/PowerShellScripts](https://github.com/Arno0x/PowerShellScripts)
-- [optiv/ScareCrow](https://github.com/optiv/ScareCrow)
+- [optiv/ScareCrow](https://github.com/optiv/ScareCrow) (archived)
 - [trustedsec/COFFLoader](https://github.com/trustedsec/COFFLoader)
 - [trustedsec/CS-Situational-Awareness-BOF](https://github.com/trustedsec/CS-Situational-Awareness-BOF)
 - [trustedsec/egressbuster](https://github.com/trustedsec/egressbuster)
@@ -870,7 +870,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 ### Network Scanners (3)
 
-- [BornToBeRoot/PowerShell](https://github.com/BornToBeRoot/PowerShell)
+- [BornToBeRoot/PowerShell](https://github.com/BornToBeRoot/PowerShell) (archived)
 - [BornToBeRoot/PowerShell_IPv4NetworkScanner](https://github.com/BornToBeRoot/PowerShell_IPv4NetworkScanner)
 - [robertdavidgraham/masscan](https://github.com/robertdavidgraham/masscan)
 
@@ -898,13 +898,13 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 ### SDR / Radio (1)
 
-- [jopohl/urh](https://github.com/jopohl/urh)
+- [jopohl/urh](https://github.com/jopohl/urh) (archived)
 
 ### Network Libraries & Tools (3)
 
 - [TalAloni/SMBLibrary](https://github.com/TalAloni/SMBLibrary)
 - [StamusNetworks/Clear-NDR-ISO](https://github.com/StamusNetworks/Clear-NDR-ISO)
-- [EONRaider/Packet-Sniffer](https://github.com/EONRaider/Packet-Sniffer)
+- [EONRaider/RootWire](https://github.com/EONRaider/RootWire) (formerly `EONRaider/Packet-Sniffer`)
 
 
 ## Cloud, Container & Identity
@@ -921,7 +921,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [nccgroup/aws-inventory](https://github.com/nccgroup/aws-inventory)
 - [nccgroup/house](https://github.com/nccgroup/house)
 - [prowler-cloud/prowler](https://github.com/prowler-cloud/prowler)
-- [tenable/terrascan](https://github.com/tenable/terrascan)
+- [tenable/terrascan](https://github.com/tenable/terrascan) (archived)
 
 ### Container & K8s Security (15)
 
@@ -932,7 +932,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [aquasecurity/trivy](https://github.com/aquasecurity/trivy)
 - [controlplaneio/badrobot](https://github.com/controlplaneio/badrobot)
 - [controlplaneio/kubectl-kubesec](https://github.com/controlplaneio/kubectl-kubesec)
-- [datreeio/datree](https://github.com/datreeio/datree)
+- [datreeio/datree](https://github.com/datreeio/datree) (archived)
 - [deepfence/SecretScanner](https://github.com/deepfence/SecretScanner)
 - [deepfence/ThreatMapper](https://github.com/deepfence/ThreatMapper)
 - [deepfence/YaraHunter](https://github.com/deepfence/YaraHunter)
@@ -977,15 +977,15 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [openziti/ziti](https://github.com/openziti/ziti)
 - [ory/hydra](https://github.com/ory/hydra)
 - [ory/kratos](https://github.com/ory/kratos)
-- [hashicorp/boundary](https://github.com/hashicorp/boundary)
+- [hashicorp/boundary](https://github.com/hashicorp/boundary) (archived)
 - [cyberark/conjur](https://github.com/cyberark/conjur)
 - [gravitational/teleport](https://github.com/gravitational/teleport)
 - [cloudflare/cloudflared](https://github.com/cloudflare/cloudflared)
-- [cloudflare/wrangler-legacy](https://github.com/cloudflare/wrangler-legacy)
+- [cloudflare/wrangler-legacy](https://github.com/cloudflare/wrangler-legacy) (archived)
 
 ### VPN / Privacy (6)
 
-- [StreisandEffect/streisand](https://github.com/StreisandEffect/streisand)
+- [StreisandEffect/streisand](https://github.com/StreisandEffect/streisand) (archived)
 - [WireGuard/wireguard-go](https://github.com/WireGuard/wireguard-go)
 - [WireGuard/wireguard-tools](https://github.com/WireGuard/wireguard-tools)
 - [juanfont/headscale](https://github.com/juanfont/headscale)
@@ -1007,7 +1007,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [AdguardTeam/AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)
 - [pi-hole/pi-hole](https://github.com/pi-hole/pi-hole)
 - [brave/brave-browser](https://github.com/brave/brave-browser)
-- [mozilla-mobile/firefox-android](https://github.com/mozilla-mobile/firefox-android)
+- [mozilla-mobile/firefox-android](https://github.com/mozilla-mobile/firefox-android) (archived)
 
 ### Password Cracking (5)
 
@@ -1035,13 +1035,13 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 - [GreyDGL/PentestGPT](https://github.com/GreyDGL/PentestGPT)
 - [NVIDIA/garak](https://github.com/NVIDIA/garak)
-- [protectai/llm-guard](https://github.com/protectai/llm-guard)
-- [protectai/rebuff](https://github.com/protectai/rebuff)
+- [protectai/llm-guard](https://github.com/protectai/llm-guard) (archived)
+- [protectai/rebuff](https://github.com/protectai/rebuff) (archived)
 - [usestrix/strix](https://github.com/usestrix/strix)
 
 ### AI Coding (1)
 
-- [AntonOsika/gpt-engineer](https://github.com/AntonOsika/gpt-engineer)
+- [AntonOsika/gpt-engineer](https://github.com/AntonOsika/gpt-engineer) (archived)
 
 ### MCP Servers (2)
 
@@ -1076,35 +1076,35 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [Azure/Azure-Network-Security](https://github.com/Azure/Azure-Network-Security)
 - [Azure/Azure-Sentinel](https://github.com/Azure/Azure-Sentinel)
 - [Azure/Azurite](https://github.com/Azure/Azurite)
-- [Azure/Cloud-Katana](https://github.com/Azure/Cloud-Katana)
-- [Azure/MDTI-Solutions](https://github.com/Azure/MDTI-Solutions)
+- [Azure/Cloud-Katana](https://github.com/Azure/Cloud-Katana) (archived)
+- [Azure/MDTI-Solutions](https://github.com/Azure/MDTI-Solutions) (archived)
 - [Azure/PSRule.Rules.Azure](https://github.com/Azure/PSRule.Rules.Azure)
-- [Azure/SimuLand](https://github.com/Azure/SimuLand)
+- [Azure/SimuLand](https://github.com/Azure/SimuLand) (archived)
 - [Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)
-- [Azure/counterfit](https://github.com/Azure/counterfit)
+- [Azure/counterfit](https://github.com/Azure/counterfit) (archived)
 - [MicrosoftDocs/azure-docs](https://github.com/MicrosoftDocs/azure-docs)
 - [MicrosoftDocs/defender-docs](https://web.archive.org/web/20260118151630/https://github.com/MicrosoftDocs/defender-docs)
 - [microsoft/CyberBattleSim](https://github.com/microsoft/CyberBattleSim)
 - [microsoft/Detours](https://github.com/microsoft/Detours)
 - [microsoft/MIEngine](https://github.com/microsoft/MIEngine)
 - [microsoft/MSRC-Security-Research](https://github.com/microsoft/MSRC-Security-Research)
-- [microsoft/Microsoft-365-Defender-Hunting-Queries](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries)
-- [microsoft/NimbusML](https://github.com/microsoft/NimbusML)
-- [microsoft/OpenHack](https://github.com/microsoft/OpenHack)
+- [microsoft/Microsoft-365-Defender-Hunting-Queries](https://github.com/microsoft/Microsoft-365-Defender-Hunting-Queries) (archived)
+- [microsoft/NimbusML](https://github.com/microsoft/NimbusML) (archived)
+- [microsoft/OpenHack](https://github.com/microsoft/OpenHack) (archived)
 - [microsoft/PowerToys](https://github.com/microsoft/PowerToys)
 - [microsoft/PyRIT](https://github.com/microsoft/PyRIT)
 - [microsoft/Security-101](https://github.com/microsoft/Security-101)
 - [microsoft/TypeScript](https://github.com/microsoft/TypeScript)
 - [microsoft/WSL](https://github.com/microsoft/WSL)
 - [microsoft/WSL2-Linux-Kernel](https://github.com/microsoft/WSL2-Linux-Kernel)
-- [microsoft/WinObjC](https://github.com/microsoft/WinObjC)
+- [microsoft/WinObjC](https://github.com/microsoft/WinObjC) (archived)
 - [microsoft/msticpy](https://github.com/microsoft/msticpy)
 - [microsoft/playwright](https://github.com/microsoft/playwright)
 - [microsoft/security-utilities](https://github.com/microsoft/security-utilities)
 - [microsoft/terminal](https://github.com/microsoft/terminal)
 - [microsoft/vscode](https://github.com/microsoft/vscode)
-- [microsoft/MSTIC-Sysmon](https://github.com/microsoft/MSTIC-Sysmon)
-- [microsoft/MDE-PowerBI-Templates](https://github.com/microsoft/MDE-PowerBI-Templates)
+- [microsoft/MSTIC-Sysmon](https://github.com/microsoft/MSTIC-Sysmon) (archived)
+- [microsoft/MDE-PowerBI-Templates](https://github.com/microsoft/MDE-PowerBI-Templates) (archived)
 
 ### Vendor - Nextron Systems (6)
 
@@ -1124,7 +1124,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [CrowdStrike/falconpy](https://github.com/CrowdStrike/falconpy)
 - [CrowdStrike/falcon-integration-gateway](https://github.com/CrowdStrike/falcon-integration-gateway)
 - [CrowdStrike/gofalcon](https://github.com/CrowdStrike/gofalcon)
-- [CrowdStrike/container-image-scan](https://github.com/CrowdStrike/container-image-scan)
+- [CrowdStrike/container-image-scan](https://github.com/CrowdStrike/container-image-scan) (archived)
 - [CrowdStrike/falcon-operator](https://github.com/CrowdStrike/falcon-operator)
 - [CrowdStrike/caracara](https://github.com/CrowdStrike/caracara)
 - [CrowdStrike/detection-container](https://github.com/CrowdStrike/detection-container)
@@ -1154,7 +1154,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 ### Vendor - Apple (4)
 
-- [apple/ccs-pyopendirectory](https://github.com/apple/ccs-pyopendirectory)
+- [apple/ccs-pyopendirectory](https://github.com/apple/ccs-pyopendirectory) (archived)
 - [apple/foundationdb](https://github.com/apple/foundationdb)
 - [apple/password-manager-resources](https://github.com/apple/password-manager-resources)
 - [swiftlang/swift](https://github.com/swiftlang/swift)
@@ -1174,7 +1174,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [google/syzkaller](https://github.com/google/syzkaller)
 - [google/timesketch](https://github.com/google/timesketch)
 - [google/tsunami-security-scanner](https://github.com/google/tsunami-security-scanner)
-- [googleprojectzero/CompareCoverage](https://github.com/googleprojectzero/CompareCoverage)
+- [googleprojectzero/CompareCoverage](https://github.com/googleprojectzero/CompareCoverage) (archived)
 - [googleprojectzero/Jackalope](https://github.com/googleprojectzero/Jackalope)
 - [googleprojectzero/fuzzilli](https://github.com/googleprojectzero/fuzzilli)
 - [googleprojectzero/winafl](https://github.com/googleprojectzero/winafl)
@@ -1182,7 +1182,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 ### Big Tech - Netflix (2)
 
 - [Netflix/metacat](https://github.com/Netflix/metacat)
-- [Netflix/security_monkey](https://github.com/Netflix/security_monkey)
+- [Netflix/security_monkey](https://github.com/Netflix/security_monkey) (archived)
 
 ### Big Tech - Uber (1)
 
@@ -1194,7 +1194,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 ### Big Tech - Spotify (1)
 
-- [spotify/dockerfile-maven](https://github.com/spotify/dockerfile-maven)
+- [spotify/dockerfile-maven](https://github.com/spotify/dockerfile-maven) (archived)
 
 ### Big Tech - Square (1)
 
@@ -1248,25 +1248,25 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 ### Kali Linux (19)
 
-- [offensive-security/cryptsetup-nuke-keys](https://github.com/offensive-security/cryptsetup-nuke-keys)
-- [offensive-security/exploitdb](https://github.com/offensive-security/exploitdb)
-- [offensive-security/exploitdb-bin-sploits](https://github.com/offensive-security/exploitdb-bin-sploits)
-- [offensive-security/exploitdb-papers](https://github.com/offensive-security/exploitdb-papers)
-- [offensive-security/hid-backdoor-peensy](https://github.com/offensive-security/hid-backdoor-peensy)
-- [offensive-security/kali-arm-build-scripts](https://github.com/offensive-security/kali-arm-build-scripts)
-- [offensive-security/kali-cloud-build](https://github.com/offensive-security/kali-cloud-build)
-- [offensive-security/kali-linux-docker-rolling](https://github.com/offensive-security/kali-linux-docker-rolling)
-- [offensive-security/kali-linux-recipes](https://github.com/offensive-security/kali-linux-recipes)
-- [offensive-security/kali-nethunter](https://github.com/offensive-security/kali-nethunter)
-- [offensive-security/kali-scripts](https://github.com/offensive-security/kali-scripts)
-- [offensive-security/kali-uboot-images](https://github.com/offensive-security/kali-uboot-images)
-- [offensive-security/masscan-web-ui](https://github.com/offensive-security/masscan-web-ui)
-- [offensive-security/nethunter-LRT](https://github.com/offensive-security/nethunter-LRT)
-- [offensive-security/nethunter-app](https://github.com/offensive-security/nethunter-app)
-- [offensive-security/nethunter-devices](https://github.com/offensive-security/nethunter-devices)
-- [offensive-security/nethunter-utils](https://github.com/offensive-security/nethunter-utils)
-- [offensive-security/term-nh](https://github.com/offensive-security/term-nh)
-- [offensive-security/wireless-patches](https://github.com/offensive-security/wireless-patches)
+- [offensive-security/cryptsetup-nuke-keys](https://github.com/offensive-security/cryptsetup-nuke-keys) (archived)
+- [offensive-security/exploitdb](https://github.com/offensive-security/exploitdb) (archived)
+- [offensive-security/exploitdb-bin-sploits](https://github.com/offensive-security/exploitdb-bin-sploits) (archived)
+- [offensive-security/exploitdb-papers](https://github.com/offensive-security/exploitdb-papers) (archived)
+- [offensive-security/hid-backdoor-peensy](https://github.com/offensive-security/hid-backdoor-peensy) (archived)
+- [offensive-security/kali-arm-build-scripts](https://github.com/offensive-security/kali-arm-build-scripts) (archived)
+- [offensive-security/kali-cloud-build](https://github.com/offensive-security/kali-cloud-build) (archived)
+- [offensive-security/kali-linux-docker-rolling](https://github.com/offensive-security/kali-linux-docker-rolling) (archived)
+- [offensive-security/kali-linux-recipes](https://github.com/offensive-security/kali-linux-recipes) (archived)
+- [offensive-security/kali-nethunter](https://github.com/offensive-security/kali-nethunter) (archived)
+- [offensive-security/kali-scripts](https://github.com/offensive-security/kali-scripts) (archived)
+- [offensive-security/kali-uboot-images](https://github.com/offensive-security/kali-uboot-images) (archived)
+- [offensive-security/masscan-web-ui](https://github.com/offensive-security/masscan-web-ui) (archived)
+- [offensive-security/nethunter-LRT](https://github.com/offensive-security/nethunter-LRT) (archived)
+- [offensive-security/nethunter-app](https://github.com/offensive-security/nethunter-app) (archived)
+- [offensive-security/nethunter-devices](https://github.com/offensive-security/nethunter-devices) (archived)
+- [offensive-security/nethunter-utils](https://github.com/offensive-security/nethunter-utils) (archived)
+- [offensive-security/term-nh](https://github.com/offensive-security/term-nh) (archived)
+- [offensive-security/wireless-patches](https://github.com/offensive-security/wireless-patches) (archived)
 
 ### Linux Distros (Security) (1)
 
@@ -1302,7 +1302,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [gnuradio/gnuradio](https://github.com/gnuradio/gnuradio)
 - [osmocom/op25](https://github.com/osmocom/op25)
 - [kismetwireless/kismet](https://github.com/kismetwireless/kismet)
-- [evilsocket/bleah](https://github.com/evilsocket/bleah)
+- [evilsocket/bleah](https://github.com/evilsocket/bleah) (archived)
 
 ### WiFi Attacks (1)
 
@@ -1326,11 +1326,11 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [REhints/efiXplorer](https://github.com/REhints/efiXplorer)
 - [attify/firmware-analysis-toolkit](https://github.com/attify/firmware-analysis-toolkit)
 - [firmadyne/firmadyne](https://github.com/firmadyne/firmadyne)
-- [ReversecLabs/needle](https://github.com/ReversecLabs/needle)
+- [ReversecLabs/needle](https://github.com/ReversecLabs/needle) (archived)
 
 ### Mobile (2)
 
-- [mozilla-mobile/firefox-android](https://github.com/mozilla-mobile/firefox-android)
+- [mozilla-mobile/firefox-android](https://github.com/mozilla-mobile/firefox-android) (archived)
 - [brave/brave-browser](https://github.com/brave/brave-browser)
 
 
@@ -1342,7 +1342,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [GovReady/govready-q](https://github.com/GovReady/govready-q)
 - [ComplianceAsCode/content](https://github.com/ComplianceAsCode/content)
 - [usnistgov/oscal-cli](https://github.com/usnistgov/oscal-cli)
-- [usnistgov/oscal-tools](https://github.com/usnistgov/oscal-tools)
+- [usnistgov/oscal-tools](https://github.com/usnistgov/oscal-tools) (archived)
 - [usnistgov/OSCAL](https://github.com/usnistgov/OSCAL)
 
 
@@ -1372,7 +1372,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 ### Government - France (2)
 
-- [ANSSI-FR/AD-control-paths](https://github.com/ANSSI-FR/AD-control-paths)
+- [ANSSI-FR/AD-control-paths](https://github.com/ANSSI-FR/AD-control-paths) (archived)
 - [ANSSI-FR/ORADAD](https://github.com/ANSSI-FR/ORADAD)
 
 
@@ -1383,7 +1383,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [jassics/security-study-plan](https://github.com/jassics/security-study-plan)
 - [tanc7/hacking-books](https://github.com/tanc7/hacking-books)
 - [rng70/Hacking-Resources](https://github.com/rng70/Hacking-Resources)
-- [Hack-with-Github/Free-Security-eBooks](https://github.com/Hack-with-Github/Free-Security-eBooks)
+- [Hack-with-Github/Free-Security-eBooks](https://github.com/Hack-with-Github/Free-Security-eBooks) (archived)
 - [mikesiko/PracticalMalwareAnalysis-Labs](https://github.com/mikesiko/PracticalMalwareAnalysis-Labs)
 - [intere/hacking](https://github.com/intere/hacking)
 - [PacktPublishing/Hands-On-Penetration-Testing-with-Python](https://github.com/PacktPublishing/Hands-On-Penetration-Testing-with-Python)
@@ -1425,7 +1425,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [rshipp/awesome-malware-analysis](https://github.com/rshipp/awesome-malware-analysis)
 - [sbilly/awesome-security](https://github.com/sbilly/awesome-security)
 - [secfigo/Awesome-Fuzzing](https://github.com/secfigo/Awesome-Fuzzing)
-- [sundowndev/hacker-roadmap](https://github.com/sundowndev/hacker-roadmap)
+- [sundowndev/hacker-roadmap](https://github.com/sundowndev/hacker-roadmap) (archived)
 - [sundowndev/phoneinfoga](https://github.com/sundowndev/phoneinfoga)
 - [trimstray/the-book-of-secret-knowledge](https://github.com/trimstray/the-book-of-secret-knowledge)
 - [tylerha97/awesome-reversing](https://github.com/tylerha97/awesome-reversing)
@@ -1467,7 +1467,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [anthropics/anthropic-sdk-typescript](https://github.com/anthropics/anthropic-sdk-typescript)
 - [anthropics/claude-code](https://github.com/anthropics/claude-code)
 - [anthropics/claude-cookbooks](https://github.com/anthropics/claude-cookbooks)
-- [anthropics/courses](https://github.com/anthropics/courses)
+- [anthropics/courses](https://github.com/anthropics/courses) (archived)
 - [anthropics/skills](https://github.com/anthropics/skills)
 - [mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills)
 
@@ -1523,17 +1523,17 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 
 ### Uncategorized (154)
 
-- [0xMarcio/cve](https://github.com/0xMarcio/cve)
+- [0xMarcio/pocindex](https://github.com/0xMarcio/pocindex) (formerly `0xMarcio/cve`)
 - [0xbigshaq/GenesisOS](https://github.com/0xbigshaq/GenesisOS)
 - [ALBY-Project/ALBY](https://github.com/ALBY-Project/ALBY)
-- [AnErrupTion/LoGiC.NET](https://github.com/AnErrupTion/LoGiC.NET)
+- [AnErrupTion/LoGiC.NET](https://github.com/AnErrupTion/LoGiC.NET) (archived)
 - [BlackFan/client-side-prototype-pollution](https://github.com/BlackFan/client-side-prototype-pollution)
 - [BuildHackSecure/gitscraper](https://github.com/BuildHackSecure/gitscraper)
-- [CERT-Bund/yara-exporter](https://github.com/CERT-Bund/yara-exporter)
+- [CERT-Bund/yara-exporter](https://github.com/CERT-Bund/yara-exporter) (archived)
 - [Ch40zz/CCHookReloaded](https://github.com/Ch40zz/CCHookReloaded)
 - [ChiChou/grapefruit](https://github.com/ChiChou/grapefruit)
 - [ChrisJohnRiley/Random_Code](https://github.com/ChrisJohnRiley/Random_Code)
-- [CoatiSoftware/Sourcetrail](https://github.com/CoatiSoftware/Sourcetrail)
+- [CoatiSoftware/Sourcetrail](https://github.com/CoatiSoftware/Sourcetrail) (archived)
 - [CognisysGroup/SweetDreams](https://github.com/CognisysGroup/SweetDreams)
 - [Cyb3rPandaH/CodingChallengeAWS](https://github.com/Cyb3rPandaH/CodingChallengeAWS)
 - [Cyb3rPandaH/Tableau-ATTCK](https://github.com/Cyb3rPandaH/Tableau-ATTCK)
@@ -1542,18 +1542,18 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [Dump-GUY/Malware-analysis-and-Reverse-engineering](https://github.com/Dump-GUY/Malware-analysis-and-Reverse-engineering)
 - [Dump-GUY/ghidra_scripts](https://github.com/Dump-GUY/ghidra_scripts)
 - [Dviros/CredsLeaker](https://github.com/Dviros/CredsLeaker)
-- [ESAIP-CTF/public-esaip-ctf-2023](https://github.com/ESAIP-CTF/public-esaip-ctf-2023)
+- [ESAIP-CTF/public-esaip-ctf-2023](https://github.com/ESAIP-CTF/public-esaip-ctf-2023) (archived)
 - [FlareSolverr/FlareSolverr](https://github.com/FlareSolverr/FlareSolverr)
 - [Geluchat/chrome_v8_exploit](https://github.com/Geluchat/chrome_v8_exploit)
 - [GoFetchAD/GoFetch](https://github.com/GoFetchAD/GoFetch)
-- [GreatSCT/GreatSCT](https://github.com/GreatSCT/GreatSCT)
+- [GreatSCT/GreatSCT](https://github.com/GreatSCT/GreatSCT) (archived)
 - [Group3r/Group3r](https://github.com/Group3r/Group3r)
 - [Hackndo/WebclientServiceScanner](https://github.com/Hackndo/WebclientServiceScanner)
 - [Hackndo/pyGPOAbuse](https://github.com/Hackndo/pyGPOAbuse)
 - [Hackndo/sprayhound](https://github.com/Hackndo/sprayhound)
 - [Hakumarachi/Bropper](https://github.com/Hakumarachi/Bropper)
 - [Hakumarachi/Loose-Compare-Tables](https://github.com/Hakumarachi/Loose-Compare-Tables)
-- [HigherOrderCO/Bend](https://github.com/HigherOrderCO/Bend)
+- [bendlang/bend](https://github.com/bendlang/bend) (formerly `HigherOrderCO/Bend`)
 - [JKornev/hidden](https://github.com/JKornev/hidden)
 - [JohnTroony/php-webshells](https://github.com/JohnTroony/php-webshells)
 - [JohnWoodman/VBA-Macro-Reverse-Shell](https://github.com/JohnWoodman/VBA-Macro-Reverse-Shell)
@@ -1593,7 +1593,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [P4T12ICK/Sigma2SplunkAlert](https://github.com/P4T12ICK/Sigma2SplunkAlert)
 - [PI-Defender/pi-defender](https://github.com/PI-Defender/pi-defender)
 - [PacktPublishing/Fuzzing-Against-the-Machine](https://github.com/PacktPublishing/Fuzzing-Against-the-Machine)
-- [PhrozenIO/PowerRemoteDesktop](https://github.com/PhrozenIO/PowerRemoteDesktop)
+- [DarkCoderSc/PowerRemoteDesktop](https://github.com/DarkCoderSc/PowerRemoteDesktop) (formerly `PhrozenIO/PowerRemoteDesktop`)
 - [Pickfordmatt/SharpLocker](https://github.com/Pickfordmatt/SharpLocker)
 - [Pkcs11Interop/Pkcs11Interop](https://github.com/Pkcs11Interop/Pkcs11Interop)
 - [Plazmaz/LNKUp](https://github.com/Plazmaz/LNKUp)
@@ -1603,7 +1603,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [Yamato-Security/EnableWindowsLogSettings](https://github.com/Yamato-Security/EnableWindowsLogSettings)
 - [Yamato-Security/hayabusa](https://github.com/Yamato-Security/hayabusa)
 - [Yamato-Security/takajo](https://github.com/Yamato-Security/takajo)
-- [a0rtega/pafish](https://github.com/a0rtega/pafish)
+- [a0rtega/pafish](https://github.com/a0rtega/pafish) (archived)
 - [adon90/pentest_compilation](https://github.com/adon90/pentest_compilation)
 - [appsecco/dvna](https://github.com/appsecco/dvna)
 - [assafmo/xioc](https://github.com/assafmo/xioc)
@@ -1615,7 +1615,7 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [codingo/Reconnoitre](https://github.com/codingo/Reconnoitre)
 - [codingo/codingo](https://github.com/codingo/codingo)
 - [ctfs/write-ups-2017](https://github.com/ctfs/write-ups-2017)
-- [dnSpy/dnSpy](https://github.com/dnSpy/dnSpy)
+- [dnSpy/dnSpy](https://github.com/dnSpy/dnSpy) (archived)
 - [ebranca/owasp-pysec](https://github.com/ebranca/owasp-pysec)
 - [edoardogerosa/sentinel-attack](https://github.com/edoardogerosa/sentinel-attack)
 - [elastic/endpoint-package](https://github.com/elastic/endpoint-package)
@@ -1642,17 +1642,17 @@ Use [research/BLACK_HAT_ARSENAL_CROSSWALK.md](research/BLACK_HAT_ARSENAL_CROSSWA
 - [obra/superpowers](https://github.com/obra/superpowers)
 - [odedshimon/BruteShark](https://github.com/odedshimon/BruteShark)
 - [p3nt4/PowerShdll](https://github.com/p3nt4/PowerShdll)
-- [pan-unit42/iocs](https://github.com/pan-unit42/iocs)
+- [pan-unit42/iocs](https://github.com/pan-unit42/iocs) (archived)
 - [pinchtab/pinchtab](https://github.com/pinchtab/pinchtab)
-- [praetorian-inc/noseyparker](https://github.com/praetorian-inc/noseyparker)
+- [praetorian-inc/noseyparker](https://github.com/praetorian-inc/noseyparker) (archived)
 - [praetorian-inc/turnt](https://github.com/praetorian-inc/turnt)
 - [pwndoc/pwndoc](https://github.com/pwndoc/pwndoc)
 - [random-robbie/keywords](https://github.com/random-robbie/keywords)
-- [rasta-mouse/Watson](https://github.com/rasta-mouse/Watson)
+- [rasta-mouse/Watson](https://github.com/rasta-mouse/Watson) (archived)
 - [revng/revng](https://github.com/revng/revng)
 - [rip1s/vmware_escape](https://github.com/rip1s/vmware_escape)
 - [s0md3v/Arjun](https://github.com/s0md3v/Arjun)
-- [siddharthvaddem/openscreen](https://github.com/siddharthvaddem/openscreen)
+- [siddharthvaddem/openscreen](https://github.com/siddharthvaddem/openscreen) (archived)
 - [slemire/WSPCoerce](https://github.com/slemire/WSPCoerce)
 - [slidevjs/slidev](https://github.com/slidevjs/slidev)
 - [snort3/snort3](https://github.com/snort3/snort3)
@@ -1691,7 +1691,7 @@ Curated reference additions: enterprise-grade detection and SIEM platforms, and 
 | [splunk/security_content](https://github.com/splunk/security_content) | Splunk | ★★★★★ | Splunk Security Essentials detection rules and use cases |
 | [elastic/detection-rules](https://github.com/elastic/detection-rules) | Elastic | ★★★★★ | Elastic Security detection rules (EQL, KQL, YARA) |
 | [cisagov](https://github.com/cisagov) | CISA | ★★★★ | CISA open-source tools and advisories |
-| [Neo23x0/sigma](https://github.com/Neo23x0/sigma) | Neo23x0 | ★★★★★ | Sigma rule format specification and community rules |
+| [SigmaHQ/sigma](https://github.com/SigmaHQ/sigma) | SigmaHQ (formerly Neo23x0) | ★★★★★ | Sigma rule format specification and community rules |
 
 
 ## Offensive Security and Red Team Repos
@@ -1702,7 +1702,7 @@ Supplemental offensive security references and privilege escalation tooling.
 |------------|--------|-------|-------------|
 | [swisskyrepo/PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings) | swisskyrepo | ★★★★★ | Massive payload reference for every web and system attack type |
 | [saisathvik1/OSCP-Cheatsheet](https://github.com/saisathvik1/OSCP-Cheatsheet) | various | ★★★★ | OSCP preparation cheatsheets and methodology |
-| [carlospolop/PEASS-ng](https://github.com/carlospolop/PEASS-ng) | carlospolop | ★★★★★ | WinPEAS/LinPEAS/MacPEAS privilege escalation enum scripts |
+| [peass-ng/PEASS-ng](https://github.com/peass-ng/PEASS-ng) | peass-ng (formerly carlospolop) | ★★★★★ | WinPEAS/LinPEAS/MacPEAS privilege escalation enum scripts |
 | [absolomb/WindowsEnum](https://github.com/absolomb/WindowsEnum) | absolomb | ★★★★ | Windows privilege escalation enumeration |
 | [rebootuser/LinEnum](https://github.com/rebootuser/LinEnum) | rebootuser | ★★★★ | Linux enumeration and privilege escalation script |
 | [bitsadmin/wesng](https://github.com/bitsadmin/wesng) | bitsadmin | ★★★★ | Windows Exploit Suggester Next Gen |
@@ -1720,7 +1720,7 @@ Supplemental defensive and DFIR tooling not covered elsewhere.
 |------------|--------|-------|-------------|
 | [EricZimmermann/KAPE](https://ericzimmerman.github.io/#!index.md) | EricZimmermann | ★★★★★ | Kroll Artifact Parser and Extractor: triage collection |
 | [volatilityfoundation/volatility3](https://github.com/volatilityfoundation/volatility3) | Volatility Foundation | ★★★★★ | Memory forensics framework (Python 3) |
-| [countercept/chainsaw](https://github.com/countercept/chainsaw) | countercept | ★★★★★ | Fast Windows event log hunting (Sigma rules) |
+| [WithSecureOpenSource/chainsaw](https://github.com/WithSecureOpenSource/chainsaw) | WithSecure (formerly countercept) | ★★★★★ | Fast Windows event log hunting (Sigma rules) |
 | [Yamato-Security/hayabusa](https://github.com/Yamato-Security/hayabusa) | Yamato-Security | ★★★★ | Sigma-based Windows event log analysis |
 | [pstirparo/mac4n6](https://github.com/pstirparo/mac4n6) | pstirparo | ★★★ | macOS forensics artifacts reference |
 | [Velocidex/velociraptor](https://github.com/Velocidex/velociraptor) | Velocidex | ★★★★★ | Enterprise DFIR and threat hunting |

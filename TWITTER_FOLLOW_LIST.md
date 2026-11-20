@@ -103,7 +103,7 @@ Scope: about 205 accounts organized into 19 main sections, plus a short Black Ha
 - @bartblaze: Bart Blaze (malware researcher)
 
 ## Threat Intelligence Analysts
-- @MalwareJake: John Bambenek
+- @MalwareJake: Jake Williams
 - @likethecoins: Katie Nickels (Red Canary)
 - @JohnHultquist: Mandiant threat intel head
 - @KatieNickels: (alt handle)
@@ -172,7 +172,7 @@ Scope: about 205 accounts organized into 19 main sections, plus a short Black Ha
 - @samwcyo: Sam Curry (web vuln research)
 - @TomNomNom: Tomnomnom (recon tools)
 - @orange_8361: Orange Tsai
-- @infosec_au: Albinowax (PortSwigger)
+- @infosec_au: shubs (Assetnote)
 - @InsiderPhD: Katie Paxton-Fear
 - @portswigger: PortSwigger
 - @burpsuite: Burp Suite
@@ -342,11 +342,11 @@ Scope: about 205 accounts organized into 19 main sections, plus a short Black Ha
 |---|---|---|---|
 | @cyb3rops | Florian Roth | YARA rules, detection, Sigma | Creator of Neo23x0/signature-base and Sigma; essential follow for detection engineers |
 | @Kostastsale | Kostas | Detection engineering, Sigma | Prolific detection rule author; SOC content |
-| @nas_bench | Nate Becketts | Blue team, incident response | Solid IR and detection content |
-| @HackingLZ | Leron Gray | DFIR, threat hunting | Experienced IR practitioner; quality content |
+| @nas_bench | Nasreddine Bencherchali | Blue team, incident response | Solid IR and detection content |
+| @HackingLZ | Justin Elze | DFIR, threat hunting | Experienced IR practitioner; quality content |
 | @svch0st | svch0st | Malware analysis, detection | Windows internals, malware analysis |
 | @SBousseaden | Samir Bousseaden | EDR detection, Windows internals | Elastic security researcher; deep Windows detection expertise |
-| @TazWake | Pete Cowman | DFIR, forensics | Great forensics and IR threads |
+| @TazWake | Taz Wake | DFIR, forensics | Great forensics and IR threads |
 | @ionstorm | Jon Gorenflo | Threat hunting, Active Directory | AD security and detection content |
 | @blueteamsec | Various curators | Blue team research aggregator | Curated blue team research links; high signal |
 
@@ -362,8 +362,8 @@ Scope: about 205 accounts organized into 19 main sections, plus a short Black Ha
 | @armitagehacker | Raphael Mudge | Cobalt Strike creator | Original Cobalt Strike developer |
 | @rsmudge | Raphael Mudge | C2, Cobalt Strike | Cobalt Strike-adjacent research |
 | @_dirkjan | Dirk-jan Mollema | Azure AD, Kerberos, impacket | Creator of impacket contributions, Azure AD attack research; essential |
-| @decoder_it | Roberto Sanchez | Windows privilege escalation | PrintSpoofer, RogueWinRM, token impersonation discoveries |
-| @splinter_code | Andrea Pierini | Windows security, privesc | Potato exploits co-author |
+| @decoder_it | Andrea Pierini | Windows privilege escalation | PrintSpoofer, RogueWinRM, token impersonation discoveries |
+| @splinter_code | Antonio Cocomazzi | Windows security, privesc | Potato exploits co-author |
 
 
 #### Threat Intelligence Analysts (Enriched Accounts)

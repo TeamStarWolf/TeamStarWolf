@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,040 words at 230 words a minute)
+About 2 min (570 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -27,7 +27,7 @@ You want the lessons from hardening and maintaining a real project in public, or
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Start at</th><td>
 
-[Index](#index), [1. Hardening LimeWire v4](#_1-hardening-limewire-v4), [2. Bulk-bookkeeping the GitHub Stars API](#_2-bulk-bookkeeping-the-github-stars-api)
+[Index](#index), [1. Bulk-bookkeeping the GitHub Stars API](#_1-bulk-bookkeeping-the-github-stars-api)
 
 </td></tr>
 </table>
@@ -63,51 +63,11 @@ No review recorded yet
 
 | # | Entry | Topic |
 |---|---|---|
-| 2 | [Bulk-bookkeeping the GitHub Stars API](#_2-bulk-bookkeeping-the-github-stars-api) | Web reverse engineering, rate-limit handling |
-| 1 | [Hardening LimeWire v4: 32 vulnerabilities, 3 audit rounds](#_1-hardening-limewire-v4) | Application security, secure coding patterns |
+| 1 | [Bulk-bookkeeping the GitHub Stars API](#_1-bulk-bookkeeping-the-github-stars-api) | Web reverse engineering, rate-limit handling |
 
 ---
 
-## 1. Hardening LimeWire v4
-
-Project: TeamStarWolf/LimeWire, a Python desktop audio production studio (~100 source files, Tkinter GUI, ffmpeg/yt-dlp subprocess heavy).
-
-Method: Three iterative rounds of `code-reviewer` agent audits with manual triage, `pytest` regression coverage on the security module after each fix, and a hard "fix-introduces-regression" check before every commit.
-
-Outcome: 32 confirmed vulnerabilities patched across 9 files. The complete diff is committed in the LimeWire main branch under tags `v4.0.0`–`v4.0.3`. Commit messages include the CWE family for each fix.
-
-### Findings by class
-
-| Class | Count | Examples |
-|---|---|---|
-| SSRF / unvalidated subprocess input | 6 | ffmpeg `-i` accepting `http://`, `smb://`, `rtsp://` URLs in `audio_processing.py`, `analyze.py`, `converter.py` |
-| Path policy bypass | 3 | `require_allowed_write` returning silently when `_ALLOWED_ROOTS` was never initialised; `~/Documents` and `~/Music` were the entire allowed surface |
-| Plaintext credential storage | 2 | API client secrets (Spotify, YouTube, TIDAL, Deezer) stored unencrypted in `~/.limewire_settings.json` despite OAuth tokens being DPAPI-encrypted |
-| Filter-string injection (ffmpeg) | 2 | Two-pass loudnorm interpolating ffprobe-parsed JSON values directly into ffmpeg's `-af` filter chain without numeric validation |
-| URL injection (frontend) | 1 | `web/frontend/app.js` rendering `info.thumbnail` from yt-dlp output as `<img src>` without `is_public_http_url` validation |
-| Honest-encryption mislabelling | 1 | Non-Windows fallback to base64 obfuscation while UI still displayed "Encrypted Storage: DPAPI" |
-| Subprocess allowlist gaps | 4 | Bare `subprocess.Popen` for FL Studio, `open`, and `xdg-open` outside the `_ALLOWED_BINARIES` policy |
-| Web API path-traversal & key allowlists | 3 | Validated under `_DOWNLOAD_DIR_RESOLVED` and `_SAFE_KEYS` |
-| Token storage primitives | 2 | DPAPI wrappers, atomic writes, structured `safe_subprocess.CommandResult.ok` |
-| Misc input-validation | 8 | URL allowlist regexes, sanitize_filename Windows reserved-name handling, FFmpeg/FFprobe wrapper-call enforcement |
-
-### Recurring patterns
-
-1. The fix-introduces-regression problem. Two rounds of audit produced fixes that themselves needed fixing. Examples: `_safe_float` accidentally returning `int` strings that ffmpeg interpreted differently; the path-policy initialiser not being called from `app.py` startup despite the policy being defined. The lesson: every security fix needs both a positive test (the policy *blocks* the bad case) and a negative test (the policy *allows* the legitimate case).
-2. The "permissive default" anti-pattern. Three of the bypasses (`require_allowed_write`, `_ALLOWED_BINARIES` skip on uninitialised state, the non-Windows fallback) were "fail open" defaults that silently degraded security. Replaced with "fail closed and log warn" patterns throughout.
-3. `subprocess` is the perimeter. The biggest cluster of issues was in subprocess invocations. The `safe_subprocess` module, a binary allowlist plus mandatory timeouts plus structured `CommandResult`, paid for itself across 9 separate fix sites once it was the sole entry point.
-
-### What stays in the codebase
-
-- `limewire/security/safe_subprocess.py`: `_ALLOWED_BINARIES = {ffmpeg, ffprobe, yt-dlp, open, xdg-open}`, `shell=False`, mandatory timeout
-- `limewire/security/safe_paths.py`: `init_allowed_roots()` called from `app.py:__init__`, fail-closed default, scoped roots
-- `limewire/security/safe_json.py`: size limits (5 MB), depth checks (10 levels), key allowlists for themes/settings
-- `limewire/security/network.py`: `is_public_http_url` SSRF guard now applied at every URL ingress
-- 195+ `pytest` cases under `tests/test_safe_*.py` covering each of the above
-
----
-
-## 2. Bulk-bookkeeping the GitHub Stars API
+## 1. Bulk-bookkeeping the GitHub Stars API
 
 Project: [TeamStarWolf](https://github.com/TeamStarWolf/TeamStarWolf), the meta-repository hosting the curation catalogues.
 

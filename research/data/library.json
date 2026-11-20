@@ -19461,40 +19461,6 @@
       }
     },
     {
-      "id": "tool:teamstarwolf/limewire",
-      "type": "tool",
-      "title": "TeamStarWolf/LimeWire",
-      "url": "https://github.com/TeamStarWolf/LimeWire",
-      "description": "",
-      "category": "Personal & Misc",
-      "subcategory": "TeamStarWolf - Your Repos",
-      "vendor": "TeamStarWolf",
-      "handle": "",
-      "affiliation": "",
-      "attack_tactics": [],
-      "metadata": {
-        "repo": "LimeWire",
-        "owner": "TeamStarWolf"
-      }
-    },
-    {
-      "id": "tool:teamstarwolf/pokenav",
-      "type": "tool",
-      "title": "TeamStarWolf/PokeNav",
-      "url": "https://github.com/TeamStarWolf/PokeNav",
-      "description": "",
-      "category": "Personal & Misc",
-      "subcategory": "TeamStarWolf - Your Repos",
-      "vendor": "TeamStarWolf",
-      "handle": "",
-      "affiliation": "",
-      "attack_tactics": [],
-      "metadata": {
-        "repo": "PokeNav",
-        "owner": "TeamStarWolf"
-      }
-    },
-    {
       "id": "tool:teamstarwolf/teamstarwolf",
       "type": "tool",
       "title": "TeamStarWolf/TeamStarWolf",

@@ -654,11 +654,10 @@
     section.cover .tsw-cover-banner {
       display: block; margin: 0 auto 1.1rem; width: 100%; max-width: 640px; height: auto;
     }
-    /* Wide screens: the hero shares the first screen with the homepage instead of filling it,
-       so the doors and popular references are at or near the fold. The cover keeps its flex
-       centring within the reduced height. */
+    /* Wide screens: the hero fills the first screen; one scroll down lands on the homepage
+       doors and popular references. The cover keeps its flex centring within the full height. */
     @media screen and (min-width: 769px) {
-      section.cover.show { min-height: 64vh; }
+      section.cover.show { min-height: 100vh; }
     }
     section.cover .tsw-art-light { display: none; }
     :root[data-theme="light"] section.cover .tsw-art-dark { display: none; }

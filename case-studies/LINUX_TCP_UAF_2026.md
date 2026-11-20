@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 33 min (7,493 words at 230 words a minute)
+About 33 min (7,522 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -392,7 +392,7 @@ The program move is to carry all three signals and let them combine, which is th
 
 ## Sources
 
-- The kernel CVE team's record for CVE-2026-98432 in the kernel.org vulns repository ([CVE-2026-98432.mbox](https://kernel.googlesource.com/pub/scm/linux/security/vulns/+/refs/heads/master/cve/published/2026/CVE-2026-98432.mbox)), opened 4 November 2026, and the GitHub Advisory Database entry GHSA-qp6h-4hvh-qqqc, including the root-cause description, the `kfree_rcu` fix, the CVSS 9.8 vector, the statement that the issue was introduced in 4.4 with commit `079096f103fa`, the fixed release and commit on each stable branch, the EPSS figure, and the IPv6 note.
+- The kernel CVE team's record for CVE-2026-98432 in the kernel.org vulns repository ([CVE-2026-98432.mbox](https://kernel.googlesource.com/pub/scm/linux/security/vulns/+/refs/heads/master/cve/published/2026/CVE-2026-98432.mbox)), opened 4 November 2026, and its companion machine-readable record in the same repository ([CVE-2026-98432.json](https://kernel.googlesource.com/pub/scm/linux/security/vulns/+/refs/heads/master/cve/published/2026/CVE-2026-98432.json)), opened 19 November 2026, whose per-metric CVSS rationale is the source of the confidentiality-impact wording quoted in Part 1, and the GitHub Advisory Database entry GHSA-qp6h-4hvh-qqqc, including the root-cause description, the `kfree_rcu` fix, the CVSS 9.8 vector, the statement that the issue was introduced in 4.4 with commit `079096f103fa`, the fixed release and commit on each stable branch, the EPSS figure, and the IPv6 note.
 - Red Hat's [vulnerability page for CVE-2026-98432](https://access.redhat.com/security/cve/cve-2026-98432), opened 4 November 2026, and security bulletin RHSB-2026-016, for the Critical rating, the affected Red Hat Enterprise Linux and OpenShift versions, the "requires precise heap control" statement, the nftables mitigation guidance, the fixed errata and their dates (RHSA-2026:93412 to 93415 on 1 November 2026; RHSA-2026:94109, 94303, 94438, 94477, 94508, 94558 and 94623 on 2 to 3 November), the fixed RHEL 8, 9 and 10 kernel versions, RHEL 6 and 7 not affected, and the OpenShift RHCOS images and RHEL 9 kernel-rt still listed Affected.
 - The AWS security bulletin for CVE-2026-98432, for the affected-version range, the Multipath TCP remote-code-execution statement, its statement that there was no evidence of exploitation in the wild, and the Amazon Linux fix status.
 - Distribution advisories from Debian, SUSE, Oracle, AlmaLinux, Rocky Linux and Ubuntu, and vendor trackers, for the patch-status matrix.

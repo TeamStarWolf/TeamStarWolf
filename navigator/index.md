@@ -283,8 +283,8 @@ ATT&CK for ICS layers bound to library case studies. Curated layers under `navig
 
 | Score Range | Meaning |
 |---|---|
-| 20-32 | Many NIST 800-53 controls map to this technique (deep control coverage) |
-| 10-19 | Moderate control coverage; most mature security programs address this technique |
+| 20-32 | Many NIST 800-53 controls map to this technique (a high mapping count, not a measure of what is deployed) |
+| 10-19 | A moderate number of NIST 800-53 controls map to this technique |
 | 1-9 | Few controls map here; may represent a capability gap worth prioritizing with compensating detection or design controls |
 
 The score counts mapped NIST 800-53 controls (framework depth). It does not measure vendor coverage or what is deployed in any environment.

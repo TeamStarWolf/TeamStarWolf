@@ -21,7 +21,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 10 min (2,244 words at 230 words a minute)
+About 10 min (2,247 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -69,7 +69,7 @@ No review recorded yet
 Choose one primary standard and treat the other as a cross-check:
 
 - CIS Benchmarks: per-OS, per-role profiles. Start with Level 1 (security with minimal breakage); Level 2 is defense-in-depth and will break things. Adopt it control-by-control. Pick the benchmark matching each role: Windows 11 Enterprise, Server 2022/2025 Member Server, Server Domain Controller.
-- Microsoft Security Baselines (in the SCT you downloaded): ready-made GPO backups for the currently supported Windows 11 builds (the Security Compliance Toolkit now ships 26H2, 25H2, 24H2, and 23H2; 21H2 and 22H2 have aged out), Windows Server 2016-2025, Microsoft 365 Apps, and Edge. Pick the baseline for your exact supported build rather than a fixed version, because the toolkit adds new builds and drops old ones over time. Faster to deploy because they ship as importable GPOs; the Microsoft baseline enforces strong settings such as Virtualization-Based Security (enabled, with UEFI lock on Credential Guard, memory integrity, and LSA protection), PowerShell Script Block Logging, and full AutoPlay/AutoRun disablement. Microsoft's [Intune security-baseline settings reference](https://learn.microsoft.com/en-us/intune/intune-service/protect/security-baseline-settings-mdm-all), the MDM counterpart of these GPO baselines, documents the exact defaults.
+- Microsoft Security Baselines (in the SCT you downloaded): ready-made GPO backups for the currently supported Windows 11 builds (the Security Compliance Toolkit now ships 26H2, 25H2, 24H2, and 23H2; 21H2 and 22H2 have aged out), Windows Server 2016-2025, Microsoft 365 Apps, and Edge. Pick the baseline for your exact supported build rather than a fixed version, because the toolkit adds new builds and drops old ones over time. Faster to deploy because they ship as importable GPOs; the Microsoft baseline enforces strong settings such as Virtualization-Based Security (enabled, with UEFI lock on Credential Guard and memory integrity), Local Security Authority (LSA) protection, PowerShell Script Block Logging, and full AutoPlay/AutoRun disablement. Microsoft's [Intune security-baseline settings reference](https://learn.microsoft.com/en-us/intune/intune-service/protect/security-baseline-settings-mdm-all), the MDM counterpart of these GPO baselines, documents the exact defaults.
 
 A sane default: deploy the Microsoft baseline as your enforced floor, then layer the CIS Level 1 deltas your compliance framework demands. The [WINDOWS_HARDENING.md](/WINDOWS_HARDENING.md) compliance mapping table shows how the two overlap per control area.
 

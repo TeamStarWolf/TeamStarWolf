@@ -17,7 +17,7 @@ Beginner
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 7 min (1,644 words at 230 words a minute)
+About 7 min (1,649 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -203,12 +203,12 @@ A curated library of YouTube channels organized by discipline. Use it when you w
 - Jack Rhysider - https://www.youtube.com/@JackRhysider - Companion channel to the *Darknet Diaries* podcast; long-form cybercrime and intelligence-operation narratives
 - CyberBytes - https://www.youtube.com/@cyberbytes-the-podcast - Practitioner interviews and industry discussion
 - Cyber Warriors HQ - https://www.youtube.com/@CyberWarriorsHQ - Career development, community discussion, industry interviews
-- Cyber Warriors HQ Dispatch - `https://www.youtube.com/@CyberWarriorsHQDispatch` - Daily cybersecurity news briefings
+- Cyber Warriors HQ Dispatch - https://www.youtube.com/@CyberWarriorsHQDispatch - Daily cybersecurity news briefings (channel not found, checked 2026-11-20)
 
 ## Conference Talks
 - DEF CON Conference - https://www.youtube.com/@DEFCONConference - All DEF CON main-stage talks
 - Black Hat - https://www.youtube.com/@BlackHatOfficialYT - Black Hat USA, EU, and Asia
-- RSA Conference - https://web.archive.org/web/20260128164733/https://www.youtube.com/@RSAConference - RSA keynotes and sessions
+- RSA Conference - https://www.youtube.com/user/RSAConference - RSA keynotes and sessions
 - OWASP Foundation - https://www.youtube.com/@OWASPGLOBAL - AppSec talks
 - NorthSec - https://www.youtube.com/@NorthSec - Canadian security conference
 - Chaos Computer Club (CCC) - https://www.youtube.com/@mediacccde - CCC Congress talks
@@ -275,7 +275,7 @@ The Arsenal source material only exposes a handful of direct YouTube links, so t
 
 | Channel | Focus | Skill Level | Notes |
 |---------|-------|-------------|-------|
-| Eric Zimmermann | Windows forensics, EZTools | Intermediate-Advanced | Tool author; Eric Zimmermann forensic artifact tools |
+| Eric Zimmerman | Windows forensics, EZTools | Intermediate-Advanced | Tool author; Eric Zimmerman forensic artifact tools |
 | SANS Digital Forensics | DFIR, memory forensics | Intermediate-Advanced | Conference talks, tool demos, course previews: also listed in Detection Engineering |
 | Cyber Defender | SOC fundamentals, threat hunting | Beginner-Mid | LetsDefend creator; SOC workflow content; also listed in Detection Engineering |
 | MyDFIR | SOC analyst content, detection | Beginner-Mid | SOC analyst walkthroughs; practical SIEM/EDR use |

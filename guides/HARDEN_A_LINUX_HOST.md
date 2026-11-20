@@ -21,7 +21,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 20 min (4,581 words at 230 words a minute)
+About 20 min (4,590 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -252,7 +252,7 @@ table inet hardening {
 What each part does:
 
 - `table inet hardening {}` followed by `flush table inet hardening`: the empty declaration makes sure the table exists, so the flush succeeds on the first load, and the flush empties it on every later load. Because `nft -f` runs the whole file as one transaction, the old rules and the new ones are swapped in a single step, with no moment where the host is unfiltered ([atomic rule replacement](https://wiki.nftables.org/wiki-nftables/index.php/Atomic_rule_replacement), [scripting](https://wiki.nftables.org/wiki-nftables/index.php/Scripting)). The table is `inet`, so one chain sees IPv4 and IPv6, and it is its own table, so the container runtime's tables are untouched.
-- `set admin_nets` with `flags interval` holds CIDR ranges ([sets](https://wiki.nftables.org/wiki-nftables/index.php/Sets)). Replace the placeholders with your admin networks. A flush does not empty sets, so removing a network from the file and reloading leaves it in the set; delete the table and reload to remove one.
+- `set admin_nets` with `flags interval` holds CIDR ranges ([sets](https://wiki.nftables.org/wiki-nftables/index.php/Sets)). Replace the placeholders with your admin networks. A `flush table` empties only the table's chains and rules, not its sets ([nft(8)](https://www.netfilter.org/projects/nftables/manpage.html)), so removing a network from the file and reloading leaves it in the set; delete the table and reload to remove one.
 - `type filter hook input priority 0; policy drop;`: a base chain on the input hook whose default is drop, the pattern in the wiki's [simple ruleset for a server](https://wiki.nftables.org/wiki-nftables/index.php/Simple_ruleset_for_a_server).
 - `iif "lo" accept`: loopback traffic, which local services such as the container runtime depend on.
 - `ip hdrlength > 5 meta l4proto tcp counter drop`: the CVE-2026-98432 bridge. The IPv4 header length field counts 32-bit words and a header without options is exactly 5 ([RFC 791](https://www.rfc-editor.org/rfc/rfc791.html)), so a value above 5 means IP options are present ([nft(8) `ip hdrlength`](https://www.netfilter.org/projects/nftables/manpage.html), [matching packet headers](https://wiki.nftables.org/wiki-nftables/index.php/Matching_packet_headers)). It sits before the established rule on purpose, so options are dropped on every IPv4 TCP packet, including those of existing connections. The `counter` shows whether anything legitimate is hitting it ([counters](https://wiki.nftables.org/wiki-nftables/index.php/Counters)).

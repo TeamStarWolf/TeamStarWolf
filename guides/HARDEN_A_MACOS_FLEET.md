@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 9 min (2,183 words at 230 words a minute)
+About 10 min (2,197 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -168,7 +168,7 @@ sudo ./build/BASELINE_NAME/BASELINE_NAME_compliance.sh --check
 
 The script must run as root and under zsh (running it with `sh` or `bash` errors out). Run without flags for an interactive menu; automate with `--check` (scan only), `--stats` (pass/fail counts from the last scan), `--compliant` / `--non_compliant` (counts for dashboards), `--fix` (remediate locally), `--cfc` (check-fix-check in one pass), and `--reset` / `--reset-all` to clear stored results. Results persist in `/Library/Preferences/org.BASELINE_NAME.audit.plist`, with a human-readable log at `/Library/Logs/BASELINE_NAME_baseline.log`.
 
-Then operationalize it: deploy the script fleet-wide via MDM, schedule `--check` runs, and ship the plist/log results to your reporting pipeline. mSCP 2.0's exit-code-based checks and JSON output exist precisely so pipelines can consume them. For continuous state questions between scans, osquery covers the same ground (SIP status, Gatekeeper, FileVault, profiles) as scheduled queries; see [MACOS_SECURITY_REFERENCE.md](/MACOS_SECURITY_REFERENCE.md) for ready-made posture queries.
+Then operationalize it: deploy the script fleet-wide via MDM, schedule `--check` runs, and ship the plist/log results to your reporting pipeline. The compliance script records results to an audit plist (`/Library/Preferences/org.BASELINE_NAME.audit.plist`) and a log, and its `--stats`, `--compliant`, and `--non_compliant` flags print counts a pipeline can parse. For continuous state questions between scans, osquery covers the same ground (SIP status, Gatekeeper, FileVault, profiles) as scheduled queries; see [MACOS_SECURITY_REFERENCE.md](/MACOS_SECURITY_REFERENCE.md) for ready-made posture queries.
 
 Checkpoint: `--stats` on a pilot Mac reports the compliance percentage you expect, failures are explained (exempt, MDM-managed, or genuinely broken), and results flow off-box.
 

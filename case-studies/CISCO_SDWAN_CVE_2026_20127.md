@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 20 min (4,539 words at 230 words a minute)
+About 20 min (4,611 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -89,10 +89,10 @@ Cisco scored CVE-2026-20127 at CVSS 10.0 and said it was aware of limited exploi
 
 ### Top recommendations
 
-1. Run Cisco's fixed releases for CVE-2026-20127 and for CVE-2026-20182, which has its own later builds such as 20.9.9.1 and 20.18.2.2; a February build does not close May's bypass (**Inferred** from [1] [15]).
+1. Run Cisco's fixed releases for CVE-2026-20127 and for CVE-2026-20182, which has its own later builds such as 20.9.9.1 and 20.18.2.2; a February build does not close May's bypass [1] [15] (**Confirmed**).
 2. Restrict ports 22 and 830 to known controllers and trusted addresses, and isolate the management VPN 512 [1] [11] (**Confirmed** as Cisco's and CISA's guidance).
 3. Hunt back to 2023: validate every control-connection peering event, unknown public-key logins as vmanage-admin, unexplained peers, downgrade-and-reboot sequences and truncated logs [1] [7] [11] (**Confirmed** as vendor and CISA guidance).
-4. Treat a successful root login as a compromise signal and hunt to confirm it; root login is disabled on a hardened appliance, so CISA says a root-account alert should be assumed to be a compromise. Rebuild Manager, Controller and Validator from patched images where a root account compromise is identified [11] [12] (**Confirmed** as CISA's direction).
+4. Treat a successful root login as a compromise signal and hunt to confirm it; CISA notes the root user login "is locked down in Cisco SD-WANs and should never be used interactively," so a root-account alert should be assumed to be a compromise. Rebuild Manager, Controller and Validator from patched images where a root account compromise is identified [11] [12] (**Confirmed** as CISA's direction).
 5. Forward logs to an external SIEM, use pairwise keys, replace the self-signed certificate and shorten session timeouts [11] (**Confirmed**); after a compromise, rotate fabric keying material, which KeyDrift was built to collect [17] (**Inferred**).
 
 ## Scope and method
@@ -206,7 +206,7 @@ SD-WAN controllers sit where a scanner rarely looks and where a compromise reach
 | Hunt a root login, rebuild on a confirmed root compromise | ED 26-03 and its supplement [11] [12] |
 | Track advisory revisions, not only the CVE | Validator added 16 Jun; UAT-11473 added 28 Oct [1] |
 
-One September addition takes a different path from the control-plane rebuild. CVE-2026-76504, a Manager-only API authentication bypass (CVSS 9.8, Cisco bug CSCww79570) added to KEV on 30 September, has its own Cisco advisory: collect an admin-tech bundle from every Manager, upgrade to the first fixed release within the current release train, and open a TAC case so Cisco can scan the bundle for indicators of compromise, with any deeper forensics left to a third-party responder [25] (**Confirmed**).
+One September addition takes a different path from the control-plane rebuild. CVE-2026-76504, a Manager-only API authentication bypass (CVSS 9.8, Cisco bug CSCww79570) added to KEV on 30 September, has its own Cisco advisory: collect an admin-tech bundle from every Manager before upgrading so no diagnostic data is lost, upgrade to the first fixed release within the current release train without waiting for the scan, and open a TAC case so Cisco can scan the bundle for indicators of compromise, with any deeper forensics left to a third-party responder [25] (**Confirmed**). KEV flags this CVE for forensic triage, which it does not do for the February or May SD-WAN entries, matching Cisco's note that its scan is not in-depth forensics [4] [25] (**Confirmed**).
 
 ### What is overstated and what is understated
 
@@ -321,7 +321,7 @@ All sources were opened on 11 November 2026, except source 25, opened on 19 Nove
 | 22 | Rapid7, CVE-2026-20127 root-cause analysis, 16 Jun 2026 | [rapid7.com/blog/post/ra-cve-2026-20127-analysis/](https://www.rapid7.com/blog/post/ra-cve-2026-20127-analysis/) | 2026-11-11 | Demonstrated |
 | 23 | TeamStarWolf library data: `data/attack/technique_profiles.jsonl`, `superseded_by.jsonl`, `groups.jsonl`, `software.jsonl`, `campaigns.jsonl`, `technique_to_d3fend.jsonl` (ATT&CK v20.0), and `data/weaknesses/cwe.jsonl` and `capec.jsonl` | [github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack) | 2026-11-11 | Demonstrated |
 | 24 | TeamStarWolf, C0039 and G1017 pages, Threat Actors: China, and ICS Attacks and Advisories 2024 to 2026 | [/mitre/campaigns/C0039.md](/mitre/campaigns/C0039.md) | 2026-11-11 | Confirmed |
-| 25 | Cisco, Remediate Catalyst SD-WAN Security Advisory - September 2026 (CVE-2026-76504), Doc ID 226384, revision 2.0 of 1 Oct 2026 | [cisco.com/.../226384-remediate-catalyst-sd-wan-security.html](https://www.cisco.com/c/en/us/support/docs/routers/sd-wan/226384-remediate-catalyst-sd-wan-security.html) | 2026-11-19 | Confirmed |
+| 25 | Cisco, Remediate Catalyst SD-WAN Security Advisory - September 2026 (CVE-2026-76504), Doc ID 226384, revision 2.0 of 1 Oct 2026 | cisco.com/c/en/us/support/docs/routers/sd-wan/226384-remediate-catalyst-sd-wan-security.html (given as plain text because the page returns HTTP 403 to automated checkers) | 2026-11-19 | Confirmed |
 
 Not opened, so not cited as sources: the ASD's ACSC-led hunt guide PDF (timed out), the ASD alert page (timed out), the NSA advisory PDF (blocked), and NCSC-UK's own alert page (not located).
 

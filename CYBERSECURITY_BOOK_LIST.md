@@ -150,10 +150,10 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 | Study area | Read first | Pair with Arsenal tools |
 |---|---|---|
 | Cloud security | the cloud and infrastructure sections in this file | [Prowler](https://github.com/prowler-cloud/prowler), [AWSGoat](https://github.com/ine-labs/AWSGoat), [AzureGoat](https://github.com/ine-labs/AzureGoat) |
-| Offensive and red team | *The Hacker Playbook 3*, *Advanced Penetration Testing*, *RTFM* | [Merlin](https://github.com/Ne0nd0g/merlin), [MailSniper](https://github.com/dafthack/MailSniper), [Legion](https://github.com/GoVanguard/legion) |
+| Offensive and red team | *The Hacker Playbook 3*, *Advanced Penetration Testing*, *RTFM* | [Merlin](https://github.com/Ne0nd0g/merlin), [MailSniper](https://github.com/dafthack/MailSniper), [Legion](https://github.com/Abacus-Group-RTO/legion) |
 | Web and AppSec | *The Web Application Hacker's Handbook*, *Bug Bounty Bootcamp* | [ZAP](https://github.com/zaproxy/zaproxy), [OWTF](https://github.com/owtf/owtf), [OWASP Dependency-Check](https://github.com/jeremylong/DependencyCheck) |
-| Mobile security | the mobile section in this file plus OWASP MASTG and MASVS material | [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF), [objection](https://github.com/sensepost/objection), [Needle](https://github.com/mwrlabs/needle) |
-| Malware and DFIR | *Practical Malware Analysis*, *The Art of Memory Forensics* | [FLOSS](https://github.com/fireeye/flare-floss), [inVtero.net](https://github.com/ShaneK2/inVtero.net), [siembol](https://github.com/G-Research/siembol) |
+| Mobile security | the mobile section in this file plus OWASP MASTG and MASVS material | [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF), [objection](https://github.com/sensepost/objection), [Needle](https://github.com/ReversecLabs/needle) |
+| Malware and DFIR | *Practical Malware Analysis*, *The Art of Memory Forensics* | [FLOSS](https://github.com/mandiant/flare-floss), [inVtero.net](https://github.com/ShaneK2/inVtero.net), [siembol](https://github.com/G-Research/siembol) |
 | Hardware, firmware, and OT | the hardware and OT sections in this file | [EMBA](https://github.com/e-m-b-a/emba), [JTAGulator](https://github.com/grandideastudio/jtagulator), [DYODE](https://github.com/wavestone-cdt/dyode) |
 
 ---
@@ -357,7 +357,7 @@ Hands-on repos:
 - [NodeGoat](https://github.com/OWASP/NodeGoat) - Intentionally vulnerable Node.js app for OWASP Top 10 practice
 - [DVWA](https://github.com/digininja/DVWA) - Damn Vulnerable Web App: classic training target
 - [juice-shop](https://github.com/juice-shop/juice-shop) - OWASP Juice Shop: the modern intentionally vulnerable web app
-- [cdxgen](https://github.com/CycloneDX/cdxgen) - Generate CycloneDX SBOM from source code and containers
+- [cdxgen](https://github.com/cdxgen/cdxgen) - Generate CycloneDX SBOM from source code and containers
 - [syft](https://github.com/anchore/syft) - CLI and Go library for generating SBOMs from containers and filesystems
 - [grype](https://github.com/anchore/grype) - Vulnerability scanner for container images and filesystems
 
@@ -377,7 +377,7 @@ Hands-on repos:
 
 Hands-on repos:
 - [BloodHound](https://github.com/SpecterOps/BloodHound) - The definitive AD attack path mapping tool
-- [SharpHound](https://github.com/BloodHoundAD/SharpHound) - BloodHound data collector
+- [SharpHound](https://github.com/SpecterOps/SharpHound) - BloodHound data collector
 - [impacket](https://github.com/fortra/impacket) - Python library for AD/Windows network protocols (GetTGT, secretsdump, etc.)
 - [CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec) - Swiss army knife for AD environments
 - [NetExec](https://github.com/Pennyw0rth/NetExec) - The maintained CME successor
@@ -392,7 +392,7 @@ Hands-on repos:
 - [Inveigh](https://github.com/Kevin-Robertson/Inveigh) - PowerShell LLMNR/NBNS spoofer
 - [PowerView](https://github.com/PowerShellMafia/PowerSploit) - AD enumeration via PowerShell
 - [ADRecon](https://github.com/adrecon/ADRecon) - Active Directory reconnaissance report generator
-- [PingCastle](https://github.com/vletoux/pingcastle) - AD risk assessment and health check
+- [PingCastle](https://github.com/netwrix/pingcastle) - AD risk assessment and health check
 - [LAPSToolkit](https://github.com/leoloobeek/LAPSToolkit) - Find and abuse LAPS configurations
 - [DSInternals](https://github.com/MichaelGrafnetter/DSInternals) - Directory Services internals - dump hashes, manage AD
 - [ldapdomaindump](https://github.com/dirkjanm/ldapdomaindump) - AD information via LDAP to HTML/JSON/CSV
@@ -521,7 +521,7 @@ Hands-on repos:
 - [Cortex](https://github.com/TheHive-Project/Cortex) - Observable analysis and response automation
 - [adversary_emulation_library](https://github.com/center-for-threat-informed-defense/adversary_emulation_library) - ATT&CK-based adversary emulation plans
 - [attack-navigator](https://github.com/mitre-attack/attack-navigator) - ATT&CK matrix visualization and tracking
-- [caldera](https://github.com/mitre/caldera) - Automated adversary emulation platform
+- [caldera](https://github.com/apache/caldera) - Automated adversary emulation platform
 - [atomic-red-team](https://github.com/redcanaryco/atomic-red-team) - Atomic tests for each ATT&CK technique
 - [uac](https://github.com/tclahr/uac) - Live response artifact collection for IR
 - [velociraptor](https://github.com/Velocidex/velociraptor) - Endpoint visibility and digital forensics platform
@@ -530,7 +530,7 @@ Hands-on repos:
 - [awesome-incident-response](https://github.com/meirwah/awesome-incident-response) - Curated IR tools and resources
 - [awesome-detection-engineering](https://github.com/infosecB/awesome-detection-engineering) - Detection engineering resources
 - [awesome-threat-detection](https://github.com/0x4D31/awesome-threat-detection) - Threat detection and hunting resources
-- [chainsaw](https://github.com/WithSecureLabs/chainsaw) - Hunt through Windows event logs fast
+- [chainsaw](https://github.com/WithSecureOpenSource/chainsaw) - Hunt through Windows event logs fast
 - [sysmon-config](https://github.com/SwiftOnSecurity/sysmon-config) - SwiftOnSecurity's Sysmon config - the standard baseline for Windows telemetry
 - [sysmon-modular](https://github.com/olafhartong/sysmon-modular) - Modular Sysmon configuration - build exactly the telemetry you need
 - [windows-event-forwarding](https://github.com/palantir/windows-event-forwarding) - Palantir's WEF configuration for centralized Windows event collection
@@ -634,7 +634,7 @@ Practice: [TraceLabs Missing Persons CTF](https://tracelabs.org) | [Bellingcat O
 | Hacking the Cloud | Various (online) | Intermediate | [hackingthe.cloud](https://hackingthe.cloud) - free, updated constantly |
 | AWS Security Handbook | Marzia Kjell | Intermediate | Practical AWS security from misconfig to exploitation |
 | Cloud Security and Privacy | Tim Mather | Beginner | Executive/architect level cloud security overview |
-| Kubernetes Security and Observability | Liz Rice | Intermediate | Container and K8s security depth |
+| Kubernetes Security and Observability | Creane & Gupta | Intermediate | Container and K8s security depth |
 | Hacking Kubernetes | Rice & Hausenblas | Advanced | Attack and defense for Kubernetes environments |
 
 > Practical note: Cloud attack paths change fast - [HackingThe.Cloud](https://hackingthe.cloud) and [CloudSecDocs](https://cloudsecdocs.com) are more current than any book. Pair with hands-on labs in a personal AWS/Azure free tier account.
@@ -679,7 +679,7 @@ Practice: [CloudGoat (Rhino)](https://github.com/RhinoSecurityLabs/cloudgoat) | 
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| The Mobile Application Hacker's Handbook | Lodge et al. | Intermediate | Comprehensive iOS and Android attack surface coverage |
+| The Mobile Application Hacker's Handbook | Chell et al. | Intermediate | Comprehensive iOS and Android attack surface coverage |
 | Android Security Internals | Nikolay Elenkov | Advanced | Deep Android security architecture - for serious analysts |
 | iOS Application Security | David Thiel | Intermediate | Practical iOS app testing and reverse engineering |
 | Hacking and Securing iOS Applications | Jonathan Zdziarski | Intermediate | Classic - covers iOS forensics and security research |
@@ -687,18 +687,18 @@ Practice: [CloudGoat (Rhino)](https://github.com/RhinoSecurityLabs/cloudgoat) | 
 > Practical note: [OWASP Mobile Security Testing Guide (MSTG)](https://mas.owasp.org/MASTG/) is free and more current than any book. Use it as your primary reference alongside these books.
 
 Hands-on repos:
-- [Mobile Security Testing Guide](https://github.com/OWASP/owasp-mstg) - OWASP MSTG - the mobile security bible
-- [Mobile Application Security Checklist](https://github.com/OWASP/owasp-masvs) - OWASP MASVS verification standard
+- [Mobile Security Testing Guide](https://github.com/OWASP/mastg) - OWASP MSTG - the mobile security bible
+- [Mobile Application Security Checklist](https://github.com/OWASP/masvs) - OWASP MASVS verification standard
 - [objection](https://github.com/sensepost/objection) - Mobile runtime exploration powered by Frida
 - [frida](https://github.com/frida/frida) - Dynamic instrumentation toolkit for iOS/Android/desktop
 - [apktool](https://github.com/iBotPeaches/Apktool) - Android APK reverse engineering tool
 - [jadx](https://github.com/skylot/jadx) - DEX/APK to Java decompiler with GUI
 - [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF) - Mobile Security Framework - static/dynamic analysis
 - [androguard](https://github.com/androguard/androguard) - Android app analysis in Python
-- [drozer](https://github.com/WithSecureLabs/drozer) - Android security assessment framework
-- [dexcalibur](https://github.com/FrenchYeti/dexcalibur) - Android reverse engineering with Frida hooks
+- [drozer](https://github.com/ReversecLabs/drozer) - Android security assessment framework
+- [dexcalibur](https://github.com/reversenseorg/dexcalibur) - Android reverse engineering with Frida hooks
 - [gplaycli](https://github.com/matlink/gplaycli) - Download APKs from Google Play for analysis
-- [needle](https://github.com/WithSecureLabs/needle) - iOS security assessment framework
+- [needle](https://github.com/ReversecLabs/needle) - iOS security assessment framework
 - [idb](https://github.com/dmayer/idb) - iOS app security assessment tool
 - [iphonebackupanalyzer](https://github.com/PicciMario/iPhone-Backup-Analyzer) - Parse iOS backups for DFIR
 
@@ -778,7 +778,7 @@ Hands-on repos:
 - [one_gadget](https://github.com/david942j/one_gadget) - Find one-gadget RCE in libc
 - [pwninit](https://github.com/io12/pwninit) - Automate PWN challenge setup
 - [seccomp-tools](https://github.com/david942j/seccomp-tools) - Analyze seccomp rules in binary exploitation
-- [checksec](https://github.com/slimm609/checksec.sh) - Check binary security mitigations (NX, PIE, RELRO, stack canary)
+- [checksec](https://github.com/slimm609/checksec) - Check binary security mitigations (NX, PIE, RELRO, stack canary)
 - [ropper](https://github.com/sashs/Ropper) - ROP gadget finder and chain builder
 - [heap-exploitation](https://github.com/DhavalKapil/heap-exploitation) - Heap exploitation techniques guide
 
@@ -795,7 +795,7 @@ Practice: [pwn.college](https://pwn.college) | [exploit.education](https://explo
 | POC \|\| GTFO | Manul Laphroaig (ed.) | Advanced | The hacker magazine - culture, craftsmanship, and chaos |
 | POC \|\| GTFO II | Manul Laphroaig (ed.) | Advanced | Second volume - mandatory for the researcher mindset |
 | The Art of Software Security Assessment | Dowd, McDonald, Schuh | Advanced | The bible of source code auditing - still unmatched |
-| Fuzzing for Software Security Testing | Sutton, Greene, Amini | Intermediate | Classic fuzzing fundamentals - structure-aware to black-box |
+| Fuzzing for Software Security Testing | Takanen, DeMott, Miller | Intermediate | Classic fuzzing fundamentals - structure-aware to black-box |
 | The Fuzzing Book | Zeller et al. | Intermediate | [Free online](https://www.fuzzingbook.org) - modern fuzzing from greybox to symbolic |
 
 > Practical note: Google Project Zero's [blog](https://googleprojectzero.blogspot.com) and [research repo](https://github.com/google/security-research) are the highest-signal free content in vulnerability research. Read every post.
@@ -934,11 +934,11 @@ Read next: [Risky.biz podcast](https://risky.biz) | [Smashing Security](https://
 > Practical note: [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) and [MITRE ATLAS](https://atlas.mitre.org) are the current reference standards. Both are free.
 
 Hands-on repos:
-- [garak](https://github.com/leondz/garak) - LLM vulnerability scanner (prompt injection, jailbreaks)
+- [garak](https://github.com/NVIDIA/garak) - LLM vulnerability scanner (prompt injection, jailbreaks)
 - [promptmap](https://github.com/utkusen/promptmap) - Automated prompt injection testing
 - [PyRIT](https://github.com/Azure/PyRIT) - Microsoft's Python Risk Identification Toolkit for LLMs
 - [llm-attacks](https://github.com/llm-attacks/llm-attacks) - Universal adversarial attacks on aligned LLMs
-- [PrivacyLens](https://github.com/microsoft/presidio) - PII detection and anonymization (protect training data)
+- [Presidio](https://github.com/data-privacy-stack/presidio) - PII detection and anonymization (protect training data)
 - [adversarial-robustness-toolbox](https://github.com/Trusted-AI/adversarial-robustness-toolbox) - IBM ART - adversarial ML attack/defense toolkit
 - [cleverhans](https://github.com/cleverhans-lab/cleverhans) - Adversarial example library for ML security research
 - [alibi-detect](https://github.com/SeldonIO/alibi-detect) - ML data drift and outlier detection
@@ -1049,7 +1049,7 @@ Portfolio builders: Start a blog | Do HTB/THM writeups | Submit a CVE | Contribu
 ### Active Directory Labs
 - [GOAD](https://github.com/Orange-Cyberdefense/GOAD) - Game of Active Directory - 5-VM vulnerable AD lab (the best one)
 - [BadBlood](https://github.com/davidprowe/BadBlood) - Populate AD with realistic, vulnerable configurations
-- [Vulnerable-AD](https://github.com/WazeHell/vulnerable-AD) - Quick vulnerable AD setup script
+- [Vulnerable-AD](https://github.com/safebuffer/vulnerable-AD) - Quick vulnerable AD setup script
 
 ### CTF Platforms
 - [CTFd](https://github.com/CTFd/CTFd) - Host your own CTF challenges

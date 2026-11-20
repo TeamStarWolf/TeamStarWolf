@@ -1,6 +1,6 @@
 # Harden a macOS Fleet with mSCP
 
-> By the end of this guide you will have a NIST-derived security baseline enforced on every Mac you manage, a compliance script proving it, and Endpoint Security telemetry flowing into your SIEM. This is for defenders who run Macs at work (MDM admins, security engineers, and compliance leads), not just federal shops. If you can drive an MDM console and a terminal, you can do this.
+> By the end of this guide you will have a NIST-derived security baseline enforced on every Mac you manage, a compliance script collecting device-level evidence of conformance, and Endpoint Security telemetry flowing into your SIEM. This is for defenders who run Macs at work (MDM admins, security engineers, and compliance leads), not just federal shops. If you can drive an MDM console and a terminal, you can do this.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 9 min (2,131 words at 230 words a minute)
+About 9 min (2,183 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -86,7 +86,7 @@ Watch out: Baselines are versioned per OS release. A macOS 26 (Tahoe) baseline r
 
 ## Step 2: Set up the mSCP tooling
 
-mSCP 2.0 ships as a container image, which is the least-friction path (no dependency wrangling). On your admin Mac:
+mSCP 2.0 ships as a container image, which is the least-friction path (no dependency wrangling). Note that 2.0 is the newest line and still under active development; NIST marks the 1.0 branch as the stable release, so for a production rollout pin a known-good mSCP version (and the matching macOS build) rather than tracking `latest`, and validate the generated baseline before deploying it fleet-wide. On your admin Mac:
 
 ```bash
 mkdir -p ~/Desktop/mscp/custom

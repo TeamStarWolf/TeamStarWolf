@@ -21,7 +21,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 9 min (2,130 words at 230 words a minute)
+About 10 min (2,214 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -69,7 +69,7 @@ No review recorded yet
 Choose one primary standard and treat the other as a cross-check:
 
 - CIS Benchmarks: per-OS, per-role profiles. Start with Level 1 (security with minimal breakage); Level 2 is defense-in-depth and will break things. Adopt it control-by-control. Pick the benchmark matching each role: Windows 11 Enterprise, Server 2022/2025 Member Server, Server Domain Controller.
-- Microsoft Security Baselines (in the SCT you downloaded): ready-made GPO backups for Windows 11 (21H2-24H2), Server 2016-2025, Microsoft 365 Apps, and Edge. Faster to deploy because they ship as importable GPOs; Microsoft's additions over CIS include VBS with UEFI lock, Script Block Logging, and full AutoPlay/AutoRun disablement.
+- Microsoft Security Baselines (in the SCT you downloaded): ready-made GPO backups for the currently supported Windows 11 builds (the Security Compliance Toolkit now ships 26H2, 25H2, 24H2, and 23H2; 21H2 and 22H2 have aged out), Windows Server 2016-2025, Microsoft 365 Apps, and Edge. Pick the baseline for your exact supported build rather than a fixed version, because the toolkit adds new builds and drops old ones over time. Faster to deploy because they ship as importable GPOs; Microsoft's additions over CIS include VBS with UEFI lock, Script Block Logging, and full AutoPlay/AutoRun disablement.
 
 A sane default: deploy the Microsoft baseline as your enforced floor, then layer the CIS Level 1 deltas your compliance framework demands. The [WINDOWS_HARDENING.md](/WINDOWS_HARDENING.md) compliance mapping table shows how the two overlap per control area.
 
@@ -208,7 +208,7 @@ Reset-LapsPassword                                         # force immediate rot
 
 Checkpoint: Event ID 10018 (`Microsoft-Windows-LAPS/Operational`) on pilot machines confirms passwords are backing up, and `Get-LapsADPassword` returns a random password only your authorized group can read.
 
-Watch out: LAPS manages the password of an *existing* account; it never creates one. If you point it at a custom admin account name, create that account first, and disable or rename the built-in RID-500 Administrator per the baseline.
+Watch out: Manual LAPS manages the password of an *existing* account, so if you point it at a custom admin account name, create that account first. Windows LAPS on supported builds (Windows 11 24H2 and Windows Server 2025 and later) also offers automatic account management, which creates and manages a new custom local account for you (`AutomaticAccountManagementTarget` = `1`, the default once automatic management is enabled). Either way, disable or rename the built-in RID-500 Administrator per the baseline.
 
 ## Step 7: Flip ASR from audit to enforce
 

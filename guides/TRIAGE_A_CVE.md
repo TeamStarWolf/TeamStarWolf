@@ -23,7 +23,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 11 min (2,630 words at 230 words a minute)
+About 11 min (2,637 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -133,7 +133,7 @@ You can also browse the raw file in the Vulnrichment repo; records live at `<yea
 
 Checkpoint: Three values on paper with their source noted. For the example: Exploitation `active`, Automatable `yes`, Technical Impact `total`, from the CISA-ADP container.
 
-Watch out: Enrichment lags disclosure and does not cover every CVE. CISA's [BOD 26-04 implementation guidance](https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk) commits CISA to update CDM within three business days of completing enrichment for a CVE whose Technical Impact or Automatable was pending, but that is the federal CDM feed; the public ADP container you pull can lag it. The same guidance says CISA always provides Vulnrichment data for a KEV-listed CVE, so a missing ADP container means the CVE is not KEV-listed. For a non-KEV CVE that is not yet enriched, the directive defaults a missing Automatable to `no` and a missing Technical Impact to `total` until supplied; set Exploitation yourself from Step 2 plus the vendor advisory, and mark the value as self-assessed. Conversely, `Exploitation: active` here often appears *before* formal KEV addition; treat it as an early warning, not a contradiction.
+Watch out: Enrichment lags disclosure and does not cover every CVE. CISA's [BOD 26-04 implementation guidance](https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk) says it will update CDM with pending Technical Impact or Automatable enrichment within three business days, but that is the federal CDM feed; the public ADP container you pull can lag it. The same guidance says CISA will always provide Vulnrichment data for a KEV-listed CVE, though not when, so a KEV-listed CVE should carry it; check KEV directly in Step 2 rather than inferring from a missing container. For a non-KEV CVE that is not yet enriched, the directive defaults a missing Automatable to `no` and a missing Technical Impact to `total` until supplied; set Exploitation yourself from Step 2 plus the vendor advisory, and mark the value as self-assessed. Conversely, `Exploitation: active` here often appears *before* formal KEV addition; treat it as an early warning, not a contradiction.
 
 ## Step 4: Read EPSS as a probability, not a rank (3 min)
 

@@ -385,7 +385,7 @@ In this library: [ATT&CK Technique Atlas](ATTACK_TECHNIQUE_ATLAS.md), [Active Di
 Fixed remediation windows per CVSS band ("criticals in 30 days") are the legacy pattern CTEM replaces. The strongest public reference model for the replacement is CISA's [BOD 26-04, *Prioritizing Security Updates Based on Risk*](https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk) (issued June 10, 2026, superseding BOD 22-01 and BOD 19-02):
 
 - Fixed KEV due dates are replaced by a risk matrix over four questions: Is the asset publicly exposed? Is the vulnerability on KEV? Is exploitation automatable? Does it yield total or partial control?
-- Answers map to tiered timelines: the worst combinations (KEV-listed with total control on a 3-day clock) add a forensic-investigation obligation; other combinations land in 3-, 14-, or 60-day tiers, with the lowest-risk combinations deferred to the next system upgrade. (The directive's Table 1 has sixteen combinations, four timelines; read it in full before copying it.)
+- Answers map to tiered timelines: the worst combinations (KEV-listed with total control on a 3-day clock) add a forensic-triage obligation; other combinations land in 3-, 14-, or 60-day tiers, with the lowest-risk combinations deferred to the next system upgrade. (The directive's Table 1 has sixteen combinations, four timelines; read it in full before copying it.)
 - The matrix is explicitly informed by SSVC decision points.
 
 BOD 26-04 binds US federal civilian agencies only; for everyone else it is a free, defensible template for SLAs tied to exposure class rather than severity band.

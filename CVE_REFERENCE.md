@@ -18,7 +18,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 20 min (4,650 words at 230 words a minute)
+About 20 min (4,696 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -977,8 +977,8 @@ On the Intelligence Hub: [CVE-2020-1472 brief](https://teamstarwolf.github.io/in
 <!-- hub-links:end -->
 
 Affected: Windows Server (Netlogon / MS-NRPC)
-CVSS: 10.0 CRITICAL | AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
-CWE: CWE-330 (Use of Insufficiently Random Values)
+CVSS: 10.0 CRITICAL (NVD) | AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H; the Microsoft CNA record carries 5.5 (AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N)
+CWE: none assigned by NVD, CISA's ADP entry, or the Microsoft CNA (which records only "Elevation of Privilege"); the flaw is insufficient randomness in the Netlogon AES-CFB8 IV (CWE-330 class)
 Discovered: Tom Tervoort, Secura, August 2020
 
 Technical: Netlogon AES-CFB8 session key establishment with all-zero IV.

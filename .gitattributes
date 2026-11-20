@@ -1,3 +1,8 @@
 # Keep PDF exports binary so Windows autocrlf never corrupts them on checkout
 *.pdf binary
 *.pptx binary
+
+# The platform band is a byte-identical copy of the file another site publishes;
+# -text keeps it LF on every checkout so a byte comparison holds (the --check gate
+# also fails on CRLF). The Hub and ATT&CK-Navi mark their copy the same way.
+docs/platform-nav.json -text

@@ -522,9 +522,11 @@ def band_href_bad(href: str) -> str | None:
     address (which has no https:// scheme and is rejected on that alone)."""
     if not href.startswith("https://"):
         return "not https"
-    if "\\" in href:
+    if "\\" in href or "%5c" in href.lower():
         return "backslash in address"
     u = urllib.parse.urlsplit(href)
+    if "@" in u.netloc:
+        return "userinfo in authority"
     try:
         port = u.port
     except ValueError:
@@ -542,54 +544,99 @@ def band_href_bad(href: str) -> str | None:
     return None
 
 
-def band_entries(pnav: dict):
-    """(label, href) for every address in the file: home, items, menus and sub-menus."""
-    yield ("home", pnav["home"]["href"])
-    for it in pnav["items"]:
-        yield (it["label"], it["href"])
-        for e in it.get("menu", []):
-            yield (it["label"] + " > " + e["label"], e["href"])
-            for s in e.get("menu", []):
-                yield (it["label"] + " > " + e["label"] + " > " + s["label"], s["href"])
+def band_bytes_bad(raw: bytes) -> str | None:
+    """None if the raw file is a byte-identical-safe copy (pure ASCII, LF endings),
+    else why. Every site keeps a byte-identical copy, so a non-ASCII label or a CRLF
+    checkout would break a byte comparison with the published file."""
+    if not raw.isascii():
+        return "not pure ASCII"
+    if b"\r\n" in raw:
+        return "CRLF line endings (must be LF)"
+    return None
 
 
-def band_menus(pnav: dict):
-    """(name, entries) for every menu array: the top-level menus and the nested ones."""
-    for it in pnav["items"]:
-        if it.get("menu"):
-            yield (it["label"], it["menu"])
-        for e in it.get("menu", []):
-            if e.get("menu"):
-                yield (it["label"] + " > " + e["label"], e["menu"])
+def _band_route(p: str) -> str:
+    p = p.split("?", 1)[0].split("#", 1)[0].strip("/")
+    return p[:-3] if p.endswith(".md") else p
 
 
 def platform_band_problems(pnav: dict) -> list[str]:
     out = []
-    for label, href in band_entries(pnav):
-        bad = band_href_bad(href)
-        if bad:
-            out.append(PLATFORM_NAV + ": " + label + ": " + bad + " (" + href + ")")
-    for name, menu in band_menus(pnav):
-        if len(menu) > BAND_MAX:
-            out.append(PLATFORM_NAV + ": menu '" + name + "' has " + str(len(menu))
-                       + " entries (max " + str(BAND_MAX) + ")")
-    # the Library menu covers every category of the library's own navbar (docs/site_nav.json)
-    def norm(p: str) -> str:
-        p = p.split("?", 1)[0].split("#", 1)[0].strip("/")
-        return p[:-3] if p.endswith(".md") else p
 
-    lib = next((it for it in pnav["items"] if it.get("id") == "library"), None)
+    try:
+        bad = band_bytes_bad(open(os.path.join(ROOT, PLATFORM_NAV), "rb").read())
+        if bad:
+            out.append(PLATFORM_NAV + ": " + bad)
+    except OSError:
+        out.append(PLATFORM_NAV + ": cannot read the file")
+
+    def check_node(node, where: str, depth: int) -> None:
+        if not isinstance(node, dict):
+            out.append(PLATFORM_NAV + ": " + where + " is not an object")
+            return
+        label = node.get("label")
+        if not isinstance(label, str) or not label:
+            out.append(PLATFORM_NAV + ": " + where + " has no label")
+            label = where
+        href = node.get("href")
+        if not isinstance(href, str) or not href:
+            out.append(PLATFORM_NAV + ": " + label + " has no href")
+        else:
+            bad = band_href_bad(href)
+            if bad:
+                out.append(PLATFORM_NAV + ": " + label + ": " + bad + " (" + href + ")")
+        menu = node.get("menu")
+        if menu is None:
+            return
+        if depth >= 2:
+            out.append(PLATFORM_NAV + ": " + label + " nests a menu too deep (one level only)")
+        elif not isinstance(menu, list):
+            out.append(PLATFORM_NAV + ": " + label + " menu is not a list")
+        else:
+            if len(menu) > BAND_MAX:
+                out.append(PLATFORM_NAV + ": menu '" + label + "' has " + str(len(menu))
+                           + " entries (max " + str(BAND_MAX) + ")")
+            for i, s in enumerate(menu):
+                check_node(s, label + "[" + str(i) + "]", depth + 1)
+
+    hhref = (pnav.get("home") or {}).get("href")
+    if isinstance(hhref, str) and hhref and band_href_bad(hhref):
+        out.append(PLATFORM_NAV + ": home: " + band_href_bad(hhref) + " (" + hhref + ")")
+
+    items = pnav.get("items", [])
+    for key, n in collections.Counter(it.get("id") for it in items if isinstance(it, dict)).items():
+        if key is not None and n > 1:
+            out.append(PLATFORM_NAV + ": item id '" + str(key) + "' is used " + str(n) + " times")
+    for idx, it in enumerate(items):
+        check_node(it, "item[" + str(idx) + "]", 0)
+
+    # the Library menu both covers every library navbar category and points only at the
+    # library's own navigation (its labels differ from the navbar's by design, so match routes)
+    lib = next((it for it in items if isinstance(it, dict) and it.get("id") == "library"), None)
     if lib is not None:
-        lib_routes = {norm(e["href"].split("#/", 1)[1]) for e in lib.get("menu", []) if "#/" in e["href"]}
+        top, every = [], set()
         for entry in load_config().get("navbar", []):
-            label = entry.get("label") if isinstance(entry, dict) else entry[0]
-            path = entry.get("path") if isinstance(entry, dict) else (entry[1] if len(entry) > 1 else "")
-            if not isinstance(path, str) or not path.startswith("/") or path == "/":
-                continue
-            route = norm(path)
+            if isinstance(entry, dict):
+                label, path = entry.get("label"), entry.get("path", "")
+                children = [c[1] for c in entry.get("children", []) if isinstance(c, list) and len(c) > 1]
+            else:
+                label, path, children = (entry[0] if entry else None), (entry[1] if len(entry) > 1 else ""), []
+            for p in [path, *children]:
+                if isinstance(p, str) and p.startswith("/"):
+                    every.add(_band_route(p))
+            if isinstance(path, str) and path.startswith("/") and path != "/":
+                top.append((label, _band_route(path)))
+        lib_routes = {_band_route(e["href"].split("#/", 1)[1]) for e in lib.get("menu", [])
+                      if isinstance(e, dict) and isinstance(e.get("href"), str) and "#/" in e["href"]}
+        for label, route in top:
             if route and route not in lib_routes:
-                out.append(PLATFORM_NAV + ": Library menu does not cover the navbar category "
-                           + repr(label) + " (" + path + ")")
+                out.append(PLATFORM_NAV + ": Library menu does not cover the navbar category " + repr(label))
+        for e in lib.get("menu", []):
+            if isinstance(e, dict) and isinstance(e.get("href"), str) and "#/" in e["href"]:
+                route = _band_route(e["href"].split("#/", 1)[1])
+                if route and route not in every:
+                    out.append(PLATFORM_NAV + ": Library entry " + repr(e.get("label"))
+                               + " target '" + route + "' is not in the library navbar")
     return out
 
 
@@ -650,14 +697,16 @@ def band_self_test() -> int:
         "//evil.example/x": "not https",                                       # scheme-relative
         "https://teamstarwolf.com:8443/": "explicit port",                     # explicit port
         "https://teamstarwolf.com.evil.example/": "host not allow-listed",     # look-alike suffix
-        "https://teamstarwolf.com@evil.example/": "host not allow-listed",     # userinfo trick
+        "https://teamstarwolf.com@evil.example/": "userinfo",                  # userinfo trick
         "https://evil.example/x": "host not allow-listed",                     # bad host
         "https://github.com/TeamStarWolf/../evil": "path segment",             # plain ..
         "https://github.com/TeamStarWolf/%2e%2e/evil": "path segment",         # %2e%2e
         "https://github.com/TeamStarWolf/%2E%2E/evil": "path segment",         # %2E%2E
         "https://github.com/TeamStarWolf/./evil": "path segment",              # single .
         "https://github.com/TeamStarWolf\\evil": "backslash",                  # backslash
+        "https://github.com/TeamStarWolf/a%5cb": "backslash",                  # percent-encoded backslash
         "https://github.com/TeamStarWolfX/evil": "not under /TeamStarWolf",    # look-alike org prefix
+        "https://user:pw@teamstarwolf.com/": "userinfo",                       # userinfo on an allowed host
     }
     for href, why in reject.items():
         bad = band_href_bad(href)
@@ -675,6 +724,27 @@ def band_self_test() -> int:
         {"label": "Later", "href": "https://teamstarwolf.com/b", "pending": "x"}]}]}
     m = platform_band(pend)
     assert ">Live</a>" in m and ">Later</a>" not in m, "a pending entry was rendered"
+    # file bytes: ASCII with LF
+    assert band_bytes_bad(b"plain ascii\n") is None
+    assert "ASCII" in (band_bytes_bad("café".encode("utf-8")) or ""), "non-ASCII not caught"
+    assert "CRLF" in (band_bytes_bad(b"a\r\nb") or ""), "CRLF not caught"
+    # structure: duplicate id, missing label, null href, nesting too deep
+    dup = {**base, "items": [{"id": "x", "label": "A", "href": "https://teamstarwolf.com/"},
+                             {"id": "x", "label": "B", "href": "https://teamstarwolf.com/"}]}
+    assert any("item id 'x' is used" in p for p in platform_band_problems(dup)), "duplicate id not caught"
+    assert any("has no label" in p for p in
+               platform_band_problems({**base, "items": [{"id": "x", "href": "https://teamstarwolf.com/"}]})), "missing label"
+    assert any("has no href" in p for p in
+               platform_band_problems({**base, "items": [{"id": "x", "label": "X", "href": None}]})), "null href"
+    deep = {**base, "items": [{"id": "x", "label": "X", "href": "https://teamstarwolf.com/", "menu": [
+        {"label": "L1", "href": "https://teamstarwolf.com/", "menu": [
+            {"label": "L2", "href": "https://teamstarwolf.com/", "menu": [
+                {"label": "L3", "href": "https://teamstarwolf.com/"}]}]}]}]}
+    assert any("too deep" in p for p in platform_band_problems(deep)), "deep nesting not caught"
+    # Library target must exist in the navbar (reverse check)
+    libtest = {**base, "items": [{"id": "library", "label": "Library", "href": "https://library.teamstarwolf.com/",
+               "menu": [{"label": "Bogus", "href": "https://library.teamstarwolf.com/#/NOT_A_REAL_ROUTE_XYZ"}]}]}
+    assert any("is not in the library navbar" in p for p in platform_band_problems(libtest)), "reverse Library check"
     print("build_site_nav band self-test: all cases pass")
     return 0
 

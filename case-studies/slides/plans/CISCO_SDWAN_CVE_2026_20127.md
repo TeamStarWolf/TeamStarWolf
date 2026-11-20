@@ -112,8 +112,8 @@ Notes: ED 26-03 and V1 [12]. Supplemental Direction [11]. FedRAMP [20]. Partners
 | CVE-2026-20245 | 9 Jun |
 | CVE-2026-20262 | 15 Jun |
 | CVE-2026-76504 | 30 Sep |
-Caption: A February build does not close May's bypass; CVE-2026-20182 has its own later builds.
-Notes: KEV catalog 2026.11.10 [4]. CVE-2026-20182 fixes [15]. Mandiant's CVE-2026-20245 zero-day [16].
+Caption: Different CVEs, different fixes: May's bypass needs its own builds, and Manager's September CVE-2026-76504 its own remediation.
+Notes: KEV catalog 2026.11.10 [4]. CVE-2026-20182 fixes [15]. CVE-2026-76504 remediation [25]. Mandiant's CVE-2026-20245 zero-day [16].
 
 ## PART 5 | Controls that meet the record
 
@@ -124,7 +124,7 @@ Notes: KEV catalog 2026.11.10 [4]. CVE-2026-20182 fixes [15]. Mandiant's CVE-202
 | Validate every peering event | Rogue peers in incidents |
 | Alert on downgrade then reboot | The route to root |
 | Ship logs off the box | Logs removed, forwarding stopped |
-| Treat a root login as compromise | ED 26-03 rebuild |
+| Hunt a root login, rebuild on a confirmed compromise | ED 26-03 and its supplement |
 Caption: Track advisory revisions, not only the CVE: Validator and UAT-11473 arrived after the deadline.
 Notes: Patch [15]. Ports [1][11]. Peering [1][9]. Downgrade [7]. Logs [11]. Rebuild [11][12]. Revisions [1].
 
@@ -137,7 +137,7 @@ Left: Patch and restrict
 Right: Hunt and recover
 - Look for public-key logins as vmanage-admin from unknown addresses.
 - Look for unexplained peers and downgrade-and-reboot sequences.
-- Rebuild Manager, Controller and Validator from patched images after any root login.
+- Rebuild Manager, Controller and Validator from patched images where a root compromise is confirmed.
 - Rotate fabric keying material, which KeyDrift was built to collect.
 Notes: Patch [1][15], Inferred for both. Ports and hardening [1][11]. Hunt [1][7][22]. Rebuild [11][12]. Key rotation Inferred from [17].
 

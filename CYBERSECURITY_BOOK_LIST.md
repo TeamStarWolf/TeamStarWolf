@@ -17,7 +17,7 @@ Beginner
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 35 min (8,104 words at 230 words a minute)
+About 36 min (8,186 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -150,10 +150,10 @@ When I want to turn the reading list into a more tool-first study plan, Black Ha
 | Study area | Read first | Pair with Arsenal tools |
 |---|---|---|
 | Cloud security | the cloud and infrastructure sections in this file | [Prowler](https://github.com/prowler-cloud/prowler), [AWSGoat](https://github.com/ine-labs/AWSGoat), [AzureGoat](https://github.com/ine-labs/AzureGoat) |
-| Offensive and red team | *The Hacker Playbook 3*, *Advanced Penetration Testing*, *RTFM* | [Merlin](https://github.com/Ne0nd0g/merlin), [MailSniper](https://github.com/dafthack/MailSniper), [Legion](https://github.com/Abacus-Group-RTO/legion) |
-| Web and AppSec | *The Web Application Hacker's Handbook*, *Bug Bounty Bootcamp* | [ZAP](https://github.com/zaproxy/zaproxy), [OWTF](https://github.com/owtf/owtf), [OWASP Dependency-Check](https://github.com/jeremylong/DependencyCheck) |
-| Mobile security | the mobile section in this file plus OWASP MASTG and MASVS material | [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF), [objection](https://github.com/sensepost/objection), [Needle](https://github.com/ReversecLabs/needle) |
-| Malware and DFIR | *Practical Malware Analysis*, *The Art of Memory Forensics* | [FLOSS](https://github.com/mandiant/flare-floss), [inVtero.net](https://github.com/ShaneK2/inVtero.net), [siembol](https://github.com/G-Research/siembol) |
+| Offensive and red team | *The Hacker Playbook 3*, *Advanced Penetration Testing*, *RTFM* | [Merlin](https://github.com/Ne0nd0g/merlin), [MailSniper](https://github.com/dafthack/MailSniper), [Legion](https://github.com/Abacus-Group-RTO/legion) (archived) |
+| Web and AppSec | *The Web Application Hacker's Handbook*, *Bug Bounty Bootcamp* | [ZAP](https://github.com/zaproxy/zaproxy), [OWTF](https://github.com/owtf/owtf), [OWASP Dependency-Check](https://github.com/dependency-check/DependencyCheck) |
+| Mobile security | the mobile section in this file plus OWASP MASTG and MASVS material | [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF), [objection](https://github.com/sensepost/objection), [Needle](https://github.com/ReversecLabs/needle) (archived) |
+| Malware and DFIR | *Practical Malware Analysis*, *The Art of Memory Forensics* | [FLOSS](https://github.com/mandiant/flare-floss), [inVtero.net](https://github.com/ShaneK2/inVtero.net), [siembol](https://github.com/G-Research/siembol) (archived) |
 | Hardware, firmware, and OT | the hardware and OT sections in this file | [EMBA](https://github.com/e-m-b-a/emba), [JTAGulator](https://github.com/grandideastudio/jtagulator), [DYODE](https://github.com/wavestone-cdt/dyode) |
 
 ---
@@ -241,7 +241,7 @@ YouTube channels to pair:
 Hands-on repos:
 - [metasploit-payloads](https://github.com/rapid7/metasploit-payloads) - Official Metasploit payloads (pairs directly with Metasploit book)
 - [NetExec](https://github.com/Pennyw0rth/NetExec) - Modern network pentesting Swiss army knife (nxc)
-- [CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec) - Classic SMB/WinRM/LDAP pentesting framework
+- [CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec) (archived) - Classic SMB/WinRM/LDAP pentesting framework
 - [evil-winrm](https://github.com/Hackplayers/evil-winrm) - WinRM shell for post-exploitation
 - [Responder](https://github.com/lgandx/Responder) - LLMNR/NBT-NS poisoner (essential for internal pentests)
 - [PEASS-ng](https://github.com/peass-ng/PEASS-ng) - LinPEAS / WinPEAS privilege escalation scripts
@@ -333,7 +333,7 @@ Practice: [PortSwigger Web Academy](https://portswigger.net/web-security) (free)
 | Building Secure Software | Viega & McGraw | Intermediate | Still the foundational text on writing secure code: threat models, design principles, common flaws |
 | The Art of Software Security Assessment | Dowd, McDonald & Schuh | Advanced | Deep source code review methodology: finding vulns by reading code, not running exploits |
 | Writing Secure Code (2nd ed.) | Howard & LeBlanc | Intermediate | Microsoft SDL origins: threat modelling, input validation, buffer overflows from a dev perspective |
-| The DevSecOps Handbook | Kim et al. | Intermediate | How to integrate security into CI/CD pipelines without slowing delivery |
+| The DevSecOps Handbook | Kim et al. (no catalogue record found; unverified, checked 2026-11-20) | Intermediate | How to integrate security into CI/CD pipelines without slowing delivery |
 | Alice and Bob Learn Application Security | Tanya Janca | Beginner | Approachable intro to AppSec concepts for developers: OWASP Top 10, secure design, threat modelling |
 | Threat Modeling: Designing for Security | Adam Shostack | Intermediate | The definitive threat modelling book: STRIDE, data flow diagrams, systematic risk identification |
 | Iron-Clad Java | Manico & Detlefsen | Intermediate | Java-specific secure coding: injection, auth, session management, crypto, covering OWASP controls |
@@ -370,7 +370,7 @@ Hands-on repos:
 |------|--------|-----------|-------------|
 | The Hacker Playbook 3 | Peter Kim | Intermediate | Best practical AD attack coverage in book form |
 | Windows Internals (Part 1 & 2) | Russinovich et al. | Advanced | The definitive Windows OS internals reference - understand what you're attacking |
-| Attacking and Defending Active Directory | Nikhil Mittal | Intermediate | Focused entirely on AD attack paths, Kerberos, and defense |
+| Attacking and Defending Active Directory | Nikhil Mittal (Altered Security CRTP course, not a book) | Intermediate | Focused entirely on AD attack paths, Kerberos, and defense |
 | The Art of Invisibility | Kevin Mitnick | Beginner | Operational security and evasion mindset |
 
 > Practical note: You don't need a book for AD attacks - [SpecterOps' blog](https://posts.specterops.io) and the BloodHound docs are more current than any book. Combine with labs.
@@ -379,7 +379,7 @@ Hands-on repos:
 - [BloodHound](https://github.com/SpecterOps/BloodHound) - The definitive AD attack path mapping tool
 - [SharpHound](https://github.com/SpecterOps/SharpHound) - BloodHound data collector
 - [impacket](https://github.com/fortra/impacket) - Python library for AD/Windows network protocols (GetTGT, secretsdump, etc.)
-- [CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec) - Swiss army knife for AD environments
+- [CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec) (archived) - Swiss army knife for AD environments
 - [NetExec](https://github.com/Pennyw0rth/NetExec) - The maintained CME successor
 - [Rubeus](https://github.com/GhostPack/Rubeus) - Kerberos abuse toolkit (AS-REP roasting, pass-the-ticket, etc.)
 - [Certify](https://github.com/GhostPack/Certify) - Find AD CS misconfigurations (ESC1-ESC8)
@@ -390,7 +390,7 @@ Hands-on repos:
 - [mitm6](https://github.com/dirkjanm/mitm6) - IPv6 DNS takeover for NTLM relay attacks
 - [ntlmrelayx](https://github.com/fortra/impacket) - Part of Impacket - NTLM relay attacks
 - [Inveigh](https://github.com/Kevin-Robertson/Inveigh) - PowerShell LLMNR/NBNS spoofer
-- [PowerView](https://github.com/PowerShellMafia/PowerSploit) - AD enumeration via PowerShell
+- [PowerView](https://github.com/PowerShellMafia/PowerSploit) (archived) - AD enumeration via PowerShell
 - [ADRecon](https://github.com/adrecon/ADRecon) - Active Directory reconnaissance report generator
 - [PingCastle](https://github.com/netwrix/pingcastle) - AD risk assessment and health check
 - [LAPSToolkit](https://github.com/leoloobeek/LAPSToolkit) - Find and abuse LAPS configurations
@@ -399,7 +399,7 @@ Hands-on repos:
 - [enum4linux-ng](https://github.com/cddmp/enum4linux-ng) - SMB/LDAP enumeration tool rewrite
 - [BloodyAD](https://github.com/CravateRouge/bloodyAD) - AD privilege escalation framework
 - [pyGPOAbuse](https://github.com/Hackndo/pyGPOAbuse) - GPO abuse for privilege escalation
-- [ADFSDump](https://github.com/mandiant/ADFSDump) - Extract ADFS configuration (token signing certs)
+- [ADFSDump](https://github.com/mandiant/ADFSDump) (archived) - Extract ADFS configuration (token signing certs)
 
 Certifications: CRTO | CRTE | PNPT | OSEP | GXPN
 YouTube: [IppSec](https://www.youtube.com/@ippsec) | [TCM Security](https://www.youtube.com/@TCMSecurityAcademy) | [Orange Cyberdefense](https://www.youtube.com/@OrangeCyberdefense)
@@ -430,14 +430,14 @@ Hands-on repos:
 - [flare-vm](https://github.com/mandiant/flare-vm) - Windows malware analysis VM setup scripts (automated)
 - [flare-floss](https://github.com/mandiant/flare-floss) - Extract obfuscated strings from malware automatically
 - [flare-fakenet-ng](https://github.com/mandiant/flare-fakenet-ng) - Simulate network responses for dynamic analysis
-- [flare-ida](https://github.com/mandiant/flare-ida) - IDA Pro plugins and scripts from the FLARE team
-- [dnSpy](https://github.com/dnSpy/dnSpy) - .NET debugger and assembly editor (decompile C#/VB.NET)
+- [flare-ida](https://github.com/mandiant/flare-ida) (archived) - IDA Pro plugins and scripts from the FLARE team
+- [dnSpy](https://github.com/dnSpy/dnSpy) (archived) - .NET debugger and assembly editor (decompile C#/VB.NET)
 - [cutter](https://github.com/rizinorg/cutter) - Free and open RE platform (Rizin/Radare2 GUI)
 - [radare2](https://github.com/radareorg/radare2) - UNIX-like reverse engineering framework
 - [yara](https://github.com/VirusTotal/yara) - Pattern matching for malware identification
 - [yarGen](https://github.com/Neo23x0/yarGen) - Generate YARA rules from malware strings
 - [signature-base](https://github.com/Neo23x0/signature-base) - YARA rules and IOC database by @cyb3rops
-- [volatility](https://github.com/volatilityfoundation/volatility) - Memory forensics framework (v2)
+- [volatility](https://github.com/volatilityfoundation/volatility) (archived; see [Volatility 3](https://github.com/volatilityfoundation/volatility3)) - Memory forensics framework (v2)
 - [volatility3](https://github.com/volatilityfoundation/volatility3) - Volatility 3 - modern memory forensics
 - [CAPEv2](https://github.com/kevoreilly/CAPEv2) - Malware config + payload extraction sandbox
 - [PMAT-labs](https://github.com/HuskyHacks/PMAT-labs) - Practical Malware Analysis & Triage course labs
@@ -446,7 +446,7 @@ Hands-on repos:
 - [Gepetto](https://github.com/JusticeRage/Gepetto) - IDA Pro + LLM plugin for RE assistance
 - [Manalyze](https://github.com/JusticeRage/Manalyze) - Static analyzer for PE executables
 - [Detect-It-Easy](https://github.com/horsicq/Detect-It-Easy) - File type, packer, and compiler detector
-- [pafish](https://github.com/a0rtega/pafish) - Test VM/sandbox evasion detection techniques
+- [pafish](https://github.com/a0rtega/pafish) (archived) - Test VM/sandbox evasion detection techniques
 - [malwoverview](https://github.com/alexandreborges/malwoverview) - First response malware triage tool
 - [awesome-malware-analysis](https://github.com/rshipp/awesome-malware-analysis) - Curated malware analysis resource list
 - [awesome-reversing](https://github.com/tylerha97/awesome-reversing) - Curated reversing resource list
@@ -494,7 +494,7 @@ Practice: [CryptoHack](https://cryptohack.org) | [Cryptopals Challenges](https:/
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| Blue Team Field Manual (BTFM) | Clark & Robertson | Beginner | The defender's desk reference - commands for every IR task |
+| Blue Team Field Manual (BTFM) | White & Clark | Beginner | The defender's desk reference - commands for every IR task |
 | Incident Response & Computer Forensics | Luttgens et al. | Intermediate | Structured IR methodology - what to do when the alarm fires |
 | The Practice of Network Security Monitoring | Richard Bejtlich | Intermediate | NSM fundamentals - how to build a detection program |
 | Security Operations Center | Joseph Muniz | Beginner | SOC design, staffing, tools, and metrics - good for SOC leads |
@@ -517,7 +517,7 @@ Hands-on repos:
 - [rita](https://github.com/activecm/rita) - Detect C2 beaconing through statistical network analysis
 - [LogonTracer](https://github.com/JPCERTCC/LogonTracer) - Visualize malicious Windows logon activity
 - [HELK](https://github.com/Cyb3rWard0g/HELK) - Hunting ELK stack for threat hunting
-- [TheHive](https://github.com/TheHive-Project/TheHive) - Collaborative IR case management platform
+- [TheHive](https://github.com/TheHive-Project/TheHive) (archived; TheHive 3 and 4 decommissioned 2023) - Collaborative IR case management platform
 - [Cortex](https://github.com/TheHive-Project/Cortex) - Observable analysis and response automation
 - [adversary_emulation_library](https://github.com/center-for-threat-informed-defense/adversary_emulation_library) - ATT&CK-based adversary emulation plans
 - [attack-navigator](https://github.com/mitre-attack/attack-navigator) - ATT&CK matrix visualization and tracking
@@ -536,7 +536,7 @@ Hands-on repos:
 - [windows-event-forwarding](https://github.com/palantir/windows-event-forwarding) - Palantir's WEF configuration for centralized Windows event collection
 - [python-evtx](https://github.com/williballenthin/python-evtx) - Pure Python Windows EVTX log parser
 - [Aurora-Incident-Response](https://github.com/cyb3rfox/Aurora-Incident-Response) - Incident response documentation framework
-- [wazuh-ruleset](https://github.com/wazuh/wazuh-ruleset) - Wazuh SIEM detection rules - covers 3000+ attack scenarios
+- [wazuh-ruleset](https://github.com/wazuh/wazuh-ruleset) (archived) - Wazuh SIEM detection rules - covers 3000+ attack scenarios
 - [scirius](https://github.com/StamusNetworks/scirius) - Suricata ruleset management and threat hunting UI
 
 Certifications: BTL1 | GCIH | GCFE | GCFA | CySA+ | BlueTeamLabs
@@ -569,7 +569,7 @@ Hands-on repos:
 - [Harpoon](https://github.com/Te-k/harpoon) - CLI tool for TI - VirusTotal, Shodan, Passive DNS
 - [ioc-finder](https://github.com/fhightower/ioc-finder) - Extract IOCs from text automatically
 - [CyberChef](https://github.com/gchq/CyberChef) - The Swiss army knife for data transformation and IOC decoding
-- [urlscan.io](https://github.com/ninoseki/mihari) - Continuous IOC monitoring framework (mihari)
+- [mihari](https://github.com/ninoseki/mihari) - Continuous IOC monitoring framework (mihari)
 - [vt-cli](https://github.com/VirusTotal/vt-cli) - VirusTotal CLI for automated lookups
 - [Cortex-Analyzers](https://github.com/TheHive-Project/Cortex-Analyzers) - 100+ analyzers for TI enrichment
 
@@ -603,13 +603,13 @@ Hands-on repos:
 - [phoneinfoga](https://github.com/sundowndev/phoneinfoga) - Phone number intelligence gathering
 - [social-analyzer](https://github.com/qeeqbox/social-analyzer) - Profile finder across 1000+ social sites
 - [h8mail](https://github.com/khast3x/h8mail) - Email OSINT and breach data hunting
-- [gitrob](https://github.com/michenriksen/gitrob) - GitHub organization sensitive data recon
+- [gitrob](https://github.com/michenriksen/gitrob) (archived) - GitHub organization sensitive data recon
 - [trufflehog](https://github.com/trufflesecurity/trufflehog) - Find secrets in git repos - leaked API keys, tokens
 - [social-engineer-toolkit](https://github.com/trustedsec/social-engineer-toolkit) - Phishing, credential harvesting, pretexting
 - [gophish](https://github.com/gophish/gophish) - Open-source phishing campaign framework
 - [sherlock](https://github.com/sherlock-project/sherlock) - Username hunting across social networks
 - [recon-ng](https://github.com/lanmaster53/recon-ng) - Modular OSINT framework (like Metasploit for OSINT)
-- [Maltego community](https://github.com/MaltegoTech/maltego-trx) - Graph-based OSINT visualization framework
+- [Maltego community](https://github.com/MaltegoTech/maltego-trx) (archived; see [Maltego Transforms SDK](https://github.com/MaltegoTech/maltego-transforms)) - Graph-based OSINT visualization framework
 - [OSINT-Framework](https://github.com/lockfale/OSINT-Framework) - Web-based OSINT tool directory organized by category
 
 ### Privacy & Anonymity Tools
@@ -632,7 +632,7 @@ Practice: [TraceLabs Missing Persons CTF](https://tracelabs.org) | [Bellingcat O
 |------|--------|-----------|-------------|
 | CCSP Official Study Guide | Chapple & Seidl | Intermediate | Broad cloud security foundations - covers AWS/Azure/GCP concepts |
 | Hacking the Cloud | Various (online) | Intermediate | [hackingthe.cloud](https://hackingthe.cloud) - free, updated constantly |
-| AWS Security Handbook | Marzia Kjell | Intermediate | Practical AWS security from misconfig to exploitation |
+| AWS Security Handbook | Marzia Kjell (unverified, checked 2026-11-20) | Intermediate | Practical AWS security from misconfig to exploitation |
 | Cloud Security and Privacy | Tim Mather | Beginner | Executive/architect level cloud security overview |
 | Kubernetes Security and Observability | Creane & Gupta | Intermediate | Container and K8s security depth |
 | Hacking Kubernetes | Rice & Hausenblas | Advanced | Attack and defense for Kubernetes environments |
@@ -653,7 +653,7 @@ Hands-on repos:
 - [trivy](https://github.com/aquasecurity/trivy) - Container, cloud, and IaC vulnerability scanner
 - [open-cvdb](https://github.com/wiz-sec/open-cvdb) - Public cloud vulnerability database by Wiz
 - [untitledgoosetool](https://github.com/cisagov/untitledgoosetool) - CISA Azure/M365 incident response tool
-- [terrascan](https://github.com/tenable/terrascan) - IaC compliance and security scanning
+- [terrascan](https://github.com/tenable/terrascan) (archived) - IaC compliance and security scanning
 - [Azure-Sentinel](https://github.com/Azure/Azure-Sentinel) - Microsoft Sentinel detection rules and workbooks
 - [kube-bench](https://github.com/aquasecurity/kube-bench) - CIS Kubernetes benchmark security checks
 - [kube-hunter](https://github.com/aquasecurity/kube-hunter) - Kubernetes security weakness discovery
@@ -687,8 +687,8 @@ Practice: [CloudGoat (Rhino)](https://github.com/RhinoSecurityLabs/cloudgoat) | 
 > Practical note: [OWASP Mobile Security Testing Guide (MSTG)](https://mas.owasp.org/MASTG/) is free and more current than any book. Use it as your primary reference alongside these books.
 
 Hands-on repos:
-- [Mobile Security Testing Guide](https://github.com/OWASP/mastg) - OWASP MSTG - the mobile security bible
-- [Mobile Application Security Checklist](https://github.com/OWASP/masvs) - OWASP MASVS verification standard
+- [Mobile Application Security Testing Guide (MASTG)](https://github.com/OWASP/mastg) - OWASP MSTG - the mobile security bible
+- [Mobile Application Security Verification Standard (MASVS)](https://github.com/OWASP/masvs) - OWASP MASVS verification standard
 - [objection](https://github.com/sensepost/objection) - Mobile runtime exploration powered by Frida
 - [frida](https://github.com/frida/frida) - Dynamic instrumentation toolkit for iOS/Android/desktop
 - [apktool](https://github.com/iBotPeaches/Apktool) - Android APK reverse engineering tool
@@ -698,7 +698,7 @@ Hands-on repos:
 - [drozer](https://github.com/ReversecLabs/drozer) - Android security assessment framework
 - [dexcalibur](https://github.com/reversenseorg/dexcalibur) - Android reverse engineering with Frida hooks
 - [gplaycli](https://github.com/matlink/gplaycli) - Download APKs from Google Play for analysis
-- [needle](https://github.com/ReversecLabs/needle) - iOS security assessment framework
+- [needle](https://github.com/ReversecLabs/needle) (archived) - iOS security assessment framework
 - [idb](https://github.com/dmayer/idb) - iOS app security assessment tool
 - [iphonebackupanalyzer](https://github.com/PicciMario/iPhone-Backup-Analyzer) - Parse iOS backups for DFIR
 
@@ -714,7 +714,7 @@ Practice: [DIVA Android](https://github.com/payatu/diva-android) | [iGoat](https
 |------|--------|-----------|-------------|
 | The Hardware Hacker | Andrew "bunnie" Huang | Intermediate | Hardware reverse engineering and supply chain attacks - fascinating |
 | Practical IoT Hacking | Fotios Chantzis et al. | Intermediate | Protocol attacks, firmware extraction, radio hacking |
-| Hacking Embedded Linux | Craig Smith | Intermediate | Embedded system security from firmware to exploitation |
+| Hacking Embedded Linux | Craig Smith (unverified, checked 2026-11-20) | Intermediate | Embedded system security from firmware to exploitation |
 | The Car Hacker's Handbook | Craig Smith | Intermediate | CAN bus, OBD-II, and automotive security |
 | Industrial Network Security | Knapp & Langill | Intermediate | ICS/SCADA security fundamentals and defense |
 | Hacking the Xbox | Andrew "bunnie" Huang | Beginner | Classic hardware hacking - still relevant for methodology |
@@ -732,7 +732,7 @@ Hands-on repos:
 - [awesome-embedded-and-iot-security](https://github.com/fkie-cad/awesome-embedded-and-iot-security) - Curated IoT/embedded security resources
 - [ICS/SCADA resources](https://github.com/hslatman/awesome-industrial-control-system-security) - Curated ICS/SCADA security resource list
 - [GNURadio](https://github.com/gnuradio/gnuradio) - Software-defined radio toolkit for RF analysis
-- [URH](https://github.com/jopohl/urh) - Universal Radio Hacker - analyze wireless protocols
+- [URH](https://github.com/jopohl/urh) (archived) - Universal Radio Hacker - analyze wireless protocols
 - [hackrf](https://github.com/greatscottgadgets/hackrf) - HackRF One SDR platform - sub-1GHz to 6GHz radio hacking
 - [kismet](https://github.com/kismetwireless/kismet) - Wireless network detector, sniffer, wardriving tool
 - [wifiphisher](https://github.com/wifiphisher/wifiphisher) - Rogue AP framework for credential capture and MitM
@@ -848,7 +848,7 @@ Hands-on repos:
 - [scapy](https://github.com/secdev/scapy) - Python packet manipulation library - build any packet you want
 - [netdisco](https://github.com/netdisco/netdisco) - Network device discovery and inventory
 - [p0f](https://github.com/p0f/p0f) - Passive OS fingerprinting from network traffic
-- [stenographer](https://github.com/google/stenographer) - Full-packet capture indexing at Google scale
+- [stenographer](https://github.com/google/stenographer) (archived) - Full-packet capture indexing at Google scale
 
 Certifications: CompTIA Network+ | CCNA | GCIA | GNFA
 YouTube: [David Bombal](https://www.youtube.com/@davidbombal) | [Professor Messer](https://www.youtube.com/@professormesser) | [Chris Greer (Wireshark)](https://www.youtube.com/@ChrisGreer)
@@ -877,10 +877,10 @@ Hands-on repos:
 - [scapy](https://github.com/secdev/scapy) - Python packet crafting and manipulation
 - [projectdiscovery/nuclei](https://github.com/projectdiscovery/nuclei) - Go vulnerability scanner - learn offensive Go
 - [RedTeamPowershellScripts](https://github.com/Mr-Un1k0d3r/RedTeamPowershellScripts) - PowerShell red team scripts
-- [PowerSploit](https://github.com/PowerShellMafia/PowerSploit) - PowerShell offensive security framework
-- [OffensiveNim](https://github.com/byt3bl33d3r/OffensiveNim) - Offensive tooling in Nim language
+- [PowerSploit](https://github.com/PowerShellMafia/PowerSploit) (archived) - PowerShell offensive security framework
+- [OffensiveNim](https://github.com/byt3bl33d3r/OffensiveNim) (archived) - Offensive tooling in Nim language
 - [Sliver](https://github.com/BishopFox/sliver) - Go-based C2 framework - study the source
-- [Havoc](https://github.com/HavocFramework/Havoc) - Modern C2 framework - C/C++ core to study
+- [Havoc](https://github.com/HavocFramework/Havoc) (archived) - Modern C2 framework - C/C++ core to study
 - [metasploit-framework](https://github.com/rapid7/metasploit-framework) - Ruby C2/exploitation framework - read the modules
 - [violent-python3](https://github.com/EONRaider/violent-python3) - Violent Python source code ported to Python 3 - fully working examples
 - [hacking](https://github.com/intere/hacking) - Source code from Hacking: The Art of Exploitation 2nd Edition
@@ -911,10 +911,10 @@ Practice: [HackTheBox machines that require custom scripts](https://hackthebox.c
 
 Hands-on repos:
 - [APTnotes](https://github.com/kbandla/APTnotes) - Public APT campaign documents (real-world ops context)
-- [red_team_tool_countermeasures](https://github.com/mandiant/red_team_tool_countermeasures) - Detection rules for real red team tools
+- [red_team_tool_countermeasures](https://github.com/mandiant/red_team_tool_countermeasures) (archived) - Detection rules for real red team tools
 - [malware-indicators](https://github.com/citizenlab/malware-indicators) - Citizen Lab spyware IOCs (context for Perlroth/Sandworm)
-- [the-catch](https://github.com/PaulSec/awesome-sec-talks) - Curated security conference talks
-- [KrebsOnSecurity](https://github.com/jivoi/awesome-osint) - Context for Kingpin/cybercrime journalism
+- [awesome-sec-talks](https://github.com/PaulSec/awesome-sec-talks) - Curated security conference talks
+- [KrebsOnSecurity](https://krebsonsecurity.com) - Context for Kingpin/cybercrime journalism
 
 YouTube: [Darknet Diaries Podcast](https://darknetdiaries.com) - 180+ real-world hacking stories in audio form
 Read next: [Risky.biz podcast](https://risky.biz) | [Smashing Security](https://smashingsecurity.com) | The DFIR Report
@@ -927,16 +927,16 @@ Read next: [Risky.biz podcast](https://risky.biz) | [Smashing Security](https://
 
 | Book | Author | Difficulty | Why Read It |
 |------|--------|-----------|-------------|
-| Hacking AI | Various | Intermediate | Emerging - adversarial ML, model theft, data poisoning |
-| Adversarial Machine Learning | Biggio & Roli | Advanced | Academic foundation for adversarial attacks on ML |
-| AI and the Future of Cybersecurity | Various | Beginner | Framework-level thinking on AI in security operations |
+| Hacking AI | Various (unverified, checked 2026-11-20) | Intermediate | Emerging - adversarial ML, model theft, data poisoning |
+| Adversarial Machine Learning | Biggio & Roli (their work is the 2018 survey paper "Wild Patterns", not a book; unverified, checked 2026-11-20) | Advanced | Academic foundation for adversarial attacks on ML |
+| AI and the Future of Cybersecurity | Various (unverified, checked 2026-11-20) | Beginner | Framework-level thinking on AI in security operations |
 
 > Practical note: [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) and [MITRE ATLAS](https://atlas.mitre.org) are the current reference standards. Both are free.
 
 Hands-on repos:
 - [garak](https://github.com/NVIDIA/garak) - LLM vulnerability scanner (prompt injection, jailbreaks)
 - [promptmap](https://github.com/utkusen/promptmap) - Automated prompt injection testing
-- [PyRIT](https://github.com/Azure/PyRIT) - Microsoft's Python Risk Identification Toolkit for LLMs
+- [PyRIT](https://github.com/microsoft/PyRIT) - Microsoft's Python Risk Identification Toolkit for LLMs
 - [llm-attacks](https://github.com/llm-attacks/llm-attacks) - Universal adversarial attacks on aligned LLMs
 - [Presidio](https://github.com/data-privacy-stack/presidio) - PII detection and anonymization (protect training data)
 - [adversarial-robustness-toolbox](https://github.com/Trusted-AI/adversarial-robustness-toolbox) - IBM ART - adversarial ML attack/defense toolkit
@@ -968,7 +968,7 @@ Hands-on repos:
 - [awesome-hacking](https://github.com/carpedm20/awesome-hacking) - Hacking tutorials and resources for foundations
 - 90DaysOfCyber - Structured 90-day cybersecurity learning path
 - Cybersecurity-Roadmap - Community-built career roadmap
-- [Free-Security-eBooks](https://github.com/Hack-with-Github/Free-Security-eBooks) - Curated free hacking and security ebooks
+- [Free-Security-eBooks](https://github.com/Hack-with-Github/Free-Security-eBooks) (archived) - Curated free hacking and security ebooks
 - [security-study-plan](https://github.com/jassics/security-study-plan) - Complete study plans for pentest, AppSec, cloud security, and DevSecOps roles
 - [Infosec_Reference](https://github.com/rmusser01/Infosec_Reference) - Massive information security reference - doesn't suck
 
@@ -1167,7 +1167,7 @@ YouTube: [John Hammond](https://www.youtube.com/@_JohnHammond) | [IppSec](https:
 
 Hands-on repos:
 - [APTnotes](https://github.com/kbandla/APTnotes) - Real APT campaign reports (modern equivalent of the stories in these books)
-- [the-catch](https://github.com/PaulSec/awesome-sec-talks) - Curated security conference talks covering culture and history
+- [awesome-sec-talks](https://github.com/PaulSec/awesome-sec-talks) - Curated security conference talks covering culture and history
 
 Read next: [Darknet Diaries Podcast](https://darknetdiaries.com) | [2600: The Hacker Quarterly](https://www.2600.com) | [Phrack Magazine](http://phrack.org) (archive)
 

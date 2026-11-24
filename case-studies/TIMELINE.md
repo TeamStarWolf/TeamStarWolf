@@ -48,6 +48,16 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 10 November 2026: N-central 2026.4 Hotfix 2 (2026.4.1.26) posted; N-able publishes seven CVE records, two at CVSS v4.0 9.3
   - 11 November 2026: All hosted N-central servers upgraded (status update, 01:04 dashboard time)
   - 11 November 2026: N-able blog: unauthenticated paths fixed, more hotfixes to come, calls claims it ignored disclosure inaccurate
+- [CISA KEV Additions of 20 November 2026: VMware vCenter, Cisco Expressway, Apache Roller and SAP NetWeaver](/case-studies/KEV_ADDITIONS_2026_11_20.md). Vulnerability, November 2026. Sectors: technology, cross-sector. CVEs: CVE-2026-123890, CVE-2026-76466, CVE-2026-129448, CVE-2025-42884. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/KEV_Additions_2026_11_20_Case_Study.pdf).
+  - 11 November 2025: SAP publishes the CVE-2025-42884 record and Security Note 3660969 on its November 2025 Security Patch Day
+  - 13 July 2026: Build timestamp of the BONESAW utility, which Mandiant notes can be edited before compilation
+  - September 2026: Mandiant dates ARMORY CASTLE's exploitation of CVE-2026-123890 to early September from forensic evidence
+  - 28 September 2026: Apache publishes CVE-2026-82384 for Roller 6.1.5, with CISA SSVC exploitation none
+  - 21 October 2026: Cisco publishes the Expressway advisory for CVE-2026-76466 with fixed release X15.5.20
+  - 17 November 2026: Apache publishes CVE-2026-129448, the same flaw across Roller 4.0.0 through 6.1.4, and states it is being actively exploited
+  - 19 November 2026: Broadcom publishes VMSA-2026-0009 fixing CVE-2026-123890; Mandiant and GTIG publish their account of its exploitation
+  - 20 November 2026: CISA adds all four CVEs to KEV with a due date of 23 November
+  - 23 November 2026: Cisco revises its advisory to note the KEV listing and that it has no direct evidence of active exploitation
 - [Java4Shell, CVE-2026-114938: The OpenJDK Base64 Intrinsic Heap Overflow](/case-studies/JAVA4SHELL_CVE_2026_114938.md). Vulnerability, November 2026. Sectors: technology. CVEs: CVE-2026-114938. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Java4Shell_CVE_2026_114938_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Java4Shell_CVE_2026_114938_Case_Study.pptx).
   - 17 November 2026: Oracle ships the November 2026 Critical Patch Update fixing CVE-2026-114938; an OpenJDK advisory is published
   - 17 November 2026: Calif discloses Java4Shell with a technical write-up and a proof-of-concept trigger; CISA issues an alert urging immediate patching

@@ -2864,6 +2864,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 3: what the lab showed](#part-3-what-the-lab-showed), [Part 4: find and fix it on real hosts](#part-4-find-and-fix-it-on-real-hosts)"
     pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [CWE Reference](/CWE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)"
     reviewed: null
+  case-studies/KEV_ADDITIONS_2026_11_20.md:
+    audience: "Vulnerability management leads, VMware, Cisco, Apache Roller and SAP administrators, incident responders, and security engineers"
+    level: "Intermediate"
+    read_when: "You run VMware vCenter, a clustered Cisco Expressway, Apache Roller or SAP NetWeaver Enterprise Portal, or you need the facts behind CISA's 20 November 2026 KEV additions"
+    start_at: "[Executive summary](#executive-summary), [Part 1: VMware vCenter, CVE-2026-123890](#part-1-vmware-vcenter-cve-2026-123890), [Part 6: Find and fix it](#part-6-find-and-fix-it)"
+    pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Internet-Facing Services Reference](/INTERNET_FACING_SERVICES_REFERENCE.md), [CWE Reference](/CWE_REFERENCE.md)"
+    reviewed: null
   case-studies/NGINX2ROOT_2026.md:
     audience: "Vulnerability management leads, nginx and platform operators, incident responders, and security engineers"
     level: "Intermediate"

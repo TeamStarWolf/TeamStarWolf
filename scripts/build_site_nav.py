@@ -645,7 +645,10 @@ def platform_band(pnav: dict) -> str:
     Bookmarks category that carries its own menu, a link plus a caret plus a side
     fly-out. An entry with a 'pending' note (agreed but its address does not work yet)
     is not rendered."""
-    out = ['  <nav class="tsw-bar" aria-label="TeamStarWolf platform">',
+    # A div with role="navigation", not a <nav>: docsify's loadNavbar hijacks the first
+    # <nav> in the body (it renders the library's category bar into it), which would wipe
+    # the band. role="navigation" + aria-label is the same landmark to assistive tech.
+    out = ['  <div class="tsw-bar" role="navigation" aria-label="TeamStarWolf platform">',
            '    <ul class="tsw-bar__list">']
     for it in pnav["items"]:
         menu = [e for e in it.get("menu", []) if "pending" not in e]
@@ -678,7 +681,7 @@ def platform_band(pnav: dict) -> str:
             out.append("        </div>")
         out.append("      </li>")
     out.append("    </ul>")
-    out.append("  </nav>")
+    out.append("  </div>")
     return "\n".join(out)
 
 

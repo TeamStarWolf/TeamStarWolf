@@ -5,6 +5,13 @@
 # {"text": ..., "from": "#anchor", "quote": ...} on one line, as in the draft file.
 
 pages:
+  case-studies/UPNP_HOME_NETWORK.md:
+    reviewed: "2026-11-25"
+    items:
+      - {"text": "The UPnP port-mapping service has no authentication, so any device on the home network can ask the router to open an inbound port.", "from": "#executive-summary", "quote": "any device on the local network can ask the router to open a port, and the router does not check who is asking"}
+      - {"text": "A 2012 internet scan found the control plane turned the wrong way out on tens of millions of addresses.", "from": "#executive-summary", "quote": "more than 81 million addresses answering UPnP discovery"}
+      - {"text": "UPnProxy and EternalSilence are not bugs: they are the port-mapping service used as designed, for a requester the design assumed was trusted.", "from": "#part-3-using-the-router-as-infrastructure-upnproxy-and-eternalsilence", "quote": "Neither UPnProxy nor EternalSilence has a CVE, because neither is a bug"}
+      - {"text": "The record sorts into three piles: bugs a patch fixes, a design property no patch removes, and a setting the owner controls.", "from": "#executive-summary", "quote": "a design property that no patch removes"}
   case-studies/CHANGE_HEALTHCARE_2024.md:
     reviewed: "2026-11-16"
     items:

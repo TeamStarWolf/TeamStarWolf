@@ -1722,6 +1722,15 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2012 <!-- {docsify-ignore} -->
 
+- [UPnP on the Home Network: The Internet Gateway Device Port-Mapping Service and Its Security Record](/case-studies/UPNP_HOME_NETWORK.md). Attack surface, 2012 to 2026 (core: 2012 to 2020). Sectors: technology. CVEs: CVE-2012-5958, CVE-2012-5965, CVE-2013-0229, CVE-2013-0230, CVE-2017-1000494, CVE-2019-12107 and 1 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/UPnP_Home_Network_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/UPnP_Home_Network_Case_Study.pptx).
+  - June 2012: Rapid7 scans every routable IPv4 address for UPnP from 1 June to 17 November 2012
+  - January 2013: Rapid7 publishes the exposure paper; the libupnp SSDP flaws are fixed in libupnp 1.6.18
+  - January 2013: MiniUPnPd SSDP denial of service (CVE-2013-0229) and SOAP code execution (CVE-2013-0230)
+  - April 2016: Pinkslipbot begins using UPnP to open inbound ports and run control-server proxies
+  - June 2017: McAfee reports Pinkslipbot's UPnP port forwarding, the second malware to do so after Conficker
+  - November 2018: Akamai reports UPnProxy and the EternalSilence injections re-exposing SMB 139 and 445
+  - 17 April 2020: The Open Connectivity Foundation updates the UPnP specification to forbid the CallStranger behaviour
+  - 8 June 2020: CallStranger (CVE-2020-12695, CVSS 7.5) is published
 - [LinkedIn 2012-2016: Password-Store Exposure and the Limits of a Targeted Reset](/case-studies/LINKEDIN_2012_2016.md). Incident, 2012 to 2021 (core: 2012 to 2016). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/LinkedIn_2012_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/LinkedIn_2012_2016_Case_Study.pptx).
   - March 2012: Charged LinkedIn intrusion window (about 3-4 March 2012, per the indictment)
   - 6 June 2012: LinkedIn learns of a published list of about 6.5 million passwords

@@ -2705,6 +2705,30 @@ studies:
       - {"date": "2025-05-01", "label": "GitHub adds a hidden-Unicode warning on github.com following the Rules File research"}
       - {"date": "2025-06-11", "label": "Microsoft publishes CVE-2025-32711, the EchoLeak information-disclosure flaw in Microsoft 365 Copilot, with an official fix"}
       - {"date": "2025-08-26", "label": "Rehberger notes OpenAI has addressed the ChatGPT url_safe exfiltration path"}
+  case-studies/CLOUD_MANAGED_SERVICE_FLAWS.md:
+    kind: "vulnerability"
+    title: "When You Cannot Patch the Cloud: Cross-Tenant and Token Flaws in Azure Cosmos DB, Azure PostgreSQL, AWS AppSync and Google Cloud Platform"
+    start: "2021-08"
+    end: "2023-04"
+    sectors: ["technology", "cross-sector"]
+    cves: []
+    actors: []
+    tags: ["cloud", "multi-tenant", "tenant isolation", "cross-account", "confused deputy", "OAuth", "Azure Cosmos DB", "Azure Database for PostgreSQL", "AWS AppSync", "Google Cloud Platform", "ChaosDB", "ExtraReplica", "GhostToken"]
+    pdf: "Cloud_Managed_Service_Flaws_Case_Study.pdf"
+    pptx: "Cloud_Managed_Service_Flaws_Case_Study.pptx"
+    events:
+      - {"date": "2021-08-12", "label": "Wiz reports the ChaosDB flaw in Azure Cosmos DB to Microsoft"}
+      - {"date": "2021-08-26", "label": "Wiz publishes ChaosDB; Microsoft turns off the Cosmos DB Jupyter Notebook feature and notifies customers to rotate primary keys"}
+      - {"date": "2021-08-27", "label": "Microsoft publishes its Cosmos DB update, stating no customer data was accessed by third parties"}
+      - {"date": "2022-01-11", "label": "Wiz reports the ExtraReplica cross-tenant flaw in Azure Database for PostgreSQL Flexible Server to Microsoft"}
+      - {"date": "2022-01-13", "label": "Microsoft mitigates the ExtraReplica certificate flaw within 48 hours; the fleet update is completed by 25 February 2022"}
+      - {"date": "2022-04-28", "label": "Wiz and Microsoft publish ExtraReplica; Microsoft states no customer data was accessed, and no CVE is assigned"}
+      - {"date": "2022-06-19", "label": "Astrix Security reports the GhostToken OAuth flaw in Google Cloud Platform to Google"}
+      - {"date": "2022-09-01", "label": "Datadog reports the AWS AppSync cross-account confused-deputy flaw to Amazon Web Services"}
+      - {"date": "2022-09-06", "label": "Amazon Web Services fixes the AppSync flaw"}
+      - {"date": "2022-11-21", "label": "Datadog and AWS publish the AppSync flaw; AWS states no customers were affected"}
+      - {"date": "2023-04-07", "label": "Google deploys a global patch for GhostToken, making hidden applications visible again"}
+      - {"date": "2023-04-21", "label": "GhostToken is published; Astrix's own write-up later redirects to its acquirer"}
   case-studies/NGINX2ROOT_2026.md:
     kind: "vulnerability"
     title: "nginx2root 2026: The nginx HTTP/2 Remote Code Execution Flaws, CVE-2026-123007 and CVE-2026-123633"

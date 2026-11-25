@@ -1,6 +1,6 @@
 # CISA KEV Additions of 18 November 2026: Synology DSM, LiteLLM, REDCap and Apache Axis
 
-*A TeamStarWolf case study. Published 19 November 2026; every source re-verified 25 November 2026.*
+*A TeamStarWolf case study. Published 25 November 2026; every source verified as of that date.*
 
 [All case studies](/case-studies/README.md) · Related: [CVE Reference](/CVE_REFERENCE.md), [CWE Reference](/CWE_REFERENCE.md), [Vulnerability Prioritization](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Internet-Facing Services](/INTERNET_FACING_SERVICES_REFERENCE.md)
 
@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 15 min (3,439 words at 230 words a minute)
+About 17 min (3,841 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -93,7 +93,7 @@ The four differ in how much an attacker needs. The REDCap and Axis flaws need no
 
 ## Scope and evidence standard
 
-This study uses the CVE records and the CISA SSVC (Vulnrichment) data, the CISA KEV entries, the Synology advisory Synology-SA-24:20, the BerriAI GitHub security advisory and the X41 D-Sec advisory for LiteLLM, the Securifera write-up for REDCap, and the Apache CVE record for Axis. NVD pages were not used for analysis. No exploit was run, and no exploit code, request or payload is reproduced here, although the finders for two of the four published theirs.
+This study uses the CVE records and the CISA SSVC (Vulnrichment) data, the CISA KEV entries, the Synology advisories Synology-SA-24:20 and Synology-SA-24:23, the BerriAI GitHub security advisory, the GitHub Advisory Database copy and the X41 D-Sec advisory for LiteLLM, the Securifera write-up for REDCap, and the Apache CVE record for Axis. NVD pages were not used for analysis. No exploit was run, and no exploit code, request or payload is reproduced here, although the finders for two of the four published theirs.
 
 **Confirmed** means an official record (a CVE record, a vendor advisory, the KEV entry) supports the claim. **Reported** means a finder's or third party's write-up stated it without an independent official record. **Demonstrated** marks a capability a finder says it proved under stated conditions. **Inferred** marks the author's interpretation. A statement that a source gives no detail is a statement about that source, not about the world.
 
@@ -105,11 +105,11 @@ A KEV listing is evidence that exploitation of the vulnerability was observed. I
 
 Synology's advisory Synology-SA-24:20, titled "DSM (PWN2OWN 2024)", was published on 5 November 2024 and rates the flaw Critical. The CVE record describes an improper encoding or escaping of output flaw in the system plugin daemon that lets remote attackers execute arbitrary code "via unspecified vectors", with a CVSS 3.1 score of 9.8 (network, low complexity, no privileges, no user interaction). The CVE record itself was published on 19 March 2025 (Confirmed [1][6]).
 
-The advisory lists these fixed releases: DSM 7.2.2-72806-1, 7.2.1-69057-6, 7.2-64570-4 and 7.1.1-42962-7, and BeeStation OS 1.1-65374. It lists mitigation as none. The CVE record also marks versions before DSM 7.0 as unknown, while the advisory additionally lists a DSM 6.2 fixed build, 6.2.4-25556-8 (Confirmed [1][6]).
+Advisory SA-24:20 lists these fixed DSM releases, with mitigation none: 7.2.2-72806-1, 7.2.1-69057-6, 7.2-64570-4 and 7.1.1-42962-7. Its Affected Products table is DSM only. The BeeStation OS fix, 1.1-65374, is in the companion advisory SA-24:23, "BeeStation (PWN2OWN 2024)", which covers the same CVE and which the CVE record also references (Confirmed [1][6][11]). The CVE record marks versions before DSM 7.0 as unknown for this flaw. The advisory's DSM 6.2 row, added in December 2024 and rated Moderate, names the build 6.2.4-25556-8 only in the description of a different CVE in the same bundle, CVE-2024-10445, so it is not a fix for CVE-2024-10441 (Confirmed [1][6]).
 
 ### What is not public
 
-Both the vendor and the CVE record say "unspecified vectors". The advisory's abstract ties arbitrary code execution to a Zero Day Initiative tracking number, ZDI-CAN-25403, and credits Pumpkin Chang and Orange Tsai of the DEVCORE Research Team and Ryan Emmons of Team Smoking Barrels; the CVE record credits Ryan Emmons as the finder. The advisory does not say which researcher found which of its three CVEs, so the pairing of finder to flaw is Inferred from the CVE record's credit. The advisory is silent on how the attack works, and this study does not fill that gap (Confirmed [1][6]; Inferred for the pairing).
+Both the vendor and the CVE record say "unspecified vectors". The advisory's abstract ties arbitrary code execution to a Zero Day Initiative tracking number, ZDI-CAN-25403, and its acknowledgement lists three separate entries: Pumpkin Chang and Orange Tsai of the DEVCORE Research Team, Ryan Emmons, and Team Smoking Barrels; the CVE record credits Ryan Emmons as the finder. The advisory does not say which researcher found which of its three CVEs, so the pairing of finder to flaw is Inferred from the CVE record's credit. The advisory is silent on how the attack works, and this study does not fill that gap (Confirmed [1][6]; Inferred for the pairing).
 
 ### Exploitation status and exposure
 
@@ -125,13 +125,13 @@ LiteLLM is an open-source proxy that gives applications one OpenAI-compatible AP
 
 The endpoint runs submitted Python inside a sandbox built by hand, and X41 D-Sec, which found the flaw, reports that the sandbox filtered dangerous names by matching the source text and could be escaped by rewriting Python bytecode, which yields arbitrary code execution in the proxy process. In the default Docker image that process runs as root (Demonstrated [8]; Confirmed that the sandbox is escapable [7]). The CVE record, assigned by MITRE, says LiteLLM "through 2026-04-08" is affected and rates it 8.8 under CVSS 3.1 with low privileges required (Confirmed [2]).
 
-Reaching the endpoint takes authentication. X41 describes the vector as an authenticated HTTP API request using the master key, and the BerriAI advisory says it "requires a proxy-admin credential in default configurations". BerriAI rates it Moderate, 5.9 under CVSS 4.0, with high privileges required and high attack complexity, while X41 rated it 8.7 under CVSS 4.0, and the CVE record's CVSS 3.1 score is 8.8. The scores differ because they assume different privilege levels and use different CVSS versions (Confirmed [7]; Reported [8]).
+Reaching the endpoint takes authentication. X41 describes the vector as an authenticated HTTP API request using the master key, and the BerriAI advisory says it "requires a proxy-admin credential in default configurations". Four ratings sit side by side. X41, the finder, scores it 8.7 under CVSS 4.0, with low privileges and low attack complexity [8]. BerriAI's own advisory rates it Moderate, 5.9 under CVSS 4.0, with high privileges and high attack complexity, and with confidentiality and integrity impact set to low [7]. GitHub's reviewed copy in the Advisory Database rates it High, 7.5 under CVSS 4.0, keeping the high-privilege and high-complexity preconditions but setting all three impacts high [12]. And the CVE record carries a CVSS 3.1 score of 8.8 [2]. The differences follow from the different privilege assumptions, impact ratings and CVSS versions, which the sources do not themselves explain (Inferred).
 
 ### Timeline and fix
 
 X41 reports identifying the issue on 13 February 2026, and says it published on 8 April 2026 when a distributions-list embargo expired, with no vendor patch available at that time. The CVE record is dated 10 April 2026, and BerriAI's advisory GHSA-wxxx-gvqv-xp7p was published on 7 May 2026 (Reported [8]; Confirmed [2][7]).
 
-The advisory lists affected versions from 1.81.8 up to but not including 1.83.10, and says the fix replaces the hand-rolled sandbox with RestrictedPython. Its metadata names patched versions as 1.83.10 or later while its body says "Fixed in 1.83.11", so the safe instruction is to run 1.83.11 or later, and to block `POST /guardrails/test_custom_code` at the reverse proxy if upgrading is not immediate (Confirmed [7]). X41 adds that the default container should be run as a non-root user to limit what code execution yields (Reported [8]).
+The advisory lists affected versions from 1.81.8 up to but not including 1.83.10, and says the fix replaces the hand-rolled sandbox with RestrictedPython. Its metadata names patched versions as 1.83.10 or later while its body says "Fixed in 1.83.11", so the safe instruction is to run 1.83.11 or later, and to block `POST /guardrails/test_custom_code` at the reverse proxy if upgrading is not immediate (Confirmed [7]). X41 adds three operational steps: keep the master key to trusted administrators and out of regular API consumers' hands, keep the LiteLLM management interface off untrusted networks with firewall or security-group controls, and run the default container as a non-root user to limit what code execution yields (Reported [8]).
 
 ### Exploitation status
 
@@ -141,13 +141,13 @@ CISA's SSVC record, dated 19 November 2026, lists exploitation active, automatab
 
 ### The product and the finder
 
-REDCap is a web application from Vanderbilt University for building surveys and research databases, and the finder describes it as freely available to consortium members but not openly distributed. The finder, Ryan Wincey of Securifera, reports working from a copy of the source that a member had published, and says an AI coding assistant helped implement the technique, though it did not propose it (Reported [10]).
+REDCap is a web application from Vanderbilt University that the finder describes as a survey hosting application, freely available to consortium members but not openly distributed [10]. The write-up is published under the handle b0yd; the CVE record credits Ryan Wincey of Securifera as the finder [3]. The finder reports working from a copy of the source that a member had published, and describes pointing an AI coding assistant at that source with the objective of finding a path from an unauthenticated context to server-side code execution; the assistant did not propose the solution but implemented and extended the technique once it was suggested (Reported [10]).
 
 ### The flaw
 
-The CVE record, assigned by Securifera and published on 20 September 2026, describes an unauthenticated remote code execution flaw in the survey passthrough routing and the Data Import processing logic. An attacker manipulates requests to reach an unintended controller route from a public survey context and supplies a crafted file-path or stream parameter during import handling. Exploitation requires knowing a valid public survey hash. The record rates it 9.8 under CVSS 3.1 and says versions from 13.3.0 are affected (Confirmed [3]).
+The CVE record, assigned by Securifera and published on 20 September 2026, describes an unauthenticated remote code execution flaw in the survey passthrough routing and the Data Import processing logic. An attacker manipulates requests to reach an unintended controller route from a public survey context and supplies a crafted file-path or stream parameter during import handling. Exploitation requires knowing a valid public survey hash. The record rates it 9.8 under CVSS 3.1 and says versions from 13.3.0 are affected (Confirmed [3]). The finder notes that a public survey link is not a secret: such links are built for unauthenticated distribution and, in the write-up's account, are easily recoverable through search dorks, urlscan or the Wayback Machine (Reported [10]).
 
-Securifera's write-up sets out the chain as five independently fixable faults. A double URL-decoding mismatch lets a public request reach the general project dispatcher that was meant to be restricted. The project's user rights are built before the survey respondent's identity is set, and an undefined SUPER_USER constant is read as full rights, so the public request is handed the Data Import privilege. The Data Import step then trusts an attacker-chosen name as a local path or PHP stream; a byte-order-mark normalization step writes the changed bytes back to that same resource, turning a read into a controlled overwrite; and a predictable, worker-writable Blade template cache is later included as PHP, which turns the overwrite into code execution. The finder used a PHP filter-chain technique published by Synacktiv to produce the exact bytes, and reports code execution against a test installation (Demonstrated [10]).
+Securifera's write-up sets out the chain as five independently fixable faults. A double URL-decoding mismatch lets a public request reach the general project dispatcher that was meant to be restricted. The project's user rights are built before the survey respondent's identity is set, and an undefined SUPER_USER constant is read as full rights, so the public request is handed the Data Import privilege. The Data Import step then trusts an attacker-chosen name as a local path or PHP stream; a byte-order-mark normalization step writes the changed bytes back to that same resource, turning a read into a controlled overwrite; and a predictable, worker-writable Blade template cache is later included as PHP, which turns the overwrite into code execution. The finder used a PHP filter-chain technique published by Synacktiv to produce the exact bytes, and reports proving both PHP execution and recovery of the original cache state, naming no target environment (Demonstrated [10]).
 
 ### Fixed versions and status
 
@@ -173,7 +173,7 @@ CISA's SSVC record, dated 17 November 2026, lists exploitation active, automatab
 
 ### Decide whether you are exposed
 
-For each product, the question differs. For Synology, list DSM and BeeStation OS devices and their build numbers against the fixed releases above, and check whether any management port is reachable from outside the network. For LiteLLM, list proxies, record the version and whether the administrative API is exposed, and check who holds the master key. For REDCap, record the version against 16.0.49, 17.3.10 and 17.4.4, and consider that survey links are public by design. For Axis, search application archives and dependency manifests for `axis-1.4.jar` and related artifacts, since the library may be bundled without a visible product name (Inferred).
+For each product, the question differs. For Synology, list DSM and BeeStation OS devices and their build numbers against the fixed releases above, and check whether any management port is reachable from outside the network. For LiteLLM, list proxies, record the version and whether the administrative API is exposed, and check who holds the master key. For REDCap, record the version against 16.0.49, 17.3.10 and 17.4.4, and consider that survey links are public by design. Where an immediate upgrade is not possible, the write-up's interim containment is to restrict or disable public surveys and to block survey-context access to the root dispatcher, the Data Import controller and the Parcel controller, treated as temporary; and its detection guidance is to watch for encoded `__passthru` parameters, survey-context requests to those controllers, import file-name values that carry URI schemes or conversion filters, unexpected writes under the temporary cache, and child processes spawned by the web-server account (Reported [10]). For Axis, search application archives and dependency manifests for `axis-1.4.jar` and related artifacts, since the library may be bundled without a visible product name (Inferred).
 
 ### Apply the fix and respond
 
@@ -189,7 +189,7 @@ The mapping below is this study's interpretation of public definitions, checked 
 
 | Label | Case support | Boundary |
 |---|---|---|
-| CWE-116, CWE-420, CWE-73, CWE-94 and CWE-470 | Assigned in the KEV entries for the four CVEs | The authoritative weakness labels; X41 labels the LiteLLM flaw CWE-94 [5][8] |
+| CWE-116, CWE-420, CWE-73, CWE-94 and CWE-470 | Assigned in the KEV entries for the four CVEs | KEV's labels; for LiteLLM the sources disagree, with KEV and the CVE's MITRE container at CWE-420, the GitHub Advisory Database copy at CWE-420 and CWE-913, BerriAI at CWE-913, and X41 and the CVE's Red Hat container at CWE-94 [2][5][7][8][12] |
 | [T1190 Exploit Public-Facing Application](https://attack.mitre.org/techniques/T1190/) | Network-reachable Synology, REDCap and Axis flaws, and LiteLLM where its API is exposed | High-confidence analytical mapping |
 | [T1059 Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059/) | Code execution through a Python sandbox escape, PHP code written by the import chain, or a loaded class | Analytical mapping; the sources describe no post-exploitation commands |
 | Specific persistence, lateral-movement or exfiltration techniques | No incident sequence is public | Not mapped; no real-world intrusion detail is in evidence |
@@ -206,7 +206,7 @@ Two of the four show a slow end of the patch lifecycle. The Synology fix is two 
 
 ### Research found with AI assistance
 
-The REDCap write-up describes an AI coding assistant implementing a published technique against the source. As in other recent disclosures, the evidence supports a narrow reading: tooling lowered the cost of building and testing the exploit, while the underlying flaws were ordinary ones, a decoding mismatch and an unchecked file name (Reported [10]; Inferred).
+The REDCap write-up describes pointing an AI coding assistant at the application source to find a path from an unauthenticated context to code execution, and then using it to implement and extend a technique the finder suggested. The evidence supports a narrow reading: the tooling lowered the cost of hunting for and building the chain, while the underlying flaws were ordinary ones, a decoding mismatch and an unchecked file name (Reported [10]; Inferred).
 
 ## Sources
 
@@ -219,7 +219,9 @@ The REDCap write-up describes an AI coding assistant implementing a published te
 7. BerriAI, GitHub Security Advisory GHSA-wxxx-gvqv-xp7p, Sandbox escape in custom-code guardrail. https://github.com/BerriAI/litellm/security/advisories/GHSA-wxxx-gvqv-xp7p
 8. X41 D-Sec, Advisory X41-2026-001: Guardrail Sandbox Escape in LiteLLM, 8 April 2026. https://www.x41-dsec.de/lab/advisories/x41-2026-001-litellm/
 9. Apache Software Foundation, Axis 1.x patch commit. https://github.com/apache/axis-axis1-java/commit/41f3b4e8d04e310ca81f86b92630ab2c11d608bd
-10. Securifera, Survey Says: Remote Code Execution, CVE-2026-90817, 27 September 2026. https://www.securifera.com/blog/2026/09/27/survey-says-remote-code-execution-cve-2026-90817/
+10. Securifera, Survey Says: Remote Code Execution, CVE-2026-90817, 27 September 2026 (published under the handle b0yd). https://www.securifera.com/blog/2026/09/27/survey-says-remote-code-execution-cve-2026-90817/
+11. Synology, Security Advisory Synology-SA-24:23 (BeeStation, Pwn2Own 2024). https://www.synology.com/en-global/security/advisory/Synology_SA_24_23
+12. GitHub Advisory Database, GHSA-wxxx-gvqv-xp7p (LiteLLM sandbox escape; the GitHub-reviewed copy). https://github.com/advisories/GHSA-wxxx-gvqv-xp7p
 
 ## Related references
 

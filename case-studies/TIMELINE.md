@@ -637,6 +637,14 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2024 <!-- {docsify-ignore} -->
 
+- [When the Assistant Has Tools: Prompt Injection in Microsoft 365 Copilot, Slack AI, GitHub Copilot, Cursor, vanna and ChatGPT](/case-studies/AI_ASSISTANT_PROMPT_INJECTION.md). Vulnerability, May 2024 to August 2025. Sectors: technology, cross-sector. CVEs: CVE-2025-32711, CVE-2024-5565. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/AI_Assistant_Prompt_Injection_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/AI_Assistant_Prompt_Injection_Case_Study.pptx).
+  - 22 May 2024: Johann Rehberger reports ChatGPT memory writes via prompt injection; OpenAI closes it as a model-safety issue
+  - 31 May 2024: JFrog publishes CVE-2024-5565, prompt-injection remote code execution in the vanna library
+  - 14 August 2024: PromptArmor reports Slack AI data exfiltration via indirect prompt injection; Slack calls the retrieval behaviour intended
+  - 18 March 2025: Pillar Security reports the Rules File Backdoor in GitHub Copilot and Cursor
+  - 1 May 2025: GitHub adds a hidden-Unicode warning on github.com following the Rules File research
+  - 11 June 2025: Microsoft publishes CVE-2025-32711, the EchoLeak information-disclosure flaw in Microsoft 365 Copilot, with an official fix
+  - 26 August 2025: Rehberger notes OpenAI has addressed the ChatGPT url_safe exfiltration path
 - [The XZ Utils Backdoor: A 2024 Supply-Chain Case Study](/case-studies/XZ_UTILS_BACKDOOR_2024.md). Incident, February to March 2024. Sectors: technology. CVEs: CVE-2024-3094. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/XZ_Utils_Backdoor_2024_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/XZ_Utils_Backdoor_2024_Case_Study.pptx).
   - 2021: From about 2021, the Jia Tan identity builds trust and gains co-maintainer, then release authority
   - 24 February 2024: XZ Utils 5.6.0 tarball, carrying the backdoor, released

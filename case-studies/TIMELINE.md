@@ -1727,7 +1727,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - January 2013: Rapid7 publishes the exposure paper; the libupnp SSDP flaws are fixed in libupnp 1.6.18
   - January 2013: MiniUPnPd SSDP denial of service (CVE-2013-0229) and SOAP code execution (CVE-2013-0230)
   - April 2016: Pinkslipbot begins using UPnP to open inbound ports and run control-server proxies
-  - June 2017: McAfee reports Pinkslipbot's UPnP port forwarding, the second malware to do so after Conficker
+  - June 2017: McAfee reports Pinkslipbot opening ports over UPnP, as far as it knew the second executable malware to do so after Conficker
   - November 2018: Akamai reports UPnProxy and the EternalSilence injections re-exposing SMB 139 and 445
   - 17 April 2020: The Open Connectivity Foundation updates the UPnP specification to forbid the CallStranger behaviour
   - 8 June 2020: CallStranger (CVE-2020-12695, CVSS 7.5) is published

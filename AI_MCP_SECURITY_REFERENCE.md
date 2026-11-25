@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 50 min (11,427 words at 230 words a minute)
+About 51 min (11,672 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -170,7 +170,7 @@ The current specification (protocol version 2026-07-28) defines two standard tra
 
 | Transport | Use Case | Security Notes |
 |-----------|----------|---------------|
-| stdio | Local servers launched as child processes. Messages sent over stdin/stdout as newline-delimited JSON-RPC. | Lowest attack surface; server runs with same user permissions. No network exposure. |
+| stdio | Local servers launched as child processes. Messages sent over stdin/stdout as newline-delimited JSON-RPC. | No network *listener* by default, but the process runs with the launching user's full permissions: it can still read that user's files, use their credentials, and open outbound network connections unless it is separately sandboxed. "Lowest attack surface" only holds once it is confined. |
 | Streamable HTTP | Remote servers over HTTP. Client sends JSON-RPC via HTTP POST; the server answers with a JSON response or a Server-Sent Events (SSE) stream. It replaces the HTTP+SSE transport of protocol version 2024-11-05. | Protected servers use the spec's OAuth 2.1 authorization. Vulnerable to DNS rebinding if bound to localhost. TLS required for remote. |
 | Custom (for example WebSocket) | Not a standard binding; client and server must both implement it. | Apply the same authentication and TLS (wss://) rules as Streamable HTTP. |
 
@@ -185,6 +185,8 @@ stdio example invocation (Claude Desktop config):
   }
 }
 ```
+
+This example auto-installs the latest package (`-y`) and hands it a broad home directory. For anything beyond a quick test, pin a vetted version (or a digest-pinned container image) instead of `-y`, and point the server at a dedicated scratch directory - read-only where it does not need to write - rather than `/home/user/documents`.
 
 ---
 
@@ -520,7 +522,7 @@ Why this matters: Tool output containing text like "Ignore previous instructions
 Techniques:
 - Prompt injection detection: Run tool outputs through a secondary classifier that flags potential injection attempts.
 - Output length limits: Truncate excessively long outputs to prevent context flooding attacks.
-- Structured output enforcement: Where possible, return structured JSON rather than free text, making injection harder.
+- Structured output enforcement: Where possible, return structured JSON with a schema the host validates. This separates and validates fields, but JSON values can still carry adversarial text, so it is not by itself an injection defense - enforce tool and action permissions in the host independently of the output encoding.
 - Content-type enforcement: Label tool outputs with their content type (e.g., `data`, not `instruction`) and include this in the system prompt context.
 - HTML/Markdown stripping: Remove formatting that could hide text from user-visible UI while still feeding it to the LLM.
 
@@ -562,7 +564,7 @@ Minimum log fields:
 }
 ```
 
-Sensitive argument masking: Mask or hash sensitive argument values (passwords, tokens) before logging.
+Sensitive argument handling: Log only approved metadata (tool name, decision, result status, a correlation ID) and omit raw secret, password, token, file-content and message values. Do not hash a low-entropy secret as a substitute - a hash of a guessable value is reversible and is still a correlation handle; restrict access to and retention of the logs instead.
 
 Log integrity: Forward logs to a SIEM in real-time. Use append-only storage. Sign log entries.
 
@@ -632,11 +634,13 @@ Run MCP servers in Docker containers for process isolation.
 
 Example Docker Compose for sandboxed filesystem server:
 ```yaml
-version: '3.8'
 services:
   mcp-filesystem:
-    image: node:20-alpine
-    command: npx -y @modelcontextprotocol/server-filesystem /workspace
+    # A reviewed image with the server already installed, pinned by digest. Do NOT `npx -y`
+    # at runtime: `read_only: true` and `network_mode: none` below would block the install
+    # anyway, and fetching a mutable package at start-up is the risk this sandbox exists to remove.
+    image: ghcr.io/your-org/mcp-filesystem@sha256:<digest>
+    command: ["mcp-server-filesystem", "/workspace"]
     volumes:
       - ./documents:/workspace:ro
     read_only: true
@@ -682,7 +686,7 @@ def check_for_injection(tool_output: str) -> bool:
 ```
 
 Defense 3. Structured output constraints:
-Require tools to return data in strict structured formats (JSON with schema validation) rather than free-form text, making injection payloads harder to embed naturally.
+Require tools to return data in strict structured formats (JSON with schema validation) rather than free-form text. This bounds and labels the fields, but their values are still attacker-controlled text, so treat it as one layer alongside Defenses 1, 2 and 4, not a standalone injection defense.
 
 Defense 4. Context labeling:
 Wrap all tool outputs in labeled XML tags that distinguish them from user instructions:
@@ -728,7 +732,7 @@ server {
 Remote MCP servers should implement the MCP authorization spec, which builds on OAuth 2.1 with PKCE (Proof Key for Code Exchange), for user authentication.
 
 OAuth 2.1 authorization code flow with PKCE for MCP (specification 2026-07-28):
-1. MCP host generates a random `code_verifier` and derives `code_challenge = SHA256(code_verifier)`.
+1. MCP host generates a random `code_verifier` and derives `code_challenge = BASE64URL-ENCODE(SHA256(ASCII(code_verifier)))` (the S256 method of RFC 7636 section 4.2; the base64url is unpadded).
 2. Host redirects user to authorization server with `code_challenge`.
 3. User authenticates and authorizes.
 4. Authorization server issues `authorization_code` to host.
@@ -739,6 +743,7 @@ Security requirements:
 - Use short-lived access tokens (15-60 minutes).
 - Use refresh tokens with rotation.
 - Request minimum OAuth scopes.
+- Validate the authorization server's `iss` identifier in the authorization response against its published metadata (RFC 9207) to defeat mix-up attacks.
 - Store tokens in OS keychain, not plain config files.
 - Never log access tokens.
 
@@ -1077,7 +1082,7 @@ Container Security:
 - Scan ML serving containers with Trivy, Clair, or Snyk Container.
 - Use minimal base images (distroless, alpine).
 - Run containers as non-root.
-- Implement container image signing (Docker Content Trust, Cosign).
+- Implement container image signing with Cosign (Sigstore) or Notation (Notary Project). Docker Content Trust / Notary v1 is retired - the notary.docker.io service shuts down on 8 December 2026 - so do not build new signing on it.
 - Use runtime security (Falco, Sysdig) to detect anomalous container behavior.
 
 Training Pipeline Security:
@@ -1717,4 +1722,4 @@ CISA AI Cybersecurity Collaboration Playbook:
 
 ---
 
-*Last updated: 2025. Sources: MITRE ATLAS (atlas.mitre.org), OWASP Top 10 for LLMs 2025, NIST AI RMF 1.0, NIST AI 100-1, EU AI Act (Regulation 2024/1689), ISO/IEC 42001:2023, CISA AI Guidance, MCP Specification (modelcontextprotocol.io), Anthropic MCP Announcement (November 2024).*
+*Sources: MITRE ATLAS (atlas.mitre.org), OWASP Top 10 for LLMs 2025, NIST AI RMF 1.0, NIST AI 100-1, EU AI Act (Regulation 2024/1689), ISO/IEC 42001:2023, CISA AI Guidance, MCP Specification (modelcontextprotocol.io), Anthropic MCP Announcement (November 2024).*

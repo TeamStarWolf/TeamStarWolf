@@ -1,6 +1,6 @@
 # ServiceNow Vulnerability Response
 
-ServiceNow Vulnerability Response is the Security Operations application that turns scanner findings into tracked, owned, and measured remediation work on the Now Platform.
+ServiceNow Vulnerability Response is the Security Operations application that turns scanner findings into tracked, owned, and measured remediation work on the ServiceNow AI Platform (earlier the Now Platform).
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,427 words at 230 words a minute)
+About 6 min (1,487 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -53,11 +53,11 @@ No review recorded yet
 
 ## What it is and where it fits
 
-Vulnerability Response (often shortened to VR) sits inside the ServiceNow Security Operations suite. It is not a scanner. It consumes findings that scanners produce and gives them a workflow: ownership, priority, service-level agreements, and closure evidence.
+Vulnerability Response (often shortened to VR) sits inside the ServiceNow Security Operations suite. ServiceNow's product page now headlines it under Unified Security Exposure Management, while its documentation still names the application Vulnerability Response. It is not a scanner. It consumes findings that scanners produce and gives them a workflow: ownership, priority, service-level agreements, and closure evidence.
 
 The product solves a specific problem. Scanners find many issues across many assets, but a raw finding list is not actionable work. VR normalizes those findings, groups them, matches them to known configuration items, and assigns remediation to the teams that own the affected systems.
 
-Because VR runs on the Now Platform, it inherits the same data model, workflow engine, reporting, and access control used by IT Service Management. This lets a vulnerability program use the same change and task constructs that IT operations already follow.
+Because VR runs on the ServiceNow AI Platform, it inherits the same data model, workflow engine, reporting, and access control used by IT Service Management. This lets a vulnerability program use the same change and task constructs that IT operations already follow.
 
 ## Architecture and how it works
 
@@ -143,7 +143,8 @@ For a team that runs several scanners, VR is the place that reconciles them into
 - ServiceNow Product Documentation, Vulnerability Response
 - ServiceNow Security Operations documentation
 - ServiceNow CMDB and Configuration Management documentation
-- ServiceNow Now Platform administration documentation, access control and ACLs
+- ServiceNow AI Platform (earlier Now Platform) administration documentation, access control and ACLs
+- ServiceNow documentation "Exploring the Vulnerability Response application" confirms the application name; the product page headlines it as Unified Security Exposure Management and names the ServiceNow AI Platform (read 25 November 2026)
 
 ## Related pages
 

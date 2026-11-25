@@ -15,7 +15,7 @@ Related: [Scanner Platforms and Findings Catalog](/SCANNER_PLATFORMS_REFERENCE.m
 | [CrowdStrike Falcon](/platforms/crowdstrike-falcon.md) | Cloud-native endpoint protection, EDR, and exposure management on a single sensor |
 | [Microsoft Defender for Endpoint](/platforms/microsoft-defender.md) | Microsoft endpoint EDR with Defender Vulnerability Management |
 | [Tanium](/platforms/tanium.md) | Real-time endpoint query and action at scale, with patch and compliance |
-| [Trend Vision One](/platforms/trend-micro.md) | Trend Micro's XDR platform, including the former Cloud One workload and cloud security |
+| [TrendAI Vision One](/platforms/trend-micro.md) | Trend Micro's XDR platform, including the former Cloud One workload and cloud security |
 | [SentinelOne Singularity](/platforms/sentinelone.md) | Autonomous endpoint and extended detection with on-device AI and Storyline correlation |
 | [Sophos](/platforms/sophos.md) | Intercept X endpoint with deep-learning prevention and anti-ransomware, and Sophos XDR and MDR |
 | [Trellix](/platforms/trellix.md) | Endpoint and XDR from the McAfee Enterprise and FireEye combination, managed through ePO |
@@ -114,7 +114,7 @@ The corrective control after destructive exploitation such as ransomware, where 
 | [Rubrik](/platforms/rubrik.md) | Backup with immutable storage and ransomware anomaly detection |
 | [Cohesity](/platforms/cohesity.md) | Data management with immutable snapshots and threat detection |
 | [Commvault](/platforms/commvault.md) | Backup and recovery with immutable, air-gapped copies and cyber deception |
-| [Veritas NetBackup](/platforms/veritas-netbackup.md) | Enterprise backup with WORM storage and malware scanning |
+| [NetBackup (Cohesity)](/platforms/veritas-netbackup.md) | Enterprise backup with WORM storage and malware scanning |
 | [Dell PowerProtect](/platforms/dell-powerprotect.md) | Protection storage with an air-gapped Cyber Recovery vault |
 | [AWS Backup](/platforms/aws-backup.md) | AWS-native centralized backup with Vault Lock immutability |
 | [Azure Backup](/platforms/azure-backup.md) | Azure-native backup with immutable vaults and multi-user authorization |

@@ -1,6 +1,6 @@
 # CISA KEV Additions of 18 November 2026: Synology DSM, LiteLLM, REDCap and Apache Axis
 
-*A TeamStarWolf case study. Published 19 November 2026; every source checked as of that date.*
+*A TeamStarWolf case study. Published 19 November 2026; every source re-verified 25 November 2026.*
 
 [All case studies](/case-studies/README.md) · Related: [CVE Reference](/CVE_REFERENCE.md), [CWE Reference](/CWE_REFERENCE.md), [Vulnerability Prioritization](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Internet-Facing Services](/INTERNET_FACING_SERVICES_REFERENCE.md)
 
@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 14 min (3,317 words at 230 words a minute)
+About 15 min (3,439 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -55,9 +55,9 @@ No review recorded yet
 
 ## Executive summary
 
-On 18 November 2026, CISA added four vulnerabilities to its Known Exploited Vulnerabilities (KEV) catalog, each with a remote path to running code on the server: CVE-2024-10441 in Synology DiskStation Manager (DSM) and BeeStation OS, CVE-2026-40217 in the BerriAI LiteLLM proxy, CVE-2026-90817 in the Vanderbilt University REDCap research data platform, and CVE-2026-90436 in Apache Axis 1.x. For all four, CISA's SSVC record lists exploitation as active and technical impact as total (Confirmed [1][2][3][4][5]). CISA gave the Synology, REDCap and Axis entries a due date of 21 November 2026 and the LiteLLM entry 2 December 2026, and marked forensic triage as required for every entry except LiteLLM (Confirmed [5]).
+On 18 November 2026, CISA added four vulnerabilities to its Known Exploited Vulnerabilities (KEV) catalog, each with a remote path to running code on the server: CVE-2024-10441 in Synology DiskStation Manager (DSM) and BeeStation OS, CVE-2026-40217 in the BerriAI LiteLLM proxy, CVE-2026-90817 in the Vanderbilt University REDCap research data platform, and CVE-2026-90436 in Apache Axis 1.x. For all four, CISA's SSVC record lists exploitation as active and technical impact as total (Confirmed [1][2][3][4][5]). CISA gave the Synology, REDCap and Axis entries a due date of 21 November 2026 and the LiteLLM entry 2 December 2026, and gave all four the same required action, which directs owners to CISA's BOD 26-04 update-prioritization guidance and its Forensics Triage Requirements (Confirmed [5]).
 
-The four are unrelated products, and the record says very little about the exploitation itself. CISA's catalog confirms that exploitation was observed but publishes no victim counts, no actor and no indicators, and lists known ransomware campaign use as Unknown for all four. The sources reviewed here do not describe who exploited what, or how many systems were affected (Confirmed for the listing [5]; no further detail appears in the sources).
+The four are unrelated products, and the record says very little about the exploitation itself. CISA's catalog confirms that exploitation was observed but publishes no victim counts, no actor and no indicators. It lists known ransomware campaign use as Known for the Synology flaw and Unknown for the other three, with no further detail in either case. The sources reviewed here do not describe who exploited what, or how many systems were affected (Confirmed for the listing [5]; no further detail appears in the sources).
 
 The four differ in how much an attacker needs. The REDCap and Axis flaws need no credentials, though REDCap needs a valid public survey link and Axis needs a suitable class already on the application's classpath. The Synology flaw is rated network-reachable with no privileges, but its vendor advisory gives no mechanism. The LiteLLM flaw is a different kind of record: reaching it takes a proxy administrator credential in default configurations, so it is a sandbox escape for a privileged user, not a pre-authentication hole. This study keeps the four distinct and treats the shared KEV date as a calendar fact, not a shared cause.
 
@@ -71,7 +71,7 @@ The four differ in how much an attacker needs. The REDCap and Axis flaws need no
 | Weaknesses (KEV) | CWE-116 (Synology); CWE-420 (LiteLLM); CWE-73 and CWE-94 (REDCap); CWE-470 (Axis) | Confirmed [5] |
 | CISA SSVC | Exploitation active for all four; automatable yes for Synology, REDCap and Axis, no for LiteLLM; technical impact total for all four | Confirmed [1][2][3][4] |
 | KEV due dates | 21 November 2026 for Synology, REDCap and Axis; 2 December 2026 for LiteLLM | Confirmed [5] |
-| Known ransomware campaign use | Unknown for all four | Confirmed [5] |
+| Known ransomware campaign use | Known for Synology (CVE-2024-10441); Unknown for the other three | Confirmed [5] |
 | Public detail on the exploitation | None found in the sources reviewed | Inferred from [1][2][3][4][5] |
 | Fix available | Synology: since November 2024. LiteLLM: 1.83.11 or later. REDCap: 16.0.49, 17.3.10 or 17.4.4. Axis 1.x: none planned; a source patch exists | Confirmed [1][3][4][6][7][9] |
 
@@ -87,7 +87,7 @@ The four differ in how much an attacker needs. The REDCap and Axis flaws need no
 
 1. Inventory the four products first: Synology DSM and BeeStation OS devices, LiteLLM proxies, REDCap servers, and any Java application that bundles Axis 1.x.
 2. Patch to the fixed releases named in Part 1 through Part 4, then check that exposed management interfaces are not reachable from the internet.
-3. Treat forensic triage as part of the response for Synology, REDCap and Axis, as the KEV entries require, and consider it for LiteLLM; patching does not remove an intruder who got in earlier.
+3. Treat forensic triage as part of the response for all four, since every KEV entry's required action references CISA's Forensics Triage Requirements; patching does not remove an intruder who got in earlier.
 4. Rotate secrets held by a compromised service: the LiteLLM proxy stores provider API keys, and a REDCap server holds a database credential and research data.
 5. Do not read the shared KEV date as one campaign. Track four separate tickets with four separate owners.
 
@@ -105,7 +105,7 @@ A KEV listing is evidence that exploitation of the vulnerability was observed. I
 
 Synology's advisory Synology-SA-24:20, titled "DSM (PWN2OWN 2024)", was published on 5 November 2024 and rates the flaw Critical. The CVE record describes an improper encoding or escaping of output flaw in the system plugin daemon that lets remote attackers execute arbitrary code "via unspecified vectors", with a CVSS 3.1 score of 9.8 (network, low complexity, no privileges, no user interaction). The CVE record itself was published on 19 March 2025 (Confirmed [1][6]).
 
-The advisory lists these fixed releases: DSM 7.2.2-72806-1, 7.2.1-69057-6, 7.2-64570-4 and 7.1.1-42962-7, and BeeStation OS 1.1-65374. It lists mitigation as none. The CVE record also marks versions before DSM 7.0 as unknown, and the advisory rates DSM 6.2 Moderate for the bundle of CVEs it covers (Confirmed [1][6]).
+The advisory lists these fixed releases: DSM 7.2.2-72806-1, 7.2.1-69057-6, 7.2-64570-4 and 7.1.1-42962-7, and BeeStation OS 1.1-65374. It lists mitigation as none. The CVE record also marks versions before DSM 7.0 as unknown, while the advisory additionally lists a DSM 6.2 fixed build, 6.2.4-25556-8 (Confirmed [1][6]).
 
 ### What is not public
 
@@ -113,7 +113,7 @@ Both the vendor and the CVE record say "unspecified vectors". The advisory's abs
 
 ### Exploitation status and exposure
 
-CISA's SSVC record, dated 18 November 2026, lists exploitation active, automatable yes and technical impact total. KEV lists the due date as 21 November 2026, three days after addition, with forensic triage required (Confirmed [1][5]). The sources reviewed give no victim count, no actor and no observed command sequence. The most defensible reading is that unpatched DSM devices reachable from the network are exposed, and that the long gap between the 2024 fix and the 2026 KEV listing points to devices that were never updated, which is Inferred.
+CISA's SSVC record, dated 18 November 2026, lists exploitation active, automatable yes and technical impact total. KEV lists the due date as 21 November 2026, three days after addition, and its required action references CISA's Forensics Triage Requirements. This is the one of the four entries that KEV marks as having known ransomware campaign use (Confirmed [1][5]). The sources reviewed give no victim count, no actor and no observed command sequence. The most defensible reading is that unpatched DSM devices reachable from the network are exposed, and that the long gap between the 2024 fix and the 2026 KEV listing points to devices that were never updated, which is Inferred.
 
 ## Part 2: CVE-2026-40217, the LiteLLM guardrail sandbox escape
 
@@ -135,7 +135,7 @@ The advisory lists affected versions from 1.81.8 up to but not including 1.83.10
 
 ### Exploitation status
 
-CISA's SSVC record, dated 15 June 2026, lists exploitation active, automatable no and technical impact total. KEV added the CVE on 18 November 2026 with a due date of 2 December 2026 and does not require forensic triage. The sources reviewed do not say who exploited it or how an attacker obtained the administrator credential. An exposed management interface with a weak or leaked master key is the plausible route, which is Inferred (Confirmed [2][5]).
+CISA's SSVC record, dated 19 November 2026, lists exploitation active, automatable no and technical impact total. KEV added the CVE on 18 November 2026 with a due date of 2 December 2026, and its required action is the same as the others, referencing CISA's Forensics Triage Requirements. The sources reviewed do not say who exploited it or how an attacker obtained the administrator credential. An exposed management interface with a weak or leaked master key is the plausible route, which is Inferred (Confirmed [2][5]).
 
 ## Part 3: CVE-2026-90817, REDCap
 
@@ -147,11 +147,11 @@ REDCap is a web application from Vanderbilt University for building surveys and 
 
 The CVE record, assigned by Securifera and published on 20 September 2026, describes an unauthenticated remote code execution flaw in the survey passthrough routing and the Data Import processing logic. An attacker manipulates requests to reach an unintended controller route from a public survey context and supplies a crafted file-path or stream parameter during import handling. Exploitation requires knowing a valid public survey hash. The record rates it 9.8 under CVSS 3.1 and says versions from 13.3.0 are affected (Confirmed [3]).
 
-Securifera's write-up explains the chain as three separate faults. A double URL-decoding mismatch lets a request reach an administrative route that was meant to be restricted. A permissions check runs before the survey respondent's identity is set, so the request is treated as a super user. And the import step passes an attacker-chosen name to PHP file functions without limiting it to uploaded files, which a stream-wrapper technique can turn into a write of attacker-chosen bytes to a server file. The write-up reports code execution against the finder's own test installation (Demonstrated [10]).
+Securifera's write-up sets out the chain as five independently fixable faults. A double URL-decoding mismatch lets a public request reach the general project dispatcher that was meant to be restricted. The project's user rights are built before the survey respondent's identity is set, and an undefined SUPER_USER constant is read as full rights, so the public request is handed the Data Import privilege. The Data Import step then trusts an attacker-chosen name as a local path or PHP stream; a byte-order-mark normalization step writes the changed bytes back to that same resource, turning a read into a controlled overwrite; and a predictable, worker-writable Blade template cache is later included as PHP, which turns the overwrite into code execution. The finder used a PHP filter-chain technique published by Synacktiv to produce the exact bytes, and reports code execution against a test installation (Demonstrated [10]).
 
 ### Fixed versions and status
 
-The CVE record lists REDCap 16.0.49, 17.3.10 and 17.4.4 as unaffected, which are the fixed releases on the three maintained lines (Confirmed [3]). CISA's SSVC record, dated 18 November 2026, lists exploitation active, automatable yes and technical impact total, and KEV requires forensic triage with a due date of 21 November 2026 (Confirmed [3][5]). REDCap servers typically hold research and survey data, and which data a given server holds is a question for its operator. The sources reviewed give no count of affected or compromised servers.
+The CVE record lists REDCap 16.0.49, 17.3.10 and 17.4.4 as unaffected, which are the fixed releases on the three maintained lines (Confirmed [3]). CISA's SSVC record, dated 19 November 2026, lists exploitation active, automatable yes and technical impact total, and KEV sets a due date of 21 November 2026, with the same required action referencing CISA's Forensics Triage Requirements (Confirmed [3][5]). REDCap servers typically hold research and survey data, and which data a given server holds is a question for its operator. The sources reviewed give no count of affected or compromised servers.
 
 ## Part 4: CVE-2026-90436, Apache Axis 1.x
 
@@ -159,7 +159,7 @@ The CVE record lists REDCap 16.0.49, 17.3.10 and 17.4.4 as unaffected, which are
 
 The Apache record, published on 6 November 2026 and marked "unsupported when assigned", describes unsafe deserialization of an inbound SOAP fault. When a fault carries an `exceptionName` element in its detail, Axis loads the named class and, if a string data element is also present, instantiates it through its String constructor before checking that the result is a fault. Merely loading the class runs its static initializer, so with a suitable class on the application's classpath this leads to remote code execution (Confirmed [4]).
 
-Two details matter for defenders. The fault is parsed while the engine resolves the target service, before any per-service handler chain runs, so authentication handlers configured on a service do not protect against it. And exploitation depends on what is on the classpath, so the same Axis version is more or less dangerous depending on the libraries around it (Confirmed [4]; Inferred for the second point). The record covers all Axis 1.x versions through 1.4, rates the flaw 9.8 under CVSS 3.1 in the CISA container, and credits Jose Apari-Pantigozo of OKIOK as the finder (Confirmed [4]).
+Two details matter for defenders. The fault is parsed while the engine resolves the target service, before any per-service handler chain runs, so authentication handlers configured on a service do not protect against it. And exploitation depends on what is on the classpath, so the same Axis version is more or less dangerous depending on the libraries around it (Confirmed [4]; Inferred for the second point). The record covers all Axis 1.x versions through 1.4, rates the flaw 9.8 under CVSS 3.1 in the CISA container, and credits José Apari-Pantigozo of OKIOK as the finder (Confirmed [4]).
 
 ### No fixed release
 
@@ -167,7 +167,7 @@ Axis 1.x is end of life. The Apache record recommends migrating to another SOAP 
 
 ### Exploitation status
 
-CISA's SSVC record, dated 17 November 2026, lists exploitation active, automatable yes and technical impact total. KEV added it on 18 November 2026, twelve days after the CVE record, with a due date of 21 November 2026 and forensic triage required (Confirmed [4][5]). The sources reviewed do not name an exploiting party or an affected product.
+CISA's SSVC record, dated 17 November 2026, lists exploitation active, automatable yes and technical impact total. KEV added it on 18 November 2026, twelve days after the CVE record, with a due date of 21 November 2026, and its required action references CISA's Forensics Triage Requirements (Confirmed [4][5]). The sources reviewed do not name an exploiting party or an affected product.
 
 ## Part 5: Find and fix
 
@@ -177,7 +177,7 @@ For each product, the question differs. For Synology, list DSM and BeeStation OS
 
 ### Apply the fix and respond
 
-Upgrade, then respond as if exploitation may already have happened for the products KEV marks for forensic triage. That means reviewing logs for the period before patching, checking for new accounts, scheduled tasks and unexpected outbound connections, and rotating credentials the server could read. For LiteLLM that includes the provider API keys the proxy holds and the master key. Where Axis cannot be replaced soon, applying the Apache patch to a self-built copy and removing unneeded classes from the classpath narrows the exposure, though the record does not promise that removing classes is sufficient (Inferred).
+Upgrade, then respond as if exploitation may already have happened, since every KEV entry here directs owners to CISA's Forensics Triage Requirements. That means reviewing logs for the period before patching, checking for new accounts, scheduled tasks and unexpected outbound connections, and rotating credentials the server could read. For LiteLLM that includes the provider API keys the proxy holds and the master key. Where Axis cannot be replaced soon, applying the Apache patch to a self-built copy and removing unneeded classes from the classpath narrows the exposure, though the record does not promise that removing classes is sufficient (Inferred).
 
 ### The vulnerability-management view
 
@@ -185,7 +185,7 @@ The four have different priority drivers. Synology, REDCap and Axis are rated au
 
 ## Part 6: Weakness and technique mapping
 
-The mapping below is this study's interpretation of public definitions, checked on 19 November 2026. It is deliberately small.
+The mapping below is this study's interpretation of public definitions, checked on 25 November 2026. It is deliberately small.
 
 | Label | Case support | Boundary |
 |---|---|---|
@@ -214,7 +214,7 @@ The REDCap write-up describes an AI coding assistant implementing a published te
 2. CVE Program, CVE Record CVE-2026-40217 (MITRE CNA; CISA ADP SSVC). https://cveawg.mitre.org/api/cve/CVE-2026-40217
 3. CVE Program, CVE Record CVE-2026-90817 (Securifera CNA; CISA ADP SSVC). https://cveawg.mitre.org/api/cve/CVE-2026-90817
 4. CVE Program, CVE Record CVE-2026-90436 (Apache CNA; CISA ADP CVSS and SSVC). https://cveawg.mitre.org/api/cve/CVE-2026-90436
-5. CISA, Known Exploited Vulnerabilities Catalog (entries added 18 November 2026; checked 19 November 2026). https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+5. CISA, Known Exploited Vulnerabilities Catalog (entries added 18 November 2026; checked 25 November 2026). https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 6. Synology, Security Advisory Synology-SA-24:20 (DSM, Pwn2Own 2024). https://www.synology.com/en-global/security/advisory/Synology_SA_24_20
 7. BerriAI, GitHub Security Advisory GHSA-wxxx-gvqv-xp7p, Sandbox escape in custom-code guardrail. https://github.com/BerriAI/litellm/security/advisories/GHSA-wxxx-gvqv-xp7p
 8. X41 D-Sec, Advisory X41-2026-001: Guardrail Sandbox Escape in LiteLLM, 8 April 2026. https://www.x41-dsec.de/lab/advisories/x41-2026-001-litellm/

@@ -125,6 +125,10 @@ corrections:
     date: "2026-11-24"
     pr: 418
     what: "breach-notification law, incident-response sequencing and deprecated commands checked against their primary sources and corrected"
+  pr420-ai-mcp-accuracy:
+    date: "2026-11-25"
+    pr: 420
+    what: "MCP page checked against primary sources and by running every code sample: 2026-07-28 protocol behaviour (stateless, Sampling/Roots deprecation, Origin validation); the path, URL, schema and injection samples hardened; the PyRIT, MLflow and nginx examples corrected; ATLAS mitigation IDs and technique rows reconciled to the pinned 2026.10 data; EU AI Act Article 73 and the 2026/1744 prohibitions; NIST AI 600-1/100-1; the OWASP 2026 re-ranking; plus the authentication-and-trust recommendations and retired Docker Content Trust"
 reviews: {}
 pages:
   ACTIVE_DIRECTORY_ATTACKS.md:
@@ -188,8 +192,8 @@ pages:
     start_at: "[MCP Security Threat Model](#_2-mcp-security-threat-model), [MCP Security Hardening](#_3-mcp-security-hardening), [Quick Reference: Security Checklists](#quick-reference-security-checklists)"
     pairs_with: "[AI Security Reference](AI_SECURITY_REFERENCE.md), [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md), [ATLAS Reference (AI threats)](ATLAS_REFERENCE.md), [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md)"
     learning_path: []
-    corrected: "pr175-currency-claims"
-    corrected_what: "MCP transports and OAuth 2.1 authorization updated to the 2026-07-28 specification; NIST AI 600-1 named for the Generative AI Profile; AI Act high-risk dates and the Article 99(5) fine corrected"
+    corrected: "pr420-ai-mcp-accuracy"
+    corrected_what: "MCP 2026-07-28 protocol behaviour, the runnable path/URL/schema/injection/PyRIT/MLflow/nginx samples, the ATLAS mitigation IDs and technique rows (pinned 2026.10), EU AI Act Article 73 and the 2026/1744 prohibitions, NIST AI 600-1/100-1 and the OWASP 2026 re-ranking all checked against sources and corrected"
     reviewed: null
   AI_OFFENSIVE_SECURITY_REFERENCE.md:
     audience: "Security leaders, vulnerability managers, and red teams sizing AI-assisted attack risk"

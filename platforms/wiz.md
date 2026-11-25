@@ -1,6 +1,6 @@
 # Wiz
 
-Wiz is an agentless cloud-native application protection platform (CNAPP). It connects to cloud environments through provider APIs and builds a model of resources, configurations, identities, and exposures. Its defining feature is the Security Graph, which relates these elements so that combinations of risk become visible. Licence tier and module entitlement decide which capabilities are in force; this page does not describe any specific organization's deployment.
+Wiz is an agentless cloud-native application protection platform (CNAPP). It connects to cloud environments through provider APIs and builds a model of resources, configurations, identities, and exposures. Its defining feature is the Security Graph, which relates these elements so that combinations of risk become visible. Licence tier and module entitlement decide which capabilities are in force; this page does not describe any specific organization's deployment. Google completed its acquisition of Wiz on 11 March 2026; Wiz joined Google Cloud and, in Google's words, maintains its brand.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,280 words at 230 words a minute)
+About 6 min (1,324 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -137,6 +137,7 @@ In a mature program, Wiz findings open tickets for the owning cloud teams and fe
 - Wiz documentation
 - Wiz Security Graph documentation
 - Wiz Code documentation
+- Google: Google completes acquisition of Wiz (blog.google, 11 March 2026): "Wiz will join Google Cloud and maintain its brand" (read 25 November 2026)
 
 ## Related pages
 

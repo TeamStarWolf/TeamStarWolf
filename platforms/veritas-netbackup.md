@@ -7,7 +7,7 @@ NetBackup (formerly Veritas NetBackup) is an enterprise backup and recovery prod
 <table class="tsw-meta-card">
 <tr><th scope="row" align="left" valign="top">Who this is for</th><td>
 
-Backup administrators, infrastructure engineers and incident responders who run, tune or assess Veritas NetBackup
+Backup administrators, infrastructure engineers and incident responders who run, tune or assess NetBackup (Cohesity)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Level</th><td>
@@ -22,7 +22,7 @@ About 6 min (1,440 words at 230 words a minute)
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
 
-You are evaluating or running Veritas NetBackup for backup and cyber recovery, you are hardening its deployment, or you need to see where it fits in the program
+You are evaluating or running NetBackup (Cohesity) for backup and cyber recovery, you are hardening its deployment, or you need to see where it fits in the program
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Start at</th><td>

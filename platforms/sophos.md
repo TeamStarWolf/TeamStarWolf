@@ -37,7 +37,7 @@ You are evaluating or running Sophos for endpoint protection, detection and resp
 <table class="tsw-meta-card">
 <tr><th scope="row" align="left" valign="top">Pairs with</th><td>
 
-[Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [SentinelOne Singularity](/platforms/sentinelone.md), [Trend Vision One (Trend Micro)](/platforms/trend-micro.md)
+[Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [SentinelOne Singularity](/platforms/sentinelone.md), [TrendAI Vision One (Trend Micro)](/platforms/trend-micro.md)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>

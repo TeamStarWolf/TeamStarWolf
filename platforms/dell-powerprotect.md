@@ -37,7 +37,7 @@ You are evaluating or running Dell PowerProtect for backup and cyber recovery, y
 <table class="tsw-meta-card">
 <tr><th scope="row" align="left" valign="top">Pairs with</th><td>
 
-[Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md), [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Veritas NetBackup](/platforms/veritas-netbackup.md)
+[Ransomware Defense & Resilience](/RANSOMWARE_DEFENSE_REFERENCE.md), [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [NetBackup (Cohesity)](/platforms/veritas-netbackup.md)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>

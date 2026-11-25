@@ -7,7 +7,7 @@ TrendAI Vision One, earlier Trend Vision One, is Trend Micro's extended detectio
 <table class="tsw-meta-card">
 <tr><th scope="row" align="left" valign="top">Who this is for</th><td>
 
-Endpoint security engineers and SOC analysts who run, tune or assess Trend Vision One
+Endpoint security engineers and SOC analysts who run, tune or assess TrendAI Vision One
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Level</th><td>
@@ -22,7 +22,7 @@ About 6 min (1,362 words at 230 words a minute)
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
 
-You are evaluating or running Trend Vision One for extended detection and response, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
+You are evaluating or running TrendAI Vision One for extended detection and response, you are hardening its deployment, or you need to see where it fits in the program and what it shares data with
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Start at</th><td>

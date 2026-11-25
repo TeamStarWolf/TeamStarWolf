@@ -72,7 +72,7 @@ Notes: Score and CWE from the CVE record [2]; mechanism, workaround and the sile
 Caption: Two halves of one problem: untrusted input can write a store that outlives the chat, and a separate flaw let data in the chat leak out.
 Notes: Memory write path and OpenAI's close [6]; the url_safe exfiltration path and the fix note [7]. No payload is reproduced.
 
-## PART 6 | Four different vendor answers
+## PART 6 | How each vendor answered
 
 | Vendor | What they did | What it means |
 |---|---|---|
@@ -110,6 +110,6 @@ Notes: Names and tactics from library data [8]; ties from [3][4][5][7]. CWE-74 [
 ## CROSS-CUTTING THEMES | What the record teaches
 
 - **One cause, five shapes.** Disclosure, exfiltration, injected code, library RCE and memory tampering all rest on the model acting on its input.
-- **Vendors disagree on ownership.** Microsoft recorded a fix, OpenAI later fixed a leak path; GitHub, Cursor and Slack left it to the user; vanna has no maintainer statement.
+- **Vendors disagree on ownership.** Microsoft recorded a fix; OpenAI fixed a leak path; GitHub and Cursor made review the user's job (GitHub added a warning); Slack called it intended; vanna gave no statement.
 - **The durable defence is the classic one.** Narrow what the deputy can read, what it can do, and how far its credentials reach.
 Notes: Shared cause [3][4][5][6][7]. Vendor split [1][3][4]. Confused-deputy defence is the study's framing (Inferred).

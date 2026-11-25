@@ -165,7 +165,7 @@ JFrog's advisory gives a workaround rather than a vendor fix: when the ask inter
 
 ChatGPT's memory feature stores facts across conversations and, as the write-up notes, is on by default. On 22 May 2024, Johann Rehberger reported that when ChatGPT processes untrusted content, such as a connected document, an uploaded image or a browsed web page, that content can induce the assistant to call the memory tool and write entries the user did not ask for, or delete existing ones. Because memories are carried into later conversations, a planted memory persists beyond the one chat (Reported [6]).
 
-OpenAI closed the report with the label "Model Safety Issue"; by the finder's account it was not treated as a security vulnerability, and no statement from OpenAI is quoted (Reported [6]). The finder reports the connected-document path working reliably and persisting across chats, while a browsing-based variant was less reliable, proving the point only a few times; the finder saw partial mitigations added to the browsing path and none for the image and connected-document paths at the time of writing (Reported [6]).
+OpenAI closed the report with the label "Model Safety Issue"; by the finder's account it was not treated as a security vulnerability, and no statement from OpenAI is quoted (Reported [6]). The finder reports the connected-document path working well and persisting across chats, while a browsing-based variant was less reliable, proving the point only a few times; the finder saw partial mitigations added to the browsing path and none for the image and connected-document paths at the time of writing (Reported [6]).
 
 ### Getting data back out
 
@@ -205,7 +205,7 @@ The mapping below is this study's interpretation of public definitions, checked 
 
 ### What is overstated and what is understated
 
-The easy overstatement is to read these cases as one failing assistant or one broken vendor. They are six products, five finders (PromptArmor, Pillar Security, JFrog, Johann Rehberger and Aim Labs), and four different vendor answers, tied only by a shared mechanism (Inferred). The easy understatement is to dismiss a case because the vendor called it the user's responsibility or intended: Cursor's user-responsibility position and Slack's intended-behaviour position do not make the poisoned-config or the data-exfiltration behaviour stop working; they move the control to the user, who then has to know it is theirs to hold (Reported [3][4]).
+The easy overstatement is to read these cases as one failing assistant or one broken vendor. They are six products, five finders (PromptArmor, Pillar Security, JFrog, Johann Rehberger and Aim Labs), and vendor answers that differ, tied only by a shared mechanism (Inferred). The easy understatement is to dismiss a case because the vendor called it the user's responsibility or intended: Cursor's user-responsibility position and Slack's intended-behaviour position do not make the poisoned-config or the data-exfiltration behaviour stop working; they move the control to the user, who then has to know it is theirs to hold (Reported [3][4]).
 
 ### The assistant as a confused deputy
 

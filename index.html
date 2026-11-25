@@ -561,9 +561,11 @@
         max-height: calc(100vh - var(--tsw-band-h)); overflow-y: auto;   /* border-box: the 6px padding is inside the max-height, so the open list never exceeds the screen */
       }
       .tsw-bar.tsw-bar--open .tsw-bar__list { display: flex; }
+      .tsw-bar.tsw-bar--open { z-index: 40; }   /* while the menu is open, rise above the fixed sidebar-toggle / theme / search buttons (z-index 30) so the top rows, Home included, are not covered */
       .tsw-bar__item { flex-wrap: wrap; align-items: stretch; }
       .tsw-bar__link { flex: 1 1 auto; height: auto; padding: 10px 12px; }
-      .tsw-bar__toggle { height: auto; min-height: 44px; padding: 10px 16px; }   /* fills the 44px row on the phone layout */
+      .tsw-bar__toggle { height: auto; min-height: 44px; min-width: 44px; padding: 10px 16px; }   /* 44x44 tap target on the phone layout, matching the other sites */
+      .tsw-bar__item--plain .tsw-bar__link { min-height: 44px; display: flex; align-items: center; box-sizing: border-box; }   /* a plain row (Home) has no toggle, so its link fills the 44px minimum */
       .tsw-bar__panel, .tsw-bar__flyout {
         position: static; display: none; width: 100%; min-width: 0;
         border: 0; border-radius: 0; box-shadow: none; padding: 0 0 4px 14px; margin: 0;
@@ -1483,14 +1485,8 @@
   <!-- platform-band:start (written by scripts/build_site_nav.py from docs/platform-nav.json; do not edit) -->
   <div class="tsw-bar" role="navigation" aria-label="TeamStarWolf platform">
     <ul class="tsw-bar__list">
-      <li class="tsw-bar__item">
+      <li class="tsw-bar__item tsw-bar__item--plain">
         <a class="tsw-bar__link" href="https://teamstarwolf.com/">Home</a>
-        <button class="tsw-bar__toggle" type="button" aria-expanded="false" aria-label="Home menu"><span class="tsw-bar__chev" aria-hidden="true"></span></button>
-        <div class="tsw-bar__panel">
-          <a class="tsw-bar__mlink" href="https://teamstarwolf.com/">Front page</a>
-          <a class="tsw-bar__mlink" href="https://teamstarwolf.com/#search">Search</a>
-          <a class="tsw-bar__mlink" href="https://teamstarwolf.com/system">Design system</a>
-        </div>
       </li>
       <li class="tsw-bar__item">
         <a class="tsw-bar__link" href="https://library.teamstarwolf.com/">Library</a>

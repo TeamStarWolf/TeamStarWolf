@@ -1,19 +1,9 @@
 {
-  "about": "The one menu every TeamStarWolf site shows in its top bar. Each site keeps an identical copy of the published version of this file and renders it in its own stack. Each application's dropdown mirrors that application's own top-level navigation as it stood on 2026-11-20 (the library's top-bar categories, the Hub's views, ATT&CK-Navi's workspaces, the top-level categories of the bookmarks page); change the menu here first, then in every copy. The bar starts with Home, then the four destinations, then GitHub. An entry with a \"pending\" note is agreed but its address does not work yet; a site must not ship it until the note is removed. A menu entry may carry its own \"menu\" of sub-entries, one level deep and no deeper; a site whose bar does not nest shows that entry as a single link and ignores the sub-entries. The file is plain ASCII on purpose: non-ASCII characters in an address are percent-encoded.",
-  "version": 6,
+  "about": "The one menu every TeamStarWolf site shows in its top bar. Each site keeps an identical copy of the published version of this file and renders it in its own stack. Each application's dropdown mirrors that application's own top-level navigation as it stood on 2026-11-20 (the library's top-bar categories, the Hub's views, ATT&CK-Navi's workspaces, the top-level categories of the bookmarks page); change the menu here first, then in every copy. The bar starts with Home, then the four destinations, then GitHub. Home is a plain link with no menu. An entry with a \"pending\" note is agreed but its address does not work yet; a site must not ship it until the note is removed. Every item's menu is one level deep except Bookmarks, which nests two levels (category, then subsection, then links); a site whose bar does not nest shows an entry as a single link and ignores the sub-entries. Outside addresses appear only on Bookmarks leaves, each flagged \"external\". The file is plain ASCII on purpose: non-ASCII characters in an address are percent-encoded.",
+  "version": 7,
   "home": { "label": "TeamStarWolf", "href": "https://teamstarwolf.com/", "note": "Target for a site's own brand mark where it shows one. The bar itself always carries the Home item below, so a site without a brand mark still has a way back." },
   "items": [
-    {
-      "id": "home",
-      "label": "Home",
-      "href": "https://teamstarwolf.com/",
-      "menu": [
-        { "label": "Front page", "href": "https://teamstarwolf.com/" },
-        { "label": "Search", "href": "https://teamstarwolf.com/#search" },
-        { "label": "Design system", "href": "https://teamstarwolf.com/system" },
-        { "label": "Security policy", "href": "https://teamstarwolf.com/security-policy", "pending": "Returns 404 until the security policy page is deployed on the front site." }
-      ]
-    },
+    { "id": "home", "label": "Home", "href": "https://teamstarwolf.com/" },
     {
       "id": "library",
       "label": "Library",

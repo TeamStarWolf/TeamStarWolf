@@ -103,7 +103,7 @@ studies:
     core_start: "2014"
     core_end: "2020"
     sectors: ["technology", "telecommunications"]
-    cves: ["CVE-2014-9222", "CVE-2016-10372", "CVE-2019-19494", "CVE-2019-19495"]
+    cves: ["CVE-2017-14115", "CVE-2017-14116", "CVE-2017-14117", "CVE-2017-10793", "CVE-2014-9222", "CVE-2016-10372", "CVE-2019-19494", "CVE-2019-19495"]
     actors: []
     tags: ["ISP gateway", "home network", "TR-069", "CWMP", "cable modem", "firmware", "Mirai", "DNS rebinding"]
     pdf: "ISP_Gateway_Home_Network_Case_Study.pdf"

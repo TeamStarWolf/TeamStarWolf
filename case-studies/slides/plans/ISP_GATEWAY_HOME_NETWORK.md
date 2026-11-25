@@ -62,7 +62,7 @@ Notes: Hardcoded SSH, caserver, 61001 disclosure, 49152 proxy [1]. Four CVEs, sc
 - TR-064, on port 7547, let a November 2016 Mirai variant run commands on vulnerable gateways.
 - CVE-2016-10372 is the Eir D1000's record: "does not properly restrict the TR-064 protocol ... via TCP port 7547" [6].
 - On Deutsche Telekom the injection did not work; the routers crashed under the request flood [5][7].
-- Deutsche Telekom said the malware failed to infect, with about 900,000 of ~20 million customers hit [8].
+- Deutsche Telekom said the malware failed to infect; about four percent of its customers had problems, some 900,000 routers offline [8].
 Caption: Kaspersky gives the mechanism; Radware the crash; a hands-on test and DT's own account give the DT outcome. The port is the ISP's to close.
 Notes: Mechanism and reboot note [4]. CVE description, port 7547, NVD 9.8 [6]. Crashed-not-infected [5]; DoS-by-three-requests [7]; DT figures as reported [8]. "should block" is Radware's recommendation [5].
 

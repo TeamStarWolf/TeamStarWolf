@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 8 min (1,840 words at 230 words a minute)
+About 9 min (2,016 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -27,7 +27,7 @@ You inherit or stand up a cloud account and need to harden it fast, an audit ask
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Start at</th><td>
 
-[Cloud Security Quickstart Checklist](#cloud-security-quickstart-checklist), [AWS CIS Benchmark (v3.0; current release v7.0.0)](#aws-cis-benchmark-v30), [CSPM Tool Reference](#cspm-tool-reference)
+[Cloud Security Quickstart Checklist](#cloud-security-quickstart-checklist), [AWS CIS Benchmark (v3.0; current release v7.1.0)](#aws-cis-benchmark-v30), [CSPM Tool Reference](#cspm-tool-reference)
 
 </td></tr>
 </table>
@@ -74,24 +74,22 @@ CIS Benchmarks and hardening controls for AWS, Azure, and GCP, with specific che
 
 ## AWS CIS Benchmark (v3.0)
 
-> Currency note (2026-09): the control IDs in this section follow CIS AWS Foundations Benchmark v3.0. The current release is v7.0.0 (published Apr 2026); controls were renumbered and added across v4.0-v7.0, so re-map these IDs before using them as audit evidence.
+> Currency note (2026-11): the control IDs in this section follow CIS AWS Foundations Benchmark v3.0. As of November 2026, the current release is v7.1.0 (v7.0.0 was published April 2026); controls were renumbered and added across v4.0-v7.1, so re-map these IDs before using them as audit evidence.
 
 ### Identity and Access Management
 
 | CIS Control | Check | Severity | Remediation |
 |---|---|---|---|
-| 1.1 | Root account MFA enabled | Critical | `aws iam get-account-summary` -> `AccountMFAEnabled` must be 1 |
-| 1.2 | No root account access keys | Critical | `aws iam get-account-summary` -> `AccountAccessKeysPresent` must be 0 |
-| 1.3 | MFA enabled for all IAM users with console access | High | `aws iam list-users` + `aws iam list-mfa-devices --user-name USERNAME` |
-| 1.4 | No access keys for root | Critical | Console: Security Credentials -> delete access keys |
-| 1.5 | IAM password policy: min length 14 | Medium | `aws iam update-account-password-policy --minimum-password-length 14` |
-| 1.6 | IAM password policy: prevent reuse (24) | Medium | `aws iam update-account-password-policy --password-reuse-prevention 24` |
-| 1.7 | MFA enabled for all IAM users | High | Enforce via IAM policy requiring MFA for all API calls |
-| 1.8 | No unused credentials older than 45 days | Medium | `aws iam generate-credential-report` -> review LastUsed |
-| 1.9 | Credential unused in 45 days: disable | Medium | `aws iam update-access-key --access-key-id KEY --status Inactive` |
-| 1.10 | MFA on root account | Critical | Console only: enable hardware or virtual MFA |
-| 1.11 | No inline policies attached to users | Low | `aws iam list-user-policies`: move to managed policies |
-| 1.12 | IAM Access Analyzer enabled | Medium | `aws accessanalyzer create-analyzer --analyzer-name AccessAnalyzer --type ACCOUNT` |
+| 1.4 | No `root` user access keys | Critical | `aws iam get-account-summary` -> `AccountAccessKeysPresent` must be 0 |
+| 1.5 | MFA enabled for the `root` user | Critical | `aws iam get-account-summary` -> `AccountMFAEnabled` must be 1 |
+| 1.6 | Hardware MFA enabled for the `root` user | Critical | Enable a hardware MFA device for the root user in the IAM console |
+| 1.8 | IAM password policy: minimum length 14 | Medium | `aws iam update-account-password-policy --minimum-password-length 14` |
+| 1.9 | IAM password policy: prevent reuse (24) | Medium | `aws iam update-account-password-policy --password-reuse-prevention 24` |
+| 1.10 | MFA for all IAM users with a console password | High | `aws iam list-users` + `aws iam list-mfa-devices --user-name USERNAME` |
+| 1.12 | Credentials unused for 45 days disabled | Medium | `aws iam generate-credential-report` -> disable stale keys with `aws iam update-access-key --access-key-id KEY --status Inactive` |
+| 1.14 | IAM access keys rotated every 90 days or less | Medium | `aws iam generate-credential-report` -> review each key's age |
+| 1.15 | IAM users receive permissions only through groups | Low | `aws iam list-user-policies`: move inline or directly attached user policies to groups |
+| 1.20 | IAM Access Analyzer enabled in all regions | Medium | `aws accessanalyzer create-analyzer --analyzer-name AccessAnalyzer --type ACCOUNT` |
 
 Automated IAM Check Script:
 ```bash
@@ -101,7 +99,7 @@ sleep 5
 aws iam get-credential-report --output text --query 'Content' | base64 -d | \
   awk -F',' 'NR>1 && $4=="true" && $8=="false" {print $1, "NO MFA"}' 
 
-# List access keys older than 90 days
+# List active access keys and their creation dates (no age filter; compare each date to your threshold)
 aws iam list-users --query 'Users[*].UserName' --output text | tr '\t' '\n' | while read user; do
   aws iam list-access-keys --user-name "$user" --query "AccessKeyMetadata[?Status=='Active'].[UserName,AccessKeyId,CreateDate]" --output text
 done
@@ -113,7 +111,7 @@ done
 |---|---|---|---|
 | 2.1.1 | S3 server access logging enabled | Medium | `aws s3api put-bucket-logging` |
 | 2.1.2 | S3 Block Public Access (account level) | High | `aws s3control put-public-access-block --account-id ACCOUNT_ID --public-access-block-configuration BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true` |
-| 2.2 | CloudTrail enabled in all regions | Critical | `aws cloudtrail create-trail --name multi-region-trail --s3-bucket-name BUCKET --is-multi-region-trail` |
+| 2.2 | CloudTrail enabled in all regions | Critical | `aws cloudtrail create-trail --name multi-region-trail --s3-bucket-name BUCKET --is-multi-region-trail`, then `aws cloudtrail start-logging --name multi-region-trail` (create-trail does not begin delivery); confirm with `aws cloudtrail get-trail-status --name multi-region-trail` -> `IsLogging` true |
 | 2.3 | CloudTrail log file validation | High | `aws cloudtrail update-trail --name TRAIL --enable-log-file-validation` |
 | 2.4 | CloudTrail logs encrypted with KMS | Medium | `aws cloudtrail update-trail --name TRAIL --kms-key-id KMS_KEY_ARN` |
 | 2.5 | AWS Config enabled in all regions | High | `aws configservice put-configuration-recorder` |
@@ -169,7 +167,7 @@ aws ec2 describe-security-groups \
 
 ## Azure CIS Benchmark (v2.0)
 
-> Currency note (2026-09): the control IDs in this section follow CIS Microsoft Azure Foundations Benchmark v2.0. The current release is v6.0.0 (published Apr 2026); v5.0.0/v6.0.0 moved most Compute and Database controls to separate CIS Azure service benchmarks and renumbered sections, so re-map these IDs before using them as audit evidence.
+> Currency note (2026-11): the control IDs in this section follow CIS Microsoft Azure Foundations Benchmark v2.0. As of November 2026, the current release is v7.0.0; recent versions moved most Compute and Database controls to separate CIS Azure service benchmarks and renumbered sections, so re-map these IDs before using them as audit evidence.
 
 ### Identity and Access (Entra ID / Azure AD)
 
@@ -179,39 +177,44 @@ aws ec2 describe-security-groups \
 | 1.1.2 | MFA required for privileged users | Critical | Enforce via PIM + Conditional Access |
 | 1.1.3 | No guest users with privileged roles | High | `az ad user list --filter "userType eq 'Guest'"` -> check role assignments |
 | 1.1.4 | Legacy authentication blocked | High | Conditional Access: block legacy auth protocols |
-| 1.2.1 | Global Admin limited to < 5 users | High | `az role assignment list --role "Global Administrator" --all` |
+| 1.2.1 | Global Admin limited to < 5 users | High | Global Administrator is an Entra directory role; count its members with Microsoft Graph (see the privileged-role check below), not `az role assignment list` (that lists Azure RBAC resource roles) |
 | 1.2.2 | PIM used for privileged roles | High | Azure PIM: just-in-time activation for GA, Owner, Contributor |
 | 1.2.3 | Security defaults or Conditional Access enabled | Critical | Security defaults provide baseline; CA provides more control |
 | 1.3.1 | Password hash sync or PTA (not ADFS only) | Medium | Enables leaked credential detection |
 | 1.3.2 | SSPR registration required | Medium | Self-Service Password Reset reduces help desk load |
 
-Azure Privileged Role Check:
+Azure Privileged Role Check (Microsoft Graph PowerShell; the AzureAD and MSOnline modules are deprecated):
 ```powershell
-# Find all Global Administrators
-Connect-AzureAD
-Get-AzureADDirectoryRole | Where-Object {$_.DisplayName -eq "Global Administrator"} | ForEach-Object {
-    Get-AzureADDirectoryRoleMember -ObjectId $_.ObjectId
-} | Select DisplayName, UserPrincipalName, UserType
+# Connect read-only to directory roles
+Connect-MgGraph -Scopes "RoleManagement.Read.Directory","Directory.Read.All"
 
-# Check for guest users with privileged roles
-Get-AzureADDirectoryRole | ForEach-Object {
+# Members of the Global Administrator directory role
+$ga = Get-MgDirectoryRole -Filter "displayName eq 'Global Administrator'"
+Get-MgDirectoryRoleMember -DirectoryRoleId $ga.Id |
+  ForEach-Object { Get-MgUser -UserId $_.Id -ErrorAction SilentlyContinue } |
+  Select-Object DisplayName, UserPrincipalName, UserType
+
+# Guests holding any active directory role
+Get-MgDirectoryRole | ForEach-Object {
     $role = $_
-    Get-AzureADDirectoryRoleMember -ObjectId $_.ObjectId | 
-    Where-Object {$_.UserType -eq "Guest"} | 
-    Select @{N="Role";E={$role.DisplayName}}, DisplayName, UserPrincipalName
+    Get-MgDirectoryRoleMember -DirectoryRoleId $_.Id |
+      ForEach-Object { Get-MgUser -UserId $_.Id -ErrorAction SilentlyContinue } |
+      Where-Object { $_.UserType -eq 'Guest' } |
+      Select-Object @{N='Role';E={$role.DisplayName}}, DisplayName, UserPrincipalName
 }
 ```
+These are Entra directory roles. Also review eligible PIM assignments and role-assignable group memberships, and audit Azure resource (RBAC) roles separately with `az role assignment list`.
 
 ### Security Center / Defender for Cloud
 
 | CIS Control | Check | Severity | Remediation |
 |---|---|---|---|
 | 2.1 | Microsoft Defender for Cloud Standard tier | High | Enable per-subscription in Defender for Cloud |
-| 2.1.1 | Defender for Servers Plan 2 | High | `az security pricing create --name VirtualMachines --tier Standard` |
+| 2.1.1 | Defender for Servers Plan 2 | High | `az security pricing create --name VirtualMachines --tier Standard --subplan P2`; confirm with `az security pricing show --name VirtualMachines` |
 | 2.1.2 | Defender for Storage | High | Enable to detect malicious blob access and malware upload |
 | 2.1.3 | Defender for SQL | High | Enable for Azure SQL and SQL on VMs |
 | 2.1.4 | Defender for Containers | High | Enable for AKS and ACR scanning |
-| 2.1.5 | Auto-provisioning of agents | Medium | Enable MMA/AMA auto-provisioning in Defender for Cloud |
+| 2.1.5 | Agent and agentless coverage | Medium | The Log Analytics agent (MMA) retired Nov 2024; for Defender for Servers enable Defender for Endpoint integration and agentless scanning, and use the Azure Monitor Agent only where a plan still needs log collection |
 | 2.1.6 | Email notifications for high severity alerts | Medium | Security Center Settings -> Email notifications |
 | 2.1.7 | Microsoft Defender for Cloud Apps connected | Medium | MCAS integration for anomaly detection |
 
@@ -250,7 +253,7 @@ az storage account list --query "[?enableHttpsTrafficOnly==false].[name,resource
 
 ## GCP CIS Benchmark (v3.0)
 
-> Currency note (2026-09): the control IDs in this section follow CIS Google Cloud Platform Foundation Benchmark v3.0. The current release is v5.0.0 (published May 2026; v4.0.0 was May 2025); controls were renumbered/added, so re-map these IDs before using them as audit evidence.
+> Currency note (2026-11): the control IDs in this section follow CIS Google Cloud Platform Foundation Benchmark v3.0. As of November 2026, the current release is v5.0.1 (v5.0.0 was published May 2026; v4.0.0 was May 2025); controls were renumbered/added, so re-map these IDs before using them as audit evidence.
 
 ### IAM and Organization
 
@@ -261,7 +264,7 @@ az storage account list --query "[?enableHttpsTrafficOnly==false].[name,resource
 | 1.3 | No user-managed service account keys | High | Use Workload Identity Federation instead |
 | 1.4 | Organization policy: restrict domain login | High | `constraints/iam.allowedPolicyMemberDomains` |
 | 1.5 | Separation of duties: no user owns and manages SAs | Medium | Review SA key creators vs users |
-| 1.6 | Cloud KMS keys rotated within 90 days | High | `gcloud kms keys describe KEY --rotation-period=90d` |
+| 1.6 | Cloud KMS keys rotated within 90 days | High | Check (read-only): `gcloud kms keys describe KEY --keyring=KEYRING --location=LOCATION` shows `rotationPeriod`. Set: `gcloud kms keys update KEY --keyring=KEYRING --location=LOCATION --rotation-period=90d --next-rotation-time=TIMESTAMP` |
 | 1.7 | Pub/Sub subscriptions use push endpoints with HTTPS | Low | Use authenticated push endpoints |
 | 1.8 | Secret Manager used for secrets (not env vars) | High | Audit Cloud Run/Functions for hardcoded secrets in env |
 
@@ -285,7 +288,7 @@ gcloud projects get-iam-policy PROJECT_ID \
 | CIS Control | Check | Severity | Remediation |
 |---|---|---|---|
 | 2.1 | Cloud Audit Logs: admin activity enabled | Critical | Cannot be disabled: verify data access logs enabled |
-| 2.2 | Cloud Audit Logs: data access for all services | High | `gcloud logging sinks list` + enable data access logs |
+| 2.2 | Cloud Audit Logs: data access for all services | High | Data Access logs are off by default; enable them in the IAM audit config (Console: IAM & Admin -> Audit Logs, or `auditConfigs` in the project IAM policy). Listing sinks only shows routing, not whether these logs are produced |
 | 2.3 | Log sinks configured for all log entries | Medium | Create org-level sink to Cloud Storage/BigQuery |
 | 2.4 | Log metric + alert for project ownership changes | High | Create log-based metric + alerting policy |
 | 2.5 | Log metric + alert for audit config changes | High | Monitor `SetIamPolicy` changes to audit log config |
@@ -316,7 +319,8 @@ gcloud alpha monitoring policies create --policy-from-file=alerting_policy.json
 | 4.8 | Disk encryption with CMEK | Medium | Use customer-managed encryption keys |
 
 ```bash
-# Find instances with default SA
+# Find instances using the default compute service account
+# (its email is PROJECT_NUMBER-compute@developer.gserviceaccount.com; the ":" filter matches that suffix)
 gcloud compute instances list --format="table(name,serviceAccounts[].email)" \
   --filter="serviceAccounts.email:compute@developer.gserviceaccount.com"
 

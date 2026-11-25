@@ -395,7 +395,7 @@ pages:
     audience: "Cloud engineers and auditors hardening AWS, Azure, and GCP accounts"
     level: "Intermediate"
     read_when: "You inherit or stand up a cloud account and need to harden it fast, an audit asks for CIS Benchmark evidence, or you are picking or running a CSPM scanner like Prowler or ScoutSuite"
-    start_at: "[Cloud Security Quickstart Checklist](#cloud-security-quickstart-checklist), [AWS CIS Benchmark (v3.0; current release v7.0.0)](#aws-cis-benchmark-v30), [CSPM Tool Reference](#cspm-tool-reference)"
+    start_at: "[Cloud Security Quickstart Checklist](#cloud-security-quickstart-checklist), [AWS CIS Benchmark (v3.0; current release v7.1.0)](#aws-cis-benchmark-v30), [CSPM Tool Reference](#cspm-tool-reference)"
     pairs_with: "[Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [Cloud Security Discipline](disciplines/cloud-security.md), [Frameworks Reference](FRAMEWORKS.md), [Controls Mapping](CONTROLS_MAPPING.md)"
     learning_path: []
     corrected: "pr62-names-and-versions"

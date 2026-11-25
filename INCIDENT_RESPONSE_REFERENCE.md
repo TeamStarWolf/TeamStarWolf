@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 27 min (6,302 words at 230 words a minute)
+About 27 min (6,292 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -491,8 +491,7 @@ curl -X POST "https://api.crowdstrike.com/devices/entities/devices-actions/v2?ac
 ```bash
 # Via console: Sentinels > Select Agent > Actions > Isolate (Disconnect from Network)
 # Via API: use the agent "Disconnect from Network" action in the SentinelOne API.
-#   The exact path and request body vary by tenant/version - see your console's
-#   API reference (Settings > Users > Service Users / API Token > API Doc).
+#   The exact path and request body vary by tenant/version - see the API reference in your console.
 ```
 
 *Carbon Black Cloud (quarantine endpoint):*
@@ -610,7 +609,7 @@ FBI via IC3 (https://www.ic3.gov)
 - Proactive engagement can accelerate law enforcement investigation
 
 CISA Reporting
-- Report to CISA at https://www.cisa.gov/report or call 1-844-SAY-CISA (1-844-729-2472)
+- Report to CISA at https://www.cisa.gov/report, call 1-844-SAY-CISA (1-844-729-2472), or email Contact@cisa.dhs.gov
 - CISA may provide technical assistance and threat intelligence
 
 What to Include in LE Reports:
@@ -1099,17 +1098,18 @@ KAPE rapidly collects and processes forensic artifacts from live systems or moun
 
 Common Triage Targets:
 ```powershell
-# Collect key artifacts for IR (run as Administrator)
-kape.exe --tsource C: --tdest "D:\Evidence\Collection" ^
-  --target "!BasicCollection,Antivirus,Chrome,Edge,EventLogs,Firefox,$MFT,Prefetch,RecycleBin,RegistryHives,ScheduledTasks,WebBrowsers"
+# Collect key artifacts for IR (run as Administrator; PowerShell - single-quote the
+# target lists so $MFT is literal, and use the backtick for line continuation)
+kape.exe --tsource C: --tdest 'D:\Evidence\Collection' `
+  --target '!BasicCollection,Antivirus,Chrome,Edge,EventLogs,Firefox,$MFT,Prefetch,RecycleBin,RegistryHives,ScheduledTasks,WebBrowsers'
 
 # Full collection for ransomware:
-kape.exe --tsource C: --tdest "D:\Evidence\Ransomware" ^
-  --target "!BasicCollection,Antivirus,EventLogs,$MFT,Prefetch,RegistryHives,ScheduledTasks,Amcache"
+kape.exe --tsource C: --tdest 'D:\Evidence\Ransomware' `
+  --target '!BasicCollection,Antivirus,EventLogs,$MFT,Prefetch,RegistryHives,ScheduledTasks,Amcache'
 
 # Process collected artifacts immediately
-kape.exe --msource "D:\Evidence\Collection" --mdest "D:\Evidence\Processed" ^
-  --module "!EZParser"  # Runs all Eric Zimmerman parsers
+kape.exe --msource 'D:\Evidence\Collection' --mdest 'D:\Evidence\Processed' `
+  --module '!EZParser'  # Runs all Eric Zimmerman parsers
 ```
 
 KAPE Module Outputs:
@@ -1554,12 +1554,12 @@ gcloud projects get-iam-policy <project> --format json | \
   gcloud projects set-iam-policy <project> /dev/stdin
 ```
 
-Security Command Center (Event Threat Detection) finding categories (examples):
-- `Malware: Bad Domain`: connection to or lookup of a known-bad domain
-- `Active Scan: Log4j Vulnerable to RCE`: Log4Shell scanning detected
-- `Initial Access: Log4j Compromise Attempt`: JNDI lookup in a header or URL parameter
-- `Defense Evasion: Modify VPC Service Control`: VPC Service Controls perimeter change
-- `Exfiltration: BigQuery Data Extraction`: BigQuery data extracted to an external or public bucket
+Security Command Center finding categories (examples):
+- `Malware: Bad Domain` (Event Threat Detection): connection to or lookup of a known-bad domain
+- `Active Scan: Log4j Vulnerable to RCE` (Event Threat Detection): Log4Shell scanning detected
+- `Account has leaked credentials` (Anomaly Detection): service-account credentials found leaked (e.g. in a public commit)
+- `Defense Evasion: Modify VPC Service Control` (Event Threat Detection): VPC Service Controls perimeter weakened
+- `Exfiltration: BigQuery Data Extraction` (Event Threat Detection): BigQuery data extracted to an external or public bucket
 
 
 ---
@@ -1757,7 +1757,7 @@ result = misp.add_event(event)
 
 | Sector | ISAC | Contact |
 |--------|------|---------|
-| Financial | FS-ISAC | https://www.fsisac.com (member reporting via admin@fsisac.com) |
+| Financial | FS-ISAC | https://www.fsisac.com |
 | Healthcare | Health-ISAC | https://health-isac.org |
 | Energy | E-ISAC | https://www.eisac.com |
 | IT / Technology | IT-ISAC | https://www.it-isac.org |
@@ -1766,7 +1766,7 @@ result = misp.add_event(event)
 | Retail and hospitality | RH-ISAC | https://rhisac.org |
 
 Government Reporting Partners:
-- CISA: https://www.cisa.gov/report | 1-844-SAY-CISA (1-844-729-2472)
+- CISA: https://www.cisa.gov/report | 1-844-SAY-CISA (1-844-729-2472) | Contact@cisa.dhs.gov
 - FBI Cyber Division: https://www.fbi.gov/contact-us/field-offices (contact local field office)
 - IC3: https://www.ic3.gov (FBI Internet Crime Complaint Center)
 - U.S. Secret Service Cyber Fraud Task Forces (CFTF): financial and cyber crime: contact a local field office (the ECTFs were reorganized into CFTFs)
@@ -1829,7 +1829,7 @@ Cisco ASA / Firepower
 access-list OUTSIDE_IN line 1 extended deny ip any host 203.0.113.66 log
 access-list OUTSIDE_IN line 2 extended deny ip host 203.0.113.66 any log
 
-# Block a domain via DNS sinkhole (Cisco Umbrella - not ISE; ISE is NAC/policy, not DNS):
+# Block a domain via DNS sinkhole (Cisco Umbrella):
 # Cisco Umbrella: Policies > Security Settings > Add destination list
 ```
 
@@ -2151,7 +2151,7 @@ State Breach Notification Laws (US)
 
 PCI DSS Incident Response
 - Contact your acquirer promptly on a suspected or confirmed cardholder-data compromise; the exact deadlines come from the acquirer, the card brands' programs, your merchant agreement and applicable law, not from a single universal clock
-- Brand deadlines (confirm against the current rules): notify your acquirer immediately; Visa's "What To Do If Compromised" requires notice immediately and no later than three calendar days; Mastercard's Security Rules and Procedures (SPME Manual) require notifying Mastercard immediately upon becoming aware of an ADC Event or Potential ADC Event, and within 24 hours of engaging a PCI Forensic Investigator (PFI). Other brands and your merchant agreement may differ
+- Brand deadlines (confirm against the current rules): notify your acquirer immediately; Visa's "What To Do If Compromised" requires notice immediately and no later than three calendar days; Mastercard's deadlines are set in its Security Rules and Procedures (SPME) manual. Other brands and your merchant agreement may differ
 - Engage a PCI Forensic Investigator (PFI), a QSA firm authorized by the card brands, when the brand program requires one
 - Preserve all logs and evidence per PFI guidance
 

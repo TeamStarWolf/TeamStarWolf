@@ -2907,6 +2907,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 6: What is fixed, what is design, what is a setting](#part-6-what-is-fixed-what-is-design-what-is-a-setting), [Part 7: Check your own network](#part-7-check-your-own-network)"
     pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [Networking Fundamentals](/NETWORKING_FUNDAMENTALS.md), [CVE Reference](/CVE_REFERENCE.md)"
     reviewed: null
+  case-studies/CASTING_HOME_NETWORK.md:
+    audience: "Home and small-network users, network and security engineers, incident responders, and anyone hardening streaming and smart-home devices"
+    level: "Intermediate"
+    read_when: "You run a home network with casting devices, you want to understand the local control APIs behind Chromecast, DIAL and AirPlay and their security record, or you are deciding how to separate those devices from the rest of your network"
+    start_at: "[Executive summary](#executive-summary), [Part 7: What is fixed, what is design, what is a setting](#part-7-what-is-fixed-what-is-design-what-is-a-setting), [Part 8: Check your own network](#part-8-check-your-own-network)"
+    pairs_with: "[UPnP on the Home Network](/case-studies/UPNP_HOME_NETWORK.md), [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [Networking Fundamentals](/NETWORKING_FUNDAMENTALS.md)"
+    reviewed: null
   case-studies/PUPPET_CVE_2026_115731.md:
     audience: "Vulnerability management leads, Puppet and configuration management administrators, incident responders, and security engineers"
     level: "Intermediate"

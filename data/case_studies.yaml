@@ -70,6 +70,29 @@ studies:
       - {"date": "2020-04-17", "label": "The Open Connectivity Foundation updates the UPnP specification to forbid the CallStranger behaviour"}
       - {"date": "2020-06-08", "label": "CallStranger (CVE-2020-12695, CVSS 7.5) is published"}
 
+  case-studies/CASTING_HOME_NETWORK.md:
+    kind: "reference"
+    title: "Casting on the Home Network: The Local Control APIs Behind Chromecast, DIAL and AirPlay, and Their Security Record"
+    start: "2014"
+    end: "2026"
+    core_start: "2014"
+    core_end: "2025"
+    sectors: ["technology"]
+    cves: ["CVE-2025-24252", "CVE-2025-24206", "CVE-2025-24132"]
+    actors: []
+    tags: ["casting", "Chromecast", "Google Cast", "DIAL", "AirPlay", "mDNS", "home network", "DNS rebinding"]
+    pdf: "Casting_Home_Network_Case_Study.pdf"
+    pptx: "Casting_Home_Network_Case_Study.pptx"
+    events:
+      - {"date": "2014-07", "label": "Bishop Fox's Rickmote hijacks a Chromecast by forcing it into its open setup mode"}
+      - {"date": "2018-06", "label": "Craig Young of Tripwire publishes the DNS-rebinding location leak against Google cast devices"}
+      - {"date": "2019-01", "label": "CastHack drives internet-exposed Google Cast and DIAL endpoints to play a promo video"}
+      - {"date": "2019-06", "label": "The local Google Cast API begins requiring an authorization token"}
+      - {"date": "2020", "label": "Netflix updates the DIAL protocol to close some of its gaps"}
+      - {"date": "2021-04", "label": "Google fixes the account-linking wiretap reported by Matt Kunze (publicly disclosed December 2022)"}
+      - {"date": "2023", "label": "Yunus Çadirci discloses DIALStranger, a 2019 study of DIAL protocol and implementation flaws"}
+      - {"date": "2025-04", "label": "Oligo publishes AirBorne: 23 AirPlay vulnerabilities, 17 CVEs, fixed in Apple's April 2025 software"}
+
   case-studies/AI_THREATS_2026.md:
     kind: "era"
     title: "AI Threats in the Cybersecurity Industry: A 2026 Case Study"

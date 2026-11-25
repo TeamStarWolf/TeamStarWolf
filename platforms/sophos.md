@@ -1,6 +1,6 @@
 # Sophos
 
-Sophos is an endpoint protection and managed detection vendor whose products are managed from Sophos Fusion, the cloud console Sophos describes as the evolution of Sophos Central. Its endpoint product, Sophos Endpoint, combines deep-learning malware prevention, anti-ransomware, and exploit prevention through the Intercept X technology. Sophos XDR extends detection across endpoint, server, firewall, and email, while Sophos MDR offers a managed detection and response service run by Sophos analysts. Sophos is a Thoma Bravo portfolio company (invested 2020) and completed its acquisition of Secureworks on 3 February 2025.
+Sophos is an endpoint protection and managed detection vendor whose products are managed from Sophos Fusion, the cloud console Sophos describes as the evolution of Sophos Central. Its endpoint product, Sophos Endpoint (earlier sold as Intercept X), combines deep-learning malware prevention, anti-ransomware, and exploit prevention. Sophos XDR extends detection across endpoint, server, firewall, and email, while Sophos MDR offers a managed detection and response service run by Sophos analysts. Sophos is a Thoma Bravo portfolio company (invested 2020) and completed its acquisition of Secureworks on 3 February 2025.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,449 words at 230 words a minute)
+About 6 min (1,466 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -61,7 +61,7 @@ For a security operations and vulnerability management team, Sophos provides pre
 
 Endpoints and servers run the Sophos agent, which reports to Sophos Fusion over the internet. The agent carries prevention layers that act locally, so protection continues when a host is offline. Fusion stores policy and pushes it to agents, and it collects detections and telemetry for review.
 
-Intercept X is the endpoint prevention engine. A deep-learning model classifies files as malicious or clean without relying on signatures for every variant. CryptoGuard watches for the file-encryption behavior typical of ransomware and can stop and roll back unauthorized encryption. Exploit prevention blocks the techniques attackers use to abuse legitimate software, such as memory corruption and process injection.
+Sophos Endpoint is the prevention engine. A deep-learning model classifies files as malicious or clean without relying on signatures for every variant. CryptoGuard watches for the file-encryption behavior typical of ransomware and can stop and roll back unauthorized encryption. Exploit prevention blocks the techniques attackers use to abuse legitimate software, such as memory corruption and process injection.
 
 Sophos XDR adds data collection and query across endpoints, servers, firewalls, and email. Detections from different products correlate in Fusion, and analysts can run queries against stored telemetry to hunt and investigate. Retention length depends on the licensed tier.
 
@@ -69,7 +69,7 @@ Sophos MDR is a service layer on top of the same telemetry. Sophos analysts moni
 
 ## Key capabilities
 
-- Deep-learning malware prevention in Intercept X that classifies files without per-variant signatures.
+- Deep-learning malware prevention in Sophos Endpoint that classifies files without per-variant signatures.
 - CryptoGuard anti-ransomware that detects malicious encryption and rolls affected files back.
 - Exploit prevention that blocks common exploitation techniques against legitimate applications.
 - Sophos XDR for cross-product detection, correlation, and threat hunting from Fusion.
@@ -133,7 +133,7 @@ The optional MDR service lets a lean team sustain round-the-clock monitoring wit
 ## Resources
 
 - Sophos Fusion Admin documentation
-- Sophos Endpoint documentation (Intercept X is the prevention technology)
+- Sophos Endpoint documentation (the product is named Sophos Endpoint; the earlier name Intercept X survives only on the page's trial and pricing links, observed 25 November 2026)
 - Sophos XDR documentation
 - Sophos MDR service documentation
 - Sophos Fusion API documentation

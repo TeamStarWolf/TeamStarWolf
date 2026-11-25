@@ -130,7 +130,6 @@ Notes: Setting and 2013 default-on [1]. Mapping-table audit and no-UI-visibility
 |---|---|---|
 | T1046 | Network Service Discovery | SSDP discovery of UPnP endpoints |
 | T1090 | Proxy | UPnProxy turns injected routers into relays |
-| T1090.003 | Multi-hop Proxy | A wall of injected routers (Inferred; source describes proxies, not chaining) |
 | T1133 | External Remote Services | EternalSilence re-exposes internal SMB |
 | T1048 | Exfiltration Over Alternative Protocol | CallStranger aims traffic out of the network |
 | T1498.002 | Reflection Amplification | CallStranger reflects traffic off UPnP devices |

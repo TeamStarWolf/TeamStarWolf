@@ -45,13 +45,14 @@ jobs:
         run: python scripts/build_vocab.py --check
 
       # data/inventory/ (the vendor and capability inventory) is hand-authored: a capability
-      # taxonomy, companies keyed to vendor:<slug> ids in data/vocab/, and products that name
-      # the capabilities their vendor documents. build_inventory.py validates the schema, the
-      # vocabulary and D3FEND cross-references, the per-fact sourcing (every company fact and
-      # every "documented" capability mapping carries a vendor page URL and read date; an
-      # unconfirmed mapping is "unverified" with a note and no source), the framework items
-      # (CSF 2.0 / CIS v8.1 / pinned D3FEND 1.6.0 ids and names) and neutral wording, then
-      # writes the data/inventory/inventory.json roll-up. The self-test runs planted controls.
+      # taxonomy, companies keyed to vendor:<slug> ids in data/vocab/, and named products tied
+      # to the vocabulary that name the capabilities their vendor documents. build_inventory.py
+      # validates the schema, the vocabulary / D3FEND / CSF 2.0 / CIS v8.1 cross-references and
+      # framework-item placement, the sourcing (every company carries a status source; every
+      # documented mapping carries the vendor page URL and read date on the vendor's own
+      # domain; an unconfirmed mapping is "unverified" with a note and no source), the ownership
+      # model and a neutral-wording filter, then writes data/inventory/inventory.json. The
+      # self-test runs planted bad-record controls.
       - name: Vendor/capability inventory rules (planted controls)
         run: python scripts/build_inventory.py --self-test
 

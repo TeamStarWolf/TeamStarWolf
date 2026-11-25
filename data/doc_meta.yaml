@@ -121,6 +121,10 @@ corrections:
     date: "2026-11-24"
     pr: 417
     what: "CIS benchmark versions, cloud CLI commands and control IDs checked against their primary sources and corrected"
+  pr418-ir-regulatory-accuracy:
+    date: "2026-11-24"
+    pr: 418
+    what: "breach-notification law, incident-response sequencing and deprecated commands checked against their primary sources and corrected"
 reviews: {}
 pages:
   ACTIVE_DIRECTORY_ATTACKS.md:
@@ -867,8 +871,8 @@ pages:
     pairs_with: "[IR Playbooks](IR_PLAYBOOKS.md), [Ransomware Defense Reference](RANSOMWARE_DEFENSE_REFERENCE.md), [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [Notable Incidents](NOTABLE_INCIDENTS.md)"
     learning_path:
       - "disciplines/incident-response.md"
-    corrected: "pr175-currency-claims"
-    corrected_what: "SP 800-61 Rev. 3 presented as the current NIST guidance and the four-phase lifecycle as the withdrawn Rev. 2 model; TheHive line corrected"
+    corrected: "pr418-ir-regulatory-accuracy"
+    corrected_what: "GDPR, SEC, HIPAA, PCI and California breach-notification details corrected against primary sources; RAM-capture and AD forest-recovery sequencing clarified; the retired AzureAD remediation cmdlets replaced with Microsoft Graph"
     reviewed: null
   INSIDER_THREAT_REFERENCE.md:
     audience: "Insider risk program leads, SOC teams, and HR, legal, and privacy partners"

@@ -18,15 +18,14 @@ counts are published as they stand; it is never described as complete.
   mapped id and name must match the framework. A capability is a function a buyer is
   shopping for, not a score.
 - A **product-to-capability mapping means the vendor documents this function** on a page
-  the editor read. It is not a statement that the product does it, does it well, or does
-  it better than another. A mapping that could not be confirmed on a vendor page is
+  the editor read. It is not a statement that the product does it, does it well, or ranks
+  it against another product. A mapping that could not be confirmed on a vendor page is
   recorded `unverified` with a note and **no** source, so it is never a name written from
   memory.
-- Wording is **neutral**. Ranking and marketing words ("best", "leading", "world-class",
-  and the like) fail validation, as do the words "vulnerable" and "breached" (a security
-  claim about a named company belongs in a case study with a CVE, advisory or regulator
-  source, not here). There are no rankings and no market-share claims. Em dashes fail
-  (`docs/VOICE.md`).
+- Wording is **neutral**. The validator fails on ranking or marketing language, and on an
+  unsourced claim that a named company is insecure (that belongs in a case study with a CVE,
+  advisory or regulator source, not here). There are no rankings and no market-share claims.
+  Em dashes fail (`docs/VOICE.md`).
 
 ## Source files (hand-authored)
 

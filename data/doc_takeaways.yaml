@@ -32,7 +32,7 @@ pages:
       - {"text": "Mesh Wi-Fi, Thread border routers and smart speakers are always-on devices that add microphones, radios or a bridging role the owner cannot easily inspect.", "from": "#executive-summary", "quote": "each widens the home's attack surface"}
       - {"text": "A mesh Wi-Fi system is not one device but several, a router and its satellites, and the 2023 Netgear Orbi flaws were across both.", "from": "#part-2-the-mesh-wi-fi-system-netgear-orbi", "quote": "a mesh system is several computers, and each is a target"}
       - {"text": "A smart speaker is built around an always-on microphone, so if its code is replaced, as the 2017 Amazon Echo hardware attack showed, it becomes a listening device.", "from": "#part-3-the-smart-speaker-as-a-listening-device-the-echo-hardware-attack", "quote": "a ready-made listening device"}
-      - {"text": "Unlike the ISP gateway, these devices the owner controls, so the levers are firmware updates, the physical mute and wake-word controls, and how many always-on devices to run.", "from": "#part-6-what-is-fixed-what-is-design-what-is-a-setting", "quote": "the choice of how many such devices to run"}
+      - {"text": "Unlike the ISP gateway, the owner controls these devices, so the levers are firmware updates (though the Echo fix was hardware), the physical mute and wake-word controls, and how many always-on devices to run.", "from": "#part-6-what-is-fixed-what-is-design-what-is-a-setting", "quote": "the choice of how many such devices to run"}
   case-studies/CHANGE_HEALTHCARE_2024.md:
     reviewed: "2026-11-16"
     items:

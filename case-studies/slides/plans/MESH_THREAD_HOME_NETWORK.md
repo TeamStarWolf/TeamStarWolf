@@ -30,7 +30,7 @@ Notes: Four Orbi flaws [1]; 8.8 is NVD's own score [2]; Cisco rated it 9.1 [2]. 
 
 | Date | Event |
 |---|---|
-| Aug 2017 | MWR roots a 2015/2016 Amazon Echo through its debug pads |
+| Aug 2017 | Mark Barnes roots a 2015/2016 Amazon Echo through its debug pads |
 | Feb 2022 | Alexa versus Alexa: an Echo obeys its own speaker (CVE-2022-25809) |
 | Mar 2023 | Talos discloses four Netgear Orbi mesh flaws (disclosed 2022) |
 | 2026 | OpenThread NAT64 flaw in Thread border routers (CVE-2026-8369) |
@@ -48,16 +48,16 @@ Notes: Multiple nodes [1]. Bridge/NAT64 [6]. Cloud add-ons [4]. The always-on fr
 
 ## PART 2 | The mesh Wi-Fi system: Netgear Orbi
 
-- Talos (2023) found four flaws in the Orbi mesh, testing the RBR750 router and RBS750 satellite on firmware 4.6.8.5.
+- Talos (2023) found four flaws in the Orbi mesh on firmware 4.6.8.5; sources differ on which node holds CVE-2022-37337 (Talos says the Satellite, the NVD record the Router).
 - CVE-2022-37337 is command execution; "The user needs to authenticate into the mesh system first" [1], then a crafted request runs commands.
 - Scores differ by source: NVD's own is 8.8; Cisco, the assigner, rates it 9.1 [2].
 - Router and satellite are both in the list; a mesh is several computers, each a target.
-Caption: Netgear shipped updates for three of four; "the company is still developing a patch" for the fourth at disclosure [1].
+Caption: Netgear shipped updates for three of four at disclosure; Talos's advisory records the fourth patched the next day, 22 March 2023 [1].
 Notes: Four flaws, auth requirement, firmware [1]. NVD 8.8 vs Cisco 9.1, CWE-78 from Cisco [2]. Router+satellite surface [1]. No recipe reproduced.
 
 ## PART 3 | The smart speaker as a listening device: the Echo hardware attack
 
-- MWR InfoSecurity (2017): with physical access, debug pads under the rubber base let an attacker boot their own code.
+- Mark Barnes (2017): with physical access, debug pads under the rubber base let an attacker boot their own code.
 - From there they "gain a root shell on the underlying Linux operating system" [3] and stream the always-on microphone to a remote host.
 - The attack "does not affect the functionality of the Amazon Echo" [3], so the owner sees nothing wrong.
 - Confirmed on 2015 and 2016 editions; "the 2017 edition is not vulnerable to this physical attack" [3].
@@ -76,7 +76,7 @@ Notes: Self-issue definition, routes, timeline, Bluetooth remains, not-in-wild, 
 ## PART 5 | The Thread border router: the newest role
 
 - Thread is a low-power smart-home mesh; a border router joins it to the home's internet-protocol network.
-- OpenThread is a common implementation; the bridging step is where a 2026 flaw sits.
+- OpenThread is an open-source implementation; the bridging step is where a 2026 flaw sits.
 - CVE-2026-8369: "Improper Input Validation in the NAT64 translator" lets an adjacent-network attacker inject corrupted packets into the mesh [6].
 - Its only score is a CVSS 4.0 6.0 from Google, not the NVD, which had not scored it; the fix is a source commit shipped by device makers.
 Caption: The border router's job is to bridge two networks, and the bridge is an attack surface; its public vulnerability record is young.
@@ -118,7 +118,7 @@ Notes: Firmware currency [1][3][6]. Every mesh node [1]. Mute/indicator/history 
 
 | Id | Technique | Tie to the record |
 |---|---|---|
-| T1190 | Exploit Public-Facing Application | The Orbi command-execution flaws over the mesh system's network service |
+| T1210 | Exploitation of Remote Services | The Orbi command-execution flaws, reached after authenticating to the mesh |
 | T1557 | Adversary-in-the-Middle | The Orbi Web Services Management information-disclosure flaw (CVE-2022-38458) |
 Caption: ATT&CK v20.0. An imperfect lens for consumer, physical and voice issues, so the table is small and says what is unmapped.
 Notes: Names and tactics from library data [7]; ties from [1][2]. The physical Echo attack, the AvA self-issue and the Thread packet injection are left unmapped (no clean fit). © 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: ATT&CK Terms of Use, https://attack.mitre.org/resources/legal-and-branding/terms-of-use/. ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.

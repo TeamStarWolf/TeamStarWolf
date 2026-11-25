@@ -37,7 +37,7 @@ Notes: 9.3 is Microsoft's own score [1]; 8.1 is JFrog's [2]. The three without a
 - Microsoft's record (CVE-2025-32711) calls it an AI command injection in Microsoft 365 Copilot that lets an unauthorized attacker disclose information over a network.
 - Microsoft scores it 9.3 Critical (CVSS 3.1), no privileges and no user interaction in the vector, weakness CWE-74.
 - The name EchoLeak is the finder's (Aim Labs), tied to the CVE by the record's reference.
-Caption: The remediation level is an official fix, applied on the service side. The finder's write-up was not reachable, so no attack chain is shown.
+Caption: Microsoft's advisory says the flaw is fully mitigated, no user action needed. The finder's write-up was not reachable, so no chain is shown.
 Notes: All from the CVE record [1]. Aim Labs page returned 403, so no attack chain is described. Server-side delivery is Inferred.
 
 ## PART 2 | Slack AI data exfiltration

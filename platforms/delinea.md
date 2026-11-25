@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,256 words at 230 words a minute)
+About 6 min (1,297 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -66,7 +66,7 @@ The platform brings together lineage from two vendors:
   and rotation.
 - Privilege Manager handles endpoint privilege, removing local administrator rights and
   granting elevation under policy.
-- Cloud PAM delivers privileged access controls as a service, including capability from
+- Privilege Control for Servers delivers privileged access controls as a service, including capability from
   the Centrify side such as privileged access to servers and infrastructure.
 
 For an identity and security team, Delinea is the layer that keeps privileged
@@ -87,7 +87,7 @@ Allow, deny, and elevation rules let known-good software run with the rights it 
 user account stays non-privileged. This reduces what a compromised endpoint account can
 do.
 
-Cloud PAM extends these controls as a service. It brokers privileged access to servers
+Privilege Control for Servers extends these controls as a service. It brokers privileged access to servers
 and infrastructure, applies policy centrally, and records activity, which suits
 environments that prefer a vendor-run control plane or that span cloud and
 on-premises systems.
@@ -103,7 +103,7 @@ use, elevation, and session activity can be reviewed together.
   shown to the user.
 - Endpoint privilege management through Privilege Manager, removing local admin rights
   and applying application control policy.
-- Cloud-delivered privileged access to servers and infrastructure through Cloud PAM.
+- Cloud-delivered privileged access to servers and infrastructure through Privilege Control for Servers.
 - Approval workflows and time-bound checkout for high-risk secrets.
 - Session recording and auditing of privileged activity.
 - An API for programmatic secret retrieval so applications fetch credentials at run
@@ -202,6 +202,7 @@ feeds the SIEM with privileged activity for correlation.
 - Delinea Privilege Manager documentation
 - Delinea Platform documentation
 - Delinea support portal
+- Delinea: "Cloud PAM" is not in the product catalog and /products/cloud-pam returns 404; the catalog lists Privilege Control for Servers and Server PAM for privileged access to servers (delinea.com/products, observed 25 November 2026)
 
 ## Related pages
 

@@ -1,6 +1,6 @@
 # Qualys
 
-Qualys is a cloud-based vulnerability management and compliance vendor. Its products run on the Qualys Cloud Platform and share a common asset inventory and data model. The flagship product is VMDR, which covers vulnerability management, detection, and response in one workflow. Licence tier and module entitlement decide which apps and data sources are in force; this page does not describe any specific organization's deployment.
+Qualys is a cloud-based vulnerability management and compliance vendor. Its products run on the Qualys Enterprise TruRisk Platform (earlier the Qualys Cloud Platform) and share a common asset inventory and data model. The flagship product is VMDR, which covers vulnerability management, detection, and response in one workflow. Licence tier and module entitlement decide which apps and data sources are in force; this page does not describe any specific organization's deployment.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,277 words at 230 words a minute)
+About 6 min (1,334 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -55,19 +55,19 @@ No review recorded yet
 
 Qualys sits in the vulnerability management, patch, and compliance part of a security program. It finds vulnerabilities and misconfigurations across hosts, web applications, and cloud, then supports the response that follows. The shared platform lets several apps read one asset inventory.
 
-VMDR is the core vulnerability workflow. It detects vulnerabilities, scores them, and connects detection to patching so that remediation stays in the same tool. Other apps, such as Policy Compliance and Web Application Scanning, extend the platform to adjacent needs.
+VMDR is the core vulnerability workflow. It detects vulnerabilities, scores them, and connects detection to patching so that remediation stays in the same tool. Other apps, such as Policy Audit (the app at the former Policy Compliance address) and Web Application Scanning, extend the platform to adjacent needs.
 
 The platform fits alongside ticketing and SIEM systems. Qualys is the source of vulnerability and compliance findings, and those findings flow out to where remediation and correlation happen.
 
 ## Architecture and how it works
 
-The Qualys Cloud Platform is the central hosted service. It stores the asset inventory, runs the scoring, and hosts the apps. Data reaches the platform through cloud agents and scanner appliances.
+The Qualys Enterprise TruRisk Platform is the central hosted service. It stores the asset inventory, runs the scoring, and hosts the apps. Data reaches the platform through cloud agents and scanner appliances.
 
 Cloud agents install on hosts and collect data locally, then report to the platform. Agents suit endpoints that move between networks and systems that are not always reachable for network scanning. They provide continuous data rather than point-in-time scans.
 
 Scanner appliances perform network-based scanning of IP ranges. They run as virtual or physical appliances inside the environment and reach assets that do not run an agent. Authenticated scans use managed credentials to read deeper host state.
 
-VMDR, Patch Management, Policy Compliance, and Web Application Scanning are apps on this platform. Each reads the shared inventory and adds its own detections and workflows. Because the inventory is shared, an asset appears once across the apps.
+VMDR, Patch Management, Policy Audit (formerly Policy Compliance), and Web Application Scanning are apps on this platform. Each reads the shared inventory and adds its own detections and workflows. Because the inventory is shared, an asset appears once across the apps.
 
 ## Key capabilities
 
@@ -77,7 +77,7 @@ TruRisk is the risk scoring model. It combines vulnerability severity, threat an
 
 VMDR connects detection to Patch Management. From a prioritized finding, teams can deploy the patch that addresses it without leaving the workflow. This keeps the detect-and-fix loop inside one platform.
 
-Policy Compliance checks configuration against policies and benchmarks. Web Application Scanning tests running web applications for vulnerabilities. Cloud agents and scanner appliances feed all of these with current asset data.
+Policy Audit checks configuration against policies and benchmarks. Web Application Scanning tests running web applications for vulnerabilities. Cloud agents and scanner appliances feed all of these with current asset data.
 
 Finding state tracks across scans. A QID that no longer appears after remediation is marked fixed, and one that reappears is flagged. This supports metrics on whether remediation actually closed the exposure.
 
@@ -135,11 +135,12 @@ In a mature program, Qualys findings open tickets in ServiceNow Vulnerability Re
 ## Resources
 
 - Qualys VMDR documentation
-- Qualys Cloud Platform documentation
+- Qualys Enterprise TruRisk Platform documentation (formerly Qualys Cloud Platform)
 - Qualys Cloud Agent documentation
 - Qualys Patch Management documentation
-- Qualys Policy Compliance documentation
+- Qualys Policy Audit documentation (the former Policy Compliance address redirects here)
 - Qualys Web Application Scanning documentation
+- Qualys: the platform is the Enterprise TruRisk Platform (qualys.com), and the Policy Compliance address (/apps/policy-compliance/) redirects to Qualys Policy Audit (/apps/policy-audit, observed 25 November 2026)
 
 ## Related pages
 

@@ -1,6 +1,6 @@
 # Rapid7 InsightVM
 
-Rapid7 InsightVM is a vulnerability management product on the Rapid7 Insight platform. It uses the Nexpose scan engine and the Insight Agent to find and track vulnerabilities across hosts and networks. It sits alongside other Insight products, including InsightIDR for detection and response and InsightConnect for automation. Licence tier and module entitlement decide what is in force; this page does not describe any specific organization's deployment.
+Rapid7 InsightVM is a vulnerability management product on the Rapid7 Insight platform. It uses the Nexpose scan engine and the Insight Agent to find and track vulnerabilities across hosts and networks. It sits alongside other Insight products, including InsightIDR (now Rapid7's Incident Command SIEM) for detection and response and InsightConnect for automation; Rapid7 presents InsightVM as the technology that powers its Exposure Command. Licence tier and module entitlement decide what is in force; this page does not describe any specific organization's deployment.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,249 words at 230 words a minute)
+About 6 min (1,311 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -55,7 +55,7 @@ No review recorded yet
 
 InsightVM covers the vulnerability management part of a security program. It identifies vulnerabilities and misconfigurations, scores them by real risk, and tracks remediation to closure. It is built for ongoing management rather than one-off scanning.
 
-The Insight platform is the shared cloud layer. InsightVM lives on it alongside InsightIDR, a SIEM and detection product, and InsightConnect, a SOAR product for automation and orchestration. Shared platform data lets these products reference the same assets.
+The Insight platform is the shared cloud layer. InsightVM lives on it alongside InsightIDR (now Rapid7's Incident Command SIEM) and InsightConnect, a SOAR product for automation and orchestration. Shared platform data lets these products reference the same assets.
 
 InsightVM fits alongside ticketing and SIEM systems as the source of vulnerability findings. Those findings flow out to where remediation is assigned and where telemetry is correlated.
 
@@ -93,7 +93,7 @@ Operations teams maintain scan templates, credential sets, asset tags, and remed
 
 Findings flow to downstream systems. InsightVM integrates with ServiceNow so vulnerabilities open and update records in ServiceNow Vulnerability Response, where work is assigned and tracked. The integration keeps ticket state aligned with finding state.
 
-SIEM integration sends vulnerability and asset data to log analytics platforms, and InsightVM data can feed InsightIDR within the same platform. Detection teams correlate exposure with alerts and telemetry. InsightConnect can automate response steps across these systems.
+SIEM integration sends vulnerability and asset data to log analytics platforms, and InsightVM data can feed InsightIDR (Incident Command) within the same platform. Detection teams correlate exposure with alerts and telemetry. InsightConnect can automate response steps across these systems.
 
 InsightVM is the source of vulnerability truth, and ServiceNow and the SIEM consume it. Consistent asset identity across the systems keeps the join reliable.
 
@@ -130,7 +130,7 @@ Tenant and console configuration govern multi-team use. Use asset groups and tag
 
 InsightVM supplies the detection and prioritization layer of vulnerability management, with remediation projects and live dashboards built in. It answers what is vulnerable, how risky each finding is under Real Risk, and whether the fix held on rescan. The project model turns findings into assigned work.
 
-In a mature program, InsightVM findings open tickets in ServiceNow Vulnerability Response and feed metrics such as mean time to remediate. Its place on the Insight platform lets vulnerability data connect to detection in InsightIDR and automation in InsightConnect.
+In a mature program, InsightVM findings open tickets in ServiceNow Vulnerability Response and feed metrics such as mean time to remediate. Its place on the Insight platform lets vulnerability data connect to detection in InsightIDR (Incident Command) and automation in InsightConnect.
 
 ## Resources
 
@@ -138,6 +138,7 @@ In a mature program, InsightVM findings open tickets in ServiceNow Vulnerability
 - Rapid7 Insight Agent documentation
 - Rapid7 Insight platform documentation
 - Nexpose documentation
+- Rapid7: the InsightVM page is titled "InsightVM Vulnerability Management | Rapid7 Exposure Command" and says InsightVM powers Exposure Command; the InsightIDR address (/products/insightidr/) redirects to the Incident Command SIEM page, and the InsightConnect address to Rapid7's SOAR capabilities (observed 25 November 2026)
 
 ## Related pages
 

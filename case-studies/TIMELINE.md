@@ -1375,6 +1375,11 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 August 2017: The Canadian Centre for Cyber Security publishes an alert with five affected builds
   - 20 August 2017: MyCERT publishes affected-build guidance
   - 23 August 2017: Tenable publishes a detection check for the compromised library
+- [The Always-On Home: Mesh Wi-Fi, Thread Border Routers and Smart Speakers, and Their Security Record](/case-studies/MESH_THREAD_HOME_NETWORK.md). Attack surface, 2017 to 2026 (core: 2017 to 2026). Sectors: technology. CVEs: CVE-2022-37337, CVE-2022-38452, CVE-2022-36429, CVE-2022-38458, CVE-2022-25809, CVE-2026-8369. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Mesh_Thread_Home_Network_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Mesh_Thread_Home_Network_Case_Study.pptx).
+  - August 2017: Mark Barnes roots a 2015 or 2016 Amazon Echo through its debug pads and streams its microphone
+  - February 2022: Alexa versus Alexa (CVE-2022-25809): an Echo Dot obeys commands played through its own speaker
+  - March 2023: Cisco Talos discloses four Netgear Orbi mesh vulnerabilities (CVE-2022-37337 and others)
+  - May 2026: CVE-2026-8369: an OpenThread NAT64 input-validation flaw affects Thread border routers
 - [The Year 2017 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2017.md). Period record, January to December 2017. Sectors: cross-sector, healthcare, energy, finance, government, technology. CVEs: CVE-2017-0005, CVE-2017-0101, CVE-2017-0143, CVE-2017-0144, CVE-2017-0145, CVE-2017-0146 and 28 more. ATT&CK groups: G0020 Equation, G0022 APT3, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly, G0045 menuPass and 4 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2017_Case_Study.pptx).
   - 7 March 2017: WikiLeaks publishes Vault 7 Part 1, "Year Zero", 8,761 documents it says came from the CIA
   - 14 March 2017: Microsoft publishes MS17-010, fixing the SMBv1 flaws later used by WannaCry and NotPetya

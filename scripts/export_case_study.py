@@ -160,6 +160,7 @@ EXPORT_NAMES = {
     "UPNP_HOME_NETWORK": "UPnP_Home_Network",
     "CASTING_HOME_NETWORK": "Casting_Home_Network",
     "ISP_GATEWAY_HOME_NETWORK": "ISP_Gateway_Home_Network",
+    "MESH_THREAD_HOME_NETWORK": "Mesh_Thread_Home_Network",
     "PROFTPD_MOD_COPY_CVE_2015_3306": "ProFTPD_mod_copy_CVE_2015_3306",
     "NODEJS_CVE_2026_111497": "Nodejs_CVE_2026_111497",
     "MAGENTO_CVE_2026_48356": "Magento_CVE_2026_48356",

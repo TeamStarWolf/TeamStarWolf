@@ -872,7 +872,7 @@ pages:
     learning_path:
       - "disciplines/incident-response.md"
     corrected: "pr418-ir-regulatory-accuracy"
-    corrected_what: "GDPR, SEC, HIPAA, PCI and California breach-notification details corrected against primary sources; RAM-capture and AD forest-recovery sequencing clarified; the retired AzureAD remediation cmdlets replaced with Microsoft Graph"
+    corrected_what: "GDPR/SEC/HIPAA/PCI/California breach-notification details corrected against primary sources; forensic, containment and persistence commands fixed by running them (jq IAM, security-group/NSG isolation, Zeek/tshark/nfdump, PowerShell service and task queries); the threat-actor technique table reconciled to the library's own data; AzureAD cmdlets replaced with Microsoft Graph; vendor, ISAC and reporting-framework names and dates updated"
     reviewed: null
   INSIDER_THREAT_REFERENCE.md:
     audience: "Insider risk program leads, SOC teams, and HR, legal, and privacy partners"

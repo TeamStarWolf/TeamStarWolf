@@ -637,6 +637,19 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2024 <!-- {docsify-ignore} -->
 
+- [When the Assistant Has Tools: Prompt Injection in Microsoft 365 Copilot, Slack AI, GitHub Copilot, Cursor, vanna and ChatGPT](/case-studies/AI_ASSISTANT_PROMPT_INJECTION.md). Vulnerability, May 2024 to August 2025. Sectors: technology, cross-sector. CVEs: CVE-2025-32711, CVE-2024-5565, CVE-2024-5826. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/AI_Assistant_Prompt_Injection_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/AI_Assistant_Prompt_Injection_Case_Study.pptx).
+  - 22 May 2024: Johann Rehberger publishes the ChatGPT memory prompt-injection write-up, reporting that OpenAI had closed it as a model-safety issue
+  - 31 May 2024: JFrog publishes CVE-2024-5565, prompt-injection remote code execution in the vanna library
+  - 27 June 2024: @huntr_ai publishes CVE-2024-5826, an independent CVE for the same vanna flaw; JFrog publishes its analysis, noting the vanna maintainer added a hardening guide
+  - 14 August 2024: PromptArmor discloses the Slack AI data-exfiltration technique to Slack
+  - 20 August 2024: PromptArmor publishes the Slack AI indirect-prompt-injection write-up, reporting Slack's reply that public-channel search is intended behaviour
+  - 20 August 2024: Slack deploys a patch for the reported Slack AI issue, per its security update the next day
+  - 21 August 2024: Slack publishes a security update reporting the 20 August patch and no evidence of unauthorized access to customer data
+  - 20 September 2024: Johann Rehberger reports OpenAI fixed a related ChatGPT macOS exfiltration path in version 1.2024.247, while untrusted content can still write memories
+  - 18 March 2025: Pillar Security reports the Rules File Backdoor in GitHub Copilot and Cursor
+  - 1 May 2025: GitHub adds a hidden-Unicode warning on github.com following the Rules File research
+  - 11 June 2025: Microsoft publishes CVE-2025-32711, the EchoLeak information-disclosure flaw in Microsoft 365 Copilot, with an official fix
+  - 26 August 2025: Rehberger notes OpenAI has addressed the ChatGPT url_safe exfiltration path
 - [The XZ Utils Backdoor: A 2024 Supply-Chain Case Study](/case-studies/XZ_UTILS_BACKDOOR_2024.md). Incident, February to March 2024. Sectors: technology. CVEs: CVE-2024-3094. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/XZ_Utils_Backdoor_2024_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/XZ_Utils_Backdoor_2024_Case_Study.pptx).
   - 2021: From about 2021, the Jia Tan identity builds trust and gains co-maintainer, then release authority
   - 24 February 2024: XZ Utils 5.6.0 tarball, carrying the backdoor, released

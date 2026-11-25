@@ -522,6 +522,8 @@ def band_href_bad(href: str) -> str | None:
     check does not see: '.'/'..' path segments (plain or percent-encoded), a backslash,
     an explicit port, a look-alike host suffix, a userinfo host, and a scheme-relative
     address (which has no https:// scheme and is rejected on that alone)."""
+    if not isinstance(href, str):
+        return "not a string"
     if not href.startswith("https://"):
         return "not https"
     if "\\" in href or "%5c" in href.lower():
@@ -582,18 +584,25 @@ def band_external_href_bad(href: str) -> str | None:
         return "no host"
     if not host.isascii():
         return "non-ASCII host"
-    if host.startswith("xn--") or ".xn--" in host:
-        return "punycode host"
     if ":" in host or re.fullmatch(r"\d{1,3}(\.\d{1,3}){3}", host):
         return "IP literal host"
-    if "." not in host:
+    # Validate every DNS label: no empty label (a leading, trailing or double dot), no label
+    # that starts or ends with a hyphen, no punycode, nothing outside an ASCII DNS name.
+    labels = host.split(".")
+    if len(labels) < 2:
         return "single-label host (needs a dot)"
-    if not re.fullmatch(r"[a-z0-9.-]+", host):
-        return "host outside an ASCII DNS name"
-    # A browser reads several non-dotted-quad forms as an IP address: 127.1, 1.2.3, 0x7f.0.0.1,
-    # 1.2.3.0x7f. A real DNS name never ends in an all-digit or 0x label, so reject either.
-    last = host.rsplit(".", 1)[-1]
-    if re.fullmatch(r"\d+", last) or last[:2] == "0x":
+    for lab in labels:
+        if lab == "":
+            return "empty label in host (leading, trailing or double dot)"
+        if lab[0] == "-" or lab[-1] == "-":
+            return "host label starts or ends with a hyphen"
+        if lab.startswith("xn--"):
+            return "punycode host"
+        if not re.fullmatch(r"[a-z0-9-]+", lab):
+            return "host label outside an ASCII DNS name"
+    # A browser reads non-dotted-quad numeric/hex forms as an IP (127.1, 1.2.3, 0x7f.0.0.1,
+    # 1.2.3.0x7f). A real DNS name never ends in an all-digit or 0x label.
+    if re.fullmatch(r"\d+", labels[-1]) or labels[-1][:2] == "0x":
         return "host a browser reads as an IP address (numeric or 0x last label)"
     path_low = u.path.lower()
     if "%2f" in path_low or "%5c" in path_low:
@@ -859,6 +868,10 @@ def band_self_test() -> int:
         "https://127.1/": "browser reads as an IP",                      # short-form IPv4
         "https://1.2.3/": "browser reads as an IP",                      # three-part IPv4
         "https://0x7f.0.0.1/": "browser reads as an IP",                 # 0x first label, numeric last
+        "https://nvd.nist.gov./": "empty label",                         # trailing dot
+        "https://nvd..nist.gov/": "empty label",                         # double dot
+        "https://-nvd.nist.gov/": "hyphen",                              # label starts with a hyphen
+        "https://nvd-.nist.gov/": "hyphen",                              # label ends with a hyphen
         "https://nvd.nist.gov/café": "non-ASCII",                   # non-ASCII in the parsed address
         "https://github.com/TeamStarWolf/cybersecurity-resources": "internal address wearing the external flag",  # on an internal host
     }
@@ -896,6 +909,13 @@ def band_self_test() -> int:
     extmarkup = platform_band(bm([{"label": "NVD", "href": "https://nvd.nist.gov/", "external": True}]))
     assert 'target="_blank"' in extmarkup and 'rel="noopener noreferrer"' in extmarkup, "external link attributes missing"
     assert "tsw-bar__ext" in extmarkup and "opens in a new tab on an external site" in extmarkup, "external marker/note missing"
+    # band_href_bad must return a reason, not raise, on a null/non-string href
+    assert band_href_bad(None) == "not a string", "band_href_bad(None) should not raise"
+    # platform_band_problems catches a DNS-invalid and a non-ASCII external leaf on a real leaf
+    badext = bm([{"label": "E1", "href": "https://-nvd.nist.gov/", "external": True}])
+    assert any("external" in p and "hyphen" in p for p in platform_band_problems(badext)), "DNS-invalid external leaf not caught"
+    nonascii = bm([{"label": "E2", "href": "https://nvd.nist.gov/café", "external": True}])
+    assert any("external" in p and "non-ASCII" in p for p in platform_band_problems(nonascii)), "non-ASCII external leaf not caught"
 
     print("build_site_nav band self-test: all cases pass")
     return 0

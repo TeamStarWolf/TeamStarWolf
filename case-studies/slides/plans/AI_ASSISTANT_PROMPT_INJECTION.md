@@ -42,7 +42,7 @@ Notes: All from the CVE record [1]. Aim Labs page returned 403, so no attack cha
 
 ## PART 2 | Slack AI data exfiltration
 
-- PromptArmor (14 August 2024): an instruction placed in an attacker-made public channel can steer Slack AI to leak data from private channels the attacker cannot see.
+- PromptArmor (published 20 August 2024): an instruction placed in an attacker-made public channel can steer Slack AI to leak data from private channels the attacker cannot see.
 - Slack AI retrieves from public channels a user has not joined; a public channel can be made with only its author, so it goes unnoticed.
 - The assistant renders a link worded as a reauthentication prompt that carries the victim's value; clicking it sends the value out.
 Caption: Slack deemed the evidence insufficient and called the cross-channel retrieval intended behaviour; no fix. No payload is reproduced here.
@@ -78,7 +78,8 @@ Notes: Memory write path and OpenAI's close [6]; the url_safe exfiltration path 
 |---|---|---|
 | Microsoft | Recorded the flaw; record shows an official fix | Fixed on the service side |
 | GitHub | Added a hidden-Unicode warning; review is the user's job | A control, plus a user-responsibility position |
-| Cursor, Slack | Called it the user's responsibility or intended | Not treated as their flaw to fix |
+| Cursor | Called the risk the user's responsibility | Not treated as their flaw |
+| Slack | Called it intended; evidence insufficient | Not treated as their flaw |
 | OpenAI | Closed memory write as model-safety; later fixed a leak path | A partial answer across two reports |
 Caption: A report does not always lead to a patch. A defender has to know which controls the vendor left to the user.
 Notes: Microsoft [1]; GitHub and Cursor [4]; Slack [3]; OpenAI [6][7].
@@ -90,7 +91,7 @@ Left: What to read
 - Where untrusted input can reach a tool: a retrieval source, a shared config file, a generation-and-execution path.
 - Whether memory and connectors are on, and what they can reach.
 Right: What to do
-- Apply the fix where one exists (Microsoft 365 Copilot; the GitHub warning control).
+- Apply the fix where one exists (Microsoft 365 Copilot); GitHub's hidden-Unicode warning is a control, not a fix.
 - Follow the workaround where that is all there is (vanna: visualization off on external input).
 - Treat the assistant's output as untrusted; scope connectors and keys narrowly.
 Caption: Where a vendor called the behaviour intended or the user's responsibility, record that as the accepted state of the control, not a closed ticket.
@@ -109,6 +110,6 @@ Notes: Names and tactics from library data [8]; ties from [3][4][5][7]. CWE-74 [
 ## CROSS-CUTTING THEMES | What the record teaches
 
 - **One cause, five shapes.** Disclosure, exfiltration, injected code, library RCE and memory tampering all rest on the model acting on its input.
-- **Vendors disagree on ownership.** Two shipped or recorded a fix; three moved the control to the user, who then has to know it is theirs.
+- **Vendors disagree on ownership.** Microsoft recorded a fix, OpenAI later fixed a leak path; GitHub, Cursor and Slack left it to the user; vanna has no maintainer statement.
 - **The durable defence is the classic one.** Narrow what the deputy can read, what it can do, and how far its credentials reach.
 Notes: Shared cause [3][4][5][6][7]. Vendor split [1][3][4]. Confused-deputy defence is the study's framing (Inferred).

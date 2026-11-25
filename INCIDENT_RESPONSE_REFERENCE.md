@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 25 min (5,663 words at 230 words a minute)
+About 26 min (5,936 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -363,7 +363,7 @@ Do NOT:
 - Open suspicious files on your administrative workstation
 
 DO:
-- Capture volatile memory first (RAM dump) using Winpmem, DumpIt, or EDR live response
+- Capture volatile memory (RAM dump) with Winpmem, DumpIt, or EDR live response when it can be done without delaying containment; isolate affected systems promptly, and power down only if you cannot isolate them (powering down loses volatile evidence)
 - Take forensic disk images before any remediation
 - Preserve network logs, firewall logs, and proxy logs for the incident timeframe (±48h minimum)
 - Screenshot active processes, network connections (netstat -ano), and logged-in users
@@ -574,7 +574,7 @@ Identifying the initial compromise vector is critical for eradication:
 ### 3.5 Ransomware Family Identification
 
 ID Ransomware (https://id-ransomware.malwarehunterteam.com)
-- Upload ransom note and/or encrypted file sample
+- Upload a ransom note or an encrypted file sample (prefer a sanitized note or an expendable, non-sensitive sample; it is sent to a third party, so get authorization first and record what was shared)
 - Identifies 1,000+ ransomware families
 - Indicates if decryptor exists
 
@@ -625,7 +625,7 @@ Recover in dependency order; never reconnect compromised systems to clean networ
 
 ```
 Phase 1: Validate backup integrity (hash comparison, test restore in isolated environment)
-Phase 2: Rebuild identity infrastructure first (AD DCs, PKI) from clean backups
+Phase 2: Rebuild identity infrastructure (AD DCs, PKI) in an isolated recovery environment, following Microsoft's Active Directory forest recovery plan: restore a verified backup predating the compromise, validate domain and PKI trust, and rotate credentials and keys before reconnecting
 Phase 3: Restore critical business systems (ERP, email, CRM), prioritized by business impact
 Phase 4: Restore user endpoints, reimaging preferred over cleaning
 Phase 5: Reconnect systems to network in stages with enhanced monitoring
@@ -770,14 +770,17 @@ gam user victim@company.com show pop
 
 Immediate Actions (within minutes of confirmation):
 ```powershell
-# Revoke all active sessions (M365)
-Revoke-AzureADUserAllRefreshToken -ObjectId <user-object-id>
+# Connect with the scopes these actions need (the AzureAD module is deprecated; use Microsoft Graph)
+Connect-MgGraph -Scopes "User.ReadWrite.All","Directory.ReadWrite.All"
+
+# Revoke all active sessions / refresh tokens (M365)
+Revoke-MgUserSignInSession -UserId <user-id>
 
 # Disable account temporarily
-Set-AzureADUser -ObjectId <user-object-id> -AccountEnabled $false
+Update-MgUser -UserId <user-id> -AccountEnabled:$false
 
-# Reset password
-Set-AzureADUserPassword -ObjectId <user-object-id> -Password <NewSecurePassword>
+# Force a password reset at next sign-in
+Update-MgUser -UserId <user-id> -PasswordProfile @{ ForceChangePasswordNextSignIn = $true; Password = "<NewSecurePassword>" }
 
 # Remove all inbox rules
 Get-InboxRule -Mailbox victim@company.com | Remove-InboxRule -Confirm:$false
@@ -787,10 +790,10 @@ Set-Mailbox -Identity victim@company.com -DeliverToMailboxAndForward $false `
   -ForwardingSmtpAddress $null -ForwardingAddress $null
 
 # Revoke OAuth app access
-# Admin > Azure AD > Enterprise Applications > Review and remove malicious apps
+# Microsoft Entra admin center > Enterprise Applications > review and remove malicious apps
 
 # Re-enable with MFA enforced
-# Verify MFA method is legitimate device (not attacker-added MFA device)
+# Verify MFA method is a legitimate device (not attacker-added)
 ```
 
 Review and Remove Attacker Artifacts:
@@ -2078,24 +2081,26 @@ Root Cause: Absence of business-aligned risk quantification leading to under-inv
 ### 10.3 Regulatory Notification Requirements
 
 GDPR (EU General Data Protection Regulation)
-- Trigger: Personal data breach affecting EU residents
-- Timeline: 72 hours from becoming aware of breach to notify supervisory authority (DPA)
+- Trigger: Personal data breach within the GDPR's Article 3 territorial scope
+- Timeline: notify the competent supervisory authority (DPA) without undue delay and, where feasible, within 72 hours of becoming aware, unless the breach is unlikely to result in a risk to individuals; a processor notifies its controller without undue delay
 - Subject matter: Nature of breach, categories and approximate number of data subjects/records, DPO contact, likely consequences, measures taken
-- Individual notification: "Without undue delay" if high risk to individuals
-- Documentation: All breaches must be documented even if no notification required
+- Individual notification: without undue delay when the breach is likely to be a high risk to individuals, subject to the Article 34(3) exceptions
+- Documentation: All breaches must be documented even if no notification is required
 
 SEC Cybersecurity Disclosure Rule (Item 1.05 Form 8-K)
 - Trigger: "Material" cybersecurity incident
-- Timeline: 4 business days from determining materiality
+- Who and when: domestic registrants file Item 1.05 within 4 business days of determining materiality, and must make that determination without unreasonable delay. A disclosure delay is allowed only when the U.S. Attorney General notifies the SEC in writing that disclosure poses a substantial risk to national security or public safety
+- Foreign private issuers: furnish the same information on Form 6-K
 - Content: Nature, scope, timing of incident; material impact or reasonably likely material impact
-- Annual disclosure: 10-K must include cybersecurity risk management and governance disclosures
+- Annual disclosure: 10-K (Form 20-F for foreign private issuers) must include cybersecurity risk management and governance disclosures
 
 HIPAA Breach Notification Rule
 - Trigger: Breach of unsecured Protected Health Information (PHI)
-- Timeline to HHS: 60 days from discovery (for breaches affecting 500+, also notify media)
-- Timeline to individuals: 60 days from discovery
+- Individuals: without unreasonable delay and no later than 60 days after discovery
+- HHS Secretary: for breaches affecting 500 or more individuals, without unreasonable delay and within 60 days; for fewer than 500, in the annual log due within 60 days after the end of the calendar year of discovery
+- Media: for a breach affecting more than 500 residents of a state or jurisdiction, notify prominent media without unreasonable delay and within 60 days
 - Content: Description of breach, PHI involved, steps individuals should take, steps covered entity is taking
-- Business Associates: Must notify Covered Entity within 60 days
+- Business Associates: notify the Covered Entity without unreasonable delay and within 60 days of discovery
 
 State Breach Notification Laws (US)
 - All 50 states + DC have breach notification laws with varying requirements
@@ -2103,15 +2108,14 @@ State Breach Notification Laws (US)
 - Key elements vary: definition of "personal information," notification triggers, safe harbors
 
 PCI DSS Incident Response
-- Notify acquiring bank and card brands (Visa, Mastercard) immediately upon suspicion of cardholder data compromise
-- Engage PCI Forensic Investigator (PFI): QSA firm authorized by card brands
+- Contact your acquirer promptly on a suspected or confirmed cardholder-data compromise; the exact deadlines come from the acquirer, the card brands' programs, your merchant agreement and applicable law, not from a single universal clock
+- Engage a PCI Forensic Investigator (PFI), a QSA firm authorized by the card brands, when the brand program requires one
 - Preserve all logs and evidence per PFI guidance
-- 24-hour notification requirement to card brands after confirmed compromise
 
-CCPA / CPRA (California)
-- Notification to California AG for breaches of 500+ California residents (if reasonable to believe AG notified)
-- No statutory deadline but must be "expedient" and "without unreasonable delay"
-- Expanded rights for consumers to opt out of sale/sharing
+California Breach Notification (Civil Code 1798.82, as amended by SB 446)
+- Notify affected California residents within 30 calendar days of discovery or notification of the breach (SB 446; subject to the statute's law-enforcement and scope delays)
+- When notice goes to more than 500 California residents, submit a sample copy to the Attorney General within 15 calendar days of notifying consumers
+- (CCPA/CPRA govern consumer privacy rights such as opt-out of sale/sharing; the breach-notice duty itself is Civil Code 1798.82)
 
 ---
 

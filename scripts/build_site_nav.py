@@ -507,7 +507,9 @@ BAND_RE = re.compile(r"(<!-- platform-band:start[^>]*-->\n)(.*?)(\n[ \t]*<!-- pl
 # path must be under /TeamStarWolf. The same rule is applied by every TeamStarWolf site,
 # since each copy of the band is refreshed from a file another site publishes.
 BAND_HOSTS = {"teamstarwolf.com", "library.teamstarwolf.com", "teamstarwolf.github.io", "github.com"}
-BAND_MAX = 14
+BAND_MAX = 14            # entries in any non-Bookmarks menu
+BAND_MAX_BOOKMARKS = 16  # entries in a Bookmarks list (category, subsection or leaf list)
+BAND_EXT_MAX = 512       # longest allowed external-leaf address, in characters
 
 
 def load_platform_nav() -> dict:
@@ -520,6 +522,8 @@ def band_href_bad(href: str) -> str | None:
     check does not see: '.'/'..' path segments (plain or percent-encoded), a backslash,
     an explicit port, a look-alike host suffix, a userinfo host, and a scheme-relative
     address (which has no https:// scheme and is rejected on that alone)."""
+    if not isinstance(href, str):
+        return "not a string"
     if not href.startswith("https://"):
         return "not https"
     if "\\" in href or "%5c" in href.lower():
@@ -541,6 +545,73 @@ def band_href_bad(href: str) -> str | None:
             return "'" + (seg or "/") + "' path segment"
     if host == "github.com" and not (u.path == "/TeamStarWolf" or u.path.startswith("/TeamStarWolf/")):
         return "github.com path not under /TeamStarWolf"
+    return None
+
+
+def band_external_href_bad(href: str) -> str | None:
+    """None if `href` is allowed on a Bookmarks external leaf, else why. This is the only
+    place an address off the four internal hosts is allowed, so the rule is strict and runs
+    on the raw string (stacks parse URLs differently): https only; no userinfo, port,
+    backslash, whitespace or control character; no '.'/'..' path segment (plain or %2e) and
+    no %2f/%5c in the path; an ASCII DNS host with at least one dot and no IP literal,
+    single-label host or punycode; at most BAND_EXT_MAX characters; and it must NOT be an
+    address the internal rule would accept (an internal address wearing the flag is rejected,
+    so the four-host rule stays the only way onto an internal host)."""
+    if not isinstance(href, str) or not href:
+        return "empty address"
+    if len(href) > BAND_EXT_MAX:
+        return "longer than " + str(BAND_EXT_MAX) + " characters"
+    if not href.startswith("https://"):
+        return "not https"
+    # Reject any character above 0x7e (a \uXXXX escape in the ASCII file can still parse to a
+    # non-ASCII character), plus whitespace and control characters, on the parsed string.
+    if any(ord(c) <= 0x20 or ord(c) >= 0x7f for c in href):
+        return "non-ASCII, whitespace or control character"
+    low = href.lower()
+    if "\\" in href or "%5c" in low:
+        return "backslash in address"
+    u = urllib.parse.urlsplit(href)
+    if "@" in u.netloc:
+        return "userinfo in authority"
+    try:
+        port = u.port
+    except ValueError:
+        return "bad port"
+    if port is not None:
+        return "explicit port"
+    host = u.hostname or ""
+    if not host:
+        return "no host"
+    if not host.isascii():
+        return "non-ASCII host"
+    if ":" in host or re.fullmatch(r"\d{1,3}(\.\d{1,3}){3}", host):
+        return "IP literal host"
+    # Validate every DNS label: no empty label (a leading, trailing or double dot), no label
+    # that starts or ends with a hyphen, no punycode, nothing outside an ASCII DNS name.
+    labels = host.split(".")
+    if len(labels) < 2:
+        return "single-label host (needs a dot)"
+    for lab in labels:
+        if lab == "":
+            return "empty label in host (leading, trailing or double dot)"
+        if lab[0] == "-" or lab[-1] == "-":
+            return "host label starts or ends with a hyphen"
+        if lab.startswith("xn--"):
+            return "punycode host"
+        if not re.fullmatch(r"[a-z0-9-]+", lab):
+            return "host label outside an ASCII DNS name"
+    # A browser reads non-dotted-quad numeric/hex forms as an IP (127.1, 1.2.3, 0x7f.0.0.1,
+    # 1.2.3.0x7f). A real DNS name never ends in an all-digit or 0x label.
+    if re.fullmatch(r"\d+", labels[-1]) or labels[-1][:2] == "0x":
+        return "host a browser reads as an IP address (numeric or 0x last label)"
+    path_low = u.path.lower()
+    if "%2f" in path_low or "%5c" in path_low:
+        return "encoded slash or backslash in path"
+    for seg in u.path.split("/"):
+        if seg.lower().replace("%2e", ".") in (".", ".."):
+            return "'" + (seg or "/") + "' path segment"
+    if band_href_bad(href) is None:
+        return "internal address wearing the external flag"
     return None
 
 
@@ -570,7 +641,7 @@ def platform_band_problems(pnav: dict) -> list[str]:
     except OSError:
         out.append(PLATFORM_NAV + ": cannot read the file")
 
-    def check_node(node, where: str, depth: int) -> None:
+    def check_node(node, where: str, depth: int, in_bookmarks: bool) -> None:
         if not isinstance(node, dict):
             out.append(PLATFORM_NAV + ": " + where + " is not an object")
             return
@@ -579,25 +650,41 @@ def platform_band_problems(pnav: dict) -> list[str]:
             out.append(PLATFORM_NAV + ": " + where + " has no label")
             label = where
         href = node.get("href")
+        menu = node.get("menu")
+        external = node.get("external") is True
         if not isinstance(href, str) or not href:
             out.append(PLATFORM_NAV + ": " + label + " has no href")
+        elif external:
+            # external leaves are allowed only inside Bookmarks, only on a leaf, and only
+            # under the dedicated rule; an internal address wearing the flag is rejected.
+            if not in_bookmarks:
+                out.append(PLATFORM_NAV + ": " + label + ": external flag outside Bookmarks")
+            if menu is not None:
+                out.append(PLATFORM_NAV + ": " + label + ": external entry has children")
+            bad = band_external_href_bad(href)
+            if bad:
+                out.append(PLATFORM_NAV + ": " + label + ": external " + bad + " (" + href + ")")
         else:
             bad = band_href_bad(href)
             if bad:
                 out.append(PLATFORM_NAV + ": " + label + ": " + bad + " (" + href + ")")
-        menu = node.get("menu")
         if menu is None:
             return
-        if depth >= 2:
-            out.append(PLATFORM_NAV + ": " + label + " nests a menu too deep (one level only)")
+        # Bookmarks may nest item > category > subsection (a menu on each); every other item
+        # is one level. A menu on a node deeper than that is too deep.
+        max_menu_depth = 2 if in_bookmarks else 0
+        if depth > max_menu_depth:
+            out.append(PLATFORM_NAV + ": " + label + " nests a menu too deep"
+                       + (" (Bookmarks: two levels)" if in_bookmarks else " (one level only)"))
         elif not isinstance(menu, list):
             out.append(PLATFORM_NAV + ": " + label + " menu is not a list")
         else:
-            if len(menu) > BAND_MAX:
+            cap = BAND_MAX_BOOKMARKS if in_bookmarks else BAND_MAX
+            if len(menu) > cap:
                 out.append(PLATFORM_NAV + ": menu '" + label + "' has " + str(len(menu))
-                           + " entries (max " + str(BAND_MAX) + ")")
+                           + " entries (max " + str(cap) + ")")
             for i, s in enumerate(menu):
-                check_node(s, label + "[" + str(i) + "]", depth + 1)
+                check_node(s, label + "[" + str(i) + "]", depth + 1, in_bookmarks)
 
     hhref = (pnav.get("home") or {}).get("href")
     if isinstance(hhref, str) and hhref and band_href_bad(hhref):
@@ -608,7 +695,8 @@ def platform_band_problems(pnav: dict) -> list[str]:
         if key is not None and n > 1:
             out.append(PLATFORM_NAV + ": item id '" + str(key) + "' is used " + str(n) + " times")
     for idx, it in enumerate(items):
-        check_node(it, "item[" + str(idx) + "]", 0)
+        check_node(it, "item[" + str(idx) + "]", 0,
+                   isinstance(it, dict) and it.get("id") == "bookmarks")
 
     # the Library menu both covers every library navbar category and points only at the
     # library's own navigation (its labels differ from the navbar's by design, so match routes)
@@ -640,11 +728,40 @@ def platform_band_problems(pnav: dict) -> list[str]:
     return out
 
 
+def _band_entry(e: dict, out: list, indent: str) -> None:
+    """Render one menu entry. A group (an entry carrying its own menu) is a link plus a
+    caret plus a side fly-out holding its own entries, rendered the same way at every depth,
+    so a Bookmarks category and a subsection are built alike. A plain leaf is a lone link; an
+    external leaf adds the --ext class, target/rel, a silent arrow marker and a visually
+    hidden "opens in a new tab" note so its accessible name ends with it. Pending entries are
+    dropped by the caller."""
+    sub = [s for s in e.get("menu", []) if "pending" not in s]
+    if sub:
+        out.append(indent + '<div class="tsw-bar__group">')
+        out.append(indent + '  <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="'
+                   + html_esc(e["href"]) + '">' + html_esc(e["label"]) + "</a>")
+        out.append(indent + '  <button class="tsw-bar__caret" type="button" aria-expanded="false"'
+                   ' aria-label="' + html_esc(e["label"]) + ' submenu">'
+                   '<span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>')
+        out.append(indent + '  <div class="tsw-bar__flyout">')
+        for s in sub:
+            _band_entry(s, out, indent + "    ")
+        out.append(indent + "  </div>")
+        out.append(indent + "</div>")
+    elif e.get("external") is True:
+        out.append(indent + '<a class="tsw-bar__mlink tsw-bar__mlink--ext" href="' + html_esc(e["href"])
+                   + '" target="_blank" rel="noopener noreferrer">' + html_esc(e["label"])
+                   + '<span class="tsw-bar__ext" aria-hidden="true"></span>'
+                   + '<span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>')
+    else:
+        out.append(indent + '<a class="tsw-bar__mlink" href="' + html_esc(e["href"])
+                   + '">' + html_esc(e["label"]) + "</a>")
+
+
 def platform_band(pnav: dict) -> str:
-    """The band markup: a real link plus a toggle button per top-level item; for a
-    Bookmarks category that carries its own menu, a link plus a caret plus a side
-    fly-out. An entry with a 'pending' note (agreed but its address does not work yet)
-    is not rendered."""
+    """The band markup: a real link plus a toggle button per top-level item; each menu entry
+    is rendered by _band_entry, which recurses for the two Bookmarks levels. An entry with a
+    'pending' note (agreed but its address does not work yet) is not rendered."""
     # A div with role="navigation", not a <nav>: docsify's loadNavbar hijacks the first
     # <nav> in the body (it renders the library's category bar into it), which would wipe
     # the band. role="navigation" + aria-label is the same landmark to assistive tech.
@@ -661,23 +778,7 @@ def platform_band(pnav: dict) -> str:
                        '<span class="tsw-bar__chev" aria-hidden="true"></span></button>')
             out.append('        <div class="tsw-bar__panel">')
             for e in menu:
-                sub = [s for s in e.get("menu", []) if "pending" not in s]
-                if sub:
-                    out.append('          <div class="tsw-bar__group">')
-                    out.append('            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="'
-                               + html_esc(e["href"]) + '">' + html_esc(e["label"]) + "</a>")
-                    out.append('            <button class="tsw-bar__caret" type="button" aria-expanded="false"'
-                               ' aria-label="' + html_esc(e["label"]) + ' submenu">'
-                               '<span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>')
-                    out.append('            <div class="tsw-bar__flyout">')
-                    for s in sub:
-                        out.append('              <a class="tsw-bar__mlink" href="' + html_esc(s["href"])
-                                   + '">' + html_esc(s["label"]) + "</a>")
-                    out.append("            </div>")
-                    out.append("          </div>")
-                else:
-                    out.append('          <a class="tsw-bar__mlink" href="' + html_esc(e["href"])
-                               + '">' + html_esc(e["label"]) + "</a>")
+                _band_entry(e, out, "          ")
             out.append("        </div>")
         out.append("      </li>")
     out.append("    </ul>")
@@ -748,6 +849,75 @@ def band_self_test() -> int:
     libtest = {**base, "items": [{"id": "library", "label": "Library", "href": "https://library.teamstarwolf.com/",
                "menu": [{"label": "Bogus", "href": "https://library.teamstarwolf.com/#/NOT_A_REAL_ROUTE_XYZ"}]}]}
     assert any("is not in the library navbar" in p for p in platform_band_problems(libtest)), "reverse Library check"
+
+    # ---- external-leaf address rule (band_external_href_bad) ----
+    for ok in ("https://nvd.nist.gov/", "https://attack.mitre.org/", "https://owasp.org/www-project-top-ten/"):
+        assert band_external_href_bad(ok) is None, (ok, band_external_href_bad(ok))
+    ext_reject = {
+        "https://nvd.nist.gov/a/..?x=1": "path segment",                 # .. after cutting the query
+        "https://nvd.nist.gov:8443/": "explicit port",                   # explicit port
+        "https://u@nvd.nist.gov/": "userinfo",                           # userinfo
+        "https://1.2.3.4/": "IP literal",                                # IPv4 literal
+        "https://[2001:db8::1]/": "IP literal",                          # IPv6 literal
+        "https://xn--d1acj3b.xn--p1ai/": "punycode",                     # punycode host
+        "https://localhost/x": "single-label",                           # no dot in host
+        "http://nvd.nist.gov/": "not https",                             # non-https
+        "https://nvd.nist.gov/a%2fb": "encoded slash",                   # %2f in path
+        "https://nvd.nist.gov/a" "\\b": "backslash",                     # backslash (literal split so no stray escape)
+        "https://1.2.3.0x7f/": "browser reads as an IP",                 # hex last label (0x7f == 127)
+        "https://127.1/": "browser reads as an IP",                      # short-form IPv4
+        "https://1.2.3/": "browser reads as an IP",                      # three-part IPv4
+        "https://0x7f.0.0.1/": "browser reads as an IP",                 # 0x first label, numeric last
+        "https://nvd.nist.gov./": "empty label",                         # trailing dot
+        "https://nvd..nist.gov/": "empty label",                         # double dot
+        "https://-nvd.nist.gov/": "hyphen",                              # label starts with a hyphen
+        "https://nvd-.nist.gov/": "hyphen",                              # label ends with a hyphen
+        "https://nvd.nist.gov/café": "non-ASCII",                   # non-ASCII in the parsed address
+        "https://github.com/TeamStarWolf/cybersecurity-resources": "internal address wearing the external flag",  # on an internal host
+    }
+    for href, why in ext_reject.items():
+        bad = band_external_href_bad(href)
+        assert bad and why in bad, (href, bad)
+
+    # ---- external-flag placement, Bookmarks nesting and caps in platform_band_problems ----
+    def bm(menu):  # a Bookmarks item wrapping the given menu
+        return {**base, "items": [{"id": "bookmarks", "label": "Bookmarks",
+                "href": "https://github.com/TeamStarWolf/cybersecurity-resources", "menu": menu}]}
+    GH = "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#a"
+    outside = {**base, "items": [{"id": "x", "label": "X", "href": "https://teamstarwolf.com/",
+                "menu": [{"label": "E", "href": "https://nvd.nist.gov/", "external": True}]}]}
+    assert any("external flag outside Bookmarks" in p for p in platform_band_problems(outside)), "flag outside Bookmarks"
+    ownhost = bm([{"label": "C", "href": GH,
+                   "menu": [{"label": "E", "href": "https://library.teamstarwolf.com/x", "external": True}]}])
+    assert any("wearing the external flag" in p for p in platform_band_problems(ownhost)), "internal host wearing the flag"
+    withkids = bm([{"label": "E", "href": "https://nvd.nist.gov/", "external": True,
+                    "menu": [{"label": "L", "href": "https://owasp.org/", "external": True}]}])
+    assert any("external entry has children" in p for p in platform_band_problems(withkids)), "flagged entry with children"
+    twolevels = bm([{"label": "Cat", "href": GH, "menu": [{"label": "Sub", "href": GH,
+        "menu": [{"label": "Leaf", "href": "https://nvd.nist.gov/", "external": True}]}]}])
+    assert not any("too deep" in p for p in platform_band_problems(twolevels)), \
+        ("two-level Bookmarks wrongly flagged", platform_band_problems(twolevels))
+    threelevels = bm([{"label": "Cat", "href": GH, "menu": [{"label": "Sub", "href": GH,
+        "menu": [{"label": "SubSub", "href": GH,
+            "menu": [{"label": "Leaf", "href": "https://nvd.nist.gov/", "external": True}]}]}]}])
+    assert any("too deep" in p for p in platform_band_problems(threelevels)), "three-level Bookmarks not caught"
+    big16 = bm([{"label": str(i), "href": "https://nvd.nist.gov/", "external": True} for i in range(17)])
+    assert any("max 16" in p for p in platform_band_problems(big16)), "16-entry Bookmarks cap not enforced"
+    assert not any("max 16" in p for p in platform_band_problems(
+        bm([{"label": str(i), "href": "https://nvd.nist.gov/", "external": True} for i in range(16)]))), \
+        "exactly 16 Bookmarks entries wrongly flagged"
+    extmarkup = platform_band(bm([{"label": "NVD", "href": "https://nvd.nist.gov/", "external": True}]))
+    assert 'target="_blank"' in extmarkup and 'rel="noopener noreferrer"' in extmarkup, "external link attributes missing"
+    assert "tsw-bar__ext" in extmarkup and "opens in a new tab on an external site" in extmarkup, "external marker/note missing"
+    # band_href_bad must return a reason, not raise, on a null/non-string href
+    assert band_href_bad(None) == "not a string", "band_href_bad(None) should not raise"
+    assert band_href_bad(5) == "not a string", "band_href_bad(5) should not raise"
+    # platform_band_problems catches a DNS-invalid and a non-ASCII external leaf on a real leaf
+    badext = bm([{"label": "E1", "href": "https://-nvd.nist.gov/", "external": True}])
+    assert any("external" in p and "hyphen" in p for p in platform_band_problems(badext)), "DNS-invalid external leaf not caught"
+    nonascii = bm([{"label": "E2", "href": "https://nvd.nist.gov/café", "external": True}])
+    assert any("external" in p and "non-ASCII" in p for p in platform_band_problems(nonascii)), "non-ASCII external leaf not caught"
+
     print("build_site_nav band self-test: all cases pass")
     return 0
 

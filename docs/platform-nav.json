@@ -1,6 +1,6 @@
 {
   "about": "The one menu every TeamStarWolf site shows in its top bar. Each site keeps an identical copy of the published version of this file and renders it in its own stack. Each application's dropdown mirrors that application's own top-level navigation as it stood on 2026-11-20 (the library's top-bar categories, the Hub's views, ATT&CK-Navi's workspaces, the top-level categories of the bookmarks page); change the menu here first, then in every copy. The bar starts with Home, then the four destinations, then GitHub. An entry with a \"pending\" note is agreed but its address does not work yet; a site must not ship it until the note is removed. A menu entry may carry its own \"menu\" of sub-entries, one level deep and no deeper; a site whose bar does not nest shows that entry as a single link and ignores the sub-entries. The file is plain ASCII on purpose: non-ASCII characters in an address are percent-encoded.",
-  "version": 5,
+  "version": 6,
   "home": { "label": "TeamStarWolf", "href": "https://teamstarwolf.com/", "note": "Target for a site's own brand mark where it shows one. The bar itself always carries the Home item below, so a site without a brand mark still has a way back." },
   "items": [
     {
@@ -70,57 +70,552 @@
     {
       "id": "bookmarks",
       "label": "Bookmarks",
-      "href": "https://github.com/TeamStarWolf/cybersecurity-resources",
-      "menu_source": "The twelve top-level categories of LINKS.md in TeamStarWolf/cybersecurity-resources, in file order. Each address ends in that heading's anchor as GitHub renders it, read from the rendered page on 2026-11-20. Two headings begin with an emoji that carries a variation selector (U+FE0F); it is written percent-encoded (%EF%B8%8F), which a browser treats as the same address.",
+      "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md",
+      "source": { "repo": "TeamStarWolf/cybersecurity-resources", "path": "LINKS.md", "commit": "c741fc95a713f5644dc0b3def45057c849d334b4" },
       "menu": [
-        { "label": "Daily driver", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-daily-driver" },
-        { "label": "Vulnerability management", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-vulnerability-management", "menu": [
-          { "label": "CVE and vuln databases", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cve--vuln-databases" },
-          { "label": "Prioritization (KEV, EPSS, CVSS, SSVC)", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#prioritization-kev--epss--cvss--ssvc" },
-          { "label": "Exploits and proof-of-concept", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#exploits--proof-of-concept" },
-          { "label": "Scanners", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#scanners" },
-          { "label": "Lifecycle and end-of-life", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#lifecycle--end-of-life" },
-          { "label": "Weakness taxonomies", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#weakness-taxonomies" }
-        ] },
-        { "label": "Vendor advisories and PSIRTs", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-vendor-advisories--psirts", "menu": [
-          { "label": "Microsoft and cloud", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#microsoft--cloud" },
-          { "label": "OS and Linux distros", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#os--linux-distros" },
-          { "label": "Network and security vendors", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#network--security-vendors" },
-          { "label": "Enterprise applications", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#enterprise-applications" },
-          { "label": "ICS and OT", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#ics--ot" },
-          { "label": "Aggregators and CERT", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#aggregators--cert" }
-        ] },
-        { "label": "Threat intelligence", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-threat-intelligence", "menu": [
-          { "label": "Feeds and IOC lookup", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#feeds--ioc-lookup" },
-          { "label": "APT and adversary tracking", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#apt--adversary-tracking" },
-          { "label": "CTI vendor research blogs", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cti-vendor-research-blogs" },
-          { "label": "Threat reports and landscape", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#threat-reports--landscape" },
-          { "label": "CTI platforms", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cti-platforms" }
-        ] },
-        { "label": "Gov, CERT and alerts", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-gov--cert--alerts" },
-        { "label": "Frameworks and standards", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-frameworks--standards", "menu": [
-          { "label": "MITRE", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#mitre" },
-          { "label": "NIST", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#nist" },
-          { "label": "CIS", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cis" },
-          { "label": "OWASP and AppSec", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#owasp--appsec" }
-        ] },
-        { "label": "Offensive and tooling", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#%EF%B8%8F-offensive--tooling", "menu": [
-          { "label": "Recon and OSINT", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#recon--osint" },
-          { "label": "Web app", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#web-app" },
-          { "label": "Active Directory and Windows", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#active-directory--windows" },
-          { "label": "C2 frameworks", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#c2-frameworks" },
-          { "label": "Cheatsheets and payloads", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cheatsheets--payloads" },
-          { "label": "Scanning and network", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#scanning--network" }
-        ] },
-        { "label": "DFIR and malware analysis", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-dfir--malware-analysis", "menu": [
-          { "label": "Sandboxes and lookup", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#sandboxes--lookup" },
-          { "label": "DFIR tools", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#dfir-tools" },
-          { "label": "Reverse engineering", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#reverse-engineering" }
-        ] },
-        { "label": "Cloud and container", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#%EF%B8%8F-cloud--container" },
-        { "label": "Detection engineering and blue team", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-detection-engineering--blue-team" },
-        { "label": "Labs and training", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-labs--training" },
-        { "label": "News and research", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-news--research" }
+        {
+          "label": "Daily Driver",
+          "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-daily-driver",
+          "menu": [
+            { "label": "NVD: National Vulnerability Database", "href": "https://nvd.nist.gov/", "external": true },
+            { "label": "CISA KEV: Known Exploited Vulnerabilities", "href": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog", "external": true },
+            { "label": "FIRST EPSS: Exploit Prediction Scoring System", "href": "https://www.first.org/epss/", "external": true },
+            { "label": "VulnCheck", "href": "https://vulncheck.com/", "external": true },
+            { "label": "MITRE ATT&CK", "href": "https://attack.mitre.org/", "external": true },
+            { "label": "VirusTotal", "href": "https://www.virustotal.com/", "external": true },
+            { "label": "Shodan", "href": "https://www.shodan.io/", "external": true },
+            { "label": "GreyNoise Visualizer", "href": "https://viz.greynoise.io/", "external": true },
+            { "label": "abuse.ch ThreatFox (IOCs)", "href": "https://threatfox.abuse.ch/", "external": true },
+            { "label": "Exploit-DB", "href": "https://www.exploit-db.com/", "external": true },
+            { "label": "BleepingComputer", "href": "https://www.bleepingcomputer.com/", "external": true },
+            { "label": "SANS Internet Storm Center", "href": "https://isc.sans.edu/", "external": true }
+          ]
+        },
+        {
+          "label": "Vulnerability Management",
+          "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-vulnerability-management",
+          "menu": [
+            {
+              "label": "CVE & Vuln Databases",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cve--vuln-databases",
+              "menu": [
+                { "label": "NVD (NIST)", "href": "https://nvd.nist.gov/", "external": true },
+                { "label": "CVE.org (MITRE)", "href": "https://www.cve.org/", "external": true },
+                { "label": "CVE Details", "href": "https://www.cvedetails.com/", "external": true },
+                { "label": "OpenCVE", "href": "https://www.opencve.io/", "external": true },
+                { "label": "OSV: Open Source Vulnerabilities", "href": "https://osv.dev/", "external": true },
+                { "label": "GitHub Advisory Database", "href": "https://github.com/advisories", "external": true },
+                { "label": "VulnCheck", "href": "https://vulncheck.com/", "external": true },
+                { "label": "Vulners", "href": "https://vulners.com/", "external": true },
+                { "label": "VulDB", "href": "https://vuldb.com/", "external": true },
+                { "label": "Snyk Vulnerability DB", "href": "https://security.snyk.io/", "external": true },
+                { "label": "Mend Vulnerability DB", "href": "https://www.mend.io/vulnerability-database/", "external": true },
+                { "label": "Rapid7 Vuln & Exploit DB", "href": "https://www.rapid7.com/db/", "external": true },
+                { "label": "Tenable CVE Database", "href": "https://www.tenable.com/cve", "external": true },
+                { "label": "cvecrowd (trending CVEs)", "href": "https://cvecrowd.com/", "external": true }
+              ]
+            },
+            {
+              "label": "Prioritization (KEV / EPSS / CVSS / SSVC)",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#prioritization-kev--epss--cvss--ssvc",
+              "menu": [
+                { "label": "CISA KEV Catalog", "href": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog", "external": true },
+                { "label": "FIRST EPSS", "href": "https://www.first.org/epss/", "external": true },
+                { "label": "EPSS Data", "href": "https://www.first.org/epss/data", "external": true },
+                { "label": "CVSS v4.0 Calculator", "href": "https://www.first.org/cvss/calculator/4.0", "external": true },
+                { "label": "CVSS v3.1 Calculator", "href": "https://www.first.org/cvss/calculator/3.1", "external": true },
+                { "label": "CISA SSVC", "href": "https://www.cisa.gov/ssvc", "external": true },
+                { "label": "SSVC Calculator (CERT/CC)", "href": "https://certcc.github.io/SSVC/ssvc-calc/", "external": true }
+              ]
+            },
+            {
+              "label": "Exploits & Proof-of-Concept",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#exploits--proof-of-concept",
+              "menu": [
+                { "label": "Exploit-DB", "href": "https://www.exploit-db.com/", "external": true },
+                { "label": "Metasploit Modules (Rapid7 DB)", "href": "https://www.rapid7.com/db/?type=metasploit", "external": true },
+                { "label": "Nuclei Templates", "href": "https://github.com/projectdiscovery/nuclei-templates", "external": true },
+                { "label": "PoC-in-GitHub (nomi-sec)", "href": "https://github.com/nomi-sec/PoC-in-GitHub", "external": true },
+                { "label": "Trickest CVE \u2192 PoC", "href": "https://github.com/trickest/cve", "external": true },
+                { "label": "Packet Storm", "href": "https://packetstorm.news/", "external": true },
+                { "label": "Sploitus", "href": "https://sploitus.com/", "external": true },
+                { "label": "VulnCheck XDB (exploits)", "href": "https://vulncheck.com/xdb", "external": true }
+              ]
+            },
+            {
+              "label": "Scanners",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#scanners",
+              "menu": [
+                { "label": "Tenable Nessus", "href": "https://www.tenable.com/products/nessus", "external": true },
+                { "label": "Qualys VMDR", "href": "https://www.qualys.com/apps/vulnerability-management-detection-response/", "external": true },
+                { "label": "Rapid7 InsightVM", "href": "https://www.rapid7.com/products/insightvm/", "external": true },
+                { "label": "OpenVAS / Greenbone", "href": "https://www.greenbone.net/en/community-edition/", "external": true },
+                { "label": "Nuclei", "href": "https://github.com/projectdiscovery/nuclei", "external": true },
+                { "label": "OSV-Scanner", "href": "https://github.com/google/osv-scanner", "external": true },
+                { "label": "Trivy", "href": "https://github.com/aquasecurity/trivy", "external": true },
+                { "label": "Grype", "href": "https://github.com/anchore/grype", "external": true }
+              ]
+            },
+            {
+              "label": "Lifecycle & End-of-Life",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#lifecycle--end-of-life",
+              "menu": [
+                { "label": "endoflife.date", "href": "https://endoflife.date/", "external": true },
+                { "label": "Microsoft Product Lifecycle", "href": "https://learn.microsoft.com/en-us/lifecycle/", "external": true }
+              ]
+            },
+            {
+              "label": "Weakness Taxonomies",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#weakness-taxonomies",
+              "menu": [
+                { "label": "CWE: Common Weakness Enumeration", "href": "https://cwe.mitre.org/", "external": true },
+                { "label": "CWE Top 25", "href": "https://cwe.mitre.org/top25/", "external": true },
+                { "label": "CAPEC: Attack Patterns", "href": "https://capec.mitre.org/", "external": true }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Vendor Advisories & PSIRTs",
+          "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-vendor-advisories--psirts",
+          "menu": [
+            {
+              "label": "Microsoft & Cloud",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#microsoft--cloud",
+              "menu": [
+                { "label": "Microsoft MSRC Update Guide", "href": "https://msrc.microsoft.com/update-guide/", "external": true },
+                { "label": "MSRC Security Update Blog", "href": "https://www.microsoft.com/en-us/msrc/blog", "external": true },
+                { "label": "AWS Security Bulletins", "href": "https://aws.amazon.com/security/security-bulletins/", "external": true },
+                { "label": "Google Cloud Security Bulletins", "href": "https://docs.cloud.google.com/support/bulletins", "external": true }
+              ]
+            },
+            {
+              "label": "OS & Linux Distros",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#os--linux-distros",
+              "menu": [
+                { "label": "Apple Security Releases", "href": "https://support.apple.com/en-us/100100", "external": true },
+                { "label": "Android Security Bulletins", "href": "https://source.android.com/docs/security/bulletin", "external": true },
+                { "label": "Chrome Releases", "href": "https://chromereleases.googleblog.com/", "external": true },
+                { "label": "Ubuntu Security Notices (USN)", "href": "https://ubuntu.com/security/notices", "external": true },
+                { "label": "Red Hat Security Updates", "href": "https://access.redhat.com/security/security-updates/", "external": true },
+                { "label": "Debian Security Advisories", "href": "https://www.debian.org/security/", "external": true },
+                { "label": "SUSE Security Updates", "href": "https://www.suse.com/support/update/", "external": true },
+                { "label": "Amazon Linux ALAS", "href": "https://alas.aws.amazon.com/", "external": true }
+              ]
+            },
+            {
+              "label": "Network & Security Vendors",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#network--security-vendors",
+              "menu": [
+                { "label": "Cisco Security Advisories", "href": "https://sec.cloudapps.cisco.com/security/center/publicationListing.x", "external": true },
+                { "label": "Palo Alto Networks Security", "href": "https://security.paloaltonetworks.com/", "external": true },
+                { "label": "Fortinet FortiGuard PSIRT", "href": "https://www.fortiguard.com/psirt", "external": true },
+                { "label": "F5 Security Advisories", "href": "https://my.f5.com/manage/s/tech-documents", "external": true },
+                { "label": "Citrix Security Bulletins", "href": "https://support.citrix.com/securitybulletins", "external": true },
+                { "label": "Ivanti Security Advisories", "href": "https://www.ivanti.com/blog/topics/security-advisory", "external": true },
+                { "label": "SonicWall PSIRT", "href": "https://psirt.global.sonicwall.com/vuln-list", "external": true },
+                { "label": "VMware (Broadcom) Security Advisories", "href": "https://www.broadcom.com/support/vmware-security-advisories", "external": true },
+                { "label": "Juniper Support Portal (SIRT)", "href": "https://supportportal.juniper.net/", "external": true },
+                { "label": "Check Point Support", "href": "https://support.checkpoint.com/", "external": true }
+              ]
+            },
+            {
+              "label": "Enterprise Applications",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#enterprise-applications",
+              "menu": [
+                { "label": "Oracle Critical Patch Updates", "href": "https://www.oracle.com/security-alerts/", "external": true },
+                { "label": "SAP Security Notes", "href": "https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html", "external": true },
+                { "label": "IBM PSIRT / Security Bulletins", "href": "https://www.ibm.com/trust/security-psirt", "external": true },
+                { "label": "Adobe Security Bulletins", "href": "https://www.adobe.com/trust/security/bulletins-and-advisories.html", "external": true },
+                { "label": "Atlassian Security Advisories", "href": "https://www.atlassian.com/trust/security/advisories", "external": true },
+                { "label": "GitLab Advisory Database", "href": "https://advisories.gitlab.com/", "external": true },
+                { "label": "Jenkins Security Advisories", "href": "https://www.jenkins.io/security/advisories/", "external": true }
+              ]
+            },
+            {
+              "label": "ICS / OT",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#ics--ot",
+              "menu": [
+                { "label": "CISA Cybersecurity Advisories (incl. ICS)", "href": "https://www.cisa.gov/news-events/cybersecurity-advisories", "external": true },
+                { "label": "CISA Industrial Control Systems", "href": "https://www.cisa.gov/topics/industrial-control-systems", "external": true },
+                { "label": "Siemens ProductCERT", "href": "https://productcert.siemens.com/", "external": true },
+                { "label": "Schneider Electric Security Notifications", "href": "https://www.se.com/ww/en/work/support/cybersecurity/security-notifications.jsp", "external": true }
+              ]
+            },
+            {
+              "label": "Aggregators & CERT",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#aggregators--cert",
+              "menu": [
+                { "label": "CISA All Advisories", "href": "https://www.cisa.gov/news-events/cybersecurity-advisories", "external": true },
+                { "label": "CERT/CC Vulnerability Notes", "href": "https://www.kb.cert.org/vuls/", "external": true },
+                { "label": "GitHub Advisory Database", "href": "https://github.com/advisories", "external": true }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Threat Intelligence",
+          "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-threat-intelligence",
+          "menu": [
+            {
+              "label": "Feeds & IOC Lookup",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#feeds--ioc-lookup",
+              "menu": [
+                { "label": "abuse.ch URLhaus", "href": "https://urlhaus.abuse.ch/", "external": true },
+                { "label": "abuse.ch MalwareBazaar", "href": "https://bazaar.abuse.ch/", "external": true },
+                { "label": "abuse.ch ThreatFox", "href": "https://threatfox.abuse.ch/", "external": true },
+                { "label": "abuse.ch Feodo Tracker", "href": "https://feodotracker.abuse.ch/", "external": true },
+                { "label": "abuse.ch YARAify", "href": "https://yaraify.abuse.ch/", "external": true },
+                { "label": "VirusTotal", "href": "https://www.virustotal.com/", "external": true },
+                { "label": "LevelBlue OTX (AlienVault)", "href": "https://otx.alienvault.com/", "external": true },
+                { "label": "AbuseIPDB", "href": "https://www.abuseipdb.com/", "external": true },
+                { "label": "Pulsedive", "href": "https://pulsedive.com/", "external": true },
+                { "label": "GreyNoise", "href": "https://viz.greynoise.io/", "external": true },
+                { "label": "Shodan", "href": "https://www.shodan.io/", "external": true },
+                { "label": "Censys Search", "href": "https://search.censys.io/", "external": true },
+                { "label": "Onyphe", "href": "https://www.onyphe.com/", "external": true },
+                { "label": "crt.sh (certificate search)", "href": "https://crt.sh/", "external": true }
+              ]
+            },
+            {
+              "label": "APT & Adversary Tracking",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#apt--adversary-tracking",
+              "menu": [
+                { "label": "MITRE ATT&CK Groups", "href": "https://attack.mitre.org/groups/", "external": true },
+                { "label": "MITRE ATT&CK Software", "href": "https://attack.mitre.org/software/", "external": true },
+                { "label": "Malpedia", "href": "https://malpedia.caad.fkie.fraunhofer.de/", "external": true },
+                { "label": "ETDA/ThaiCERT APT Groups", "href": "https://apt.etda.or.th/cgi-bin/aptgroups.cgi", "external": true },
+                { "label": "MISP Galaxy", "href": "https://www.misp-galaxy.org/", "external": true },
+                { "label": "ORKL: Threat Report Library", "href": "https://orkl.eu/", "external": true },
+                { "label": "CrowdStrike Adversary Universe", "href": "https://www.crowdstrike.com/en-us/adversaries/", "external": true },
+                { "label": "Microsoft Threat Actor Naming", "href": "https://learn.microsoft.com/en-us/unified-secops-platform/microsoft-threat-actor-naming", "external": true }
+              ]
+            },
+            {
+              "label": "CTI Vendor Research Blogs",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cti-vendor-research-blogs",
+              "menu": [
+                { "label": "Google Threat Intelligence (Mandiant)", "href": "https://cloud.google.com/blog/topics/threat-intelligence", "external": true },
+                { "label": "Google Threat Analysis Group (TAG)", "href": "https://blog.google/threat-analysis-group/", "external": true },
+                { "label": "Microsoft Threat Intelligence", "href": "https://www.microsoft.com/en-us/security/blog/topic/threat-intelligence/", "external": true },
+                { "label": "Cisco Talos", "href": "https://blog.talosintelligence.com/", "external": true },
+                { "label": "Palo Alto Unit 42", "href": "https://unit42.paloaltonetworks.com/", "external": true },
+                { "label": "CrowdStrike Blog", "href": "https://www.crowdstrike.com/blog/", "external": true },
+                { "label": "Recorded Future", "href": "https://www.recordedfuture.com/blog", "external": true },
+                { "label": "Check Point Research", "href": "https://research.checkpoint.com/", "external": true },
+                { "label": "ESET WeLiveSecurity", "href": "https://www.welivesecurity.com/", "external": true },
+                { "label": "Kaspersky Securelist", "href": "https://securelist.com/", "external": true },
+                { "label": "Volexity", "href": "https://www.volexity.com/blog/", "external": true },
+                { "label": "The DFIR Report", "href": "https://thedfirreport.com/", "external": true },
+                { "label": "Sekoia Blog", "href": "https://www.sekoia.com/blog", "external": true }
+              ]
+            },
+            {
+              "label": "Threat Reports & Landscape",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#threat-reports--landscape",
+              "menu": [
+                { "label": "Verizon DBIR", "href": "https://www.verizon.com/business/resources/reports/dbir/", "external": true },
+                { "label": "M-Trends (Mandiant)", "href": "https://cloud.google.com/security/resources/m-trends", "external": true },
+                { "label": "CrowdStrike Global Threat Report", "href": "https://www.crowdstrike.com/global-threat-report/", "external": true },
+                { "label": "ENISA Threat Landscape", "href": "https://www.enisa.europa.eu/topics/cyber-threats", "external": true },
+                { "label": "IBM X-Force Threat Intelligence", "href": "https://www.ibm.com/reports/threat-intelligence", "external": true }
+              ]
+            },
+            {
+              "label": "CTI Platforms",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cti-platforms",
+              "menu": [
+                { "label": "MISP", "href": "https://www.misp-project.org/", "external": true },
+                { "label": "OpenCTI", "href": "https://filigran.io/products/opencti", "external": true },
+                { "label": "Yeti", "href": "https://yeti-platform.io/", "external": true },
+                { "label": "IntelOwl", "href": "https://github.com/intelowlproject/IntelOwl", "external": true },
+                { "label": "OASIS STIX/TAXII", "href": "https://oasis-open.github.io/cti-documentation/", "external": true }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Gov / CERT / Alerts",
+          "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-gov--cert--alerts",
+          "menu": [
+            { "label": "CISA Cybersecurity Advisories", "href": "https://www.cisa.gov/news-events/cybersecurity-advisories", "external": true },
+            { "label": "CISA KEV Catalog", "href": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog", "external": true },
+            { "label": "CISA #StopRansomware", "href": "https://www.cisa.gov/stopransomware", "external": true },
+            { "label": "CISA Secure by Design", "href": "https://www.cisa.gov/securebydesign", "external": true },
+            { "label": "CERT/CC Vulnerability Notes", "href": "https://www.kb.cert.org/vuls/", "external": true },
+            { "label": "NCSC UK", "href": "https://www.ncsc.gov.uk/", "external": true },
+            { "label": "ACSC (Australia)", "href": "https://www.cyber.gov.au/", "external": true },
+            { "label": "Canadian Centre for Cyber Security", "href": "https://www.cyber.gc.ca/en", "external": true },
+            { "label": "ENISA", "href": "https://www.enisa.europa.eu/", "external": true },
+            { "label": "FBI IC3", "href": "https://www.ic3.gov/", "external": true },
+            { "label": "HHS HC3 (Healthcare)", "href": "https://www.hhs.gov/hc3", "external": true }
+          ]
+        },
+        {
+          "label": "Frameworks & Standards",
+          "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-frameworks--standards",
+          "menu": [
+            {
+              "label": "MITRE",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#mitre",
+              "menu": [
+                { "label": "ATT&CK", "href": "https://attack.mitre.org/", "external": true },
+                { "label": "D3FEND", "href": "https://d3fend.mitre.org/", "external": true },
+                { "label": "CAPEC", "href": "https://capec.mitre.org/", "external": true },
+                { "label": "CWE", "href": "https://cwe.mitre.org/", "external": true },
+                { "label": "ATLAS (AI)", "href": "https://atlas.mitre.org/", "external": true },
+                { "label": "Engage", "href": "https://engage.mitre.org/", "external": true },
+                { "label": "EMB3D", "href": "https://emb3d.mitre.org/", "external": true },
+                { "label": "CAR: Cyber Analytics Repository", "href": "https://car.mitre.org/", "external": true },
+                { "label": "Center for Threat-Informed Defense", "href": "https://ctid.mitre.org/", "external": true },
+                { "label": "CTID Mappings Explorer", "href": "https://center-for-threat-informed-defense.github.io/mappings-explorer/", "external": true }
+              ]
+            },
+            {
+              "label": "NIST",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#nist",
+              "menu": [
+                { "label": "NIST Cybersecurity Framework (CSF)", "href": "https://www.nist.gov/cyberframework", "external": true },
+                { "label": "NIST CSRC", "href": "https://csrc.nist.gov/", "external": true },
+                { "label": "SP 800-53 Rev 5", "href": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final", "external": true },
+                { "label": "NVD", "href": "https://nvd.nist.gov/", "external": true },
+                { "label": "OSCAL", "href": "https://pages.nist.gov/OSCAL/", "external": true },
+                { "label": "CPRT (Cybersecurity and Privacy Reference Tool)", "href": "https://csrc.nist.gov/projects/cprt", "external": true }
+              ]
+            },
+            {
+              "label": "CIS",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cis",
+              "menu": [
+                { "label": "CIS Controls", "href": "https://www.cisecurity.org/controls", "external": true },
+                { "label": "CIS Benchmarks", "href": "https://www.cisecurity.org/cis-benchmarks", "external": true }
+              ]
+            },
+            {
+              "label": "OWASP & AppSec",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#owasp--appsec",
+              "menu": [
+                { "label": "OWASP Top 10", "href": "https://owasp.org/www-project-top-ten/", "external": true },
+                { "label": "OWASP ASVS", "href": "https://asvs.owasp.org/", "external": true },
+                { "label": "OWASP Web Security Testing Guide", "href": "https://owasp.org/www-project-web-security-testing-guide/", "external": true },
+                { "label": "OWASP MASTG (Mobile)", "href": "https://mas.owasp.org/", "external": true },
+                { "label": "OWASP Cheat Sheet Series", "href": "https://cheatsheetseries.owasp.org/", "external": true },
+                { "label": "OWASP SAMM", "href": "https://owaspsamm.org/", "external": true },
+                { "label": "OWASP Threat Dragon", "href": "https://owasp.org/www-project-threat-dragon/", "external": true }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Offensive & Tooling",
+          "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#%EF%B8%8F-offensive--tooling",
+          "menu": [
+            {
+              "label": "Recon & OSINT",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#recon--osint",
+              "menu": [
+                { "label": "theHarvester", "href": "https://github.com/laramies/theHarvester", "external": true },
+                { "label": "OWASP Amass", "href": "https://github.com/owasp-amass/amass", "external": true },
+                { "label": "subfinder", "href": "https://github.com/projectdiscovery/subfinder", "external": true },
+                { "label": "SpiderFoot", "href": "https://github.com/smicallef/spiderfoot", "external": true },
+                { "label": "recon-ng", "href": "https://github.com/lanmaster53/recon-ng", "external": true },
+                { "label": "Maltego", "href": "https://www.maltego.com/", "external": true },
+                { "label": "crt.sh", "href": "https://crt.sh/", "external": true }
+              ]
+            },
+            {
+              "label": "Web App",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#web-app",
+              "menu": [
+                { "label": "Burp Suite", "href": "https://portswigger.net/burp", "external": true },
+                { "label": "ZAP (Zed Attack Proxy)", "href": "https://www.zaproxy.org/", "external": true },
+                { "label": "Caido", "href": "https://caido.io/", "external": true },
+                { "label": "ffuf", "href": "https://github.com/ffuf/ffuf", "external": true },
+                { "label": "sqlmap", "href": "https://sqlmap.org/", "external": true },
+                { "label": "Nuclei", "href": "https://github.com/projectdiscovery/nuclei", "external": true },
+                { "label": "Nikto", "href": "https://github.com/sullo/nikto", "external": true },
+                { "label": "PortSwigger Web Security Academy", "href": "https://portswigger.net/web-security", "external": true }
+              ]
+            },
+            {
+              "label": "Active Directory & Windows",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#active-directory--windows",
+              "menu": [
+                { "label": "BloodHound CE", "href": "https://github.com/SpecterOps/BloodHound", "external": true },
+                { "label": "SharpHound", "href": "https://github.com/SpecterOps/SharpHound", "external": true },
+                { "label": "Impacket", "href": "https://github.com/fortra/impacket", "external": true },
+                { "label": "NetExec (nxc)", "href": "https://github.com/Pennyw0rth/NetExec", "external": true },
+                { "label": "Rubeus", "href": "https://github.com/GhostPack/Rubeus", "external": true },
+                { "label": "Mimikatz", "href": "https://github.com/gentilkiwi/mimikatz", "external": true },
+                { "label": "Responder", "href": "https://github.com/lgandx/Responder", "external": true },
+                { "label": "Kerbrute", "href": "https://github.com/ropnop/kerbrute", "external": true },
+                { "label": "PingCastle", "href": "https://www.pingcastle.com/", "external": true }
+              ]
+            },
+            {
+              "label": "C2 Frameworks",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#c2-frameworks",
+              "menu": [
+                { "label": "Metasploit Framework", "href": "https://github.com/rapid7/metasploit-framework", "external": true },
+                { "label": "Sliver", "href": "https://github.com/BishopFox/sliver", "external": true },
+                { "label": "Havoc", "href": "https://github.com/HavocFramework/Havoc", "external": true },
+                { "label": "Mythic", "href": "https://github.com/its-a-feature/Mythic", "external": true },
+                { "label": "Cobalt Strike", "href": "https://www.cobaltstrike.com/", "external": true },
+                { "label": "PoshC2", "href": "https://github.com/nettitude/PoshC2", "external": true }
+              ]
+            },
+            {
+              "label": "Cheatsheets & Payloads",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cheatsheets--payloads",
+              "menu": [
+                { "label": "HackTricks", "href": "https://hacktricks.wiki/", "external": true },
+                { "label": "PayloadsAllTheThings", "href": "https://github.com/swisskyrepo/PayloadsAllTheThings", "external": true },
+                { "label": "GTFOBins", "href": "https://gtfobins.org/", "external": true },
+                { "label": "LOLBAS", "href": "https://lolbas-project.github.io/", "external": true },
+                { "label": "LOLDrivers", "href": "https://www.loldrivers.io/", "external": true },
+                { "label": "WADComs", "href": "https://wadcoms.github.io/", "external": true },
+                { "label": "RevShells", "href": "https://www.revshells.com/", "external": true },
+                { "label": "CyberChef", "href": "https://gchq.github.io/CyberChef/", "external": true },
+                { "label": "CrackStation", "href": "https://crackstation.net/", "external": true }
+              ]
+            },
+            {
+              "label": "Scanning & Network",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#scanning--network",
+              "menu": [
+                { "label": "Nmap", "href": "https://nmap.org/", "external": true },
+                { "label": "Masscan", "href": "https://github.com/robertdavidgraham/masscan", "external": true },
+                { "label": "naabu", "href": "https://github.com/projectdiscovery/naabu", "external": true },
+                { "label": "Wireshark", "href": "https://www.wireshark.org/", "external": true },
+                { "label": "Zeek", "href": "https://zeek.org/", "external": true }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "DFIR & Malware Analysis",
+          "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-dfir--malware-analysis",
+          "menu": [
+            {
+              "label": "Sandboxes & Lookup",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#sandboxes--lookup",
+              "menu": [
+                { "label": "Any.run", "href": "https://any.run/", "external": true },
+                { "label": "Hybrid Analysis", "href": "https://www.hybrid-analysis.com/", "external": true },
+                { "label": "Joe Sandbox", "href": "https://www.joesandbox.com/", "external": true },
+                { "label": "Hatching Triage", "href": "https://tria.ge/", "external": true },
+                { "label": "MalwareBazaar", "href": "https://bazaar.abuse.ch/", "external": true },
+                { "label": "VirusTotal", "href": "https://www.virustotal.com/", "external": true },
+                { "label": "UnpacMe", "href": "https://www.unpac.me/", "external": true },
+                { "label": "Malpedia", "href": "https://malpedia.caad.fkie.fraunhofer.de/", "external": true }
+              ]
+            },
+            {
+              "label": "DFIR Tools",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#dfir-tools",
+              "menu": [
+                { "label": "Volatility 3", "href": "https://github.com/volatilityfoundation/volatility3", "external": true },
+                { "label": "Autopsy", "href": "https://www.autopsy.com/", "external": true },
+                { "label": "KAPE", "href": "https://www.kroll.com/en/insights/publications/cyber/kroll-artifact-parser-extractor-kape", "external": true },
+                { "label": "Eric Zimmerman Tools", "href": "https://ericzimmerman.github.io/", "external": true },
+                { "label": "Velociraptor", "href": "https://github.com/Velocidex/velociraptor", "external": true },
+                { "label": "Chainsaw", "href": "https://github.com/WithSecureLabs/chainsaw", "external": true },
+                { "label": "Timesketch", "href": "https://github.com/google/timesketch", "external": true },
+                { "label": "plaso (log2timeline)", "href": "https://github.com/log2timeline/plaso", "external": true },
+                { "label": "SANS DFIR", "href": "https://www.sans.org/cyber-security-courses/?focus-area=digital-forensics-incident-response", "external": true }
+              ]
+            },
+            {
+              "label": "Reverse Engineering",
+              "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#reverse-engineering",
+              "menu": [
+                { "label": "Ghidra", "href": "https://github.com/NationalSecurityAgency/ghidra", "external": true },
+                { "label": "IDA Free", "href": "https://hex-rays.com/ida-free/", "external": true },
+                { "label": "Binary Ninja", "href": "https://binary.ninja/", "external": true },
+                { "label": "Cutter (rizin)", "href": "https://github.com/rizinorg/cutter", "external": true },
+                { "label": "x64dbg", "href": "https://github.com/x64dbg/x64dbg", "external": true },
+                { "label": "Decompiler Explorer (dogbolt)", "href": "https://dogbolt.org/", "external": true },
+                { "label": "pwntools", "href": "https://github.com/Gallopsled/pwntools", "external": true }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Cloud & Container",
+          "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#%EF%B8%8F-cloud--container",
+          "menu": [
+            { "label": "Prowler", "href": "https://github.com/prowler-cloud/prowler", "external": true },
+            { "label": "ScoutSuite", "href": "https://github.com/nccgroup/ScoutSuite", "external": true },
+            { "label": "Pacu (AWS)", "href": "https://github.com/RhinoSecurityLabs/pacu", "external": true },
+            { "label": "CloudFox", "href": "https://github.com/BishopFox/cloudfox", "external": true },
+            { "label": "kube-bench", "href": "https://github.com/aquasecurity/kube-bench", "external": true },
+            { "label": "kube-hunter", "href": "https://github.com/aquasecurity/kube-hunter", "external": true },
+            { "label": "Trivy", "href": "https://github.com/aquasecurity/trivy", "external": true },
+            { "label": "Falco", "href": "https://github.com/falcosecurity/falco", "external": true },
+            { "label": "Wiz Blog", "href": "https://www.wiz.io/blog", "external": true },
+            { "label": "Hacking the Cloud", "href": "https://hackingthe.cloud/", "external": true },
+            { "label": "AWS Security", "href": "https://aws.amazon.com/security/", "external": true },
+            { "label": "Azure Security", "href": "https://learn.microsoft.com/en-us/azure/security/", "external": true },
+            { "label": "Google Cloud Security", "href": "https://cloud.google.com/security", "external": true }
+          ]
+        },
+        {
+          "label": "Detection Engineering & Blue Team",
+          "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-detection-engineering--blue-team",
+          "menu": [
+            { "label": "Sigma (SigmaHQ)", "href": "https://github.com/SigmaHQ/sigma", "external": true },
+            { "label": "Detection.fyi (Sigma search)", "href": "https://detection.fyi/", "external": true },
+            { "label": "Uncoder.io", "href": "https://uncoder.io/", "external": true },
+            { "label": "Atomic Red Team", "href": "https://github.com/redcanaryco/atomic-red-team", "external": true },
+            { "label": "MITRE Caldera", "href": "https://github.com/mitre/caldera", "external": true },
+            { "label": "Elastic Detection Rules", "href": "https://github.com/elastic/detection-rules", "external": true },
+            { "label": "DetectionLab", "href": "https://github.com/clong/DetectionLab", "external": true },
+            { "label": "EVTX-ATTACK-SAMPLES", "href": "https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES", "external": true },
+            { "label": "Wazuh", "href": "https://wazuh.com/", "external": true },
+            { "label": "YARA", "href": "https://virustotal.github.io/yara/", "external": true }
+          ]
+        },
+        {
+          "label": "Labs & Training",
+          "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-labs--training",
+          "menu": [
+            { "label": "Hack The Box", "href": "https://www.hackthebox.com/", "external": true },
+            { "label": "HTB Academy", "href": "https://academy.hackthebox.com/", "external": true },
+            { "label": "TryHackMe", "href": "https://tryhackme.com/", "external": true },
+            { "label": "PortSwigger Web Security Academy", "href": "https://portswigger.net/web-security", "external": true },
+            { "label": "PentesterLab", "href": "https://pentesterlab.com/", "external": true },
+            { "label": "pwn.college", "href": "https://pwn.college/", "external": true },
+            { "label": "VulnHub", "href": "https://www.vulnhub.com/", "external": true },
+            { "label": "OverTheWire", "href": "https://overthewire.org/wargames/", "external": true },
+            { "label": "CyberDefenders", "href": "https://cyberdefenders.org/", "external": true },
+            { "label": "Blue Team Labs Online", "href": "https://blueteamlabs.online/", "external": true },
+            { "label": "LetsDefend", "href": "https://letsdefend.io/", "external": true },
+            { "label": "RangeForce", "href": "https://www.rangeforce.com/", "external": true },
+            { "label": "Antisyphon Training", "href": "https://www.antisyphontraining.com/", "external": true },
+            { "label": "picoCTF", "href": "https://picoctf.org/", "external": true },
+            { "label": "CTFtime", "href": "https://ctftime.org/", "external": true }
+          ]
+        },
+        {
+          "label": "News & Research",
+          "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-news--research",
+          "menu": [
+            { "label": "BleepingComputer", "href": "https://www.bleepingcomputer.com/", "external": true },
+            { "label": "The Record (Recorded Future)", "href": "https://therecord.media/", "external": true },
+            { "label": "The Hacker News", "href": "https://thehackernews.com/", "external": true },
+            { "label": "Dark Reading", "href": "https://www.darkreading.com/", "external": true },
+            { "label": "KrebsOnSecurity", "href": "https://krebsonsecurity.com/", "external": true },
+            { "label": "SANS Internet Storm Center", "href": "https://isc.sans.edu/", "external": true },
+            { "label": "Risky Business", "href": "https://risky.biz/", "external": true },
+            { "label": "tl;dr sec", "href": "https://tldrsec.com/", "external": true },
+            { "label": "SecurityWeek", "href": "https://www.securityweek.com/", "external": true },
+            { "label": "Help Net Security", "href": "https://www.helpnetsecurity.com/", "external": true },
+            { "label": "Schneier on Security", "href": "https://www.schneier.com/", "external": true },
+            { "label": "DataBreaches.net", "href": "https://databreaches.net/", "external": true },
+            { "label": "Reddit r/netsec", "href": "https://www.reddit.com/r/netsec/", "external": true },
+            { "label": "Reddit r/blueteamsec", "href": "https://www.reddit.com/r/blueteamsec/", "external": true }
+          ]
+        }
       ]
     },
     {

@@ -458,8 +458,9 @@
        build_site_nav.py. 44px in both themes; on desktop a top-level menu opens on hover
        (the button with aria-expanded opens it for keyboard and click) and a Bookmarks
        category with its own menu opens a side fly-out that flips left near the right edge;
-       on phones a menu button reveals an inline accordion. Panels do not scroll (the
-       generator caps any menu at 14 entries). */
+       on phones a menu button reveals an inline accordion (all three levels). Bookmarks
+       nests category > subsection > links and carries external leaves; the generator caps a
+       Bookmarks list at 16 entries and every other menu at 14. */
     .tsw-bar {
       position: fixed; top: 0; left: 0; right: 0; height: var(--tsw-band-h); z-index: 25;
       display: flex; align-items: stretch; box-sizing: border-box; padding: 0 12px;
@@ -477,7 +478,7 @@
       background: none; border: 0; cursor: pointer; color: inherit;
       display: inline-flex; align-items: center; justify-content: center;
     }
-    .tsw-bar__toggle { height: 100%; padding: 0 10px 0 4px; }
+    .tsw-bar__toggle { height: 100%; min-width: 24px; padding: 0 10px 0 4px; }   /* >=24px wide at the top level too */
     .tsw-bar__chev {
       width: 6px; height: 6px; display: inline-block;
       border-right: 1.5px solid var(--tsw-text-dim); border-bottom: 1.5px solid var(--tsw-text-dim);
@@ -497,13 +498,21 @@
     .tsw-bar__item.tsw-open > .tsw-bar__panel { display: block; }
     .tsw-bar__mlink {
       display: block; padding: 6px 10px; border-radius: 6px; font-size: 13px; line-height: 1.3;
-      color: var(--tsw-text-muted); text-decoration: none; white-space: nowrap;
+      color: var(--tsw-text-muted); text-decoration: none; white-space: normal;
     }
     .tsw-bar__mlink:hover { color: var(--tsw-link); }
+    /* External leaf: a silent arrow marker (half opacity) plus a visually hidden note so the
+       accessible name ends "(opens in a new tab on an external site)". */
+    .tsw-bar__mlink--ext .tsw-bar__ext { margin-left: 4px; opacity: .5; }
+    .tsw-bar__mlink--ext .tsw-bar__ext::after { content: "\2197"; }
+    .tsw-bar__sr {
+      position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
 
     .tsw-bar__group { position: relative; display: flex; align-items: center; }
     .tsw-bar__group > .tsw-bar__mlink--parent { flex: 1 1 auto; }
-    .tsw-bar__caret { padding: 6px 8px; border-radius: 6px; }
+    .tsw-bar__caret { min-width: 24px; min-height: 24px; padding: 6px 8px; border-radius: 6px; }
     .tsw-bar__flyout {
       position: absolute; top: -7px; left: 100%; z-index: 31;
       display: none; min-width: 230px; padding: 6px; box-sizing: border-box;
@@ -512,10 +521,11 @@
     }
     .tsw-bar__group.tsw-open > .tsw-bar__flyout { display: block; }
     .tsw-bar__group.tsw-flip > .tsw-bar__flyout { left: auto; right: 100%; }
-    /* Sub-entries are 12px in the muted colour at every width (the contract); the phone
-       accordion also indents them and tints the hovered row. */
-    .tsw-bar__flyout .tsw-bar__mlink { font-size: 12px; color: var(--tsw-text-dim); }
-    .tsw-bar__flyout .tsw-bar__mlink:hover { color: var(--tsw-link); }
+    /* v6: every menu and fly-out link is a uniform 13px in the primary link colour (the 12px
+       muted sub-level is gone). Vertical placement when a fly-out would cross the viewport
+       bottom is set by script as an inline offset (pull up, stopping at the viewport top, then
+       scroll inside only if it is taller than the viewport); at a viewport >=600px high the
+       short real lists never scroll. */
 
     :root[data-theme="light"] .tsw-bar__panel,
     :root[data-theme="light"] .tsw-bar__flyout { box-shadow: 0 10px 28px rgba(21, 19, 31, .14); }
@@ -529,9 +539,13 @@
     .app-nav { top: var(--tsw-band-h); }
     .sidebar { top: var(--tsw-band-h); }
 
-    /* Phone and narrow: a single menu button reveals the items as an inline accordion;
-       the panels and fly-outs become static, indented rows (coarse pointers use the buttons). */
-    @media screen and (max-width: 760px) {
+    /* Small-screen layout: a single menu button reveals the items as an inline accordion; the
+       panels and fly-outs become static, indented rows (coarse pointers use the buttons). Used
+       when the viewport is NARROW *or* too SHORT for the tallest top-level panel - a phone held
+       sideways (e.g. 844x390) gets it too, because the fixed band cannot scroll an overflowing
+       panel into view and a scrolling panel clips the fly-outs. The same condition drives the
+       script (assets/platform-band.js). */
+    @media screen and (max-width: 760px), screen and (max-height: 560px) {
       .tsw-bar { padding: 0 6px; }
       .tsw-bar__menubtn { display: inline-flex; gap: 8px; height: 100%; padding: 0 10px;
         font-size: 13px; font-weight: 600; color: var(--tsw-text-muted); }
@@ -541,21 +555,22 @@
       .tsw-bar__burger::before { top: -5px; } .tsw-bar__burger::after { top: 5px; }
       .tsw-bar__list {
         display: none; position: absolute; top: 100%; left: 0; right: 0; z-index: 30;
-        flex-direction: column; align-items: stretch; padding: 6px;
+        flex-direction: column; align-items: stretch; padding: 6px; box-sizing: border-box;
         background: var(--tsw-surface); border-bottom: 1px solid var(--tsw-border);
         box-shadow: 0 10px 28px var(--tsw-shadow);
-        max-height: calc(100vh - var(--tsw-band-h)); overflow-y: auto;
+        max-height: calc(100vh - var(--tsw-band-h)); overflow-y: auto;   /* border-box: the 6px padding is inside the max-height, so the open list never exceeds the screen */
       }
       .tsw-bar.tsw-bar--open .tsw-bar__list { display: flex; }
       .tsw-bar__item { flex-wrap: wrap; align-items: stretch; }
       .tsw-bar__link { flex: 1 1 auto; height: auto; padding: 10px 12px; }
-      .tsw-bar__toggle { height: auto; padding: 10px 16px; }
+      .tsw-bar__toggle { height: auto; min-height: 44px; padding: 10px 16px; }   /* fills the 44px row on the phone layout */
       .tsw-bar__panel, .tsw-bar__flyout {
         position: static; display: none; width: 100%; min-width: 0;
         border: 0; border-radius: 0; box-shadow: none; padding: 0 0 4px 14px; margin: 0;
       }
       .tsw-bar__item.tsw-open > .tsw-bar__panel { display: block; }
       .tsw-bar__group { flex-wrap: wrap; }
+      .tsw-bar__caret { min-height: 44px; min-width: 44px; }   /* caret fills the 44px row on the phone layout */
       .tsw-bar__group.tsw-open > .tsw-bar__flyout { display: block; left: auto; right: auto; }
       .tsw-bar__flyout .tsw-bar__mlink { padding-left: 14px; }
       .tsw-bar__flyout .tsw-bar__mlink:hover { background: var(--tsw-surface-2); }
@@ -1527,81 +1542,552 @@
         </div>
       </li>
       <li class="tsw-bar__item">
-        <a class="tsw-bar__link" href="https://github.com/TeamStarWolf/cybersecurity-resources">Bookmarks</a>
+        <a class="tsw-bar__link" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md">Bookmarks</a>
         <button class="tsw-bar__toggle" type="button" aria-expanded="false" aria-label="Bookmarks menu"><span class="tsw-bar__chev" aria-hidden="true"></span></button>
         <div class="tsw-bar__panel">
-          <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-daily-driver">Daily driver</a>
           <div class="tsw-bar__group">
-            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-vulnerability-management">Vulnerability management</a>
-            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Vulnerability management submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-daily-driver">Daily Driver</a>
+            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Daily Driver submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
             <div class="tsw-bar__flyout">
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cve--vuln-databases">CVE and vuln databases</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#prioritization-kev--epss--cvss--ssvc">Prioritization (KEV, EPSS, CVSS, SSVC)</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#exploits--proof-of-concept">Exploits and proof-of-concept</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#scanners">Scanners</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#lifecycle--end-of-life">Lifecycle and end-of-life</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#weakness-taxonomies">Weakness taxonomies</a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://nvd.nist.gov/" target="_blank" rel="noopener noreferrer">NVD: National Vulnerability Database<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer">CISA KEV: Known Exploited Vulnerabilities<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.first.org/epss/" target="_blank" rel="noopener noreferrer">FIRST EPSS: Exploit Prediction Scoring System<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://vulncheck.com/" target="_blank" rel="noopener noreferrer">VulnCheck<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://attack.mitre.org/" target="_blank" rel="noopener noreferrer">MITRE ATT&amp;CK<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.virustotal.com/" target="_blank" rel="noopener noreferrer">VirusTotal<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.shodan.io/" target="_blank" rel="noopener noreferrer">Shodan<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://viz.greynoise.io/" target="_blank" rel="noopener noreferrer">GreyNoise Visualizer<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://threatfox.abuse.ch/" target="_blank" rel="noopener noreferrer">abuse.ch ThreatFox (IOCs)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.exploit-db.com/" target="_blank" rel="noopener noreferrer">Exploit-DB<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.bleepingcomputer.com/" target="_blank" rel="noopener noreferrer">BleepingComputer<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://isc.sans.edu/" target="_blank" rel="noopener noreferrer">SANS Internet Storm Center<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
             </div>
           </div>
           <div class="tsw-bar__group">
-            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-vendor-advisories--psirts">Vendor advisories and PSIRTs</a>
-            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Vendor advisories and PSIRTs submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-vulnerability-management">Vulnerability Management</a>
+            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Vulnerability Management submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
             <div class="tsw-bar__flyout">
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#microsoft--cloud">Microsoft and cloud</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#os--linux-distros">OS and Linux distros</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#network--security-vendors">Network and security vendors</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#enterprise-applications">Enterprise applications</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#ics--ot">ICS and OT</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#aggregators--cert">Aggregators and CERT</a>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cve--vuln-databases">CVE &amp; Vuln Databases</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="CVE &amp; Vuln Databases submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://nvd.nist.gov/" target="_blank" rel="noopener noreferrer">NVD (NIST)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.cve.org/" target="_blank" rel="noopener noreferrer">CVE.org (MITRE)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.cvedetails.com/" target="_blank" rel="noopener noreferrer">CVE Details<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.opencve.io/" target="_blank" rel="noopener noreferrer">OpenCVE<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://osv.dev/" target="_blank" rel="noopener noreferrer">OSV: Open Source Vulnerabilities<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/advisories" target="_blank" rel="noopener noreferrer">GitHub Advisory Database<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://vulncheck.com/" target="_blank" rel="noopener noreferrer">VulnCheck<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://vulners.com/" target="_blank" rel="noopener noreferrer">Vulners<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://vuldb.com/" target="_blank" rel="noopener noreferrer">VulDB<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://security.snyk.io/" target="_blank" rel="noopener noreferrer">Snyk Vulnerability DB<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.mend.io/vulnerability-database/" target="_blank" rel="noopener noreferrer">Mend Vulnerability DB<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.rapid7.com/db/" target="_blank" rel="noopener noreferrer">Rapid7 Vuln &amp; Exploit DB<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.tenable.com/cve" target="_blank" rel="noopener noreferrer">Tenable CVE Database<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://cvecrowd.com/" target="_blank" rel="noopener noreferrer">cvecrowd (trending CVEs)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#prioritization-kev--epss--cvss--ssvc">Prioritization (KEV / EPSS / CVSS / SSVC)</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Prioritization (KEV / EPSS / CVSS / SSVC) submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer">CISA KEV Catalog<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.first.org/epss/" target="_blank" rel="noopener noreferrer">FIRST EPSS<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.first.org/epss/data" target="_blank" rel="noopener noreferrer">EPSS Data<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.first.org/cvss/calculator/4.0" target="_blank" rel="noopener noreferrer">CVSS v4.0 Calculator<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.first.org/cvss/calculator/3.1" target="_blank" rel="noopener noreferrer">CVSS v3.1 Calculator<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.cisa.gov/ssvc" target="_blank" rel="noopener noreferrer">CISA SSVC<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://certcc.github.io/SSVC/ssvc-calc/" target="_blank" rel="noopener noreferrer">SSVC Calculator (CERT/CC)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#exploits--proof-of-concept">Exploits &amp; Proof-of-Concept</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Exploits &amp; Proof-of-Concept submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.exploit-db.com/" target="_blank" rel="noopener noreferrer">Exploit-DB<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.rapid7.com/db/?type=metasploit" target="_blank" rel="noopener noreferrer">Metasploit Modules (Rapid7 DB)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/projectdiscovery/nuclei-templates" target="_blank" rel="noopener noreferrer">Nuclei Templates<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/nomi-sec/PoC-in-GitHub" target="_blank" rel="noopener noreferrer">PoC-in-GitHub (nomi-sec)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/trickest/cve" target="_blank" rel="noopener noreferrer">Trickest CVE → PoC<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://packetstorm.news/" target="_blank" rel="noopener noreferrer">Packet Storm<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://sploitus.com/" target="_blank" rel="noopener noreferrer">Sploitus<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://vulncheck.com/xdb" target="_blank" rel="noopener noreferrer">VulnCheck XDB (exploits)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#scanners">Scanners</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Scanners submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.tenable.com/products/nessus" target="_blank" rel="noopener noreferrer">Tenable Nessus<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.qualys.com/apps/vulnerability-management-detection-response/" target="_blank" rel="noopener noreferrer">Qualys VMDR<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.rapid7.com/products/insightvm/" target="_blank" rel="noopener noreferrer">Rapid7 InsightVM<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.greenbone.net/en/community-edition/" target="_blank" rel="noopener noreferrer">OpenVAS / Greenbone<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/projectdiscovery/nuclei" target="_blank" rel="noopener noreferrer">Nuclei<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/google/osv-scanner" target="_blank" rel="noopener noreferrer">OSV-Scanner<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/aquasecurity/trivy" target="_blank" rel="noopener noreferrer">Trivy<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/anchore/grype" target="_blank" rel="noopener noreferrer">Grype<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#lifecycle--end-of-life">Lifecycle &amp; End-of-Life</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Lifecycle &amp; End-of-Life submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://endoflife.date/" target="_blank" rel="noopener noreferrer">endoflife.date<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://learn.microsoft.com/en-us/lifecycle/" target="_blank" rel="noopener noreferrer">Microsoft Product Lifecycle<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#weakness-taxonomies">Weakness Taxonomies</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Weakness Taxonomies submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://cwe.mitre.org/" target="_blank" rel="noopener noreferrer">CWE: Common Weakness Enumeration<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://cwe.mitre.org/top25/" target="_blank" rel="noopener noreferrer">CWE Top 25<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://capec.mitre.org/" target="_blank" rel="noopener noreferrer">CAPEC: Attack Patterns<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
             </div>
           </div>
           <div class="tsw-bar__group">
-            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-threat-intelligence">Threat intelligence</a>
-            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Threat intelligence submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-vendor-advisories--psirts">Vendor Advisories &amp; PSIRTs</a>
+            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Vendor Advisories &amp; PSIRTs submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
             <div class="tsw-bar__flyout">
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#feeds--ioc-lookup">Feeds and IOC lookup</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#apt--adversary-tracking">APT and adversary tracking</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cti-vendor-research-blogs">CTI vendor research blogs</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#threat-reports--landscape">Threat reports and landscape</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cti-platforms">CTI platforms</a>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#microsoft--cloud">Microsoft &amp; Cloud</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Microsoft &amp; Cloud submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://msrc.microsoft.com/update-guide/" target="_blank" rel="noopener noreferrer">Microsoft MSRC Update Guide<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.microsoft.com/en-us/msrc/blog" target="_blank" rel="noopener noreferrer">MSRC Security Update Blog<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://aws.amazon.com/security/security-bulletins/" target="_blank" rel="noopener noreferrer">AWS Security Bulletins<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://docs.cloud.google.com/support/bulletins" target="_blank" rel="noopener noreferrer">Google Cloud Security Bulletins<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#os--linux-distros">OS &amp; Linux Distros</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="OS &amp; Linux Distros submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://support.apple.com/en-us/100100" target="_blank" rel="noopener noreferrer">Apple Security Releases<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://source.android.com/docs/security/bulletin" target="_blank" rel="noopener noreferrer">Android Security Bulletins<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://chromereleases.googleblog.com/" target="_blank" rel="noopener noreferrer">Chrome Releases<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://ubuntu.com/security/notices" target="_blank" rel="noopener noreferrer">Ubuntu Security Notices (USN)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://access.redhat.com/security/security-updates/" target="_blank" rel="noopener noreferrer">Red Hat Security Updates<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.debian.org/security/" target="_blank" rel="noopener noreferrer">Debian Security Advisories<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.suse.com/support/update/" target="_blank" rel="noopener noreferrer">SUSE Security Updates<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://alas.aws.amazon.com/" target="_blank" rel="noopener noreferrer">Amazon Linux ALAS<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#network--security-vendors">Network &amp; Security Vendors</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Network &amp; Security Vendors submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://sec.cloudapps.cisco.com/security/center/publicationListing.x" target="_blank" rel="noopener noreferrer">Cisco Security Advisories<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://security.paloaltonetworks.com/" target="_blank" rel="noopener noreferrer">Palo Alto Networks Security<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.fortiguard.com/psirt" target="_blank" rel="noopener noreferrer">Fortinet FortiGuard PSIRT<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://my.f5.com/manage/s/tech-documents" target="_blank" rel="noopener noreferrer">F5 Security Advisories<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://support.citrix.com/securitybulletins" target="_blank" rel="noopener noreferrer">Citrix Security Bulletins<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.ivanti.com/blog/topics/security-advisory" target="_blank" rel="noopener noreferrer">Ivanti Security Advisories<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://psirt.global.sonicwall.com/vuln-list" target="_blank" rel="noopener noreferrer">SonicWall PSIRT<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.broadcom.com/support/vmware-security-advisories" target="_blank" rel="noopener noreferrer">VMware (Broadcom) Security Advisories<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://supportportal.juniper.net/" target="_blank" rel="noopener noreferrer">Juniper Support Portal (SIRT)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://support.checkpoint.com/" target="_blank" rel="noopener noreferrer">Check Point Support<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#enterprise-applications">Enterprise Applications</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Enterprise Applications submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.oracle.com/security-alerts/" target="_blank" rel="noopener noreferrer">Oracle Critical Patch Updates<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html" target="_blank" rel="noopener noreferrer">SAP Security Notes<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.ibm.com/trust/security-psirt" target="_blank" rel="noopener noreferrer">IBM PSIRT / Security Bulletins<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.adobe.com/trust/security/bulletins-and-advisories.html" target="_blank" rel="noopener noreferrer">Adobe Security Bulletins<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.atlassian.com/trust/security/advisories" target="_blank" rel="noopener noreferrer">Atlassian Security Advisories<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://advisories.gitlab.com/" target="_blank" rel="noopener noreferrer">GitLab Advisory Database<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.jenkins.io/security/advisories/" target="_blank" rel="noopener noreferrer">Jenkins Security Advisories<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#ics--ot">ICS / OT</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="ICS / OT submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.cisa.gov/news-events/cybersecurity-advisories" target="_blank" rel="noopener noreferrer">CISA Cybersecurity Advisories (incl. ICS)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.cisa.gov/topics/industrial-control-systems" target="_blank" rel="noopener noreferrer">CISA Industrial Control Systems<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://productcert.siemens.com/" target="_blank" rel="noopener noreferrer">Siemens ProductCERT<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.se.com/ww/en/work/support/cybersecurity/security-notifications.jsp" target="_blank" rel="noopener noreferrer">Schneider Electric Security Notifications<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#aggregators--cert">Aggregators &amp; CERT</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Aggregators &amp; CERT submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.cisa.gov/news-events/cybersecurity-advisories" target="_blank" rel="noopener noreferrer">CISA All Advisories<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.kb.cert.org/vuls/" target="_blank" rel="noopener noreferrer">CERT/CC Vulnerability Notes<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/advisories" target="_blank" rel="noopener noreferrer">GitHub Advisory Database<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
             </div>
           </div>
-          <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-gov--cert--alerts">Gov, CERT and alerts</a>
           <div class="tsw-bar__group">
-            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-frameworks--standards">Frameworks and standards</a>
-            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Frameworks and standards submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-threat-intelligence">Threat Intelligence</a>
+            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Threat Intelligence submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
             <div class="tsw-bar__flyout">
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#mitre">MITRE</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#nist">NIST</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cis">CIS</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#owasp--appsec">OWASP and AppSec</a>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#feeds--ioc-lookup">Feeds &amp; IOC Lookup</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Feeds &amp; IOC Lookup submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://urlhaus.abuse.ch/" target="_blank" rel="noopener noreferrer">abuse.ch URLhaus<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://bazaar.abuse.ch/" target="_blank" rel="noopener noreferrer">abuse.ch MalwareBazaar<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://threatfox.abuse.ch/" target="_blank" rel="noopener noreferrer">abuse.ch ThreatFox<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://feodotracker.abuse.ch/" target="_blank" rel="noopener noreferrer">abuse.ch Feodo Tracker<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://yaraify.abuse.ch/" target="_blank" rel="noopener noreferrer">abuse.ch YARAify<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.virustotal.com/" target="_blank" rel="noopener noreferrer">VirusTotal<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://otx.alienvault.com/" target="_blank" rel="noopener noreferrer">LevelBlue OTX (AlienVault)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.abuseipdb.com/" target="_blank" rel="noopener noreferrer">AbuseIPDB<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://pulsedive.com/" target="_blank" rel="noopener noreferrer">Pulsedive<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://viz.greynoise.io/" target="_blank" rel="noopener noreferrer">GreyNoise<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.shodan.io/" target="_blank" rel="noopener noreferrer">Shodan<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://search.censys.io/" target="_blank" rel="noopener noreferrer">Censys Search<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.onyphe.com/" target="_blank" rel="noopener noreferrer">Onyphe<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://crt.sh/" target="_blank" rel="noopener noreferrer">crt.sh (certificate search)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#apt--adversary-tracking">APT &amp; Adversary Tracking</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="APT &amp; Adversary Tracking submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://attack.mitre.org/groups/" target="_blank" rel="noopener noreferrer">MITRE ATT&amp;CK Groups<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://attack.mitre.org/software/" target="_blank" rel="noopener noreferrer">MITRE ATT&amp;CK Software<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://malpedia.caad.fkie.fraunhofer.de/" target="_blank" rel="noopener noreferrer">Malpedia<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://apt.etda.or.th/cgi-bin/aptgroups.cgi" target="_blank" rel="noopener noreferrer">ETDA/ThaiCERT APT Groups<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.misp-galaxy.org/" target="_blank" rel="noopener noreferrer">MISP Galaxy<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://orkl.eu/" target="_blank" rel="noopener noreferrer">ORKL: Threat Report Library<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.crowdstrike.com/en-us/adversaries/" target="_blank" rel="noopener noreferrer">CrowdStrike Adversary Universe<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://learn.microsoft.com/en-us/unified-secops-platform/microsoft-threat-actor-naming" target="_blank" rel="noopener noreferrer">Microsoft Threat Actor Naming<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cti-vendor-research-blogs">CTI Vendor Research Blogs</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="CTI Vendor Research Blogs submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://cloud.google.com/blog/topics/threat-intelligence" target="_blank" rel="noopener noreferrer">Google Threat Intelligence (Mandiant)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://blog.google/threat-analysis-group/" target="_blank" rel="noopener noreferrer">Google Threat Analysis Group (TAG)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.microsoft.com/en-us/security/blog/topic/threat-intelligence/" target="_blank" rel="noopener noreferrer">Microsoft Threat Intelligence<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://blog.talosintelligence.com/" target="_blank" rel="noopener noreferrer">Cisco Talos<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://unit42.paloaltonetworks.com/" target="_blank" rel="noopener noreferrer">Palo Alto Unit 42<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.crowdstrike.com/blog/" target="_blank" rel="noopener noreferrer">CrowdStrike Blog<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.recordedfuture.com/blog" target="_blank" rel="noopener noreferrer">Recorded Future<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://research.checkpoint.com/" target="_blank" rel="noopener noreferrer">Check Point Research<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.welivesecurity.com/" target="_blank" rel="noopener noreferrer">ESET WeLiveSecurity<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://securelist.com/" target="_blank" rel="noopener noreferrer">Kaspersky Securelist<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.volexity.com/blog/" target="_blank" rel="noopener noreferrer">Volexity<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://thedfirreport.com/" target="_blank" rel="noopener noreferrer">The DFIR Report<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.sekoia.com/blog" target="_blank" rel="noopener noreferrer">Sekoia Blog<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#threat-reports--landscape">Threat Reports &amp; Landscape</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Threat Reports &amp; Landscape submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" rel="noopener noreferrer">Verizon DBIR<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://cloud.google.com/security/resources/m-trends" target="_blank" rel="noopener noreferrer">M-Trends (Mandiant)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.crowdstrike.com/global-threat-report/" target="_blank" rel="noopener noreferrer">CrowdStrike Global Threat Report<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.enisa.europa.eu/topics/cyber-threats" target="_blank" rel="noopener noreferrer">ENISA Threat Landscape<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.ibm.com/reports/threat-intelligence" target="_blank" rel="noopener noreferrer">IBM X-Force Threat Intelligence<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cti-platforms">CTI Platforms</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="CTI Platforms submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.misp-project.org/" target="_blank" rel="noopener noreferrer">MISP<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://filigran.io/products/opencti" target="_blank" rel="noopener noreferrer">OpenCTI<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://yeti-platform.io/" target="_blank" rel="noopener noreferrer">Yeti<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/intelowlproject/IntelOwl" target="_blank" rel="noopener noreferrer">IntelOwl<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://oasis-open.github.io/cti-documentation/" target="_blank" rel="noopener noreferrer">OASIS STIX/TAXII<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
             </div>
           </div>
           <div class="tsw-bar__group">
-            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#%EF%B8%8F-offensive--tooling">Offensive and tooling</a>
-            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Offensive and tooling submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-gov--cert--alerts">Gov / CERT / Alerts</a>
+            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Gov / CERT / Alerts submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
             <div class="tsw-bar__flyout">
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#recon--osint">Recon and OSINT</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#web-app">Web app</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#active-directory--windows">Active Directory and Windows</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#c2-frameworks">C2 frameworks</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cheatsheets--payloads">Cheatsheets and payloads</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#scanning--network">Scanning and network</a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.cisa.gov/news-events/cybersecurity-advisories" target="_blank" rel="noopener noreferrer">CISA Cybersecurity Advisories<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer">CISA KEV Catalog<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.cisa.gov/stopransomware" target="_blank" rel="noopener noreferrer">CISA #StopRansomware<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.cisa.gov/securebydesign" target="_blank" rel="noopener noreferrer">CISA Secure by Design<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.kb.cert.org/vuls/" target="_blank" rel="noopener noreferrer">CERT/CC Vulnerability Notes<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.ncsc.gov.uk/" target="_blank" rel="noopener noreferrer">NCSC UK<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.cyber.gov.au/" target="_blank" rel="noopener noreferrer">ACSC (Australia)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.cyber.gc.ca/en" target="_blank" rel="noopener noreferrer">Canadian Centre for Cyber Security<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.enisa.europa.eu/" target="_blank" rel="noopener noreferrer">ENISA<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.ic3.gov/" target="_blank" rel="noopener noreferrer">FBI IC3<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.hhs.gov/hc3" target="_blank" rel="noopener noreferrer">HHS HC3 (Healthcare)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
             </div>
           </div>
           <div class="tsw-bar__group">
-            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-dfir--malware-analysis">DFIR and malware analysis</a>
-            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="DFIR and malware analysis submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-frameworks--standards">Frameworks &amp; Standards</a>
+            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Frameworks &amp; Standards submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
             <div class="tsw-bar__flyout">
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#sandboxes--lookup">Sandboxes and lookup</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#dfir-tools">DFIR tools</a>
-              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#reverse-engineering">Reverse engineering</a>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#mitre">MITRE</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="MITRE submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://attack.mitre.org/" target="_blank" rel="noopener noreferrer">ATT&amp;CK<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://d3fend.mitre.org/" target="_blank" rel="noopener noreferrer">D3FEND<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://capec.mitre.org/" target="_blank" rel="noopener noreferrer">CAPEC<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://cwe.mitre.org/" target="_blank" rel="noopener noreferrer">CWE<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://atlas.mitre.org/" target="_blank" rel="noopener noreferrer">ATLAS (AI)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://engage.mitre.org/" target="_blank" rel="noopener noreferrer">Engage<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://emb3d.mitre.org/" target="_blank" rel="noopener noreferrer">EMB3D<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://car.mitre.org/" target="_blank" rel="noopener noreferrer">CAR: Cyber Analytics Repository<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://ctid.mitre.org/" target="_blank" rel="noopener noreferrer">Center for Threat-Informed Defense<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://center-for-threat-informed-defense.github.io/mappings-explorer/" target="_blank" rel="noopener noreferrer">CTID Mappings Explorer<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#nist">NIST</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="NIST submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener noreferrer">NIST Cybersecurity Framework (CSF)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://csrc.nist.gov/" target="_blank" rel="noopener noreferrer">NIST CSRC<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final" target="_blank" rel="noopener noreferrer">SP 800-53 Rev 5<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://nvd.nist.gov/" target="_blank" rel="noopener noreferrer">NVD<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://pages.nist.gov/OSCAL/" target="_blank" rel="noopener noreferrer">OSCAL<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://csrc.nist.gov/projects/cprt" target="_blank" rel="noopener noreferrer">CPRT (Cybersecurity and Privacy Reference Tool)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cis">CIS</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="CIS submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.cisecurity.org/controls" target="_blank" rel="noopener noreferrer">CIS Controls<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.cisecurity.org/cis-benchmarks" target="_blank" rel="noopener noreferrer">CIS Benchmarks<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#owasp--appsec">OWASP &amp; AppSec</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="OWASP &amp; AppSec submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener noreferrer">OWASP Top 10<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://asvs.owasp.org/" target="_blank" rel="noopener noreferrer">OWASP ASVS<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://owasp.org/www-project-web-security-testing-guide/" target="_blank" rel="noopener noreferrer">OWASP Web Security Testing Guide<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://mas.owasp.org/" target="_blank" rel="noopener noreferrer">OWASP MASTG (Mobile)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://cheatsheetseries.owasp.org/" target="_blank" rel="noopener noreferrer">OWASP Cheat Sheet Series<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://owaspsamm.org/" target="_blank" rel="noopener noreferrer">OWASP SAMM<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://owasp.org/www-project-threat-dragon/" target="_blank" rel="noopener noreferrer">OWASP Threat Dragon<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
             </div>
           </div>
-          <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#%EF%B8%8F-cloud--container">Cloud and container</a>
-          <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-detection-engineering--blue-team">Detection engineering and blue team</a>
-          <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-labs--training">Labs and training</a>
-          <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-news--research">News and research</a>
+          <div class="tsw-bar__group">
+            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#%EF%B8%8F-offensive--tooling">Offensive &amp; Tooling</a>
+            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Offensive &amp; Tooling submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+            <div class="tsw-bar__flyout">
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#recon--osint">Recon &amp; OSINT</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Recon &amp; OSINT submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/laramies/theHarvester" target="_blank" rel="noopener noreferrer">theHarvester<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/owasp-amass/amass" target="_blank" rel="noopener noreferrer">OWASP Amass<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/projectdiscovery/subfinder" target="_blank" rel="noopener noreferrer">subfinder<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/smicallef/spiderfoot" target="_blank" rel="noopener noreferrer">SpiderFoot<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/lanmaster53/recon-ng" target="_blank" rel="noopener noreferrer">recon-ng<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.maltego.com/" target="_blank" rel="noopener noreferrer">Maltego<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://crt.sh/" target="_blank" rel="noopener noreferrer">crt.sh<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#web-app">Web App</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Web App submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://portswigger.net/burp" target="_blank" rel="noopener noreferrer">Burp Suite<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.zaproxy.org/" target="_blank" rel="noopener noreferrer">ZAP (Zed Attack Proxy)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://caido.io/" target="_blank" rel="noopener noreferrer">Caido<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/ffuf/ffuf" target="_blank" rel="noopener noreferrer">ffuf<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://sqlmap.org/" target="_blank" rel="noopener noreferrer">sqlmap<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/projectdiscovery/nuclei" target="_blank" rel="noopener noreferrer">Nuclei<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/sullo/nikto" target="_blank" rel="noopener noreferrer">Nikto<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://portswigger.net/web-security" target="_blank" rel="noopener noreferrer">PortSwigger Web Security Academy<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#active-directory--windows">Active Directory &amp; Windows</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Active Directory &amp; Windows submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/SpecterOps/BloodHound" target="_blank" rel="noopener noreferrer">BloodHound CE<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/SpecterOps/SharpHound" target="_blank" rel="noopener noreferrer">SharpHound<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/fortra/impacket" target="_blank" rel="noopener noreferrer">Impacket<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/Pennyw0rth/NetExec" target="_blank" rel="noopener noreferrer">NetExec (nxc)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/GhostPack/Rubeus" target="_blank" rel="noopener noreferrer">Rubeus<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/gentilkiwi/mimikatz" target="_blank" rel="noopener noreferrer">Mimikatz<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/lgandx/Responder" target="_blank" rel="noopener noreferrer">Responder<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/ropnop/kerbrute" target="_blank" rel="noopener noreferrer">Kerbrute<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.pingcastle.com/" target="_blank" rel="noopener noreferrer">PingCastle<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#c2-frameworks">C2 Frameworks</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="C2 Frameworks submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/rapid7/metasploit-framework" target="_blank" rel="noopener noreferrer">Metasploit Framework<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/BishopFox/sliver" target="_blank" rel="noopener noreferrer">Sliver<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/HavocFramework/Havoc" target="_blank" rel="noopener noreferrer">Havoc<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/its-a-feature/Mythic" target="_blank" rel="noopener noreferrer">Mythic<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.cobaltstrike.com/" target="_blank" rel="noopener noreferrer">Cobalt Strike<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/nettitude/PoshC2" target="_blank" rel="noopener noreferrer">PoshC2<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cheatsheets--payloads">Cheatsheets &amp; Payloads</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Cheatsheets &amp; Payloads submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://hacktricks.wiki/" target="_blank" rel="noopener noreferrer">HackTricks<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/swisskyrepo/PayloadsAllTheThings" target="_blank" rel="noopener noreferrer">PayloadsAllTheThings<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://gtfobins.org/" target="_blank" rel="noopener noreferrer">GTFOBins<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://lolbas-project.github.io/" target="_blank" rel="noopener noreferrer">LOLBAS<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.loldrivers.io/" target="_blank" rel="noopener noreferrer">LOLDrivers<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://wadcoms.github.io/" target="_blank" rel="noopener noreferrer">WADComs<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.revshells.com/" target="_blank" rel="noopener noreferrer">RevShells<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://gchq.github.io/CyberChef/" target="_blank" rel="noopener noreferrer">CyberChef<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://crackstation.net/" target="_blank" rel="noopener noreferrer">CrackStation<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#scanning--network">Scanning &amp; Network</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Scanning &amp; Network submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://nmap.org/" target="_blank" rel="noopener noreferrer">Nmap<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/robertdavidgraham/masscan" target="_blank" rel="noopener noreferrer">Masscan<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/projectdiscovery/naabu" target="_blank" rel="noopener noreferrer">naabu<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.wireshark.org/" target="_blank" rel="noopener noreferrer">Wireshark<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://zeek.org/" target="_blank" rel="noopener noreferrer">Zeek<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tsw-bar__group">
+            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-dfir--malware-analysis">DFIR &amp; Malware Analysis</a>
+            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="DFIR &amp; Malware Analysis submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+            <div class="tsw-bar__flyout">
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#sandboxes--lookup">Sandboxes &amp; Lookup</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Sandboxes &amp; Lookup submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://any.run/" target="_blank" rel="noopener noreferrer">Any.run<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.hybrid-analysis.com/" target="_blank" rel="noopener noreferrer">Hybrid Analysis<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.joesandbox.com/" target="_blank" rel="noopener noreferrer">Joe Sandbox<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://tria.ge/" target="_blank" rel="noopener noreferrer">Hatching Triage<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://bazaar.abuse.ch/" target="_blank" rel="noopener noreferrer">MalwareBazaar<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.virustotal.com/" target="_blank" rel="noopener noreferrer">VirusTotal<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.unpac.me/" target="_blank" rel="noopener noreferrer">UnpacMe<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://malpedia.caad.fkie.fraunhofer.de/" target="_blank" rel="noopener noreferrer">Malpedia<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#dfir-tools">DFIR Tools</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="DFIR Tools submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/volatilityfoundation/volatility3" target="_blank" rel="noopener noreferrer">Volatility 3<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.autopsy.com/" target="_blank" rel="noopener noreferrer">Autopsy<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.kroll.com/en/insights/publications/cyber/kroll-artifact-parser-extractor-kape" target="_blank" rel="noopener noreferrer">KAPE<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://ericzimmerman.github.io/" target="_blank" rel="noopener noreferrer">Eric Zimmerman Tools<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/Velocidex/velociraptor" target="_blank" rel="noopener noreferrer">Velociraptor<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/WithSecureLabs/chainsaw" target="_blank" rel="noopener noreferrer">Chainsaw<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/google/timesketch" target="_blank" rel="noopener noreferrer">Timesketch<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/log2timeline/plaso" target="_blank" rel="noopener noreferrer">plaso (log2timeline)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.sans.org/cyber-security-courses/?focus-area=digital-forensics-incident-response" target="_blank" rel="noopener noreferrer">SANS DFIR<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+              <div class="tsw-bar__group">
+                <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#reverse-engineering">Reverse Engineering</a>
+                <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Reverse Engineering submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+                <div class="tsw-bar__flyout">
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/NationalSecurityAgency/ghidra" target="_blank" rel="noopener noreferrer">Ghidra<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://hex-rays.com/ida-free/" target="_blank" rel="noopener noreferrer">IDA Free<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://binary.ninja/" target="_blank" rel="noopener noreferrer">Binary Ninja<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/rizinorg/cutter" target="_blank" rel="noopener noreferrer">Cutter (rizin)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/x64dbg/x64dbg" target="_blank" rel="noopener noreferrer">x64dbg<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://dogbolt.org/" target="_blank" rel="noopener noreferrer">Decompiler Explorer (dogbolt)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                  <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/Gallopsled/pwntools" target="_blank" rel="noopener noreferrer">pwntools<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tsw-bar__group">
+            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#%EF%B8%8F-cloud--container">Cloud &amp; Container</a>
+            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Cloud &amp; Container submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+            <div class="tsw-bar__flyout">
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/prowler-cloud/prowler" target="_blank" rel="noopener noreferrer">Prowler<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/nccgroup/ScoutSuite" target="_blank" rel="noopener noreferrer">ScoutSuite<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/RhinoSecurityLabs/pacu" target="_blank" rel="noopener noreferrer">Pacu (AWS)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/BishopFox/cloudfox" target="_blank" rel="noopener noreferrer">CloudFox<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/aquasecurity/kube-bench" target="_blank" rel="noopener noreferrer">kube-bench<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/aquasecurity/kube-hunter" target="_blank" rel="noopener noreferrer">kube-hunter<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/aquasecurity/trivy" target="_blank" rel="noopener noreferrer">Trivy<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/falcosecurity/falco" target="_blank" rel="noopener noreferrer">Falco<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.wiz.io/blog" target="_blank" rel="noopener noreferrer">Wiz Blog<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://hackingthe.cloud/" target="_blank" rel="noopener noreferrer">Hacking the Cloud<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://aws.amazon.com/security/" target="_blank" rel="noopener noreferrer">AWS Security<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://learn.microsoft.com/en-us/azure/security/" target="_blank" rel="noopener noreferrer">Azure Security<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://cloud.google.com/security" target="_blank" rel="noopener noreferrer">Google Cloud Security<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+            </div>
+          </div>
+          <div class="tsw-bar__group">
+            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-detection-engineering--blue-team">Detection Engineering &amp; Blue Team</a>
+            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Detection Engineering &amp; Blue Team submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+            <div class="tsw-bar__flyout">
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/SigmaHQ/sigma" target="_blank" rel="noopener noreferrer">Sigma (SigmaHQ)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://detection.fyi/" target="_blank" rel="noopener noreferrer">Detection.fyi (Sigma search)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://uncoder.io/" target="_blank" rel="noopener noreferrer">Uncoder.io<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/redcanaryco/atomic-red-team" target="_blank" rel="noopener noreferrer">Atomic Red Team<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/mitre/caldera" target="_blank" rel="noopener noreferrer">MITRE Caldera<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/elastic/detection-rules" target="_blank" rel="noopener noreferrer">Elastic Detection Rules<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/clong/DetectionLab" target="_blank" rel="noopener noreferrer">DetectionLab<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES" target="_blank" rel="noopener noreferrer">EVTX-ATTACK-SAMPLES<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://wazuh.com/" target="_blank" rel="noopener noreferrer">Wazuh<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://virustotal.github.io/yara/" target="_blank" rel="noopener noreferrer">YARA<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+            </div>
+          </div>
+          <div class="tsw-bar__group">
+            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-labs--training">Labs &amp; Training</a>
+            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Labs &amp; Training submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+            <div class="tsw-bar__flyout">
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.hackthebox.com/" target="_blank" rel="noopener noreferrer">Hack The Box<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://academy.hackthebox.com/" target="_blank" rel="noopener noreferrer">HTB Academy<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://tryhackme.com/" target="_blank" rel="noopener noreferrer">TryHackMe<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://portswigger.net/web-security" target="_blank" rel="noopener noreferrer">PortSwigger Web Security Academy<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://pentesterlab.com/" target="_blank" rel="noopener noreferrer">PentesterLab<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://pwn.college/" target="_blank" rel="noopener noreferrer">pwn.college<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.vulnhub.com/" target="_blank" rel="noopener noreferrer">VulnHub<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://overthewire.org/wargames/" target="_blank" rel="noopener noreferrer">OverTheWire<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://cyberdefenders.org/" target="_blank" rel="noopener noreferrer">CyberDefenders<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://blueteamlabs.online/" target="_blank" rel="noopener noreferrer">Blue Team Labs Online<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://letsdefend.io/" target="_blank" rel="noopener noreferrer">LetsDefend<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.rangeforce.com/" target="_blank" rel="noopener noreferrer">RangeForce<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.antisyphontraining.com/" target="_blank" rel="noopener noreferrer">Antisyphon Training<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://picoctf.org/" target="_blank" rel="noopener noreferrer">picoCTF<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://ctftime.org/" target="_blank" rel="noopener noreferrer">CTFtime<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+            </div>
+          </div>
+          <div class="tsw-bar__group">
+            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-news--research">News &amp; Research</a>
+            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="News &amp; Research submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+            <div class="tsw-bar__flyout">
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.bleepingcomputer.com/" target="_blank" rel="noopener noreferrer">BleepingComputer<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://therecord.media/" target="_blank" rel="noopener noreferrer">The Record (Recorded Future)<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://thehackernews.com/" target="_blank" rel="noopener noreferrer">The Hacker News<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.darkreading.com/" target="_blank" rel="noopener noreferrer">Dark Reading<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://krebsonsecurity.com/" target="_blank" rel="noopener noreferrer">KrebsOnSecurity<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://isc.sans.edu/" target="_blank" rel="noopener noreferrer">SANS Internet Storm Center<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://risky.biz/" target="_blank" rel="noopener noreferrer">Risky Business<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://tldrsec.com/" target="_blank" rel="noopener noreferrer">tl;dr sec<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.securityweek.com/" target="_blank" rel="noopener noreferrer">SecurityWeek<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.helpnetsecurity.com/" target="_blank" rel="noopener noreferrer">Help Net Security<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.schneier.com/" target="_blank" rel="noopener noreferrer">Schneier on Security<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://databreaches.net/" target="_blank" rel="noopener noreferrer">DataBreaches.net<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.reddit.com/r/netsec/" target="_blank" rel="noopener noreferrer">Reddit r/netsec<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+              <a class="tsw-bar__mlink tsw-bar__mlink--ext" href="https://www.reddit.com/r/blueteamsec/" target="_blank" rel="noopener noreferrer">Reddit r/blueteamsec<span class="tsw-bar__ext" aria-hidden="true"></span><span class="tsw-bar__sr"> (opens in a new tab on an external site)</span></a>
+            </div>
+          </div>
         </div>
       </li>
       <li class="tsw-bar__item">

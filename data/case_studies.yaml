@@ -118,6 +118,25 @@ studies:
       - {"date": "2017-09", "label": "Four CVEs are assigned for the SharknAT&To issues (CVE-2017-14115, -14116, -14117, -10793)"}
       - {"date": "2020-01", "label": "Lyrebirds publishes Cable Haunt (CVE-2019-19494, CVE-2019-19495) for Broadcom-based modems"}
 
+  case-studies/MESH_THREAD_HOME_NETWORK.md:
+    kind: "reference"
+    title: "The Always-On Home: Mesh Wi-Fi, Thread Border Routers and Smart Speakers, and Their Security Record"
+    start: "2017"
+    end: "2026"
+    core_start: "2017"
+    core_end: "2026"
+    sectors: ["technology"]
+    cves: ["CVE-2022-37337", "CVE-2022-38452", "CVE-2022-36429", "CVE-2022-38458", "CVE-2022-25809", "CVE-2026-8369"]
+    actors: []
+    tags: ["mesh Wi-Fi", "Thread", "border router", "smart speaker", "Amazon Echo", "Netgear Orbi", "OpenThread", "home network"]
+    pdf: "Mesh_Thread_Home_Network_Case_Study.pdf"
+    pptx: "Mesh_Thread_Home_Network_Case_Study.pptx"
+    events:
+      - {"date": "2017-08", "label": "MWR InfoSecurity roots a 2015 or 2016 Amazon Echo through its debug pads and streams its microphone"}
+      - {"date": "2022-02", "label": "Alexa versus Alexa (CVE-2022-25809): an Echo Dot obeys commands played through its own speaker"}
+      - {"date": "2023-03", "label": "Cisco Talos discloses four Netgear Orbi mesh vulnerabilities (CVE-2022-37337 and others)"}
+      - {"date": "2026-05", "label": "CVE-2026-8369: an OpenThread NAT64 input-validation flaw affects Thread border routers"}
+
   case-studies/AI_THREATS_2026.md:
     kind: "era"
     title: "AI Threats in the Cybersecurity Industry: A 2026 Case Study"

@@ -9,7 +9,7 @@
       "href": "https://teamstarwolf.com/",
       "menu": [
         { "label": "Front page", "href": "https://teamstarwolf.com/" },
-        { "label": "Search", "href": "https://teamstarwolf.com/#search", "pending": "The owner asked for the front page's search box to become a universal search across the platform. This entry opens the front page with that box focused; the site has to give the box an address that does so (the form drafted here is a placeholder and must not collide with the #/ forwarder)." },
+        { "label": "Search", "href": "https://teamstarwolf.com/#search" },
         { "label": "Design system", "href": "https://teamstarwolf.com/system" },
         { "label": "Security policy", "href": "https://teamstarwolf.com/security-policy", "pending": "Returns 404 until the security policy page is deployed on the front site." }
       ]

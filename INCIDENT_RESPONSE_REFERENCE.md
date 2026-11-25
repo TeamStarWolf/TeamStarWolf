@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 27 min (6,181 words at 230 words a minute)
+About 27 min (6,294 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -297,11 +297,11 @@ EDR (Endpoint Detection & Response)
 
 MSSP / MDR (Managed Security Service Providers)
 - 24/7 SOC monitoring offloaded to third-party specialists
-- Common providers: Secureworks (now part of Sophos), Arctic Wolf, Expel, Red Canary, Deepwatch
+- Common providers: Secureworks (now part of Sophos), Arctic Wolf, Expel, Red Canary (acquired by Zscaler in 2025), Deepwatch
 - Ensure SLA includes P1 escalation to client within 15 minutes
 
 Threat Intelligence Feeds
-- Commercial: Recorded Future, Mandiant Advantage, CrowdStrike Intelligence
+- Commercial: Recorded Future, Google Threat Intelligence (formerly Mandiant Advantage), CrowdStrike Intelligence
 - Open source: AbuseIPDB, AlienVault OTX, MISP community feeds, Emerging Threats rules
 
 User Reports
@@ -489,24 +489,24 @@ curl -X POST "https://api.crowdstrike.com/devices/entities/devices-actions/v2?ac
 
 *SentinelOne (network quarantine):*
 ```bash
-# Via console: Sentinels > Select Agent > Actions > Isolate Network
-# Via API:
-curl -X POST "https://<console>/web/api/v2.1/agents/<id>/actions/disconnect" \
-  -H "Authorization: ApiToken $S1_TOKEN"
+# Via console: Sentinels > Select Agent > Actions > Isolate (Disconnect from Network)
+# Via API: use the agent "Disconnect from Network" action in the SentinelOne API.
+#   The exact path and request body vary by tenant/version - see your console's
+#   API reference (Settings > Users > Service Users / API Token > API Doc).
 ```
 
-*Carbon Black (isolate endpoint):*
+*Carbon Black Cloud (quarantine endpoint):*
 ```bash
-# Via Carbon Black Cloud console or CLI
-cbctl device quarantine --device-id <id>
+# No single-binary CLI; quarantine via one of:
+# - Console: Investigate > select the device > Take Action > Quarantine
+# - Devices API: POST /appservices/v6/orgs/{org_key}/device_actions  (action: QUARANTINE)
+# - Python SDK (cbc_sdk): device.quarantine(True)
 ```
 
 *Emergency Firewall Block (Palo Alto):*
 ```bash
-# Block known C2 IP at perimeter
-set security policies pre-rulebase security rules BLOCK-C2 action deny
-set security policies pre-rulebase security rules BLOCK-C2 source any
-set security policies pre-rulebase security rules BLOCK-C2 destination [ <C2_IP> ]
+# Block known C2 IP at perimeter (enter config mode with `configure` first)
+set rulebase security rules BLOCK-C2 from any to any source any destination [ <C2_IP> ] application any service any action deny
 commit
 ```
 
@@ -591,14 +591,14 @@ Common Ransomware Families & Indicators:
 
 | Family | Extension | Ransom Note | Known Vector |
 |--------|-----------|-------------|--------------|
-| LockBit | `.lockbit` | `!!-Restore-My-Files-!!.txt` | RDP, phishing |
+| LockBit | `.lockbit` | `Restore-My-Files.txt` (2.0; 3.0 uses `<id>.README.txt`) | RDP, phishing |
 | BlackCat/ALPHV | `.sykzx` (random) | `RECOVER-<id>-FILES.txt` | Stolen creds, ESXi vulns |
 | Cl0p | `.clop` | `ClopReadMe.txt` | MOVEit/GoAnywhere exploitation |
-| REvil/Sodinokibi | `.random` | `<id>-HOW-TO-DECRYPT.txt` | RDP, supply chain |
+| REvil/Sodinokibi | `.random` | `<ext>-readme.txt` (note name reuses the random extension) | RDP, supply chain |
 | Conti | `.CONTI` | `CONTI_README.txt` | BazarLoader, TrickBot |
 | Royal | `.royal` | `README.TXT` | Phishing, RDP |
 
-Status (as of 2026): treat these as historical signatures and cross-check current families. Conti disbanded in 2022; REvil/Sodinokibi is defunct; ALPHV/BlackCat was seized in early 2024; LockBit was disrupted by Operation Cronos in 2024; Royal rebranded to BlackSuit in 2023.
+Status (as of 2026): treat these as historical signatures and cross-check current families. Conti disbanded in 2022; REvil/Sodinokibi is defunct; ALPHV/BlackCat had its infrastructure disrupted and leak site seized in an FBI-led action in December 2023 (CISA AA23-353A), then collapsed in an apparent exit scam in early 2024; LockBit was disrupted by Operation Cronos in 2024; Royal rebranded to BlackSuit in 2023.
 
 ---
 
@@ -610,7 +610,7 @@ FBI via IC3 (https://www.ic3.gov)
 - Proactive engagement can accelerate law enforcement investigation
 
 CISA Reporting
-- Report to CISA at https://www.cisa.gov/report or call 1-888-282-0870
+- Report to CISA at https://www.cisa.gov/report or call 1-844-SAY-CISA (1-844-729-2472)
 - CISA may provide technical assistance and threat intelligence
 
 What to Include in LE Reports:
@@ -702,7 +702,7 @@ Search-UnifiedAuditLog -StartDate $startDate -EndDate $endDate `
   -Operations "Consent to application"
 ```
 
-Message Trace (Exchange Online) - Get-MessageTrace is retired; use Get-MessageTraceV2 (the legacy cmdlet also returned only the last 10 days)
+Message Trace (Exchange Online) - Get-MessageTrace is being replaced by Get-MessageTraceV2 and will eventually be deprecated. Get-MessageTraceV2 searches the last 90 days but returns at most 10 days of data per query; use Start-HistoricalSearch for longer look-backs
 ```powershell
 # Trace messages for a compromised user (last 10 days; for older data use historical search in the admin center)
 Get-MessageTraceV2 -SenderAddress "victim@company.com" `
@@ -774,8 +774,10 @@ gam user victim@company.com show pop
 Immediate Actions (within minutes of confirmation):
 ```powershell
 # Connect with the scopes these actions need (the AzureAD module is deprecated; use Microsoft Graph).
-# Resetting another user's password needs User-PasswordProfile.ReadWrite.All plus an admin role
-# (User, Helpdesk or Password Administrator) and must run in user context (app-only is not supported for the reset).
+# Resetting another user's password needs User-PasswordProfile.ReadWrite.All (least-privileged) plus a role that can
+# reset the target: delegated, the signed-in admin needs e.g. Helpdesk/User/Password Administrator for members, or
+# Privileged Authentication Administrator for admins. App-only is supported if the app itself holds at least the
+# User Administrator role (Privileged Authentication Administrator to reset administrators).
 Connect-MgGraph -Scopes "User.ReadWrite.All","User-PasswordProfile.ReadWrite.All"
 
 # Revoke all active sessions / refresh tokens (M365)
@@ -892,12 +894,12 @@ wmic process where "name='malware.exe'" get commandline  # Get command line
 Velociraptor (Open Source Live Response)
 ```yaml
 # Query for suspicious processes
-SELECT Pid, Name, CommandLine, Exe, Hash.SHA256
+SELECT Pid, Name, CommandLine, Exe, hash(path=Exe).SHA256 AS SHA256
 FROM pslist()
 WHERE Name =~ "powershell|cmd|wscript|mshta|regsvr32"
 
 # Find recently modified executables
-SELECT FullPath, Mtime, Size, Hash.SHA256
+SELECT OSPath, Mtime, Size, hash(path=OSPath).SHA256 AS SHA256
 FROM glob(globs="C:/Users/**/*.exe")
 WHERE Mtime > now() - 86400  # Last 24 hours
 
@@ -907,7 +909,7 @@ FROM netstat()
 WHERE Status = "ESTABLISHED" AND NOT Raddr.IP =~ "^(10\\.|172\\.16\\.|192\\.168\\.)"
 
 # Deploy artifact collection
-VeloRaptor -v artifacts collect Windows.KapeFiles.Targets --output /evidence/
+velociraptor.exe -v artifacts collect Windows.KapeFiles.Targets --output collection.zip
 ```
 
 ---
@@ -1099,11 +1101,11 @@ Common Triage Targets:
 ```powershell
 # Collect key artifacts for IR (run as Administrator)
 kape.exe --tsource C: --tdest "D:\Evidence\Collection" ^
-  --target "!BasicCollection,Antivirus,Chrome,Edge,EventLogs,Firefox,MFT,Prefetch,RecycleBin,RegistryHives,ScheduledTasks,WebBrowsers"
+  --target "!BasicCollection,Antivirus,Chrome,Edge,EventLogs,Firefox,$MFT,Prefetch,RecycleBin,RegistryHives,ScheduledTasks,WebBrowsers"
 
 # Full collection for ransomware:
 kape.exe --tsource C: --tdest "D:\Evidence\Ransomware" ^
-  --target "!BasicCollection,Antivirus,EventLogs,MFT,Prefetch,RegistryHives,ScheduledTasks,Amcache"
+  --target "!BasicCollection,Antivirus,EventLogs,$MFT,Prefetch,RegistryHives,ScheduledTasks,Amcache"
 
 # Process collected artifacts immediately
 kape.exe --msource "D:\Evidence\Collection" --mdest "D:\Evidence\Processed" ^
@@ -1161,7 +1163,7 @@ http.log: HTTP requests
 ```bash
 # Find POST requests (potential exfiltration or C2)
 cat http.log | zeek-cut method id.orig_h id.resp_h uri user_agent request_body_len | \
-  grep "^POST" | sort -k6 -rn
+  grep "^POST" | sort -t$'\t' -k6,6 -rn   # zeek-cut is tab-delimited; user_agent has spaces, so sort the tab field
 
 # Suspicious user agents (PowerShell, Python, curl in production HTTP)
 cat http.log | zeek-cut user_agent | sort | uniq -c | sort -rn | head -30
@@ -1231,7 +1233,7 @@ tls.alert_message.desc == 42
 icmp.type == 8 && frame.len > 100  # Large ICMP echo requests
 
 # SMB lateral movement
-smb2.cmd == 3 && smb2.tree contains "admin$"  # Tree connect to the admin$ share
+smb2.cmd == 3 && smb2.tree contains "ADMIN$"  # Tree connect to the ADMIN$ share (contains is case-sensitive; the share is upper-case on the wire)
 
 # Kerberoasting traffic
 kerberos.msg_type == 12 && kerberos.etype == 23  # RC4 encryption: Kerberoast indicator
@@ -1383,7 +1385,7 @@ aws ec2 describe-instances --query \
 aws cloudtrail lookup-events \
   --lookup-attributes AttributeKey=Username,AttributeValue=suspicious_user \
   --start-time $(date -d "24 hours ago" -u +"%Y-%m-%dT%H:%M:%SZ") \
-  --output json | jq '.Events[].CloudTrailEvent' | python3 -m json.tool
+  --output json | jq '.Events[].CloudTrailEvent | fromjson'   # CloudTrailEvent is a JSON string; fromjson parses each event
 
 # Find S3 buckets with public access
 aws s3api list-buckets --query 'Buckets[*].Name' --output text | \
@@ -1552,12 +1554,12 @@ gcloud projects get-iam-policy <project> --format json | \
   gcloud projects set-iam-policy <project> /dev/stdin
 ```
 
-Security Command Center Findings:
-- `MALWARE: Bad domain`: DNS request to known malware domain
-- `ACTIVE_SCAN: Log4j`: Log4Shell exploitation attempt
-- `INITIAL_ACCESS: Leaked Credential`: Known-leaked credential used
-- `DEFENSE_EVASION: Modify Cloud Logs`: Audit log modification attempt
-- `EXFILTRATION: BigQuery Data Extraction`: Unusual data export
+Security Command Center (Event Threat Detection) finding categories (examples):
+- `Malware: Bad Domain`: connection to or lookup of a known-bad domain
+- `Active Scan: Log4j Vulnerable to RCE`: Log4Shell scanning detected
+- `Initial Access: Log4j Compromise Attempt`: JNDI lookup in a header or URL parameter
+- `Defense Evasion: Modify VPC Service Control`: VPC Service Controls perimeter change
+- `Exfiltration: BigQuery Data Extraction`: BigQuery data extracted to an external or public bucket
 
 
 ---
@@ -1657,16 +1659,21 @@ Process:
 3. Check Navigator layer files shared by vendors for actor TTPs
 
 ```python
-# Using pyattack to look up techniques
+# Using attackcti (the ATT&CK CTI Python client: pip install attackcti)
 from attackcti import attack_client
 client = attack_client()
 techniques = client.get_techniques()
 groups = client.get_groups()
 
-# Find groups that use specific technique
-def groups_using_technique(technique_id):
-    rels = client.get_relationships_by_technique(technique_id)
-    return [r['target_ref'] for r in rels if r.get('relationship_type') == 'uses']
+# Find the groups that use a given technique. In ATT&CK's STIX model a "uses"
+# relationship runs source_ref (the intrusion-set / group) -> target_ref (the
+# attack-pattern / technique), so the group is the source_ref. Match on the
+# technique's STIX id (attack-pattern--...), not its Txxxx id.
+def groups_using_technique(technique_stix_id):
+    rels = client.get_relationships()
+    return [r.source_ref for r in rels
+            if getattr(r, "relationship_type", None) == "uses"
+            and getattr(r, "target_ref", None) == technique_stix_id]
 ```
 
 Common Actor-to-Technique Signatures:
@@ -1750,20 +1757,20 @@ result = misp.add_event(event)
 
 | Sector | ISAC | Contact |
 |--------|------|---------|
-| Financial | FS-ISAC | https://www.fsisac.com / +1-888-352-0770 |
+| Financial | FS-ISAC | https://www.fsisac.com (member reporting via admin@fsisac.com) |
 | Healthcare | Health-ISAC | https://health-isac.org |
 | Energy | E-ISAC | https://www.eisac.com |
 | IT / Technology | IT-ISAC | https://www.it-isac.org |
 | Aviation | A-ISAC | https://www.a-isac.com |
 | Water | WaterISAC | https://waterisac.org |
-| Retail and hospitality | RH-ISAC | https://rh-isac.org |
+| Retail and hospitality | RH-ISAC | https://rhisac.org |
 
 Government Reporting Partners:
-- CISA: https://www.cisa.gov/report | 1-888-282-0870 | report@cisa.gov
+- CISA: https://www.cisa.gov/report | 1-844-SAY-CISA (1-844-729-2472)
 - FBI Cyber Division: https://www.fbi.gov/contact-us/field-offices (contact local field office)
 - IC3: https://www.ic3.gov (FBI Internet Crime Complaint Center)
 - U.S. Secret Service Cyber Fraud Task Forces (CFTF): financial and cyber crime: contact a local field office (the ECTFs were reorganized into CFTFs)
-- NSA Cybersecurity: For defense industrial base: DIBNet portal
+- DoD Cyber Crime Center (DC3 / DCISE): defense industrial base cyber incident reporting via the DIBNet portal (https://dibnet.dod.mil), mandatory under DFARS 252.204-7012 (NSA's DIB engagement is its separate Cybersecurity Collaboration Center)
 
 
 ---
@@ -1798,28 +1805,31 @@ Containment Options (least to most disruptive):
 
 Palo Alto Networks (PAN-OS)
 ```bash
-# Block C2 IP immediately via CLI
-set security policies pre-rulebase security rules "BLOCK-C2-IR" from any
-set security policies pre-rulebase security rules "BLOCK-C2-IR" to any
-set security policies pre-rulebase security rules "BLOCK-C2-IR" source any
-set security policies pre-rulebase security rules "BLOCK-C2-IR" destination [ 203.0.113.66 198.51.100.22 ]
-set security policies pre-rulebase security rules "BLOCK-C2-IR" application any
-set security policies pre-rulebase security rules "BLOCK-C2-IR" service any
-set security policies pre-rulebase security rules "BLOCK-C2-IR" action deny
+# Block C2 IP immediately via CLI (enter config mode with `configure` first;
+# on Panorama prefix with `device-group <dg> pre-rulebase`)
+set rulebase security rules "BLOCK-C2-IR" from any
+set rulebase security rules "BLOCK-C2-IR" to any
+set rulebase security rules "BLOCK-C2-IR" source any
+set rulebase security rules "BLOCK-C2-IR" destination [ 203.0.113.66 198.51.100.22 ]
+set rulebase security rules "BLOCK-C2-IR" application any
+set rulebase security rules "BLOCK-C2-IR" service any
+set rulebase security rules "BLOCK-C2-IR" action deny
 commit
 
 # Move rule to top (before permissive rules)
-move security rules "BLOCK-C2-IR" top
+move rulebase security rules "BLOCK-C2-IR" top
 commit
 ```
 
 Cisco ASA / Firepower
 ```bash
-# Block C2 IP via access control entry
-access-list OUTSIDE_IN extended deny ip any host 203.0.113.66 log
-access-list OUTSIDE_IN extended deny ip host 203.0.113.66 any log
+# Block C2 IP via access control entry. On classic ASA a new ACE is appended to the
+# bottom of the named ACL, so insert it near the top with a line number, and ensure the
+# ACL is bound to the interface (access-group OUTSIDE_IN in interface outside).
+access-list OUTSIDE_IN line 1 extended deny ip any host 203.0.113.66 log
+access-list OUTSIDE_IN line 2 extended deny ip host 203.0.113.66 any log
 
-# Block domain via DNS sinkhole on ISE or Umbrella:
+# Block a domain via DNS sinkhole (Cisco Umbrella - not ISE; ISE is NAC/policy, not DNS):
 # Cisco Umbrella: Policies > Security Settings > Add destination list
 ```
 
@@ -1911,7 +1921,7 @@ Reimaging Procedure:
 ```
 1. Capture forensic image and memory dump before wiping (evidence preservation)
 2. Verify clean, tested backup or gold image is available
-3. Wipe disk using certified media sanitization (NIST SP 800-88 Rev. 1; the DoD 5220.22-M overwrite is legacy and is no longer a current sanitization standard)
+3. Wipe disk using certified media sanitization (NIST SP 800-88 Rev. 2; Rev. 1 was withdrawn on 26 September 2025. The DoD 5220.22-M overwrite is legacy and is no longer a current sanitization standard)
 4. Deploy clean OS image from known-good source (verified hash)
 5. Apply all current patches before reconnecting to network
 6. Install and configure EDR agent (prevention mode enabled)
@@ -2136,12 +2146,12 @@ HIPAA Breach Notification Rule
 
 State Breach Notification Laws (US)
 - All 50 states + DC have breach notification laws with varying requirements
-- Fastest deadlines: 30 calendar days (Colorado, Florida; and California since SB 446). New Mexico is 45 calendar days (NMSA 57-12C-6), not 30
+- Fastest deadlines: 30 calendar days (Colorado, Florida; and California since SB 446). New Mexico is 45 calendar days (NMSA 57-12C-6)
 - Key elements vary: definition of "personal information," notification triggers, safe harbors
 
 PCI DSS Incident Response
 - Contact your acquirer promptly on a suspected or confirmed cardholder-data compromise; the exact deadlines come from the acquirer, the card brands' programs, your merchant agreement and applicable law, not from a single universal clock
-- Brand deadlines (confirm against the current rules): notify your acquirer immediately; Visa's "What To Do If Compromised" requires notice immediately and no later than three calendar days; Mastercard's Security Rules and Procedures require notifying Mastercard within 24 hours of becoming aware of an ADC event or potential event, with affected account numbers within 72 hours. Other brands and your merchant agreement may differ
+- Brand deadlines (confirm against the current rules): notify your acquirer immediately; Visa's "What To Do If Compromised" requires notice immediately and no later than three calendar days; Mastercard's Security Rules and Procedures (SPME Manual) require notifying Mastercard immediately upon becoming aware of an ADC Event or Potential ADC Event, and within 24 hours of engaging a PCI Forensic Investigator (PFI). Other brands and your merchant agreement may differ
 - Engage a PCI Forensic Investigator (PFI), a QSA firm authorized by the card brands, when the brand program requires one
 - Preserve all logs and evidence per PFI guidance
 

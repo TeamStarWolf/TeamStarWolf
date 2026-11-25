@@ -95,6 +95,28 @@ studies:
       - {"date": "2025-03", "label": "Apple releases the AirBorne operating-system and SDK fixes on 31 March 2025"}
       - {"date": "2025-04", "label": "Oligo publishes AirBorne: 23 AirPlay vulnerabilities and 17 CVEs, on 29 April 2025"}
 
+  case-studies/ISP_GATEWAY_HOME_NETWORK.md:
+    kind: "reference"
+    title: "The ISP-Supplied Gateway: Who Controls the Box at the Edge of the Home Network, and Its Security Record"
+    start: "2014"
+    end: "2026"
+    core_start: "2014"
+    core_end: "2020"
+    sectors: ["technology", "telecommunications"]
+    cves: ["CVE-2014-9222", "CVE-2016-10372", "CVE-2019-19494", "CVE-2019-19495"]
+    actors: []
+    tags: ["ISP gateway", "home network", "TR-069", "CWMP", "cable modem", "firmware", "Mirai", "DNS rebinding"]
+    pdf: "ISP_Gateway_Home_Network_Case_Study.pdf"
+    pptx: "ISP_Gateway_Home_Network_Case_Study.pptx"
+    events:
+      - {"date": "2005", "label": "AllegroSoft issues a fixed RomPager version to licensed manufacturers"}
+      - {"date": "2014-12", "label": "Check Point discloses Misfortune Cookie (CVE-2014-9222) in at least 200 device models"}
+      - {"date": "2016-11", "label": "A customized Mirai variant attacks home gateways over the TR-069 port 7547"}
+      - {"date": "2016-12", "label": "Radware reports Deutsche Telekom routers crashed in the attack rather than being infected"}
+      - {"date": "2017-05", "label": "CVE-2016-10372 is published for the Eir D1000 TR-064 command execution"}
+      - {"date": "2017-08", "label": "Nomotion publishes SharknAT&To on AT&T's Arris NVG589 and NVG599 gateways"}
+      - {"date": "2020-01", "label": "Lyrebirds publishes Cable Haunt (CVE-2019-19494, CVE-2019-19495) for Broadcom-based modems"}
+
   case-studies/AI_THREATS_2026.md:
     kind: "era"
     title: "AI Threats in the Cybersecurity Industry: A 2026 Case Study"

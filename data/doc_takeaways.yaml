@@ -19,6 +19,13 @@ pages:
       - {"text": "In 2018 a web page could use DNS rebinding to reach the unauthenticated local cast API and read the Wi-Fi survey data that a geolocation service turns into the home's location.", "from": "#part-3-reading-the-unauthenticated-local-interface", "quote": "a web page open in a browser on the same network could reach it using DNS rebinding"}
       - {"text": "The 2021 account-linking issue turned data read over the LAN into a credential: the device's own identifiers were enough to link an attacker's cloud account and drive the device remotely.", "from": "#part-3-reading-the-unauthenticated-local-interface", "quote": "this information, read over the LAN, was effectively the credential"}
       - {"text": "Where a fix exists it has a version or a date, but several of these items were narrowed rather than closed or are design properties no patch removes; the real exposure is equipment that stopped getting updates.", "from": "#part-7-what-is-fixed-what-is-design-what-is-a-setting", "quote": "A device that no longer receives firmware stays where it was"}
+  case-studies/ISP_GATEWAY_HOME_NETWORK.md:
+    reviewed: "2026-11-25"
+    items:
+      - {"text": "The gateway most households got from their ISP is a modem, router, firewall and Wi-Fi in one, and its firmware and remote management belong to the vendor and the ISP, not the subscriber.", "from": "#executive-summary", "quote": "belong to the vendor and the ISP, not the subscriber"}
+      - {"text": "Because the owner does not control the device, a hardcoded account or an exposed management port can sit on it unseen, and the owner's realistic options are narrow.", "from": "#part-1-what-an-isp-supplied-gateway-is-and-who-controls-it", "quote": "the owner's realistic options are narrow"}
+      - {"text": "The TR-069 management port was meant for the ISP alone; the November 2016 Mirai outage is what happened when gateways answered it to the whole internet.", "from": "#part-3-the-remote-management-channel-and-the-2016-tr-069-outage", "quote": "The management port was never meant to answer anyone but the ISP"}
+      - {"text": "The owner's most effective lever is to treat the gateway as untrusted and put an owned router behind it, behind a firewall they do control.", "from": "#part-6-what-is-fixed-what-is-design-what-is-a-setting", "quote": "put an owned router behind the ISP gateway"}
   case-studies/CHANGE_HEALTHCARE_2024.md:
     reviewed: "2026-11-16"
     items:

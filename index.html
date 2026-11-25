@@ -561,9 +561,10 @@
         max-height: calc(100vh - var(--tsw-band-h)); overflow-y: auto;   /* border-box: the 6px padding is inside the max-height, so the open list never exceeds the screen */
       }
       .tsw-bar.tsw-bar--open .tsw-bar__list { display: flex; }
+      .tsw-bar.tsw-bar--open { z-index: 40; }   /* while the menu is open, rise above the fixed sidebar-toggle / theme / search buttons (z-index 30) so the top rows, Home included, are not covered */
       .tsw-bar__item { flex-wrap: wrap; align-items: stretch; }
       .tsw-bar__link { flex: 1 1 auto; height: auto; padding: 10px 12px; }
-      .tsw-bar__toggle { height: auto; min-height: 44px; padding: 10px 16px; }   /* fills the 44px row on the phone layout */
+      .tsw-bar__toggle { height: auto; min-height: 44px; min-width: 44px; padding: 10px 16px; }   /* 44x44 tap target on the phone layout, matching the other sites */
       .tsw-bar__item--plain .tsw-bar__link { min-height: 44px; display: flex; align-items: center; box-sizing: border-box; }   /* a plain row (Home) has no toggle, so its link fills the 44px minimum */
       .tsw-bar__panel, .tsw-bar__flyout {
         position: static; display: none; width: 100%; min-width: 0;

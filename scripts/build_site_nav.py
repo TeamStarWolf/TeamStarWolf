@@ -728,6 +728,37 @@ def platform_band_problems(pnav: dict) -> list[str]:
     return out
 
 
+def _band_z_index(html: str, selector: str) -> int | None:
+    """The z-index declared on the rule whose selector is exactly `selector` (the selector
+    then optional whitespace then '{'), or None. `#tsw-theme` matches the base rule, not
+    `#tsw-theme:hover` or `#tsw-theme svg`, because those put a ':' or ' svg' before the brace."""
+    m = re.search(re.escape(selector) + r"\s*\{([^}]*)\}", html)
+    if not m:
+        return None
+    z = re.search(r"z-index:\s*(\d+)", m.group(1))
+    return int(z.group(1)) if z else None
+
+
+def band_overlay_problems(html: str) -> list[str]:
+    """On the phone layout the open band must sit above the library's own fixed header buttons
+    (the docsify sidebar-toggle, #tsw-theme and the search button, all z-index 30); otherwise
+    those buttons cover the top rows - Home included - and a tap lands on the button, not the
+    menu. Assert the open band declares a z-index that clears #tsw-theme (read from the same
+    file) and the 30 the sidebar-toggle uses."""
+    out = []
+    open_z = _band_z_index(html, ".tsw-bar.tsw-bar--open")
+    theme_z = _band_z_index(html, "#tsw-theme")
+    if open_z is None:
+        out.append(INDEX_HTML + ": .tsw-bar.tsw-bar--open has no z-index; the open band must rise "
+                   "above the fixed sidebar-toggle / #tsw-theme / search buttons (z-index 30) on phones")
+    else:
+        floor = max(30, theme_z or 0)
+        if open_z <= floor:
+            out.append(INDEX_HTML + ": open-band z-index " + str(open_z) + " does not clear the fixed "
+                       "header buttons (z-index " + str(floor) + "); the top rows would be covered at phone width")
+    return out
+
+
 def _band_entry(e: dict, out: list, indent: str) -> None:
     """Render one menu entry. A group (an entry carrying its own menu) is a link plus a
     caret plus a side fly-out holding its own entries, rendered the same way at every depth,
@@ -943,6 +974,14 @@ def band_self_test() -> int:
     nonascii = bm([{"label": "E2", "href": "https://nvd.nist.gov/café", "external": True}])
     assert any("external" in p and "non-ASCII" in p for p in platform_band_problems(nonascii)), "non-ASCII external leaf not caught"
 
+    # band overlay: at phone width the open band must outrank the fixed header buttons (z-index 30)
+    good_html = ".tsw-bar.tsw-bar--open { z-index: 40; }\n#tsw-theme { position: fixed; z-index: 30; }"
+    assert band_overlay_problems(good_html) == [], ("a clearing z-index should pass", band_overlay_problems(good_html))
+    low_html = ".tsw-bar.tsw-bar--open { z-index: 25; }\n#tsw-theme { position: fixed; z-index: 30; }"
+    assert any("does not clear" in p for p in band_overlay_problems(low_html)), "an open band under the buttons should fail"
+    none_html = ".tsw-bar { z-index: 25; }\n#tsw-theme { z-index: 30; }"
+    assert any("no z-index" in p for p in band_overlay_problems(none_html)), "a missing open-band z-index should fail"
+
     print("build_site_nav band self-test: all cases pass")
     return 0
 
@@ -1065,6 +1104,7 @@ def problems(cfg: dict, gen: dict[str, str]) -> list[str]:
             out.append(CONFIG + ": not_in_nav entry " + p + " does not exist")
     out += index_problems(files, read_text("INDEX.md") or "")
     out += platform_band_problems(load_platform_nav())
+    out += band_overlay_problems(read_text(INDEX_HTML) or "")
     return out
 
 

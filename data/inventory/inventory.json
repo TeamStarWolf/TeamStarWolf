@@ -8,7 +8,7 @@
   ],
   "source_sha256": {
     "data/inventory/capabilities.jsonl": "f03d44df28cd6681754870deefa5e2ea17860ddd6ff1e8ddf9801704bac4c0b4",
-    "data/inventory/companies.jsonl": "c911090094854426f49639878657ab97ea52a7deb30b482e4c41e849f9bae250",
+    "data/inventory/companies.jsonl": "3d2555622d68e4b63e9010e9017548086049a73b41bd950257c8c6c424a9fdfc",
     "data/inventory/products.jsonl": "620131645155cddaed5978f525c80f3561c54a97d117a1dd35aa390110cac481"
   },
   "counts": {
@@ -75,7 +75,7 @@
     {"id": "vendor:cohesity", "label": "Cohesity", "name": "Cohesity", "status": "private", "stake": null, "holder": null, "holder_name": null, "ownership_since": null, "ticker": null, "announced_acquisition": null, "products": ["product:cohesity-dataprotect"]},
     {"id": "vendor:commvault", "label": "Commvault", "name": "Commvault", "status": "public", "stake": null, "holder": null, "holder_name": null, "ownership_since": null, "ticker": "NASDAQ: CVLT", "announced_acquisition": null, "products": ["product:commvault-cloud"]},
     {"id": "vendor:crowdstrike", "label": "CrowdStrike", "name": "CrowdStrike", "status": "public", "stake": null, "holder": null, "holder_name": null, "ownership_since": null, "ticker": "NASDAQ: CRWD", "announced_acquisition": null, "products": ["product:crowdstrike-falcon-cloud-security", "product:crowdstrike-falcon-endpoint-security", "product:crowdstrike-falcon-next-gen-siem"]},
-    {"id": "vendor:delinea", "label": "Delinea", "name": "Delinea", "status": "pe-owned", "stake": "full", "holder": null, "holder_name": "Thoma Bravo", "ownership_since": "2018", "ticker": null, "announced_acquisition": null, "products": ["product:delinea-secret-server"]},
+    {"id": "vendor:delinea", "label": "Delinea", "name": "Delinea", "status": "pe-owned", "stake": "majority", "holder": null, "holder_name": "TPG Capital", "ownership_since": "2021", "ticker": null, "announced_acquisition": null, "products": ["product:delinea-secret-server"]},
     {"id": "vendor:dragos", "label": "Dragos", "name": "Dragos", "status": "acquired", "stake": "majority", "holder": null, "holder_name": "Accenture", "ownership_since": "2026-09-16", "ticker": null, "announced_acquisition": null, "products": ["product:dragos-platform"]},
     {"id": "vendor:forcepoint", "label": "Forcepoint", "name": "Forcepoint", "status": "pe-owned", "stake": "full", "holder": null, "holder_name": "Francisco Partners", "ownership_since": "2021-01-11", "ticker": null, "announced_acquisition": null, "products": ["product:forcepoint-data-security-cloud-sse"]},
     {"id": "vendor:fortinet", "label": "Fortinet", "name": "Fortinet", "status": "public", "stake": null, "holder": null, "holder_name": null, "ownership_since": null, "ticker": "NASDAQ: FTNT", "announced_acquisition": null, "products": ["product:fortinet-fortiedr", "product:fortinet-fortigate", "product:fortinet-fortisase"]},

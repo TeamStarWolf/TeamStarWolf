@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 23 min (5,274 words at 230 words a minute)
+About 23 min (5,312 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -91,11 +91,11 @@ The vendors answered these in different ways, and the study keeps each in its ow
 
 ## Scope and evidence standard
 
-This study uses the two CVE records (for CVE-2025-32711 and CVE-2024-5565), PromptArmor's Slack AI write-up, Pillar Security's Rules File Backdoor write-up, JFrog's vanna advisory, and Johann Rehberger's two ChatGPT write-ups. It names only the six products above. No exploit was run, and no prompt, payload or step-by-step is reproduced here, even where a finder published one; each mechanism is described in words.
+This study rests on the eighteen sources listed below: the three CVE records; the vendors' own statements (Microsoft's advisory, Slack's security update, GitHub's changelog and OpenAI's link-safety post); the GitHub Advisory Database, the vanna project's issue and its source at two tags; the finders' write-ups (PromptArmor's, Pillar Security's, two by JFrog and three by Johann Rehberger); and the library's ATT&CK data. It names only the six products above. No exploit was run, and no prompt, payload or step-by-step is reproduced here, even where a finder published one; each mechanism is described in words.
 
 **Confirmed** means an official record (a CVE record, a vendor page) supports the claim. **Reported** means a finder's or third party's write-up stated it without an independent official record. **Demonstrated** marks a capability a finder says it proved under stated conditions. **Inferred** marks the author's interpretation. A statement that a source gives no detail is a statement about that source, not about the world.
 
-One source could not be opened. The finder write-up for EchoLeak, hosted by Aim Labs, returned HTTP 403 to every attempt for this study, so Part 1 rests on the CVE record alone and does not reproduce the finder's attack chain. A CVSS score measures severity under a stated vector; it does not measure exploitation. These distinctions carry through the sections below.
+One source could not be opened. The finder write-up for EchoLeak, hosted by Aim Labs, returned HTTP 403 to every attempt for this study, so Part 1 rests on the CVE record and Microsoft's advisory (sources 1 and 13) and does not reproduce the finder's attack chain. A CVSS score measures severity under a stated vector; it does not measure exploitation. These distinctions carry through the sections below.
 
 For each vendor, this study checked the vendor's own channel for a statement dated after the finder's write-up. Microsoft's advisory states the fix; Slack published a security update; GitHub published a changelog entry; JFrog's write-up and the project's own issue record the vanna maintainer's hardening guide; and OpenAI later described its link-safety control in a post of its own (each a numbered source below). For Cursor, no statement on the Rules File Backdoor was found on the pages opened on 25 November 2026: its security page (cursor.com/security) and its agent-security documentation (cursor.com/docs/agent/security). This study does not conclude that a vendor did nothing where it found no page (Inferred for the absence).
 

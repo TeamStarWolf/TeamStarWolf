@@ -22,7 +22,7 @@ Stat: $107.5K | account-linking reward, reported 2021
 Stat: 17 | CVEs from the 2025 AirBorne research
 Stat: 8.8 | CISA score for the AirBorne UAF flaw
 - Cast stack: Google Cast local HTTP on 8008 and 8443 over mDNS; DIAL over SSDP.
-- Local hijack: Rickmote (2014) disconnects a nearby Chromecast into its setup mode.
+- Local hijack: Rickmote (2014) hijacks a nearby Chromecast within wireless range.
 - Internet exposure: CastHack (2019) drove cast and smart-TV endpoints from the public internet.
 Notes: Leak figure, quoted by the researcher to Krebs [3]. Reward [5]. AirBorne CVE count [7]; the 8.8 is CISA enrichment on the CVE record [8]. Ports and discovery [5][6]. Rickmote [1]. CastHack [4].
 
@@ -30,10 +30,10 @@ Notes: Leak figure, quoted by the researcher to Krebs [3]. Reward [5]. AirBorne 
 
 | Date | Event |
 |---|---|
-| Jul 2014 | Rickmote hijacks a Chromecast through its setup mode |
+| Jul 2014 | Rickmote hijacks a nearby Chromecast within wireless range |
 | Jun 2018 | The location leak via DNS rebinding is published |
-| Jun 2019 | The local cast API begins requiring an auth token |
 | Jan 2019 | CastHack drives internet-exposed cast and smart-TV devices |
+| Jun 2019 | The local cast API begins requiring an auth token |
 | 2020 | Netflix updates the DIAL protocol |
 | 2021 | Account-linking wiretap reported; fixed by 2022 |
 | 2023 | DIALStranger (2019 research) published at Black Hat MEA |

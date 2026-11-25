@@ -1,8 +1,8 @@
-# Guides: Step-by-Step How-To's
+# Guides: Step-by-Step How-Tos
 
 > The references tell you *what*; the guides tell you *how*. Each guide is a self-contained, start-to-finish procedure with prerequisites, numbered steps, checkpoints you can verify, and links back into the library's reference docs for the depth behind each move. Pick the task you need to do today.
 
-Every guide follows the same shape: a promise and a "who this is for" up top, an at-a-glance table (time, difficulty, what you need, what you'll produce), a before you start checklist, numbered steps with a Checkpoint after each, a what good looks like section, and a go deeper list of references. Commands are verified against current official documentation; still confirm them against the live docs before production use.
+Every guide follows the same shape: a promise and a "who this is for" up top, an at-a-glance table (time, difficulty, what you need, what you'll produce), a before you start checklist, numbered steps with a Checkpoint after each, a what good looks like section, and a go deeper list of references. The commands reflect the official documentation current when each guide was reviewed; confirm them against the vendor docs for the versions you run before relying on them in production.
 
 Related: [How to Use This Library](/guides/HOW_TO_USE_THIS_LIBRARY.md), [Reference Index](/INDEX.md), [Discipline Paths](/disciplines/README.md)
 
@@ -50,7 +50,7 @@ Related: [How to Use This Library](/guides/HOW_TO_USE_THIS_LIBRARY.md), [Referen
 | [Harden a Windows Baseline](/guides/HARDEN_A_WINDOWS_BASELINE.md) | A hardened Windows baseline via CIS/Microsoft policy, ASR, and audited command-line logging |
 | [Harden a Linux Host](/guides/HARDEN_A_LINUX_HOST.md) | An audited Linux host with a sysctl drop-in, a default-deny nftables firewall, verified results, and a written rollback, shown with lab terminal screenshots |
 | [Host a Secure Static Site on Your Own Domain with Cloudflare and GitHub Pages](/guides/HOST_A_SECURE_STATIC_SITE_ON_YOUR_OWN_DOMAIN.md) | A static site on your own domain over HTTPS, with GitHub Pages as the origin, Cloudflare DNS, TLS policy and real security headers in front, domain verification against takeover, and a rollback for every step |
-| [Harden a macOS Fleet with mSCP](/guides/HARDEN_A_MACOS_FLEET.md) | A compliant macOS fleet built with the NIST macOS Security Compliance Project |
+| [Harden a macOS Fleet with mSCP](/guides/HARDEN_A_MACOS_FLEET.md) | A macOS fleet built to a tailored NIST macOS Security Compliance Project baseline, deployed by MDM, with per-device compliance evidence |
 | [Assess Your M365 Tenant with ScubaGear](/guides/ASSESS_M365_WITH_SCUBAGEAR.md) | A scored M365 tenant against CISA SCuBA baselines with a safe remediation plan |
 | [Harden a Kubernetes Cluster](/guides/HARDEN_A_KUBERNETES_CLUSTER.md) | A K8s cluster hardened to a defensible baseline: kube-bench, Pod Security Standards, default-deny NetworkPolicy, RBAC, admission control |
 | [Roll Out Phishing-Resistant MFA](/guides/ROLL_OUT_PHISHING_RESISTANT_MFA.md) | Phishing-resistant MFA (FIDO2/passkeys) + conditional access rolled out safely, with break-glass and help-desk hardening |

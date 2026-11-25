@@ -23,7 +23,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 11 min (2,454 words at 230 words a minute)
+About 11 min (2,614 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -86,7 +86,7 @@ Watch out: Do not open attachments or click links while capturing. Saving the fi
 
 ## Step 2: Read the headers and authentication results
 
-Work through the headers exactly as the [Email Security Reference](/EMAIL_SECURITY_REFERENCE.md) lays out. Paste the header block into a parser, [MXToolbox Email Header Analyzer](https://mxtoolbox.com/EmailHeaders.aspx), or parse locally with [emlAnalyzer](https://pypi.org/project/eml-analyzer/):
+Work through the headers exactly as the [Email Security Reference](/EMAIL_SECURITY_REFERENCE.md) lays out. Headers carry internal host names, IPs, and user addresses, so for a sensitive report prefer parsing locally with [emlAnalyzer](https://pypi.org/project/eml-analyzer/) over pasting the block into an external service such as [MXToolbox Email Header Analyzer](https://mxtoolbox.com/EmailHeaders.aspx):
 
 ```bash
 pip install eml-analyzer
@@ -97,7 +97,7 @@ Answer four questions, in order:
 
 1. Did authentication pass? Find the `Authentication-Results:` header and record the SPF, DKIM, and DMARC verdicts. `dmarc=fail` on a domain that claims to be your bank, your vendor, or your own org is a strong phish signal.
 2. Who really sent it? Compare `From:` (what the user saw), `Return-Path:` (where bounces go), and `Reply-To:` (where replies go). Mismatches are classic phish plumbing.
-3. Where did it come from? Read the `Received:` chain bottom-to-top; the bottom entry is the originating server. Check that IP against the claimed sender's published SPF record (`Resolve-DnsName senderdomain.example -Type TXT` in PowerShell; `dig TXT senderdomain.example` on macOS/Linux).
+3. Where did it come from? Read the `Received:` chain bottom-to-top; the bottom entry is the originating server, but trust the chain only from your own first hop inward. An attacker can forge any `Received:` or authentication header added before the message reached a gateway you control, so treat everything below your perimeter as a claim, not evidence. Check the originating IP against the SPF record of the envelope sender, the `Return-Path`/MAIL FROM domain, which is what SPF authorizes, not the visible `From` (`Resolve-DnsName returnpathdomain.example -Type TXT` in PowerShell; `dig TXT returnpathdomain.example` on macOS/Linux).
 4. Does "pass" actually clear it? All three checks can pass on a phish. Display-name spoofing, cousin domains (`d0main.com`), and homoglyphs authenticate fine because the attacker controls the sending domain; the DMARC-gaps section of the reference covers each case. Authentication tells you *which domain sent it*, not *whether that domain is honest*.
 
 Checkpoint: Your notes state the SPF/DKIM/DMARC results, the true originating IP and domain, and whether the visible sender identity matches the authenticated one.
@@ -110,7 +110,7 @@ Extract every URL (the `emlAnalyzer --url` output from Step 2, or hover-and-copy
 
 1. Defang it immediately in your notes and in anything you share: `https://evil.example/pay` becomes `hxxps://evil[.]example/pay`. The URL-deobfuscation section of the [Email Security Reference](/EMAIL_SECURITY_REFERENCE.md) has the conventions and a refang helper.
 2. Unwrap rewriting first. Safe Links, Proofpoint URL Defense, and similar gateways wrap the real URL inside their own; decode to the true destination before judging it.
-3. Let a scanner visit it for you. Submit to [urlscan.io](https://urlscan.io/) and review the screenshot, redirect chain, and verdicts. Set visibility to Unlisted or Private: a Public scan of a targeted phish can leak the campaign (and any tokens embedded in the URL) to the world, and can tip off the attacker that you're looking.
+3. Let a scanner visit it for you. Submit to [urlscan.io](https://urlscan.io/) and review the screenshot, redirect chain, and verdicts, but mind the visibility setting. A Public scan of a targeted phish leaks the campaign, and any token embedded in the URL, to the world and can tip off the attacker. Unlisted is not private: per [urlscan's FAQ](https://docs.urlscan.io/pages/faq), Unlisted results are still visible to vetted security researchers and companies subscribed to urlscan Pro. A Private scan is the most restricted (urlscan does not share it with its customers or partners), but it can still be opened by anyone who holds its unique link, so do not paste a Private result URL into a ticket others can read. For a targeted lure, or any URL that carries a token or identifies your organization, use Private or an approved internal/offline tool rather than Unlisted.
 4. Check reputation: the domain's [VirusTotal](https://www.virustotal.com/) page (community verdicts, passive DNS, related samples) and WHOIS age. A domain registered days ago that renders a Microsoft 365 login page is not ambiguous.
 
 Checkpoint: Every URL in the message is listed defanged in your notes with a per-URL verdict: credential-harvesting page, malware download, redirector, or benign.

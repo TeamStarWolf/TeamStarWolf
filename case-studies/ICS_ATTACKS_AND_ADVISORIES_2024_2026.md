@@ -441,7 +441,7 @@ ATT&CK for ICS mitigation M0930 Network Segmentation covers, among the technique
 - `data/attack/ics/group_to_technique.jsonl` lacks T0814 and T0828 for G1027, both of which the live page (modified 2026-10-07) lists [82] [70] (**Confirmed**).
 - The library has no generated ICS technique or ICS mitigation pages, and no pages for G1027, G1000, S1045, S1165, S1157, S1009 or C0031 [82] (**Confirmed**).
 - `THREAT_ACTORS.md` has an Iran-table row named "Volt Typhoon lookalike", with ATT&CK id "None" and "Cyber Av3ngers (IRGC)" as its alias; ATT&CK has CyberAv3ngers as G1027 [82] [70] (**Confirmed**).
-- `MALWARE_FAMILIES.md` and `NOTABLE_INCIDENTS.md` have no entries for FrostyGoop, Fuxnet, IOCONTROL or DynoWiper (searched on main `e85b559`) [82] (**Confirmed**).
+- `MALWARE_FAMILIES.md` and `NOTABLE_INCIDENTS.md` have no entries for FrostyGoop, Fuxnet, IOCONTROL or DynoWiper (searched on main `4652b96`) [82] (**Confirmed**).
 - The library's D3FEND data keys its ICS credential countermeasures to the revoked T0812 rather than T1694.001; for example D3-CDP Change Default Password lists T0812 [82] (**Confirmed**).
 - Advisories still cite revoked ICS ids; Part 6.4 maps them.
 
@@ -789,7 +789,7 @@ Each technique is shown under all its tactics, and each comment names the events
 | 79 | MITRE ATT&CK, campaign C0063 2025 Poland Wiper Attacks | https://attack.mitre.org/campaigns/C0063/ | 3 Nov 2026 | Confirmed |
 | 80 | MITRE ATT&CK for ICS, mitigation M0930 Network Segmentation (v1.1) | https://attack.mitre.org/mitigations/M0930/ | 3 Nov 2026 | Confirmed |
 | 81 | MITRE ATT&CK for ICS, technique T0892 Change Credential | https://attack.mitre.org/techniques/T0892/ | 3 Nov 2026 | Confirmed |
-| 82 | TeamStarWolf library data and pages on main `e85b559`: `data/attack/superseded_by.jsonl`, `data/attack/ics/technique_profiles.jsonl`, `data/attack/ics/group_to_technique.jsonl`, `data/attack/ics/mitigations.jsonl`, `data/attack/technique_profiles.jsonl`, `data/attack/campaign_profiles.jsonl`, `data/attack/group_profiles.jsonl`, `data/attack/d3fend_countermeasures.jsonl`, `data/weaknesses/cwe.jsonl`, `data/weaknesses/capec.jsonl`, the `mitre/` tree, `THREAT_ACTORS.md`, `MALWARE_FAMILIES.md`, `NOTABLE_INCIDENTS.md` | https://github.com/TeamStarWolf/TeamStarWolf | 3 Nov 2026 | Confirmed |
+| 82 | TeamStarWolf library data and pages on main `4652b96`: `data/attack/superseded_by.jsonl`, `data/attack/ics/technique_profiles.jsonl`, `data/attack/ics/group_to_technique.jsonl`, `data/attack/ics/mitigations.jsonl`, `data/attack/technique_profiles.jsonl`, `data/attack/campaign_profiles.jsonl`, `data/attack/group_profiles.jsonl`, `data/attack/d3fend_countermeasures.jsonl`, `data/weaknesses/cwe.jsonl`, `data/weaknesses/capec.jsonl`, the `mitre/` tree, `THREAT_ACTORS.md`, `MALWARE_FAMILIES.md`, `NOTABLE_INCIDENTS.md` | https://github.com/TeamStarWolf/TeamStarWolf | 3 Nov 2026 | Confirmed |
 | 83 | Censys, global ICS exposures in the 2024 State of the Internet report (2024-11-26) | https://censys.com/blog/global-ics-exposures-what-our-2024-state-of-the-internet-report-reveals-about-critical-infrastructure-security/ | 3 Nov 2026 | Confirmed |
 | 84 | SANS Internet Storm Center, diary 30860 (2024-04-22) | https://isc.sans.edu/diary/30860 | 3 Nov 2026 | Confirmed |
 | 85 | Palo Alto Networks Unit 42, FrostyGoop malware analysis (2024-11-19) | https://unit42.paloaltonetworks.com/frostygoop-malware-analysis/ | 3 Nov 2026 | Confirmed |

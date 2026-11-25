@@ -1,6 +1,6 @@
 # Proofpoint
 
-Proofpoint is an email-centric security vendor. Its products protect the mail delivery path, which is the route most attacks take to reach people. The portfolio covers filtering, attack protection, data loss prevention, response, and user training.
+Proofpoint is an email-centric security vendor. Its products protect the mail delivery path, which is the route most attacks take to reach people. The portfolio covers filtering, attack protection, data loss prevention, response, and user training. Proofpoint is a Thoma Bravo portfolio company; the take-private completed on 31 August 2021.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,258 words at 230 words a minute)
+About 6 min (1,284 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -141,6 +141,7 @@ Its value depends on tuning and access control. A well-tuned gateway stops threa
 - Proofpoint Targeted Attack Protection documentation
 - Proofpoint Threat Response documentation
 - Proofpoint Security Awareness Training documentation
+- Thoma Bravo newsroom: Thoma Bravo completes acquisition of Proofpoint (31 August 2021)
 
 ## Related pages
 

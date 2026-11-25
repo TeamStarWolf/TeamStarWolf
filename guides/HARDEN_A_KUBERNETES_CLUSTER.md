@@ -23,7 +23,7 @@ Advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 15 min (3,380 words at 230 words a minute)
+About 15 min (3,501 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -166,7 +166,7 @@ kubectl label --overwrite ns production \
 kubectl get events -n production --field-selector reason=FailedCreate
 ```
 
-Fix the workloads the warnings name: the `restricted` profile requires `runAsNonRoot: true`, a non-zero `runAsUser`, `allowPrivilegeEscalation: false`, `capabilities.drop: ["ALL"]`, `seccompProfile.type: RuntimeDefault`, `readOnlyRootFilesystem` where feasible, and no `hostNetwork`/`hostPID`/`hostIPC`/`hostPath`. The full securityContext template is in the [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md).
+Fix the workloads the warnings name. The `restricted` profile requires `runAsNonRoot: true` and separately forbids an explicit `runAsUser: 0` (leaving `runAsUser` unset is allowed; the two are distinct controls), `allowPrivilegeEscalation: false`, `capabilities.drop: ["ALL"]` (only `NET_BIND_SERVICE` may be added back), a `seccompProfile.type` of `RuntimeDefault` or `Localhost`, and no `hostNetwork`/`hostPID`/`hostIPC`/`hostPath`. A read-only root filesystem (`readOnlyRootFilesystem: true`) is strong extra hardening but is not part of the Restricted profile, so apply it separately where feasible. The full securityContext template is in the [Kubernetes Security Reference](/KUBERNETES_SECURITY_REFERENCE.md).
 
 Then flip `enforce` on, namespace by namespace:
 
@@ -288,7 +288,7 @@ spec:
                     issuer: "https://token.actions.githubusercontent.com"
 ```
 
-Start every policy in audit/report mode and only switch to `Enforce` once the report shows no legitimate workload would be blocked. Layer the everyday guardrails too (disallow `:latest`, require `resources.limits`, require `runAsNonRoot`, restrict registries), which double-lock the Pod Security posture from Step 4. Supply-chain depth (SBOMs, SLSA, attestations) is in the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md) and [DevSecOps Reference](/DEVSECOPS_REFERENCE.md).
+Start every policy in audit/report mode and only switch to `Enforce` once the report shows no legitimate workload would be blocked. (On Kyverno 1.13 and later, set the action per rule with `verifyImages[*].failureAction` rather than the spec-level `validationFailureAction` shown above, which is deprecated; it still works, but confirm against your Kyverno version's docs.) Layer the everyday guardrails too (disallow `:latest`, require `resources.limits`, require `runAsNonRoot`, restrict registries), which double-lock the Pod Security posture from Step 4. Supply-chain depth (SBOMs, SLSA, attestations) is in the [Supply Chain Security Reference](/SUPPLY_CHAIN_SECURITY_REFERENCE.md) and [DevSecOps Reference](/DEVSECOPS_REFERENCE.md).
 
 Checkpoint: A policy engine is running; at least the image-signature policy plus the core guardrails are live; each started in audit and only moved to enforce after a clean report; and a deliberately unsigned or `:latest` test image is rejected in `production`.
 
@@ -322,7 +322,7 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 
 On managed clusters this is usually a console/API toggle: enable envelope encryption with your cloud KMS (EKS KMS, GKE application-layer secrets encryption, AKS KMS etcd encryption).
 
-Get secrets out of manifests entirely. The stronger pattern is to store nothing sensitive in Git or etcd long-term: use the [External Secrets Operator](https://external-secrets.io/) or the [Secrets Store CSI Driver](https://secrets-store-csi-driver.sigs.k8s.io/) to sync from a real vault (HashiCorp Vault or a cloud secrets manager), or Sealed Secrets for GitOps of encrypted-at-rest manifests. The trade-offs are in the [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md).
+Get secrets out of your manifests and out of Git. Each option moves the secret differently, so know where it ends up: the [External Secrets Operator](https://external-secrets.io/) syncs from a real vault but writes a native Kubernetes Secret, so the value still lives in etcd, now protected by the KMS encryption you just enabled; the [Secrets Store CSI Driver](https://secrets-store-csi-driver.sigs.k8s.io/) can mount a vault secret straight into the pod without creating a Kubernetes Secret at all; Sealed Secrets keeps only an encrypted manifest in Git but is decrypted to a normal Secret in the cluster. Pick per the trade-offs in the [Secrets Management Reference](/SECRETS_MANAGEMENT_REFERENCE.md).
 
 Checkpoint: New and re-encrypted Secrets are encrypted at rest (verify with `etcdctl get` on a self-managed cluster; the stored value is no longer readable base64), a KMS v2 provider or the managed equivalent is active, and application secrets flow from an external manager rather than living hand-written in manifests.
 

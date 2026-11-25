@@ -24,7 +24,7 @@ Stat: 7 | Dutch bodies with misuse found or not ruled out
 Stat: 0 | Actors named by any source
 - Weakness: CWE-94, code injection; CAPEC-242 from the CNA.
 - SSVC: exploitation active, automatable, technical impact total.
-- Fix: hotfix RPMs that do not survive a version upgrade; 12.8.0.0 planned.
+- Fix: hotfix RPMs that do not survive a version upgrade; 12.8.0.0 ships the permanent fix for both CVEs.
 Notes: Score, CWE and CAPEC [2][3][4][5]. KEV [6]. Bodies [14]. Actor silence [25], Inferred. SSVC [2][3]. Fix [2][10].
 
 ## PART 1 | From disclosure to a named victim list

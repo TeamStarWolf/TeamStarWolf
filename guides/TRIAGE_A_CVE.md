@@ -6,7 +6,7 @@
 |---|---|---|---|
 | ~30 minutes | Intermediate | A CVE ID, asset-inventory access, a terminal with `curl` (or just a browser) | A decision (Track / Track\* / Attend / Act), an SLA tier with owner and due date, and the recorded input vector that justifies both |
 
-The method comes straight from this library's precedence rule: verified exploitation (KEV) > predicted exploitation (EPSS) > your environment > abstract severity (CVSS). Each step below collects one layer of that stack; the CISA SSVC decision tree then turns the collected inputs into an action. The worked example threaded through the checkpoints is CVE-2023-4966 (CitrixBleed).
+The method gates on applicability first: a CVE that affects no software you run, or that nothing reachable exposes, needs no further ranking. For the CVEs that do apply, verified exploitation (KEV) and any mandatory deadline come first, then predicted exploitation (EPSS) weighed alongside mission impact and your compensating controls, with abstract severity (CVSS) last. Each step below collects one layer of that stack; the CISA SSVC decision tree then turns the collected inputs into an action. The worked example threaded through the checkpoints is CVE-2023-4966 (CitrixBleed).
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -23,7 +23,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 11 min (2,499 words at 230 words a minute)
+About 11 min (2,637 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -133,7 +133,7 @@ You can also browse the raw file in the Vulnrichment repo; records live at `<yea
 
 Checkpoint: Three values on paper with their source noted. For the example: Exploitation `active`, Automatable `yes`, Technical Impact `total`, from the CISA-ADP container.
 
-Watch out: Not every CVE is enriched, and enrichment lags disclosure (CISA commits to roughly three business days under BOD 26-04 guidance). If the ADP container is missing, set Exploitation yourself from Step 2 plus the vendor advisory, and mark the value as self-assessed. Conversely, `Exploitation: active` here often appears *before* formal KEV addition; treat it as an early warning, not a contradiction.
+Watch out: Enrichment lags disclosure and does not cover every CVE. CISA's [BOD 26-04 implementation guidance](https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk) says it will update CDM with pending Technical Impact or Automatable enrichment within three business days, but that is the federal CDM feed; the public ADP container you pull can lag it. The same guidance says CISA will always provide Vulnrichment data for a KEV-listed CVE, though not when, so a KEV-listed CVE should carry it; check KEV directly in Step 2 rather than inferring from a missing container. For a non-KEV CVE that is not yet enriched, the directive defaults a missing Automatable to `no` and a missing Technical Impact to `total` until supplied; set Exploitation yourself from Step 2 plus the vendor advisory, and mark the value as self-assessed. Conversely, `Exploitation: active` here often appears *before* formal KEV addition; treat it as an early warning, not a contradiction.
 
 ## Step 4: Read EPSS as a probability, not a rank (3 min)
 
@@ -206,7 +206,7 @@ Watch out: Never fake the bridge by walking CVE -> CWE -> CAPEC -> ATT&CK; that 
 
 Convert the outcome into work:
 
-1. Assign the SLA tier from your written policy: the editorial example ladder in [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md) runs P0 (3 days, KEV + exposed + automatable + total control) through P4 (scheduled maintenance). No policy yet? Use the KEV `dueDate` span and BOD 26-04's tier structure (3 / 6 / 14 / 30 / 60 days / fix-on-upgrade) as the public benchmark and write yours down afterward.
+1. Assign the SLA tier from your written policy: the editorial example ladder in [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md) runs P0 (3 days, KEV + exposed + automatable + total control) through P4 (scheduled maintenance). No policy yet? Use the KEV `dueDate` span and BOD 26-04's tier structure (3, 14, or 60 days, or fix-on-upgrade, per the directive's Table 1) as the public benchmark and write yours down afterward.
 2. If you landed in the fastest tier (or KEV said `forensicTriage: Yes`), open a second work item: determine whether the vulnerability was already exploited on those assets *before* your patch lands. "Patch" and "were we already hit?" are separate deliverables on the same clock; route the second through [IR Playbooks](/IR_PLAYBOOKS.md).
 3. Set re-evaluation triggers. A priority is a cached decision; write down what invalidates it: KEV addition, a large EPSS jump, a new or superseded VEX statement, an exposure change. Wire these to alerts if you can, a weekly diff if you can't.
 4. File the ticket: decision + SLA + owner + due date + the exported input vector + technique IDs.
@@ -219,7 +219,7 @@ Watch out: Don't run one clock for two jobs; closing the patch task while the fo
 
 - Reproducible: a colleague re-running Steps 2-7 with your recorded inputs reaches the same outcome.
 - Defensible in both directions: you can answer "why so urgent?" *and* "why did you defer that 9.8?" from the input vector alone, without reconstructing anything from memory.
-- Correctly ordered: verified exploitation outranked prediction, prediction outranked severity, and your environment promoted or demoted both; no EPSS×CVSS arithmetic anywhere.
+- Correctly ordered: applicability and reachability gated the triage first, then verified exploitation and any mandatory deadline outranked prediction, which was weighed alongside exposure and mission impact rather than ahead of them; no EPSS×CVSS arithmetic anywhere.
 - Time spent where it counts: the public-feed steps felt mechanical (they should: automate them next; see the pipeline sketch in [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md)), and most of your 30 minutes went to exposure, mission impact, and the advisory's fine print.
 - Alive, not archived: the decision has named tripwires, so a KEV addition or EPSS jump reopens it automatically instead of waiting for next quarter's scan.
 

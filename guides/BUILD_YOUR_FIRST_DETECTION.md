@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 10 min (2,297 words at 230 words a minute)
+About 10 min (2,333 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -87,7 +87,7 @@ Before writing a line of YAML, read what MITRE says the behavior actually looks 
 2. The behavior chain: task creation via `schtasks.exe`, PowerShell, WMI, or API, followed by execution under `svchost.exe`/`taskeng.exe`; your first rule covers the creation half.
 3. The tunable elements: `UserContext`, `TaskNamePattern`, `TimeWindow`, and command-line entropy. These are exactly the knobs you will turn in Step 7, so copy them into your notes now.
 
-Then look at the [Technique Detection Library entry for T1053.005](/detections/TECHNIQUE_DETECTION_LIBRARY.md#t1053005) to see how the same logic looks as ready-made SPL, KQL, and other dialects; that is where your converted rule should land, logically.
+Then look at the [Technique Detection Library entry for T1053.005](/detections/TECHNIQUE_DETECTION_LIBRARY.md#t1053005) to see how the same logic looks as adaptable SPL, KQL, and other-dialect references; that is where your converted rule should land, logically.
 
 Checkpoint: A short note listing the technique's log sources, the behavior your rule will match, and the strategy's tunable parameters.
 
@@ -119,7 +119,7 @@ In Event Viewer, confirm 4698 in the Security log (note the `TaskName` and `Task
 
 Checkpoint: Your benign task appears in your SIEM as a 4698 event and a `schtasks.exe` process-creation event, with `CommandLine` populated.
 
-Watch out: If `CommandLine` is empty in 4688 events, native command-line auditing is off; that is a Group Policy setting, and without it half of all Sigma process rules match nothing. Fix ingestion gaps now using [Onboard a Log Source](/guides/ONBOARD_A_LOG_SOURCE.md); tuning cannot repair missing fields.
+Watch out: If `CommandLine` is empty in 4688 events, native command-line auditing is off; that is a Group Policy setting, and without it the many process-creation rules that key on `CommandLine` match nothing. Fix ingestion gaps now using [Onboard a Log Source](/guides/ONBOARD_A_LOG_SOURCE.md); tuning cannot repair missing fields.
 
 ## Step 4: Write the Sigma rule
 
@@ -252,7 +252,7 @@ Watch out: Promotion is per-environment. A rule that is quiet on workstations ca
 
 ## What good looks like
 
-- The rule detects a *behavior* (task registration from user-writable staging paths), not a tool name or a hash, and carries the correct ATT&CK tags.
+- The rule detects a *behavior* (schtasks.exe registering a task whose action runs from a user-writable staging path), not a tool name or a hash, and carries the correct ATT&CK tags. It covers one documented pattern in process-creation telemetry; task creation via PowerShell, WMI, or the API is out of scope here, by design for a first rule.
 - One YAML file is the single source of truth; the SPL and KQL in production were generated from it, and every tuning change went through the YAML first.
 - You can hand a teammate the written baseline and they can predict what the rule will and will not fire on.
 - The benign test task and the named atomic tests all produced alerts after tuning, proof the filters removed noise without removing the detection.
@@ -262,7 +262,7 @@ Watch out: Promotion is per-environment. A rule that is quiet on workstations ca
 
 - [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md): the doctrinal base: Sigma structure, modifiers, conversion workflows, and detection engineering best practices.
 - [Detection Strategies index](/detections/strategies/README.md): MITRE's per-technique detection strategies and analytics; your shopping list for rule number two.
-- [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md): ready-to-run queries per technique across five SIEM dialects, with validation pointers.
+- [Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md): adaptable reference queries per technique across five SIEM dialects, with validation pointers.
 - [Data Components & Log Sources](/ATTACK_DATA_COMPONENTS.md): which telemetry feeds which technique, for judging what "cheap" means in your environment.
 - [SIEM Detection Content](/SIEM_DETECTION_CONTENT.md): broader query content to adapt once the lifecycle feels routine.
 - [Threat-Informed Defense Reference](/THREAT_INFORMED_DEFENSE_REFERENCE.md): prioritizing which techniques deserve detections, by real adversary prevalence.

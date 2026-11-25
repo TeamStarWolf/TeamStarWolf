@@ -1,6 +1,6 @@
 # Splunk Enterprise Security
 
-Splunk Enterprise Security is a security information and event management (SIEM) application that runs on the Splunk platform, turning ingested machine data into detections, investigations, and risk-based alerts.
+Splunk Enterprise Security is a security information and event management (SIEM) application that runs on the Splunk platform, turning ingested machine data into detections, investigations, and risk-based alerts. Splunk is part of Cisco, which completed the acquisition on 18 March 2024.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,299 words at 230 words a minute)
+About 6 min (1,322 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -150,6 +150,7 @@ For leadership, ES dashboards show detection coverage and incident trends. For a
 - Splunk Common Information Model documentation
 - Splunk SOAR documentation
 - Splunk Search Reference (SPL)
+- Cisco newsroom: Cisco completes acquisition of Splunk (18 March 2024)
 
 ## Related pages
 

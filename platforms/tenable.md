@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,336 words at 230 words a minute)
+About 6 min (1,431 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -57,15 +57,15 @@ Tenable sits in the vulnerability management and exposure management part of a s
 
 Tenable One is the platform layer. It pulls asset and finding data from the operational products into a shared asset inventory and exposure view. Teams use it to prioritize across many asset classes rather than one scan at a time.
 
-The operational products include Tenable Vulnerability Management (formerly tenable.io), the Nessus scanner, Tenable Web App Scanning, Tenable Cloud Security, and Tenable Identity Exposure. Each covers a different surface, and each feeds the shared model.
+The operational products include Tenable One Vulnerability Management (earlier Tenable Vulnerability Management and, before that, Tenable.io), the Tenable Nessus scanner, Tenable One Web App Scanning, Tenable One Cloud Exposure (formerly Tenable Cloud Security), and Tenable One Identity Exposure. Each covers a different surface, and each feeds the shared model.
 
 ## Architecture and how it works
 
-Tenable Vulnerability Management runs as a cloud-hosted service. Data collection happens through scanners and agents that report findings back to the platform. Scanners can be cloud-hosted by Tenable or deployed as on-premises scanner appliances for internal networks.
+Tenable One Vulnerability Management runs as a cloud-hosted service. Data collection happens through scanners and agents that report findings back to the platform. Scanners can be cloud-hosted by Tenable or deployed as on-premises scanner appliances for internal networks.
 
 Nessus is the scan engine. It runs the plugin checks that detect vulnerabilities, missing patches, and misconfigurations. Nessus Agents install on hosts and scan locally, which suits laptops and systems that are not always reachable over the network.
 
-Tenable Web App Scanning performs dynamic testing of running web applications. Tenable Cloud Security reads cloud provider configuration and workloads. Tenable Identity Exposure analyzes Active Directory and Entra ID for weaknesses in identity infrastructure.
+Tenable One Web App Scanning performs dynamic testing of running web applications. Tenable One Cloud Exposure reads cloud provider configuration and workloads. Tenable One Identity Exposure analyzes Active Directory and Entra ID for weaknesses in identity infrastructure.
 
 Findings from these products normalize into assets and vulnerability instances. Each asset carries attributes such as network address, operating system, and tags. The platform tracks the state of each finding over time.
 
@@ -134,12 +134,15 @@ In a mature program, Tenable findings open tickets in ServiceNow Vulnerability R
 
 ## Resources
 
-- Tenable Vulnerability Management documentation
+- Tenable One Vulnerability Management documentation
 - Nessus User Guide
 - Tenable One documentation
-- Tenable Web App Scanning documentation
-- Tenable Cloud Security documentation
-- Tenable Identity Exposure documentation
+- Tenable One Web App Scanning documentation
+- Tenable One Cloud Exposure documentation
+- Tenable One Identity Exposure documentation
+- Tenable products page: the Tenable One domains, including Tenable One Cloud Exposure (read 25 November 2026)
+- Tenable: the former /products/tenable-cloud-security address redirects to the "Tenable One Cloud Exposure Management (CNAPP)" page, so the earlier name was Tenable Cloud Security (observed 25 November 2026)
+- Tenable: the former /products/tenable-io address redirects to the "Tenable One Vulnerability Management" page, so the earlier names were Tenable Vulnerability Management and Tenable.io (observed 25 November 2026)
 
 ## Related pages
 

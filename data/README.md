@@ -18,10 +18,12 @@
 | `weaknesses/` | CWE weaknesses and CAPEC attack patterns, with CAPEC's ATT&CK links | MITRE CWE, CAPEC |
 | `hub/` | `tag_counts.json`: a pinned snapshot of the Intelligence Hub (entries per vocabulary tag, KEV-linked entries, entries per year, and the CVEs with a brief), read by `scripts/build_hub_links.py` | Written by `scripts/build_hub_links.py --refresh` from the live Hub |
 | `generated/` | `stats.json` (headline counts) and `corpus_signal.jsonl` (the corpus-signal paragraphs on technique pages) | Written by scripts |
+| `inventory/` | The vendor and capability inventory: a capability taxonomy (`capabilities.jsonl`) and the companies (`companies.jsonl`) and products (`products.jsonl`) that document each capability, keyed to the shared vocabulary, plus the generated `inventory.json` roll-up | This library |
 | `doc_meta.yaml` | The hand-written fields of each root reference's and learning path's header card, the recorded corrections and owner reviews, the overlap clusters, and the folds, read by `scripts/build_doc_meta.py` | This library |
 | `doc_takeaways.yaml`, `doc_takeaways.draft.yaml` | Key takeaways: the ones the owner has reviewed (shown on the pages) and the drafts awaiting review (never shown) | This library |
 | [EDGES.md](/data/EDGES.md) | The edge contract: source and target field, node types, and edge type of every relationship file | |
 | [VOCABULARIES.md](/data/VOCABULARIES.md) | Allowed values for `edge_type`, `confidence`, `relation`, and other enumerated fields | |
+| [INVENTORY.md](/data/INVENTORY.md) | The vendor and capability inventory schema: capability, company, and product fields, the per-fact sourcing rules, and the NIST CSF 2.0 / CIS / D3FEND framework mappings | |
 | `MANIFEST.json` | Per-file path, rows, bytes, SHA-256, and provenance, plus the pinned upstream inputs | Written by `scripts/build_manifest.py` |
 
 [THIRD_PARTY_NOTICES.md](/THIRD_PARTY_NOTICES.md) gives the license and notice for each upstream. MITRE content stays under the [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/) and the other frameworks' terms; this library's own derivations are MIT.
@@ -33,6 +35,7 @@
 - `scripts/build_control_rollup.py` adds the parent-rolled NIST controls to each technique profile, and `scripts/backfill_capec_edges.py` adds the CAPEC edge from `weaknesses/capec.jsonl`.
 - The ATLAS, Engage, F3, CWE, CAPEC, D3FEND, and CAR files are committed snapshots of their upstream releases. No script here re-fetches them. `scripts/validate_jsonl.py` checks every file: each line parses as a JSON object, ids and edge keys are unique, and every ATT&CK technique id is live or resolves to a live successor through `attack/superseded_by.jsonl`.
 - `scripts/build_manifest.py` writes `MANIFEST.json`, and `scripts/build_stats.py` writes `generated/stats.json`.
+- `scripts/build_inventory.py` validates the hand-written `inventory/` sources (schema, the vocabulary and D3FEND cross-references, per-fact sourcing, framework items, and neutral wording) and writes `inventory/inventory.json`; its `--self-test` runs planted bad-record controls and `--check` fails on any drift. See [INVENTORY.md](/data/INVENTORY.md).
 
 The Validate Data Files workflow runs every builder above in check mode on each pull request and fails if a committed file differs from what the script produces. [scripts/README.md](/scripts/README.md) lists the jobs.
 

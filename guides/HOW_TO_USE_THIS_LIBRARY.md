@@ -17,7 +17,7 @@ Beginner
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 9 min (2,156 words at 230 words a minute)
+About 9 min (2,146 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -83,10 +83,10 @@ The repo is one flat root of reference documents plus a few purposeful folders:
 | Location | What lives there |
 |---|---|
 | Root `*.md` files | The reference documents: one deep, self-contained doc per domain (e.g. [Incident Response](/INCIDENT_RESPONSE_REFERENCE.md), [Cloud Security](/CLOUD_SECURITY_REFERENCE.md), [SIEM](/SIEM_REFERENCE.md)) |
-| `disciplines/` | 47 guided learning paths that sequence those references in the right order; hub at [Discipline Paths](/disciplines/README.md) |
+| `disciplines/` | <!-- stat-learning_paths:start -->47<!-- stat-learning_paths:end --> guided learning paths that sequence those references in the right order; hub at [Discipline Paths](/disciplines/README.md) |
 | `guides/` | Step-by-step how-to guides (you are reading one): procedures, where the references are doctrine |
 | `techniques/` | Per-technique ATT&CK detail pages, one file per tactic: hub at [Technique Detail Pages](/techniques/README.md) |
-| `detections/` | Detection engineering: 703 MITRE detection strategies + 1,770 analytics ([Detection Strategies](/detections/strategies/README.md)) and 65 multi-platform queries ([Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)) |
+| `detections/` | Detection engineering: <!-- stat-detection_strategies:start -->703<!-- stat-detection_strategies:end --> MITRE detection strategies + <!-- stat-analytics:start -->1,770<!-- stat-analytics:end --> analytics ([Detection Strategies](/detections/strategies/README.md)) and 65 multi-platform queries ([Technique Detection Library](/detections/TECHNIQUE_DETECTION_LIBRARY.md)) |
 | `data/` | Machine-readable JSONL datasets: every mapping in the library as one JSON object per line (ATT&CK, D3FEND, CWE, CAPEC, ATLAS, Engage, F3, and the NIST 800-53 coverage edges) |
 | `navigator/` | ATT&CK Navigator heatmap layers: index at [Navigator Layers](/navigator/index.md) |
 | `scores/` | Gap analyses computed from the datasets: start with [Priority Gap Analysis](/scores/attack_priority_gaps.md) |
@@ -120,8 +120,8 @@ CVE  →  CWE  →  CAPEC  →  ATT&CK  →  D3FEND
 Read it forward to go from a vulnerability to the defensive action that stops it; read it backward to go from an observed behavior to the root-cause weaknesses in your environment. Each hop has a home:
 
 - Behavior: [ATT&CK Technique Atlas](/ATTACK_TECHNIQUE_ATLAS.md) scores Enterprise techniques by how many groups and software use them and how many mitigations and controls address them; [Technique Detail Pages](/techniques/README.md) give the full per-technique write-up
-- Weakness and pattern: [CWE Reference](/CWE_REFERENCE.md) (969 weaknesses) and [CAPEC Reference](/CAPEC_REFERENCE.md) (615 patterns, 177 bridging to ATT&CK)
-- Defense: [D3FEND Reference](/D3FEND_REFERENCE.md) (156 countermeasures) and the 5,263 NIST 800-53 control->technique edges in [Controls Mapping](/CONTROLS_MAPPING.md), sourced from the [CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/)
+- Weakness and pattern: [CWE Reference](/CWE_REFERENCE.md) (<!-- stat-cwe_weaknesses:start -->956<!-- stat-cwe_weaknesses:end --> weaknesses) and [CAPEC Reference](/CAPEC_REFERENCE.md) (<!-- stat-capec_attack_patterns:start -->559<!-- stat-capec_attack_patterns:end --> patterns, <!-- stat-capec_patterns_with_attack:start -->177<!-- stat-capec_patterns_with_attack:end --> bridging to ATT&CK)
+- Defense: [D3FEND Reference](/D3FEND_REFERENCE.md) (<!-- stat-d3fend_countermeasures:start -->156<!-- stat-d3fend_countermeasures:end --> countermeasures) and the <!-- stat-control_to_technique_edges:start -->5,263<!-- stat-control_to_technique_edges:end --> NIST 800-53 control->technique edges in [Controls Mapping](/CONTROLS_MAPPING.md), sourced from the [CTID Mappings Explorer](https://center-for-threat-informed-defense.github.io/mappings-explorer/)
 - The on-disk shape: [Coverage Schema](/COVERAGE_SCHEMA.md) documents the vendor -> control -> technique edge tables that power the Navigator layers and gap scores
 
 Checkpoint: You can answer "which NIST 800-53 controls mitigate Valid Accounts (T1078)?" using [Controls Mapping](/CONTROLS_MAPPING.md), and you know the same fact exists as machine-readable rows in `data/control_to_technique.jsonl`.

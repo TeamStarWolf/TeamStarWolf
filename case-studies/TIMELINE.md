@@ -27,6 +27,10 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 9 November 2026: CISA adds the CVE to KEV based on evidence of active exploitation, due 12 November, forensic triage required
   - 11 November 2026: GreyNoise counts 26 confirmed post-exploitation chains from 8 attacker addresses on its sensors (Reported)
   - 12 November 2026: KEV due date
+- [Puppet Server, CVE-2026-115731: The Report Deserialization Code Execution Flaw](/case-studies/PUPPET_CVE_2026_115731.md). Vulnerability, November 2026. Sectors: technology. CVEs: CVE-2026-115731. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Puppet_CVE_2026_115731_Case_Study.pdf).
+  - 3 November 2026: Perforce publishes CVE-2026-115731 as the CNA, with fixed Puppet Enterprise releases 2023.8.13, 2025.12.1 and 2026.0.1
+  - 17 November 2026: CISA adds CVE-2026-115731 to the KEV catalog (due 1 December); its SSVC entry rates exploitation active
+  - 18 November 2026: NVD analysis completes; the Belgian CCB and press report active exploitation and a public proof of concept
 - [nginx2root 2026: The nginx HTTP/2 Remote Code Execution Flaws, CVE-2026-123007 and CVE-2026-123633](/case-studies/NGINX2ROOT_2026.md). Vulnerability, November 2026. Sectors: technology. CVEs: CVE-2026-123007, CVE-2026-123633. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/nginx2root_2026_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/nginx2root_2026_Case_Study.pptx).
   - 11 October 2026: Xint finds the nginx flaws
   - 16 October 2026: Xint reports the flaws to F5 through HackerOne; Wiz and others report the HTTP/2 pair independently
@@ -44,6 +48,16 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 10 November 2026: N-central 2026.4 Hotfix 2 (2026.4.1.26) posted; N-able publishes seven CVE records, two at CVSS v4.0 9.3
   - 11 November 2026: All hosted N-central servers upgraded (status update, 01:04 dashboard time)
   - 11 November 2026: N-able blog: unauthenticated paths fixed, more hotfixes to come, calls claims it ignored disclosure inaccurate
+- [CISA KEV Additions of 20 November 2026: VMware vCenter, Cisco Expressway, Apache Roller and SAP NetWeaver](/case-studies/KEV_ADDITIONS_2026_11_20.md). Vulnerability, November 2026. Sectors: technology, cross-sector. CVEs: CVE-2026-123890, CVE-2026-76466, CVE-2026-129448, CVE-2025-42884. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/KEV_Additions_2026_11_20_Case_Study.pdf).
+  - 11 November 2025: SAP publishes the CVE-2025-42884 record and Security Note 3660969 on its November 2025 Security Patch Day
+  - 13 July 2026: Build timestamp of the BONESAW utility, which Mandiant notes can be edited before compilation
+  - September 2026: Mandiant dates ARMORY CASTLE's exploitation of CVE-2026-123890 to early September from forensic evidence
+  - 28 September 2026: Apache publishes CVE-2026-82384 for Roller 6.1.5, with CISA SSVC exploitation none
+  - 21 October 2026: Cisco publishes the Expressway advisory for CVE-2026-76466 with fixed release X15.5.20
+  - 17 November 2026: Apache publishes CVE-2026-129448, the same flaw across Roller 4.0.0 through 6.1.4, and states it is being actively exploited
+  - 19 November 2026: Broadcom publishes VMSA-2026-0009 fixing CVE-2026-123890; Mandiant and GTIG publish their account of its exploitation
+  - 20 November 2026: CISA adds all four CVEs to KEV with a due date of 23 November
+  - 23 November 2026: Cisco revises its advisory to note the KEV listing and that it has no direct evidence of active exploitation
 - [CISA KEV Additions of 18 November 2026: Synology DSM, LiteLLM, REDCap and Apache Axis](/case-studies/KEV_ADDITIONS_2026_11_18.md). Vulnerability, November 2026. Sectors: technology, cross-sector. CVEs: CVE-2024-10441, CVE-2026-40217, CVE-2026-90817, CVE-2026-90436. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/KEV_Additions_2026_11_18_Case_Study.pdf).
   - 5 November 2024: Synology publishes Synology-SA-24:20 with fixes for CVE-2024-10441
   - 8 April 2026: X41 D-Sec publishes its LiteLLM guardrail sandbox escape advisory; the CVE record follows on 10 April
@@ -230,7 +244,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 23 October 2026: CISA adds the CVE to KEV with forensic triage, due 26 October; 26.4.502 released
   - 30 October 2026: A user reports the attack works on a disabled, not-updated app; Collabora points to the advisory
   - 4 November 2026: TeamStarWolf lab run: 26.4.302 flagged vulnerable, 26.4.303 fixed, fix read in proxy.php
-- [Plex Media Server, CVE-2026-96652, CVE-2026-96654, CVE-2026-96655 and CVE-2026-96656: The Plex2Shell Chain in the Lab](/case-studies/PLEX_MEDIA_SERVER_2026_CVES.md). Vulnerability, July to November 2026. Sectors: technology, media. CVEs: CVE-2026-96651, CVE-2026-96652, CVE-2026-96654, CVE-2026-96655, CVE-2026-96656, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Plex_Media_Server_2026_CVEs_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Plex_Media_Server_2026_CVEs_Case_Study.pptx).
+- [Plex Media Server, CVE-2026-96652, CVE-2026-96654, CVE-2026-96655 and CVE-2026-96656: The Plex2Shell Chain, and Verifying Your Build in the Lab](/case-studies/PLEX_MEDIA_SERVER_2026_CVES.md). Vulnerability, July to November 2026. Sectors: technology, media. CVEs: CVE-2026-96651, CVE-2026-96652, CVE-2026-96654, CVE-2026-96655, CVE-2026-96656, CVE-2026-98432. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Plex_Media_Server_2026_CVEs_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Plex_Media_Server_2026_CVEs_Case_Study.pptx).
   - 14 July 2026: 1.43.3.10828 general release, the last vulnerable 1.43.3 build; its notes list no security fixes
   - 27 July 2026: Zach Main reports the chain to Plex
   - 3 August 2026: 1.43.3.10861 Beta; the CISA advisory gives this as each CVE's release date
@@ -1367,6 +1381,11 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 17 August 2017: The Canadian Centre for Cyber Security publishes an alert with five affected builds
   - 20 August 2017: MyCERT publishes affected-build guidance
   - 23 August 2017: Tenable publishes a detection check for the compromised library
+- [The Always-On Home: Mesh Wi-Fi, Thread Border Routers and Smart Speakers, and Their Security Record](/case-studies/MESH_THREAD_HOME_NETWORK.md). Attack surface, 2017 to 2026 (core: 2017 to 2026). Sectors: technology. CVEs: CVE-2022-37337, CVE-2022-38452, CVE-2022-36429, CVE-2022-38458, CVE-2022-25809, CVE-2026-8369. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Mesh_Thread_Home_Network_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Mesh_Thread_Home_Network_Case_Study.pptx).
+  - August 2017: Mark Barnes roots a 2015 or 2016 Amazon Echo through its debug pads and streams its microphone
+  - February 2022: Alexa versus Alexa (CVE-2022-25809): an Echo Dot obeys commands played through its own speaker
+  - March 2023: Cisco Talos discloses four Netgear Orbi mesh vulnerabilities (CVE-2022-37337 and others)
+  - May 2026: CVE-2026-8369: an OpenThread NAT64 input-validation flaw affects Thread border routers
 - [The Year 2017 in Intrusions: A Dated Record](/case-studies/CHRONICLE_2017.md). Period record, January to December 2017. Sectors: cross-sector, healthcare, energy, finance, government, technology. CVEs: CVE-2017-0005, CVE-2017-0101, CVE-2017-0143, CVE-2017-0144, CVE-2017-0145, CVE-2017-0146 and 28 more. ATT&CK groups: G0020 Equation, G0022 APT3, G0032 Lazarus Group, G0034 Sandworm Team, G0035 Dragonfly, G0045 menuPass and 4 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Chronicle_2017_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Chronicle_2017_Case_Study.pptx).
   - 7 March 2017: WikiLeaks publishes Vault 7 Part 1, "Year Zero", 8,761 documents it says came from the CIA
   - 14 March 2017: Microsoft publishes MS17-010, fixing the SMBv1 flaws later used by WannaCry and NotPetya
@@ -1655,6 +1674,15 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - November 2015: A superseding indictment alleges a multi-victim intrusion campaign
   - 23 September 2019: Andrei Tyurin pleads guilty
   - 7 January 2021: Tyurin is sentenced to 144 months; JPMorgan Chase is named; a $19,214,956 forfeiture is ordered
+- [The ISP-Supplied Gateway: Who Controls the Box at the Edge of the Home Network, and Its Security Record](/case-studies/ISP_GATEWAY_HOME_NETWORK.md). Attack surface, 2014 to 2026 (core: 2014 to 2020). Sectors: technology, telecommunications. CVEs: CVE-2017-14115, CVE-2017-14116, CVE-2017-14117, CVE-2017-10793, CVE-2014-9222, CVE-2016-10372 and 2 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ISP_Gateway_Home_Network_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/ISP_Gateway_Home_Network_Case_Study.pptx).
+  - 2005: AllegroSoft issues a fixed RomPager version to licensed manufacturers
+  - December 2014: Check Point discloses Misfortune Cookie (CVE-2014-9222); RomPager detected exposed in at least 200 device models
+  - November 2016: A customized Mirai variant attacks home gateways over the TR-069 port 7547
+  - December 2016: Radware reports Deutsche Telekom routers crashed in the attack rather than being infected
+  - May 2017: CVE-2016-10372 is published for the Eir D1000 TR-064 command execution
+  - August 2017: Nomotion publishes SharknAT&To on AT&T's Arris NVG589 and NVG599 gateways
+  - September 2017: Four CVEs are assigned for the SharknAT&To issues (CVE-2017-14115, -14116, -14117, -10793)
+  - January 2020: Lyrebirds publishes Cable Haunt (CVE-2019-19494, CVE-2019-19495) for Broadcom-based modems
 - [Home Depot 2014: Payment Data, Vendor Access and the Cost of Unverified Boundaries](/case-studies/HOME_DEPOT_2014.md). Incident, 2014 to 2020. Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Home_Depot_2014_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Home_Depot_2014_Case_Study.pptx).
   - 10 April 2014: Start of the exposure window later identified by the New York attorney general (10 April to 13 September 2014)
   - 2 September 2014: Investigation begins after information from banking partners and law enforcement
@@ -1682,6 +1710,17 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 14 October 2014: Google discloses POODLE in SSL 3.0; MS14-060 fixes the OLE flaw CVE-2014-4114 used in targeted attacks
   - 24 November 2014: Symantec and Kaspersky publish Regin, with samples timestamped back to 2003
   - 19 December 2014: FBI attributes the destructive attack on Sony Pictures to North Korea; US-CERT TA14-353A
+- [Casting on the Home Network: The Local Control APIs Behind Chromecast, DIAL and AirPlay, and Their Security Record](/case-studies/CASTING_HOME_NETWORK.md). Attack surface, 2014 to 2026 (core: 2014 to 2025). Sectors: technology. CVEs: CVE-2025-24252, CVE-2025-24206, CVE-2025-24132. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Casting_Home_Network_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Casting_Home_Network_Case_Study.pptx).
+  - July 2014: Bishop Fox's Rickmote hijacks a nearby Chromecast, which reconfigures and takes commands from anyone in proximity
+  - June 2018: Craig Young of Tripwire publishes the DNS-rebinding location leak against Google cast devices
+  - January 2019: CastHack drives internet-exposed Google Cast and smart-TV control endpoints from the public internet
+  - June 2019: The local Google Cast API begins requiring an authorization token on most endpoints
+  - 2020: Netflix updates the DIAL protocol to close some of its gaps
+  - April 2021: Google rewards Matt Kunze for the Google Home account-linking report
+  - December 2022: Kunze publishes the account-linking wiretap, fixed by then; Google's rewards total 107,500 US dollars after a 2022 bonus
+  - 2023: Yunus Çadırcı publishes DIALStranger at Black Hat MEA, a 2019 study of DIAL protocol and implementation flaws
+  - March 2025: Apple releases the AirBorne operating-system and SDK fixes on 31 March 2025
+  - April 2025: Oligo publishes AirBorne: 23 AirPlay vulnerabilities and 17 CVEs, on 29 April 2025
 
 ### 2013 <!-- {docsify-ignore} -->
 
@@ -1714,6 +1753,15 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
 
 ### 2012 <!-- {docsify-ignore} -->
 
+- [UPnP on the Home Network: The Internet Gateway Device Port-Mapping Service and Its Security Record](/case-studies/UPNP_HOME_NETWORK.md). Attack surface, 2012 to 2026 (core: 2012 to 2020). Sectors: technology. CVEs: CVE-2012-5958, CVE-2012-5965, CVE-2013-0229, CVE-2013-0230, CVE-2017-1000494, CVE-2019-12107 and 1 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/UPnP_Home_Network_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/UPnP_Home_Network_Case_Study.pptx).
+  - June 2012: Rapid7 scans every routable IPv4 address for UPnP from 1 June to 17 November 2012
+  - January 2013: Rapid7 publishes the exposure paper; the libupnp SSDP flaws are fixed in libupnp 1.6.18
+  - January 2013: MiniUPnPd SSDP denial of service (CVE-2013-0229) and SOAP code execution (CVE-2013-0230)
+  - April 2016: Pinkslipbot begins using UPnP to open inbound ports and run control-server proxies
+  - June 2017: McAfee reports Pinkslipbot opening ports over UPnP, as far as it knew the second executable malware to do so after Conficker
+  - November 2018: Akamai reports UPnProxy and the EternalSilence injections re-exposing SMB 139 and 445
+  - 17 April 2020: The Open Connectivity Foundation updates the UPnP specification to forbid the CallStranger behaviour
+  - 8 June 2020: CallStranger (CVE-2020-12695, CVSS 7.5) is published
 - [LinkedIn 2012-2016: Password-Store Exposure and the Limits of a Targeted Reset](/case-studies/LINKEDIN_2012_2016.md). Incident, 2012 to 2021 (core: 2012 to 2016). Sectors: technology. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/LinkedIn_2012_2016_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/LinkedIn_2012_2016_Case_Study.pptx).
   - March 2012: Charged LinkedIn intrusion window (about 3-4 March 2012, per the indictment)
   - 6 June 2012: LinkedIn learns of a published list of about 6.5 million passwords

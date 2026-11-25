@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 21 min (4,862 words at 230 words a minute)
+About 22 min (4,959 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -80,8 +80,8 @@ Volexity found the chain on a customer appliance fully patched at 22.8R2.4; expl
 
 ### Key findings
 
-- **The October 13 builds did not close the chain.** INCIBE-CERT states that 25.1.1.2 and 22.8R2.5 do not fix the two later CVEs [15] (**Confirmed**). For 16 days after public disclosure on 13 October, the privilege escalation was exploited and unpatched [12] (**Confirmed**).
-- **There was no implant to find.** UTA0576 planted no web shell or backdoor, and Ivanti's Integrity Checker Tool missed the in-memory library patching [10] [12] (**Confirmed**).
+- **The October 13 builds did not close the chain.** INCIBE-CERT states that 25.1.1.2 and 22.8R2.5 do not fix the two later CVEs [15] (**Confirmed**). The chain had no complete fix for 16 days, from the 13 October disclosure to the 29 October builds; the privilege-escalation CVE, published 15 October, was unpatched for 14 of them [4] [12] (**Confirmed**).
+- **No web shell, backdoor or separate command channel.** UTA0576 planted no web shell or backdoor, though a renamed packet-capture tool and helper scripts did reach disk, and Ivanti's Integrity Checker Tool missed the in-memory library patching [10] [12] (**Confirmed**).
 - **The appliance was a doorway to the directory.** The actor took LDAP, LAPS and BitLocker secrets, sniffed credentials and sprayed passwords, which Volexity assesses with high confidence as preparation for lateral movement [12] (**Confirmed**).
 - **The record disagrees with itself.** Version cutoffs, the CWE and the CVSS score differ across sources, and CVE-2026-118527 was KEV-listed on 30 October, four days before its CVE record was published on 3 November [3] [4] [5] [7] [9] [10] [23] (**Confirmed**).
 - **This is not the 2024 Ivanti story again.** Unlike the China-nexus Cutting Edge campaign, which used web shells and custom malware, UTA0576 left no implant, and Volexity assesses, with low confidence, a criminal rather than espionage motive [12] [24] (**Inferred** comparison).
@@ -90,7 +90,7 @@ Volexity found the chain on a customer appliance fully patched at 22.8R2.4; expl
 
 1. Run 25.1.1.3, 25.1.3.1 or 22.8R2.6 or later, and plan the move off 22.8 before 31 Jan 2027 [10] [15] (**Confirmed** as INCIBE-CERT's and CISA's guidance).
 2. Treat any appliance on an affected build that was internet-exposed from 1 October 2026 until it reached 25.1.1.3, 25.1.3.1 or 22.8R2.6 as possibly compromised (**Inferred** from [12] [19]), and do not accept an Integrity Checker pass as proof of a clean device; use memory and network forensics [10] [12] (**Confirmed** as CISA's and Volexity's guidance).
-3. Recover by CISA's sequence: factory reset and upgrade, then reset every password, certificate and API key [10] (**Confirmed** as CISA's guidance).
+3. If you suspect compromise, recover by CISA's sequence: back up the configuration; factory-reset and upgrade a hardware appliance, or rebuild and upgrade a cloud or virtual instance; restore the configuration; then reset every account password, revoke and reissue stored certificates, and reset stored API keys and license-server credentials [10] (**Confirmed** as CISA's guidance).
 4. Rotate the directory secrets the appliance could reach: LDAP bind, LAPS and BitLocker (**Inferred** from what Volexity saw taken [12]).
 5. Watch for large numbers of requests to the welcome.cgi endpoint, and for mismatches between the request path and the routing header Volexity names; alert on authentication failures from the appliance's internal interface [12] [21] (**Confirmed** as Volexity's guidance; the internal-interface point is **Reported**).
 
@@ -140,7 +140,7 @@ Ivanti's own advisory could not be opened, so its content is known through CISA,
 | CVE | CNA, published | Weakness and class | CVSS 3.1 | Fixed in | CISA SSVC |
 |---|---|---|---|---|---|
 | CVE-2026-104935 | Ivanti, 13 Oct | CWE-290, authentication bypass by spoofing; remote unauthenticated command execution | 8.6, AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:L | 25.1.1.2, 25.1.3.0, 25.1.3.1, 22.8R2.5; 22.7R2.14 and prior not impacted | Active, automatable, total [3] [6] |
-| CVE-2026-111357 | MITRE, 15 Oct | CWE-829; privilege escalation to root via the dsinvoked broker trusting DSCache configuration data | 7.0, AV:L/AC:H/PR:L | 25.1.1.3, 22.8R2.6 | Active, not automatable, total [4] [7] |
+| CVE-2026-111357 | MITRE, 15 Oct | CWE-829; privilege escalation to root via the dsinvoked broker trusting DSCache configuration data | 7.0, AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H | 25.1.1.3, 22.8R2.6 | Active, not automatable, total [4] [7] |
 | CVE-2026-118527 | Ivanti, 3 Nov | CWE-340, predictable filenames; authenticated upload of attacker-controlled content to a known location | 4.3 | 25.1.1.3, 22.8R2.6 | Active, not automatable, partial [5] [8] |
 
 Sources: the CVE records and NVD [3] to [8], fixed versions for CVE-2026-104935 as Rapid7 relays Ivanti's table [18] (**Reported**) and for the later two from the CVE-2026-118527 record and INCIBE-CERT [5] [15] (**Confirmed**).
@@ -194,14 +194,14 @@ A scanner that read version strings on 14 October would have marked a 22.8R2.5 a
 | Use memory and network forensics, not an integrity check alone | In-memory patching defeated the Integrity Checker Tool; memory forensics found the chain and the sniffer [10] [12] |
 | Monitor for large numbers of welcome.cgi requests, and separately for request-path and routing-header mismatches | Volexity's two detection items [12] |
 | Alert on auth failures from the appliance's internal interface | Volexity's Sean Koessel, as quoted [21] (**Reported**) |
-| Factory reset, then rotate every credential and certificate | CISA's recovery sequence [10] |
+| Back up config, factory-reset hardware or rebuild a virtual instance, then rotate every credential and certificate | CISA's recovery sequence [10] |
 | Rotate directory secrets the appliance could read | LDAP bind, LAPS and BitLocker (**Inferred** from [12]) |
 | Use SSVC and KEV forensic-triage flags to order work | SSVC marked CVE-2026-104935 automatable with total impact [6]; KEV forensic triage drove three-day deadlines [9] [11] |
 
 ### What is overstated and what is understated
 
 - **Overstated:** read alone, the CISA alert's grouping can suggest all three CVEs are internet entry points, but only CVE-2026-104935 is remote and unauthenticated on its record; CVE-2026-111357 is local and CVE-2026-118527 needs authentication [3] [4] [5] [10] (**Inferred**). The 1 October start date rests on unopened telemetry [21] (**Reported**). Any reading of this chain as AI-built goes further than Volexity's medium-confidence assessment that the actor used LLMs [12] (**Inferred**).
-- **Understated:** the chain was first seen on a fully patched appliance [12]; the privilege escalation stayed unpatched for 16 days after disclosure while exploited [12]; the 13 October builds did not close the chain [15]; and an Integrity Checker pass was a false clean [12] (**Confirmed**). The victim count is not known, and one described appliance is a floor, not a total (**Inferred**).
+- **Understated:** the chain was first seen on a fully patched appliance [12]; the chain had no complete fix for 16 days after the 13 October disclosure, with the privilege escalation unpatched from its 15 October publication to the 29 October fix [4] [12]; the 13 October builds did not close the chain [15]; and an Integrity Checker pass was a false clean [12] (**Confirmed**). The victim count is not known, and one described appliance is a floor, not a total (**Inferred**).
 
 ## MITRE mappings
 

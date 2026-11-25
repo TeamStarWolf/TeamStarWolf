@@ -47,6 +47,96 @@
 sectors: ["healthcare", "finance", "government", "energy", "manufacturing", "technology", "telecommunications", "education", "retail", "defense", "transport", "media", "cross-sector"]
 
 studies:
+  case-studies/UPNP_HOME_NETWORK.md:
+    kind: "reference"
+    title: "UPnP on the Home Network: The Internet Gateway Device Port-Mapping Service and Its Security Record"
+    start: "2012"
+    end: "2026"
+    core_start: "2012"
+    core_end: "2020"
+    sectors: ["technology"]
+    cves: ["CVE-2012-5958", "CVE-2012-5965", "CVE-2013-0229", "CVE-2013-0230", "CVE-2017-1000494", "CVE-2019-12107", "CVE-2020-12695"]
+    actors: []
+    tags: ["UPnP", "IGD port mapping", "home network", "SSDP", "CallStranger", "UPnProxy"]
+    pdf: "UPnP_Home_Network_Case_Study.pdf"
+    pptx: "UPnP_Home_Network_Case_Study.pptx"
+    events:
+      - {"date": "2012-06", "label": "Rapid7 scans every routable IPv4 address for UPnP from 1 June to 17 November 2012"}
+      - {"date": "2013-01", "label": "Rapid7 publishes the exposure paper; the libupnp SSDP flaws are fixed in libupnp 1.6.18"}
+      - {"date": "2013-01", "label": "MiniUPnPd SSDP denial of service (CVE-2013-0229) and SOAP code execution (CVE-2013-0230)"}
+      - {"date": "2016-04", "label": "Pinkslipbot begins using UPnP to open inbound ports and run control-server proxies"}
+      - {"date": "2017-06", "label": "McAfee reports Pinkslipbot opening ports over UPnP, as far as it knew the second executable malware to do so after Conficker"}
+      - {"date": "2018-11", "label": "Akamai reports UPnProxy and the EternalSilence injections re-exposing SMB 139 and 445"}
+      - {"date": "2020-04-17", "label": "The Open Connectivity Foundation updates the UPnP specification to forbid the CallStranger behaviour"}
+      - {"date": "2020-06-08", "label": "CallStranger (CVE-2020-12695, CVSS 7.5) is published"}
+
+  case-studies/CASTING_HOME_NETWORK.md:
+    kind: "reference"
+    title: "Casting on the Home Network: The Local Control APIs Behind Chromecast, DIAL and AirPlay, and Their Security Record"
+    start: "2014"
+    end: "2026"
+    core_start: "2014"
+    core_end: "2025"
+    sectors: ["technology"]
+    cves: ["CVE-2025-24252", "CVE-2025-24206", "CVE-2025-24132"]
+    actors: []
+    tags: ["casting", "Chromecast", "Google Cast", "DIAL", "AirPlay", "mDNS", "home network", "DNS rebinding"]
+    pdf: "Casting_Home_Network_Case_Study.pdf"
+    pptx: "Casting_Home_Network_Case_Study.pptx"
+    events:
+      - {"date": "2014-07", "label": "Bishop Fox's Rickmote hijacks a nearby Chromecast, which reconfigures and takes commands from anyone in proximity"}
+      - {"date": "2018-06", "label": "Craig Young of Tripwire publishes the DNS-rebinding location leak against Google cast devices"}
+      - {"date": "2019-01", "label": "CastHack drives internet-exposed Google Cast and smart-TV control endpoints from the public internet"}
+      - {"date": "2019-06", "label": "The local Google Cast API begins requiring an authorization token on most endpoints"}
+      - {"date": "2020", "label": "Netflix updates the DIAL protocol to close some of its gaps"}
+      - {"date": "2021-04", "label": "Google rewards Matt Kunze for the Google Home account-linking report"}
+      - {"date": "2022-12", "label": "Kunze publishes the account-linking wiretap, fixed by then; Google's rewards total 107,500 US dollars after a 2022 bonus"}
+      - {"date": "2023", "label": "Yunus Çadırcı publishes DIALStranger at Black Hat MEA, a 2019 study of DIAL protocol and implementation flaws"}
+      - {"date": "2025-03", "label": "Apple releases the AirBorne operating-system and SDK fixes on 31 March 2025"}
+      - {"date": "2025-04", "label": "Oligo publishes AirBorne: 23 AirPlay vulnerabilities and 17 CVEs, on 29 April 2025"}
+
+  case-studies/ISP_GATEWAY_HOME_NETWORK.md:
+    kind: "reference"
+    title: "The ISP-Supplied Gateway: Who Controls the Box at the Edge of the Home Network, and Its Security Record"
+    start: "2014"
+    end: "2026"
+    core_start: "2014"
+    core_end: "2020"
+    sectors: ["technology", "telecommunications"]
+    cves: ["CVE-2017-14115", "CVE-2017-14116", "CVE-2017-14117", "CVE-2017-10793", "CVE-2014-9222", "CVE-2016-10372", "CVE-2019-19494", "CVE-2019-19495"]
+    actors: []
+    tags: ["ISP gateway", "home network", "TR-069", "CWMP", "cable modem", "firmware", "Mirai", "DNS rebinding"]
+    pdf: "ISP_Gateway_Home_Network_Case_Study.pdf"
+    pptx: "ISP_Gateway_Home_Network_Case_Study.pptx"
+    events:
+      - {"date": "2005", "label": "AllegroSoft issues a fixed RomPager version to licensed manufacturers"}
+      - {"date": "2014-12", "label": "Check Point discloses Misfortune Cookie (CVE-2014-9222); RomPager detected exposed in at least 200 device models"}
+      - {"date": "2016-11", "label": "A customized Mirai variant attacks home gateways over the TR-069 port 7547"}
+      - {"date": "2016-12", "label": "Radware reports Deutsche Telekom routers crashed in the attack rather than being infected"}
+      - {"date": "2017-05", "label": "CVE-2016-10372 is published for the Eir D1000 TR-064 command execution"}
+      - {"date": "2017-08", "label": "Nomotion publishes SharknAT&To on AT&T's Arris NVG589 and NVG599 gateways"}
+      - {"date": "2017-09", "label": "Four CVEs are assigned for the SharknAT&To issues (CVE-2017-14115, -14116, -14117, -10793)"}
+      - {"date": "2020-01", "label": "Lyrebirds publishes Cable Haunt (CVE-2019-19494, CVE-2019-19495) for Broadcom-based modems"}
+
+  case-studies/MESH_THREAD_HOME_NETWORK.md:
+    kind: "reference"
+    title: "The Always-On Home: Mesh Wi-Fi, Thread Border Routers and Smart Speakers, and Their Security Record"
+    start: "2017"
+    end: "2026"
+    core_start: "2017"
+    core_end: "2026"
+    sectors: ["technology"]
+    cves: ["CVE-2022-37337", "CVE-2022-38452", "CVE-2022-36429", "CVE-2022-38458", "CVE-2022-25809", "CVE-2026-8369"]
+    actors: []
+    tags: ["mesh Wi-Fi", "Thread", "border router", "smart speaker", "Amazon Echo", "Netgear Orbi", "OpenThread", "home network"]
+    pdf: "Mesh_Thread_Home_Network_Case_Study.pdf"
+    pptx: "Mesh_Thread_Home_Network_Case_Study.pptx"
+    events:
+      - {"date": "2017-08", "label": "Mark Barnes roots a 2015 or 2016 Amazon Echo through its debug pads and streams its microphone"}
+      - {"date": "2022-02", "label": "Alexa versus Alexa (CVE-2022-25809): an Echo Dot obeys commands played through its own speaker"}
+      - {"date": "2023-03", "label": "Cisco Talos discloses four Netgear Orbi mesh vulnerabilities (CVE-2022-37337 and others)"}
+      - {"date": "2026-05", "label": "CVE-2026-8369: an OpenThread NAT64 input-validation flaw affects Thread border routers"}
+
   case-studies/AI_THREATS_2026.md:
     kind: "era"
     title: "AI Threats in the Cybersecurity Industry: A 2026 Case Study"
@@ -2571,6 +2661,26 @@ studies:
       - {"date": "2026-09-20", "label": "The REDCap CVE-2026-90817 record is published; Securifera's write-up follows on 27 September"}
       - {"date": "2026-11-06", "label": "Apache publishes the CVE-2026-90436 record for Axis 1.x and says no fixed 1.x release is planned"}
       - {"date": "2026-11-18", "label": "CISA adds all four CVEs to KEV; due dates are 21 November for three and 2 December for LiteLLM"}
+  case-studies/KEV_ADDITIONS_2026_11_20.md:
+    kind: "vulnerability"
+    title: "CISA KEV Additions of 20 November 2026: VMware vCenter, Cisco Expressway, Apache Roller and SAP NetWeaver"
+    start: "2026-11"
+    end: "2026-11"
+    sectors: ["technology", "cross-sector"]
+    cves: ["CVE-2026-123890", "CVE-2026-76466", "CVE-2026-129448", "CVE-2025-42884"]
+    actors: []
+    tags: ["CISA KEV", "VMware vCenter", "Cisco Expressway", "Apache Roller", "SAP NetWeaver", "authentication bypass", "zero-day", "deserialization"]
+    pdf: "KEV_Additions_2026_11_20_Case_Study.pdf"
+    events:
+      - {"date": "2025-11-11", "label": "SAP publishes the CVE-2025-42884 record and Security Note 3660969 on its November 2025 Security Patch Day"}
+      - {"date": "2026-07-13", "label": "Build timestamp of the BONESAW utility, which Mandiant notes can be edited before compilation"}
+      - {"date": "2026-09", "label": "Mandiant dates ARMORY CASTLE's exploitation of CVE-2026-123890 to early September from forensic evidence"}
+      - {"date": "2026-09-28", "label": "Apache publishes CVE-2026-82384 for Roller 6.1.5, with CISA SSVC exploitation none"}
+      - {"date": "2026-10-21", "label": "Cisco publishes the Expressway advisory for CVE-2026-76466 with fixed release X15.5.20"}
+      - {"date": "2026-11-17", "label": "Apache publishes CVE-2026-129448, the same flaw across Roller 4.0.0 through 6.1.4, and states it is being actively exploited"}
+      - {"date": "2026-11-19", "label": "Broadcom publishes VMSA-2026-0009 fixing CVE-2026-123890; Mandiant and GTIG publish their account of its exploitation"}
+      - {"date": "2026-11-20", "label": "CISA adds all four CVEs to KEV with a due date of 23 November"}
+      - {"date": "2026-11-23", "label": "Cisco revises its advisory to note the KEV listing and that it has no direct evidence of active exploitation"}
   case-studies/NGINX2ROOT_2026.md:
     kind: "vulnerability"
     title: "nginx2root 2026: The nginx HTTP/2 Remote Code Execution Flaws, CVE-2026-123007 and CVE-2026-123633"
@@ -2601,6 +2711,20 @@ studies:
       - {"date": "2026-11-17", "label": "Oracle ships the November 2026 Critical Patch Update fixing CVE-2026-114938; an OpenJDK advisory is published"}
       - {"date": "2026-11-17", "label": "Calif discloses Java4Shell with a technical write-up and a proof-of-concept trigger; CISA issues an alert urging immediate patching"}
       - {"date": "2026-11-18", "label": "NVD still lists the record as undergoing analysis; the CVE is not in the CISA KEV catalog"}
+  case-studies/PUPPET_CVE_2026_115731.md:
+    kind: "vulnerability"
+    title: "Puppet Server, CVE-2026-115731: The Report Deserialization Code Execution Flaw"
+    start: "2026-11"
+    end: "2026-11"
+    sectors: ["technology"]
+    cves: ["CVE-2026-115731"]
+    actors: []
+    tags: ["Puppet", "Perforce", "configuration management", "deserialization", "certificate authority", "CISA KEV"]
+    pdf: "Puppet_CVE_2026_115731_Case_Study.pdf"
+    events:
+      - {"date": "2026-11-03", "label": "Perforce publishes CVE-2026-115731 as the CNA, with fixed Puppet Enterprise releases 2023.8.13, 2025.12.1 and 2026.0.1"}
+      - {"date": "2026-11-17", "label": "CISA adds CVE-2026-115731 to the KEV catalog (due 1 December); its SSVC entry rates exploitation active"}
+      - {"date": "2026-11-18", "label": "NVD analysis completes; the Belgian CCB and press report active exploitation and a public proof of concept"}
   case-studies/GITLAB_CVE_2026_97229.md:
     kind: "vulnerability"
     title: "GitLab, CVE-2026-97229: Lab-Verified Exposure and Fix"
@@ -3514,7 +3638,7 @@ studies:
       - {"date": "2026-11-04", "label": "TeamStarWolf lab run: 8.4.26 and 8.4.27 told apart; both interim workarounds take effect"}
   case-studies/PLEX_MEDIA_SERVER_2026_CVES.md:
     kind: "vulnerability"
-    title: "Plex Media Server, CVE-2026-96652, CVE-2026-96654, CVE-2026-96655 and CVE-2026-96656: The Plex2Shell Chain in the Lab"
+    title: "Plex Media Server, CVE-2026-96652, CVE-2026-96654, CVE-2026-96655 and CVE-2026-96656: The Plex2Shell Chain, and Verifying Your Build in the Lab"
     start: "2026-07"
     end: "2026-11"
     sectors: ["technology", "media"]

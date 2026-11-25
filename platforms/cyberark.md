@@ -1,6 +1,6 @@
 # CyberArk
 
-CyberArk is a privileged access management platform. It vaults and rotates privileged credentials, isolates and records privileged sessions, removes local administrator rights from endpoints, and supplies secrets to applications. Its goal is to reduce standing privilege.
+CyberArk is a privileged access management platform. It vaults and rotates privileged credentials, isolates and records privileged sessions, removes local administrator rights from endpoints, and supplies secrets to applications. Its goal is to reduce standing privilege. CyberArk is part of Palo Alto Networks, which completed the acquisition on 11 February 2026 and delivers CyberArk's privileged access management within the Idira identity security platform; cyberark.com redirects to the Idira platform page (read 25 November 2026).
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (1,012 words at 230 words a minute)
+About 5 min (1,131 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -65,14 +65,14 @@ The Digital Vault stores credentials in an encrypted, hardened store. The Centra
 
 The Privileged Session Manager brokers connections to target systems. A user connects through it rather than holding the credential directly. The session is isolated from the user's workstation and can be recorded for later review.
 
-Endpoint Privilege Manager runs on workstations and servers. It removes local administrator membership and elevates specific actions under policy instead. Conjur provides secrets to applications and pipelines through an API, so code requests a secret at runtime rather than storing it.
+Endpoint Privilege Manager runs on workstations and servers. It removes local administrator membership and elevates specific actions under policy instead. CyberArk's Secrets Manager provides secrets to applications and pipelines through an API, so code requests a secret at runtime rather than storing it. Conjur remains the name of the open-source project, which the Secrets Manager documentation links to.
 
 ## Key capabilities
 
 - The Digital Vault and Central Policy Manager for credential vaulting and scheduled rotation.
 - Privileged Session Manager for session isolation, brokered connections, and session recording.
 - Endpoint Privilege Manager for removing local administrator rights and elevating by policy.
-- Secrets management through Conjur for applications, pipelines, and containers.
+- Secrets management through Secrets Manager for applications, pipelines, and containers.
 - Just-in-time elevation that grants privilege for a bounded window with zero standing privilege as the target.
 - Audit records of credential checkout and session activity.
 
@@ -88,7 +88,7 @@ Operations teams monitor vault access, failed checkouts, and session recordings.
 
 CyberArk connects to target systems through connectors: Windows and Linux hosts, directories, databases, network devices, and cloud providers. It rotates and brokers the privileged accounts on each.
 
-Applications retrieve secrets from Conjur or the vault through an API at runtime. This removes credentials from source code and configuration files. Pipelines and containers request short-lived secrets the same way.
+Applications retrieve secrets from Secrets Manager or the vault through an API at runtime. This removes credentials from source code and configuration files. Pipelines and containers request short-lived secrets the same way.
 
 Audit events, credential checkouts, session starts, elevation decisions, flow to monitoring and SIEM platforms. See `/platforms/splunk.md` for a downstream consumer. Session recordings support investigation during incident response.
 
@@ -99,7 +99,7 @@ CyberArk governs the most privileged accounts in the environment, so an adversar
 ### Evasion and bypass
 
 - Vault and session-manager targeting (ATT&CK T1555, Credentials from Password Stores): compromising the Digital Vault, a Privileged Session Manager, or a stored credential yields privileged access across every connected system.
-- Credential checkout and API abuse (T1078, T1528): a stolen operator session or an over-scoped Conjur or vault API client lets an attacker check out credentials or pull secrets as a legitimate application would ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Credential checkout and API abuse (T1078, T1528): a stolen operator session or an over-scoped Secrets Manager or vault API client lets an attacker check out credentials or pull secrets as a legitimate application would ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
 - Session-isolation bypass: if a privileged credential can be used outside the Privileged Session Manager, the recording and isolation are skipped, so the brokered path is not the only path.
 - Break-glass abuse: the emergency path that bypasses normal controls is a prize, and unmonitored use of it grants quiet privileged access.
 
@@ -129,10 +129,13 @@ Its session recordings and checkout logs are primary evidence during incident re
 
 ## Resources
 
-- CyberArk documentation
-- CyberArk Privileged Access Manager documentation
+- CyberArk documentation home, now the Idira Identity Security Platform (read 25 November 2026)
+- CyberArk PAM Self-Hosted and Privilege Cloud documentation
 - CyberArk Endpoint Privilege Manager documentation
-- CyberArk Conjur documentation
+- CyberArk Secrets Manager documentation
+- Palo Alto Networks: Idira identity security platform (read 25 November 2026)
+- Palo Alto Networks newsroom: Completes Acquisition of CyberArk to Secure the AI Era (11 February 2026)
+- CyberArk: the Secrets Manager - Self-Hosted documentation (under "Idira Docs") links to the Conjur Open Source docs (read 25 November 2026)
 
 ## Related pages
 

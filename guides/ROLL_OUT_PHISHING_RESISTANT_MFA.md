@@ -8,7 +8,7 @@
 
 Ordinary MFA (SMS one-time codes, authenticator push, TOTP) is now routinely defeated: adversary-in-the-middle proxy kits (Evilginx-class) relay the whole session, push bombing wears users down, and SIM swaps steal the code. The fix is the class of methods NIST and CISA call *phishing-resistant*: authenticators cryptographically bound to the legitimate site's origin, so a proxy in the middle has nothing to replay. This guide operationalizes the library's identity references (the MFA-bypass-and-defenses material in the [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md), the FIDO2/WebAuthn and Conditional-Access-as-Zero-Trust depth in the [Identity & Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), and the AAL/phishing-resistance model in the [Password Security Reference](/PASSWORD_SECURITY_REFERENCE.md)) into a deployment you can execute. It is written against Microsoft Entra ID because that is the stack the references cover most deeply; Okta and Google Workspace equivalents are called out at each step. The learning path behind it is the [Identity & Access Management discipline](/disciplines/identity-access-management.md).
 
-Why now: [CISA](https://www.cisa.gov/MFA) names FIDO/WebAuthn and PKI the only widely available phishing-resistant methods; the July 2025 [Scattered Spider advisory (AA23-320A)](https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-320a) puts phishing-resistant MFA plus help-desk hardening at the top of its mitigations; Microsoft's mandatory-MFA enforcement reached Azure resource management in [Phase 2 (from October 1, 2025)](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mandatory-multifactor-authentication); and Microsoft is making passkeys the [default authentication method in Entra ID from September 2026](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-sms-voice-retirement). This is the highest-return identity control available in 2026.
+Why now: [CISA](https://www.cisa.gov/MFA) calls FIDO/WebAuthn the only widely available phishing-resistant authentication, and names PKI-based MFA alongside it in the Scattered Spider advisory below; the July 2025 [Scattered Spider advisory (AA23-320A)](https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-320a) lists phishing-resistant MFA among its headline actions and flags help-desk social engineering as a primary vector; Microsoft's mandatory-MFA enforcement reached Azure resource management in [Phase 2 (from October 1, 2025)](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mandatory-multifactor-authentication); and Microsoft is making passkeys the [default authentication method in Entra ID from September 2026](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-sms-voice-retirement). This is the highest-return identity control available in 2026.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -25,7 +25,7 @@ Intermediate to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 16 min (3,592 words at 230 words a minute)
+About 16 min (3,680 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -81,7 +81,7 @@ You cannot enforce what you have not measured. Establish a baseline of who authe
      -Uri "https://graph.microsoft.com/v1.0/reports/authenticationMethods/userRegistrationDetails?`$select=userPrincipalName,isMfaCapable,isPasswordlessCapable,methodsRegistered,isAdmin"
    ```
 
-3. Find the legacy authentication. Legacy protocols (IMAP/POP/SMTP AUTH, older Exchange ActiveSync, Office 2010-era clients) bypass modern auth and every MFA control, so they are the escape hatch you must close before enforcement. In the Entra sign-in logs (or Log Analytics), pivot on the legacy client-app types:
+3. Find the legacy authentication. In Entra, "legacy authentication" means clients that authenticate with Basic authentication rather than modern auth (the same protocols, IMAP/POP/SMTP AUTH and Exchange ActiveSync, can also run over modern OAuth, which is fine); Basic-auth clients cannot present an MFA challenge, so they are the escape hatch you must close before enforcement. In the Entra sign-in logs (or Log Analytics), pivot on the legacy client-app types:
 
    ```kusto
    SigninLogs
@@ -100,7 +100,7 @@ Watch out: The service accounts and line-of-business integrations quietly using 
 
 ## Step 2: Choose your phishing-resistant methods
 
-There are four phishing-resistant options; most organizations deploy two or three, matched to how people work. All four satisfy the built-in Entra Phishing-resistant MFA authentication strength and map to NIST SP 800-63B AAL3's requirement for a non-exportable private key with verifier-impersonation resistance.
+There are four phishing-resistant options; most organizations deploy two or three, matched to how people work. All four satisfy the built-in Entra Phishing-resistant MFA authentication strength. Phishing resistance (a verifier-impersonation-resistant authenticator) is one requirement of NIST SP 800-63B AAL3, but satisfying the Entra strength is not the same as reaching AAL3: that level also requires a FIPS-validated hardware authenticator with a non-exportable key, replay resistance, authentication intent, and tighter reauthentication limits. Treat these methods as phishing-resistant, and assess AAL3 separately against SP 800-63B-4 if you need to claim it.
 
 | Method | Best for | Notes |
 |---|---|---|
@@ -248,7 +248,7 @@ In this library:
 
 - [Identity Security Reference](/IDENTITY_SECURITY_REFERENCE.md): the MFA-bypass techniques (AiTM, push bombing, SIM swap, recovery abuse) this guide defends against, plus Entra and Okta vendor-specific controls
 - [Identity & Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md): FIDO2/WebAuthn internals, passkeys, Conditional Access as Zero Trust enforcement, PAM, and break-glass design
-- [Password Security Reference](/PASSWORD_SECURITY_REFERENCE.md): the AAL model, phishing-resistant MFA (AAL3), and the authentication-strength policy examples
+- [Password Security Reference](/PASSWORD_SECURITY_REFERENCE.md): the AAL model, phishing-resistant MFA and where it sits within AAL3, and the authentication-strength policy examples
 - [Zero Trust Reference](/ZERO_TRUST_REFERENCE.md): the identity and device pillars behind the device-compliance and session-control policies
 - [Social Engineering Reference](/SOCIAL_ENGINEERING_REFERENCE.md): the vishing and help-desk pretexts Step 7 hardens against
 - [Identity & Access Management discipline](/disciplines/identity-access-management.md): the learning path that sequences these references

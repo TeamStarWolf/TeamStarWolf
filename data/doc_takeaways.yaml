@@ -5,6 +5,34 @@
 # {"text": ..., "from": "#anchor", "quote": ...} on one line, as in the draft file.
 
 pages:
+  case-studies/UPNP_HOME_NETWORK.md:
+    reviewed: "2026-11-25"
+    items:
+      - {"text": "The first version of the UPnP port-mapping profile has no access control, so any host on the home network can ask the router to open an inbound port.", "from": "#executive-summary", "quote": "any host on the local network can ask the router to open a port"}
+      - {"text": "A 2012 study found more than 81 million addresses answering UPnP discovery, and an estimated 17 million answering the control service to the internet.", "from": "#executive-summary", "quote": "more than 81 million addresses answered UPnP discovery"}
+      - {"text": "UPnProxy and EternalSilence are not a single fault: injection from the internet needs both a device that answers its controls from the internet and a protocol that checks nobody.", "from": "#part-3-using-the-router-as-infrastructure-upnproxy-and-eternalsilence", "quote": "Injection from the internet needs both"}
+      - {"text": "The record sorts into three piles: bugs a patch or a replacement fixes, a design property no patch removes, and what the owner controls.", "from": "#executive-summary", "quote": "a design property that no patch removes"}
+  case-studies/CASTING_HOME_NETWORK.md:
+    reviewed: "2026-11-25"
+    items:
+      - {"text": "On the home network, casting rests on a local control service that trusts the local network, the same assumption as the UPnP port-mapping service.", "from": "#executive-summary", "quote": "the local service on the device trusts the local network"}
+      - {"text": "In 2018 a web page could use DNS rebinding to reach the unauthenticated local cast API and read the Wi-Fi survey data that a geolocation service turns into the home's location.", "from": "#part-3-reading-the-unauthenticated-local-interface", "quote": "a web page open in a browser on the same network could reach it using DNS rebinding"}
+      - {"text": "The 2021 account-linking issue turned data read over the LAN into a credential: the device's own identifiers were enough to link an attacker's cloud account and drive the device remotely.", "from": "#part-3-reading-the-unauthenticated-local-interface", "quote": "this information, read over the LAN, was effectively the credential"}
+      - {"text": "Where a fix exists it has a version or a date, but several of these items were narrowed rather than closed or are design properties no patch removes; the real exposure is equipment that stopped getting updates.", "from": "#part-7-what-is-fixed-what-is-design-what-is-a-setting", "quote": "A device that no longer receives firmware stays where it was"}
+  case-studies/ISP_GATEWAY_HOME_NETWORK.md:
+    reviewed: "2026-11-25"
+    items:
+      - {"text": "The gateway a household's ISP supplies is a modem, router, firewall and Wi-Fi in one, and its firmware and remote management belong to the vendor and the ISP, not the subscriber.", "from": "#executive-summary", "quote": "belong to the vendor and the ISP, not the subscriber"}
+      - {"text": "Because the owner does not control the device, a hardcoded account or an exposed management port can sit on it unseen, and the owner's realistic options are narrow.", "from": "#part-1-what-an-isp-supplied-gateway-is-and-who-controls-it", "quote": "the owner's realistic options are narrow"}
+      - {"text": "The TR-069 management port was meant for the ISP alone; the November 2016 Mirai outage is what happened when gateways answered it to the whole internet.", "from": "#part-3-the-remote-management-channel-and-the-2016-tr-069-outage", "quote": "The management port was never meant to answer anyone but the ISP"}
+      - {"text": "The owner's most effective lever is to treat the gateway as untrusted and put an owned router in front of their devices; the four 2017 CVE records applied only when the gateway was not in pass-through mode.", "from": "#part-6-what-is-fixed-what-is-design-what-is-a-setting", "quote": "put an owned router in front of the household's devices"}
+  case-studies/MESH_THREAD_HOME_NETWORK.md:
+    reviewed: "2026-11-25"
+    items:
+      - {"text": "Mesh Wi-Fi, Thread border routers and smart speakers are always-on devices that add microphones, radios or a bridging role the owner cannot easily inspect.", "from": "#executive-summary", "quote": "each widens the home's attack surface"}
+      - {"text": "A mesh Wi-Fi system is not one device but several, a router and its satellites, and the 2023 Netgear Orbi flaws were across both.", "from": "#part-2-the-mesh-wi-fi-system-netgear-orbi", "quote": "a mesh system is several computers, and each is a target"}
+      - {"text": "A smart speaker is built around an always-on microphone, so if its code is replaced, as the 2017 Amazon Echo hardware attack showed, it becomes a listening device.", "from": "#part-3-the-smart-speaker-as-a-listening-device-the-echo-hardware-attack", "quote": "a ready-made listening device"}
+      - {"text": "Unlike the ISP gateway, the owner controls these devices, so the levers are firmware updates (though the Echo fix was hardware), the physical mute and wake-word controls, and how many always-on devices to run.", "from": "#part-6-what-is-fixed-what-is-design-what-is-a-setting", "quote": "the choice of how many such devices to run"}
   case-studies/CHANGE_HEALTHCARE_2024.md:
     reviewed: "2026-11-16"
     items:
@@ -187,14 +215,14 @@ pages:
       - {"text": "Multipath TCP has shipped in the Linux kernel since 5.6 and defaults to on, yet almost nothing uses it.", "from": "#executive-summary", "quote": "The Linux kernel has shipped it since version 5.6 in 2020"}
       - {"text": "That leaves a feature switched on across much of the Linux fleet while delivering value on a tiny fraction of it.", "from": "#executive-summary", "quote": "a feature that is present and switched on across a large part of the Linux fleet while delivering value on a tiny fraction of it"}
       - {"text": "The gap is an attack surface: new memory-unsafe networking code produces memory-safety bugs on a schedule.", "from": "#executive-summary", "quote": "new networking code written in a memory-unsafe language produces memory-safety bugs on a schedule"}
-      - {"text": "Worse, MPTCP can turn a bug that is elsewhere a mere crash into something far more serious, as with CVE-2026-98432.", "from": "#executive-summary", "quote": "MPTCP can turn a bug that is elsewhere a mere crash into something far more serious"}
+      - {"text": "MPTCP can make the worst case of a kernel bug reliably reachable, as CVE-2026-98432 showed when an MPTCP listener supplied the heap control the one demonstrated remote-root exploit needed.", "from": "#executive-summary", "quote": "an MPTCP listener supplied the precise heap control the one demonstrated remote-root exploit needed"}
   case-studies/LINUX_TCP_UAF_2026.md:
     reviewed: "2026-11-16"
     items:
       - {"text": "CVE-2026-98432 is an unauthenticated remote use-after-free in the IPv4 TCP setup path, scored 9.8, with a two-line fix.", "from": "#executive-summary", "quote": "a use-after-free in the IPv4 TCP connection-setup path that a remote, unauthenticated attacker can reach by sending crafted packets to a listening socket"}
-      - {"text": "What made it a landmark was Anthropic's report that an unreleased model wrote a working remote-root exploit in under an hour.", "from": "#executive-summary", "quote": "wrote a working zero-click remote-root exploit against servers running a Multipath TCP listener, reaching a root shell in under an hour of model time"}
+      - {"text": "What made it a landmark was Anthropic's report that an unreleased model wrote a working remote-root exploit whose proof-of-concept run reached a root shell in under an hour.", "from": "#executive-summary", "quote": "its proof-of-concept run reached a root shell in under an hour"}
       - {"text": "Two facts are kept apart: the vulnerability is confirmed, while the AI-written exploit was withheld and unreproduced.", "from": "#executive-summary", "quote": "the code and test configuration were deliberately withheld, and no independent public reproduction had appeared by late October"}
-      - {"text": "The marker that matters: the time from a memory-corruption CVE to a working exploit is collapsing toward the length of a lunch break.", "from": "#executive-summary", "quote": "the time between a memory-corruption CVE landing and a working exploit existing is collapsing toward the length of a lunch break"}
+      - {"text": "The marker that matters: a capable model can write a working exploit for a fresh memory-corruption CVE after initial prompting, which this study reads as a shrinking exploit-availability window.", "from": "#executive-summary", "quote": "a capable model can write a working exploit for a fresh memory-corruption CVE after initial prompting"}
   case-studies/BINANCE_HEIST_2026.md:
     reviewed: "2026-11-16"
     items:

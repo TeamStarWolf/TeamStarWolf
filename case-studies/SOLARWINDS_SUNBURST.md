@@ -621,7 +621,7 @@ All sources were opened on 3 November 2026. "Primary" means the organization tha
 | 36 | MITRE CAPEC-511 | [capec.mitre.org/data/definitions/511.html](https://capec.mitre.org/data/definitions/511.html) | 2026-11-03 | Confirmed |
 | 37 | MITRE CAPEC-678 | [capec.mitre.org/data/definitions/678.html](https://capec.mitre.org/data/definitions/678.html) | 2026-11-03 | Confirmed |
 | 38 | MITRE D3FEND, offensive technique T1195.002 | [d3fend.mitre.org/offensive-technique/attack/T1195.002](https://d3fend.mitre.org/offensive-technique/attack/T1195.002/) | 2026-11-03 | Confirmed |
-| 39 | TeamStarWolf library, `data/attack/` (ATT&CK v20.0 data, superseded_by.jsonl, CAPEC edges, technique profiles) and the generated `mitre/` pages, main e85b559 | [github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack) | 2026-11-03 | Confirmed |
+| 39 | TeamStarWolf library, `data/attack/` (ATT&CK v20.0 data, superseded_by.jsonl, CAPEC edges, technique profiles) and the generated `mitre/` pages, main 4652b96 | [github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack) | 2026-11-03 | Confirmed |
 | 40 | SEC v. SolarWinds and its CISO, complaint, 30 Oct 2023 | `https://www.sec.gov/files/litigation/complaints/2023/comp-pr2023-227.pdf` | 2026-11-03 | Confirmed (allegations) |
 | 41 | SEC press release 2023-227, 30 Oct 2023 | `https://www.sec.gov/newsroom/press-releases/2023-227` | 2026-11-03 | Confirmed |
 | 42 | SEC litigation release LR-26423 | `https://www.sec.gov/enforcement-litigation/litigation-releases/lr-26423` | 2026-11-03 | Confirmed |

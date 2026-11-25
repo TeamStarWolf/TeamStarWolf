@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 8 min (1,837 words at 230 words a minute)
+About 8 min (1,942 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -55,31 +55,31 @@ No review recorded yet
 
 | Time | Difficulty | You need | You'll produce |
 |---|---|---|---|
-| 6-10 hours over a weekend | Beginner to intermediate | A host PC with 16 GB+ RAM, 4+ cores, ~200 GB free SSD, virtualization enabled in BIOS | A 2-VM lab (Windows victim + SIEM), Sysmon telemetry, one validated detection, and a workflow you can repeat |
+| 6-10 hours over a weekend | Beginner to intermediate | A host PC with 16 GB+ RAM (about 32 GB for the Security Onion path), 4+ cores, ~200 GB free SSD, virtualization enabled in BIOS | A 2-VM lab (Windows victim + SIEM), Sysmon telemetry, one validated detection, and a workflow you can repeat |
 
 ## Before you start
 
 Work through this checklist before you touch a hypervisor. Each item links to the doctrine it comes from or the official tool.
 
 - [ ] Read the lab foundations so this guide's choices make sense in context: [HOMELAB_SETUP.md](/HOMELAB_SETUP.md) and the platform index in [LABS.md](/LABS.md).
-- [ ] Confirm your host meets the "Minimum Hardware for Lab" bar (16 GB RAM minimum, SSD strongly preferred) from [LABS.md](/LABS.md).
+- [ ] Confirm your host meets the "Minimum Hardware for Lab" bar (16 GB RAM minimum, SSD strongly preferred) from [LABS.md](/LABS.md). Size for the combined load: the victim VM, your chosen SIEM VM, and the host OS all run at once. 16 GB covers the Splunk Free path (victim 4 GB + Splunk 4 GB + host); the Security Onion path needs roughly 32 GB (Standalone alone wants 24 GB). Leave disk headroom for snapshots.
 - [ ] Enable hardware virtualization (Intel VT-x / AMD-V) in your host's BIOS/UEFI. Without it, 64-bit guest VMs will not boot.
 - [ ] Pick a hypervisor and get the installer: [VMware Workstation Pro](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion) (free for personal use), [VirtualBox](https://www.virtualbox.org/), or [Proxmox VE](https://www.proxmox.com/) for a dedicated box.
-- [ ] Download a free Windows evaluation ISO from the [Microsoft Evaluation Center](https://www.microsoft.com/en-us/evalcenter) (Windows 10/11 Enterprise, 90-180 day eval, no key needed).
+- [ ] Download a free Windows evaluation ISO from the [Microsoft Evaluation Center](https://www.microsoft.com/en-us/evalcenter) (Windows 11 Enterprise, a 90-day evaluation, no product key needed).
 - [ ] Choose one free SIEM and open its docs: [Splunk Free](https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.4/configure-splunk-licenses/about-splunk-free), [Elastic Security](https://www.elastic.co/docs/solutions/security), or [Security Onion 2.4](https://docs.securityonion.net/en/2.4/).
 - [ ] Skim what telemetry matters and why, so you know what you are hunting for: [ATTACK_DATA_COMPONENTS.md](/ATTACK_DATA_COMPONENTS.md) and [ENDPOINT_SECURITY_REFERENCE.md](/ENDPOINT_SECURITY_REFERENCE.md).
 
-> Watch out: Everything here stays on an isolated host-only / internal network. A detection lab does not need internet access on the victim, and giving it any raises real risk. Never point these tools at machines you do not own.
+> Watch out: Everything here stays on an isolated host-only network: the two VMs and your host machine can reach each other, but nothing reaches the internet. (A fully isolated *internal*-only network would cut the host off too, and you need host access in Step 4 to open the SIEM console from your browser.) A detection lab does not need internet access on the victim, and giving it any raises real risk. Never point these tools at machines you do not own.
 
 ## Step 1: Choose and install your hypervisor
 
 Install one Type-2 hypervisor on your existing PC (fastest path) or Proxmox VE on spare hardware (best long-term). For a first lab, install VMware Workstation Pro (free for personal use) or VirtualBox on your daily machine. Follow the vendor installer defaults, then reboot.
 
-Create one isolated virtual network for the lab so the two VMs can see each other but nothing else:
+Create one host-only virtual network for the lab so the two VMs and your host can see each other but nothing outside:
 - VMware: Edit -> Virtual Network Editor -> Add Network, set it to Host-only.
 - VirtualBox: File -> Tools -> Network Manager -> Host-only Networks -> Create.
 
-Checkpoint: The hypervisor opens, and you have one host-only/internal network defined that you will attach both VMs to.
+Checkpoint: The hypervisor opens, and you have one host-only network defined that you will attach both VMs to.
 
 Watch out: If VM creation warns that virtualization is disabled or offers only 32-bit guests, VT-x/AMD-V is off in BIOS or blocked by another hypervisor (Hyper-V, WSL2, Docker Desktop) holding the virtualization stack. Resolve that before continuing.
 
@@ -185,6 +185,7 @@ You have telemetry and a known-good attack signal. Now turn that into a detectio
 ```bash
 pipx install sigma-cli        # or: pip install sigma-cli
 sigma plugin install splunk
+sigma plugin install sysmon   # needed for the -p sysmon pipeline below
 ```
 
 Convert a Sigma rule into your SIEM's query language (Sysmon-aware pipeline shown):

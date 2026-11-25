@@ -21,7 +21,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 11 min (2,463 words at 230 words a minute)
+About 11 min (2,528 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -138,7 +138,7 @@ CISA's Known Exploited Vulnerabilities catalog is the highest-confidence public 
    ```
 
    (CSV and a JSON schema are also published; links on the [KEV catalog page](https://www.cisa.gov/known-exploited-vulnerabilities-catalog).)
-2. Join it to your scan results on `cveID`. Every match is a confirmed-exploited vulnerability in *your* estate; that count is your KEV exposure, and its target is zero.
+2. Join it to your scan results on `cveID`. Each match is an affected asset carrying a CVE known to be exploited in the wild: that is a validated exposure, not proof that *this* asset was exploited. Whether it was is a separate question you answer from local evidence, which is why the fastest SLA tier includes forensic triage. That match count is your KEV exposure, and its target is zero. The required fix is CISA's listed action, which may be a vendor patch, a mitigation, or discontinuing the product where no fix exists.
 3. Write the SLA policy as a tier table: KEV-listed and internet-facing gets your fastest clock; KEV-listed internal next; high-probability non-KEV after that; everything else rides the patch cycle. Start from the worked example policy (P0-P4, with the fastest tier including "were we already hit?" forensic triage) in the [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md); it is labeled editorial there for a reason: the thresholds are policy choices, so make them deliberately and put a review date on them.
 4. Benchmark your clocks against BOD 26-04, the federal directive whose timelines run from 3 days (publicly exposed + KEV + automatable + total control, with mandatory forensic triage) down to fix-on-upgrade. It binds US federal civilian agencies only, but it is the best-calibrated public benchmark available; details and the directive link are in the [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md).
 5. Define the exception path in the same document: request with compensating control and expiry date, security review against KEV status, CISO sign-off for Critical/High, auto-reopen at expiry; the workflow is spelled out in the [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md).

@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 20 min (4,653 words at 230 words a minute)
+About 21 min (4,757 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -93,7 +93,7 @@ The flaw, CVE-2026-0257, rests on a cookie the appliance trusted without checkin
 
 1. Move every GlobalProtect portal and gateway to a fixed PAN-OS build, upgrading those that share cookies together, and move unsupported releases to a supported fixed version [1] (**Confirmed** as the vendor's direction).
 2. Until patched, use a certificate dedicated only to authentication override cookies, replacing any certificate that served other services, or disable authentication override [1] (**Confirmed**).
-3. Treat patching as the start, not the end: terminate active GlobalProtect sessions, rotate domain admin, service and cloud-storage credentials and reset KRBTGT twice [7] (**Confirmed** as Arctic Wolf's guidance).
+3. Treat patching as the start, not the end: terminate active GlobalProtect sessions. If exploitation is suspected, rotate all credentials, which Arctic Wolf lists as domain administrator and service account passwords, cloud-storage credentials, and the KRBTGT account twice, with at least the 10-hour interval Microsoft requires between the two resets; if exploitation is confirmed, assume full domain compromise [7] [19] (**Confirmed** as Arctic Wolf's and Microsoft's guidance).
 4. Hunt for Event ID 1102, PSEXESVC service creation, remote C$ writes, bursts of Type 3 logons, and VPN sessions from hosting providers or with "kali" or DESKTOP-style hostnames [7] (**Confirmed** as Arctic Wolf's guidance).
 5. Check whether GlobalProtect profiles expose the management interface on ports 4443 and 3879, a misconfiguration Unit 42 added to this brief from its Lunar Peak incident response, and patch Veeam CVE-2023-27532 [4] [6] (**Confirmed** as Unit 42's guidance).
 
@@ -263,7 +263,7 @@ The library relates CAPEC-31 to CWE-565 as well, and CAPEC-12, -36, -62, -166 an
 | D3FEND countermeasure | Techniques the library maps it to (from this study) | Where it meets the record |
 |---|---|---|
 | [Session Termination](/mitre/d3fend/session-termination.md) | T1133, T1021.001 | Terminate GlobalProtect sessions after patching [7] |
-| [Credential Rotation](/mitre/d3fend/credential-rotation.md), [Credential Revocation](/mitre/d3fend/credential-revocation.md) | T1606.001, T1003.003 | Rotate domain admin, service and cloud-storage credentials; reset KRBTGT twice [7] |
+| [Credential Rotation](/mitre/d3fend/credential-rotation.md), [Credential Revocation](/mitre/d3fend/credential-revocation.md) | T1606.001, T1003.003 | If exploitation is suspected, rotate the credentials Arctic Wolf lists: domain admin and service account passwords, cloud-storage credentials, and KRBTGT twice, 10 hours apart per Microsoft; if confirmed, assume full domain compromise [7] [19] |
 | [Reissue Credential](/mitre/d3fend/reissue-credential.md), [Authentication Cache Invalidation](/mitre/d3fend/authentication-cache-invalidation.md) | T1606.001, T1003.003 | The fix regenerates cookies and forces one re-authentication [1] (**Inferred** fit) |
 | [Multi-factor Authentication](/mitre/d3fend/multi-factor-authentication.md) | T1606.001, T1003.003 | Mapped by the library, yet the forged cookie bypassed MFA [6] |
 | [User Geolocation Logon Pattern Analysis](/mitre/d3fend/user-geolocation-logon-pattern-analysis.md) | T1190, T1210, T1219, T1021.001, T1567.002 | Hosting-provider VPN sources [5] [7] (**Inferred** fit) |
@@ -285,7 +285,7 @@ The study's techniques are saved as an ATT&CK Navigator layer pinned to ATT&CK v
 
 ## Sources
 
-All sources were opened on 11 November 2026.
+All sources were opened on 11 November 2026, except source 19, opened on 19 November 2026.
 
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|
@@ -307,6 +307,7 @@ All sources were opened on 11 November 2026.
 | 16 | TeamStarWolf library data: `data/attack/technique_profiles.jsonl`, `groups.jsonl`, `software.jsonl`, `superseded_by.jsonl`, `technique_to_d3fend.jsonl` (ATT&CK v20.0), and `data/weaknesses/cwe.jsonl` and `capec.jsonl` | [github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack) | 2026-11-11 | Demonstrated |
 | 17 | TeamStarWolf, Change Healthcare 2024 and Healthcare Threat Watchlist case studies | [/case-studies/HEALTHCARE_THREAT_WATCHLIST.md](/case-studies/HEALTHCARE_THREAT_WATCHLIST.md) | 2026-11-11 | Confirmed |
 | 18 | Hackread, Qilin and INC exploit Palo Alto VPN flaw in ransomware attacks, 22 Oct 2026 | [hackread.com/qilin-inc-exploit-palo-alto-vpn-flaw-...](https://hackread.com/qilin-inc-exploit-palo-alto-vpn-flaw-ransomware-attacks/) | 2026-11-11 | Reported |
+| 19 | Microsoft, AD Forest Recovery: Reset the krbtgt password (the operation is performed twice, with a required 10-hour wait between resets, the default maximum ticket lifetime) | [learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-reset-the-krbtgt-password](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-reset-the-krbtgt-password) | 2026-11-19 | Confirmed |
 
 Not opened, so not cited as sources: ReliaQuest's original post on X (refused the request), the HHS Qilin threat profile PDF (refused the request), and the ASD page for the INC advisory (timed out).
 

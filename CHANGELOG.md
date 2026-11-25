@@ -7,6 +7,11 @@ by the date its pull requests merged to `main` rather than by tagged release.
 ## Unreleased
 
 ### Added
+- A build-path gate in `scripts/check_repo_hygiene.py` (`--only paths`): it fails when a
+  page, an Office file or a PDF carries a path from the machine that built it, and it opens
+  decks and PDFs to read slide XML, image alt text and PDF streams. Example paths under the
+  stock accounts in `EXAMPLE_ACCOUNTS` pass. Six case-study decks whose cover image had a
+  file path as alt text now describe the image instead
 - [Maintaining the Site](docs/MAINTAINING_THE_SITE.md): how to add a page, where each piece of
   page metadata lives, what every script and CI check does, how the Actions deploy works, and
   how to roll the site back, down to switching the Pages source back to the branch
@@ -90,6 +95,12 @@ by the date its pull requests merged to `main` rather than by tagged release.
   from the study page and the Case Studies hub
 
 ### Fixed
+- The build-path gate now reads the text of every PDF. It decodes each stream through the
+  filters its dictionary names (ASCII85, hex, Flate) and translates text set in an embedded
+  font through the font's ToUnicode map; before, it read only streams stored as plain Flate,
+  which left most PDF page text unchecked. A PDF with a stream it cannot decode now fails
+  instead of passing unread, and `--self-test` runs the reader on built-in cases in CI. All
+  236 PDFs pass the stricter check
 - A link to a heading (`?id=`) on a long page could leave the heading scrolled above the
   window, because docsify works out the scroll position before the header card and folds
   are laid out; the site now lines the heading up under the navbar once that scroll stops,

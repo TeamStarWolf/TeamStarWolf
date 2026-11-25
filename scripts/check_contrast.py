@@ -81,6 +81,12 @@ PAIRS = [
     ("--tsw-link", "--tsw-bg-alt", TEXT, "case study timeline: ATT&CK group chips"),
     ("--tsw-link", "--tsw-surface-2", UI, "case study timeline: event ticks on a card's strip"),
     ("--tsw-link", "--tsw-bg", UI, "case study timeline: year rail markers"),
+    ("--tsw-text-muted", "--tsw-surface", TEXT, "platform band: top-level and menu links on the band/panel"),
+    ("--tsw-text-dim", "--tsw-surface", TEXT, "platform band: carets"),
+    ("--tsw-text-dim", "--tsw-surface", TEXT, "platform band: fly-out sub-entry (12px, muted)"),
+    ("--tsw-link", "--tsw-surface-2", TEXT, "platform band: fly-out sub-entry, hovered row (phone)"),
+    ("--tsw-link", "--tsw-surface", TEXT, "platform band: menu link / fly-out sub-entry, hovered"),
+    ("--tsw-focus", "--tsw-surface", UI, "platform band: focus ring"),
 ]
 
 BLOCKS = {

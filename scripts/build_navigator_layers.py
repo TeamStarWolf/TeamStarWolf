@@ -188,9 +188,9 @@ def full_stack(ids: AttackIds) -> tuple[dict, dict]:
     out.update(json.loads(json.dumps(FULL_STACK_CHROME)))
     out["gradient"] = {"colors": GREENS, "minValue": 1, "maxValue": smax}
     out["legendItems"] = [
-        {"label": "1-9 controls: thin framework coverage (prioritize compensating controls)", "color": GREENS[0]},
-        {"label": "10-19 controls: moderate coverage", "color": GREENS[1]},
-        {"label": "20+ controls: deep control coverage", "color": GREENS[2]},
+        {"label": "1-9 controls: thin framework mapping (prioritize compensating controls)", "color": GREENS[0]},
+        {"label": "10-19 controls: moderate framework mapping", "color": GREENS[1]},
+        {"label": "20+ controls: high framework mapping", "color": GREENS[2]},
     ]
     out["metadata"] = [{"name": k, "value": val} for k, val in (
         ("source", f"CTID Mappings Explorer - NIST 800-53 R5 to ATT&CK v16.1, carried forward to "
@@ -627,8 +627,8 @@ def render_index(layers: dict[str, dict], fs: dict) -> str:
         fail(f"layer file(s) missing from the navigator/index.md CATALOG: {orphans}")
     L += ["---", "", "## Score Interpretation (Full Stack Layer)", "",
           "| Score Range | Meaning |", "|---|---|",
-          f"| 20-{fs['max']} | Many NIST 800-53 controls map to this technique (deep control coverage) |",
-          "| 10-19 | Moderate control coverage; most mature security programs address this technique |",
+          f"| 20-{fs['max']} | Many NIST 800-53 controls map to this technique (a high mapping count, not a measure of what is deployed) |",
+          "| 10-19 | A moderate number of NIST 800-53 controls map to this technique |",
           "| 1-9 | Few controls map here; may represent a capability gap worth prioritizing with "
           "compensating detection or design controls |", "",
           "The score counts mapped NIST 800-53 controls (framework depth). It does not measure vendor "

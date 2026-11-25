@@ -117,6 +117,22 @@ corrections:
     date: "2026-11-04"
     pr: 175
     what: "version, date and count claims checked against their primary sources and corrected"
+  pr417-cloud-benchmark-accuracy:
+    date: "2026-11-24"
+    pr: 417
+    what: "CIS benchmark versions, cloud CLI commands and control IDs checked against their primary sources and corrected"
+  pr418-ir-regulatory-accuracy:
+    date: "2026-11-24"
+    pr: 418
+    what: "breach-notification law, incident-response sequencing and deprecated commands checked against their primary sources and corrected"
+  pr420-ai-mcp-accuracy:
+    date: "2026-11-25"
+    pr: 420
+    what: "MCP page checked against primary sources and by running every code sample: 2026-07-28 protocol behaviour (stateless, Sampling/Roots deprecation, Origin validation); the path, URL, schema and injection samples hardened; the PyRIT, MLflow and nginx examples corrected; ATLAS mitigation IDs and technique rows reconciled to the pinned 2026.10 data; EU AI Act Article 73 and the 2026/1744 prohibitions; NIST AI 600-1/100-1; the OWASP 2026 re-ranking; plus the authentication-and-trust recommendations and retired Docker Content Trust"
+  pr421-detection-accuracy:
+    date: "2026-11-25"
+    pr: 421
+    what: "detection queries corrected against their data-source schemas and query-language semantics across all five platforms: the retired Defender XDR AADSignInEventsBeta table replaced with EntraIdSignInEvents, ATT&CK tactic names updated to v19 (Stealth), brute-force / baseline / injection / RDP / persistence / discovery queries fixed, Chronicle match-section placeholders and UDM fields (extensions.auth.mechanism, FAIL vs BLOCK, target.user.userid) corrected, CrowdStrike CQL marked where its field dictionary is not publicly verifiable, and the control-mapping / validation / provenance framing tightened; verified against primary sources and parser docs (queries were not executed against a live SIEM), and the rendered page and technique-queries.json kept in sync"
 reviews: {}
 pages:
   ACTIVE_DIRECTORY_ATTACKS.md:
@@ -180,8 +196,8 @@ pages:
     start_at: "[MCP Security Threat Model](#_2-mcp-security-threat-model), [MCP Security Hardening](#_3-mcp-security-hardening), [Quick Reference: Security Checklists](#quick-reference-security-checklists)"
     pairs_with: "[AI Security Reference](AI_SECURITY_REFERENCE.md), [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md), [ATLAS Reference (AI threats)](ATLAS_REFERENCE.md), [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md)"
     learning_path: []
-    corrected: "pr175-currency-claims"
-    corrected_what: "MCP transports and OAuth 2.1 authorization updated to the 2026-07-28 specification; NIST AI 600-1 named for the Generative AI Profile; AI Act high-risk dates and the Article 99(5) fine corrected"
+    corrected: "pr420-ai-mcp-accuracy"
+    corrected_what: "MCP 2026-07-28 protocol behaviour, the runnable path/URL/schema/injection/PyRIT/MLflow/nginx samples, the ATLAS mitigation IDs and technique rows (pinned 2026.10), EU AI Act Article 73 and the 2026/1744 prohibitions, NIST AI 600-1/100-1 and the OWASP 2026 re-ranking all checked against sources and corrected"
     reviewed: null
   AI_OFFENSIVE_SECURITY_REFERENCE.md:
     audience: "Security leaders, vulnerability managers, and red teams sizing AI-assisted attack risk"
@@ -395,11 +411,11 @@ pages:
     audience: "Cloud engineers and auditors hardening AWS, Azure, and GCP accounts"
     level: "Intermediate"
     read_when: "You inherit or stand up a cloud account and need to harden it fast, an audit asks for CIS Benchmark evidence, or you are picking or running a CSPM scanner like Prowler or ScoutSuite"
-    start_at: "[Cloud Security Quickstart Checklist](#cloud-security-quickstart-checklist), [AWS CIS Benchmark (v3.0; current release v7.0.0)](#aws-cis-benchmark-v30), [CSPM Tool Reference](#cspm-tool-reference)"
+    start_at: "[Cloud Security Quickstart Checklist](#cloud-security-quickstart-checklist), [AWS CIS Benchmark (v3.0; current release v7.1.0)](#aws-cis-benchmark-v30), [CSPM Tool Reference](#cspm-tool-reference)"
     pairs_with: "[Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [Cloud Security Discipline](disciplines/cloud-security.md), [Frameworks Reference](FRAMEWORKS.md), [Controls Mapping](CONTROLS_MAPPING.md)"
     learning_path: []
-    corrected: "pr62-names-and-versions"
-    corrected_what: "notes added on the current CIS AWS, Azure and GCP benchmark releases; Lacework renamed FortiCNAPP"
+    corrected: "pr417-cloud-benchmark-accuracy"
+    corrected_what: "CIS AWS/Azure/GCP benchmark versions refreshed to v7.1.0/v7.0.0/v5.0.1; control IDs across the AWS, Azure and GCP tables renumbered to the stated CIS versions; CloudTrail, Defender, Key Vault, KMS, Graph PowerShell and audit-log commands corrected"
     reviewed: null
   CLOUD_SECURITY_REFERENCE.md:
     audience: "Cloud security engineers and cloud penetration testers"
@@ -863,8 +879,8 @@ pages:
     pairs_with: "[IR Playbooks](IR_PLAYBOOKS.md), [Ransomware Defense Reference](RANSOMWARE_DEFENSE_REFERENCE.md), [Network Forensics Reference](NETWORK_FORENSICS_REFERENCE.md), [Notable Incidents](NOTABLE_INCIDENTS.md)"
     learning_path:
       - "disciplines/incident-response.md"
-    corrected: "pr175-currency-claims"
-    corrected_what: "SP 800-61 Rev. 3 presented as the current NIST guidance and the four-phase lifecycle as the withdrawn Rev. 2 model; TheHive line corrected"
+    corrected: "pr418-ir-regulatory-accuracy"
+    corrected_what: "GDPR/SEC/HIPAA/PCI/California breach-notification details corrected against primary sources; forensic, containment and persistence commands fixed by running them (jq IAM, security-group/NSG isolation, Zeek/tshark/nfdump, PowerShell service and task queries); the threat-actor technique table reconciled to the library's own data; AzureAD cmdlets replaced with Microsoft Graph; vendor, ISAC and reporting-framework names and dates updated"
     reviewed: null
   INSIDER_THREAT_REFERENCE.md:
     audience: "Insider risk program leads, SOC teams, and HR, legal, and privacy partners"
@@ -2870,6 +2886,13 @@ pages:
     read_when: "You run Synology DSM, a LiteLLM proxy, REDCap or a Java application that bundles Apache Axis 1.x, or you need the facts behind CISA's 18 November 2026 KEV additions"
     start_at: "[Executive summary](#executive-summary), [Part 5: Find and fix](#part-5-find-and-fix), [Part 6: Weakness and technique mapping](#part-6-weakness-and-technique-mapping)"
     pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Internet-Facing Services Reference](/INTERNET_FACING_SERVICES_REFERENCE.md), [CWE Reference](/CWE_REFERENCE.md)"
+  case-studies/KEV_ADDITIONS_2026_11_20.md:
+    audience: "Vulnerability management leads, VMware, Cisco, Apache Roller and SAP administrators, incident responders, and security engineers"
+    level: "Intermediate"
+    read_when: "You run VMware vCenter, a clustered Cisco Expressway, Apache Roller or SAP NetWeaver Enterprise Portal, or you need the facts behind CISA's 20 November 2026 KEV additions"
+    start_at: "[Executive summary](#executive-summary), [Part 1: VMware vCenter, CVE-2026-123890](#part-1-vmware-vcenter-cve-2026-123890), [Part 6: Find and fix it](#part-6-find-and-fix-it)"
+    pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Internet-Facing Services Reference](/INTERNET_FACING_SERVICES_REFERENCE.md), [CWE Reference](/CWE_REFERENCE.md)"
+    reviewed: null
   case-studies/NGINX2ROOT_2026.md:
     audience: "Vulnerability management leads, nginx and platform operators, incident responders, and security engineers"
     level: "Intermediate"
@@ -2882,6 +2905,41 @@ pages:
     read_when: "You run Java anywhere, you may have runtimes bundled inside other products, you need the facts of CVE-2026-114938 (Java4Shell), or you are deciding how urgently to patch it"
     start_at: "[Executive summary](#executive-summary), [Part 2: Reach and preconditions](#part-2-reach-and-preconditions), [Part 4: Find and fix it](#part-4-find-and-fix-it)"
     pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md)"
+    reviewed: null
+  case-studies/UPNP_HOME_NETWORK.md:
+    audience: "Home and small-network users, network and security engineers, incident responders, and anyone hardening a consumer router"
+    level: "Intermediate"
+    read_when: "You run a home or small network, you want to understand the UPnP port-mapping service and its security record, or you are deciding whether to leave UPnP on"
+    start_at: "[Executive summary](#executive-summary), [Part 6: What is fixed, what is design, what is a setting](#part-6-what-is-fixed-what-is-design-what-is-a-setting), [Part 7: Check your own network](#part-7-check-your-own-network)"
+    pairs_with: "[Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [Networking Fundamentals](/NETWORKING_FUNDAMENTALS.md), [CVE Reference](/CVE_REFERENCE.md)"
+    reviewed: null
+  case-studies/CASTING_HOME_NETWORK.md:
+    audience: "Home and small-network users, network and security engineers, incident responders, and anyone hardening streaming and smart-home devices"
+    level: "Intermediate"
+    read_when: "You run a home network with casting devices, you want to understand the local control APIs behind Chromecast, DIAL and AirPlay and their security record, or you are deciding how to separate those devices from the rest of your network"
+    start_at: "[Executive summary](#executive-summary), [Part 7: What is fixed, what is design, what is a setting](#part-7-what-is-fixed-what-is-design-what-is-a-setting), [Part 8: Check your own network](#part-8-check-your-own-network)"
+    pairs_with: "[UPnP on the Home Network](/case-studies/UPNP_HOME_NETWORK.md), [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [Networking Fundamentals](/NETWORKING_FUNDAMENTALS.md)"
+    reviewed: null
+  case-studies/ISP_GATEWAY_HOME_NETWORK.md:
+    audience: "Home and small-network users, network and security engineers, incident responders, and anyone who uses an ISP-supplied gateway"
+    level: "Intermediate"
+    read_when: "You use the gateway your ISP supplied, you want to understand who controls that box and its security record, or you are deciding whether to put your own router behind it"
+    start_at: "[Executive summary](#executive-summary), [Part 6: What is fixed, what is design, what is a setting](#part-6-what-is-fixed-what-is-design-what-is-a-setting), [Part 7: Check your own network](#part-7-check-your-own-network)"
+    pairs_with: "[UPnP on the Home Network](/case-studies/UPNP_HOME_NETWORK.md), [Casting on the Home Network](/case-studies/CASTING_HOME_NETWORK.md), [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md)"
+    reviewed: null
+  case-studies/MESH_THREAD_HOME_NETWORK.md:
+    audience: "Home and small-network users, network and security engineers, incident responders, and anyone running mesh Wi-Fi, smart speakers or Thread devices"
+    level: "Intermediate"
+    read_when: "You run mesh Wi-Fi, a smart speaker or display, or Thread smart-home devices, and you want to understand the attack surface they add and their security record"
+    start_at: "[Executive summary](#executive-summary), [Part 6: What is fixed, what is design, what is a setting](#part-6-what-is-fixed-what-is-design-what-is-a-setting), [Part 7: Check your own devices](#part-7-check-your-own-devices)"
+    pairs_with: "[Casting on the Home Network](/case-studies/CASTING_HOME_NETWORK.md), [The ISP-Supplied Gateway](/case-studies/ISP_GATEWAY_HOME_NETWORK.md), [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md)"
+    reviewed: null
+  case-studies/PUPPET_CVE_2026_115731.md:
+    audience: "Vulnerability management leads, Puppet and configuration management administrators, incident responders, and security engineers"
+    level: "Intermediate"
+    read_when: "You run Puppet Enterprise or Puppet Server, you need the facts of CVE-2026-115731, or you are deciding how urgently to patch, restart and review certificate signing"
+    start_at: "[Executive summary](#executive-summary), [Part 2: Reach, scores and status](#part-2-reach-scores-and-status), [Part 4: Find and fix it](#part-4-find-and-fix-it)"
+    pairs_with: "[CVE Reference](/CVE_REFERENCE.md), [Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_REFERENCE.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md), [Log4Shell](/case-studies/LOG4SHELL.md)"
     reviewed: null
   case-studies/GITLAB_CVE_2026_97229.md:
     audience: "Vulnerability management leads, GitLab administrators, DevSecOps and platform engineers, and incident responders"
@@ -4237,9 +4295,10 @@ pages:
   detections/TECHNIQUE_DETECTION_LIBRARY.md:
     audience: "Detection engineers, threat hunters and SOC analysts"
     level: "Intermediate"
-    read_when: "You are building or tuning a SIEM or EDR detection for a specific ATT&CK technique, you need a hunt query in your platform's language (SPL, EQL/KQL, YARA-L, CQL), or you want to check which NIST 800-53 controls mitigate a technique you just detected"
+    read_when: "You are building or tuning a SIEM or EDR detection for a specific ATT&CK technique, you need a hunt query in your platform's language (SPL, EQL/KQL, YARA-L, CQL), or you want to check which NIST 800-53 controls are mapped to a technique you just detected"
     start_at: "[How to use this library](#how-to-use-this-library), [Technique index](#technique-index), [Provenance & attribution](#provenance-amp-attribution)"
     pairs_with: "[Detection Rules Reference](/DETECTION_RULES_REFERENCE.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [Detection strategies](/detections/strategies/README.md), [Controls Mapping](/CONTROLS_MAPPING.md)"
+    corrected: "pr421-detection-accuracy"
     reviewed: null
   formats/css.md:
     audience: "Developers, engineers and analysts who read, write or parse CSS"
@@ -5897,7 +5956,7 @@ pages:
     audience: "Builders and maintainers who harden and run projects in public"
     level: "Intermediate"
     read_when: "You want the lessons from hardening and maintaining a real project in public, or you are about to do similar work and want to know what it surfaced"
-    start_at: "[Index](#index), [1. Hardening LimeWire v4](#_1-hardening-limewire-v4), [2. Bulk-bookkeeping the GitHub Stars API](#_2-bulk-bookkeeping-the-github-stars-api)"
+    start_at: "[Index](#index), [1. Bulk-bookkeeping the GitHub Stars API](#_1-bulk-bookkeeping-the-github-stars-api)"
     pairs_with: "[Curated GitHub Stars Lists](/research/CURATED_STARS_LISTS.md), [Starred Repositories](/STARRED_REPOS.md), [Secure Coding Reference](/SECURE_CODING_REFERENCE.md)"
     reviewed: null
   research/HTB_MACHINE_INDEX.md:

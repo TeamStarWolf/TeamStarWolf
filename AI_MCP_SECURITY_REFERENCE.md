@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 49 min (11,210 words at 230 words a minute)
+About 56 min (12,843 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -42,7 +42,7 @@ You are evaluating or hardening an MCP server deployment, you are threat-modelin
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-11-04, MCP transports and OAuth 2.1 authorization updated to the 2026-07-28 specification; NIST AI 600-1 named for the Generative AI Profile; AI Act high-risk dates and the Article 99(5) fine corrected ([#175](https://github.com/TeamStarWolf/TeamStarWolf/pull/175))
+2026-11-25, MCP 2026-07-28 protocol behaviour, the runnable path/URL/schema/injection/PyRIT/MLflow/nginx samples, the ATLAS mitigation IDs and technique rows (pinned 2026.10), EU AI Act Article 73 and the 2026/1744 prohibitions, NIST AI 600-1/100-1 and the OWASP 2026 re-ranking all checked against sources and corrected ([#420](https://github.com/TeamStarWolf/TeamStarWolf/pull/420))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
@@ -110,7 +110,7 @@ MCP uses a three-component architecture:
 
 Connection lifecycle:
 1. Host launches or connects to one or more MCP servers.
-2. Client performs capability negotiation (initialize/initialized handshake).
+2. Client and server establish the connection. Through the 2025-11-25 revision this was an `initialize`/`initialized` handshake; the current 2026-07-28 revision is stateless - there is no handshake, every request carries its protocol version and the client capabilities in `_meta`, and a client may call `server/discover` (which servers must implement) to learn capabilities up front.
 3. Host discovers available tools, resources, and prompts by calling `tools/list`, `resources/list`, `prompts/list`.
 4. LLM (inside Host) decides to invoke a tool; Host/Client sends `tools/call` to the Server.
 5. Server executes the action and returns the result.
@@ -120,7 +120,7 @@ Connection lifecycle:
 
 ### MCP Primitives
 
-MCP defines four core primitives that servers can expose:
+MCP servers expose three primitives - Tools, Resources and Prompts. (Sampling and Roots are *client* features, not server primitives; the current 2026-07-28 revision deprecates Sampling, Roots and Logging together under SEP-2577 - they keep working for a transition window of at least twelve months, but new implementations should not add them. Elicitation is the one client feature that stays active.)
 
 #### Tools
 Functions that the LLM can invoke to perform actions or retrieve computed information. Tools are the most powerful primitive and carry the most security risk.
@@ -156,11 +156,11 @@ Pre-defined prompt templates that servers expose. Allows servers to provide cura
 - Parameterized templates users or hosts can invoke.
 - Example: A Git MCP server exposing a `git_commit_review` prompt template.
 
-#### Sampling
-A reverse-direction primitive where an MCP server can request the Host to perform an LLM inference call. This enables agentic loops where servers themselves need AI reasoning.
+#### Sampling (client feature, deprecated in 2026-07-28)
+Sampling lets a server ask the host to perform an LLM inference call, enabling agentic loops where the server needs AI reasoning. It is a *client* feature, not a server primitive, and 2026-07-28 deprecates it (with Roots and Logging, SEP-2577): server-initiated requests move to the Multi Round-Trip Requests pattern, where the server returns an `input_required` result and the client retries once it has the answer.
 
-- Security implication: Sampling requests from a compromised server can inject malicious system prompts into LLM calls.
-- Hosts should display sampling requests to users for approval before executing.
+- Security implication: on a host that still supports Sampling during the deprecation window, a compromised server can inject a malicious system prompt into an LLM call.
+- Such a host should display sampling requests to the user for approval before running them.
 
 ---
 
@@ -170,8 +170,8 @@ The current specification (protocol version 2026-07-28) defines two standard tra
 
 | Transport | Use Case | Security Notes |
 |-----------|----------|---------------|
-| stdio | Local servers launched as child processes. Messages sent over stdin/stdout as newline-delimited JSON-RPC. | Lowest attack surface; server runs with same user permissions. No network exposure. |
-| Streamable HTTP | Remote servers over HTTP. Client sends JSON-RPC via HTTP POST; the server answers with a JSON response or a Server-Sent Events (SSE) stream. It replaces the HTTP+SSE transport of protocol version 2024-11-05. | Protected servers use the spec's OAuth 2.1 authorization. Vulnerable to DNS rebinding if bound to localhost. TLS required for remote. |
+| stdio | Local servers launched as child processes. Messages sent over stdin/stdout as newline-delimited JSON-RPC. | No network *listener* by default, but the process runs with the launching user's full permissions: it can still read that user's files, use their credentials, and open outbound network connections unless it is separately sandboxed. "Lowest attack surface" only holds once it is confined. |
+| Streamable HTTP | Remote servers over HTTP. Client sends JSON-RPC via HTTP POST; the server answers with a JSON response or a Server-Sent Events (SSE) stream. It replaces the HTTP+SSE transport of protocol version 2024-11-05. | Protected servers use the spec's OAuth 2.1 authorization. A local server is exposed to DNS rebinding unless it validates the Origin header (see Threat 7). TLS required for remote. |
 | Custom (for example WebSocket) | Not a standard binding; client and server must both implement it. | Apply the same authentication and TLS (wss://) rules as Streamable HTTP. |
 
 stdio example invocation (Claude Desktop config):
@@ -185,6 +185,8 @@ stdio example invocation (Claude Desktop config):
   }
 }
 ```
+
+This example auto-installs the latest package (`-y`) and hands it a broad home directory. For anything beyond a quick test, pin a vetted version (or a digest-pinned container image) instead of `-y`, and point the server at a dedicated scratch directory - read-only where it does not need to write - rather than `/home/user/documents`.
 
 ---
 
@@ -205,7 +207,7 @@ Request:
 }
 ```
 
-Response:
+Response (the result shape through the 2025-11-25 revision):
 ```json
 {
   "jsonrpc": "2.0",
@@ -218,6 +220,8 @@ Response:
   }
 }
 ```
+
+Under 2026-07-28 a result carries a `resultType` of `complete` or `input_required`; `input_required` drives the Multi Round-Trip Requests retry that replaces server-initiated requests.
 
 Notification (no id, no response expected):
 ```json
@@ -239,7 +243,7 @@ Notification (no id, no response expected):
 | Server architecture | Separate server processes | Inline definitions | Inline definitions |
 | Interoperability | Any host + any server | OpenAI models only | LangChain ecosystem |
 | Security model | Explicit; approval UI | Implicit | Implicit |
-| Sampling (reverse) | Yes | No | No |
+| Sampling (reverse; client feature, deprecated in MCP 2026-07-28) | Yes | No | No |
 | Resource primitive | Yes | No | No (retrievers separate) |
 | Ecosystem | Growing rapidly (Claude, VS Code, Cursor, Windsurf, 1000+ servers) | Large but locked to OpenAI | Large but framework-specific |
 
@@ -255,7 +259,7 @@ Notification (no id, no response expected):
 | Windsurf | MCP-native; strong agentic workflow integration. |
 | Zed Editor | MCP support via extensions. |
 | Continue.dev | MCP server integration for code context. |
-| OpenAI Agents SDK | MCP server support added April 2025. |
+| OpenAI Agents SDK | MCP server support added March 2025 (announced 26 March 2025). |
 | Amazon Bedrock | MCP integration announced 2025. |
 | Community servers | 1000+ servers on npm, PyPI, GitHub: filesystem, git, GitHub, Slack, PostgreSQL, Puppeteer, memory, time, fetch, and many more. |
 
@@ -414,7 +418,7 @@ Attack flow:
 6. Browser's same-origin policy allows the JS to communicate with the local MCP server.
 7. Attacker's JS calls MCP tools on the local server.
 
-Mitigations: Bind to `127.0.0.1` (not `0.0.0.0`), check `Host` header, use authentication tokens, implement CORS restrictions.
+Mitigations: the spec's one MUST is to validate the `Origin` header on every incoming connection and reject it with `403` when it is present and not an allowed origin (MCP 2026-07-28, Streamable HTTP "Security & Endpoint"); also validate the `Host` header and require authentication. Note what the weaker controls do: binding to `127.0.0.1` (not `0.0.0.0`) only blocks direct access from the network - the rebinding attack reaches loopback by design - and CORS does not help, because after rebinding the request is same-origin (step 6 above).
 
 ---
 
@@ -427,9 +431,9 @@ MCP authentication landscape (specification 2026-07-28):
 
 Attack scenarios:
 - Unauthorized access: Any local process or user can connect to an unauthenticated local MCP server.
-- Session fixation: Attacker pre-establishes an MCP session before the legitimate user connects.
-- Token theft: OAuth tokens stored in config files (e.g., `~/.claude/claude_desktop_config.json`) can be stolen and replayed.
-- Scope creep: OAuth tokens requested with broad scopes (e.g., `repo:write` on GitHub) when only narrow scopes are needed.
+- Session fixation (only servers still on 2025-11-25 or earlier): an attacker pre-establishes an MCP session before the legitimate user connects. The 2026-07-28 revision removes protocol-level sessions and the `Mcp-Session-Id` header, so this does not apply to current servers.
+- Credential theft: Claude Desktop's config file (`~/Library/Application Support/Claude/claude_desktop_config.json` on macOS, `%APPDATA%\Claude\claude_desktop_config.json` on Windows) holds each server's `env` block in plain text - typically API keys and personal access tokens - which can be stolen and replayed.
+- Scope creep: tokens requested with broad scopes when only narrow ones are needed. On GitHub the classic `repo` scope grants full read and write to every repository the user can reach, where a narrower task may need only `public_repo` or `repo:status`.
 
 ---
 
@@ -462,7 +466,7 @@ Techniques:
 - chroot/pivot_root: Run the MCP server process in a chroot jail limiting its view of the filesystem.
 - Docker containers: Run MCP servers in containers with bind mounts only to specific directories.
   ```bash
-  docker run --rm -it     -v /home/user/documents:/workspace:ro     mcp-filesystem-server /workspace
+  docker run --rm -i     -v /home/user/documents:/workspace:ro     mcp-filesystem-server /workspace
   ```
 - Path validation: Server-side validation that resolved paths are within allowed directories.
   ```python
@@ -470,7 +474,10 @@ Techniques:
 
   def validate_path(path, allowed_base):
       resolved = os.path.realpath(path)
-      if not resolved.startswith(os.path.realpath(allowed_base)):
+      base = os.path.realpath(allowed_base)
+      # Use commonpath, not startswith: startswith("/srv/projects") also passes
+      # "/srv/projects2" and "/srv/projects-private".
+      if os.path.commonpath([resolved, base]) != base:
           raise ValueError(f"Path {path} is outside allowed directory")
       return resolved
   ```
@@ -509,6 +516,8 @@ Example strict schema:
 }
 ```
 
+This `pattern` restricts the character set, not the location: it still matches `../../etc/passwd`, `/etc/shadow` and `a/../../b`. Treat the schema as a first filter, and have the server resolve the path and check containment (Principle 2) before opening the file.
+
 ---
 
 ### Principle 4: Output Sanitization
@@ -520,7 +529,7 @@ Why this matters: Tool output containing text like "Ignore previous instructions
 Techniques:
 - Prompt injection detection: Run tool outputs through a secondary classifier that flags potential injection attempts.
 - Output length limits: Truncate excessively long outputs to prevent context flooding attacks.
-- Structured output enforcement: Where possible, return structured JSON rather than free text, making injection harder.
+- Structured output enforcement: Where possible, return structured JSON with a schema the host validates. This separates and validates fields, but JSON values can still carry adversarial text, so it is not by itself an injection defense - enforce tool and action permissions in the host independently of the output encoding.
 - Content-type enforcement: Label tool outputs with their content type (e.g., `data`, not `instruction`) and include this in the system prompt context.
 - HTML/Markdown stripping: Remove formatting that could hide text from user-visible UI while still feeding it to the LLM.
 
@@ -562,7 +571,7 @@ Minimum log fields:
 }
 ```
 
-Sensitive argument masking: Mask or hash sensitive argument values (passwords, tokens) before logging.
+Sensitive argument handling: Log only approved metadata (tool name, decision, result status, a correlation ID) and omit raw secret, password, token, file-content and message values. Do not hash a low-entropy secret as a substitute - a hash of a guessable value is reversible and is still a correlation handle; restrict access to and retention of the logs instead.
 
 Log integrity: Forward logs to a SIEM in real-time. Use append-only storage. Sign log entries.
 
@@ -594,13 +603,14 @@ Server allowlists: Maintain an explicit allowlist of trusted MCP server package 
 
 ```json
 {
-  "trusted_servers": [
-    "@modelcontextprotocol/server-filesystem@0.6.2",
-    "@modelcontextprotocol/server-github@0.5.1",
-    "mcp-server-time@1.0.0"
-  ]
+  "trusted_servers": {
+    "npm": ["@modelcontextprotocol/server-filesystem@2.4.0"],
+    "pypi": ["mcp-server-time@2026.11.18"]
+  }
 }
 ```
+
+Pin a real, current version and name the registry each belongs to (npm uses semver; the PyPI `mcp-server-time` uses date-style versions). Do not list an archived package: `@modelcontextprotocol/server-github` is archived and unmaintained ("no security guarantees") - use the maintained GitHub MCP server instead.
 
 Domain allowlists for fetch tools: Only allow outbound HTTP requests to explicitly approved domains.
 
@@ -614,15 +624,23 @@ ALLOWED_DOMAINS = {
 def validate_url(url):
     from urllib.parse import urlparse
     parsed = urlparse(url)
+    if parsed.scheme != "https":
+        raise ValueError(f"Scheme {parsed.scheme!r} is not https")
+    if parsed.port is not None:
+        raise ValueError("Explicit port is not allowed")
     if parsed.hostname not in ALLOWED_DOMAINS:
         raise ValueError(f"Domain {parsed.hostname} is not in the allowlist")
+    # Not shown: follow redirects yourself and re-run this on each hop, and resolve
+    # the hostname and re-check the IP (see the block list below) - an allowed name
+    # can still resolve to an internal address.
 ```
 
-IP block rules: Deny access to RFC 1918 private ranges, loopback, and link-local addresses from fetch tools:
+IP block rules: Deny RFC 1918 private ranges, loopback, link-local and unique-local addresses from fetch tools. Apply the check to the *resolved* IP address (after DNS), not the hostname, and re-check after every redirect:
 - `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16` (private)
 - `127.0.0.0/8` (loopback)
 - `169.254.0.0/16` (link-local)
-- `::1/128` (IPv6 loopback)
+- `::1/128` (IPv6 loopback), `fc00::/7` (IPv6 unique-local), `fe80::/10` (IPv6 link-local)
+- `::ffff:0:0/96` (IPv4-mapped IPv6, e.g. `::ffff:127.0.0.1`)
 
 ---
 
@@ -632,11 +650,13 @@ Run MCP servers in Docker containers for process isolation.
 
 Example Docker Compose for sandboxed filesystem server:
 ```yaml
-version: '3.8'
 services:
   mcp-filesystem:
-    image: node:20-alpine
-    command: npx -y @modelcontextprotocol/server-filesystem /workspace
+    # A reviewed image with the server already installed, pinned by digest. Do NOT `npx -y`
+    # at runtime: `read_only: true` and `network_mode: none` below would block the install
+    # anyway, and fetching a mutable package at start-up is the risk this sandbox exists to remove.
+    image: ghcr.io/your-org/mcp-filesystem@sha256:<digest>
+    command: ["mcp-server-filesystem", "/workspace"]
     volumes:
       - ./documents:/workspace:ro
     read_only: true
@@ -681,8 +701,10 @@ def check_for_injection(tool_output: str) -> bool:
     return any(phrase in lower for phrase in suspicious_phrases)
 ```
 
+This phrase list is only an illustration. It is both noisy (it fires on benign text such as "react as" or "cont**act as**sociates") and trivially evaded (a double space, a Unicode look-alike, or any paraphrase slips past it), so use it as one weak signal feeding a trained classifier or a human-in-the-loop, never as a gate.
+
 Defense 3. Structured output constraints:
-Require tools to return data in strict structured formats (JSON with schema validation) rather than free-form text, making injection payloads harder to embed naturally.
+Require tools to return data in strict structured formats (JSON with schema validation) rather than free-form text. This bounds and labels the fields, but their values are still attacker-controlled text, so treat it as one layer alongside Defenses 1, 2 and 4, not a standalone injection defense.
 
 Defense 4. Context labeling:
 Wrap all tool outputs in labeled XML tags that distinguish them from user instructions:
@@ -716,7 +738,8 @@ server {
     ssl_verify_client on; # mTLS
 
     location /mcp {
-        proxy_pass http://localhost:3000;
+        proxy_pass http://127.0.0.1:3000;   # 127.0.0.1, not localhost: nginx tries [::1] first and logs "connection refused"
+        proxy_buffering off;                # Streamable HTTP answers with an SSE stream; without this nginx buffers the events together
     }
 }
 ```
@@ -728,7 +751,7 @@ server {
 Remote MCP servers should implement the MCP authorization spec, which builds on OAuth 2.1 with PKCE (Proof Key for Code Exchange), for user authentication.
 
 OAuth 2.1 authorization code flow with PKCE for MCP (specification 2026-07-28):
-1. MCP host generates a random `code_verifier` and derives `code_challenge = SHA256(code_verifier)`.
+1. MCP host generates a random `code_verifier` and derives `code_challenge = BASE64URL-ENCODE(SHA256(ASCII(code_verifier)))` (the S256 method of RFC 7636 section 4.2; the base64url is unpadded).
 2. Host redirects user to authorization server with `code_challenge`.
 3. User authenticates and authorizes.
 4. Authorization server issues `authorization_code` to host.
@@ -739,6 +762,7 @@ Security requirements:
 - Use short-lived access tokens (15-60 minutes).
 - Use refresh tokens with rotation.
 - Request minimum OAuth scopes.
+- Validate the authorization server's `iss` identifier in the authorization response against its published metadata (RFC 9207) to defeat mix-up attacks.
 - Store tokens in OS keychain, not plain config files.
 - Never log access tokens.
 
@@ -879,102 +903,121 @@ Tool Misuse:
 
 ## 5. MITRE ATLAS Techniques
 
-MITRE ATLAS (Adversarial Threat Landscape for Artificial-Intelligence Systems) is a knowledge base of adversarial tactics, techniques, and case studies for ML-enabled systems, analogous to MITRE ATT&CK for traditional cyber threats.
+MITRE ATLAS (Adversarial Threat Landscape for Artificial-Intelligence Systems) is a knowledge base of adversarial tactics, techniques, and case studies for AI-enabled systems, analogous to MITRE ATT&CK for traditional cyber threats.
+
+The headings below group techniques by the stage of an MCP attack where the library finds them most useful. That staging is the library's own grouping, not ATLAS's tactic assignment, so each row carries an ATLAS tactic column giving the technique's actual tactic(s) from the pinned data; a technique can sit under a stage here that differs from its ATLAS tactic. The technique IDs, names and ATLAS tactics were reconciled against the [pinned ATLAS 2026.10 release](https://github.com/mitre-atlas/atlas-data/blob/f56c1468731d6428e5bf875263b4643b46d67437/dist/v6/ATLAS-2026.10.yaml) on 2026-11-19; the Attack Example and Mitigations columns are the library's own curation, not official ATLAS content. This is a selection rather than the full matrix. For the authoritative and complete matrix, see the [ATLAS Reference](/ATLAS_REFERENCE.md), which CI generates from the same pinned release.
 
 Reference: [https://atlas.mitre.org/](https://atlas.mitre.org/)
 
 ---
 
+### MCP and AI-agent techniques
+
+The staged tables below are drawn from ATLAS's model-centric techniques. ATLAS 2026.10 also carries agent- and tool-specific techniques that map directly onto the eight MCP threats in Section 2; the IDs, names and tactics here are copied from the [pinned release](https://github.com/mitre-atlas/atlas-data/blob/f56c1468731d6428e5bf875263b4643b46d67437/dist/v6/ATLAS-2026.10.yaml).
+
+| MCP threat (Section 2) | ATLAS technique | ATLAS tactic(s) |
+|---|---|---|
+| Threat 1: Prompt Injection via Tool Results | AML.T0051 LLM Prompt Injection; AML.T0099 AI Agent Tool Data Poisoning (poisoned content returning through a tool) | Execution; Persistence |
+| Threat 2: Tool Poisoning Attacks | AML.T0110 AI Agent Tool Poisoning | Persistence |
+| Threat 3: MCP Supply Chain Attacks | AML.T0010.005 Supply Chain Compromise: AI Agent Tool | Initial Access |
+| Threat 4: Privilege Escalation | AML.T0053 AI Agent Tool Invocation | Execution / Privilege Escalation / Lateral Movement |
+| Threat 5: Data Exfiltration Paths | AML.T0086 Exfiltration via AI Agent Tool Invocation | Exfiltration |
+| Threat 6: Rug Pull / Server Substitution | AML.T0110 AI Agent Tool Poisoning (tool definition or behaviour changed after approval); AML.T0010.005 Supply Chain Compromise: AI Agent Tool (substitution) | Persistence; Initial Access |
+| Threat 7: DNS Rebinding on Localhost MCP Ports | AML.T0132 Misconfigured or Publicly Exposed AI Services (an unauthenticated local server reachable after rebinding) | Initial Access |
+| Threat 8: Authentication Gaps | AML.T0083 Credentials from AI Agent Configuration; AML.T0098 AI Agent Tool Credential Harvesting | Credential Access |
+
+---
+
 ### Reconnaissance
 
-| ID | Name | Description | Attack Example | Mitigations |
-|----|------|-------------|---------------|-------------|
-| AML.T0000 | Search for Victim's Publicly Available Research Materials | Adversary searches for public ML research, papers, models, and datasets related to the target. | Searching arXiv, GitHub, and Hugging Face for the target organization's published models. | Limit publication of details about production ML systems. |
-| AML.T0001 | Search Victim-Owned Websites | Adversary searches the target's websites for information about ML systems in use. | Scraping job postings to identify ML frameworks and models used by the organization. | Limit ML implementation details in public-facing content. |
-| AML.T0002 | Search Publicly Available Data Sources | Adversary searches public data sources (datasets, model cards, API docs) to understand the ML system. | Querying a public model API to map out its input/output behavior before attacking. | Minimize public documentation of model internals. |
-| AML.T0003 | Search ML Artifact Repositories | Adversary searches ML artifact repositories (Hugging Face, TensorFlow Hub, ONNX Model Zoo) for target-related models. | Searching Hugging Face for models published by the target organization. | Monitor for downloads of organization-published models. |
-| AML.T0004 | Search for Victim's Publicly Available Adversarial Vulnerability Research | Adversary searches for published adversarial ML research targeting the specific model architecture or task. | Finding papers that demonstrate successful attacks against transformer-based models of the type the target uses. | Limit disclosure of specific model architecture details. |
+| ID | Name | ATLAS tactic | Description | Attack Example | Mitigations |
+|----|------|--------------|-------------|----------------|-------------|
+| AML.T0000 | Search Open Technical Databases | Reconnaissance | Adversary searches for public ML research, papers, models, and datasets related to the target. | Searching arXiv, GitHub, and Hugging Face for the target organization's published models. | Limit publication of details about production ML systems. |
+| AML.T0003 | Search Victim-Owned Websites | Reconnaissance | Adversary searches the target's websites for information about ML systems in use. | Scraping job postings to identify ML frameworks and models used by the organization. | Limit ML implementation details in public-facing content. |
+| AML.T0095 | Search Open Websites/Domains | Reconnaissance | Adversary searches public data sources (datasets, model cards, API docs) to understand the ML system. | Collecting the target's model cards, API docs and engineering blog posts from vendor sites and GitHub. | Minimize public documentation of model internals. |
+| AML.T0004 | Search Application Repositories | Reconnaissance | Adversary searches open application repositories (app stores) for the target's AI-enabled applications. | Searching Google Play and the App Store for apps the target ships that embed AI features. | Minimize AI implementation details in public app listings. |
+| AML.T0001 | Search Open AI Vulnerability Analysis | Reconnaissance | Adversary searches for published adversarial ML research targeting the specific model architecture or task. | Finding papers that demonstrate successful attacks against transformer-based models of the type the target uses. | Limit disclosure of specific model architecture details. |
 
 ---
 
 ### Resource Development
 
-| ID | Name | Description | Attack Example | Mitigations |
-|----|------|-------------|---------------|-------------|
-| AML.T0008 | Acquire Public ML Artifacts | Adversary acquires publicly available ML artifacts (models, datasets, code) for use in attacks. | Downloading a public foundation model to develop adversarial examples for use against the target's fine-tuned version. | Monitor for download of organization's public artifacts. |
-| AML.T0009 | Obtain Capabilities | Adversary obtains or develops tools for conducting ML attacks (adversarial example generators, model extraction tools). | Using the Foolbox or ART library to generate adversarial examples. | N/A (adversary-side). |
-| AML.T0010 | Create Proxy ML Model | Adversary creates a local proxy/surrogate model that approximates the target model, for offline attack development. | Training a surrogate model using model extraction queries before generating transferable adversarial examples. | Rate limiting, query monitoring, output watermarking. |
-| AML.T0115.000 | Publish Poisoned AI Artifacts: Datasets | Adversary publishes datasets to public repositories containing poisoned samples intended to be used for training. Supersedes AML.T0019 Publish Poisoned Datasets, retired in ATLAS 2026.07. | Publishing a poisoned image dataset to Kaggle that causes a specific misclassification when used for transfer learning. | Data provenance verification, anomaly detection. |
-| AML.T0011 | Develop Capabilities | Adversary develops novel attack tools, techniques, or adversarial examples from scratch. | Implementing a custom GCG (Greedy Coordinate Gradient) optimizer to generate adversarial suffixes. | Red teaming, monitoring research literature. |
+| ID | Name | ATLAS tactic | Description | Attack Example | Mitigations |
+|----|------|--------------|-------------|----------------|-------------|
+| AML.T0002 | Acquire Public AI Artifacts | Resource Development | Adversary acquires publicly available ML artifacts (models, datasets, code) for use in attacks. | Downloading a public foundation model to develop adversarial examples for use against the target's fine-tuned version. | Monitor for download of organization's public artifacts. |
+| AML.T0016 | Obtain Capabilities | Resource Development | Adversary obtains or develops tools for conducting ML attacks (adversarial example generators, model extraction tools). | Using the Foolbox or ART library to generate adversarial examples. | N/A (adversary-side). |
+| AML.T0005 | Replicate AI Model Behavior | Resource Development / AI Attack Adaptation | Adversary creates a local proxy/surrogate model that approximates the target model, for offline attack development. | Training a surrogate model using model extraction queries before generating transferable adversarial examples. | Rate limiting, query monitoring, output watermarking, legal agreements. |
+| AML.T0115.000 | Publish Poisoned AI Artifacts: Datasets | Resource Development | Adversary publishes datasets to public repositories containing poisoned samples intended to be used for training. Supersedes AML.T0019 Publish Poisoned Datasets, retired in ATLAS 2026.07. | Publishing a poisoned image dataset to Kaggle that causes a specific misclassification when used for transfer learning. | Data provenance verification, anomaly detection. |
+| AML.T0017 | Develop Capabilities | Resource Development | Adversary develops novel attack tools, techniques, or adversarial examples from scratch. | Implementing a custom GCG (Greedy Coordinate Gradient) optimizer to generate adversarial suffixes. | Red teaming, monitoring research literature. |
 
 ---
 
 ### Initial Access
 
-| ID | Name | Description | Attack Example | Mitigations |
-|----|------|-------------|---------------|-------------|
-| AML.T0010.001 | ML Supply Chain Compromise | Adversary compromises a component in the ML supply chain (dataset, pre-trained model, ML library). | Compromising a popular Hugging Face model repository to add a backdoor before the victim downloads and fine-tunes it. | Verify checksums/signatures of downloaded models and datasets. |
-| AML.T0018 | Target ML Model via Inference API | Adversary targets the ML model via its public inference API for probing and attack delivery. | Making repeated API calls to map model behavior before a model extraction attack. | Rate limiting, authentication, query logging. |
-| AML.T0020 | Data Poisoning | Adversary injects malicious training data into the victim's training pipeline. | Compromising a data pipeline to inject mislabeled examples that create a backdoor in the trained model. | Input validation, data signing, anomaly detection. |
-| AML.T0012 | Valid Accounts | Adversary uses compromised valid credentials to access ML infrastructure. | Using stolen API keys to access a commercial ML API for unauthorized use or model extraction. | MFA, API key rotation, anomaly detection on usage patterns. |
+| ID | Name | ATLAS tactic | Description | Attack Example | Mitigations |
+|----|------|--------------|-------------|----------------|-------------|
+| AML.T0010 | Supply Chain Compromise | Initial Access | Adversary compromises a component in the ML supply chain (dataset, pre-trained model, ML library). | Compromising a popular Hugging Face model repository to add a backdoor before the victim downloads and fine-tunes it. | Verify checksums/signatures of downloaded models and datasets. |
+| AML.T0132 | Misconfigured or Publicly Exposed AI Services | Initial Access | Adversary reaches the AI system through a misconfigured or publicly exposed service. | An inference API or agent endpoint left publicly reachable without authentication, giving an attacker a foothold. | Rate limiting, authentication, query logging. |
+| AML.T0010.002 | Supply Chain Compromise: Data Repository | Initial Access | Adversary poisons data the target consumes from a dataset distribution service. | Publishing a poisoned dataset to a public data repository the target later pulls into training. | Input validation, data signing, anomaly detection. |
+| AML.T0012 | Valid Accounts | Initial Access / Privilege Escalation / Lateral Movement | Adversary uses compromised valid credentials to access ML infrastructure. | Using stolen API keys to access a commercial ML API for unauthorized use or model extraction. | MFA, API key rotation, anomaly detection on usage patterns. |
 
 ---
 
 ### Execution
 
-| ID | Name | Description | Attack Example | Mitigations |
-|----|------|-------------|---------------|-------------|
-| AML.T0040 | ML Model Inference API Access | Adversary uses inference API access to execute attacks against the model at inference time. | Using API access to probe the model with adversarial inputs or trigger a backdoor. | Authentication, input validation, anomaly detection. |
-| AML.T0043 | Craft Adversarial Data | Adversary crafts inputs specifically designed to cause the ML model to malfunction. | Generating adversarial images that cause a vision model to misclassify stop signs as speed limit signs. | Adversarial training, input preprocessing, ensemble defenses. |
-| AML.T0044 | Full ML Model Access | Adversary with white-box access to the model exploits its architecture and weights to craft highly effective attacks. | Using gradient information from white-box access to generate near-imperceptible adversarial perturbations. | Limit model sharing, use model encryption. |
-| AML.T0047 | Backdoor ML Model | Adversary inserts a backdoor into the model during training or fine-tuning. The model behaves normally except when a specific trigger is present. | Fine-tuning a public model with poisoned examples so that it misclassifies inputs containing a specific logo as benign. | Model validation, backdoor scanning tools (Neural Cleanse, ABS). |
-| AML.T0038 | Deploy Adversarial Example | Adversary deploys crafted adversarial inputs against a production ML system. | Deploying adversarial stop-sign stickers that fool an autonomous vehicle's perception system. | Adversarial training, sensor redundancy, anomaly detection. |
+| ID | Name | ATLAS tactic | Description | Attack Example | Mitigations |
+|----|------|--------------|-------------|----------------|-------------|
+| AML.T0040 | AI Model Inference API Access | AI Model Access | Adversary uses inference API access to execute attacks against the model at inference time. | Using API access to probe the model with adversarial inputs or trigger a backdoor. | Authentication, input validation, anomaly detection. |
+| AML.T0043 | Craft Adversarial Data | AI Attack Adaptation | Adversary crafts inputs specifically designed to cause the ML model to malfunction. | Generating adversarial images that cause a vision model to misclassify stop signs as speed limit signs. | Adversarial training, input preprocessing, ensemble defenses. |
+| AML.T0044 | Full AI Model Access | AI Model Access | Adversary with white-box access to the model exploits its architecture and weights to craft highly effective attacks. | Using gradient information from white-box access to generate near-imperceptible adversarial perturbations. | Limit model sharing, use model encryption. |
+| AML.T0018.000 | Manipulate AI Model: Poison AI Model | AI Attack Adaptation / Persistence | Adversary inserts a backdoor into the model during training or fine-tuning. The model behaves normally except when a specific trigger is present. | Fine-tuning a public model with poisoned examples so that it misclassifies inputs containing a specific logo as benign. | Model validation, backdoor scanning tools (Neural Cleanse, ABS). |
+| AML.T0015 | Evade AI Model | Initial Access / Defense Evasion / Impact | Adversary deploys crafted adversarial inputs against a production ML system. | Deploying adversarial stop-sign stickers that fool an autonomous vehicle's perception system. | Adversarial training, sensor redundancy, anomaly detection. |
 
 ---
 
 ### Persistence
 
-| ID | Name | Description | Attack Example | Mitigations |
-|----|------|-------------|---------------|-------------|
-| AML.T0029 | Backdoor ML Model (Persistence) | Backdoors inserted during training persist across model updates if the poisoned training data is retained. | A poisoned training dataset used repeatedly ensures backdoors survive retraining cycles. | Data provenance, periodic data audits, clean room retraining. |
-| AML.T0030 | Poison Training Data (Persistence) | Attacker continuously poisons training data used in ongoing learning systems to maintain persistent influence. | Submitting feedback in an online learning system that continually reinforces the attacker's desired model behavior. | Monitor online learning systems for drift, anomaly detection on feedback data. |
+| ID | Name | ATLAS tactic | Description | Attack Example | Mitigations |
+|----|------|--------------|-------------|----------------|-------------|
+| AML.T0020 | Training Data Poisoning | Persistence | Backdoors inserted during training persist across model updates if the poisoned training data is retained. | A poisoned training dataset used repeatedly ensures backdoors survive retraining cycles. | Data provenance, periodic data audits, clean room retraining. |
+| AML.T0145 | Poison AI Agent Learning Environment | Persistence | Adversary manipulates the environment an AI agent interacts with so that the agent's own collected feedback is incorporated into training, persistently steering future behavior. | Seeding an environment an online-learning agent explores so the feedback it gathers reinforces the attacker's desired behavior. | Monitor learning systems for drift; anomaly detection on collected feedback. |
 
 ---
 
 ### Defense Evasion
 
-| ID | Name | Description | Attack Example | Mitigations |
-|----|------|-------------|---------------|-------------|
-| AML.T0015 | Evade ML Model | Adversary crafts inputs to evade ML-based detection systems (e.g., malware classifiers, fraud detectors). | Generating adversarial malware binaries that evade ML-based antivirus. | Adversarial training, ensemble classifiers, anomaly detection. |
-| AML.T0031 | Erode ML Model Integrity | Adversary degrades model performance gradually to erode trust or cause failures over time. | Repeatedly submitting adversarial data to an online-learning model to shift its decision boundaries. | Concept drift detection, model performance monitoring, rollback capability. |
-| AML.T0032 | Backdoor Attack (Evasion) | Backdoored model evades detection by behaving normally on validation sets and only triggering on the attacker's specific input trigger. | Backdoored malware classifier that correctly classifies all test malware but allows attacker's malware through. | Backdoor scanning, independent validation datasets, red teaming. |
+| ID | Name | ATLAS tactic | Description | Attack Example | Mitigations |
+|----|------|--------------|-------------|----------------|-------------|
+| AML.T0015 | Evade AI Model | Initial Access / Defense Evasion / Impact | Adversary crafts inputs to evade ML-based detection systems (e.g., malware classifiers, fraud detectors). | Generating adversarial malware binaries that evade ML-based antivirus. | Adversarial training, ensemble classifiers, anomaly detection. |
+| AML.T0031 | Erode AI Model Integrity | Impact | Adversary degrades model performance gradually to erode trust or cause failures over time. | Repeatedly submitting adversarial data to an online-learning model to shift its decision boundaries. | Concept drift detection, model performance monitoring, rollback capability. |
+| AML.T0018 | Manipulate AI Model | AI Attack Adaptation / Persistence | Backdoored model evades detection by behaving normally on validation sets and only triggering on the attacker's specific input trigger. | Backdoored malware classifier that correctly classifies all test malware but allows attacker's malware through. | Backdoor scanning, independent validation datasets, red teaming. |
 
 ---
 
 ### Exfiltration
 
-| ID | Name | Description | Attack Example | Mitigations |
-|----|------|-------------|---------------|-------------|
-| AML.T0025 | Exfiltrate ML Model | Adversary extracts a functional copy of the target ML model via repeated inference queries. | Querying a commercial ML API thousands of times and training a shadow model that replicates its behavior. | Rate limiting, query watermarking, legal agreements. |
-| AML.T0037 | Data from Information Repositories | Adversary uses ML model outputs to infer sensitive information about the training data. | Using membership inference to determine which individuals' data was used to train a medical AI. | Differential privacy, output confidence limiting. |
-| AML.T0035 | ML Intellectual Property Theft | Adversary steals the ML model's architecture, weights, or training data through unauthorized access or extraction. | Gaining access to a model registry and exfiltrating model weights. | Access controls, encryption at rest, audit logging on model access. |
+| ID | Name | ATLAS tactic | Description | Attack Example | Mitigations |
+|----|------|--------------|-------------|----------------|-------------|
+| AML.T0024 | Exfiltration via AI Inference API | Exfiltration | Adversary exfiltrates information from a victim-controlled AI model through its inference API responses (for example coaxing out memorized training data or sensitive context). Building a functional copy of the model is a separate technique - see AML.T0005 Replicate AI Model Behavior. | Crafting queries that make a model return memorized PII or proprietary content in its responses. | Rate limiting, output filtering, query monitoring. |
+| AML.T0137.000 | Training Data Information from AI Models: Infer Membership | Collection | Adversary uses ML model outputs to infer sensitive information about the training data. | Using membership inference to determine which individuals' data was used to train a medical AI. | Differential privacy, output confidence limiting. |
+| AML.T0025 | Exfiltration via Cyber Means | Exfiltration | Adversary steals the ML model's architecture, weights, or training data through unauthorized access or extraction. | Gaining access to a model registry and exfiltrating model weights. | Access controls, encryption at rest, audit logging on model access. |
 
 ---
 
 ### Impact
 
-| ID | Name | Description | Attack Example | Mitigations |
-|----|------|-------------|---------------|-------------|
-| AML.T0034 | Cost Harvesting | Adversary uses the target's ML inference infrastructure at scale, causing financial harm. | Launching thousands of costly inference requests to a pay-per-query AI API to maximize the victim's bill. | Rate limiting, authentication, anomaly detection on query volume. |
-| AML.T0036 | Denial of ML Service | Adversary disrupts the availability of an ML service. | Flooding an inference API with adversarial inputs that cause high CPU usage per inference. | Rate limiting, input size limits, autoscaling with spend caps. |
-| AML.T0023 | Influence Operations | Adversary uses generative AI to create disinformation at scale. | Using a fine-tuned language model to generate targeted disinformation campaigns. | Content provenance (C2PA), detection classifiers, platform policies. |
-| AML.T0024 | Harmful ML Model Disclosure | Adversary triggers disclosure of model outputs that cause harm or embarrassment. | Jailbreaking a publicly deployed LLM to produce harmful content, then publishing screenshots. | Safety fine-tuning, output filtering, red teaming, responsible disclosure policy. |
+| ID | Name | ATLAS tactic | Description | Attack Example | Mitigations |
+|----|------|--------------|-------------|----------------|-------------|
+| AML.T0034 | Cost Harvesting | Impact | Adversary uses the target's ML inference infrastructure at scale, causing financial harm. | Launching thousands of costly inference requests to a pay-per-query AI API to maximize the victim's bill. | Rate limiting, authentication, anomaly detection on query volume. |
+| AML.T0029 | Denial of AI Service | Impact | Adversary disrupts the availability of an ML service. | Flooding an inference API with adversarial inputs that cause high CPU usage per inference. | Rate limiting, input size limits, autoscaling with spend caps. |
+| AML.T0048.002 | External Harms: Societal Harm | Impact | Adversary uses generative AI to create disinformation at scale. | Using a fine-tuned language model to generate targeted disinformation campaigns. | Content provenance (C2PA), detection classifiers, platform policies. |
+| AML.T0048.001 | External Harms: Reputational Harm | Impact | Adversary causes reputational damage to the organization that operates the AI system. | Jailbreaking a publicly deployed LLM to produce harmful content, then publishing screenshots. | Safety fine-tuning, output filtering, red teaming, responsible disclosure policy. |
 
 ---
 
 ## 6. MITRE ATLAS Mitigations
 
-Partial reconciliation: Every name in this table except two was checked against the [pinned ATLAS 2026.10 release](https://github.com/mitre-atlas/atlas-data/blob/f56c1468731d6428e5bf875263b4643b46d67437/dist/v6/ATLAS-2026.10.yaml) on 2026-11-03. The AML.M0017 and AML.M0019 rows describe controls that ATLAS 2026.10 does not file under those IDs (it names them AI Model Distribution Methods and Control Access to AI Models and Data in Production), and the descriptions elsewhere are the library's own summaries, so do not treat this table as an authoritative mapping. Use the [ATLAS Reference](/ATLAS_REFERENCE.md#atlas-mitigations) and upstream source to verify IDs. Implementation guidance is practitioner curation, not an official mitigation relationship.
+Names and IDs follow the [pinned ATLAS 2026.10 release](https://github.com/mitre-atlas/atlas-data/blob/f56c1468731d6428e5bf875263b4643b46d67437/dist/v6/ATLAS-2026.10.yaml); the Implementation Guidance column is practitioner curation, not an official ATLAS relationship. See the [ATLAS Reference](/ATLAS_REFERENCE.md#atlas-mitigations) for the authoritative list.
 
 | ID | Name | Description | Implementation Guidance |
 |----|------|-------------|------------------------|
@@ -989,15 +1032,17 @@ Partial reconciliation: Every name in this table except two was checked against 
 | AML.M0008 | Validate AI Model | Validate model behavior before deployment, including testing for backdoors and unexpected behaviors. | Red team testing with adversarial inputs. Backdoor scanning (Neural Cleanse, ABS, STRIP). Behavioral testing across edge cases. Regression testing against known attack patterns. |
 | AML.M0009 | Predictive AI Multi-Sensor Fusion | Corroborate predictions across independent physical sensors. | Test sensor disagreement and single-sensor compromise. This ID does not mean federated learning. |
 | AML.M0010 | Predictive AI Input Restoration | Transform inference inputs to reduce adversarial perturbations. | Test preprocessing against adaptive attacks and benign inputs. This ID does not mean differential privacy. |
-| AML.M0011 | Restrict Library Loading | Restrict which ML libraries and versions can be loaded to prevent supply chain attacks. | Pin dependency versions. Use lockfiles (requirements.txt, poetry.lock). Scan dependencies with tools (pip-audit, safety). Use private package repositories. |
+| AML.M0011 | Restrict Library Loading | Prevent abuse of library-loading mechanisms to load untrusted code, including unsafe model formats such as pickle. | Load model weights from safetensors rather than pickle. Restrict dynamic library and import paths. (Dependency pinning and scanning is a different control - see M0014.) |
 | AML.M0012 | Encrypt Sensitive Information | Encrypt ML models, training data, and inference outputs to prevent unauthorized access. | Encrypt model weights at rest (AES-256). Use TLS for all model serving. Encrypt training data with keys managed by HSM. |
 | AML.M0013 | Code Signing | Sign ML code and model artifacts to verify integrity and provenance. | Sign model files with GPG or Sigstore. Verify signatures before loading. Use SLSA framework for model build provenance. |
-| AML.M0014 | Verify AI Artifacts | Verify integrity of ML artifacts (datasets, pre-trained models) before use. | Verify SHA-256 checksums of downloaded models. Verify digital signatures. Scan models for embedded malicious code. |
+| AML.M0014 | Verify AI Artifacts | Verify integrity of ML artifacts (datasets, pre-trained models) before use. | Verify SHA-256 checksums of downloaded models. Verify digital signatures. Scan models for embedded malicious code. Pin dependency versions and use lockfiles (requirements.txt, poetry.lock); scan with pip-audit or safety; use a private package mirror. |
 | AML.M0015 | Predictive AI Adversarial Input Detection | Deploy detection mechanisms that identify adversarial inputs before they reach the model. | Feature squeezing detector. Statistical input validation. Prediction consistency check (multiple perturbations). Neural network-based adversarial detectors. |
 | AML.M0016 | Vulnerability Scanning | Regularly scan ML systems and infrastructure for vulnerabilities. | Use standard vulnerability scanners (Trivy, Snyk) on ML serving containers. Scan ML framework dependencies. Test for known ML attack patterns. |
-| AML.M0017 | Assess Funding and Provenance | Assess the funding sources and provenance of ML datasets and models from third parties. | Review dataset documentation cards. Investigate model card provenance. Apply export controls for sensitive applications. |
+| AML.M0017 | AI Model Distribution Methods | Deploying models to edge devices widens the attack surface; serve models in the cloud instead to reduce the access an adversary has to the model. | Prefer cloud-served inference over shipping weights to clients or edge devices. Where edge deployment is required, encrypt and obfuscate the on-device model. |
 | AML.M0018 | User Training | Train users and operators on ML security risks and responsible AI usage. | Security awareness training for prompt injection. Training on recognizing AI-generated disinformation. Procedures for reporting suspicious AI behavior. |
-| AML.M0019 | Monitoring for Anomalous Queries | Monitor ML system queries for patterns indicative of attacks (extraction, evasion, poisoning). | Log all inference queries. Anomaly detection on query patterns (volume, distribution). Alert on unusual input patterns. SIEM integration. |
+| AML.M0019 | Control Access to AI Models and Data in Production | Require users to verify their identities before accessing a production model, require authentication for API endpoints, and monitor production model queries. | Authenticate every inference API endpoint. Monitor production queries for extraction, evasion and poisoning patterns (volume, distribution, unusual inputs). (General lifecycle logging is M0024, below.) |
+| AML.M0024 | AI Telemetry Logging and Monitoring | Implement logging and monitoring across the AI lifecycle to detect suspicious activity and support investigation. | Log all inference queries. Anomaly detection on query patterns. Alert on unusual input patterns. SIEM integration. |
+| AML.M0025 | Maintain AI Dataset Provenance | Maintain a detailed history of the datasets used, including their source and a complete record of changes. | Review dataset documentation and model cards. Assess who funded a third-party dataset or model. Record dataset source and transformations. Apply export controls for sensitive applications. |
 
 ---
 
@@ -1075,7 +1120,7 @@ Container Security:
 - Scan ML serving containers with Trivy, Clair, or Snyk Container.
 - Use minimal base images (distroless, alpine).
 - Run containers as non-root.
-- Implement container image signing (Docker Content Trust, Cosign).
+- Implement container image signing with Cosign (Sigstore) or Notation (Notary Project). Docker Content Trust / Notary v1 is retired - the notary.docker.io service shuts down on 8 December 2026 - so do not build new signing on it.
 - Use runtime security (Falco, Sysdig) to detect anomalous container behavior.
 
 Training Pipeline Security:
@@ -1106,19 +1151,22 @@ An open-source Python library for AI red teaming, providing:
 - Scoring and evaluation of LLM responses.
 
 ```python
-# Example PyRIT usage
-from pyrit.orchestrator import PromptSendingOrchestrator
-from pyrit.prompt_target import AzureOpenAIChatTarget
-import os
+# Example PyRIT usage (PyRIT 1.2.1, November 2026)
+import asyncio
+from pyrit.setup import IN_MEMORY, initialize_pyrit_async
+from pyrit.executor.attack import PromptSendingAttack
+from pyrit.prompt_target import OpenAIChatTarget
 
-target = AzureOpenAIChatTarget(
-    deployment_name="gpt-4",
-    endpoint=os.environ["AZURE_OPENAI_ENDPOINT"],
-    api_key=os.environ["AZURE_OPENAI_API_KEY"],
-)
+async def main():
+    await initialize_pyrit_async(memory_db_type=IN_MEMORY)
+    # OpenAIChatTarget reads OPENAI_CHAT_ENDPOINT / OPENAI_CHAT_MODEL / OPENAI_CHAT_KEY
+    # from the environment; Azure OpenAI endpoints use the same target with model_name.
+    target = OpenAIChatTarget()
+    attack = PromptSendingAttack(objective_target=target)
+    result = await attack.execute_async(objective="Test injection prompt")
+    print(result)
 
-orchestrator = PromptSendingOrchestrator(prompt_target=target)
-results = await orchestrator.send_prompts_async(prompt_list=["Test injection prompt"])
+asyncio.run(main())  # do not use a bare top-level await in a plain script
 ```
 
 Red Team Exercise Structure:
@@ -1164,9 +1212,12 @@ Incident Response Playbook:
 
 3. Containment:
 - Model rollback: Revert to last known-good model version.
-  ```bash
-  # Roll back to previous model version
-  mlflow models transition-to --model-name mymodel --version 2 --stage Production
+  ```python
+  # Roll back by repointing the production alias to the previous version.
+  # (Model Stages were deprecated in MLflow 2.9; use aliases.)
+  from mlflow import MlflowClient
+  MlflowClient().set_registered_model_alias("mymodel", "champion", version=1)
+  # "models:/mymodel@champion" now resolves to version 1.
   ```
 - Traffic isolation: Redirect traffic to backup inference endpoint.
 - Rate limiting: Emergency rate limit reduction to slow ongoing extraction attacks.
@@ -1179,11 +1230,11 @@ Incident Response Playbook:
 - Document data lineage to identify poisoning entry point.
 
 5. EU AI Act Notification:
-The EU AI Act (in force since August 1, 2024; high-risk obligations apply from December 2, 2027 for Annex III systems and from August 2, 2028 for Annex I products, after the deferral in Regulation (EU) 2026/1744) requires:
-- Notifying the national supervisory authority for serious incidents involving high-risk AI systems.
-- Documenting incidents in the technical documentation required under Article 11.
-- Notifying the European AI Office for general-purpose AI model incidents.
-- 72-hour notification timeline for serious incidents (analogous to GDPR data breach notification).
+The EU AI Act (in force since August 1, 2024; high-risk obligations apply from December 2, 2027 for Annex III systems and from August 2, 2028 for Annex I products, after the deferral in Regulation (EU) 2026/1744) requires, for serious incidents involving high-risk AI systems (Article 73):
+- Report to the market surveillance authority of the Member State where the incident occurred. Under Article 75(1a) of the Act, inserted by Regulation (EU) 2026/1744, a provider under the AI Office's competence reports to the AI Office instead.
+- Providers of general-purpose AI models with systemic risk report serious incidents without undue delay to the AI Office and, as appropriate, national competent authorities (Article 55(1)(c)).
+- Timelines (Article 73): immediately after establishing the causal link and not later than 15 days after becoming aware; not later than 2 days for a widespread infringement or a critical-infrastructure incident (Article 73(3)); not later than 10 days in the event of a person's death (Article 73(4)). There is no general "72-hour, GDPR-style" deadline.
+- Keep the records the Act requires - the automatically generated logs (Articles 12 and 19) and the quality-management documentation (Article 17) - which support the serious-incident report and any follow-up.
 
 6. Post-Incident Review:
 - Root cause analysis.
@@ -1202,7 +1253,7 @@ Reference: [https://owasp.org/www-project-top-10-for-large-language-model-applic
 
 ---
 
-### LLM01: Prompt Injection
+### LLM01: Prompt Injection (LLM01:2026)
 
 Description: Prompt injection occurs when an attacker manipulates an LLM through crafted input, causing the LLM to ignore its instructions or perform unintended actions. Direct injections override system prompts; indirect injections are embedded in external content processed by the LLM.
 
@@ -1224,7 +1275,7 @@ Mitigations:
 
 ---
 
-### LLM02: Sensitive Information Disclosure
+### LLM02: Sensitive Information Disclosure (LLM02:2026)
 
 Description: LLMs may inadvertently reveal sensitive information, including PII from training data, system prompt contents, confidential business information from context, or other sensitive data provided in the conversation.
 
@@ -1244,7 +1295,7 @@ Mitigations:
 
 ---
 
-### LLM03: Supply Chain
+### LLM03: Supply Chain (LLM04:2026)
 
 Description: LLM supply chains involve numerous third-party components: pre-trained models, fine-tuning datasets, ML frameworks, vector databases, MCP servers, plugins, and deployment infrastructure. Compromise of any component can affect the integrity and security of the final application.
 
@@ -1264,7 +1315,7 @@ Mitigations:
 
 ---
 
-### LLM04: Data and Model Poisoning
+### LLM04: Data and Model Poisoning (LLM05:2026)
 
 Description: Data poisoning manipulates the training data to affect model behavior; model poisoning directly modifies model weights or inserts backdoors. Both can cause models to behave maliciously under specific conditions while appearing normal otherwise.
 
@@ -1282,7 +1333,7 @@ Mitigations:
 
 ---
 
-### LLM05: Improper Output Handling
+### LLM05: Improper Output Handling (LLM10:2026)
 
 Description: Insufficient validation, sanitization, or handling of LLM outputs before they are passed to downstream components or returned to users. This can lead to XSS, CSRF, SSRF, SQL injection, remote code execution, and other classical vulnerabilities when LLM outputs are used in constructing web pages, database queries, or system commands.
 
@@ -1302,7 +1353,7 @@ Mitigations:
 
 ---
 
-### LLM06: Excessive Agency
+### LLM06: Excessive Agency (LLM03:2026)
 
 Description: LLM-based agents are given excessive permissions, capabilities, or autonomy beyond what is needed for their function. When combined with prompt injection or erroneous reasoning, this leads to the agent taking unintended, harmful, or irreversible actions.
 
@@ -1319,7 +1370,7 @@ Mitigations:
 
 ---
 
-### LLM07: System Prompt Leakage
+### LLM07: System Prompt Leakage (renamed Hidden Context Exposure, LLM08:2026)
 
 Description: System prompts contain sensitive information (business logic, personas, confidential instructions) that can be extracted through prompt injection or direct manipulation, exposing confidential configuration.
 
@@ -1336,7 +1387,7 @@ Mitigations:
 
 ---
 
-### LLM08: Vector and Embedding Weaknesses
+### LLM08: Vector and Embedding Weaknesses (LLM09:2026)
 
 Description: Vulnerabilities in vector databases and embedding systems used for RAG, including vector store poisoning, unauthorized access to embeddings, cross-tenant data leakage, and embedding inversion attacks.
 
@@ -1356,7 +1407,7 @@ Mitigations:
 
 ---
 
-### LLM09: Misinformation
+### LLM09: Misinformation (LLM07:2026)
 
 Description: LLMs can generate plausible-sounding but factually incorrect information (hallucinations), which when relied upon can cause harm in high-stakes domains (medical, legal, financial). Adversaries can also deliberately use LLMs to generate targeted disinformation at scale.
 
@@ -1376,7 +1427,7 @@ Mitigations:
 
 ---
 
-### LLM10: Unbounded Consumption
+### LLM10: Unbounded Consumption (LLM06:2026)
 
 Description: LLM applications that do not implement appropriate rate limits or resource controls are vulnerable to denial-of-service attacks, resource exhaustion, and cost amplification. Adversaries can craft inputs that consume excessive computational resources or make high volumes of requests to drive up costs.
 
@@ -1405,9 +1456,9 @@ The NIST AI Risk Management Framework (AI RMF 1.0), published January 2023, prov
 
 Reference: [https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf)
 
-The framework consists of two parts:
-1. AI RMF Core: Four functions that organize AI risk management activities.
-2. AI RMF Profiles: Customized applications of the Core to specific sectors or use cases.
+NIST AI 100-1 is organized in two parts - Part 1 (Foundational Information) and Part 2 (Core and Profiles):
+- AI RMF Core (Part 2): four functions that organize AI risk management activities.
+- AI RMF Profiles (Part 2): customized applications of the Core to specific sectors or use cases.
 
 ---
 
@@ -1501,7 +1552,7 @@ The AI RMF identifies seven trustworthy characteristics for AI systems:
 | Explainable and Interpretable | AI decisions can be understood by intended users and operators. |
 | Fair with Harmful Bias Managed | AI does not discriminate unfairly; bias is measured and mitigated. |
 | Privacy Enhanced | AI processes data in ways that preserve privacy rights. |
-| Reliable and Robust | AI performs consistently under varying conditions and adversarial inputs. |
+| Valid and Reliable | AI produces accurate outputs and performs consistently under varying conditions (the foundational characteristic in AI 100-1 section 3). |
 | Safe | AI does not pose unacceptable risks of harm to people or the environment. |
 | Secure and Resilient | AI systems are protected from attacks and can recover from incidents. |
 
@@ -1511,18 +1562,19 @@ The AI RMF identifies seven trustworthy characteristics for AI systems:
 
 [NIST AI 600-1](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence) ("Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile"), published July 26, 2024, extends the AI RMF (NIST AI 100-1) specifically to generative AI systems.
 
-Unique risks identified for generative AI:
-1. CBRN information: Risk of providing uplift for chemical, biological, radiological, nuclear weapons development.
-2. Confabulation: Generating factually incorrect but plausible-sounding information (hallucinations).
-3. Data privacy: Training data memorization and reproduction of PII.
-4. Environmental impact: Carbon footprint of large-scale training and inference.
-5. Harmful bias and homogenization: Perpetuating and amplifying biases; reducing diversity of outputs.
-6. Human-AI configuration: Risks from inappropriate reliance or inappropriate skepticism.
-7. Information integrity: AI-generated disinformation and synthetic media.
-8. Information security: Prompt injection, model extraction, adversarial attacks.
-9. Intellectual property: Copyright concerns for training data and generated outputs.
-10. Obscene or abusive content: Generation of CSAM or other abusive content.
-11. Value chain and component integration: Supply chain risks in RAG, plugins, agents.
+Unique risks identified for generative AI (NIST AI 600-1 section 2 names twelve, in this order):
+1. CBRN information or capabilities: Uplift for chemical, biological, radiological or nuclear weapons.
+2. Confabulation: Generating factually incorrect but plausible-sounding content (hallucinations).
+3. Dangerous, violent, or hateful content: Easier production of inciting, radicalizing or violent material.
+4. Data privacy: Training-data memorization and reproduction of PII.
+5. Environmental impacts: Carbon and resource footprint of large-scale training and inference.
+6. Harmful bias or homogenization: Perpetuating and amplifying biases; reducing output diversity.
+7. Human-AI configuration: Risks from inappropriate reliance or inappropriate skepticism.
+8. Information integrity: AI-generated disinformation and synthetic media.
+9. Information security: Prompt injection, model extraction, adversarial attacks.
+10. Intellectual property: Copyright concerns for training data and generated outputs.
+11. Obscene, degrading, and/or abusive content: Generation of CSAM or other abusive content.
+12. Value chain and component integration: Supply-chain risks in RAG, plugins, agents.
 
 ---
 
@@ -1540,11 +1592,13 @@ Tier 1: Prohibited AI Practices (Article 5)
 These AI systems are banned in the EU:
 - Subliminal manipulation causing harm.
 - Exploitation of vulnerabilities of specific groups.
-- Social scoring by public authorities.
-- Real-time remote biometric identification in public spaces (with narrow exceptions for law enforcement).
+- Social scoring (by public or private actors; the final Article 5(1)(c) is not limited to public authorities).
+- Real-time remote biometric identification in publicly accessible spaces for law enforcement (Article 5(1)(h)), subject to narrow, exhaustively listed exceptions.
 - Emotion recognition in workplaces and educational institutions.
 - Biometric categorization using sensitive characteristics (race, religion, etc.).
 - AI for criminal offense prediction based solely on profiling.
+- Non-consensual generation or manipulation of sexually explicit or intimate material of an identifiable person (Article 5(1)(ba), added by Regulation (EU) 2026/1744; applies from 2 December 2026).
+- AI systems that generate or manipulate child sexual abuse material (Article 5(1)(bb), added by Regulation (EU) 2026/1744; applies from 2 December 2026).
 
 Tier 2: High-Risk AI Systems (Annex III)
 Subject to conformity assessments, technical documentation, and ongoing monitoring:
@@ -1595,6 +1649,7 @@ New provisions for large foundation models (Articles 51-55):
 | February 2, 2025 | Prohibited practices (Article 5) apply |
 | August 2, 2025 | GPAI rules and governance provisions apply |
 | August 2, 2026 | Transparency obligations (Article 50) apply. High-risk obligations were originally due on this date but were deferred by the Digital Omnibus on AI (Regulation (EU) 2026/1744, in force 27 July 2026): see below |
+| December 2, 2026 | New Article 5(1)(ba)/(bb) prohibitions (non-consensual intimate deepfakes, CSAM) apply; generative systems placed on the market before 2 August 2026 must meet the Article 50(2) marking duty by this date (Regulation (EU) 2026/1744) |
 | December 2, 2027 | High-risk AI obligations for stand-alone Annex III systems apply (deferred from 2 August 2026 by Regulation (EU) 2026/1744) |
 | August 2, 2028 | High-risk AI obligations for Annex I products with embedded AI apply (deferred by Regulation (EU) 2026/1744) |
 
@@ -1613,7 +1668,7 @@ New provisions for large foundation models (Articles 51-55):
 ISO/IEC 42001:2023 is the international standard for AI Management Systems (AIMS), published December 2023. It provides requirements for establishing, implementing, maintaining, and continually improving an AI management system within organizations.
 
 Structure (follows ISO Annex SL high-level structure):
-- Clause 4: Context (stakeholders, scope, AI policy)
+- Clause 4: Context (stakeholders, scope, AI management system boundaries)
 - Clause 5: Leadership (AI policy, roles, top management commitment)
 - Clause 6: Planning (risk/opportunity identification, AI objectives)
 - Clause 7: Support (resources, competence, awareness, communication, documented information)
@@ -1715,4 +1770,4 @@ CISA AI Cybersecurity Collaboration Playbook:
 
 ---
 
-*Last updated: 2025. Sources: MITRE ATLAS (atlas.mitre.org), OWASP Top 10 for LLMs 2025, NIST AI RMF 1.0, NIST AI 100-1, EU AI Act (Regulation 2024/1689), ISO/IEC 42001:2023, CISA AI Guidance, MCP Specification (modelcontextprotocol.io), Anthropic MCP Announcement (November 2024).*
+*Sources: MITRE ATLAS (atlas.mitre.org), OWASP Top 10 for LLMs (the 2025-edition detail, cross-referenced to the 2026 edition published August 2026), NIST AI RMF 1.0 (AI 100-1), NIST AI 600-1, EU AI Act (Regulation 2024/1689, as amended by Regulation 2026/1744), ISO/IEC 42001:2023, CISA AI Guidance, MCP Specification 2026-07-28 (modelcontextprotocol.io), Anthropic MCP Announcement (November 2024).*

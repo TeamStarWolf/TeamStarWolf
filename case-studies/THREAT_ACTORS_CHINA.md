@@ -130,7 +130,7 @@ This study covers threat actors that governments or the ATT&CK knowledge base at
 
 ### The inventory
 
-The library's ATT&CK v20.0 Enterprise data (commit e85b559) holds 178 groups. Forty-seven of them have an ATT&CK description that attributes them to China, the PRC, a PRC body or a Chinese-speaking operator, and each has a generated page under [/mitre/groups/](/mitre/groups/README.md) (Confirmed [1]). The library's group records carry no first-seen or last-seen field, so the "since" years below come from ATT&CK's description text; campaign dates come from campaign objects (Confirmed [7]).
+The library's ATT&CK v20.0 Enterprise data (commit 4652b96) holds 178 groups. Forty-seven of them have an ATT&CK description that attributes them to China, the PRC, a PRC body or a Chinese-speaking operator, and each has a generated page under [/mitre/groups/](/mitre/groups/README.md) (Confirmed [1]). The library's group records carry no first-seen or last-seen field, so the "since" years below come from ATT&CK's description text; campaign dates come from campaign objects (Confirmed [7]).
 
 | Id | Name | What ATT&CK says about the sponsor or origin | Since (ATT&CK text) | Techniques | Software |
 |---|---|---|---|---|---|
@@ -841,17 +841,17 @@ The study's techniques are saved as an ATT&CK Navigator layer, [navigator/librar
 
 ## Sources
 
-All sources were opened on 3 November 2026. "Primary" means the organization that published the fact; grades apply to the source as used here. The library data files are at commit e85b559 or current main.
+All sources were opened on 3 November 2026. "Primary" means the organization that published the fact; grades apply to the source as used here. The library data files are at commit 4652b96 or current main.
 
 | # | Source | URL | Opened | Grade |
 |---|---|---|---|---|
-| 1 | TeamStarWolf library, ATT&CK v20.0 groups data (`groups.jsonl`) | [github.com/TeamStarWolf/TeamStarWolf/.../data/attack/groups.jsonl](https://github.com/TeamStarWolf/TeamStarWolf/blob/e85b5594301fe061043fe92040135252c97b695d/data/attack/groups.jsonl) | 2026-11-03 | Confirmed |
-| 2 | TeamStarWolf library, campaign data (`campaign_profiles.jsonl`, `campaigns.jsonl`) | [github.com/TeamStarWolf/TeamStarWolf/.../data/attack/campaign_profiles.jsonl](https://github.com/TeamStarWolf/TeamStarWolf/blob/e85b5594301fe061043fe92040135252c97b695d/data/attack/campaign_profiles.jsonl) | 2026-11-03 | Confirmed |
+| 1 | TeamStarWolf library, ATT&CK v20.0 groups data (`groups.jsonl`) | [github.com/TeamStarWolf/TeamStarWolf/.../data/attack/groups.jsonl](https://github.com/TeamStarWolf/TeamStarWolf/blob/4652b9638eb0b0a81b6820e7bd74e9886132001e/data/attack/groups.jsonl) | 2026-11-03 | Confirmed |
+| 2 | TeamStarWolf library, campaign data (`campaign_profiles.jsonl`, `campaigns.jsonl`) | [github.com/TeamStarWolf/TeamStarWolf/.../data/attack/campaign_profiles.jsonl](https://github.com/TeamStarWolf/TeamStarWolf/blob/4652b9638eb0b0a81b6820e7bd74e9886132001e/data/attack/campaign_profiles.jsonl) | 2026-11-03 | Confirmed |
 | 3 | TeamStarWolf library, group technique and software data (`group_to_technique.jsonl`, `group_profiles.jsonl`) | [github.com/TeamStarWolf/TeamStarWolf/.../data/attack/group_to_technique.jsonl](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/group_to_technique.jsonl) | 2026-11-03 | Confirmed |
 | 4 | TeamStarWolf library, revoked ATT&CK ids (`superseded_by.jsonl`) | [github.com/TeamStarWolf/TeamStarWolf/.../data/attack/superseded_by.jsonl](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/superseded_by.jsonl) | 2026-11-03 | Confirmed |
 | 5 | TeamStarWolf library, D3FEND data (`d3fend_countermeasures.jsonl`, `technique_to_d3fend.jsonl`) | [github.com/TeamStarWolf/TeamStarWolf/.../data/attack/d3fend_countermeasures.jsonl](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/data/attack/d3fend_countermeasures.jsonl) | 2026-11-03 | Confirmed |
 | 6 | TeamStarWolf library, generated group pages (`mitre/groups/`) | [github.com/TeamStarWolf/TeamStarWolf/tree/main/mitre/groups](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/mitre/groups) | 2026-11-03 | Confirmed |
-| 7 | TeamStarWolf library, ATT&CK data tree including ICS and Mobile | [github.com/TeamStarWolf/TeamStarWolf/tree/.../data/attack](https://github.com/TeamStarWolf/TeamStarWolf/tree/e85b5594301fe061043fe92040135252c97b695d/data/attack) | 2026-11-03 | Confirmed |
+| 7 | TeamStarWolf library, ATT&CK data tree including ICS and Mobile | [github.com/TeamStarWolf/TeamStarWolf/tree/.../data/attack](https://github.com/TeamStarWolf/TeamStarWolf/tree/4652b9638eb0b0a81b6820e7bd74e9886132001e/data/attack) | 2026-11-03 | Confirmed |
 | 8 | MITRE ATT&CK, G0129 Mustang Panda | [attack.mitre.org/groups/G0129](https://attack.mitre.org/groups/G0129/) | 2026-11-03 | Confirmed |
 | 9 | MITRE ATT&CK, G0096 APT41 | [attack.mitre.org/groups/G0096](https://attack.mitre.org/groups/G0096/) | 2026-11-03 | Confirmed |
 | 10 | MITRE ATT&CK, G1017 Volt Typhoon | [attack.mitre.org/groups/G1017](https://attack.mitre.org/groups/G1017/) | 2026-11-03 | Confirmed |
@@ -945,7 +945,7 @@ All sources were opened on 3 November 2026. "Primary" means the organization tha
 | 98 | CISA and partners, Identifying and Mitigating Living Off the Land Techniques, 7 Feb 2024 | [cisa.gov/resources-tools/resources/identifying-and-mitigating-living-land-techniques](https://www.cisa.gov/resources-tools/resources/identifying-and-mitigating-living-land-techniques) | 2026-11-03 | Confirmed |
 | 99 | NSA, CISA and FBI, AA22-279A, top CVEs exploited by PRC actors, 6 Oct 2022 | [cisa.gov/news-events/cybersecurity-advisories/aa22-279a](https://www.cisa.gov/news-events/cybersecurity-advisories/aa22-279a) | 2026-11-03 | Confirmed |
 | 100 | CISA, Known Exploited Vulnerabilities catalog, JSON feed (version 2026.11.03) | [cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | 2026-11-03 | Confirmed |
-| 101 | TeamStarWolf library, ATT&CK v20.0 technique data with tactics and CAPEC mappings (`technique_profiles.jsonl`) | [github.com/TeamStarWolf/TeamStarWolf/.../data/attack/technique_profiles.jsonl](https://github.com/TeamStarWolf/TeamStarWolf/blob/e85b5594301fe061043fe92040135252c97b695d/data/attack/technique_profiles.jsonl) | 2026-11-03 | Confirmed |
+| 101 | TeamStarWolf library, ATT&CK v20.0 technique data with tactics and CAPEC mappings (`technique_profiles.jsonl`) | [github.com/TeamStarWolf/TeamStarWolf/.../data/attack/technique_profiles.jsonl](https://github.com/TeamStarWolf/TeamStarWolf/blob/4652b9638eb0b0a81b6820e7bd74e9886132001e/data/attack/technique_profiles.jsonl) | 2026-11-03 | Confirmed |
 
 *© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*
 

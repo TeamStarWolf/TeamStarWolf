@@ -21,7 +21,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 20 min (4,493 words at 230 words a minute)
+About 20 min (4,590 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -125,7 +125,7 @@ How to read it:
 sshd -T | grep -E -i "^(permitrootlogin|passwordauthentication|pubkeyauthentication|x11forwarding|maxauthtries) "
 ```
 
-`sshd -T` prints the configuration the daemon would actually use, after every `Include` and default is resolved ([sshd(8)](https://man.openbsd.org/sshd)). Reading the files is not enough, because a drop-in can override the main file. On the lab host this command ran in the Step 8 verification; SSH was not changed in between, so its output there is also the before state: `MaxAuthTries 6`, `PermitRootLogin prohibit-password`, `PubkeyAuthentication yes`, `PasswordAuthentication yes`, `X11Forwarding yes`. Password logins are accepted, which is the Step 5 finding.
+`sshd -T` prints the configuration the daemon would actually use, after every `Include` and default is resolved ([sshd(8)](https://man.openbsd.org/sshd)). Reading the files is not enough, because a drop-in can override the main file. One caveat: `sshd -T` shows the global effective config and does not evaluate `Match` blocks; to see what a specific connection would get, add `-C user=NAME,host=HOST,addr=IP`. On the lab host this command ran in the Step 8 verification; SSH was not changed in between, so its output there is also the before state: `MaxAuthTries 6`, `PermitRootLogin prohibit-password`, `PubkeyAuthentication yes`, `PasswordAuthentication yes`, `X11Forwarding yes`. Password logins are accepted, which is the Step 5 finding.
 
 Checkpoint: You have the before values of the kernel, the sysctl keys, the listeners, the ruleset, and the SSH settings saved where you can find them during a rollback.
 
@@ -252,7 +252,7 @@ table inet hardening {
 What each part does:
 
 - `table inet hardening {}` followed by `flush table inet hardening`: the empty declaration makes sure the table exists, so the flush succeeds on the first load, and the flush empties it on every later load. Because `nft -f` runs the whole file as one transaction, the old rules and the new ones are swapped in a single step, with no moment where the host is unfiltered ([atomic rule replacement](https://wiki.nftables.org/wiki-nftables/index.php/Atomic_rule_replacement), [scripting](https://wiki.nftables.org/wiki-nftables/index.php/Scripting)). The table is `inet`, so one chain sees IPv4 and IPv6, and it is its own table, so the container runtime's tables are untouched.
-- `set admin_nets` with `flags interval` holds CIDR ranges ([sets](https://wiki.nftables.org/wiki-nftables/index.php/Sets)). Replace the placeholders with your admin networks. A flush does not empty sets, so removing a network from the file and reloading leaves it in the set; delete the table and reload to remove one.
+- `set admin_nets` with `flags interval` holds CIDR ranges ([sets](https://wiki.nftables.org/wiki-nftables/index.php/Sets)). Replace the placeholders with your admin networks. A `flush table` empties only the table's chains and rules, not its sets ([nft(8)](https://www.netfilter.org/projects/nftables/manpage.html)), so removing a network from the file and reloading leaves it in the set; delete the table and reload to remove one.
 - `type filter hook input priority 0; policy drop;`: a base chain on the input hook whose default is drop, the pattern in the wiki's [simple ruleset for a server](https://wiki.nftables.org/wiki-nftables/index.php/Simple_ruleset_for_a_server).
 - `iif "lo" accept`: loopback traffic, which local services such as the container runtime depend on.
 - `ip hdrlength > 5 meta l4proto tcp counter drop`: the CVE-2026-98432 bridge. The IPv4 header length field counts 32-bit words and a header without options is exactly 5 ([RFC 791](https://www.rfc-editor.org/rfc/rfc791.html)), so a value above 5 means IP options are present ([nft(8) `ip hdrlength`](https://www.netfilter.org/projects/nftables/manpage.html), [matching packet headers](https://wiki.nftables.org/wiki-nftables/index.php/Matching_packet_headers)). It sits before the established rule on purpose, so options are dropped on every IPv4 TCP packet, including those of existing connections. The `counter` shows whether anything legitimate is hitting it ([counters](https://wiki.nftables.org/wiki-nftables/index.php/Counters)).
@@ -373,7 +373,7 @@ How to read it:
 
 - Every sysctl value matches the drop-in.
 - `nft list table` prints the ruleset as the kernel holds it, not as you wrote it: indentation becomes tabs, `priority 0` is shown by its name `filter`, set elements are sorted, and counters show their packet and byte totals. Both counters at `0` right after the load is expected; check them again after a day.
-- `enabled` means the ruleset is loaded at boot. Reboot once during a change window and run the same commands again, because a setting that only exists in memory is the most common hardening regression.
+- `systemctl is-enabled nftables` reporting `enabled` only means the unit is set to start at boot, not that the ruleset actually parsed and loaded: a broken `/etc/nftables.conf` still shows `enabled` yet fails to load on boot. Confirm the live ruleset with `nft list table inet hardening` (above), then reboot once during a change window and run the same commands again, because a setting that only exists in memory is the most common hardening regression.
 - The listeners are unchanged, which is expected: the firewall filters who can reach `sshd`, it does not stop it listening.
 - The SSH lines still show password authentication on, because Step 5 was not applied on the lab host. On your host, after Step 5, they should match its checkpoint.
 
@@ -409,7 +409,7 @@ Checkpoint: you can name, for each change, the command that undoes it and the co
 | Unprivileged BPF off, link protections on | already set on the lab host | `sysctl kernel.unprivileged_bpf_disabled fs.protected_symlinks fs.protected_hardlinks` | [Kernel sysctl](https://docs.kernel.org/admin-guide/sysctl/kernel.html), [fs sysctl](https://docs.kernel.org/admin-guide/sysctl/fs.html) |
 | Default-deny inbound firewall | `nft -c -f` then `nft -f /etc/nftables.conf` | `nft list table inet hardening` | [Simple ruleset for a server](https://wiki.nftables.org/wiki-nftables/index.php/Simple_ruleset_for_a_server) |
 | IPv4 IP-options drop (CVE bridge) | the `ip hdrlength > 5` rule | `nft list table inet hardening` (rule present, counter readable) | [nft(8)](https://www.netfilter.org/projects/nftables/manpage.html), [CVE-2026-98432 traps](/case-studies/LINUX_TCP_UAF_2026.md#two-operational-traps) |
-| Firewall loaded at boot | `systemctl enable nftables` | `systemctl is-enabled nftables` | [systemctl](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html) |
+| Firewall loaded at boot | `systemctl enable nftables` | `systemctl is-enabled nftables` sets it to start; confirm the live ruleset with `nft list ruleset` after a reboot | [systemctl](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html), [nft(8)](https://www.netfilter.org/projects/nftables/manpage.html) |
 | SSH key-only, no root | `sshd_config.d/10-hardening.conf`, `sshd -t`, reload | `sshd -T \| grep -E -i "^(permitrootlogin\|passwordauthentication\|kbdinteractiveauthentication) "` | [sshd_config(5)](https://man.openbsd.org/sshd_config), [sshd(8)](https://man.openbsd.org/sshd) |
 | Only needed listeners | `systemctl disable --now <unit>` | `ss -lntup` | [ss(8)](https://man7.org/linux/man-pages/man8/ss.8.html), [systemctl](https://www.freedesktop.org/software/systemd/man/latest/systemctl.html) |
 | Changes to hardened files audited | `50-hardening.rules`, `augenrules --load` | `auditctl -l`, `ausearch -k hardening` | [audit.rules(7)](https://man7.org/linux/man-pages/man7/audit.rules.7.html) |

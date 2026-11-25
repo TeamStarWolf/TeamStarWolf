@@ -506,6 +506,24 @@ def classify_attack_tactics(asset: Asset) -> list[str]:
 # --------------------------------------------------------------------------- #
 
 
+# A TeamStarWolf-owned repository is emitted only if it is on the public allow-list. This
+# closes the path where the owner's untracked local exports would otherwise put a private
+# own-repo entry back on the next local regeneration. Public names only; it leaks nothing.
+OWN_OWNER = "teamstarwolf"
+ALLOWED_OWN_REPOS = {"teamstarwolf", "intelligence-hub", "attack-navi", "cybersecurity-resources"}
+
+
+def _own_repo_allowed(asset: "Asset") -> bool:
+    # Drop a TeamStarWolf-owned repo that is not on the public allow-list, reading the
+    # owner/name from BOTH the metadata and a github.com URL: the URL guard covers a future
+    # parser that forgets to set the metadata.
+    pairs = [(str(asset.metadata.get("owner", "")).lower(), str(asset.metadata.get("repo", "")).lower())]
+    m = re.search(r"github\.com/([A-Za-z0-9_.-]+)/([A-Za-z0-9_-]+)", str(asset.url or ""), re.I)
+    if m:
+        pairs.append((m.group(1).lower(), m.group(2).lower()))
+    return not any(o == OWN_OWNER and r not in ALLOWED_OWN_REPOS for o, r in pairs)
+
+
 def build() -> Library:
     from datetime import datetime, timezone
 
@@ -528,6 +546,8 @@ def build() -> Library:
         for asset in parser(text):
             asset.vendor = normalize_vendor(asset.vendor)
             asset.attack_tactics = classify_attack_tactics(asset)
+            if not _own_repo_allowed(asset):
+                continue
             if asset.id in seen_ids:
                 continue
             seen_ids.add(asset.id)
@@ -565,7 +585,30 @@ def build() -> Library:
     return lib
 
 
+def _self_test() -> int:
+    # Ids are innocuous here (the filter reads metadata, not the id) so this file does not
+    # trip the hygiene own-repos gate that scans it.
+    cases = [
+        (Asset(id="t-allowed", type="tool", title="", url="",
+               metadata={"owner": "TeamStarWolf", "repo": "ATTACK-Navi"}), True),
+        (Asset(id="t-private", type="tool", title="", url="",
+               metadata={"owner": "TeamStarWolf", "repo": "MadeUpPrivateRepo"}), False),
+        (Asset(id="t-other", type="tool", title="", url="",
+               metadata={"owner": "someone", "repo": "thing"}), True),
+        # The owner/name is only in the URL, not the metadata; the URL guard must still drop
+        # it. The literal splits right after the slash so this file never trips the hygiene
+        # own-repos gate that scans it.
+        (Asset(id="t-url", type="tool", title="",
+               url="https://github.com/TeamStarWolf/" "UrlOnlyPrivateRepo", metadata={}), False),
+    ]
+    fails = sum(1 for a, want in cases if _own_repo_allowed(a) != want)
+    print(f"build_library_index self-test: {len(cases) - fails} of {len(cases)} cases pass")
+    return 1 if fails else 0
+
+
 def main() -> int:
+    if "--self-test" in sys.argv:
+        return _self_test()
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     print(f"Building library index from {PROFILE_ROOT}")
     lib = build()

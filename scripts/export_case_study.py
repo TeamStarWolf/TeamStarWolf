@@ -155,7 +155,13 @@ EXPORT_NAMES = {
     "GHOSTCAT_CVE_2020_1938": "Ghostcat_CVE_2020_1938",
     "NGINX2ROOT_2026": "nginx2root_2026",
     "KEV_ADDITIONS_2026_11_18": "KEV_Additions_2026_11_18",
+    "KEV_ADDITIONS_2026_11_20": "KEV_Additions_2026_11_20",
     "JAVA4SHELL_CVE_2026_114938": "Java4Shell_CVE_2026_114938",
+    "PUPPET_CVE_2026_115731": "Puppet_CVE_2026_115731",
+    "UPNP_HOME_NETWORK": "UPnP_Home_Network",
+    "CASTING_HOME_NETWORK": "Casting_Home_Network",
+    "ISP_GATEWAY_HOME_NETWORK": "ISP_Gateway_Home_Network",
+    "MESH_THREAD_HOME_NETWORK": "Mesh_Thread_Home_Network",
     "PROFTPD_MOD_COPY_CVE_2015_3306": "ProFTPD_mod_copy_CVE_2015_3306",
     "NODEJS_CVE_2026_111497": "Nodejs_CVE_2026_111497",
     "MAGENTO_CVE_2026_48356": "Magento_CVE_2026_48356",
@@ -502,6 +508,7 @@ CHAR_MAP = {
     "\u00a0": " ", "\u2009": " ", "\u202f": " ", "\u2007": " ", "\u200b": "", "\ufeff": "",
     "\u2713": "yes", "\u2714": "yes", "\u2717": "no", "\u2032": "'", "\u2033": '"',
     "\u2208": "in", "\u221e": "infinity",
+    "\u0131": "i", "\u0130": "I",
 }
 
 

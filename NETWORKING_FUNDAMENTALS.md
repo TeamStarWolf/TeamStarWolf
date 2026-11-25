@@ -1707,7 +1707,7 @@ Zero Trust overlay principle:
 | T1071.001 | C2 via Web Protocols | HTTP/HTTPS C2 (Cobalt Strike, Metasploit) | HTTP/HTTPS: L7 |
 | T1071.004 | C2 via DNS | DNS TXT/NULL record tunneling, DGA | DNS: L7 |
 | T1090 | Proxy | SOCKS5 proxy, HTTP tunneling, Tor | L4/L7 |
-| T1095 | Non-Standard Port | C2 on non-standard port (e.g., HTTPS on 8443) | TCP/UDP: L4 |
+| T1571 | Non-Standard Port | C2 on non-standard port (e.g., HTTPS on 8443) | TCP/UDP: L4 |
 | T1557 | Adversary-in-the-Middle | ARP poisoning, DHCP spoofing, rogue AP | L2/L3 |
 | T1557.002 | ARP Cache Poisoning | Gratuitous ARP, arpspoof | L2 |
 | T1686 | Disable/Modify Firewall | `iptables -F`, Windows FW disable via GPO | L3/L4 |

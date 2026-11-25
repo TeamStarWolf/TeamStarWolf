@@ -44,6 +44,21 @@ jobs:
       - name: Entity vocabulary (data/vocab) matches its sources
         run: python scripts/build_vocab.py --check
 
+      # data/inventory/ (the vendor and capability inventory) is hand-authored: a capability
+      # taxonomy, companies keyed to vendor:<slug> ids in data/vocab/, and named products tied
+      # to the vocabulary that name the capabilities their vendor documents. build_inventory.py
+      # validates the schema, the vocabulary / D3FEND / CSF 2.0 / CIS v8.1 cross-references and
+      # framework-item placement, the sourcing (every company carries a status source; every
+      # documented mapping carries the vendor page URL and read date on the vendor's own
+      # domain; an unconfirmed mapping is "unverified" with a note and no source), the ownership
+      # model and a neutral-wording filter, then writes data/inventory/inventory.json. The
+      # self-test runs planted bad-record controls.
+      - name: Vendor/capability inventory rules (planted controls)
+        run: python scripts/build_inventory.py --self-test
+
+      - name: Vendor/capability inventory roll-up matches its sources
+        run: python scripts/build_inventory.py --check
+
       # The "On the Intelligence Hub" lines on platform pages, NOTABLE_INCIDENTS years, the
       # almanac, the CVE and KEV sections and the actor and malware profiles are written by
       # build_hub_links.py from the vocabulary above and the pinned Hub snapshot in
@@ -184,6 +199,9 @@ jobs:
     # revoked: hand-written pages may not cite a revoked/deprecated ATT&CK ID (per
     #   data/attack/superseded_by.jsonl) more often than scripts/baselines/revoked_ids.json
     #   records; the baseline holds the pre-existing citations and may only shrink.
+    # paths: no tracked file carries a path from the machine that built it. Pages may use
+    #   the stock example accounts in EXAMPLE_ACCOUNTS; Office files and PDFs are opened and
+    #   searched inside, including image alt text. The log names the file, never the path.
     # voice: hand-written pages follow docs/VOICE.md (no emoji, sentence-ending
     #   exclamation marks, marketing words or hand-typed headline counts) beyond what
     #   scripts/baselines/voice.json records. That baseline only shrinks: --update-baseline
@@ -212,6 +230,27 @@ jobs:
       - name: No new revoked/deprecated ATT&CK IDs in hand-written pages
         run: python scripts/check_repo_hygiene.py --only revoked --report
 
+      - name: PDF reader self-test (the build-path gate reads every stream it should)
+        run: python scripts/check_repo_hygiene.py --self-test
+
+      - name: No build-machine paths in pages, decks or PDFs
+        run: python scripts/check_repo_hygiene.py --only paths
+
+      - name: No off-allow-list own repositories in tracked files
+        run: python scripts/check_repo_hygiene.py --only own-repos
+
+      - name: Library index allow-list self-test
+        run: python research/scripts/build_library_index.py --self-test
+
+      # research/data/library.json is hand-maintained (its export sources are not in the
+      # repo), so its summary fields can drift from the assets they describe. This asserts
+      # counts[type], every vendors value and every tactic_counts value equal what the
+      # assets give, and that asset ids are unique. The self-test runs planted cases.
+      - name: Library index summary fields match its assets (counts, vendors, tactic_counts, ids)
+        run: |
+          python research/scripts/check_library_consistency.py --self-test
+          python research/scripts/check_library_consistency.py
+
       - name: Site theme colours meet WCAG AA in both themes (index.html tokens)
         run: python scripts/check_contrast.py
 
@@ -219,8 +258,14 @@ jobs:
       # aliases are written by build_site_nav.py from docs/site_nav.json. Fails when any
       # of them is stale, when a root reference is in no hub or in two, or when a
       # hand-written page is in no nav section.
-      - name: Site navigation matches docs/site_nav.json; every hand-written page is in a nav section
+      - name: Platform-band address allow-list, cap and pending rule (planted cases)
+        run: python scripts/build_site_nav.py --self-test
+
+      - name: Site navigation + platform band match their sources (docs/site_nav.json, docs/platform-nav.json)
         run: python scripts/build_site_nav.py --check
+
+      - name: Platform-band behaviour (DOM stand-in; hover, 220ms close, flip, single-open, keyboard)
+        run: node scripts/test_platform_band.js
 
       - name: Explore page and assets/explore.json match data/
         run: python scripts/build_explore.py --check

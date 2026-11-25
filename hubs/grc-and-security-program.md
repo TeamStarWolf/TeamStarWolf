@@ -61,10 +61,10 @@ Part of the [domain hubs](/hubs/README.md). 40 reference documents in this domai
 | Reference | What it covers | Reading time |
 |---|---|---|
 | [Resources](/RESOURCES.md) | Books, courses, YouTube channels, podcasts, CTF platforms, and communities | Lookup page (8 min end to end) |
-| [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md) | Books, labs, and companion repos grouped for practical learning, with cert roadmaps and learning paths | 35 min |
+| [Cybersecurity Book List](/CYBERSECURITY_BOOK_LIST.md) | Books, labs, and companion repos grouped for practical learning, with cert roadmaps and learning paths | 36 min |
 | [YouTube Channel Library](/YOUTUBE_CHANNELS.md) | Active channels across multiple security disciplines | 7 min |
 | [X / Twitter Follow List](/TWITTER_FOLLOW_LIST.md) | Vetted accounts that regularly share original research, tooling, or operational insight | 7 min |
-| [Starred Repositories](/STARRED_REPOS.md) | Curated repos structured around Cybersecurity Technology | 14 min |
+| [Starred Repositories](/STARRED_REPOS.md) | Curated repos structured around Cybersecurity Technology | 15 min |
 | [Open Source Toolkit](/OPEN_SOURCE_TOOLKIT.md) | Open source security tools and bookmarks, organized by category and discipline | Lookup page (14 min end to end) |
 | [Security Tools Reference](/TOOLS.md) | Quick-reference matrices of 100+ security tools organized by category with OSS/commercial tags | Lookup page (14 min end to end) |
 | [Security Tool Documentation](/SECURITY_TOOL_DOCUMENTATION.md) | Index of official documentation, API docs, GitHub repositories, and learning resources for a representative enterprise security stack | 21 min |

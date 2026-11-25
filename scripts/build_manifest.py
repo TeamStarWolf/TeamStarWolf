@@ -78,6 +78,9 @@ SOURCES = {
     "tsw_os": {"upstream": "TeamStarWolf (first-party): operating-system catalog compiled from vendor documentation; support dates from the endoflife.date API, refreshed by scripts/build_os_pages.py --refresh-eol",
                "license": "MIT (catalog); endoflife.date data under the MIT License",
                "url": "https://endoflife.date/", "copyright": "(c) TeamStarWolf; support dates (c) endoflife.date contributors"},
+    "tsw_inventory": {"upstream": "TeamStarWolf (first-party): vendor and capability inventory compiled from vendor documentation, with a capability taxonomy mapped to NIST CSF 2.0, CIS Controls v8.1 and MITRE D3FEND where each framework's own text supports it; built and validated by scripts/build_inventory.py",
+                      "license": "MIT (catalog); vendor and product names are the marks of their owners; framework references under NIST (US-Government work), CIS and MITRE D3FEND terms",
+                      "url": "https://github.com/TeamStarWolf/TeamStarWolf", "copyright": "(c) TeamStarWolf; framework and vendor names (c) their respective owners"},
 }
 
 # Longest matching prefix wins. Paths are POSIX-relative to the repo root.
@@ -105,6 +108,7 @@ PROVENANCE = [
     ("data/vocab/",                            "tsw_vocab"),
     ("data/hub/",                              "tsw_hub"),
     ("data/os/",                               "tsw_os"),
+    ("data/inventory/",                        "tsw_inventory"),
 ]
 
 VERSION_KEYS = ["attack_version", "capec_version", "cwe_version", "atlas_version", "d3fend_version",

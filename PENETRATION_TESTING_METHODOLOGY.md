@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 11 min (2,421 words at 230 words a minute)
+About 11 min (2,427 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -1533,7 +1533,7 @@ The MITRE ATT&CK Enterprise matrix (v20.0) has 15 tactics ([v20 release notes](h
 | Exploit Public-Facing Application | T1190 | Web app exploitation, CVE exploitation |
 | Phishing: Spearphishing Link | T1566.002 | Phishing simulation |
 | Valid Accounts: Default Accounts | T1078.001 | Default credential testing |
-| Valid Accounts: Domain Accounts | T1078.002 | Credential stuffing |
+| Valid Accounts: Domain Accounts | T1078.002 | Reusing valid domain credentials |
 | External Remote Services | T1133 | VPN, Citrix, RDP exploitation |
 | Trusted Relationship | T1199 | Third-party vendor access |
 
@@ -1544,7 +1544,7 @@ The MITRE ATT&CK Enterprise matrix (v20.0) has 15 tactics ([v20 release notes](h
 | Command and Scripting Interpreter: PowerShell | T1059.001 | PowerShell payloads |
 | Command and Scripting Interpreter: Bash | T1059.004 | Shell script execution |
 | Exploitation for Client Execution | T1203 | Browser/Office exploits |
-| User Execution: Malicious File | T1204.002 | Phishing attachments |
+| User Execution: Malicious File | T1204.002 | Opening malicious attachments and macros |
 | Scheduled Task/Job: Scheduled Task | T1053.005 | Scheduled task persistence |
 
 #### Persistence (TA0003)
@@ -1564,7 +1564,7 @@ The MITRE ATT&CK Enterprise matrix (v20.0) has 15 tactics ([v20 release notes](h
 |-----------|-----|-----------------|
 | Exploitation for Privilege Escalation | T1068 | Local privilege escalation CVEs |
 | Abuse Elevation Control Mechanism: Sudo | T1548.003 | Sudo misconfiguration |
-| Access Token Manipulation | T1134 | Token impersonation, PTH |
+| Access Token Manipulation | T1134 | Token impersonation and theft |
 | Process Injection | T1055 | DLL injection, shellcode injection |
 | Valid Accounts: Local Accounts | T1078.003 | Reusing local credentials |
 

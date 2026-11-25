@@ -36,9 +36,11 @@ Principles this validator enforces (see data/INVENTORY.md):
     official site's host; a product page and a mapping source must be on a company domain.
   * Framework items are cited and checkable. A CSF 2.0 Function / CIS v8.1 Control id and
     name must match the framework; every CSF / CIS entry names at least one Subcategory /
-    Safeguard, each checked against the real CSF 2.0 category set and the CIS Control's
-    Safeguard range; D3FEND ids are checked against the pinned 1.6.0 release with a
-    full/part scope.
+    Safeguard, and each item is checked for existence: a CSF Subcategory against the exact set
+    of active CSF 2.0 Subcategory ids in its Category (a withdrawn 1.1 id such as DE.CM-04 is
+    rejected) and a CIS Safeguard against its Control's Safeguard count (both tables sourced
+    from the framework docs below, not from memory); D3FEND ids are checked against the pinned
+    1.6.0 release with a full/part scope.
   * Wording filter. A word list, not a claim checker: it fails ranking and marketing words
     and the unsourced security words "vulnerable", "breached", "insecure", "hacked" and
     "compromised" in free text, and em dashes, backticks, Markdown links and HTML.
@@ -104,16 +106,44 @@ STAKE_VALUES = ("majority", "full")
 
 CSF_FUNCTIONS = {"GV": "Govern", "ID": "Identify", "PR": "Protect",
                  "DE": "Detect", "RS": "Respond", "RC": "Recover"}
-# NIST CSF 2.0 Categories (CSWP 29). A Subcategory id is <Category>-NN; its category must be
-# one of these and sit under the cited Function.
-CSF_CATEGORIES = frozenset((
-    "GV.OC", "GV.RM", "GV.RR", "GV.PO", "GV.OV", "GV.SC",
-    "ID.AM", "ID.RA", "ID.IM",
-    "PR.AA", "PR.AT", "PR.DS", "PR.PS", "PR.IR",
-    "DE.CM", "DE.AE",
-    "RS.MA", "RS.AN", "RS.CO", "RS.MI",
-    "RC.RP", "RC.CO",
-))
+# The exact set of ACTIVE NIST CSF 2.0 Subcategory ids, by Category. A Subcategory id is
+# <Category>-NN; its Category must be one of these, it must sit under the cited Function, and
+# NN must be in the Category's set. Derived from the NIST CSF 2.0 Reference Tool export (the
+# .xlsx served by csrc.nist.gov/extensions/nudp/services/json/csf/download?olirids=all,
+# fetched 2026-11-25) by reading the "Subcategory" column and dropping every row whose text
+# begins "[Withdrawn: Incorporated into ...]". That export keeps the 79 Subcategories CSF 2.0
+# withdrew from CSF 1.1 (e.g. ID.AM-06, PR.AT-03/04/05, the PR.DS-03..08 block, DE.CM-04/05/07/08,
+# DE.AE-01/05, RS.AN-01/02/04/05, RS.CO-01/04/05, RS.MI-03, RC.CO-01/02, and every PR.AC/PR.IP/
+# DE.DP/... Category that 2.0 dropped); holding counts would accept those, so we hold the exact
+# ids. The active total is 106 across 22 Categories (see the self-test). The numbers are NOT
+# contiguous: ID.AM skips 06, PR.AT keeps only 01-02, PR.DS keeps 01, 02, 10, 11, DE.CM keeps
+# 01, 02, 03, 06, 09, DE.AE keeps 02-04 and 06-08, RS.AN keeps 03 and 06-08, RS.CO keeps 02-03,
+# RS.MI keeps 01-02, RC.CO keeps 03-04. RS.MA is a Category new in 2.0.
+CSF_SUBCATEGORIES = {
+    "GV.OC": frozenset({"01", "02", "03", "04", "05"}),
+    "GV.RM": frozenset({"01", "02", "03", "04", "05", "06", "07"}),
+    "GV.RR": frozenset({"01", "02", "03", "04"}),
+    "GV.PO": frozenset({"01", "02"}),
+    "GV.OV": frozenset({"01", "02", "03"}),
+    "GV.SC": frozenset({"01", "02", "03", "04", "05", "06", "07", "08", "09", "10"}),
+    "ID.AM": frozenset({"01", "02", "03", "04", "05", "07", "08"}),
+    "ID.RA": frozenset({"01", "02", "03", "04", "05", "06", "07", "08", "09", "10"}),
+    "ID.IM": frozenset({"01", "02", "03", "04"}),
+    "PR.AA": frozenset({"01", "02", "03", "04", "05", "06"}),
+    "PR.AT": frozenset({"01", "02"}),
+    "PR.DS": frozenset({"01", "02", "10", "11"}),
+    "PR.PS": frozenset({"01", "02", "03", "04", "05", "06"}),
+    "PR.IR": frozenset({"01", "02", "03", "04"}),
+    "DE.CM": frozenset({"01", "02", "03", "06", "09"}),
+    "DE.AE": frozenset({"02", "03", "04", "06", "07", "08"}),
+    "RS.MA": frozenset({"01", "02", "03", "04", "05"}),
+    "RS.AN": frozenset({"03", "06", "07", "08"}),
+    "RS.CO": frozenset({"02", "03"}),
+    "RS.MI": frozenset({"01", "02"}),
+    "RC.RP": frozenset({"01", "02", "03", "04", "05", "06"}),
+    "RC.CO": frozenset({"03", "04"}),
+}
+CSF_CATEGORIES = frozenset(CSF_SUBCATEGORIES)
 CIS_CONTROLS = {
     "1": "Inventory and Control of Enterprise Assets",
     "2": "Inventory and Control of Software Assets",
@@ -134,7 +164,13 @@ CIS_CONTROLS = {
     "17": "Incident Response Management",
     "18": "Penetration Testing",
 }
-CIS_SAFEGUARD_MAX = 18   # no CIS v8.1 Control has more than this many Safeguards
+# Number of Safeguards in each CIS Controls v8.1 Control, from the CIS Controls Navigator
+# v8.1 (cisecurity.org/controls/cis-controls-navigator, fetched 2026-11-25). Safeguards are
+# numbered contiguously 1..N within a Control, so a Safeguard N.M is valid iff 1 <= M <= N.
+CIS_SAFEGUARD_COUNTS = {
+    "1": 5, "2": 7, "3": 14, "4": 12, "5": 6, "6": 8, "7": 7, "8": 12, "9": 7,
+    "10": 7, "11": 5, "12": 8, "13": 11, "14": 9, "15": 7, "16": 14, "17": 9, "18": 5,
+}
 
 # A regulator's domain may host a company's status source (filings).
 REGULATOR_DOMAINS = ("sec.gov",)
@@ -161,6 +197,23 @@ SINCE_RE = re.compile(r"^\d{4}(-\d{2}(-\d{2})?)?$")
 DOMAIN_RE = re.compile(r"^[a-z0-9.-]+\.[a-z]{2,}$")
 CSF_ITEM_RE = re.compile(r"^(GV|ID|PR|DE|RS|RC)\.[A-Z]{2}-\d{2}$")
 CIS_ITEM_RE = re.compile(r"^(1[0-8]|[1-9])\.\d{1,2}$")
+# An unverified note may use a "confirm" word only inside one of these negated phrases; every
+# other use is read as an affirmative claim and rejected. The negation must govern the word
+# itself, in the phrase - a negation earlier in the sentence ("Not reviewed. Confirmed ...")
+# does not count. The phrases (including "unconfirmed") are blanked out first, then any surviving
+# "confirm" substring fails - so a prefixed form like "reconfirmed" is caught too.
+CONFIRM_RE = re.compile(r"confirm")
+CONFIRM_NEGATED_RE = re.compile(
+    r"\b(?:not\s+(?:yet\s+)?confirmed"
+    r"|could\s+not\s+confirm"
+    r"|cannot\s+confirm"
+    r"|can\s*not\s+confirm"
+    r"|unable\s+to\s+confirm"
+    r"|no\s+confirmation"
+    r"|without\s+confirming"
+    r"|unconfirmed"
+    r"|confirmation\s+pending)\b"
+)
 URL_BAD_RE = re.compile(r"""[\s<>\[\]()"'`\\]""")
 EM_DASH = "\u2014"
 BANNED_WORDS = (
@@ -580,11 +633,14 @@ def _framework_problems(where, fr, d3fend, errors):
                     if not CSF_ITEM_RE.match(it):
                         errors.append(f"{where}: CSF item {it!r} is not shaped like PR.AA-05")
                         continue
-                    cat = it.rpartition("-")[0]
-                    if cat not in CSF_CATEGORIES:
-                        errors.append(f"{where}: CSF item {it!r} names no real CSF 2.0 Category")
-                    elif cat.split(".")[0] != fr["ref"]:
+                    cat, _, num = it.rpartition("-")
+                    if cat.split(".")[0] != fr["ref"]:
                         errors.append(f"{where}: CSF item {it!r} is not under Function {fr['ref']}")
+                    elif cat not in CSF_SUBCATEGORIES:
+                        errors.append(f"{where}: CSF item {it!r} names no active CSF 2.0 Category")
+                    elif num not in CSF_SUBCATEGORIES[cat]:
+                        errors.append(f"{where}: CSF item {it!r} is not an active CSF 2.0 Subcategory "
+                                      f"of {cat} (it was withdrawn or never existed)")
                 else:
                     if not CIS_ITEM_RE.match(it):
                         errors.append(f"{where}: CIS item {it!r} is not shaped like 13.7")
@@ -592,9 +648,9 @@ def _framework_problems(where, fr, d3fend, errors):
                     control, _, num = it.partition(".")
                     if control != fr["ref"]:
                         errors.append(f"{where}: CIS item {it!r} is not under Control {fr['ref']}")
-                    elif not (1 <= int(num) <= CIS_SAFEGUARD_MAX):
-                        errors.append(f"{where}: CIS item {it!r} is outside the Safeguard range "
-                                      f"(1-{CIS_SAFEGUARD_MAX})")
+                    elif not (1 <= int(num) <= CIS_SAFEGUARD_COUNTS.get(control, 0)):
+                        errors.append(f"{where}: CIS item {it!r} is not a Safeguard of Control {control} "
+                                      f"(1-{CIS_SAFEGUARD_COUNTS.get(control, 0)})")
         if _host(fr["source_url"]) is None:
             errors.append(f"{where}: {fw} source_url must be a clean https URL")
         if not _valid_read(fr["read_date"]):
@@ -662,8 +718,11 @@ def _mapping_problems(where, m, cap_ids, seen, comp_domains, errors):
             low = m["note"].lower()
             if "http" in low or "www." in low:
                 errors.append(f"{where} {cap}: an unverified note must not contain a URL")
-            if re.search(r"(?<![a-z])confirm", low):
-                errors.append(f"{where} {cap}: an unverified note must not claim it was confirmed")
+            # Reject an AFFIRMATIVE confirmation claim. A "confirm" word is allowed only as part
+            # of one of the negated phrases (blank those out first); any that survives is a claim.
+            if CONFIRM_RE.search(CONFIRM_NEGATED_RE.sub(" ", low)):
+                errors.append(f"{where} {cap}: an unverified note must not claim the capability was "
+                              f"confirmed (only a negated phrase such as 'not confirmed' is allowed)")
     else:
         errors.append(f"{where} {cap}: status {st!r} must be 'documented' or 'unverified'")
 
@@ -898,6 +957,18 @@ def self_test() -> int:
             return fragment in str(e)
         return False
 
+    def validates(**kw):
+        try:
+            validate(src(**kw))
+            return True
+        except InventoryError as e:
+            print("unexpected error (expected clean):\n" + str(e))
+            return False
+
+    def unverified(note):
+        return [base_product(capabilities=[{"capability_id": "capability:edr",
+                                            "status": "unverified", "note": note}])]
+
     expect("C01 unknown category", fails_with("must be one of", caps=[base_cap(category="nope")]))
     expect("C02 company not a vocab vendor", fails_with("is not a vendor in",
            companies=[base_company(id="vendor:nope")], products=[base_product(company="vendor:nope")]))
@@ -932,7 +1003,7 @@ def self_test() -> int:
                                                   "read_date": RD}])]))
     expect("C13 unverified note with a URL", fails_with("must not contain a URL", products=[base_product(
            capabilities=[{"capability_id": "capability:edr", "status": "unverified", "note": "see https://x.com/y"}])]))
-    expect("C14 unverified note claims confirmed", fails_with("must not claim it was confirmed",
+    expect("C14 unverified note claims confirmed", fails_with("must not claim the capability was",
            products=[base_product(capabilities=[{"capability_id": "capability:edr", "status": "unverified",
                                                   "note": "confirmed on a blog"}])]))
     expect("C15 CSF name mismatch", fails_with("name must be 'Detect'",
@@ -1001,10 +1072,10 @@ def self_test() -> int:
     expect("C44 empty CSF items", fails_with("non-empty list", caps=[fw([
            {"framework": "nist-csf-2.0", "ref": "DE", "name": "Detect", "items": [],
             "source_url": CSF, "read_date": RD}])]))
-    expect("C45 made-up CSF category", fails_with("no real CSF 2.0 Category", caps=[fw([
+    expect("C45 made-up CSF category", fails_with("names no active CSF 2.0 Category", caps=[fw([
            {"framework": "nist-csf-2.0", "ref": "PR", "name": "Protect", "items": ["PR.ZZ-99"],
             "source_url": CSF, "read_date": RD}])]))
-    expect("C46 CIS safeguard out of range", fails_with("Safeguard range", caps=[fw([
+    expect("C46 CIS safeguard out of range", fails_with("is not a Safeguard of Control 13", caps=[fw([
            {"framework": "cis-controls-v8.1", "ref": "13", "name": "Network Monitoring and Defense",
             "items": ["13.99"], "source_url": CIS, "read_date": RD}])]))
     expect("C47 duplicate framework entry", fails_with("appears twice", caps=[base_cap(frameworks=[
@@ -1051,14 +1122,71 @@ def self_test() -> int:
            companies=[base_company(status="private", ticker=None, holder=None, holder_name=None,
                       holder_domains=["blog.example.com"],
                       sources={"status": {"url": "https://blog.example.com/x", "read_date": RD}})]))
+    # framework items that are well-shaped and under the right Function/Control but do not exist
+    expect("C63 CSF subcategory number too high (PR.AA-99)",
+           fails_with("is not an active CSF 2.0 Subcategory of PR.AA", caps=[fw([
+           {"framework": "nist-csf-2.0", "ref": "PR", "name": "Protect", "items": ["PR.AA-99"],
+            "source_url": CSF, "read_date": RD}])]))
+    expect("C64 CSF subcategory number too high (PR.PS-99)",
+           fails_with("is not an active CSF 2.0 Subcategory of PR.PS", caps=[fw([
+           {"framework": "nist-csf-2.0", "ref": "PR", "name": "Protect", "items": ["PR.PS-99"],
+            "source_url": CSF, "read_date": RD}])]))
+    expect("C65 CIS safeguard past its control's count (10.18)",
+           fails_with("is not a Safeguard of Control 10", caps=[fw([
+           {"framework": "cis-controls-v8.1", "ref": "10", "name": "Malware Defenses",
+            "items": ["10.18"], "source_url": CIS, "read_date": RD}])]))
+    expect("C66 CIS safeguard past its control's count (13.12)",
+           fails_with("is not a Safeguard of Control 13", caps=[fw([
+           {"framework": "cis-controls-v8.1", "ref": "13", "name": "Network Monitoring and Defense",
+            "items": ["13.12"], "source_url": CIS, "read_date": RD}])]))
+
+    # --- A1: CSF 2.0 withdrew these from 1.1; the exact-set check must reject them ...
+    def csf_item(it):
+        fn = it.split(".")[0]
+        return fw([{"framework": "nist-csf-2.0", "ref": fn, "name": CSF_FUNCTIONS[fn],
+                    "items": [it], "source_url": CSF, "read_date": RD}])
+    for n, it in enumerate(["ID.AM-06", "PR.AT-03", "PR.DS-05", "DE.CM-04", "DE.AE-01",
+                            "RS.AN-01", "RS.CO-01", "RS.MI-03", "RC.CO-01"], start=67):
+        expect(f"C{n} withdrawn CSF id {it} rejected",
+               fails_with("is not an active CSF 2.0 Subcategory", caps=[csf_item(it)]))
+    # ... and keep accepting their still-active neighbours.
+    for n, it in enumerate(["DE.CM-09", "PR.DS-10", "RS.AN-03", "RC.CO-03"], start=76):
+        expect(f"C{n} active CSF id {it} passes", validates(caps=[csf_item(it)]))
+    # the accepted CSF set is exactly the 106 active 2.0 Subcategories
+    expect("C80 CSF accepted set totals 106",
+           sum(len(v) for v in CSF_SUBCATEGORIES.values()) == 106)
+
+    # --- A2: a "confirm" word is allowed in an unverified note only inside a negated phrase.
+    NOTE_CASES = [
+        ("Not reviewed. Confirmed on the vendor page.", False),
+        ("Not only documented but confirmed by the vendor.", False),
+        ("No doubt this is confirmed.", False),
+        ("The vendor did not reply; a reseller confirmed it.", False),
+        ("This is confirmed.", False),
+        ("Reconfirmed on the vendor page.", False),
+        ("Not confirmed on the vendor page.", True),
+        ("Could not confirm this capability from vendor documentation.", True),
+        ("Unconfirmed on the vendor page.", True),
+        ("No confirmation found on the vendor page.", True),
+        ("Listed by a reseller, not the vendor; confirmation pending.", True),
+    ]
+    for n, (note, ok) in enumerate(NOTE_CASES, start=81):
+        if ok:
+            expect(f"C{n} note passes: {note[:34]!r}", validates(products=unverified(note)))
+        else:
+            expect(f"C{n} note fails: {note[:34]!r}",
+                   fails_with("must not claim the capability was", products=unverified(note)))
 
     if fails:
         print("SELF-TEST FAILED: " + "; ".join(fails))
         return 1
-    print("OK: build_inventory self-test (62 planted controls: schema, ids, vocab/d3fend/csf/cis "
-          "cross-refs and item placement, non-empty+real framework items, per-fact sourcing, "
-          "vendor-domain + first-domain + holder-domain rules, dates with floor, ownership model with "
-          "stake, unverified-vs-documented, neutral wording incl. Markdown/backtick/HTML, duplicates)")
+    print("OK: build_inventory self-test (91 controls: schema, ids, vocab/d3fend/csf/cis "
+          "cross-refs and item placement, framework items checked for existence against the exact "
+          "active CSF 2.0 Subcategory set (withdrawn 1.1 ids rejected, active neighbours pass, 106 "
+          "total) and the CIS Safeguard count per Control, non-empty framework items, per-fact "
+          "sourcing, vendor-domain + first-domain + holder-domain rules, dates with floor, ownership "
+          "model with stake, unverified-vs-documented incl. negated-phrase confirm rule, neutral "
+          "wording incl. Markdown/backtick/HTML, duplicates)")
     return 0
 
 

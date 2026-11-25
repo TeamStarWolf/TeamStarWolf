@@ -1,6 +1,6 @@
 # Zscaler
 
-Zscaler delivers security as a cloud service that sits between users and the destinations they reach. The platform is branded the Zscaler Zero Trust Exchange. It inspects traffic inline in the cloud rather than on appliances at each site.
+Zscaler delivers security as a cloud service that sits between users and the destinations they reach. The platform is branded the Zscaler Zero Trust Exchange. It inspects traffic inline in the cloud rather than on appliances at each site. In November 2026 CrowdStrike announced an agreement to acquire Zscaler; as of 25 November 2026 the deal has not closed, and the two operate independently until it does.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,473 words at 230 words a minute)
+About 7 min (1,514 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -162,6 +162,7 @@ Its logs support incident response by showing what a compromised account or devi
 - Zscaler Private Access Administration documentation
 - Nanolog Streaming Service documentation
 - Zscaler API reference
+- Zscaler newsroom: CrowdStrike to acquire Zscaler (announced 23 November 2026, not yet closed)
 
 ## Related pages
 

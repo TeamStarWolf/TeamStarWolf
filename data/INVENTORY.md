@@ -98,11 +98,26 @@ framework where it spans several Controls or Functions.
 | `d3fend-1.6.0` | a countermeasure id (e.g. `D3-MFA`) | its name | - (`scope` is `full` or `part`) | the pinned release `data/attack/d3fend_countermeasures.jsonl` |
 
 The CSF Function names, CIS Control titles and D3FEND names are checked against the framework.
-Each CSF / CIS entry names **at least one** Subcategory / Safeguard (an empty list fails): a CSF
-Subcategory's Category is checked against the real CSF 2.0 Category set and must sit under the
-cited Function; a CIS Safeguard must sit under the cited Control and within its Safeguard range.
-The per-item exact text is not embedded, so `items` are validated for existence and placement,
-not wording. A D3FEND entry says whether it covers the whole capability (`full`) or one `part`.
+Each CSF / CIS entry names **at least one** Subcategory / Safeguard (an empty list fails), and
+each item is checked for **existence**, not just shape:
+
+- A CSF Subcategory (e.g. `PR.AA-05`) must sit under the cited Function **and** be one of the
+  **active** CSF 2.0 Subcategories of its Category. The validator holds the exact set of active
+  ids per Category (106 in all), derived from the NIST CSF 2.0 Reference Tool export by dropping
+  every row whose text begins `[Withdrawn: Incorporated into ...]`. So a well-shaped but
+  non-existent id like `PR.AA-99` is rejected; a Subcategory CSF 2.0 withdrew from 1.1 such as
+  `DE.CM-04` is rejected while its still-active neighbour `DE.CM-09` is accepted; and a
+  CSF-1.1-only Category such as `PR.AC` is rejected outright. The numbers are not contiguous;
+  for example `PR.DS` keeps `01`, `02`, `10`, `11`.
+- A CIS Safeguard (e.g. `13.7`) must sit under the cited Control **and** fall within that
+  Control's real Safeguard count, which the validator carries per Control from the CIS Controls
+  Navigator v8.1. `10.18` and `13.12` are rejected because Control 10 has 7 Safeguards and
+  Control 13 has 11.
+
+Both tables are cited in a comment in `build_inventory.py` with the source and fetch date, not
+written from memory. The per-item **exact text** is not embedded, so `items` are validated for
+existence and placement, not wording. A D3FEND entry says whether it covers the whole capability
+(`full`) or one `part`.
 
 ## Sourcing
 
@@ -122,7 +137,10 @@ Each entry in a product's `capabilities` is one of:
   `documented_as` is a phrase **verbatim from the page**, so a reader can find it, and any gloss
   of the editor's goes in `note`.
 - **unverified**: `{ "capability_id", "status": "unverified", "note" }`. The function was not
-  confirmed on a vendor page. The note carries no URL and does not claim it was confirmed.
+  confirmed on a vendor page. The note carries no URL and must not make an **affirmative**
+  confirmation claim; an honest negated statement is fine (e.g. "Not confirmed on the vendor
+  page." or "Could not confirm this capability from vendor documentation." pass, while "This is
+  confirmed." is rejected).
 
 ## Generated roll-up
 

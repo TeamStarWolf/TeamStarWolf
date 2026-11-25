@@ -1,5 +1,5 @@
 /* Behaviour tests for the platform band (assets/platform-band.js), driven against the
-   generated markup in a small DOM stand-in — no browser or npm dependency. Run:
+   generated markup in a small DOM stand-in (no browser or npm dependency). Run:
      node scripts/test_platform_band.js
    Covers: hover opens; one top-level menu open at a time; the 220ms close; the side
    fly-out; the edge-flip (flips when it would cross the right edge, not otherwise); one

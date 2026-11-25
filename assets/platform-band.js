@@ -17,7 +17,10 @@ function wireTswBand(bar, win, doc) {
   win = win || window;
   doc = doc || document;
   var fine = win.matchMedia('(hover: hover) and (pointer: fine)');
-  var narrow = win.matchMedia('(max-width: 760px)');
+  // Small-screen (accordion) layout when the viewport is narrow OR too short for the tallest
+  // top-level panel - the same condition as the stylesheet. A short, wide viewport (a phone held
+  // sideways) uses the accordion too, so the fixed band never leaves a panel off the bottom.
+  var narrow = win.matchMedia('(max-width: 760px), (max-height: 560px)');
   var CLOSE_MS = 220;
   var timer = null;
   function cancel() { if (timer) { win.clearTimeout(timer); timer = null; } }

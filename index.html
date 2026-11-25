@@ -539,9 +539,13 @@
     .app-nav { top: var(--tsw-band-h); }
     .sidebar { top: var(--tsw-band-h); }
 
-    /* Phone and narrow: a single menu button reveals the items as an inline accordion;
-       the panels and fly-outs become static, indented rows (coarse pointers use the buttons). */
-    @media screen and (max-width: 760px) {
+    /* Small-screen layout: a single menu button reveals the items as an inline accordion; the
+       panels and fly-outs become static, indented rows (coarse pointers use the buttons). Used
+       when the viewport is NARROW *or* too SHORT for the tallest top-level panel - a phone held
+       sideways (e.g. 844x390) gets it too, because the fixed band cannot scroll an overflowing
+       panel into view and a scrolling panel clips the fly-outs. The same condition drives the
+       script (assets/platform-band.js). */
+    @media screen and (max-width: 760px), screen and (max-height: 560px) {
       .tsw-bar { padding: 0 6px; }
       .tsw-bar__menubtn { display: inline-flex; gap: 8px; height: 100%; padding: 0 10px;
         font-size: 13px; font-weight: 600; color: var(--tsw-text-muted); }

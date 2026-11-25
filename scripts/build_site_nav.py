@@ -911,6 +911,7 @@ def band_self_test() -> int:
     assert "tsw-bar__ext" in extmarkup and "opens in a new tab on an external site" in extmarkup, "external marker/note missing"
     # band_href_bad must return a reason, not raise, on a null/non-string href
     assert band_href_bad(None) == "not a string", "band_href_bad(None) should not raise"
+    assert band_href_bad(5) == "not a string", "band_href_bad(5) should not raise"
     # platform_band_problems catches a DNS-invalid and a non-ASCII external leaf on a real leaf
     badext = bm([{"label": "E1", "href": "https://-nvd.nist.gov/", "external": True}])
     assert any("external" in p and "hyphen" in p for p in platform_band_problems(badext)), "DNS-invalid external leaf not caught"

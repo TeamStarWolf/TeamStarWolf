@@ -204,4 +204,16 @@ test('coarse pointer: buttons drive the accordion', () => {
     'the nested caret opens the subsection inline without closing the category');
 });
 
+// short + wide viewport (phone held sideways): the OR'd narrow condition matches on height, so
+// even with a fine pointer the band uses the accordion - hover is ignored and the button opens it
+test('short viewport uses the accordion even with a fine pointer', () => {
+  const { bar, a } = buildBar();
+  const win = fakeWin({ fine: true, narrow: true, innerWidth: 844, innerHeight: 390 });
+  wireTswBand(bar, win, fakeDoc);
+  a.dispatchEvent(ev('mouseenter'));
+  assert.ok(!a.classList.contains('tsw-open'), 'hover is ignored when the viewport is short, even with a fine pointer');
+  a.querySelector(':scope > .tsw-bar__toggle').dispatchEvent(ev('click'));
+  assert.ok(a.classList.contains('tsw-open'), 'the toggle button opens the section (accordion)');
+});
+
 console.log('platform-band behaviour tests: ' + ran + ' of ' + ran + ' pass');

@@ -2685,24 +2685,41 @@
               +node.tagName.charAt(1) <= level;
           }
 
-          // Case studies read as articles, so their sections open by default. The long
-          // reference pages stay folded (see the note at the top of this plugin): they run
-          // 9k to 46k words and the fold is what makes that scroll navigable. The case-study
-          // index (README) and timeline are aggregators, not articles, so they are excluded.
+          // Case studies read as articles, so normal-length ones open by default. The long
+          // compendia (the year chronicles, the period records and the roundup studies) keep
+          // folding, like the reference pages, because fully open they are the wall the fold was
+          // built to tame. The cut is 9,000 words: per-study word counts run continuously from
+          // ~3k up into the ~25k chronicles, and the one clear break is the ~1,350-word gap
+          // between the longest ordinary studies (8,670) and the compendium cluster (>= 10,029);
+          // 72 studies sit above it, 169 below. The figure read is the one the reading card
+          // shows. README and the timeline are aggregators, not articles, so they are excluded.
+          var LONG_STUDY_WORDS = 9000;
           var csMatch = /^#\/case-studies\/([^?#]+)/.exec(location.hash || '');
-          var openByDefault = !!(csMatch && !/^(README|TIMELINE)$/i.test(decodeURIComponent(csMatch[1])));
+          var isCaseStudy = !!(csMatch && !/^(README|TIMELINE)$/i.test(decodeURIComponent(csMatch[1])));
+          var studyWords = null;
+          if (isCaseStudy) {
+            var wm = (main.textContent || '').match(/\(([\d,]+)\s+words\b/);
+            if (wm) { studyWords = parseInt(wm[1].replace(/,/g, ''), 10); }
+          }
+          var defaultOpen = isCaseStudy && (studyWords === null || studyWords < LONG_STUDY_WORDS);
+          // A reader's explicit Expand all / Collapse all is remembered (localStorage) and wins
+          // over the per-page default, on every folded page, the references and giant studies
+          // included. A blocked store (private window, storage off) just leaves the defaults.
+          var foldPref = null;
+          try { foldPref = localStorage.getItem('tsw-fold-pref'); } catch (e) {}
+          var startOpen = foldPref === 'expanded' ? true : foldPref === 'collapsed' ? false : defaultOpen;
 
-          // Wrap each heading and the content up to the next boundary in a <details> (open by
-          // default on case studies, collapsed on the long references). Whatever sits before the
-          // first folded heading (the header card, the intro, and any parent h2 when folding at
-          // h3) stays open above the list.
+          // Wrap each heading and the content up to the next boundary in a <details>; startOpen
+          // (computed above) decides whether it begins open. Whatever sits before the first
+          // folded heading (the header card, the intro, and any parent h2 when folding at h3)
+          // stays open above the list.
           heads.forEach(function (h) {
             var parent = h.parentNode;
             // tsw-fold-sec marks the section folds this plugin builds, so the Expand-all and
             // Previous/Next machinery below ignores the literal "Show the table" folds that the
             // content authors nest inside a section (those keep class tsw-fold but not -sec).
             var details = el('details', { className: 'tsw-fold tsw-fold-sec' });
-            if (openByDefault) { details.open = true; }
+            if (startOpen) { details.open = true; }
             var summary = el('summary', { className: 'tsw-fold-summary' });
             var body = el('div', { className: 'tsw-fold-body' });
             parent.insertBefore(details, h);
@@ -2734,6 +2751,8 @@
           toggle.addEventListener('click', function () {
             var anyClosed = folds.some(function (d) { return !d.open; });
             folds.forEach(function (d) { d.open = anyClosed; });
+            // Remember this choice across pages (read back as foldPref above).
+            try { localStorage.setItem('tsw-fold-pref', anyClosed ? 'expanded' : 'collapsed'); } catch (e) {}
             sync();
           });
           folds.forEach(function (d) { d.addEventListener('toggle', sync); });

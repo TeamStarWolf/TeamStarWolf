@@ -58,6 +58,12 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 19 November 2026: Broadcom publishes VMSA-2026-0009 fixing CVE-2026-123890; Mandiant and GTIG publish their account of its exploitation
   - 20 November 2026: CISA adds all four CVEs to KEV with a due date of 23 November
   - 23 November 2026: Cisco revises its advisory to note the KEV listing and that it has no direct evidence of active exploitation
+- [CISA KEV Additions of 18 November 2026: Synology DSM, LiteLLM, REDCap and Apache Axis](/case-studies/KEV_ADDITIONS_2026_11_18.md). Vulnerability, November 2026. Sectors: technology, cross-sector. CVEs: CVE-2024-10441, CVE-2026-40217, CVE-2026-90817, CVE-2026-90436. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/KEV_Additions_2026_11_18_Case_Study.pdf).
+  - 5 November 2024: Synology publishes Synology-SA-24:20 with fixes for CVE-2024-10441
+  - 8 April 2026: X41 D-Sec publishes its LiteLLM guardrail sandbox escape advisory; the CVE record follows on 10 April
+  - 20 September 2026: The REDCap CVE-2026-90817 record is published; Securifera's write-up follows on 27 September
+  - 6 November 2026: Apache publishes the CVE-2026-90436 record for Axis 1.x and says no fixed 1.x release is planned
+  - 18 November 2026: CISA adds all four CVEs to KEV; due dates are 21 November for three and 2 December for LiteLLM
 - [Java4Shell, CVE-2026-114938: The OpenJDK Base64 Intrinsic Heap Overflow](/case-studies/JAVA4SHELL_CVE_2026_114938.md). Vulnerability, November 2026. Sectors: technology. CVEs: CVE-2026-114938. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Java4Shell_CVE_2026_114938_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Java4Shell_CVE_2026_114938_Case_Study.pptx).
   - 17 November 2026: Oracle ships the November 2026 Critical Patch Update fixing CVE-2026-114938; an OpenJDK advisory is published
   - 17 November 2026: Calif discloses Java4Shell with a technical write-up and a proof-of-concept trigger; CISA issues an alert urging immediate patching

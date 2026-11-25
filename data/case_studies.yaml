@@ -2645,6 +2645,22 @@ studies:
       - {"date": "2022-03-03", "label": "CISA adds CVE-2020-1938 to KEV in a batch of 95 entries"}
       - {"date": "2026-10", "label": "DShield still records about 950 to 6,200 port 8009 events a day"}
       - {"date": "2026-11-03", "label": "KEV still lists the CVE; the TeamStarWolf lab run"}
+  case-studies/KEV_ADDITIONS_2026_11_18.md:
+    kind: "vulnerability"
+    title: "CISA KEV Additions of 18 November 2026: Synology DSM, LiteLLM, REDCap and Apache Axis"
+    start: "2026-11"
+    end: "2026-11"
+    sectors: ["technology", "cross-sector"]
+    cves: ["CVE-2024-10441", "CVE-2026-40217", "CVE-2026-90817", "CVE-2026-90436"]
+    actors: []
+    tags: ["CISA KEV", "Synology", "LiteLLM", "REDCap", "Apache Axis", "remote code execution", "end of life"]
+    pdf: "KEV_Additions_2026_11_18_Case_Study.pdf"
+    events:
+      - {"date": "2024-11-05", "label": "Synology publishes Synology-SA-24:20 with fixes for CVE-2024-10441"}
+      - {"date": "2026-04-08", "label": "X41 D-Sec publishes its LiteLLM guardrail sandbox escape advisory; the CVE record follows on 10 April"}
+      - {"date": "2026-09-20", "label": "The REDCap CVE-2026-90817 record is published; Securifera's write-up follows on 27 September"}
+      - {"date": "2026-11-06", "label": "Apache publishes the CVE-2026-90436 record for Axis 1.x and says no fixed 1.x release is planned"}
+      - {"date": "2026-11-18", "label": "CISA adds all four CVEs to KEV; due dates are 21 November for three and 2 December for LiteLLM"}
   case-studies/KEV_ADDITIONS_2026_11_20.md:
     kind: "vulnerability"
     title: "CISA KEV Additions of 20 November 2026: VMware vCenter, Cisco Expressway, Apache Roller and SAP NetWeaver"

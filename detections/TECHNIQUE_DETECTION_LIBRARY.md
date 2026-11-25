@@ -22,7 +22,7 @@ About 13 min (2,911 words at 230 words a minute)
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
 
-You are building or tuning a SIEM or EDR detection for a specific ATT&CK technique, you need a hunt query in your platform's language (SPL, EQL/KQL, YARA-L, CQL), or you want to check which NIST 800-53 controls mitigate a technique you just detected
+You are building or tuning a SIEM or EDR detection for a specific ATT&CK technique, you need a hunt query in your platform's language (SPL, EQL/KQL, YARA-L, CQL), or you want to check which NIST 800-53 controls are mapped to a technique you just detected
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Start at</th><td>
@@ -32,12 +32,17 @@ You are building or tuning a SIEM or EDR detection for a specific ATT&CK techniq
 </td></tr>
 </table>
 
-<details class="tsw-meta-more"><summary>More about this page (pairs with, last reviewed)</summary>
+<details class="tsw-meta-more"><summary>More about this page (pairs with, last corrected, last reviewed)</summary>
 
 <table class="tsw-meta-card">
 <tr><th scope="row" align="left" valign="top">Pairs with</th><td>
 
 [Detection Rules Reference](/DETECTION_RULES_REFERENCE.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [Detection strategies](/detections/strategies/README.md), [Controls Mapping](/CONTROLS_MAPPING.md)
+
+</td></tr>
+<tr><th scope="row" align="left" valign="top">Last corrected</th><td>
+
+2026-11-25, detection queries corrected against their data-source schemas: the retired Defender XDR AADSignInEventsBeta table replaced with EntraIdSignInEvents, the country-baseline and brute-force windows and joins fixed, the ransomware file count fixed, and the control-mapping, validation and provenance framing tightened; the rendered page and technique-queries.json kept in sync ([#421](https://github.com/TeamStarWolf/TeamStarWolf/pull/421))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>

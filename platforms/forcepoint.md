@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,455 words at 230 words a minute)
+About 7 min (1,501 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -53,7 +53,7 @@ No review recorded yet
 
 ## What it is and where it fits
 
-Forcepoint groups its products around the control of sensitive data. It secures web and cloud access through Forcepoint Web Security (a secure web gateway), Forcepoint CASB and Forcepoint ZTNA, and Data Security provides data loss prevention across channels. A next-generation firewall addresses network boundaries where that product is deployed. Forcepoint earlier offered these as one security service edge, Forcepoint ONE; that product address now redirects to the Data Security Cloud page, a separate data-security product, observed 25 November 2026.
+Forcepoint groups its products around the control of sensitive data. It secures web and cloud access through Forcepoint Web Security (a secure web gateway), Forcepoint CASB and Forcepoint ZTNA, and Data Security provides data loss prevention across channels. A next-generation firewall addresses network boundaries where that product is deployed. Forcepoint offers these together as a security service edge, which its administration guide names Forcepoint Data Security Cloud | SSE (formerly Forcepoint ONE). A separate marketing page uses the shorter name Data Security Cloud for a data-security product (discovery, classification, data loss prevention, data security posture management); the old Forcepoint ONE product address now redirects to that page (observed 25 November 2026).
 
 The organizing idea is that security policy should follow the data and the user, not the network. The platform classifies content and applies policy to where that content is allowed to go.
 
@@ -80,7 +80,7 @@ Where the next-generation firewall is deployed, it enforces network-layer policy
 
 ## Key capabilities
 
-Forcepoint delivers these edge functions as separate products, which it earlier unified as the Forcepoint ONE security service edge:
+Forcepoint Data Security Cloud | SSE (formerly Forcepoint ONE) unifies several edge functions, each also offered as a product:
 
 - Forcepoint Web Security, a secure web gateway that filters and inspects internet-bound traffic.
 - Forcepoint CASB, a cloud access security broker that discovers and controls cloud application use.
@@ -160,7 +160,8 @@ Its data loss prevention events support detection and incident response by flagg
 - Forcepoint Next-Generation Firewall documentation
 - Forcepoint Security Manager documentation
 - Forcepoint API reference
-- Forcepoint: the former Forcepoint ONE address (/product/forcepoint-one) now redirects to the Data Security Cloud page, a data-security product; the edge functions are sold as Forcepoint Web Security, Forcepoint CASB, Forcepoint ZTNA and Remote Browser Isolation (observed 25 November 2026)
+- Forcepoint Data Security Cloud | SSE Administrative Guide (help.forcepoint.com/fpone/sse_admin): the unified security service edge, formerly Forcepoint ONE, over Forcepoint Web Security, Forcepoint CASB and Forcepoint ZTNA (read 25 November 2026)
+- Forcepoint: the old Forcepoint ONE product address (/product/forcepoint-one) redirects to the shorter "Data Security Cloud" marketing page, a data-security product (observed 25 November 2026)
 - Francisco Partners: investments page lists Forcepoint as a current portfolio company, acquired from Raytheon Technologies (franciscopartners.com/investments, read 25 November 2026)
 
 ## Related pages

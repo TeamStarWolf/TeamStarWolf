@@ -135,6 +135,13 @@ corrections:
     what: "detection queries corrected against their data-source schemas and query-language semantics across all five platforms: the retired Defender XDR AADSignInEventsBeta table replaced with EntraIdSignInEvents, ATT&CK tactic names updated to v19 (Stealth), brute-force / baseline / injection / RDP / persistence / discovery queries fixed, Chronicle match-section placeholders and UDM fields (extensions.auth.mechanism, FAIL vs BLOCK, target.user.userid) corrected, CrowdStrike CQL marked where its field dictionary is not publicly verifiable, and the control-mapping / validation / provenance framing tightened; verified against primary sources and parser docs (queries were not executed against a live SIEM), and the rendered page and technique-queries.json kept in sync"
 reviews: {}
 pages:
+  SOFTWARE_BY_DEPARTMENT_REFERENCE.md:
+    audience: "Red teamers planning reconnaissance, blue teamers and architects threat-modeling their own estate, and analysts sizing where the data and the blast radius sit by function"
+    level: "Intermediate"
+    read_when: "You are threat-modeling a target or your own estate by business function, you are planning a phishing-resistance or reconnaissance exercise, or you need to see what software a department runs and what an attacker reaches through it"
+    start_at: "[How to read this](#how-to-read-this), [Engineering and software development](#engineering-and-software-development), [Using this for threat modeling](#using-this-for-threat-modeling)"
+    pairs_with: "[Enterprise Technology Inventory](ENTERPRISE_TECHNOLOGY_INVENTORY.md), [Healthcare Security Reference](HEALTHCARE_SECURITY_REFERENCE.md), [Identity Security Reference](IDENTITY_SECURITY_REFERENCE.md), [SaaS Security Reference](SAAS_SECURITY_REFERENCE.md)"
+    learning_path: []
   ACTIVE_DIRECTORY_ATTACKS.md:
     audience: "Penetration testers and red teamers"
     level: "Intermediate to advanced"
@@ -578,6 +585,14 @@ pages:
     pairs_with: "[Data Security Reference](DATA_SECURITY_REFERENCE.md), [Cryptography Reference](CRYPTOGRAPHY_REFERENCE.md), [Secrets Management Reference](SECRETS_MANAGEMENT_REFERENCE.md), [Identity & Access Management Reference](IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Cloud Security Reference](CLOUD_SECURITY_REFERENCE.md), [Web Application Security Reference](WEB_APPLICATION_SECURITY_REFERENCE.md)"
     learning_path: []
     corrected: "pr68-page-added"
+    reviewed: null
+  DATA_CENTER_INFRASTRUCTURE_REFERENCE.md:
+    audience: "Infrastructure, data-center, and security engineers who run or assess the physical layer under enterprise systems"
+    level: "Intermediate"
+    read_when: "You are racking or powering equipment in an enterprise data center, you are assessing a facility's resilience or its power and cooling redundancy, or you need to find the security exposure in the facility control layer"
+    start_at: "[Facility tiers and ratings](#facility-tiers-and-ratings), [Power](#power), [The security view](#the-security-view)"
+    pairs_with: "[Physical Security Reference](PHYSICAL_SECURITY_REFERENCE.md), [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md), [Hardware Security Reference](HARDWARE_SECURITY_REFERENCE.md), [Cyber Resilience and BCDR Reference](CYBER_RESILIENCE_BCDR_REFERENCE.md)"
+    learning_path: []
     reviewed: null
   DATA_SECURITY_REFERENCE.md:
     audience: "Data protection, privacy, and security program leads"

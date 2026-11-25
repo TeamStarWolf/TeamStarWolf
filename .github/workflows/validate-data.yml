@@ -44,6 +44,20 @@ jobs:
       - name: Entity vocabulary (data/vocab) matches its sources
         run: python scripts/build_vocab.py --check
 
+      # data/inventory/ (the vendor and capability inventory) is hand-authored: a capability
+      # taxonomy, companies keyed to vendor:<slug> ids in data/vocab/, and products that name
+      # the capabilities their vendor documents. build_inventory.py validates the schema, the
+      # vocabulary and D3FEND cross-references, the per-fact sourcing (every company fact and
+      # every "documented" capability mapping carries a vendor page URL and read date; an
+      # unconfirmed mapping is "unverified" with a note and no source), the framework items
+      # (CSF 2.0 / CIS v8.1 / pinned D3FEND 1.6.0 ids and names) and neutral wording, then
+      # writes the data/inventory/inventory.json roll-up. The self-test runs planted controls.
+      - name: Vendor/capability inventory rules (planted controls)
+        run: python scripts/build_inventory.py --self-test
+
+      - name: Vendor/capability inventory roll-up matches its sources
+        run: python scripts/build_inventory.py --check
+
       # The "On the Intelligence Hub" lines on platform pages, NOTABLE_INCIDENTS years, the
       # almanac, the CVE and KEV sections and the actor and malware profiles are written by
       # build_hub_links.py from the vocabulary above and the pinned Hub snapshot in

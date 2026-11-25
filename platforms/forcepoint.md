@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 7 min (1,501 words at 230 words a minute)
+About 7 min (1,547 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -160,7 +160,7 @@ Its data loss prevention events support detection and incident response by flagg
 - Forcepoint Next-Generation Firewall documentation
 - Forcepoint Security Manager documentation
 - Forcepoint API reference
-- Forcepoint Data Security Cloud | SSE Administrative Guide (help.forcepoint.com/fpone/sse_admin): the unified security service edge, formerly Forcepoint ONE, over Forcepoint Web Security, Forcepoint CASB and Forcepoint ZTNA (read 25 November 2026)
+- Forcepoint Data Security Cloud | SSE Administrative Guide (help.forcepoint.com/fpone/sse_admin, titled "Forcepoint Data Security Cloud | SSE"): the unified security service edge, used to manage CASB, web and private application traffic over Forcepoint Web Security, Forcepoint CASB and Forcepoint ZTNA. The guide's address still carries the earlier name (/fpone/) and the old /product/forcepoint-one address redirects, which is the basis for "formerly Forcepoint ONE"; the guide pages read today do not use that phrase (read 25 November 2026)
 - Forcepoint: the old Forcepoint ONE product address (/product/forcepoint-one) redirects to the shorter "Data Security Cloud" marketing page, a data-security product (observed 25 November 2026)
 - Francisco Partners: investments page lists Forcepoint as a current portfolio company, acquired from Raytheon Technologies (franciscopartners.com/investments, read 25 November 2026)
 

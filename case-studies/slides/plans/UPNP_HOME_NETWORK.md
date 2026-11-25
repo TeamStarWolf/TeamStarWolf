@@ -81,7 +81,7 @@ Notes: UPnProxy pool and count [7]. Stated risk, not observed use [7]. EternalSi
 - So the subscriber can aim the device at a target of its choice, which is SSRF-shaped.
 - CERT/CC names amplified DDoS and data exfiltration; the researcher adds DLP bypass and internal port scanning.
 Caption: CVE-2020-12695, CVSS 3.1 7.5, CWE-276; a specification fix on 17 April 2020, then per-device firmware [3][5].
-Notes: Spec wording and dates, score and CWE from NVD [3]. DDoS and exfiltration, and the Cadirci/EY Turkey credit, from CERT/CC [4]. DLP and scan classes from the researcher [5].
+Notes: Spec wording and dates, score and CWE from NVD [3]. DDoS and exfiltration, and the Çadırcı/EY Turkey credit, from CERT/CC [4]. DLP and scan classes from the researcher [5].
 
 ## PART 5 | Malware that opens its own door
 

@@ -1697,7 +1697,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - June 2019: The local Google Cast API begins requiring an authorization token
   - 2020: Netflix updates the DIAL protocol to close some of its gaps
   - April 2021: Google fixes the account-linking wiretap reported by Matt Kunze (publicly disclosed December 2022)
-  - 2023: Yunus Çadirci discloses DIALStranger, a 2019 study of DIAL protocol and implementation flaws
+  - 2023: Yunus Çadırcı publishes DIALStranger at Black Hat MEA, a 2019 study of DIAL protocol and implementation flaws
   - April 2025: Oligo publishes AirBorne: 23 AirPlay vulnerabilities, 17 CVEs, fixed in Apple's April 2025 software
 
 ### 2013 <!-- {docsify-ignore} -->

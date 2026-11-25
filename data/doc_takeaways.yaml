@@ -16,9 +16,9 @@ pages:
     reviewed: "2026-11-25"
     items:
       - {"text": "On the home network, casting rests on a local control service that trusts the local network, the same assumption as the UPnP port-mapping service.", "from": "#executive-summary", "quote": "the local service on the device trusts the local network"}
-      - {"text": "In 2018 a web page could use DNS rebinding to reach the unauthenticated local cast API and read the Wi-Fi survey data that placed a home within about ten metres.", "from": "#part-3-reading-the-unauthenticated-local-interface", "quote": "a web page open in a browser on the same network could reach it using DNS rebinding"}
+      - {"text": "In 2018 a web page could use DNS rebinding to reach the unauthenticated local cast API and read the Wi-Fi survey data that a geolocation service turns into the home's location.", "from": "#part-3-reading-the-unauthenticated-local-interface", "quote": "a web page open in a browser on the same network could reach it using DNS rebinding"}
       - {"text": "The 2021 account-linking issue turned data read over the LAN into a credential: the device's own identifiers were enough to link an attacker's cloud account and drive the device remotely.", "from": "#part-3-reading-the-unauthenticated-local-interface", "quote": "this information, read over the LAN, was effectively the credential"}
-      - {"text": "Every weakness here was fixed in a version and a date, so a 2014 or 2018 weakness is not a current one on an updated device; the real exposure is equipment that stopped getting updates.", "from": "#part-7-what-is-fixed-what-is-design-what-is-a-setting", "quote": "A device that no longer receives firmware stays where it was"}
+      - {"text": "Where a fix exists it has a version or a date, but several of these items were narrowed rather than closed or are design properties no patch removes; the real exposure is equipment that stopped getting updates.", "from": "#part-7-what-is-fixed-what-is-design-what-is-a-setting", "quote": "A device that no longer receives firmware stays where it was"}
   case-studies/CHANGE_HEALTHCARE_2024.md:
     reviewed: "2026-11-16"
     items:

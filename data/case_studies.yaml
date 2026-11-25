@@ -90,7 +90,7 @@ studies:
       - {"date": "2019-06", "label": "The local Google Cast API begins requiring an authorization token"}
       - {"date": "2020", "label": "Netflix updates the DIAL protocol to close some of its gaps"}
       - {"date": "2021-04", "label": "Google fixes the account-linking wiretap reported by Matt Kunze (publicly disclosed December 2022)"}
-      - {"date": "2023", "label": "Yunus Çadirci discloses DIALStranger, a 2019 study of DIAL protocol and implementation flaws"}
+      - {"date": "2023", "label": "Yunus Çadırcı publishes DIALStranger at Black Hat MEA, a 2019 study of DIAL protocol and implementation flaws"}
       - {"date": "2025-04", "label": "Oligo publishes AirBorne: 23 AirPlay vulnerabilities, 17 CVEs, fixed in Apple's April 2025 software"}
 
   case-studies/AI_THREATS_2026.md:

@@ -2914,6 +2914,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 7: What is fixed, what is design, what is a setting](#part-7-what-is-fixed-what-is-design-what-is-a-setting), [Part 8: Check your own network](#part-8-check-your-own-network)"
     pairs_with: "[UPnP on the Home Network](/case-studies/UPNP_HOME_NETWORK.md), [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md), [Networking Fundamentals](/NETWORKING_FUNDAMENTALS.md)"
     reviewed: null
+  case-studies/ISP_GATEWAY_HOME_NETWORK.md:
+    audience: "Home and small-network users, network and security engineers, incident responders, and anyone who uses an ISP-supplied gateway"
+    level: "Intermediate"
+    read_when: "You use the gateway your ISP supplied, you want to understand who controls that box and its security record, or you are deciding whether to put your own router behind it"
+    start_at: "[Executive summary](#executive-summary), [Part 6: What is fixed, what is design, what is a setting](#part-6-what-is-fixed-what-is-design-what-is-a-setting), [Part 7: Check your own network](#part-7-check-your-own-network)"
+    pairs_with: "[UPnP on the Home Network](/case-studies/UPNP_HOME_NETWORK.md), [Casting on the Home Network](/case-studies/CASTING_HOME_NETWORK.md), [Edge Device Security Reference](/EDGE_DEVICE_SECURITY_REFERENCE.md), [Firmware and IoT Security Reference](/FIRMWARE_IOT_SECURITY_REFERENCE.md)"
+    reviewed: null
   case-studies/PUPPET_CVE_2026_115731.md:
     audience: "Vulnerability management leads, Puppet and configuration management administrators, incident responders, and security engineers"
     level: "Intermediate"

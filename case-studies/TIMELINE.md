@@ -1663,6 +1663,15 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - November 2015: A superseding indictment alleges a multi-victim intrusion campaign
   - 23 September 2019: Andrei Tyurin pleads guilty
   - 7 January 2021: Tyurin is sentenced to 144 months; JPMorgan Chase is named; a $19,214,956 forfeiture is ordered
+- [The ISP-Supplied Gateway: Who Controls the Box at the Edge of the Home Network, and Its Security Record](/case-studies/ISP_GATEWAY_HOME_NETWORK.md). Attack surface, 2014 to 2026 (core: 2014 to 2020). Sectors: technology, telecommunications. CVEs: CVE-2017-14115, CVE-2017-14116, CVE-2017-14117, CVE-2017-10793, CVE-2014-9222, CVE-2016-10372 and 2 more. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/ISP_Gateway_Home_Network_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/ISP_Gateway_Home_Network_Case_Study.pptx).
+  - 2005: AllegroSoft issues a fixed RomPager version to licensed manufacturers
+  - December 2014: Check Point discloses Misfortune Cookie (CVE-2014-9222); RomPager detected exposed in at least 200 device models
+  - November 2016: A customized Mirai variant attacks home gateways over the TR-069 port 7547
+  - December 2016: Radware reports Deutsche Telekom routers crashed in the attack rather than being infected
+  - May 2017: CVE-2016-10372 is published for the Eir D1000 TR-064 command execution
+  - August 2017: Nomotion publishes SharknAT&To on AT&T's Arris NVG589 and NVG599 gateways
+  - September 2017: Four CVEs are assigned for the SharknAT&To issues (CVE-2017-14115, -14116, -14117, -10793)
+  - January 2020: Lyrebirds publishes Cable Haunt (CVE-2019-19494, CVE-2019-19495) for Broadcom-based modems
 - [Home Depot 2014: Payment Data, Vendor Access and the Cost of Unverified Boundaries](/case-studies/HOME_DEPOT_2014.md). Incident, 2014 to 2020. Sectors: retail. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Home_Depot_2014_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Home_Depot_2014_Case_Study.pptx).
   - 10 April 2014: Start of the exposure window later identified by the New York attorney general (10 April to 13 September 2014)
   - 2 September 2014: Investigation begins after information from banking partners and law enforcement

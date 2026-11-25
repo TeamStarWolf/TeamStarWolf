@@ -37,7 +37,7 @@ You are evaluating or running Trellix for endpoint protection, detection and res
 <table class="tsw-meta-card">
 <tr><th scope="row" align="left" valign="top">Pairs with</th><td>
 
-[Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Microsoft Defender for Endpoint](/platforms/microsoft-defender.md), [Trend Vision One (Trend Micro)](/platforms/trend-micro.md)
+[Vulnerability Management](/VULNERABILITY_MANAGEMENT_REFERENCE.md), [Incident Response Reference](/INCIDENT_RESPONSE_REFERENCE.md), [Microsoft Defender for Endpoint](/platforms/microsoft-defender.md), [TrendAI Vision One (Trend Micro)](/platforms/trend-micro.md)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>

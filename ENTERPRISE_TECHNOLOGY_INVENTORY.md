@@ -19,7 +19,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,378 words at 230 words a minute)
+About 6 min (1,381 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -202,7 +202,7 @@ See [Software frameworks](/frameworks/README.md), [Git](/commands/git.md), and [
 |---|---|
 | Enterprise SAN and NAS | Dell PowerStore, NetApp ONTAP, Pure Storage FlashArray |
 | Object storage | Amazon S3, MinIO, Cloudian, Dell ECS |
-| Backup | Veeam, Commvault, Veritas NetBackup, Rubrik |
+| Backup | Veeam, Commvault, NetBackup (Cohesity; formerly Veritas NetBackup), Rubrik |
 | Disaster recovery | Zerto, Azure Site Recovery, AWS Elastic Disaster Recovery |
 | Data replication | Dell RecoverPoint, NetApp SnapMirror |
 | Immutable storage | S3 Object Lock, WORM object storage |

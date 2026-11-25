@@ -103,7 +103,7 @@ See [Vulnerability Management Reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md)
 | Group | Tools |
 |---|---|
 | SIEM | [Splunk Enterprise Security](/platforms/splunk.md), Microsoft Sentinel, Google SecOps, [IBM QRadar](/platforms/qradar.md), Elastic Security, Wazuh, Sumo Logic Cloud SIEM, LogRhythm, Graylog, OpenSearch Security Analytics |
-| EDR and XDR | [CrowdStrike Falcon](/platforms/crowdstrike-falcon.md), [Microsoft Defender for Endpoint](/platforms/microsoft-defender.md), SentinelOne Singularity, Cortex XDR, Sophos Intercept X, [Trend Vision One](/platforms/trend-micro.md), VMware Carbon Black, Elastic Defend, Trellix |
+| EDR and XDR | [CrowdStrike Falcon](/platforms/crowdstrike-falcon.md), [Microsoft Defender for Endpoint](/platforms/microsoft-defender.md), SentinelOne Singularity, Cortex XDR, Sophos Intercept X, [TrendAI Vision One](/platforms/trend-micro.md), VMware Carbon Black, Elastic Defend, Trellix |
 | SOAR | [Cortex XSOAR](/platforms/cortex-xsoar.md), Splunk SOAR, Microsoft Sentinel Playbooks, [Tines](/platforms/tines.md), Torq, Swimlane, Shuffle, Tracecat, Fortinet FortiSOAR |
 | NDR, IDS, and IPS | Zeek, Suricata, Snort, Security Onion, Corelight, Vectra AI, Darktrace, ExtraHop Reveal(x), Arkime |
 | Detection engineering | Sigma, YARA, ATT&CK Navigator, DeTT&CT, Chainsaw, Hayabusa, Sysmon, osquery, RITA, Zircolite |

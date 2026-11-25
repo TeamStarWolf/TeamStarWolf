@@ -161,4 +161,4 @@ Place its objectives inside the continuity plan in `/CYBER_RESILIENCE_BCDR_REFER
 - [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
 - [Azure Backup](/platforms/azure-backup.md)
 - [Wiz](/platforms/wiz.md)
-- [Veritas NetBackup](/platforms/veritas-netbackup.md)
+- [NetBackup (Cohesity)](/platforms/veritas-netbackup.md)

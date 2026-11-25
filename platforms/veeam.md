@@ -171,7 +171,7 @@ This page pairs with the program-level references. See `/RANSOMWARE_DEFENSE_REFE
 - [Incident Response Reference Library](/INCIDENT_RESPONSE_REFERENCE.md)
 - [Rubrik](/platforms/rubrik.md)
 - [Commvault](/platforms/commvault.md)
-- [Veritas NetBackup](/platforms/veritas-netbackup.md)
+- [NetBackup (Cohesity)](/platforms/veritas-netbackup.md)
 
 <!-- hub-links:start (written by scripts/build_hub_links.py from data/hub/tag_counts.json; do not edit) -->
 

@@ -128,7 +128,7 @@ corrections:
   pr420-ai-mcp-accuracy:
     date: "2026-11-25"
     pr: 420
-    what: "MCP authentication-and-trust guidance settled (stdio process permissions, package pinning, structured-output and audit-logging framing, the Docker Compose sandbox, PKCE S256 encoding and RFC 9207 issuer validation) and retired Docker Content Trust replaced with Cosign/Notation"
+    what: "MCP page checked against primary sources and by running every code sample: 2026-07-28 protocol behaviour (stateless, Sampling/Roots deprecation, Origin validation); the path, URL, schema and injection samples hardened; the PyRIT, MLflow and nginx examples corrected; ATLAS mitigation IDs and technique rows reconciled to the pinned 2026.10 data; EU AI Act Article 73 and the 2026/1744 prohibitions; NIST AI 600-1/100-1; the OWASP 2026 re-ranking; plus the authentication-and-trust recommendations and retired Docker Content Trust"
 reviews: {}
 pages:
   ACTIVE_DIRECTORY_ATTACKS.md:
@@ -193,7 +193,7 @@ pages:
     pairs_with: "[AI Security Reference](AI_SECURITY_REFERENCE.md), [AI Offensive Security Reference](AI_OFFENSIVE_SECURITY_REFERENCE.md), [ATLAS Reference (AI threats)](ATLAS_REFERENCE.md), [Supply Chain Security Reference](SUPPLY_CHAIN_SECURITY_REFERENCE.md)"
     learning_path: []
     corrected: "pr420-ai-mcp-accuracy"
-    corrected_what: "authentication-and-trust guidance settled (stdio process permissions, package pinning, structured-output and audit framing, the Compose sandbox, PKCE S256 and RFC 9207 issuer validation); retired Docker Content Trust replaced with Cosign/Notation"
+    corrected_what: "MCP 2026-07-28 protocol behaviour, the runnable path/URL/schema/injection/PyRIT/MLflow/nginx samples, the ATLAS mitigation IDs and technique rows (pinned 2026.10), EU AI Act Article 73 and the 2026/1744 prohibitions, NIST AI 600-1/100-1 and the OWASP 2026 re-ranking all checked against sources and corrected"
     reviewed: null
   AI_OFFENSIVE_SECURITY_REFERENCE.md:
     audience: "Security leaders, vulnerability managers, and red teams sizing AI-assisted attack risk"

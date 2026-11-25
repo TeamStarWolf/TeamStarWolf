@@ -1,6 +1,6 @@
 # Cohesity
 
-Cohesity is a data management and security platform that consolidates backup with threat and anomaly analytics. DataProtect handles backup and recovery with immutable snapshots, while DataHawk adds threat detection and data classification. The Helios control plane manages estates from one place. Licence tier decides which products and capabilities are in force.
+Cohesity is a data management and security platform that consolidates backup with threat and anomaly analytics. DataProtect handles backup and recovery with immutable snapshots, while the Data Security products Threat Protection and Data Classification add threat detection and data classification. The name DataHawk is no longer on Cohesity's platform or documentation pages, and its former documentation address now returns 404. The Helios control plane manages estates from one place. Since its December 2024 combination with Veritas' enterprise data protection business, Cohesity's portfolio also includes NetBackup. Licence tier decides which products and capabilities are in force.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,361 words at 230 words a minute)
+About 6 min (1,448 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -78,7 +78,7 @@ Snapshots are stored so that they cannot be modified in place. This gives each b
 - DataProtect backup and recovery for virtual, physical, database, cloud, and SaaS workloads.
 - Immutable snapshots so backup points cannot be altered after capture.
 - Instant recovery of workloads directly from backup storage.
-- DataHawk for threat detection, anomaly detection, and data classification.
+- Threat Protection and Data Classification for threat detection, anomaly detection, and data classification (the earlier DataHawk name is no longer on Cohesity's pages).
 - Sensitive data classification to locate regulated or confidential data across protected workloads.
 - Helios control plane for multi-site management, policy, and reporting.
 - Tiering to cloud and archive storage for long retention.
@@ -104,7 +104,7 @@ Air-gapped and isolated copies extend protection. Copies tiered to cloud or arch
 
 Cohesity supports the intent of the 3-2-1-1-0 rule: several copies, across different media or locations, with at least one offline or immutable copy, and recovery verified so restores are known to work. The immutable copy and the tested restore are what defeat ransomware that targets production and backups together.
 
-DataHawk provides backup-anomaly and threat detection. It studies change rates, encryption-like patterns, and other anomalies across snapshots, and applies threat intelligence to flag indicators of compromise. These signals give responders earlier warning and help locate a clean recovery point.
+Threat Protection provides backup-anomaly and threat detection. It studies change rates, encryption-like patterns, and other anomalies across snapshots, and applies threat intelligence to flag indicators of compromise. These signals give responders earlier warning and help locate a clean recovery point.
 
 Data classification adds impact context. Knowing which sensitive data a compromised system held informs notification, prioritization, and recovery order.
 
@@ -118,7 +118,7 @@ Because Cohesity holds the recovery capability and copies of sensitive data, ran
 
 - Destroying recovery before impact (ATT&CK T1490, Inhibit System Recovery): with backup admin access an attacker tries to delete snapshots, expire protection, or lower retention before encrypting production. Immutable snapshots that cannot be altered in place, plus an isolated or archived copy, are the counters.
 - Abusing the backup identity (ATT&CK T1078, Valid Accounts): a compromised Cohesity administrator, or a reused production domain admin account, can change policy or attempt to erase retained copies, which is why separate identities and role separation matter ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
-- Blinding or outrunning detection: an attacker who pre-stages encryption slowly can try to stay under DataHawk anomaly thresholds, so the analytics are a signal rather than a guarantee.
+- Blinding or outrunning detection: an attacker who pre-stages encryption slowly can try to stay under the Threat Protection anomaly thresholds, so the analytics are a signal rather than a guarantee.
 
 ### Residual risk and own exposure
 
@@ -126,7 +126,7 @@ Cohesity cannot prevent a compromise and cannot recover workloads that were neve
 
 ### Why it matters
 
-A tester probes whether snapshots can be deleted or retention weakened with the access at hand, and whether an isolated copy is truly out of reach. A defender alarms on mass snapshot deletion, retention changes, and policy edits as incidents in their own right, and treats DataHawk findings as an early warning. See [the ransomware defense reference](/RANSOMWARE_DEFENSE_REFERENCE.md) for how immutable and isolated copies fit, and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
+A tester probes whether snapshots can be deleted or retention weakened with the access at hand, and whether an isolated copy is truly out of reach. A defender alarms on mass snapshot deletion, retention changes, and policy edits as incidents in their own right, and treats Threat Protection findings as an early warning. See [the ransomware defense reference](/RANSOMWARE_DEFENSE_REFERENCE.md) for how immutable and isolated copies fit, and [the vulnerability management reference](/VULNERABILITY_MANAGEMENT_REFERENCE.md) for keeping the control itself in scope.
 
 ## Hardening and secure use
 
@@ -153,9 +153,10 @@ This page pairs with the program-level references. See `/RANSOMWARE_DEFENSE_REFE
 ## Resources
 
 - Cohesity DataProtect product documentation.
-- Cohesity DataHawk documentation.
+- Cohesity Data Security documentation: Threat Protection and Data Classification.
 - Cohesity Helios documentation.
 - Cohesity administration and user guides.
+- Cohesity product portfolio (cohesity.com/platform): DataProtect, NetBackup, Threat Protection, Data Classification, Data Security Posture Management (read 25 November 2026).
 
 ## Related pages
 

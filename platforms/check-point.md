@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,360 words at 230 words a minute)
+About 6 min (1,409 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -53,9 +53,9 @@ No review recorded yet
 
 ## What it is and where it fits
 
-Check Point sells security enforcement points and the management plane that controls them. The core enforcement product is the Quantum line of security gateways, which act as firewalls, intrusion prevention sensors, and threat prevention inspection points. Harmony covers endpoint and email protection. CloudGuard extends enforcement and posture checking into public cloud accounts and workloads.
+Check Point sells security enforcement points and the management plane that controls them. The core enforcement product is the Check Point Network Security line of security gateways (formerly Quantum), which act as firewalls, intrusion prevention sensors, and threat prevention inspection points. Workspace Security (formerly Harmony) covers endpoint and email protection. Cloud Security (formerly CloudGuard) extends enforcement and posture checking into public cloud accounts and workloads.
 
-The Infinity architecture is the vendor name for tying these products to one shared policy and threat intelligence model. The intent is that a protection written once can apply at the gateway, the endpoint, and the cloud boundary, and that logs from each flow to one place.
+The Cyber Security Platform (formerly Infinity) is the vendor name for tying these products to one shared policy and threat intelligence model. The intent is that a protection written once can apply at the gateway, the endpoint, and the cloud boundary, and that logs from each flow to one place.
 
 For a network and security team, Check Point sits at the boundary between trust zones. It is where network segmentation is enforced, where inbound and outbound traffic is inspected, and where a network-layer virtual patch can hold a line while a host-level fix is scheduled.
 
@@ -91,7 +91,7 @@ Operationally, the team tracks which gateways run which policy version, which IP
 
 Check Point forwards logs to SIEM platforms over syslog or through dedicated log exporters, which supports detection and investigation workflows. Identity sources such as a directory service feed the identity awareness feature. Threat intelligence feeds, both vendor and third party, can supplement the built-in protections.
 
-An API on the management server lets automation read and change policy, add objects, and install policy. This supports infrastructure-as-code patterns and ticket-driven firewall change automation. CloudGuard reads cloud provider APIs to discover assets and assess configuration posture.
+An API on the management server lets automation read and change policy, add objects, and install policy. This supports infrastructure-as-code patterns and ticket-driven firewall change automation. Cloud Security reads cloud provider APIs to discover assets and assess configuration posture.
 
 Event data from SmartEvent supports the incident response process by giving responders a searchable record of what each gateway blocked or allowed.
 
@@ -127,7 +127,7 @@ For a tester, gateway exposure, VPN endpoints, and IPS profile actions are the f
 
 Check Point is a network enforcement and virtual-patching control in the program. When a vulnerability is disclosed and a host patch cannot be applied immediately, a Check Point IPS protection set to Prevent can reduce exposure at the network boundary. This connects vulnerability management to a concrete compensating control.
 
-The gateway logs feed detection and incident response. Access policy supports segmentation goals. CloudGuard posture findings feed cloud security review. The team should track IPS profile state as part of mitigation reporting, because a network virtual patch only counts when it is set to block.
+The gateway logs feed detection and incident response. Access policy supports segmentation goals. Cloud Security posture findings feed the cloud security review. The team should track IPS profile state as part of mitigation reporting, because a network virtual patch only counts when it is set to block.
 
 ## Resources
 
@@ -136,7 +136,8 @@ The gateway logs feed detection and incident response. Access policy supports se
 - Check Point Threat Prevention Administration Guide
 - Check Point SmartConsole documentation
 - Check Point Management API Reference
-- Check Point CloudGuard documentation
+- Check Point Cloud Security documentation (formerly CloudGuard)
+- Check Point: its product pages read Network Security (formerly Quantum), Workspace Security (formerly Harmony), Cloud Security (formerly CloudGuard) and the Cyber Security Platform (Formerly Infinity) (read 25 November 2026)
 
 ## Related pages
 

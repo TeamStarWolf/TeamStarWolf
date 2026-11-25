@@ -1,6 +1,6 @@
 # Commvault
 
-Commvault Cloud is a data protection and cyber-recovery platform that covers backup, recovery, and resilience across workloads. It includes the Metallic software-as-a-service offerings for cloud-delivered protection. The platform adds immutable and air-gapped copies, Threatwise cyber deception, and recovery orchestration and testing. Licence tier decides which products and capabilities are in force.
+Commvault Cloud is a data protection and cyber-recovery platform that covers backup, recovery, and resilience across workloads. It includes software-as-a-service delivery for cloud-delivered protection, a line Commvault earlier branded Metallic. The platform adds immutable and air-gapped copies, Threatwise cyber deception, and recovery orchestration and testing. Licence tier decides which products and capabilities are in force.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,390 words at 230 words a minute)
+About 6 min (1,417 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -55,7 +55,7 @@ No review recorded yet
 
 Commvault Cloud is a platform for backup, recovery, and cyber resilience. It protects virtual machines, physical servers, databases, applications, cloud workloads, and SaaS data across on-premises and cloud environments.
 
-The Metallic offerings deliver Commvault protection as software-as-a-service, so teams can consume backup and recovery without running all of the infrastructure themselves. On-premises, hybrid, and SaaS models can coexist in one estate.
+Commvault's software-as-a-service delivery, earlier branded Metallic, provides protection so teams can consume backup and recovery without running all of the infrastructure themselves. On-premises, hybrid, and SaaS models can coexist in one estate.
 
 In a security program, Commvault sits in the recover function and adds detection and deception. It is the corrective control that restores systems after destructive attacks, and it includes features that help detect and investigate compromise.
 
@@ -70,12 +70,12 @@ A Commvault deployment is built from a control layer, data movers, and storage t
 
 Protection is plan-driven. Administrators define plans that set backup frequency, retention, and storage targets, then assign workloads to them. The platform captures data, stores it, and ages copies across tiers to match each plan.
 
-In the Metallic model, much of the control and storage infrastructure is delivered as a service, while data capture still happens where the workloads run.
+In the software-as-a-service model, much of the control and storage infrastructure is delivered as a service, while data capture still happens where the workloads run.
 
 ## Key capabilities
 
 - Backup and recovery across virtual, physical, database, application, cloud, and SaaS workloads.
-- Metallic software-as-a-service delivery for cloud-managed protection.
+- Software-as-a-service delivery for cloud-managed protection (earlier branded Metallic).
 - Immutable copies so backup data cannot be altered after it is written.
 - Air-gapped copies through offline and isolated storage targets.
 - Threatwise cyber deception, which places decoys to detect attacker activity early.
@@ -85,7 +85,7 @@ In the Metallic model, much of the control and storage infrastructure is deliver
 
 ## Deployment and operations
 
-Commvault runs as managed infrastructure on-premises, as the Metallic service, or in a hybrid model. Teams choose how much of the stack they operate versus consume as a service.
+Commvault runs as managed infrastructure on-premises, as the software-as-a-service offering, or in a hybrid model. Teams choose how much of the stack they operate versus consume as a service.
 
 Operations centre on plans and estate health. Administrators assign workloads to protection plans and monitor compliance, job success, and capacity from the management layer. Reporting shows coverage, failures, and workloads outside policy.
 
@@ -152,7 +152,8 @@ This page pairs with the program-level references. See `/RANSOMWARE_DEFENSE_REFE
 ## Resources
 
 - Commvault Cloud product documentation.
-- Commvault and Metallic administration and user guides.
+- Commvault administration and user guides.
+- Commvault: metallic.io now redirects to commvault.com, where the Metallic name no longer appears and no replacement name is published (observed 25 November 2026).
 - Commvault Threatwise documentation.
 - Commvault recovery orchestration documentation.
 

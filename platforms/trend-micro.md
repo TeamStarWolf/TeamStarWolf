@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,351 words at 230 words a minute)
+About 6 min (1,362 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -125,7 +125,7 @@ A vulnerability management and security operations team uses TrendAI Vision One 
 - TrendAI Vision One Cloud Risk Management documentation (formerly Conformity)
 - TrendAI Vision One Container Security documentation
 - TrendAI Vision One API reference
-- Trend Micro business site: the product is now TrendAI Vision One and its cloud posture is Cloud Risk Management, formerly Conformity (read 25 November 2026)
+- Trend Micro: the business site names the product TrendAI Vision One; the former Cloud One Conformity address now lands on trendaisecurity.com/en-us/platform/cloud-security, which names TrendAI Vision One Cloud Risk Management (read 25 November 2026)
 
 ## Related pages
 

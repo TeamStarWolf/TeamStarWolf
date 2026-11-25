@@ -1,6 +1,6 @@
 # Cohesity
 
-Cohesity is a data management and security platform that consolidates backup with threat and anomaly analytics. DataProtect handles backup and recovery with immutable snapshots, while the Data Security products, Threat Protection and Data Security Posture Management (earlier branded DataHawk), add threat detection and data classification. The Helios control plane manages estates from one place. Since its December 2024 combination with Veritas' enterprise data protection business, Cohesity's portfolio also includes NetBackup. Licence tier decides which products and capabilities are in force.
+Cohesity is a data management and security platform that consolidates backup with threat and anomaly analytics. DataProtect handles backup and recovery with immutable snapshots, while the Data Security products Threat Protection and Data Classification add threat detection and data classification. The name DataHawk is no longer on Cohesity's platform or documentation pages, and its former documentation address now returns 404. The Helios control plane manages estates from one place. Since its December 2024 combination with Veritas' enterprise data protection business, Cohesity's portfolio also includes NetBackup. Licence tier decides which products and capabilities are in force.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,431 words at 230 words a minute)
+About 6 min (1,448 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -78,7 +78,7 @@ Snapshots are stored so that they cannot be modified in place. This gives each b
 - DataProtect backup and recovery for virtual, physical, database, cloud, and SaaS workloads.
 - Immutable snapshots so backup points cannot be altered after capture.
 - Instant recovery of workloads directly from backup storage.
-- Threat Protection and Data Security Posture Management (DSPM) for threat detection, anomaly detection, and data classification (earlier branded DataHawk).
+- Threat Protection and Data Classification for threat detection, anomaly detection, and data classification (the earlier DataHawk name is no longer on Cohesity's pages).
 - Sensitive data classification to locate regulated or confidential data across protected workloads.
 - Helios control plane for multi-site management, policy, and reporting.
 - Tiering to cloud and archive storage for long retention.
@@ -153,10 +153,10 @@ This page pairs with the program-level references. See `/RANSOMWARE_DEFENSE_REFE
 ## Resources
 
 - Cohesity DataProtect product documentation.
-- Cohesity Data Security documentation: Threat Protection and Data Security Posture Management (earlier DataHawk).
+- Cohesity Data Security documentation: Threat Protection and Data Classification.
 - Cohesity Helios documentation.
 - Cohesity administration and user guides.
-- Cohesity product portfolio (cohesity.com/platform): DataProtect, NetBackup, Threat Protection, Data Security Posture Management (read 25 November 2026).
+- Cohesity product portfolio (cohesity.com/platform): DataProtect, NetBackup, Threat Protection, Data Classification, Data Security Posture Management (read 25 November 2026).
 
 ## Related pages
 

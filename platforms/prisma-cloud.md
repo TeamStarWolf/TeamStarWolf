@@ -1,6 +1,6 @@
 # Prisma Cloud
 
-Prisma Cloud is the Palo Alto Networks cloud-native application protection platform (CNAPP). Palo Alto Networks now delivers it within Cortex Cloud, its cloud security platform; the paloaltonetworks.com/prisma/cloud page leads with Cortex Cloud (read 25 November 2026). It covers posture, workloads, identities, and code across public cloud providers. The sections below describe the generally available product in 2026. The licence tier a team holds decides which modules are in force.
+Prisma Cloud is the Palo Alto Networks cloud-native application protection platform (CNAPP). On 13 February 2025 Palo Alto Networks introduced Cortex Cloud, stating that "Prisma Cloud is merged with Cortex CDR to form Cortex Cloud" and describing this as the next version of Prisma Cloud. The paloaltonetworks.com/prisma/cloud page now leads with Cortex Cloud (read 25 November 2026). It covers posture, workloads, identities, and code across public cloud providers. The sections below describe the generally available product in 2026. The licence tier a team holds decides which modules are in force.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,425 words at 230 words a minute)
+About 6 min (1,459 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -140,7 +140,8 @@ In a stack that also runs a dedicated CNAPP such as Wiz or Orca Security, a team
 - Prisma Cloud Compute Edition documentation
 - Palo Alto Networks Prisma Cloud API reference
 - Prisma Cloud onboarding and cloud account connection guides
-- Palo Alto Networks: the Prisma Cloud product page leads with Cortex Cloud, the platform Prisma Cloud's CNAPP is now delivered within (read 25 November 2026)
+- Palo Alto Networks newsroom: Introduces Cortex Cloud (13 February 2025), "Prisma Cloud is merged with Cortex CDR to form Cortex Cloud"
+- Palo Alto Networks: the Prisma Cloud product page now leads with Cortex Cloud (read 25 November 2026)
 
 ## Related pages
 

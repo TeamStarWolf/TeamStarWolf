@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 10 min (2,214 words at 230 words a minute)
+About 10 min (2,219 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -115,7 +115,7 @@ done
 | 3.2 | CloudTrail log file validation | High | `aws cloudtrail update-trail --name TRAIL --enable-log-file-validation` |
 | 3.5 | CloudTrail logs encrypted with KMS | Medium | `aws cloudtrail update-trail --name TRAIL --kms-key-id KMS_KEY_ARN` |
 | 3.3 | AWS Config enabled in all regions | High | `aws configservice put-configuration-recorder` |
-| - | CloudTrail S3 bucket not publicly accessible (a v1.x control; v3.0.0 covers this through S3 Block Public Access, 2.1.4) | Critical | Check bucket ACL and policy |
+| - | CloudTrail S3 bucket not publicly accessible (3.3 in v1.4.0; not a v3.0.0 control) | Critical | Check bucket ACL and policy |
 | 4.3 | CloudWatch alarm for root account usage | High | Create metric filter + alarm on CloudTrail log group |
 
 CloudWatch Alarm for Root Usage:
@@ -177,11 +177,11 @@ aws ec2 describe-security-groups \
 | 1.1.2 | MFA required for privileged users | Critical | Enforce via PIM + Conditional Access |
 | - | No guest users with privileged roles (hardening; cf. guest review, 1.5) | High | `az ad user list --filter "userType eq 'Guest'"` -> check role assignments |
 | - | Legacy authentication blocked (hardening; Conditional Access recommendation) | High | Conditional Access: block legacy auth protocols |
-| - | Global Admin limited to < 5 users (hardening; CIS does not cap the count) | High | Global Administrator is an Entra directory role; count its members with Microsoft Graph (see the privileged-role check below), not `az role assignment list` (that lists Azure RBAC resource roles) |
+| - | Global Admin limited to < 5 users (hardening; not a v2.0.0 control) | High | Global Administrator is an Entra directory role; count its members with Microsoft Graph (see the privileged-role check below), not `az role assignment list` (that lists Azure RBAC resource roles) |
 | - | PIM used for privileged roles (hardening) | High | Azure PIM: just-in-time activation for GA, Owner, Contributor |
 | 1.1.1 | Security defaults or Conditional Access enabled | Critical | Security defaults provide baseline; CA provides more control |
 | - | Password hash sync or PTA, not ADFS only (hardening) | Medium | Enables leaked credential detection |
-| 1.6 | SSPR registration required | Medium | Self-Service Password Reset reduces help desk load |
+| 1.6 | Number of methods required to reset set to 2 | Medium | Require two reset methods; register users for Self-Service Password Reset |
 
 Azure Privileged Role Check (Microsoft Graph PowerShell; the AzureAD and MSOnline modules are deprecated):
 ```powershell
@@ -252,9 +252,9 @@ az storage account list --query "[?enableHttpsTrafficOnly==false].[name,resource
 | CIS Control | Check | Severity | Remediation |
 |---|---|---|---|
 | 8.5 | Key Vault recoverable (soft delete + purge protection) | High | Soft delete is on by default and cannot be disabled; set `az keyvault update --name VAULT --enable-purge-protection true` |
-| 8.2 | Key expiry date set | Medium | Set expiry on all keys |
-| 8.3 | Secret expiry date set | Medium | Set expiry on all secrets |
-| 8.4 | Certificate expiry and auto-renewal configured | High | Configure certificate contacts and auto-renewal |
+| 8.1 (and 8.2 for non-RBAC vaults) | Key expiry date set | Medium | Set expiry on all keys |
+| 8.3 (and 8.4 for non-RBAC vaults) | Secret expiry date set | Medium | Set expiry on all secrets |
+| - | Certificate expiry and auto-renewal configured (hardening) | High | Configure certificate contacts and auto-renewal |
 | 8.7 | Private endpoints / restricted network access for Key Vault | High | Restrict access to specific VNets/IPs; prefer Private Endpoints |
 | 5.1.5 | Resource logs in Key Vault enabled | High | Enable Diagnostic Settings -> send to Log Analytics (CIS numbers Key Vault logging under 5.1, not section 8) |
 
@@ -268,14 +268,14 @@ az storage account list --query "[?enableHttpsTrafficOnly==false].[name,resource
 
 | CIS Control | Check | Severity | Remediation |
 |---|---|---|---|
-| - | No legacy basic roles (Owner/Editor/Viewer) for users (hardening; re-map to the current CIS GCP IAM controls) | High | Replace with fine-grained IAM roles |
+| - | No legacy basic roles (Owner/Editor/Viewer) for users (hardening; not a v3.0 control) | High | Replace with fine-grained IAM roles |
 | 1.5 | No service accounts with admin or primitive privileges | Critical | `gcloud iam service-accounts list` -> review roles |
 | 1.4 | No user-managed service account keys | High | Use Workload Identity Federation instead |
-| - | Restrict domain-restricted sharing (allowed policy member domains) (org policy; verify the CIS GCP v3.0 number) | High | `constraints/iam.allowedPolicyMemberDomains` |
+| 1.1 | Corporate login credentials used (no outside identities granted IAM roles) | High | `constraints/iam.allowedPolicyMemberDomains` (domain-restricted sharing) |
 | 1.8 | Separation of duties for service accounts | Medium | Review SA key creators vs users |
 | 1.10 | Cloud KMS keys rotated within 90 days | High | Check (read-only): `gcloud kms keys describe KEY --keyring=KEYRING --location=LOCATION` shows `rotationPeriod`. Set: `gcloud kms keys update KEY --keyring=KEYRING --location=LOCATION --rotation-period=90d --next-rotation-time=TIMESTAMP` |
 | - | Pub/Sub subscriptions use authenticated HTTPS push endpoints (hardening; not a v3.0 control) | Low | Use authenticated push endpoints |
-| - | Secret Manager used for secrets, not env vars (hardening; not a v3.0 control) | High | Audit Cloud Run/Functions for hardcoded secrets in env |
+| 1.17 | Secrets not stored in Cloud Functions env vars (use Secret Manager) | High | Audit Cloud Run/Functions for hardcoded secrets in env |
 
 GCP IAM Policy Review:
 ```bash
@@ -311,7 +311,7 @@ gcloud logging metrics create iam-policy-changes \
   --log-filter='protoPayload.methodName="SetIamPolicy" OR protoPayload.methodName="google.iam.v1.IAMPolicy.SetIamPolicy"'
 
 # Create alerting policy (requires Monitoring API)
-gcloud alpha monitoring policies create --policy-from-file=alerting_policy.json
+gcloud monitoring policies create --policy-from-file=alerting_policy.json
 ```
 
 ### Compute Engine

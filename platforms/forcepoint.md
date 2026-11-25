@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,354 words at 230 words a minute)
+About 6 min (1,455 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -53,7 +53,7 @@ No review recorded yet
 
 ## What it is and where it fits
 
-Forcepoint groups its products around the control of sensitive data. Forcepoint Data Security Cloud (formerly Forcepoint ONE) is its security service edge, and Data Security provides data loss prevention across channels. A next-generation firewall addresses network boundaries where that product is deployed.
+Forcepoint groups its products around the control of sensitive data. It secures web and cloud access through Forcepoint Web Security (a secure web gateway), Forcepoint CASB and Forcepoint ZTNA, and Data Security provides data loss prevention across channels. A next-generation firewall addresses network boundaries where that product is deployed. Forcepoint earlier offered these as one security service edge, Forcepoint ONE; that product address now redirects to the Data Security Cloud page, a separate data-security product, observed 25 November 2026.
 
 The organizing idea is that security policy should follow the data and the user, not the network. The platform classifies content and applies policy to where that content is allowed to go.
 
@@ -66,13 +66,13 @@ It also produces telemetry about access and data movement. Data loss prevention 
 
 ## Architecture and how it works
 
-Forcepoint Data Security Cloud is a cloud-delivered security edge. User traffic is steered to the service for inspection and policy enforcement. Enforcement happens in three places, depending on the channel and deployment:
+Forcepoint's web and cloud access controls are delivered as cloud services. User traffic is steered to them for inspection and policy enforcement. Enforcement happens in three places, depending on the channel and deployment:
 
 - In the cloud, for web and cloud-application traffic.
 - On endpoints, through an agent, for data in use and local controls.
 - At network boundaries, where the next-generation firewall is deployed.
 
-Web traffic passes through the secure web gateway, which can decrypt and inspect encrypted sessions. Cloud application use is governed by the cloud access security broker, which can apply controls inline and through application APIs. Private applications are reached through zero-trust access that brokers connections rather than placing users on a network.
+Web traffic passes through Forcepoint Web Security, the secure web gateway, which can decrypt and inspect encrypted sessions. Cloud application use is governed by Forcepoint CASB, the cloud access security broker, which can apply controls inline and through application APIs. Private applications are reached through Forcepoint ZTNA, which brokers connections rather than placing users on a network.
 
 Data Security runs policy that inspects content against classifiers and rules. It can enforce at the endpoint, on the web channel, in email, and in cloud applications. The same policy intent can be applied across these channels, so a rule about sensitive data holds wherever the data tries to move.
 
@@ -80,11 +80,11 @@ Where the next-generation firewall is deployed, it enforces network-layer policy
 
 ## Key capabilities
 
-Forcepoint Data Security Cloud combines several edge functions:
+Forcepoint delivers these edge functions as separate products, which it earlier unified as the Forcepoint ONE security service edge:
 
-- A secure web gateway that filters and inspects internet-bound traffic.
-- A cloud access security broker that discovers and controls cloud application use.
-- Zero-trust access that brokers connections to private applications without exposing the network.
+- Forcepoint Web Security, a secure web gateway that filters and inspects internet-bound traffic.
+- Forcepoint CASB, a cloud access security broker that discovers and controls cloud application use.
+- Forcepoint ZTNA, zero-trust access that brokers connections to private applications without exposing the network.
 
 Data loss prevention, delivered through Data Security, is the central capability:
 
@@ -96,7 +96,7 @@ The next-generation firewall provides network segmentation, inspection, and poli
 
 ## Deployment and operations
 
-Deployment of Forcepoint Data Security Cloud begins with steering web and cloud traffic to the service and enabling the relevant modules. Endpoints run an agent where endpoint enforcement or data controls are needed.
+Deployment of these access controls begins with steering web and cloud traffic to the services and enabling the relevant modules. Endpoints run an agent where endpoint enforcement or data controls are needed.
 
 Data loss prevention deployment follows a sequence:
 
@@ -152,12 +152,15 @@ Its data loss prevention events support detection and incident response by flagg
 
 ## Resources
 
-- Forcepoint Data Security Cloud documentation
+- Forcepoint Web Security documentation
+- Forcepoint CASB documentation
+- Forcepoint ZTNA documentation
+- Forcepoint Data Security Cloud documentation (data security: discovery, classification, DLP, DSPM)
 - Forcepoint Data Security administration guide
 - Forcepoint Next-Generation Firewall documentation
 - Forcepoint Security Manager documentation
 - Forcepoint API reference
-- Forcepoint: /product/forcepoint-one redirects to the "Forcepoint Data Security Cloud" page (observed 25 November 2026)
+- Forcepoint: the former Forcepoint ONE address (/product/forcepoint-one) now redirects to the Data Security Cloud page, a data-security product; the edge functions are sold as Forcepoint Web Security, Forcepoint CASB, Forcepoint ZTNA and Remote Browser Isolation (observed 25 November 2026)
 - Francisco Partners: investments page lists Forcepoint as a current portfolio company, acquired from Raytheon Technologies (franciscopartners.com/investments, read 25 November 2026)
 
 ## Related pages

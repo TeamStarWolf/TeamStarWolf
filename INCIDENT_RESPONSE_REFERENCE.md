@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 27 min (6,158 words at 230 words a minute)
+About 27 min (6,181 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -2141,7 +2141,7 @@ State Breach Notification Laws (US)
 
 PCI DSS Incident Response
 - Contact your acquirer promptly on a suspected or confirmed cardholder-data compromise; the exact deadlines come from the acquirer, the card brands' programs, your merchant agreement and applicable law, not from a single universal clock
-- Brand deadlines (confirm against the current rules): Visa's "What To Do If Compromised" requires notice immediately and no later than three calendar days; Mastercard's Account Data Compromise program requires engaging a PFI and submitting affected account numbers within 72 hours
+- Brand deadlines (confirm against the current rules): notify your acquirer immediately; Visa's "What To Do If Compromised" requires notice immediately and no later than three calendar days; Mastercard's Security Rules and Procedures require notifying Mastercard within 24 hours of becoming aware of an ADC event or potential event, with affected account numbers within 72 hours. Other brands and your merchant agreement may differ
 - Engage a PCI Forensic Investigator (PFI), a QSA firm authorized by the card brands, when the brand program requires one
 - Preserve all logs and evidence per PFI guidance
 

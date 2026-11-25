@@ -48,7 +48,7 @@ Notes: Multiple nodes [1]. Bridge/NAT64 [6]. Cloud add-ons [4]. The always-on fr
 
 ## PART 2 | The mesh Wi-Fi system: Netgear Orbi
 
-- Talos (2023) found four flaws in the Orbi mesh on firmware 4.6.8.5; sources differ on which node holds CVE-2022-37337 (Talos says the Satellite, the NVD record the Router).
+- Talos (2023) found four flaws in the Orbi mesh on firmware 4.6.8.5; sources differ on which node holds CVE-2022-37337 (the Talos blog says Satellite; its own advisory and the NVD say Router).
 - CVE-2022-37337 is command execution; "The user needs to authenticate into the mesh system first" [1], then a crafted request runs commands.
 - Scores differ by source: NVD's own is 8.8; Cisco, the assigner, rates it 9.1 [2].
 - Router and satellite are both in the list; a mesh is several computers, each a target.

@@ -1,6 +1,6 @@
 # Mimecast
 
-Mimecast is a cloud-delivered email security and resilience service. It sits in front of the mail platform and inspects inbound and outbound messages before delivery. This page describes the generally available product in 2026. Licence tier decides which capabilities are in force.
+Mimecast is a cloud-delivered email security and resilience service. It sits in front of the mail platform and inspects inbound and outbound messages before delivery. This page describes the generally available product in 2026. Licence tier decides which capabilities are in force. Mimecast is a Permira portfolio company.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,070 words at 230 words a minute)
+About 5 min (1,107 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -135,7 +135,9 @@ For incident response, Mimecast message tracking and search help scope a phishin
 - Mimecast Email Security documentation
 - Mimecast API documentation
 - Mimecast Data Loss Prevention policy documentation
-- Mimecast Awareness Training documentation
+- Mimecast Security Behavior Management documentation (formerly Awareness Training)
+- Mimecast: the former /products/security-awareness-training/ address redirects to /products/security-behavior-management/ (observed 25 November 2026)
+- Permira: portfolio page lists Mimecast (permira.com/portfolio/our-portfolio/mimecast, read 25 November 2026)
 
 ## Related pages
 

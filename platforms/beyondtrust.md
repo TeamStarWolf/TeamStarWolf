@@ -2,7 +2,7 @@
 
 BeyondTrust is a privileged access management platform. It vaults and rotates
 privileged credentials, controls vendor and administrator sessions, and removes
-standing local administrator rights from endpoints.
+standing local administrator rights from endpoints. BeyondTrust is a Francisco Partners portfolio company.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,280 words at 230 words a minute)
+About 6 min (1,304 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -206,6 +206,7 @@ the access path, and feeds the SIEM with privileged activity for correlation.
 - BeyondTrust Privileged Remote Access documentation
 - BeyondTrust Endpoint Privilege Management documentation
 - BeyondTrust product support portal
+- Francisco Partners: investments page lists BeyondTrust as a current portfolio company (franciscopartners.com/investments, read 25 November 2026)
 
 ## Related pages
 

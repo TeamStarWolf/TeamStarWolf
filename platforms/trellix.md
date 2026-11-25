@@ -1,6 +1,6 @@
 # Trellix
 
-Trellix is an endpoint and extended detection and response vendor formed from the combination of McAfee Enterprise and FireEye. Its product line covers Endpoint Security, Trellix XDR, data protection, and threat intelligence. Management centers on ePolicy Orchestrator, known as ePO, the console that deploys agents, applies policy, and collects events.
+Trellix is an endpoint and extended detection and response vendor formed from the combination of McAfee Enterprise and FireEye. Its product line covers Endpoint Security, Trellix Helix (formerly Trellix XDR), data protection, and threat intelligence. Trellix is a Symphony Technology Group portfolio company. Management centers on ePolicy Orchestrator, known as ePO, the console that deploys agents, applies policy, and collects events.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,331 words at 230 words a minute)
+About 6 min (1,374 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -63,14 +63,14 @@ Endpoints run the Trellix agent, historically the McAfee Agent, which communicat
 
 Trellix Endpoint Security provides the prevention and detection modules on the host. These include threat prevention, firewall, web control, and adaptive detection that scores behavior. Policies are authored in ePO and assigned to systems through the ePO system tree, a hierarchy that groups managed endpoints.
 
-Trellix XDR correlates detections across endpoint and other connected sources, adding investigation and response workflows. It draws on Trellix threat intelligence to add context to detections. Data protection modules add data loss prevention and encryption controls managed through the same console.
+Trellix Helix correlates detections across endpoint and other connected sources, adding investigation and response workflows. It draws on Trellix threat intelligence to add context to detections. Data protection modules add data loss prevention and encryption controls managed through the same console.
 
 ePO is the operational center. It deploys agents, distributes content and policy, and collects events into a database for reporting and query. Content updates, including detection logic, flow through ePO to the agents on a schedule.
 
 ## Key capabilities
 
 - Endpoint Security with threat prevention, firewall, web control, and adaptive behavioral detection.
-- Trellix XDR for cross-source detection correlation, investigation, and response.
+- Trellix Helix for cross-source detection correlation, investigation, and response.
 - Data protection modules, including data loss prevention and encryption.
 - Threat intelligence that enriches detections with context from the FireEye heritage.
 - ePolicy Orchestrator as the deployment, policy, and reporting console.
@@ -133,9 +133,11 @@ Threat intelligence from Trellix helps rank which exposures matter against activ
 
 - Trellix ePolicy Orchestrator (ePO) product documentation
 - Trellix Endpoint Security product documentation
-- Trellix XDR documentation
+- Trellix Helix documentation
 - Trellix data protection product documentation
 - Trellix threat intelligence documentation
+- Trellix: the former Trellix XDR address (/products/xdr/) redirects to the Trellix Helix page (/products/helix/, observed 25 November 2026)
+- Symphony Technology Group: portfolio lists Trellix (stgpartners.com/portfolio, read 25 November 2026)
 
 ## Related pages
 

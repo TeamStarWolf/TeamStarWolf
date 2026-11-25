@@ -1,6 +1,6 @@
 # Citrix NetScaler
 
-NetScaler is an application delivery controller, the product formerly branded Citrix ADC. It sits in front of applications to balance load, terminate TLS, and apply web application firewall policy. This page describes the product as generally available in 2026. The licence tier decides which features are in force.
+NetScaler is an application delivery controller, the product formerly branded Citrix ADC. It sits in front of applications to balance load, terminate TLS, and apply web application firewall policy. This page describes the product as generally available in 2026. The licence tier decides which features are in force. NetScaler is part of the Citrix business unit of Cloud Software Group.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,302 words at 230 words a minute)
+About 6 min (1,331 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -136,6 +136,7 @@ The Security Advisory feed connects NetScaler directly to the vulnerability mana
 - NetScaler StyleBooks documentation
 - NetScaler Security Advisory documentation
 - NetScaler NITRO API Reference
+- NetScaler: "part of the Citrix business unit of Cloud Software Group" (netscaler.com/about-netscaler, read 25 November 2026)
 
 ## Related pages
 

@@ -1,6 +1,6 @@
 # Sophos
 
-Sophos is an endpoint protection and managed detection vendor whose products are managed from the Sophos Central cloud console. Its endpoint line, Intercept X, combines deep-learning malware prevention, anti-ransomware, and exploit prevention. Sophos XDR extends detection across endpoint, server, firewall, and email, while Sophos MDR offers a managed detection and response service run by Sophos analysts.
+Sophos is an endpoint protection and managed detection vendor whose products are managed from Sophos Fusion, the cloud console Sophos describes as the evolution of Sophos Central. Its endpoint product, Sophos Endpoint (earlier sold as Intercept X), combines deep-learning malware prevention, anti-ransomware, and exploit prevention. Sophos XDR extends detection across endpoint, server, firewall, and email, while Sophos MDR offers a managed detection and response service run by Sophos analysts. Sophos is a Thoma Bravo portfolio company (invested 2020) and completed its acquisition of Secureworks on 3 February 2025.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,360 words at 230 words a minute)
+About 6 min (1,466 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -53,62 +53,62 @@ No review recorded yet
 
 ## What it is and where it fits
 
-Sophos belongs to the endpoint protection (EPP), endpoint detection and response (EDR), and extended detection and response (XDR) categories. It also spans network and email security, so a single vendor can cover several control layers. The common management plane is Sophos Central, a cloud console that holds policy, alerts, and reporting for every product a tenant licenses.
+Sophos belongs to the endpoint protection (EPP), endpoint detection and response (EDR), and extended detection and response (XDR) categories. It also spans network and email security, so a single vendor can cover several control layers. The common management plane is Sophos Fusion, a cloud console that holds policy, alerts, and reporting for every product a tenant licenses.
 
 For a security operations and vulnerability management team, Sophos provides prevention and detection on endpoints and servers, plus an optional managed service. Teams short on staff can hand monitoring and response to Sophos MDR while keeping control of policy. Licence tier and module entitlement decide what is in force, including XDR data retention, the MDR service level, and which firewall or email features apply.
 
 ## Architecture and how it works
 
-Endpoints and servers run the Sophos agent, which reports to Sophos Central over the internet. The agent carries prevention layers that act locally, so protection continues when a host is offline. Central stores policy and pushes it to agents, and it collects detections and telemetry for review.
+Endpoints and servers run the Sophos agent, which reports to Sophos Fusion over the internet. The agent carries prevention layers that act locally, so protection continues when a host is offline. Fusion stores policy and pushes it to agents, and it collects detections and telemetry for review.
 
-Intercept X is the endpoint prevention engine. A deep-learning model classifies files as malicious or clean without relying on signatures for every variant. CryptoGuard watches for the file-encryption behavior typical of ransomware and can stop and roll back unauthorized encryption. Exploit prevention blocks the techniques attackers use to abuse legitimate software, such as memory corruption and process injection.
+Sophos Endpoint is the prevention engine. A deep-learning model classifies files as malicious or clean without relying on signatures for every variant. CryptoGuard watches for the file-encryption behavior typical of ransomware and can stop and roll back unauthorized encryption. Exploit prevention blocks the techniques attackers use to abuse legitimate software, such as memory corruption and process injection.
 
-Sophos XDR adds data collection and query across endpoints, servers, firewalls, and email. Detections from different products correlate in Central, and analysts can run queries against stored telemetry to hunt and investigate. Retention length depends on the licensed tier.
+Sophos XDR adds data collection and query across endpoints, servers, firewalls, and email. Detections from different products correlate in Fusion, and analysts can run queries against stored telemetry to hunt and investigate. Retention length depends on the licensed tier.
 
 Sophos MDR is a service layer on top of the same telemetry. Sophos analysts monitor the tenant, investigate detections, and take response actions by agreement. The customer defines the response authorization, from notify-only to full containment.
 
 ## Key capabilities
 
-- Deep-learning malware prevention in Intercept X that classifies files without per-variant signatures.
+- Deep-learning malware prevention in Sophos Endpoint that classifies files without per-variant signatures.
 - CryptoGuard anti-ransomware that detects malicious encryption and rolls affected files back.
 - Exploit prevention that blocks common exploitation techniques against legitimate applications.
-- Sophos XDR for cross-product detection, correlation, and threat hunting from Central.
+- Sophos XDR for cross-product detection, correlation, and threat hunting from Fusion.
 - Sophos MDR, a managed service where Sophos analysts monitor and respond on the tenant's behalf.
 - Server protection with controls suited to workloads, including Windows and Linux servers.
-- Firewall and email security products managed in the same Central console.
+- Firewall and email security products managed in the same Fusion console.
 - Device and application control policies that limit what runs and connects.
 
 Feature availability follows the licensed product set. A tenant may run endpoint protection alone or combine it with firewall, email, and the managed service.
 
 ## Deployment and operations
 
-Agents install through Sophos Central, a deployment package, or standard software distribution tools. Policies in Central apply to groups of devices and servers, each with its own prevention and detection settings. Begin with recommended policies, confirm the baseline in the environment, then tighten controls such as application and device control.
+Agents install through Sophos Fusion, a deployment package, or standard software distribution tools. Policies in Fusion apply to groups of devices and servers, each with its own prevention and detection settings. Begin with recommended policies, confirm the baseline in the environment, then tighten controls such as application and device control.
 
-Operational work centers on reviewing detections in Central, confirming automated responses, and tuning exclusions. Scope exclusions narrowly to a path, process, or hash rather than a broad folder, because wide exclusions create blind spots. Monitor agent health so every host reports in and runs current protection.
+Operational work centers on reviewing detections in Fusion, confirming automated responses, and tuning exclusions. Scope exclusions narrowly to a path, process, or hash rather than a broad folder, because wide exclusions create blind spots. Monitor agent health so every host reports in and runs current protection.
 
 Where Sophos MDR is licensed, the team coordinates with Sophos analysts on response authorization and escalation paths. Define in advance which actions Sophos may take without a callback and which require approval. Keep firewall and email policy under the same review discipline as endpoint policy.
 
 ## Integrations and data flow
 
-Sophos Central exports alerts and events to SIEM platforms through its API and connectors. This forwards endpoint, server, firewall, and email detections into a central correlation and archival store. Verify the supported connector and the data format for the entitled tier before relying on it.
+Sophos Fusion exports alerts and events to SIEM platforms through its API and connectors. This forwards endpoint, server, firewall, and email detections into a central correlation and archival store. Verify the supported connector and the data format for the entitled tier before relying on it.
 
-SOAR platforms can consume Sophos alerts and call the Central API to run response actions, supporting automated playbooks. The API also drives custom reporting and bulk device management. Treat the API as a control plane because it can change policy and isolate hosts.
+SOAR platforms can consume Sophos alerts and call the Fusion API to run response actions, supporting automated playbooks. The API also drives custom reporting and bulk device management. Treat the API as a control plane because it can change policy and isolate hosts.
 
-Sophos products share telemetry inside Central, so a firewall detection can enrich an endpoint investigation. This cross-product flow is part of the XDR value when several Sophos products are licensed. External threat intelligence feeds enrich detections with context.
+Sophos products share telemetry inside Fusion, so a firewall detection can enrich an endpoint investigation. This cross-product flow is part of the XDR value when several Sophos products are licensed. External threat intelligence feeds enrich detections with context.
 
 ## Adversary perspective
 
-Because Sophos is the prevention and detection control on the host, adversaries treat its agent as something to blind or disable, and Sophos Central is itself an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+Because Sophos is the prevention and detection control on the host, adversaries treat its agent as something to blind or disable, and Sophos Fusion is itself an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
 
 ### Evasion and tampering
 
-- Impairing the agent (ATT&CK T1685, Disable or Modify Tools): with local administrator rights an attacker tries to stop or uninstall the agent, cut its connection to Central, or disable protection layers. Tamper protection and controlled recovery codes are the countermeasures, and the tamper-protection password itself is a target.
+- Impairing the agent (ATT&CK T1685, Disable or Modify Tools): with local administrator rights an attacker tries to stop or uninstall the agent, cut its connection to Fusion, or disable protection layers. Tamper protection and controlled recovery codes are the countermeasures, and the tamper-protection password itself is a target.
 - Running below or around the agent: bring-your-own-vulnerable-driver (BYOVD) and user-mode unhooking aim to act outside the agent's visibility, and a broad exclusion becomes a safe harbor to run from.
-- Central and API abuse: a hijacked Central session or a stolen API credential lets an attacker change policy, isolate hosts, or pull telemetry across the tenant, which turns the control into a foothold ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
+- Fusion and API abuse: a hijacked Fusion session or a stolen API credential lets an attacker change policy, isolate hosts, or pull telemetry across the tenant, which turns the control into a foothold ([CWE-269](https://cwe.mitre.org/data/definitions/269.html)).
 
 ### Residual risk and own exposure
 
-The agent runs with high privilege on every host, so a flaw in the agent or the console is high-impact, and endpoint agents across the industry have carried privilege-escalation and remote issues. The agent version and the Central integrations belong in the patch and monitoring scope, and no agent catches every technique on its own.
+The agent runs with high privilege on every host, so a flaw in the agent or the console is high-impact, and endpoint agents across the industry have carried privilege-escalation and remote issues. The agent version and the Fusion integrations belong in the patch and monitoring scope, and no agent catches every technique on its own.
 
 ### Why it matters
 
@@ -116,11 +116,11 @@ Treating the endpoint control as infallible is the mistake. A mature program mon
 
 ## Hardening and secure use
 
-Apply role-based administration in Central so each admin holds only the scope their duties need. Separate read-only roles from administrators who can change policy or authorize response. Review role assignments on a schedule and remove access that is no longer needed, because over-broad roles are an authorization weakness (CWE-862, missing authorization).
+Apply role-based administration in Fusion so each admin holds only the scope their duties need. Separate read-only roles from administrators who can change policy or authorize response. Review role assignments on a schedule and remove access that is no longer needed, because over-broad roles are an authorization weakness (CWE-862, missing authorization).
 
-Protect API credentials as secrets. A Sophos Central API credential embedded in a script or pipeline is a credential exposure risk (CWE-798, use of hard-coded credentials). Store credentials in a secrets manager, scope them to the minimum needed, and rotate them on a defined cadence. Revoke credentials that are unused.
+Protect API credentials as secrets. A Sophos Fusion API credential embedded in a script or pipeline is a credential exposure risk (CWE-798, use of hard-coded credentials). Store credentials in a secrets manager, scope them to the minimum needed, and rotate them on a defined cadence. Revoke credentials that are unused.
 
-Enable tamper protection so an attacker with local privileges cannot disable or remove the agent. Keep tamper-protection passwords and recovery codes under controlled access in Central. Enforce multi-factor authentication for Central sign-in and prefer federation through the organization's identity provider.
+Enable tamper protection so an attacker with local privileges cannot disable or remove the agent. Keep tamper-protection passwords and recovery codes under controlled access in Fusion. Enforce multi-factor authentication for Fusion sign-in and prefer federation through the organization's identity provider.
 
 Keep tenant configuration consistent so no device group drifts into a weaker policy than intended. Audit exclusions, application control, and device control settings regularly. Confirm that MDR response authorizations match current policy and that escalation contacts are current.
 
@@ -132,11 +132,14 @@ The optional MDR service lets a lean team sustain round-the-clock monitoring wit
 
 ## Resources
 
-- Sophos Central Admin documentation
-- Sophos Intercept X documentation
+- Sophos Fusion Admin documentation
+- Sophos Endpoint documentation (the product is named Sophos Endpoint; the earlier name Intercept X survives only on the page's trial and pricing links, observed 25 November 2026)
 - Sophos XDR documentation
 - Sophos MDR service documentation
-- Sophos Central API documentation
+- Sophos Fusion API documentation
+- Sophos: Sophos Fusion is the evolution of Sophos Central and the endpoint product is Sophos Endpoint (sophos.com/products/sophos-fusion and /products/endpoint-security, read 25 November 2026)
+- Sophos newsroom: Sophos Completes Secureworks Acquisition (3 February 2025)
+- Thoma Bravo: Sophos is a portfolio company, Year Invested 2020 (thomabravo.com/portfolio/sophos, read 25 November 2026)
 
 ## Related pages
 

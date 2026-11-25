@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 15 min (3,469 words at 230 words a minute)
+About 15 min (3,558 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -79,7 +79,7 @@ These analytics are original example rules written for this library, informed by
 
 > Confidence ratings (`high` / `medium` / `low`) reflect the expected true-positive strength of the pattern before environment tuning. Treat everything here as a hypothesis to validate, not an authoritative signature.
 
-> CrowdStrike Falcon LogScale (CQL) note: these examples follow CrowdStrike's public community query content ([CrowdStrike/logscale-community-content](https://github.com/CrowdStrike/logscale-community-content), at commit `77cfc4e`), which is where the events and fields used here can be cited - `ProcessRollup2`, `UserLogon` with `LogonType`, `UserLogonFailed2`, `InjectedThread`, `AsepValueUpdate` and `HttpRequest` all appear there - though none was executed here. What is not public is Falcon's in-console Events Data Dictionary, and no public example was found for a file-write event, so the T1486 query names `FsWriteEnded` by convention only; confirm it against your own sensor's dictionary. For those techniques Falcon's built-in detections are the maintained signal.
+> CrowdStrike Falcon LogScale (CQL) note: these examples follow CrowdStrike's public community query content ([CrowdStrike/logscale-community-content](https://github.com/CrowdStrike/logscale-community-content), at commit `77cfc4e`), and none was executed here. Cited from there: `ProcessRollup2`, `UserLogon` with `LogonType`, `UserLogonFailed2`, `InjectedThread` with `TargetThreadId`, and `AsepValueUpdate` with `RegValueName` (the sibling `AsepKeyUpdate` uses `RegObjectName` for the key path). Not public - confirm in-console: the `InjectedThread` source/target process fields, the `AsepValueUpdate` key-path field, and any file-write event (no public example was found for one, so the T1486 query names `FsWriteEnded` by convention only). The public content has no inbound web-access-log event, so T1190 has no CrowdStrike query. For those techniques Falcon's built-in detections are the maintained signal.
 
 ## Technique index
 
@@ -94,7 +94,7 @@ These analytics are original example rules written for this library, informed by
 | [T1059.001](#t1059001-powershell) | PowerShell | Execution | 5 | 19 controls |
 | [T1078](#t1078-valid-accounts) | Valid Accounts | Stealth, Persistence, Privilege Escalation, Initial Access | 5 | 25 controls |
 | [T1110](#t1110-brute-force) | Brute Force | Credential Access | 5 | 14 controls |
-| [T1190](#t1190-exploit-public-facing-application) | Exploit Public-Facing Application | Initial Access | 5 | 29 controls |
+| [T1190](#t1190-exploit-public-facing-application) | Exploit Public-Facing Application | Initial Access | 4 (+1 note) | 29 controls |
 | [T1486](#t1486-data-encrypted-for-impact) | Data Encrypted for Impact | Impact | 5 | 11 controls |
 | [T1547.001](#t1547001-registry-run-keys-startup-folder) | Registry Run Keys / Startup Folder | Persistence, Privilege Escalation | 5 | 0 controls |
 | [T1566.001](#t1566001-spearphishing-attachment) | Spearphishing Attachment | Initial Access | 5 | 12 controls |
@@ -577,13 +577,13 @@ rule t1055_process_injection {
 
 ### CrowdStrike Falcon LogScale (CQL): Cross-process injection
 
-- Data source: Falcon cross-process injection telemetry
+- Data source: Falcon InjectedThread
 - Confidence: `medium`
-- Logic: LogScale pattern for injected-thread telemetry, grouped by source/target process. Confirm the `#event_simpleName` and field names against your sensor's data dictionary (see the CrowdStrike note under Provenance); Falcon's built-in injection detections are the maintained signal.
+- Logic: Hosts with injected threads, counted from `InjectedThread`. CrowdStrike's community content shows `TargetThreadId` on this event; it does not show a source/target process image-name field, so grouping by process must be confirmed against your sensor's dictionary. Falcon's built-in injection detections are the maintained signal.
 
 ```sql
 #event_simpleName=InjectedThread
-| groupBy([SourceProcessImageFileName, TargetProcessImageFileName, ComputerName])
+| groupBy([aid], function=count(TargetThreadId, distinct=true, as=injected_threads))
 ```
 
 ---
@@ -907,6 +907,7 @@ W3CIISLog
 | where TimeGenerated > ago(24h)
 | where csUriStem has_any ("/wp-admin", "/phpmyadmin", "/struts", "/cgi-bin/", "/.env", "/.git/")
     or csUriQuery has_any ("jndi:ldap", "${jndi", "cmd=", "/etc/passwd")
+    or csUserAgent has_any ("jndi:ldap", "${jndi")
 | project TimeGenerated, cIP, csMethod, csUriStem, csUriQuery, scStatus, csUserAgent
 | sort by TimeGenerated desc
 ```
@@ -932,15 +933,11 @@ rule t1190_web_exploit {
 
 ### CrowdStrike Falcon LogScale (CQL): Web exploit indicators
 
-- Data source: Falcon Network/HTTP
-- Confidence: `medium`
-- Logic: Search for exploit strings in Falcon network/HTTP telemetry. HTTP request-URL telemetry depends on sensor/module coverage; confirm the `#event_simpleName` and URL field against your sensor's data dictionary (see the CrowdStrike note under Provenance).
+- Data source: not a web request log; see note
+- Confidence: `n/a`: see note
+- Logic: Falcon endpoint telemetry is not a web access log, so inbound exploit requests are read from the IIS/web-log queries above instead.
 
-```sql
-#event_simpleName=NetworkConnect or #event_simpleName=HttpRequest
-| RequestUrl=/(jndi:ldap|\/wp-admin|\/phpmyadmin|\/\.env|\/\.git\/)/i
-| groupBy([RemoteAddressIP4, RequestUrl])
-```
+> CrowdStrike's public community content has no inbound web-access-log event. Its closest HTTP event, `HttpRequestDetect` (fields `HttpUrl`, `HttpMethod`, `HttpRequestHeader`, `HttpPostBody`), is a detection-context event, not a request log, and a network-connect event carries no URL. For inbound exploitation of a public-facing application use the IIS `W3CIISLog` (KQL) and web-access-log (Splunk) queries above; on Falcon, rely on its built-in web/exploit detections.
 
 ---
 
@@ -1103,11 +1100,11 @@ rule t1547_001_run_key {
 
 - Data source: Falcon AsepValueUpdate
 - Confidence: `high`
-- Logic: LogScale pattern for Run/RunOnce registry persistence from ASEP registry telemetry. Confirm the ASEP field names against your sensor's data dictionary (see the CrowdStrike note under Provenance).
+- Logic: Run/RunOnce autostart writes from `AsepValueUpdate`. CrowdStrike's community content shows `RegValueName` on this event; it does not show its key-path field (the sibling `AsepKeyUpdate` uses `RegObjectName`), so the key filter below uses `RegObjectName` - confirm that name against your sensor's dictionary.
 
 ```sql
-#event_simpleName=AsepValueUpdate AsepValueType=/(?i)Run/
-| groupBy([ComputerName, AsepKeyName, AsepValueName, AsepValueData])
+#event_simpleName=AsepValueUpdate RegObjectName=/\\CurrentVersion\\(Run|RunOnce)(\\|$)/i
+| groupBy([ComputerName, RegObjectName, RegValueName])
 ```
 
 ---

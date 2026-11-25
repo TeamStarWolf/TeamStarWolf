@@ -211,7 +211,7 @@
         "description": "Requests to known exploit and scanner paths or query strings against IIS-hosted public-facing apps, read from the inbound W3CIISLog web log (the server's own request log, so this is traffic arriving at the app, not an outbound connection). Any status, so it flags the attempt, not the outcome.",
         "dataSource": "W3CIISLog (Sentinel / Log Analytics)",
         "confidence": "medium",
-        "query": "W3CIISLog\n| where TimeGenerated > ago(24h)\n| where csUriStem has_any (\"/wp-admin\", \"/phpmyadmin\", \"/struts\", \"/cgi-bin/\", \"/.env\", \"/.git/\")\n    or csUriQuery has_any (\"jndi:ldap\", \"${jndi\", \"cmd=\", \"/etc/passwd\")\n| project TimeGenerated, cIP, csMethod, csUriStem, csUriQuery, scStatus, csUserAgent\n| sort by TimeGenerated desc"
+        "query": "W3CIISLog\n| where TimeGenerated > ago(24h)\n| where csUriStem has_any (\"/wp-admin\", \"/phpmyadmin\", \"/struts\", \"/cgi-bin/\", \"/.env\", \"/.git/\")\n    or csUriQuery has_any (\"jndi:ldap\", \"${jndi\", \"cmd=\", \"/etc/passwd\")\n    or csUserAgent has_any (\"jndi:ldap\", \"${jndi\")\n| project TimeGenerated, cIP, csMethod, csUriStem, csUriQuery, scStatus, csUserAgent\n| sort by TimeGenerated desc"
       },
       {
         "platform": "chronicle",
@@ -224,10 +224,10 @@
       {
         "platform": "crowdstrike",
         "title": "Falcon LogScale: Web exploit indicators",
-        "description": "Search for exploit strings in Falcon network/HTTP telemetry. HTTP request-URL telemetry depends on sensor/module coverage; confirm the event and URL field against your sensor's data dictionary (see the CrowdStrike note under Provenance).",
-        "dataSource": "Falcon Network/HTTP",
-        "confidence": "medium",
-        "query": "#event_simpleName=NetworkConnect or #event_simpleName=HttpRequest\n| RequestUrl=/(jndi:ldap|\\/wp-admin|\\/phpmyadmin|\\/\\.env|\\/\\.git\\/)/i\n| groupBy([RemoteAddressIP4, RequestUrl])"
+        "description": "Falcon endpoint telemetry is not a web access log; its closest HTTP event, HttpRequestDetect, is a detection-context event, not a request log, and the public content has no inbound web-access-log event. For inbound exploitation of a public-facing application use the IIS W3CIISLog (KQL) and web-access-log (Splunk) queries; on Falcon rely on its built-in web/exploit detections. See TECHNIQUE_DETECTION_LIBRARY.md.",
+        "dataSource": "not a web request log; see note",
+        "confidence": "n/a",
+        "query": ""
       }
     ],
     "T1110": [
@@ -350,10 +350,10 @@
       {
         "platform": "crowdstrike",
         "title": "Falcon LogScale: Cross-process injection",
-        "description": "LogScale pattern for injected-thread telemetry, grouped by source/target process. Confirm the event and field names against your sensor's data dictionary (see the CrowdStrike note under Provenance); Falcon's built-in injection detections are the maintained signal.",
-        "dataSource": "Falcon cross-process injection telemetry",
+        "description": "Hosts with injected threads, counted from InjectedThread. CrowdStrike's community content shows TargetThreadId on this event; it does not show a source/target process image-name field, so grouping by process must be confirmed against your sensor's dictionary. Falcon's built-in injection detections are the maintained signal.",
+        "dataSource": "Falcon InjectedThread",
         "confidence": "medium",
-        "query": "#event_simpleName=InjectedThread\n| groupBy([SourceProcessImageFileName, TargetProcessImageFileName, ComputerName])"
+        "query": "#event_simpleName=InjectedThread\n| groupBy([aid], function=count(TargetThreadId, distinct=true, as=injected_threads))"
       }
     ],
     "T1027": [
@@ -518,10 +518,10 @@
       {
         "platform": "crowdstrike",
         "title": "Falcon LogScale: Run-key persistence",
-        "description": "LogScale pattern for Run/RunOnce registry persistence from ASEP registry telemetry. Confirm the ASEP field names against your sensor's data dictionary (see the CrowdStrike note under Provenance).",
+        "description": "Run/RunOnce autostart writes from AsepValueUpdate. CrowdStrike's community content shows RegValueName on this event; it does not show its key-path field (the sibling AsepKeyUpdate uses RegObjectName), so the key filter uses RegObjectName - confirm that name against your sensor's dictionary.",
         "dataSource": "Falcon AsepValueUpdate",
         "confidence": "high",
-        "query": "#event_simpleName=AsepValueUpdate AsepValueType=/(?i)Run/\n| groupBy([ComputerName, AsepKeyName, AsepValueName, AsepValueData])"
+        "query": "#event_simpleName=AsepValueUpdate RegObjectName=/\\\\CurrentVersion\\\\(Run|RunOnce)(\\\\|$)/i\n| groupBy([ComputerName, RegObjectName, RegValueName])"
       }
     ],
     "T1018": [

@@ -200,8 +200,9 @@ CIS_ITEM_RE = re.compile(r"^(1[0-8]|[1-9])\.\d{1,2}$")
 # An unverified note may use a "confirm" word only inside one of these negated phrases; every
 # other use is read as an affirmative claim and rejected. The negation must govern the word
 # itself, in the phrase - a negation earlier in the sentence ("Not reviewed. Confirmed ...")
-# does not count. Matching phrases are blanked out, then any surviving "confirm" fails.
-CONFIRM_RE = re.compile(r"(?<![a-z])confirm")
+# does not count. The phrases (including "unconfirmed") are blanked out first, then any surviving
+# "confirm" substring fails - so a prefixed form like "reconfirmed" is caught too.
+CONFIRM_RE = re.compile(r"confirm")
 CONFIRM_NEGATED_RE = re.compile(
     r"\b(?:not\s+(?:yet\s+)?confirmed"
     r"|could\s+not\s+confirm"
@@ -1162,6 +1163,7 @@ def self_test() -> int:
         ("No doubt this is confirmed.", False),
         ("The vendor did not reply; a reseller confirmed it.", False),
         ("This is confirmed.", False),
+        ("Reconfirmed on the vendor page.", False),
         ("Not confirmed on the vendor page.", True),
         ("Could not confirm this capability from vendor documentation.", True),
         ("Unconfirmed on the vendor page.", True),
@@ -1178,7 +1180,7 @@ def self_test() -> int:
     if fails:
         print("SELF-TEST FAILED: " + "; ".join(fails))
         return 1
-    print("OK: build_inventory self-test (90 controls: schema, ids, vocab/d3fend/csf/cis "
+    print("OK: build_inventory self-test (91 controls: schema, ids, vocab/d3fend/csf/cis "
           "cross-refs and item placement, framework items checked for existence against the exact "
           "active CSF 2.0 Subcategory set (withdrawn 1.1 ids rejected, active neighbours pass, 106 "
           "total) and the CIS Safeguard count per Control, non-empty framework items, per-fact "

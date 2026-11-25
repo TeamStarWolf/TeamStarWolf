@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 56 min (12,771 words at 230 words a minute)
+About 56 min (12,843 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -110,7 +110,7 @@ MCP uses a three-component architecture:
 
 Connection lifecycle:
 1. Host launches or connects to one or more MCP servers.
-2. Client and server establish the connection. Through the 2025-11-25 revision this was an `initialize`/`initialized` handshake; the current 2026-07-28 revision is stateless - there is no handshake, every request carries its protocol version and the client capabilities in `_meta`, and a client may call the optional `server/discover` to learn capabilities up front.
+2. Client and server establish the connection. Through the 2025-11-25 revision this was an `initialize`/`initialized` handshake; the current 2026-07-28 revision is stateless - there is no handshake, every request carries its protocol version and the client capabilities in `_meta`, and a client may call `server/discover` (which servers must implement) to learn capabilities up front.
 3. Host discovers available tools, resources, and prompts by calling `tools/list`, `resources/list`, `prompts/list`.
 4. LLM (inside Host) decides to invoke a tool; Host/Client sends `tools/call` to the Server.
 5. Server executes the action and returns the result.
@@ -171,7 +171,7 @@ The current specification (protocol version 2026-07-28) defines two standard tra
 | Transport | Use Case | Security Notes |
 |-----------|----------|---------------|
 | stdio | Local servers launched as child processes. Messages sent over stdin/stdout as newline-delimited JSON-RPC. | No network *listener* by default, but the process runs with the launching user's full permissions: it can still read that user's files, use their credentials, and open outbound network connections unless it is separately sandboxed. "Lowest attack surface" only holds once it is confined. |
-| Streamable HTTP | Remote servers over HTTP. Client sends JSON-RPC via HTTP POST; the server answers with a JSON response or a Server-Sent Events (SSE) stream. It replaces the HTTP+SSE transport of protocol version 2024-11-05. | Protected servers use the spec's OAuth 2.1 authorization. Vulnerable to DNS rebinding if bound to localhost. TLS required for remote. |
+| Streamable HTTP | Remote servers over HTTP. Client sends JSON-RPC via HTTP POST; the server answers with a JSON response or a Server-Sent Events (SSE) stream. It replaces the HTTP+SSE transport of protocol version 2024-11-05. | Protected servers use the spec's OAuth 2.1 authorization. A local server is exposed to DNS rebinding unless it validates the Origin header (see Threat 7). TLS required for remote. |
 | Custom (for example WebSocket) | Not a standard binding; client and server must both implement it. | Apply the same authentication and TLS (wss://) rules as Streamable HTTP. |
 
 stdio example invocation (Claude Desktop config):
@@ -221,7 +221,7 @@ Response (the result shape through the 2025-11-25 revision):
 }
 ```
 
-Under 2026-07-28 a result also signals whether it is complete or needs further input (`input_required`), which drives the Multi Round-Trip Requests retry that replaces server-initiated requests.
+Under 2026-07-28 a result carries a `resultType` of `complete` or `input_required`; `input_required` drives the Multi Round-Trip Requests retry that replaces server-initiated requests.
 
 Notification (no id, no response expected):
 ```json
@@ -433,7 +433,7 @@ Attack scenarios:
 - Unauthorized access: Any local process or user can connect to an unauthenticated local MCP server.
 - Session fixation (only servers still on 2025-11-25 or earlier): an attacker pre-establishes an MCP session before the legitimate user connects. The 2026-07-28 revision removes protocol-level sessions and the `Mcp-Session-Id` header, so this does not apply to current servers.
 - Credential theft: Claude Desktop's config file (`~/Library/Application Support/Claude/claude_desktop_config.json` on macOS, `%APPDATA%\Claude\claude_desktop_config.json` on Windows) holds each server's `env` block in plain text - typically API keys and personal access tokens - which can be stolen and replayed.
-- Scope creep: tokens requested with broad scopes when only narrow ones are needed. GitHub has no `repo:write` scope; the broad classic scope is `repo`, which grants full read and write to every repository the user can reach, where a narrower task may need only `public_repo` or `repo:status`.
+- Scope creep: tokens requested with broad scopes when only narrow ones are needed. On GitHub the classic `repo` scope grants full read and write to every repository the user can reach, where a narrower task may need only `public_repo` or `repo:status`.
 
 ---
 
@@ -610,7 +610,7 @@ Server allowlists: Maintain an explicit allowlist of trusted MCP server package 
 }
 ```
 
-Pin a real, current version and name the registry each belongs to (npm uses semver; the PyPI `mcp-server-time` uses date-style versions and has no `1.0.0`). Do not list an archived package: `@modelcontextprotocol/server-github` is archived and unmaintained ("no security guarantees") - use the maintained GitHub MCP server instead.
+Pin a real, current version and name the registry each belongs to (npm uses semver; the PyPI `mcp-server-time` uses date-style versions). Do not list an archived package: `@modelcontextprotocol/server-github` is archived and unmaintained ("no security guarantees") - use the maintained GitHub MCP server instead.
 
 Domain allowlists for fetch tools: Only allow outbound HTTP requests to explicitly approved domains.
 
@@ -917,13 +917,13 @@ The staged tables below are drawn from ATLAS's model-centric techniques. ATLAS 2
 
 | MCP threat (Section 2) | ATLAS technique | ATLAS tactic(s) |
 |---|---|---|
-| Threat 1: Prompt Injection via Tool Results | AML.T0051 LLM Prompt Injection | Execution |
+| Threat 1: Prompt Injection via Tool Results | AML.T0051 LLM Prompt Injection; AML.T0099 AI Agent Tool Data Poisoning (poisoned content returning through a tool) | Execution; Persistence |
 | Threat 2: Tool Poisoning Attacks | AML.T0110 AI Agent Tool Poisoning | Persistence |
 | Threat 3: MCP Supply Chain Attacks | AML.T0010.005 Supply Chain Compromise: AI Agent Tool | Initial Access |
 | Threat 4: Privilege Escalation | AML.T0053 AI Agent Tool Invocation | Execution / Privilege Escalation / Lateral Movement |
 | Threat 5: Data Exfiltration Paths | AML.T0086 Exfiltration via AI Agent Tool Invocation | Exfiltration |
-| Threat 6: Rug Pull / Server Substitution | AML.T0099 AI Agent Tool Data Poisoning | Persistence |
-| Threat 7: DNS Rebinding on Localhost MCP Ports | AML.T0053 AI Agent Tool Invocation (the rebound origin invokes local tools) | Execution |
+| Threat 6: Rug Pull / Server Substitution | AML.T0110 AI Agent Tool Poisoning (tool definition or behaviour changed after approval); AML.T0010.005 Supply Chain Compromise: AI Agent Tool (substitution) | Persistence; Initial Access |
+| Threat 7: DNS Rebinding on Localhost MCP Ports | AML.T0132 Misconfigured or Publicly Exposed AI Services (an unauthenticated local server reachable after rebinding) | Initial Access |
 | Threat 8: Authentication Gaps | AML.T0083 Credentials from AI Agent Configuration; AML.T0098 AI Agent Tool Credential Harvesting | Credential Access |
 
 ---
@@ -946,7 +946,7 @@ The staged tables below are drawn from ATLAS's model-centric techniques. ATLAS 2
 |----|------|--------------|-------------|----------------|-------------|
 | AML.T0002 | Acquire Public AI Artifacts | Resource Development | Adversary acquires publicly available ML artifacts (models, datasets, code) for use in attacks. | Downloading a public foundation model to develop adversarial examples for use against the target's fine-tuned version. | Monitor for download of organization's public artifacts. |
 | AML.T0016 | Obtain Capabilities | Resource Development | Adversary obtains or develops tools for conducting ML attacks (adversarial example generators, model extraction tools). | Using the Foolbox or ART library to generate adversarial examples. | N/A (adversary-side). |
-| AML.T0005 | Replicate AI Model Behavior | Resource Development / AI Attack Adaptation | Adversary creates a local proxy/surrogate model that approximates the target model, for offline attack development. | Training a surrogate model using model extraction queries before generating transferable adversarial examples. | Rate limiting, query monitoring, output watermarking. |
+| AML.T0005 | Replicate AI Model Behavior | Resource Development / AI Attack Adaptation | Adversary creates a local proxy/surrogate model that approximates the target model, for offline attack development. | Training a surrogate model using model extraction queries before generating transferable adversarial examples. | Rate limiting, query monitoring, output watermarking, legal agreements. |
 | AML.T0115.000 | Publish Poisoned AI Artifacts: Datasets | Resource Development | Adversary publishes datasets to public repositories containing poisoned samples intended to be used for training. Supersedes AML.T0019 Publish Poisoned Datasets, retired in ATLAS 2026.07. | Publishing a poisoned image dataset to Kaggle that causes a specific misclassification when used for transfer learning. | Data provenance verification, anomaly detection. |
 | AML.T0017 | Develop Capabilities | Resource Development | Adversary develops novel attack tools, techniques, or adversarial examples from scratch. | Implementing a custom GCG (Greedy Coordinate Gradient) optimizer to generate adversarial suffixes. | Red teaming, monitoring research literature. |
 
@@ -1038,11 +1038,11 @@ Names and IDs follow the [pinned ATLAS 2026.10 release](https://github.com/mitre
 | AML.M0014 | Verify AI Artifacts | Verify integrity of ML artifacts (datasets, pre-trained models) before use. | Verify SHA-256 checksums of downloaded models. Verify digital signatures. Scan models for embedded malicious code. Pin dependency versions and use lockfiles (requirements.txt, poetry.lock); scan with pip-audit or safety; use a private package mirror. |
 | AML.M0015 | Predictive AI Adversarial Input Detection | Deploy detection mechanisms that identify adversarial inputs before they reach the model. | Feature squeezing detector. Statistical input validation. Prediction consistency check (multiple perturbations). Neural network-based adversarial detectors. |
 | AML.M0016 | Vulnerability Scanning | Regularly scan ML systems and infrastructure for vulnerabilities. | Use standard vulnerability scanners (Trivy, Snyk) on ML serving containers. Scan ML framework dependencies. Test for known ML attack patterns. |
-| AML.M0017 | AI Model Distribution Methods | Deploying models to edge devices widens the attack surface; serve models in the cloud instead to reduce the access an adversary has to the model. | Prefer cloud-served inference over shipping weights to clients or edge devices. Where edge deployment is required, encrypt and obfuscate the on-device model. (Assessing dataset/model provenance is M0025, below.) |
+| AML.M0017 | AI Model Distribution Methods | Deploying models to edge devices widens the attack surface; serve models in the cloud instead to reduce the access an adversary has to the model. | Prefer cloud-served inference over shipping weights to clients or edge devices. Where edge deployment is required, encrypt and obfuscate the on-device model. |
 | AML.M0018 | User Training | Train users and operators on ML security risks and responsible AI usage. | Security awareness training for prompt injection. Training on recognizing AI-generated disinformation. Procedures for reporting suspicious AI behavior. |
 | AML.M0019 | Control Access to AI Models and Data in Production | Require users to verify their identities before accessing a production model, require authentication for API endpoints, and monitor production model queries. | Authenticate every inference API endpoint. Monitor production queries for extraction, evasion and poisoning patterns (volume, distribution, unusual inputs). (General lifecycle logging is M0024, below.) |
 | AML.M0024 | AI Telemetry Logging and Monitoring | Implement logging and monitoring across the AI lifecycle to detect suspicious activity and support investigation. | Log all inference queries. Anomaly detection on query patterns. Alert on unusual input patterns. SIEM integration. |
-| AML.M0025 | Maintain AI Dataset Provenance | Maintain a detailed history of the datasets used, including their source and a complete record of changes. | Review dataset documentation and model cards. Record dataset source and transformations. Apply export controls for sensitive applications. |
+| AML.M0025 | Maintain AI Dataset Provenance | Maintain a detailed history of the datasets used, including their source and a complete record of changes. | Review dataset documentation and model cards. Assess who funded a third-party dataset or model. Record dataset source and transformations. Apply export controls for sensitive applications. |
 
 ---
 
@@ -1153,7 +1153,7 @@ An open-source Python library for AI red teaming, providing:
 ```python
 # Example PyRIT usage (PyRIT 1.2.1, November 2026)
 import asyncio
-from pyrit.common import IN_MEMORY, initialize_pyrit_async
+from pyrit.setup import IN_MEMORY, initialize_pyrit_async
 from pyrit.executor.attack import PromptSendingAttack
 from pyrit.prompt_target import OpenAIChatTarget
 
@@ -1214,7 +1214,7 @@ Incident Response Playbook:
 - Model rollback: Revert to last known-good model version.
   ```python
   # Roll back by repointing the production alias to the previous version.
-  # (Model Stages were deprecated in MLflow 2.9; there is no `mlflow models transition-to`.)
+  # (Model Stages were deprecated in MLflow 2.9; use aliases.)
   from mlflow import MlflowClient
   MlflowClient().set_registered_model_alias("mymodel", "champion", version=1)
   # "models:/mymodel@champion" now resolves to version 1.
@@ -1231,9 +1231,10 @@ Incident Response Playbook:
 
 5. EU AI Act Notification:
 The EU AI Act (in force since August 1, 2024; high-risk obligations apply from December 2, 2027 for Annex III systems and from August 2, 2028 for Annex I products, after the deferral in Regulation (EU) 2026/1744) requires, for serious incidents involving high-risk AI systems (Article 73):
-- Reporting to the market surveillance authority of the Member State where the incident occurred (not a "national supervisory authority"). Under Regulation (EU) 2026/1744 Article 75(1a), a provider under the AI Office's competence reports to the AI Office instead.
+- Report to the market surveillance authority of the Member State where the incident occurred. Under Article 75(1a) of the Act, inserted by Regulation (EU) 2026/1744, a provider under the AI Office's competence reports to the AI Office instead.
+- Providers of general-purpose AI models with systemic risk report serious incidents without undue delay to the AI Office and, as appropriate, national competent authorities (Article 55(1)(c)).
 - Timelines (Article 73): immediately after establishing the causal link and not later than 15 days after becoming aware; not later than 2 days for a widespread infringement or a critical-infrastructure incident (Article 73(3)); not later than 10 days in the event of a person's death (Article 73(4)). There is no general "72-hour, GDPR-style" deadline.
-- Keeping the required records: Article 11 is the technical documentation for conformity (not an incident log), alongside the quality-management and logging records the Act requires.
+- Keep the records the Act requires - the automatically generated logs (Articles 12 and 19) and the quality-management documentation (Article 17) - which support the serious-incident report and any follow-up.
 
 6. Post-Incident Review:
 - Root cause analysis.
@@ -1597,7 +1598,7 @@ These AI systems are banned in the EU:
 - Biometric categorization using sensitive characteristics (race, religion, etc.).
 - AI for criminal offense prediction based solely on profiling.
 - Non-consensual generation or manipulation of sexually explicit or intimate material of an identifiable person (Article 5(1)(ba), added by Regulation (EU) 2026/1744; applies from 2 December 2026).
-- Child sexual abuse material (Article 5(1)(bb), added by Regulation (EU) 2026/1744; applies from 2 December 2026).
+- AI systems that generate or manipulate child sexual abuse material (Article 5(1)(bb), added by Regulation (EU) 2026/1744; applies from 2 December 2026).
 
 Tier 2: High-Risk AI Systems (Annex III)
 Subject to conformity assessments, technical documentation, and ongoing monitoring:
@@ -1769,4 +1770,4 @@ CISA AI Cybersecurity Collaboration Playbook:
 
 ---
 
-*Sources: MITRE ATLAS (atlas.mitre.org), OWASP Top 10 for LLMs (2026 edition, published August 2026, with 2025 cross-references), NIST AI RMF 1.0 (AI 100-1), NIST AI 600-1, EU AI Act (Regulation 2024/1689, as amended by Regulation 2026/1744), ISO/IEC 42001:2023, CISA AI Guidance, MCP Specification 2026-07-28 (modelcontextprotocol.io), Anthropic MCP Announcement (November 2024).*
+*Sources: MITRE ATLAS (atlas.mitre.org), OWASP Top 10 for LLMs (the 2025-edition detail, cross-referenced to the 2026 edition published August 2026), NIST AI RMF 1.0 (AI 100-1), NIST AI 600-1, EU AI Act (Regulation 2024/1689, as amended by Regulation 2026/1744), ISO/IEC 42001:2023, CISA AI Guidance, MCP Specification 2026-07-28 (modelcontextprotocol.io), Anthropic MCP Announcement (November 2024).*

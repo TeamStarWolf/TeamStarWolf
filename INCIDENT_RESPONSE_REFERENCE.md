@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 27 min (6,294 words at 230 words a minute)
+About 27 min (6,302 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -1337,7 +1337,7 @@ CloudTrail: Key Suspicious API Calls
 
 | API Call | Service | IR Significance |
 |----------|---------|----------------|
-| `ConsoleLogin` | IAM | Successful/failed console logins |
+| `ConsoleLogin` | AWS Sign-In | Successful/failed console logins (event source signin.amazonaws.com) |
 | `CreateUser` | IAM | New IAM user (backdoor creation) |
 | `AttachUserPolicy` / `PutUserPolicy` | IAM | Privilege escalation |
 | `CreateAccessKey` | IAM | New API key (persistence) |
@@ -1643,7 +1643,7 @@ shodan search "ssl.cert.subject.cn:'Major Cobalt Strike'"
 shodan host <ip>
 ```
 
-Recorded Future / Mandiant Advantage / CrowdStrike Intel
+Recorded Future / Google Threat Intelligence (formerly Mandiant Advantage) / CrowdStrike Intel
 - Commercial threat intelligence with actor tracking
 - Dark web monitoring for data breach mentions
 - Malware family analysis and YARA rules

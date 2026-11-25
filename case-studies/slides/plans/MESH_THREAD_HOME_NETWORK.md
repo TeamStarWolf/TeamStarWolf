@@ -86,10 +86,10 @@ Notes: NAT64 bridge, adjacent-IPv4 injection, OpenThread before commit 26a882d [
 
 | Pile | What it covers | What to do |
 |---|---|---|
-| Fixed by a patch the owner applies | Orbi updates (three of four); Echo 2017 hardware; the OpenThread commit | update, or leave automatic updates on |
+| Fixed by a patch the owner applies | Orbi updates (the fourth on 22 March 2023); Echo 2017 hardware; the OpenThread commit | update, or leave automatic updates on |
 | Design, no patch removes | always-on microphone; many mesh nodes; a bridging border router | use the mute control; limit how many devices |
 | Up to the owner | firmware currency; physical controls; where each device sits | decide against the trade-off |
-Caption: A mesh node, a speaker and a border router are all firmware; an un-updated one stays where it was.
+Caption: The mesh node and the border router are firmware; the Echo fix was a hardware change, not an update.
 Notes: Fixed set [1][3][6]. Design properties [1][3][6]. Owner controls, mute and wake-word indicator [4].
 
 ## PART 6 | The trade-off: convenience against surface
@@ -104,7 +104,7 @@ Notes: Convenience-against-surface is the study's framing (Inferred); the mitiga
 ## DEFENDER VIEW | Check your own devices, read-only
 
 Left: What to read
-- What each always-on device is, its firmware version, and whether automatic updates are on.
+- What each always-on device is, its firmware version, and whether automatic updates are on; for a smart speaker, its hardware edition or model year too.
 - For a mesh, the firmware of every node, not only the main one.
 - The microphone mute, camera shutter and wake-word indicator on a speaker or display.
 Right: What it tells you

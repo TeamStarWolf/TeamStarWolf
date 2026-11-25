@@ -1,4 +1,4 @@
-# Trend Vision One (Trend Micro)
+# TrendAI Vision One (Trend Micro)
 
 TrendAI Vision One, earlier Trend Vision One, is Trend Micro's extended detection and response (XDR) platform. It brings together endpoint, server, cloud, network, and email sensors into one data lake and console, and includes the workload and cloud-security capabilities formerly branded Cloud One. The platform spans prevention, detection and response, and cloud security posture across hybrid estates. Capability availability depends on the licence and the entitlements in force.
 

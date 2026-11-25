@@ -1,6 +1,6 @@
-# Veritas NetBackup
+# NetBackup (Cohesity)
 
-Veritas NetBackup is an enterprise backup and recovery product for large, heterogeneous environments. The product line continues under Cohesity, which completed its combination with Veritas' enterprise data protection business on 10 December 2024; veritas.com and the NetBackup product pages now redirect to cohesity.com. The combination covered that data protection business, not Veritas as a whole. It protects physical servers, virtual machines, databases, applications, and cloud workloads from one control layer. Its security value is the ability to recover clean data after a destructive attack.
+NetBackup (formerly Veritas NetBackup) is an enterprise backup and recovery product for large, heterogeneous environments. The product line continues under Cohesity, which completed its combination with Veritas' enterprise data protection business on 10 December 2024; veritas.com and the NetBackup product pages now redirect to cohesity.com. The combination covered that data protection business, not Veritas as a whole. It protects physical servers, virtual machines, databases, applications, and cloud workloads from one control layer. Its security value is the ability to recover clean data after a destructive attack.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,438 words at 230 words a minute)
+About 6 min (1,440 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>

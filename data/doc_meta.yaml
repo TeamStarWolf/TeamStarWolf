@@ -132,7 +132,7 @@ corrections:
   pr421-detection-accuracy:
     date: "2026-11-25"
     pr: 421
-    what: "detection queries corrected against their data-source schemas: the retired Defender XDR AADSignInEventsBeta table replaced with EntraIdSignInEvents, the country-baseline and brute-force windows and joins fixed, the ransomware file count fixed, and the control-mapping, validation and provenance framing tightened; the rendered page and technique-queries.json kept in sync"
+    what: "detection queries corrected against their data-source schemas and query-language semantics across all five platforms: the retired Defender XDR AADSignInEventsBeta table replaced with EntraIdSignInEvents, ATT&CK tactic names updated to v19 (Stealth), brute-force / baseline / injection / RDP / persistence / discovery queries fixed, Chronicle match-section placeholders and UDM fields (extensions.auth.mechanism, FAIL vs BLOCK, target.user.userid) corrected, CrowdStrike CQL marked where its field dictionary is not publicly verifiable, and the control-mapping / validation / provenance framing tightened; verified against primary sources and parser docs (queries were not executed against a live SIEM), and the rendered page and technique-queries.json kept in sync"
 reviews: {}
 pages:
   ACTIVE_DIRECTORY_ATTACKS.md:

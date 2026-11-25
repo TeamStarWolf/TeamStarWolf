@@ -1,7 +1,7 @@
 {
   "_meta": {
     "schema_version": "1.0",
-    "description": "Per-technique SIEM query library. Each entry maps an ATT&CK technique ID to platform-specific detection queries seeded from open community detection sources (Sigma, Splunk security_content, Elastic detection-rules, Microsoft M365D Hunting Queries, Chronicle Detection Rules).",
+    "description": "Per-technique SIEM query library. Each entry maps an ATT&CK technique ID to platform-specific detection queries written as original examples following the patterns of open community detection sources (Sigma, Splunk security_content, Elastic detection-rules, Microsoft M365D Hunting Queries, Chronicle Detection Rules).",
     "platforms": [
       "splunk",
       "elastic",
@@ -17,7 +17,7 @@
       "https://github.com/chronicle/detection-rules"
     ],
     "curated_for": "TeamStarWolf/TeamStarWolf reference library",
-    "note": "Detection content seeded/adapted from the listed open community sources for study and hunting. Validate and tune before production use. See TECHNIQUE_DETECTION_LIBRARY.md."
+    "note": "Original example detection content written for this library following the patterns of the listed open community sources, for study and hunting. Validate and tune before production use. See TECHNIQUE_DETECTION_LIBRARY.md."
   },
   "queries": {
     "T1003.001": [
@@ -56,10 +56,10 @@
       {
         "platform": "crowdstrike",
         "title": "Falcon LogScale: LSASS access by uncommon process",
-        "description": "CrowdStrike LogScale query identifying suspicious LSASS access patterns.",
-        "dataSource": "Falcon LogScale events",
-        "confidence": "high",
-        "query": "#event_simpleName=ProcessRollup2\n| TargetProcessId_decimal = LsassProcessId\n| FileName != /(svchost|wininit|csrss|services|lsm|MsMpEng)\\.exe/i\n| groupBy([ParentBaseFileName, FileName, ComputerName])\n| count() < 5"
+        "description": "LSASS handle-access has no open-handle telemetry in ProcessRollup2; alert instead on Falcon's built-in credential-access detections (DetectionSummaryEvent). For host GrantedAccess-mask logic use the Sysmon EventCode 10 and Elastic queries. See the note in TECHNIQUE_DETECTION_LIBRARY.md.",
+        "dataSource": "Falcon detection telemetry (DetectionSummaryEvent): not ProcessRollup2",
+        "confidence": "n/a",
+        "query": "#event_simpleName=DetectionSummaryEvent\n| Tactic=/Credential Access/i\n| Technique=/Credential Dumping/i"
       }
     ],
     "T1059.001": [
@@ -77,7 +77,7 @@
         "description": "Elastic EQL on Microsoft-Windows-PowerShell/Operational for script-block events containing high-risk APIs.",
         "dataSource": "winlog.channel: Microsoft-Windows-PowerShell/Operational, EventID 4104",
         "confidence": "medium",
-        "query": "powershell where\n  powershell.file.script_block_text : (\n    \"*Invoke-Mimikatz*\", \"*Invoke-Expression*\", \"*IEX*\",\n    \"*FromBase64String*\", \"*Reflection.Assembly*\",\n    \"*Net.WebClient*\", \"*DownloadString*\",\n    \"*-EncodedCommand*\", \"*WindowStyle Hidden*\")"
+        "query": "process where\n  powershell.file.script_block_text : (\n    \"*Invoke-Mimikatz*\", \"*Invoke-Expression*\", \"*IEX*\",\n    \"*FromBase64String*\", \"*Reflection.Assembly*\",\n    \"*Net.WebClient*\", \"*DownloadString*\",\n    \"*-EncodedCommand*\", \"*WindowStyle Hidden*\")"
       },
       {
         "platform": "microsoft",
@@ -111,12 +111,12 @@
         "description": "Successful interactive logon from an account that has never authenticated to this host before.",
         "dataSource": "Windows Security 4624",
         "confidence": "medium",
-        "query": "index=wineventlog EventCode=4624 LogonType IN (2,3,10)\n| stats earliest(_time) as first_seen, latest(_time) as last_seen, dc(ComputerName) as host_count by Account_Name, ComputerName\n| eval is_first=if(first_seen=last_seen,1,0)\n| where is_first=1 AND host_count=1\n| convert ctime(first_seen)"
+        "query": "index=wineventlog EventCode=4624 LogonType IN (2,3,10) earliest=-30d\n| stats earliest(_time) as first_seen, count by Account_Name, ComputerName\n| eval is_new=if(first_seen>relative_time(now(),\"-24h\"),1,0)\n| where is_new=1\n| convert ctime(first_seen)"
       },
       {
         "platform": "elastic",
         "title": "Anomalous logon: new user/host pair",
-        "description": "Elastic ML-aware EQL for first-time interactive logons.",
+        "description": "Successful interactive logons (type 2/3/10). This is only a filter - EQL cannot do first-seen logic; wrap it in an Elastic new_terms rule keyed on user.name and host.name with a history window to flag a genuinely new pair.",
         "dataSource": "winlog.event_id 4624",
         "confidence": "medium",
         "query": "authentication where event.action == \"logged-in\" and\n  winlog.event_data.LogonType : (\"2\", \"3\", \"10\") and\n  event.outcome == \"success\""
@@ -135,15 +135,15 @@
         "description": "Two successful sign-ins for one account from different countries within an hour; a triage signal, not a travel-feasibility calculation.",
         "dataSource": "UDM USER_LOGIN",
         "confidence": "medium",
-        "query": "rule t1078_different_country_logins {\n  meta:\n    mitre_attack = \"T1078\"\n    severity = \"MEDIUM\"\n  events:\n    $a.metadata.event_type = \"USER_LOGIN\"\n    $a.security_result.action = \"ALLOW\"\n    $b.metadata.event_type = \"USER_LOGIN\"\n    $b.security_result.action = \"ALLOW\"\n    $a.principal.user.userid = $b.principal.user.userid\n    $a.principal.location.country_or_region != $b.principal.location.country_or_region\n  match:\n    $a.principal.user.userid over 1h\n  condition:\n    #a >= 1 and #b >= 1\n}"
+        "query": "rule t1078_different_country_logins {\n  meta:\n    mitre_attack = \"T1078\"\n    severity = \"MEDIUM\"\n  events:\n    $a.metadata.event_type = \"USER_LOGIN\"\n    $a.security_result.action = \"ALLOW\"\n    $b.metadata.event_type = \"USER_LOGIN\"\n    $b.security_result.action = \"ALLOW\"\n    $user = $a.target.user.userid\n    $user = $b.target.user.userid\n    $a.principal.location.country_or_region != $b.principal.location.country_or_region\n  match:\n    $user over 1h\n  condition:\n    #a >= 1 and #b >= 1\n}"
       },
       {
         "platform": "crowdstrike",
         "title": "Falcon LogScale: Multiple geographies for same user",
-        "description": "Detect identity used in multiple country codes within a short window.",
+        "description": "Detect an identity seen from two or more distinct country codes over the search window (the time span is set by the search range, not by the query).",
         "dataSource": "Falcon UserLogon",
         "confidence": "medium",
-        "query": "#event_simpleName=UserLogon\n| groupBy([UserName], function=collect_set(CountryName))\n| length(CountryName) >= 2"
+        "query": "#event_simpleName=UserLogon\n| groupBy([UserName], function=count(CountryName, distinct=true, as=country_count))\n| country_count >= 2"
       }
     ],
     "T1486": [
@@ -153,7 +153,7 @@
         "description": "High-volume file write events with new extensions appearing on a single host.",
         "dataSource": "Sysmon EventCode 11 (FileCreate) + 23 (FileDelete)",
         "confidence": "high",
-        "query": "index=windows source=\"WinEventLog:Microsoft-Windows-Sysmon/Operational\" EventCode IN (11,23)\n| rex field=TargetFilename \"\\.(?<ext>[a-zA-Z0-9]{2,8})$\"\n| stats dc(TargetFilename) as file_count, values(ext) as extensions by ComputerName, span=5m _time\n| where file_count > 200\n| eval suspicious=if(mvcount(extensions)<3,1,0)\n| where suspicious=1"
+        "query": "index=windows source=\"WinEventLog:Microsoft-Windows-Sysmon/Operational\" EventCode IN (11,23)\n| rex field=TargetFilename \"\\.(?<ext>[a-zA-Z0-9]{2,8})$\"\n| bin _time span=5m\n| stats dc(TargetFilename) as file_count, values(ext) as extensions by ComputerName, _time\n| where file_count > 200\n| eval suspicious=if(mvcount(extensions)<3,1,0)\n| where suspicious=1"
       },
       {
         "platform": "elastic",
@@ -177,22 +177,22 @@
         "description": "YARA-L 2.0 rule for ransomware-extension write storm.",
         "dataSource": "UDM FILE_CREATION/MODIFICATION",
         "confidence": "high",
-        "query": "rule t1486_ransomware_ext {\n  meta:\n    mitre_attack = \"T1486\"\n    severity = \"CRITICAL\"\n  events:\n    $f.metadata.event_type = \"FILE_MODIFICATION\"\n    $f.target.file.full_path = /\\.(crypt|locked|encrypted|wncry|locky|conti|ryk)$/ nocase\n  match:\n    $f.principal.hostname over 5m\n  outcome:\n    $count = count_distinct($f.target.file.full_path)\n  condition:\n    $f and $count > 50\n}"
+        "query": "rule t1486_ransomware_ext {\n  meta:\n    mitre_attack = \"T1486\"\n    severity = \"CRITICAL\"\n  events:\n    $f.metadata.event_type = \"FILE_MODIFICATION\"\n    $f.target.file.full_path = /\\.(crypt|locked|encrypted|wncry|locky|conti|ryk)$/ nocase\n    $host = $f.principal.hostname\n  match:\n    $host over 5m\n  outcome:\n    $count = count_distinct($f.target.file.full_path)\n  condition:\n    $f and $count > 50\n}"
       },
       {
         "platform": "crowdstrike",
         "title": "Falcon LogScale: Ransomware file extension burst",
-        "description": "Bulk write activity with known ransomware extension.",
+        "description": "Bulk write activity with known ransomware extensions - more than 50 matching writes per process. Confirm the file-write event and field names against your sensor's data dictionary (see the CrowdStrike note under Provenance).",
         "dataSource": "Falcon FsWriteEnded",
         "confidence": "high",
-        "query": "#event_simpleName=FsWriteEnded TargetFileName=/\\.(crypt|locked|encrypted|wncry|conti|ryk|locky)$/i\n| groupBy([ComputerName, ContextProcessId])\n| count() > 50"
+        "query": "#event_simpleName=FsWriteEnded TargetFileName=/\\.(crypt|locked|encrypted|wncry|conti|ryk|locky)$/i\n| groupBy([ComputerName, ContextProcessId])\n| _count > 50"
       }
     ],
     "T1190": [
       {
         "platform": "splunk",
         "title": "Public-facing app: exploit attempts in web logs",
-        "description": "Detect 4xx/5xx responses for known exploit paths against perimeter web servers.",
+        "description": "Detect requests to known exploit and scanner paths against perimeter web servers (any response status; this flags the attempt, not the outcome).",
         "dataSource": "Web access logs (Apache/IIS/Nginx)",
         "confidence": "medium",
         "query": "index=web sourcetype IN (access_combined, iis, nginx)\n| eval path=lower(uri_path)\n| where match(path,\"(jndi:ldap|/wp-admin/|/phpmyadmin|/.env|/.git/|/console|/struts|/cgi-bin/)\") OR match(path,\"\\\\.(php|asp|jsp)\\\\?cmd=\")\n| stats count, values(uri_path) as paths by src_ip, status, host\n| where count > 5\n| sort -count"
@@ -207,11 +207,11 @@
       },
       {
         "platform": "microsoft",
-        "title": "M365: Network exposed to known CVE exploit pattern",
-        "description": "Use Microsoft Defender vulnerability data to spot exploit attempts on hosts with known CVE exposure.",
+        "title": "M365: Outbound connection to an exploit-pattern URL from a CVE-exposed device",
+        "description": "A device with a known Critical/High CVE making an outbound connection to a URL carrying an exploit pattern (a Log4Shell/JNDI callback or a scanner path). DeviceNetworkEvents.RemoteUrl is the URL the device connected to, so this flags a host reaching out, not an exploit request arriving; the severity-filtered CVE join narrows to actually-exposed devices.",
         "dataSource": "DeviceTvmSoftwareVulnerabilities + DeviceNetworkEvents",
         "confidence": "medium",
-        "query": "DeviceTvmSoftwareVulnerabilities\n| summarize CveList = make_set(CveId) by DeviceId\n| join kind=inner (\n  DeviceNetworkEvents\n  | where Timestamp > ago(24h)\n  | where RemoteUrl has_any (\"jndi:\", \"/.env\", \"/wp-admin\", \"/phpmyadmin\")\n) on DeviceId\n| project Timestamp, DeviceName, RemoteUrl, RemoteIP, CveList"
+        "query": "DeviceTvmSoftwareVulnerabilities\n| where VulnerabilitySeverityLevel in (\"Critical\", \"High\")\n| summarize CveList = make_set(CveId) by DeviceId\n| join kind=inner (\n  DeviceNetworkEvents\n  | where Timestamp > ago(24h)\n  | where RemoteUrl has_any (\"jndi:\", \"/.env\", \"/wp-admin\", \"/phpmyadmin\")\n) on DeviceId\n| project Timestamp, DeviceName, RemoteUrl, RemoteIP, CveList"
       },
       {
         "platform": "chronicle",
@@ -224,7 +224,7 @@
       {
         "platform": "crowdstrike",
         "title": "Falcon LogScale: Web exploit indicators",
-        "description": "Search for exploit strings in network/proxy logs.",
+        "description": "Search for exploit strings in Falcon network/HTTP telemetry. HTTP request-URL telemetry depends on sensor/module coverage; confirm the event and URL field against your sensor's data dictionary (see the CrowdStrike note under Provenance).",
         "dataSource": "Falcon Network/HTTP",
         "confidence": "medium",
         "query": "#event_simpleName=NetworkConnect or #event_simpleName=HttpRequest\n| RequestUrl=/(jndi:ldap|\\/wp-admin|\\/phpmyadmin|\\/\\.env|\\/\\.git\\/)/i\n| groupBy([RemoteAddressIP4, RequestUrl])"
@@ -234,10 +234,10 @@
       {
         "platform": "splunk",
         "title": "Brute force: high-volume failed logons followed by success",
-        "description": "Many 4625 failures followed by a 4624 success from same source within 5m.",
+        "description": "At least 10 failed (4625) and one successful (4624) logon for the same account and source IP within 5 minutes. mvlist=t keeps every event code so the counts are right; transaction clusters them in time but does not strictly order failure-before-success.",
         "dataSource": "Windows Security log",
         "confidence": "high",
-        "query": "index=wineventlog EventCode IN (4624,4625) Account_Name=*\n| transaction Account_Name maxspan=5m\n| eval failures=mvcount(mvfilter(EventCode=4625))\n| eval successes=mvcount(mvfilter(EventCode=4624))\n| where failures>=10 AND successes>=1\n| table _time, Account_Name, failures, successes, IpAddress, ComputerName"
+        "query": "index=wineventlog EventCode IN (4624,4625) Account_Name=*\n| transaction Account_Name, IpAddress maxspan=5m mvlist=t\n| eval failures=mvcount(mvfilter(EventCode=4625))\n| eval successes=mvcount(mvfilter(EventCode=4624))\n| where failures>=10 AND successes>=1\n| table _time, Account_Name, IpAddress, failures, successes, ComputerName"
       },
       {
         "platform": "elastic",
@@ -250,10 +250,10 @@
       {
         "platform": "microsoft",
         "title": "M365: Failed sign-ins followed by success (cloud or AD)",
-        "description": "A burst of failed sign-ins for one account and source IP followed by a success after the last failure within 10 minutes (credential stuffing / brute force on a single account and source, not a distributed spray); the join requires the success to follow the failures.",
+        "description": "A burst of credential-failure sign-ins for one account and source IP, followed by a success after the last failure within 10 minutes (credential stuffing / brute force on a single account and source, not a distributed spray). Failures are restricted to the bad-credential codes (50126 invalid username or password, 50053 account locked) so MFA challenges and interrupts are not counted; the join requires the success to follow the failures.",
         "dataSource": "EntraIdSignInEvents (IdentityLogonEvents for on-prem AD, different schema)",
         "confidence": "high",
-        "query": "let fails =\n    EntraIdSignInEvents\n    | where Timestamp > ago(1h) and ErrorCode != 0\n    | summarize Failures = count(), LastFailure = max(Timestamp) by AccountUpn, IPAddress, bin(Timestamp, 10m)\n    | where Failures >= 10;\nEntraIdSignInEvents\n| where Timestamp > ago(1h) and ErrorCode == 0\n| join kind=inner fails on AccountUpn, IPAddress\n| where Timestamp > LastFailure and Timestamp <= LastFailure + 10m\n| project SuccessTime = Timestamp, AccountUpn, IPAddress, Country, Failures, LastFailure"
+        "query": "let fails =\n    EntraIdSignInEvents\n    | where Timestamp > ago(1h) and ErrorCode in (50126, 50053)\n    | summarize Failures = count(), LastFailure = max(Timestamp) by AccountUpn, IPAddress, bin(Timestamp, 10m)\n    | where Failures >= 10;\nEntraIdSignInEvents\n| where Timestamp > ago(1h) and ErrorCode == 0\n| join kind=inner fails on AccountUpn, IPAddress\n| where Timestamp > LastFailure and Timestamp <= LastFailure + 10m\n| project SuccessTime = Timestamp, AccountUpn, IPAddress, Country, Failures, LastFailure"
       },
       {
         "platform": "chronicle",
@@ -261,25 +261,25 @@
         "description": "YARA-L 2.0 rule for credential brute-force pattern.",
         "dataSource": "UDM USER_LOGIN events",
         "confidence": "high",
-        "query": "rule t1110_brute_force {\n  meta:\n    mitre_attack = \"T1110\"\n    severity = \"HIGH\"\n  events:\n    $fail.metadata.event_type = \"USER_LOGIN\"\n    $fail.security_result.action = \"BLOCK\"\n    $success.metadata.event_type = \"USER_LOGIN\"\n    $success.security_result.action = \"ALLOW\"\n    $fail.principal.ip = $success.principal.ip\n    $fail.target.user.userid = $success.target.user.userid\n  match:\n    $success.target.user.userid over 5m\n  outcome:\n    $fail_count = count($fail)\n  condition:\n    $success and $fail_count >= 10\n}"
+        "query": "rule t1110_brute_force {\n  meta:\n    mitre_attack = \"T1110\"\n    severity = \"HIGH\"\n  events:\n    $fail.metadata.event_type = \"USER_LOGIN\"\n    $fail.security_result.action = \"FAIL\"\n    $success.metadata.event_type = \"USER_LOGIN\"\n    $success.security_result.action = \"ALLOW\"\n    $fail.principal.ip = $success.principal.ip\n    $user = $fail.target.user.userid\n    $user = $success.target.user.userid\n    $fail.metadata.event_timestamp.seconds < $success.metadata.event_timestamp.seconds\n  match:\n    $user over 5m\n  outcome:\n    $fail_count = count($fail)\n  condition:\n    $success and $fail_count >= 10\n}"
       },
       {
         "platform": "crowdstrike",
         "title": "Falcon LogScale: Brute force pattern",
-        "description": "LogScale detection for many auth failures followed by success.",
+        "description": "A burst of failed logons per account and source IP. Correlating the follow-on success in one CQL query needs a join across UserLogonFailed and UserLogon; Falcon's built-in brute-force detections already cover the failure-then-success pattern. Confirm field names against your data dictionary (see the CrowdStrike note under Provenance).",
         "dataSource": "Falcon UserLogonFailed/UserLogon",
         "confidence": "high",
-        "query": "(#event_simpleName=UserLogonFailed | groupBy([UserName, RemoteAddressIP4], function=count(as=fails))\n| fails >= 10) AND\n(#event_simpleName=UserLogon | groupBy([UserName, RemoteAddressIP4], function=count(as=success))\n| success >= 1)"
+        "query": "#event_simpleName=UserLogonFailed\n| groupBy([UserName, RemoteAddressIP4], function=count(as=fails))\n| fails >= 10"
       }
     ],
     "T1566.001": [
       {
         "platform": "splunk",
         "title": "Spearphishing attachment: email gateway → endpoint execution",
-        "description": "Correlate inbound email attachment with subsequent process creation by Office app.",
+        "description": "Correlate an inbound email attachment with subsequent process creation by an Office app. The join uses a normalized user key (email local-part vs the Windows account name) - tune the normalization to your directory; this assumes the local-part equals the sAMAccountName.",
         "dataSource": "Email gateway + Sysmon EventCode 1",
         "confidence": "high",
-        "query": "index=email | rename recipient AS dest_user\n| join dest_user [ search index=windows source=\"WinEventLog:Microsoft-Windows-Sysmon/Operational\" EventCode=1 ParentImage=\"*WINWORD.EXE\" OR ParentImage=\"*EXCEL.EXE\" OR ParentImage=\"*OUTLOOK.EXE\" Image IN (\"*powershell.exe\",\"*cmd.exe\",\"*wscript.exe\",\"*cscript.exe\",\"*mshta.exe\",\"*rundll32.exe\")\n  | rename User as dest_user ]\n| stats count by sender, recipient, ParentImage, Image, CommandLine"
+        "query": "index=email\n| eval user_key=lower(mvindex(split(recipient,\"@\"),0))\n| join user_key [ search index=windows source=\"WinEventLog:Microsoft-Windows-Sysmon/Operational\" EventCode=1 (ParentImage=\"*WINWORD.EXE\" OR ParentImage=\"*EXCEL.EXE\" OR ParentImage=\"*OUTLOOK.EXE\") Image IN (\"*powershell.exe\",\"*cmd.exe\",\"*wscript.exe\",\"*cscript.exe\",\"*mshta.exe\",\"*rundll32.exe\")\n  | eval user_key=lower(mvindex(split(User,\"\\\\\"),-1)) ]\n| stats count by sender, recipient, ParentImage, Image, CommandLine"
       },
       {
         "platform": "elastic",
@@ -326,18 +326,18 @@
       {
         "platform": "elastic",
         "title": "Process injection via remote thread",
-        "description": "Elastic EQL for CreateRemoteThread API.",
-        "dataSource": "endpoint events",
+        "description": "EQL over Sysmon EventID 8 (CreateRemoteThread) - a thread created in another process - excluding common benign source processes. Elastic's own injection rules key on the Sysmon provider and event.code 8, not a bare event.action value.",
+        "dataSource": "Sysmon EventID 8 (Elastic Windows integration)",
         "confidence": "high",
-        "query": "process where event.action == \"create-remote-thread\" and\n  not process.executable : (\"?:\\\\Windows\\\\System32\\\\svchost.exe\",\n                            \"?:\\\\Windows\\\\System32\\\\MsMpEng.exe\")"
+        "query": "process where host.os.type == \"windows\" and\n  event.provider == \"Microsoft-Windows-Sysmon\" and event.code == \"8\" and\n  not process.executable : (\"?:\\\\Windows\\\\System32\\\\svchost.exe\",\n                            \"?:\\\\Windows\\\\System32\\\\MsMpEng.exe\")"
       },
       {
         "platform": "microsoft",
         "title": "M365: Cross-process injection events",
-        "description": "Hunt for cross-process injection actions.",
+        "description": "Hunt for cross-process injection - remote-thread creation into another process and writes into LSASS memory. These DeviceEvents ActionTypes require MDE advanced API-call telemetry to be enabled in the tenant.",
         "dataSource": "DeviceEvents",
         "confidence": "high",
-        "query": "DeviceEvents\n| where ActionType in (\"CreateRemoteThreadApiCall\", \"WriteProcessMemoryApiCall\")\n| where InitiatingProcessFileName !in~ (\"svchost.exe\",\"MsMpEng.exe\")\n| project Timestamp, DeviceName, InitiatingProcessFileName, FileName, AdditionalFields"
+        "query": "DeviceEvents\n| where ActionType in (\"CreateRemoteThreadApiCall\", \"WriteToLsassProcessMemory\")\n| where InitiatingProcessFileName !in~ (\"svchost.exe\",\"MsMpEng.exe\")\n| project Timestamp, DeviceName, InitiatingProcessFileName, FileName, AdditionalFields"
       },
       {
         "platform": "chronicle",
@@ -350,9 +350,9 @@
       {
         "platform": "crowdstrike",
         "title": "Falcon LogScale: Cross-process injection",
-        "description": "LogScale detection for injection patterns.",
-        "dataSource": "Falcon ProcessRollup2 + InjectedThread",
-        "confidence": "high",
+        "description": "LogScale pattern for injected-thread telemetry, grouped by source/target process. Confirm the event and field names against your sensor's data dictionary (see the CrowdStrike note under Provenance); Falcon's built-in injection detections are the maintained signal.",
+        "dataSource": "Falcon cross-process injection telemetry",
+        "confidence": "medium",
         "query": "#event_simpleName=InjectedThread\n| groupBy([SourceProcessImageFileName, TargetProcessImageFileName, ComputerName])"
       }
     ],
@@ -429,12 +429,12 @@
         "description": "YARA-L rule for RemoteInteractive successful logon.",
         "dataSource": "UDM USER_LOGIN",
         "confidence": "medium",
-        "query": "rule t1021_001_rdp_logon {\n  meta:\n    mitre_attack = \"T1021.001\"\n  events:\n    $e.metadata.event_type = \"USER_LOGIN\"\n    $e.network.session.session_type = \"REMOTE_INTERACTIVE\"\n    $e.security_result.action = \"ALLOW\"\n  condition:\n    $e\n}"
+        "query": "rule t1021_001_rdp_logon {\n  meta:\n    mitre_attack = \"T1021.001\"\n  events:\n    $e.metadata.event_type = \"USER_LOGIN\"\n    $e.extensions.auth.mechanism = \"REMOTE_INTERACTIVE\"\n    $e.security_result.action = \"ALLOW\"\n  condition:\n    $e\n}"
       },
       {
         "platform": "crowdstrike",
         "title": "Falcon LogScale: RDP logon",
-        "description": "LogScale RDP logon detection.",
+        "description": "LogScale RDP logon pattern. The LogonType value encoding is sensor-defined; confirm whether RDP is RemoteInteractive or a numeric code against your data dictionary (see the CrowdStrike note under Provenance).",
         "dataSource": "Falcon UserLogon",
         "confidence": "medium",
         "query": "#event_simpleName=UserLogon LogonType=RemoteInteractive\n| groupBy([UserName, RemoteAddressIP4, ComputerName])"
@@ -463,7 +463,7 @@
         "description": "Hunt for schtasks.exe /create with suspicious payload.",
         "dataSource": "DeviceProcessEvents",
         "confidence": "high",
-        "query": "DeviceProcessEvents\n| where FileName =~ \"schtasks.exe\"\n| where ProcessCommandLine has_cs \"/create\"\n| where ProcessCommandLine has_any (\"powershell\", \"cmd.exe\", \"wscript\", \"mshta\", \"rundll32\", \"regsvr32\")\n| project Timestamp, DeviceName, AccountName, ProcessCommandLine"
+        "query": "DeviceProcessEvents\n| where FileName =~ \"schtasks.exe\"\n| where ProcessCommandLine has \"/create\"\n| where ProcessCommandLine has_any (\"powershell\", \"cmd.exe\", \"wscript\", \"mshta\", \"rundll32\", \"regsvr32\")\n| project Timestamp, DeviceName, AccountName, ProcessCommandLine"
       },
       {
         "platform": "chronicle",
@@ -513,12 +513,12 @@
         "description": "YARA-L rule for Run-key autostart write.",
         "dataSource": "UDM REGISTRY_MODIFICATION",
         "confidence": "high",
-        "query": "rule t1547_001_run_key {\n  meta:\n    mitre_attack = \"T1547.001\"\n  events:\n    $r.metadata.event_type = \"REGISTRY_MODIFICATION\"\n    $r.target.registry.registry_key = /\\\\CurrentVersion\\\\(Run|RunOnce)\\\\/ nocase\n  condition:\n    $r\n}"
+        "query": "rule t1547_001_run_key {\n  meta:\n    mitre_attack = \"T1547.001\"\n  events:\n    $r.metadata.event_type = \"REGISTRY_MODIFICATION\"\n    $r.target.registry.registry_key = /\\\\CurrentVersion\\\\(Run|RunOnce)(\\\\|$)/ nocase\n  condition:\n    $r\n}"
       },
       {
         "platform": "crowdstrike",
         "title": "Falcon LogScale: Run-key persistence",
-        "description": "LogScale detection for Run/RunOnce registry persistence.",
+        "description": "LogScale pattern for Run/RunOnce registry persistence from ASEP registry telemetry. Confirm the ASEP field names against your sensor's data dictionary (see the CrowdStrike note under Provenance).",
         "dataSource": "Falcon AsepValueUpdate",
         "confidence": "high",
         "query": "#event_simpleName=AsepValueUpdate AsepValueType=/(?i)Run/\n| groupBy([ComputerName, AsepKeyName, AsepValueName, AsepValueData])"
@@ -531,7 +531,7 @@
         "description": "Detect built-in Windows reconnaissance commands typical of post-exploit discovery.",
         "dataSource": "Sysmon EventCode 1",
         "confidence": "medium",
-        "query": "index=windows source=\"WinEventLog:Microsoft-Windows-Sysmon/Operational\" EventCode=1\n  Image IN (\"*net.exe\",\"*nltest.exe\",\"*ping.exe\",\"*nslookup.exe\")\n| where match(CommandLine,\"(?i)(view|/dclist|/domain_trusts|-n\\\\s+1)\") OR Image=\"*nslookup.exe\"\n| stats count, values(CommandLine) as cmds by ComputerName, User, Image"
+        "query": "index=windows source=\"WinEventLog:Microsoft-Windows-Sysmon/Operational\" EventCode=1\n  Image IN (\"*net.exe\",\"*nltest.exe\",\"*ping.exe\",\"*nslookup.exe\")\n| where match(CommandLine,\"(?i)(view|/dclist|/domain_trusts|-n\\\\s+1)\") OR like(Image, \"%nslookup.exe\")\n| stats count, values(CommandLine) as cmds by ComputerName, User, Image"
       },
       {
         "platform": "elastic",

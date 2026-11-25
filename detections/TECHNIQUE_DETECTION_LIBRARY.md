@@ -1,6 +1,6 @@
 # Technique Detection Library
 
-> Multi-platform detection content keyed to MITRE ATT&CK techniques. Each technique below carries ready-to-adapt analytics for the major SIEM/EDR query languages, the telemetry each one needs, an analyst confidence rating, and the NIST 800-53 controls that mitigate the same technique, so a hunt can move from behavior, to detection, to control gap in one place.
+> Multi-platform detection content keyed to MITRE ATT&CK techniques. Each technique below carries ready-to-adapt analytics for the major SIEM/EDR query languages, the telemetry each one needs, an analyst confidence rating, and the candidate NIST 800-53 controls mapped to the technique (a reference relationship, not proven mitigation), so a hunt can move from behavior, to detection, to control gap in one place.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 13 min (2,911 words at 230 words a minute)
+About 15 min (3,454 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -42,7 +42,7 @@ You are building or tuning a SIEM or EDR detection for a specific ATT&CK techniq
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-11-25, detection queries corrected against their data-source schemas: the retired Defender XDR AADSignInEventsBeta table replaced with EntraIdSignInEvents, the country-baseline and brute-force windows and joins fixed, the ransomware file count fixed, and the control-mapping, validation and provenance framing tightened; the rendered page and technique-queries.json kept in sync ([#421](https://github.com/TeamStarWolf/TeamStarWolf/pull/421))
+2026-11-25, detection queries corrected against their data-source schemas and query-language semantics across all five platforms: the retired Defender XDR AADSignInEventsBeta table replaced with EntraIdSignInEvents, ATT&CK tactic names updated to v19 (Stealth), brute-force / baseline / injection / RDP / persistence / discovery queries fixed, Chronicle match-section placeholders and UDM fields (extensions.auth.mechanism, FAIL vs BLOCK, target.user.userid) corrected, CrowdStrike CQL marked where its field dictionary is not publicly verifiable, and the control-mapping / validation / provenance framing tightened; verified against primary sources and parser docs (queries were not executed against a live SIEM), and the rendered page and technique-queries.json kept in sync ([#421](https://github.com/TeamStarWolf/TeamStarWolf/pull/421))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
@@ -79,18 +79,20 @@ These analytics are original example rules written for this library, informed by
 
 > Confidence ratings (`high` / `medium` / `low`) reflect the expected true-positive strength of the pattern before environment tuning. Treat everything here as a hypothesis to validate, not an authoritative signature.
 
+> CrowdStrike Falcon LogScale (CQL) note: Falcon's event and field dictionary (the Events Data Dictionary) is documented inside the CrowdStrike console, not in a public schema, so these examples were not executed and cannot be cited to public documentation. The `ProcessRollup2` fields used here (`FileName`, `CommandLine`, `ParentBaseFileName`, `ComputerName`, `UserName`) are stable and widely used. Queries that reach for other telemetry - cross-process injection (T1055), HTTP request URLs (T1190), file-write events (T1486) and ASEP registry writes (T1547.001) - name fields by CrowdStrike's conventions, but confirm the exact `#event_simpleName` and field names against your own sensor's data dictionary in-console; for those tactics Falcon's built-in detections are the maintained signal.
+
 ## Technique index
 
 | ATT&CK ID | Technique | Tactic(s) | Queries | NIST 800-53 controls |
 |---|---|---|---|---|
-| [T1003.001](#t1003001-lsass-memory) | LSASS Memory | Credential Access | 5 | 19 controls |
+| [T1003.001](#t1003001-lsass-memory) | LSASS Memory | Credential Access | 4 (+1 note) | 19 controls |
 | [T1018](#t1018-remote-system-discovery) | Remote System Discovery | Discovery | 5 | 0 controls |
 | [T1021.001](#t1021001-remote-desktop-protocol) | Remote Desktop Protocol | Lateral Movement | 5 | 23 controls |
-| [T1027](#t1027-obfuscated-files-or-information) | Obfuscated Files or Information | Defense Evasion | 5 | 8 controls |
+| [T1027](#t1027-obfuscated-files-or-information) | Obfuscated Files or Information | Stealth | 5 | 8 controls |
 | [T1053.005](#t1053005-scheduled-task) | Scheduled Task | Execution, Persistence, Privilege Escalation | 5 | 13 controls |
-| [T1055](#t1055-process-injection) | Process Injection | Defense Evasion, Privilege Escalation | 5 | 12 controls |
+| [T1055](#t1055-process-injection) | Process Injection | Stealth, Privilege Escalation | 5 | 12 controls |
 | [T1059.001](#t1059001-powershell) | PowerShell | Execution | 5 | 19 controls |
-| [T1078](#t1078-valid-accounts) | Valid Accounts | Defense Evasion, Persistence, Privilege Escalation, Initial Access | 5 | 25 controls |
+| [T1078](#t1078-valid-accounts) | Valid Accounts | Stealth, Persistence, Privilege Escalation, Initial Access | 5 | 25 controls |
 | [T1110](#t1110-brute-force) | Brute Force | Credential Access | 5 | 14 controls |
 | [T1190](#t1190-exploit-public-facing-application) | Exploit Public-Facing Application | Initial Access | 5 | 29 controls |
 | [T1486](#t1486-data-encrypted-for-impact) | Data Encrypted for Impact | Impact | 5 | 11 controls |
@@ -174,8 +176,9 @@ rule t1003_001_lsass_dump {
     $e.target.process.file.full_path = /lsass\.exe$/ nocase
     $e.security_result.detection_fields["GrantedAccess"] = /0x(1010|1410|1438|143A|1FFFFF)/ nocase
     not $e.principal.process.file.full_path = /\\(svchost|wininit|csrss|services|lsm|MsMpEng)\.exe$/ nocase
+    $host = $e.principal.hostname
   match:
-    $e.principal.hostname over 10m
+    $host over 10m
   condition:
     $e
 }
@@ -215,7 +218,7 @@ Validate with: [Atomic Red Team, T1018](https://github.com/redcanaryco/atomic-re
 ```spl
 index=windows source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1
   Image IN ("*net.exe","*nltest.exe","*ping.exe","*nslookup.exe")
-| where match(CommandLine,"(?i)(view|/dclist|/domain_trusts|-n\\s+1)") OR Image="*nslookup.exe"
+| where match(CommandLine,"(?i)(view|/dclist|/domain_trusts|-n\\s+1)") OR like(Image, "%nslookup.exe")
 | stats count, values(CommandLine) as cmds by ComputerName, User, Image
 ```
 
@@ -334,7 +337,7 @@ rule t1021_001_rdp_logon {
     mitre_attack = "T1021.001"
   events:
     $e.metadata.event_type = "USER_LOGIN"
-    $e.network.session.session_type = "REMOTE_INTERACTIVE"
+    $e.extensions.auth.mechanism = "REMOTE_INTERACTIVE"
     $e.security_result.action = "ALLOW"
   condition:
     $e
@@ -345,7 +348,7 @@ rule t1021_001_rdp_logon {
 
 - Data source: Falcon UserLogon
 - Confidence: `medium`
-- Logic: LogScale RDP logon detection.
+- Logic: LogScale RDP logon pattern. The `LogonType` value encoding is sensor-defined; confirm whether RDP is `RemoteInteractive` or a numeric code against your data dictionary (see the CrowdStrike note under Provenance).
 
 ```sql
 #event_simpleName=UserLogon LogonType=RemoteInteractive
@@ -357,7 +360,7 @@ rule t1021_001_rdp_logon {
 ## T1027: Obfuscated Files or Information
 <a id="t1027"></a>
 
-Tactic(s): Defense Evasion  
+Tactic(s): Stealth  
 ATT&CK: [T1027](https://attack.mitre.org/techniques/T1027/)  
 Candidate NIST 800-53 R5 controls mapped to this technique (8): `AC-3`, `CM-2`, `CM-6`, `CM-7`, `SI-2`, `SI-3`, `SI-4`, `SI-7`  
 Validate with: [Atomic Red Team, T1027](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1027)
@@ -473,7 +476,7 @@ process where process.name : "schtasks.exe" and process.args : "/create" and
 ```kql
 DeviceProcessEvents
 | where FileName =~ "schtasks.exe"
-| where ProcessCommandLine has_cs "/create"
+| where ProcessCommandLine has "/create"
 | where ProcessCommandLine has_any ("powershell", "cmd.exe", "wscript", "mshta", "rundll32", "regsvr32")
 | project Timestamp, DeviceName, AccountName, ProcessCommandLine
 ```
@@ -514,7 +517,7 @@ rule t1053_005_schtasks_create {
 ## T1055: Process Injection
 <a id="t1055"></a>
 
-Tactic(s): Defense Evasion, Privilege Escalation  
+Tactic(s): Stealth, Privilege Escalation  
 ATT&CK: [T1055](https://attack.mitre.org/techniques/T1055/)  
 Candidate NIST 800-53 R5 controls mapped to this technique (12): `AC-2`, `AC-3`, `AC-5`, `AC-6`, `CM-5`, `CM-6`, `IA-2`, `SC-18`, `SC-7`, `SI-2`, `SI-3`, `SI-4`  
 Validate with: [Atomic Red Team, T1055](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1055)
@@ -533,12 +536,13 @@ index=windows source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCod
 
 ### Elastic (EQL/KQL): Process injection via remote thread
 
-- Data source: endpoint events
+- Data source: Sysmon EventID 8 (Elastic Windows integration)
 - Confidence: `high`
-- Logic: Elastic EQL for CreateRemoteThread API.
+- Logic: EQL over Sysmon EventID 8 (CreateRemoteThread) - a thread created in another process - excluding common benign source processes. Elastic's own injection rules key on the Sysmon provider and `event.code == "8"`, not a bare `event.action` value.
 
 ```sql
-process where event.action == "create-remote-thread" and
+process where host.os.type == "windows" and
+  event.provider == "Microsoft-Windows-Sysmon" and event.code == "8" and
   not process.executable : ("?:\\Windows\\System32\\svchost.exe",
                             "?:\\Windows\\System32\\MsMpEng.exe")
 ```
@@ -547,11 +551,11 @@ process where event.action == "create-remote-thread" and
 
 - Data source: DeviceEvents
 - Confidence: `high`
-- Logic: Hunt for cross-process injection actions.
+- Logic: Hunt for cross-process injection - remote-thread creation into another process and writes into LSASS memory. These `DeviceEvents` ActionTypes require MDE advanced API-call telemetry to be enabled in the tenant.
 
 ```kql
 DeviceEvents
-| where ActionType in ("CreateRemoteThreadApiCall", "WriteProcessMemoryApiCall")
+| where ActionType in ("CreateRemoteThreadApiCall", "WriteToLsassProcessMemory")
 | where InitiatingProcessFileName !in~ ("svchost.exe","MsMpEng.exe")
 | project Timestamp, DeviceName, InitiatingProcessFileName, FileName, AdditionalFields
 ```
@@ -577,9 +581,9 @@ rule t1055_process_injection {
 
 ### CrowdStrike Falcon LogScale (CQL): Cross-process injection
 
-- Data source: Falcon ProcessRollup2 + InjectedThread
-- Confidence: `high`
-- Logic: LogScale detection for injection patterns.
+- Data source: Falcon cross-process injection telemetry
+- Confidence: `medium`
+- Logic: LogScale pattern for injected-thread telemetry, grouped by source/target process. Confirm the `#event_simpleName` and field names against your sensor's data dictionary (see the CrowdStrike note under Provenance); Falcon's built-in injection detections are the maintained signal.
 
 ```sql
 #event_simpleName=InjectedThread
@@ -617,7 +621,7 @@ index=windows source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCod
 - Logic: Elastic EQL on Microsoft-Windows-PowerShell/Operational for script-block events containing high-risk APIs.
 
 ```sql
-powershell where
+process where
   powershell.file.script_block_text : (
     "*Invoke-Mimikatz*", "*Invoke-Expression*", "*IEX*",
     "*FromBase64String*", "*Reflection.Assembly*",
@@ -676,7 +680,7 @@ rule t1059_001_powershell_encoded {
 ## T1078: Valid Accounts
 <a id="t1078"></a>
 
-Tactic(s): Defense Evasion, Persistence, Privilege Escalation, Initial Access  
+Tactic(s): Stealth, Persistence, Privilege Escalation, Initial Access  
 ATT&CK: [T1078](https://attack.mitre.org/techniques/T1078/)  
 Candidate NIST 800-53 R5 controls mapped to this technique (25): `AC-2`, `AC-3`, `AC-5`, `AC-6`, `CA-3`, `CA-7`, `CM-5`, `CM-6`, `CM-7`, `IA-12`, `IA-13`, `IA-2`, `IA-5`, `RA-5`, `SA-10`, `SA-11` (+9 more)  
 Validate with: Atomic Red Team, T1078 sub-techniques (no parent-level test directory): [T1078.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1078.001), [T1078.003](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1078.003), [T1078.004](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1078.004)
@@ -688,10 +692,10 @@ Validate with: Atomic Red Team, T1078 sub-techniques (no parent-level test direc
 - Logic: Successful interactive logon from an account that has never authenticated to this host before.
 
 ```spl
-index=wineventlog EventCode=4624 LogonType IN (2,3,10)
-| stats earliest(_time) as first_seen, latest(_time) as last_seen, dc(ComputerName) as host_count by Account_Name, ComputerName
-| eval is_first=if(first_seen=last_seen,1,0)
-| where is_first=1 AND host_count=1
+index=wineventlog EventCode=4624 LogonType IN (2,3,10) earliest=-30d
+| stats earliest(_time) as first_seen, count by Account_Name, ComputerName
+| eval is_new=if(first_seen>relative_time(now(),"-24h"),1,0)
+| where is_new=1
 | convert ctime(first_seen)
 ```
 
@@ -699,7 +703,7 @@ index=wineventlog EventCode=4624 LogonType IN (2,3,10)
 
 - Data source: winlog.event_id 4624
 - Confidence: `medium`
-- Logic: Elastic ML-aware EQL for first-time interactive logons.
+- Logic: Successful interactive logons (type 2/3/10). This is only a filter - EQL cannot do first-seen logic; wrap it in an Elastic `new_terms` rule keyed on `user.name` and `host.name` with a history window to flag a genuinely new pair.
 
 ```sql
 authentication where event.action == "logged-in" and
@@ -742,10 +746,11 @@ rule t1078_different_country_logins {
     $a.security_result.action = "ALLOW"
     $b.metadata.event_type = "USER_LOGIN"
     $b.security_result.action = "ALLOW"
-    $a.principal.user.userid = $b.principal.user.userid
+    $user = $a.target.user.userid
+    $user = $b.target.user.userid
     $a.principal.location.country_or_region != $b.principal.location.country_or_region
   match:
-    $a.principal.user.userid over 1h
+    $user over 1h
   condition:
     #a >= 1 and #b >= 1
 }
@@ -755,12 +760,12 @@ rule t1078_different_country_logins {
 
 - Data source: Falcon UserLogon
 - Confidence: `medium`
-- Logic: Detect identity used in multiple country codes within a short window.
+- Logic: Detect an identity seen from two or more distinct country codes over the search window (the time span is set by the search range, not by the query).
 
 ```sql
 #event_simpleName=UserLogon
-| groupBy([UserName], function=collect_set(CountryName))
-| length(CountryName) >= 2
+| groupBy([UserName], function=count(CountryName, distinct=true, as=country_count))
+| country_count >= 2
 ```
 
 ---
@@ -777,15 +782,15 @@ Validate with: Atomic Red Team, T1110 sub-techniques (no parent-level test direc
 
 - Data source: Windows Security log
 - Confidence: `high`
-- Logic: Many 4625 failures followed by a 4624 success from same source within 5m.
+- Logic: At least 10 failed (4625) and one successful (4624) logon for the same account and source IP within 5 minutes. `mvlist=t` keeps every event code so the counts are right; `transaction` clusters them in time but does not strictly order failure-before-success - use the Elastic/KQL sequence versions below when ordering matters.
 
 ```spl
 index=wineventlog EventCode IN (4624,4625) Account_Name=*
-| transaction Account_Name maxspan=5m
+| transaction Account_Name, IpAddress maxspan=5m mvlist=t
 | eval failures=mvcount(mvfilter(EventCode=4625))
 | eval successes=mvcount(mvfilter(EventCode=4624))
 | where failures>=10 AND successes>=1
-| table _time, Account_Name, failures, successes, IpAddress, ComputerName
+| table _time, Account_Name, IpAddress, failures, successes, ComputerName
 ```
 
 ### Elastic (EQL/KQL): Auth burst followed by success (sequence)
@@ -804,12 +809,12 @@ sequence by source.ip with maxspan=5m
 
 - Data source: EntraIdSignInEvents (Microsoft Defender XDR; AADSignInEventsBeta is deprecated and auto-migrates to EntraIdSignInEvents). For on-prem AD, IdentityLogonEvents has a different schema - map its ActionType, AccountName and DeviceName fields before reusing this logic.
 - Confidence: `high`
-- Logic: A burst of failed sign-ins for one account and source IP, followed by a success that occurs after the last failure within 10 minutes (credential stuffing / brute force against a single account and source, not a distributed spray). The join requires the success to be chronologically after the failures.
+- Logic: A burst of credential-failure sign-ins for one account and source IP, followed by a success that occurs after the last failure within 10 minutes (credential stuffing / brute force against a single account and source, not a distributed spray). Failures are restricted to the bad-credential codes (`50126` invalid username or password, `50053` account locked) so that MFA challenges and sign-in interrupts - which also set a non-zero `ErrorCode` - are not counted as brute-force attempts. The join requires the success to be chronologically after the failures.
 
 ```kql
 let fails =
     EntraIdSignInEvents
-    | where Timestamp > ago(1h) and ErrorCode != 0
+    | where Timestamp > ago(1h) and ErrorCode in (50126, 50053)
     | summarize Failures = count(), LastFailure = max(Timestamp) by AccountUpn, IPAddress, bin(Timestamp, 10m)
     | where Failures >= 10;
 EntraIdSignInEvents
@@ -832,13 +837,15 @@ rule t1110_brute_force {
     severity = "HIGH"
   events:
     $fail.metadata.event_type = "USER_LOGIN"
-    $fail.security_result.action = "BLOCK"
+    $fail.security_result.action = "FAIL"
     $success.metadata.event_type = "USER_LOGIN"
     $success.security_result.action = "ALLOW"
     $fail.principal.ip = $success.principal.ip
-    $fail.target.user.userid = $success.target.user.userid
+    $user = $fail.target.user.userid
+    $user = $success.target.user.userid
+    $fail.metadata.event_timestamp.seconds < $success.metadata.event_timestamp.seconds
   match:
-    $success.target.user.userid over 5m
+    $user over 5m
   outcome:
     $fail_count = count($fail)
   condition:
@@ -850,13 +857,12 @@ rule t1110_brute_force {
 
 - Data source: Falcon UserLogonFailed/UserLogon
 - Confidence: `high`
-- Logic: LogScale detection for many auth failures followed by success.
+- Logic: A burst of failed logons per account and source IP. Correlating the follow-on success in one CQL query needs a join across `UserLogonFailed` and `UserLogon`; Falcon's built-in brute-force detections already cover the failure-then-success pattern. Confirm field names against your data dictionary (see the CrowdStrike note under Provenance).
 
 ```sql
-(#event_simpleName=UserLogonFailed | groupBy([UserName, RemoteAddressIP4], function=count(as=fails))
-| fails >= 10) AND
-(#event_simpleName=UserLogon | groupBy([UserName, RemoteAddressIP4], function=count(as=success))
-| success >= 1)
+#event_simpleName=UserLogonFailed
+| groupBy([UserName, RemoteAddressIP4], function=count(as=fails))
+| fails >= 10
 ```
 
 ---
@@ -873,7 +879,7 @@ Validate with: Atomic Red Team has no T1190 test (listed as "contribute a test" 
 
 - Data source: Web access logs (Apache/IIS/Nginx)
 - Confidence: `medium`
-- Logic: Detect 4xx/5xx responses for known exploit paths against perimeter web servers.
+- Logic: Detect requests to known exploit and scanner paths against perimeter web servers (any response status; this flags the attempt, not the outcome).
 
 ```spl
 index=web sourcetype IN (access_combined, iis, nginx)
@@ -895,14 +901,15 @@ network where url.path : ("*jndi:ldap*", "*/wp-admin/*", "*/phpmyadmin*", "*/.gi
 or user_agent.original : ("*sqlmap*", "*nmap*", "*nikto*", "*acunetix*")
 ```
 
-### Microsoft Defender / Sentinel (KQL): Network exposed to known CVE exploit pattern
+### Microsoft Defender / Sentinel (KQL): Outbound connection to an exploit-pattern URL from a CVE-exposed device
 
 - Data source: DeviceTvmSoftwareVulnerabilities + DeviceNetworkEvents
 - Confidence: `medium`
-- Logic: Use Microsoft Defender vulnerability data to spot exploit attempts on hosts with known CVE exposure.
+- Logic: A device with a known Critical/High CVE making an outbound connection to a URL carrying an exploit pattern (a Log4Shell/JNDI callback or a scanner path). `DeviceNetworkEvents.RemoteUrl` is the URL the device connected *to*, so this flags a host reaching out, not an exploit request arriving; the severity-filtered CVE join narrows to actually-exposed devices.
 
 ```kql
 DeviceTvmSoftwareVulnerabilities
+| where VulnerabilitySeverityLevel in ("Critical", "High")
 | summarize CveList = make_set(CveId) by DeviceId
 | join kind=inner (
   DeviceNetworkEvents
@@ -935,7 +942,7 @@ rule t1190_web_exploit {
 
 - Data source: Falcon Network/HTTP
 - Confidence: `medium`
-- Logic: Search for exploit strings in network/proxy logs.
+- Logic: Search for exploit strings in Falcon network/HTTP telemetry. HTTP request-URL telemetry depends on sensor/module coverage; confirm the `#event_simpleName` and URL field against your sensor's data dictionary (see the CrowdStrike note under Provenance).
 
 ```sql
 #event_simpleName=NetworkConnect or #event_simpleName=HttpRequest
@@ -962,7 +969,8 @@ Validate with: [Atomic Red Team, T1486](https://github.com/redcanaryco/atomic-re
 ```spl
 index=windows source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode IN (11,23)
 | rex field=TargetFilename "\.(?<ext>[a-zA-Z0-9]{2,8})$"
-| stats dc(TargetFilename) as file_count, values(ext) as extensions by ComputerName, span=5m _time
+| bin _time span=5m
+| stats dc(TargetFilename) as file_count, values(ext) as extensions by ComputerName, _time
 | where file_count > 200
 | eval suspicious=if(mvcount(extensions)<3,1,0)
 | where suspicious=1
@@ -1010,8 +1018,9 @@ rule t1486_ransomware_ext {
   events:
     $f.metadata.event_type = "FILE_MODIFICATION"
     $f.target.file.full_path = /\.(crypt|locked|encrypted|wncry|locky|conti|ryk)$/ nocase
+    $host = $f.principal.hostname
   match:
-    $f.principal.hostname over 5m
+    $host over 5m
   outcome:
     $count = count_distinct($f.target.file.full_path)
   condition:
@@ -1023,12 +1032,12 @@ rule t1486_ransomware_ext {
 
 - Data source: Falcon FsWriteEnded
 - Confidence: `high`
-- Logic: Bulk write activity with known ransomware extension.
+- Logic: Bulk write activity with known ransomware extensions - more than 50 matching writes per process. Confirm the file-write `#event_simpleName` and field names against your sensor's data dictionary (see the CrowdStrike note under Provenance).
 
 ```sql
 #event_simpleName=FsWriteEnded TargetFileName=/\.(crypt|locked|encrypted|wncry|conti|ryk|locky)$/i
 | groupBy([ComputerName, ContextProcessId])
-| count() > 50
+| _count > 50
 ```
 
 ---
@@ -1092,7 +1101,7 @@ rule t1547_001_run_key {
     mitre_attack = "T1547.001"
   events:
     $r.metadata.event_type = "REGISTRY_MODIFICATION"
-    $r.target.registry.registry_key = /\\CurrentVersion\\(Run|RunOnce)\\/ nocase
+    $r.target.registry.registry_key = /\\CurrentVersion\\(Run|RunOnce)(\\|$)/ nocase
   condition:
     $r
 }
@@ -1102,7 +1111,7 @@ rule t1547_001_run_key {
 
 - Data source: Falcon AsepValueUpdate
 - Confidence: `high`
-- Logic: LogScale detection for Run/RunOnce registry persistence.
+- Logic: LogScale pattern for Run/RunOnce registry persistence from ASEP registry telemetry. Confirm the ASEP field names against your sensor's data dictionary (see the CrowdStrike note under Provenance).
 
 ```sql
 #event_simpleName=AsepValueUpdate AsepValueType=/(?i)Run/
@@ -1123,12 +1132,13 @@ Validate with: [Atomic Red Team, T1566.001](https://github.com/redcanaryco/atomi
 
 - Data source: Email gateway + Sysmon EventCode 1
 - Confidence: `high`
-- Logic: Correlate inbound email attachment with subsequent process creation by Office app.
+- Logic: Correlate an inbound email attachment with subsequent process creation by an Office app. The join uses a normalized user key (email local-part vs the Windows account name) - tune the normalization to your directory; this assumes the local-part equals the sAMAccountName.
 
 ```spl
-index=email | rename recipient AS dest_user
-| join dest_user [ search index=windows source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 ParentImage="*WINWORD.EXE" OR ParentImage="*EXCEL.EXE" OR ParentImage="*OUTLOOK.EXE" Image IN ("*powershell.exe","*cmd.exe","*wscript.exe","*cscript.exe","*mshta.exe","*rundll32.exe")
-  | rename User as dest_user ]
+index=email
+| eval user_key=lower(mvindex(split(recipient,"@"),0))
+| join user_key [ search index=windows source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1 (ParentImage="*WINWORD.EXE" OR ParentImage="*EXCEL.EXE" OR ParentImage="*OUTLOOK.EXE") Image IN ("*powershell.exe","*cmd.exe","*wscript.exe","*cscript.exe","*mshta.exe","*rundll32.exe")
+  | eval user_key=lower(mvindex(split(User,"\\"),-1)) ]
 | stats count by sender, recipient, ParentImage, Image, CommandLine
 ```
 
@@ -1198,4 +1208,4 @@ rule t1566_001_office_macro {
 - [SIEM Reference](/SIEM_REFERENCE.md), [Threat Hunting Reference](/THREAT_HUNTING_REFERENCE.md), [Purple Team Reference](/PURPLE_TEAM_REFERENCE.md)
 - [Controls Mapping](/CONTROLS_MAPPING.md), [Coverage layer](/navigator/index.md), [Edge tables](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data)
 
-*Detection content adapted from open community sources for the ATT&CK-Navi project; see attribution above. This library is a study/hunting aid and carries no warranty.*
+*Detection content: original example queries written for this reference library, following the detection patterns of the listed open community projects (not ports of specific upstream rules); see the provenance note above. A study and hunting aid, no warranty.*

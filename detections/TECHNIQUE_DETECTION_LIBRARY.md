@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 15 min (3,454 words at 230 words a minute)
+About 15 min (3,469 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -63,7 +63,7 @@ Machine-readable source: [`detections/technique-queries.json`](https://github.co
 ### How to use this library
 
 1. Pick the technique you are hunting or building coverage for (see the index below).
-2. Copy the query for your platform and adapt field names/indexes to your environment: these are starting points seeded from community detection projects, not drop-in production rules. Validate against your own data model and tune out benign activity before deploying.
+2. Copy the query for your platform and adapt field names/indexes to your environment: these are original examples informed by community detection projects, not ports of their rules and not drop-in production rules. Validate against your own data model and tune out benign activity before deploying.
 3. Validate the rule before deploying: use documented synthetic event fixtures, or, where one exists, the matching [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team) test run in an approved, isolated exercise (not every technique has a matching test). Confirm both that the expected event reaches the right data source and that it produces the intended alert.
 4. Close the loop: the NIST 800-53 Rev 5 controls listed per technique are the *candidate* controls mapped to it - a reference relationship from the library's ATT&CK-to-800-53 control-rollup data, not evidence that a control mitigates the technique in your deployment. Check them against your control stack using the [control-depth coverage layer](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/teamstarwolf_vendor_coverage.json) and [edge tables](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data).
 
@@ -79,7 +79,7 @@ These analytics are original example rules written for this library, informed by
 
 > Confidence ratings (`high` / `medium` / `low`) reflect the expected true-positive strength of the pattern before environment tuning. Treat everything here as a hypothesis to validate, not an authoritative signature.
 
-> CrowdStrike Falcon LogScale (CQL) note: Falcon's event and field dictionary (the Events Data Dictionary) is documented inside the CrowdStrike console, not in a public schema, so these examples were not executed and cannot be cited to public documentation. The `ProcessRollup2` fields used here (`FileName`, `CommandLine`, `ParentBaseFileName`, `ComputerName`, `UserName`) are stable and widely used. Queries that reach for other telemetry - cross-process injection (T1055), HTTP request URLs (T1190), file-write events (T1486) and ASEP registry writes (T1547.001) - name fields by CrowdStrike's conventions, but confirm the exact `#event_simpleName` and field names against your own sensor's data dictionary in-console; for those tactics Falcon's built-in detections are the maintained signal.
+> CrowdStrike Falcon LogScale (CQL) note: these examples follow CrowdStrike's public community query content ([CrowdStrike/logscale-community-content](https://github.com/CrowdStrike/logscale-community-content), at commit `77cfc4e`), which is where the events and fields used here can be cited - `ProcessRollup2`, `UserLogon` with `LogonType`, `UserLogonFailed2`, `InjectedThread`, `AsepValueUpdate` and `HttpRequest` all appear there - though none was executed here. What is not public is Falcon's in-console Events Data Dictionary, and no public example was found for a file-write event, so the T1486 query names `FsWriteEnded` by convention only; confirm it against your own sensor's dictionary. For those techniques Falcon's built-in detections are the maintained signal.
 
 ## Technique index
 
@@ -186,19 +186,15 @@ rule t1003_001_lsass_dump {
 
 ### CrowdStrike Falcon LogScale (CQL): LSASS access by uncommon process
 
-- Data source: Falcon detection telemetry (`DetectionSummaryEvent`): not `ProcessRollup2`
+- Data source: not expressible from public Falcon telemetry; see note
 - Confidence: `n/a`: see note
-- Logic: LSASS handle-access cannot be expressed as a raw process-execution query in CQL.
+- Logic: LSASS handle-access cannot be written as a raw process-execution query in CQL.
 
-> No handle telemetry in `ProcessRollup2`. The Falcon `ProcessRollup2` event records process
-> *execution* only; it carries no cross-process handle semantics (there is no `LsassProcessId`
-> field, and no way to express "opened a handle to lsass.exe"), so the query previously shown
-> here could never fire. CrowdStrike enforces LSASS credential-theft protection in the sensor's
-> kernel object-callback layer and surfaces hits as its own detections rather than as queryable
-> open-handle telemetry. On LogScale, alert on the built-in credential-access detections via
-> `#event_simpleName=DetectionSummaryEvent` filtered to the relevant Tactic/Technique (Credential
-> Access / Credential Dumping). For host-level `GrantedAccess`-mask handle logic, use the Sysmon
-> EventCode 10 (`ProcessAccess`) and Elastic EQL queries shown above.
+> `ProcessRollup2` records process execution, not cross-process handle access, so an "opened a
+> handle to lsass.exe" query cannot be written over it, and no public Falcon event for LSASS
+> open-handle access was found in CrowdStrike's community query content. Alert on Falcon's own
+> credential-access detections instead, and for host-level `GrantedAccess`-mask logic use the
+> Sysmon EventCode 10 (`ProcessAccess`) and Elastic queries shown above.
 
 ---
 
@@ -348,10 +344,10 @@ rule t1021_001_rdp_logon {
 
 - Data source: Falcon UserLogon
 - Confidence: `medium`
-- Logic: LogScale RDP logon pattern. The `LogonType` value encoding is sensor-defined; confirm whether RDP is `RemoteInteractive` or a numeric code against your data dictionary (see the CrowdStrike note under Provenance).
+- Logic: LogScale RDP logon pattern: `UserLogon` with `LogonType=10` (RemoteInteractive), grouped by user and source IP. CrowdStrike's community content uses the numeric `LogonType=10`.
 
 ```sql
-#event_simpleName=UserLogon LogonType=RemoteInteractive
+#event_simpleName=UserLogon LogonType=10
 | groupBy([UserName, RemoteAddressIP4, ComputerName])
 ```
 
@@ -551,7 +547,7 @@ process where host.os.type == "windows" and
 
 - Data source: DeviceEvents
 - Confidence: `high`
-- Logic: Hunt for cross-process injection - remote-thread creation into another process and writes into LSASS memory. These `DeviceEvents` ActionTypes require MDE advanced API-call telemetry to be enabled in the tenant.
+- Logic: Hunt for cross-process injection - remote-thread creation into another process and writes into LSASS memory. The `CreateRemoteThreadApiCall` and `WriteToLsassProcessMemory` ActionType values are listed only in the in-portal DeviceEvents schema reference.
 
 ```kql
 DeviceEvents
@@ -618,15 +614,13 @@ index=windows source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCod
 
 - Data source: winlog.channel: Microsoft-Windows-PowerShell/Operational, EventID 4104
 - Confidence: `medium`
-- Logic: Elastic EQL on Microsoft-Windows-PowerShell/Operational for script-block events containing high-risk APIs.
+- Logic: Elastic KQL (kuery) query rule, not EQL - EQL cannot search a `text` field, and `powershell.file.script_block_text` is `text`, so Elastic's own PowerShell rules are kuery. On a `text` field a quoted value matches as a phrase (no wildcards), so the `*...*` wrappers are dropped.
 
-```sql
-process where
-  powershell.file.script_block_text : (
-    "*Invoke-Mimikatz*", "*Invoke-Expression*", "*IEX*",
-    "*FromBase64String*", "*Reflection.Assembly*",
-    "*Net.WebClient*", "*DownloadString*",
-    "*-EncodedCommand*", "*WindowStyle Hidden*")
+```kql
+event.category:process and host.os.type:windows and powershell.file.script_block_text : (
+  "Invoke-Mimikatz" or "Invoke-Expression" or "IEX" or
+  "FromBase64String" or "Reflection.Assembly" or "Net.WebClient" or
+  "DownloadString" or "-EncodedCommand" or "WindowStyle Hidden")
 ```
 
 ### Microsoft Defender / Sentinel (KQL): PowerShell with download cradle
@@ -689,10 +683,10 @@ Validate with: Atomic Red Team, T1078 sub-techniques (no parent-level test direc
 
 - Data source: Windows Security 4624
 - Confidence: `medium`
-- Logic: Successful interactive logon from an account that has never authenticated to this host before.
+- Logic: Successful interactive logon from an account that has never authenticated to this host before. Field names assume the Splunk Add-on for Windows classic (non-XML) rendering (`Account_Name`, `Logon_Type`); the raw XML rendering uses `TargetUserName`, `LogonType`.
 
 ```spl
-index=wineventlog EventCode=4624 LogonType IN (2,3,10) earliest=-30d
+index=wineventlog EventCode=4624 Logon_Type IN (2,3,10) earliest=-30d
 | stats earliest(_time) as first_seen, count by Account_Name, ComputerName
 | eval is_new=if(first_seen>relative_time(now(),"-24h"),1,0)
 | where is_new=1
@@ -758,13 +752,14 @@ rule t1078_different_country_logins {
 
 ### CrowdStrike Falcon LogScale (CQL): Multiple geographies for same user
 
-- Data source: Falcon UserLogon
+- Data source: Falcon UserLogon (+ ipLocation)
 - Confidence: `medium`
-- Logic: Detect an identity seen from two or more distinct country codes over the search window (the time span is set by the search range, not by the query).
+- Logic: Detect an identity seen from two or more distinct countries over the search window. `UserLogon` has no country field, so geography is derived with `ipLocation(RemoteAddressIP4)`, which adds `RemoteAddressIP4.country`; the time span is the search range.
 
 ```sql
-#event_simpleName=UserLogon
-| groupBy([UserName], function=count(CountryName, distinct=true, as=country_count))
+#event_simpleName=UserLogon RemoteAddressIP4=*
+| ipLocation(RemoteAddressIP4)
+| groupBy([UserName], function=count(RemoteAddressIP4.country, distinct=true, as=country_count))
 | country_count >= 2
 ```
 
@@ -782,15 +777,15 @@ Validate with: Atomic Red Team, T1110 sub-techniques (no parent-level test direc
 
 - Data source: Windows Security log
 - Confidence: `high`
-- Logic: At least 10 failed (4625) and one successful (4624) logon for the same account and source IP within 5 minutes. `mvlist=t` keeps every event code so the counts are right; `transaction` clusters them in time but does not strictly order failure-before-success - use the Elastic/KQL sequence versions below when ordering matters.
+- Logic: At least 10 failed (4625) and one successful (4624) logon for the same account and source IP within 5 minutes. `mvlist=t` keeps every event code so the counts are right; `transaction` clusters them in time but does not strictly order failure-before-success - use the Elastic/KQL sequence versions below when ordering matters. Field names assume the Splunk Add-on for Windows classic (non-XML) rendering (`Account_Name`, `Source_Network_Address`); the raw XML rendering uses `TargetUserName`, `IpAddress`.
 
 ```spl
 index=wineventlog EventCode IN (4624,4625) Account_Name=*
-| transaction Account_Name, IpAddress maxspan=5m mvlist=t
+| transaction Account_Name, Source_Network_Address maxspan=5m mvlist=t
 | eval failures=mvcount(mvfilter(EventCode=4625))
 | eval successes=mvcount(mvfilter(EventCode=4624))
 | where failures>=10 AND successes>=1
-| table _time, Account_Name, IpAddress, failures, successes, ComputerName
+| table _time, Account_Name, Source_Network_Address, failures, successes, ComputerName
 ```
 
 ### Elastic (EQL/KQL): Auth burst followed by success (sequence)
@@ -847,7 +842,7 @@ rule t1110_brute_force {
   match:
     $user over 5m
   outcome:
-    $fail_count = count($fail)
+    $fail_count = count($fail.metadata.id)
   condition:
     $success and $fail_count >= 10
 }
@@ -855,12 +850,12 @@ rule t1110_brute_force {
 
 ### CrowdStrike Falcon LogScale (CQL): Brute force pattern
 
-- Data source: Falcon UserLogonFailed/UserLogon
+- Data source: Falcon UserLogonFailed2
 - Confidence: `high`
-- Logic: A burst of failed logons per account and source IP. Correlating the follow-on success in one CQL query needs a join across `UserLogonFailed` and `UserLogon`; Falcon's built-in brute-force detections already cover the failure-then-success pattern. Confirm field names against your data dictionary (see the CrowdStrike note under Provenance).
+- Logic: A burst of failed logons per account and source IP. CrowdStrike's community content records the failed-logon event as `UserLogonFailed2`. Correlating the follow-on success in one CQL query needs a join with `UserLogon`; Falcon's built-in brute-force detections already cover the failure-then-success pattern.
 
 ```sql
-#event_simpleName=UserLogonFailed
+#event_simpleName=UserLogonFailed2
 | groupBy([UserName, RemoteAddressIP4], function=count(as=fails))
 | fails >= 10
 ```
@@ -884,7 +879,7 @@ Validate with: Atomic Red Team has no T1190 test (listed as "contribute a test" 
 ```spl
 index=web sourcetype IN (access_combined, iis, nginx)
 | eval path=lower(uri_path)
-| where match(path,"(jndi:ldap|/wp-admin/|/phpmyadmin|/.env|/.git/|/console|/struts|/cgi-bin/)") OR match(path,"\\.(php|asp|jsp)\\?cmd=")
+| where match(path,"(jndi:ldap|/wp-admin/|/phpmyadmin|/\\.env|/\\.git/|/console|/struts|/cgi-bin/)") OR match(path,"\\.(php|asp|jsp)\\?cmd=")
 | stats count, values(uri_path) as paths by src_ip, status, host
 | where count > 5
 | sort -count
@@ -901,22 +896,19 @@ network where url.path : ("*jndi:ldap*", "*/wp-admin/*", "*/phpmyadmin*", "*/.gi
 or user_agent.original : ("*sqlmap*", "*nmap*", "*nikto*", "*acunetix*")
 ```
 
-### Microsoft Defender / Sentinel (KQL): Outbound connection to an exploit-pattern URL from a CVE-exposed device
+### Microsoft Defender / Sentinel (KQL): Inbound requests to exploit and scanner paths (IIS web log)
 
-- Data source: DeviceTvmSoftwareVulnerabilities + DeviceNetworkEvents
+- Data source: W3CIISLog (Sentinel / Log Analytics)
 - Confidence: `medium`
-- Logic: A device with a known Critical/High CVE making an outbound connection to a URL carrying an exploit pattern (a Log4Shell/JNDI callback or a scanner path). `DeviceNetworkEvents.RemoteUrl` is the URL the device connected *to*, so this flags a host reaching out, not an exploit request arriving; the severity-filtered CVE join narrows to actually-exposed devices.
+- Logic: Requests to known exploit and scanner paths or query strings against IIS-hosted public-facing apps, read from the inbound `W3CIISLog` web log (the server's own request log, so this is traffic arriving at the app, not an outbound connection). Any status, so it flags the attempt, not the outcome.
 
 ```kql
-DeviceTvmSoftwareVulnerabilities
-| where VulnerabilitySeverityLevel in ("Critical", "High")
-| summarize CveList = make_set(CveId) by DeviceId
-| join kind=inner (
-  DeviceNetworkEvents
-  | where Timestamp > ago(24h)
-  | where RemoteUrl has_any ("jndi:", "/.env", "/wp-admin", "/phpmyadmin")
-) on DeviceId
-| project Timestamp, DeviceName, RemoteUrl, RemoteIP, CveList
+W3CIISLog
+| where TimeGenerated > ago(24h)
+| where csUriStem has_any ("/wp-admin", "/phpmyadmin", "/struts", "/cgi-bin/", "/.env", "/.git/")
+    or csUriQuery has_any ("jndi:ldap", "${jndi", "cmd=", "/etc/passwd")
+| project TimeGenerated, cIP, csMethod, csUriStem, csUriQuery, scStatus, csUserAgent
+| sort by TimeGenerated desc
 ```
 
 ### Google SecOps / Chronicle (YARA-L / UDM): Web exploit string in URL

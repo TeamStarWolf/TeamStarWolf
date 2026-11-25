@@ -2687,7 +2687,7 @@ studies:
     start: "2024-05"
     end: "2025-08"
     sectors: ["technology", "cross-sector"]
-    cves: ["CVE-2025-32711", "CVE-2024-5565"]
+    cves: ["CVE-2025-32711", "CVE-2024-5565", "CVE-2024-5826"]
     actors: []
     tags: ["prompt injection", "indirect prompt injection", "AI assistant", "LLM", "data exfiltration", "supply chain", "Microsoft 365 Copilot", "Slack AI", "GitHub Copilot", "Cursor", "vanna", "ChatGPT"]
     pdf: "AI_Assistant_Prompt_Injection_Case_Study.pdf"
@@ -2695,8 +2695,11 @@ studies:
     events:
       - {"date": "2024-05-22", "label": "Johann Rehberger publishes the ChatGPT memory prompt-injection write-up, reporting that OpenAI had closed it as a model-safety issue"}
       - {"date": "2024-05-31", "label": "JFrog publishes CVE-2024-5565, prompt-injection remote code execution in the vanna library"}
+      - {"date": "2024-06-27", "label": "@huntr_ai publishes CVE-2024-5826, an independent CVE for the same vanna flaw; JFrog publishes its analysis, noting the vanna maintainer added a hardening guide"}
       - {"date": "2024-08-14", "label": "PromptArmor discloses the Slack AI data-exfiltration technique to Slack"}
       - {"date": "2024-08-20", "label": "PromptArmor publishes the Slack AI indirect-prompt-injection write-up, reporting Slack's reply that public-channel search is intended behaviour"}
+      - {"date": "2024-08-20", "label": "Slack deploys a patch for the reported Slack AI issue, per its security update the next day"}
+      - {"date": "2024-08-21", "label": "Slack publishes a security update reporting the 20 August patch and no evidence of unauthorized access to customer data"}
       - {"date": "2025-03-18", "label": "Pillar Security reports the Rules File Backdoor in GitHub Copilot and Cursor"}
       - {"date": "2025-05-01", "label": "GitHub adds a hidden-Unicode warning on github.com following the Rules File research"}
       - {"date": "2025-06-11", "label": "Microsoft publishes CVE-2025-32711, the EchoLeak information-disclosure flaw in Microsoft 365 Copilot, with an official fix"}

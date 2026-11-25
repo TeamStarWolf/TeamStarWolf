@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 18 min (4,246 words at 230 words a minute)
+About 21 min (4,786 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -57,20 +57,20 @@ No review recorded yet
 
 An AI assistant that reads untrusted content and holds tools is a new kind of attack surface. The assistant reads an email, a document, a chat message, a web page or a source file, and it can also act: render a link, call a connector, write to a memory, or emit code that runs. The flaw that ties the cases below together is that a language model does not reliably separate the instructions its operator gave it from the data it is asked to process, so instructions planted in that data can be followed. This is prompt injection, and when the planted instructions arrive through content the assistant retrieves on its own, it is indirect prompt injection (Inferred, as the study's framing; the mechanism is described by each source below).
 
-This study reads the public record of five such cases across six named products: the EchoLeak flaw in Microsoft 365 Copilot (CVE-2025-32711); the Slack AI data-exfiltration technique PromptArmor reported; the Rules File Backdoor in GitHub Copilot and Cursor, reported by Pillar Security; the remote code execution flaw in the vanna library (CVE-2024-5565); and the memory and connector exfiltration write-ups for ChatGPT by Johann Rehberger. Two carry a CVE and a CVSS score from the assigning authority: Microsoft's for EchoLeak, where Microsoft is also the vendor, and JFrog's for vanna, where JFrog is the finder and the assigning authority but not the library's maintainer. The other three have no CVE, so their severity is the finder's characterization, not an assigned score (Confirmed [1][2]; Reported for the cases [3][4][5][6][7]).
+This study reads the public record of five such cases across six named products: the EchoLeak flaw in Microsoft 365 Copilot (CVE-2025-32711); the Slack AI data-exfiltration technique PromptArmor reported; the Rules File Backdoor in GitHub Copilot and Cursor, reported by Pillar Security; the remote code execution flaw in the vanna library (CVE-2024-5565); and the memory and connector exfiltration write-ups for ChatGPT by Johann Rehberger. Two of the cases carry a CVE and a CVSS score from an assigning authority: Microsoft's for EchoLeak, where Microsoft is also the vendor, and JFrog's for vanna, where JFrog is the finder and an assigning authority but not the library's maintainer. The vanna flaw also carries a second CVE from a different authority, @huntr_ai, scored higher. The other three cases have no CVE, so their severity is the finder's characterization, not an assigned score (Confirmed [1][2][11]; Reported for the cases [3][4][5][6][7]).
 
-The vendors answered these in different ways, and the study keeps each in its own words. Microsoft recorded a flaw and its record shows an official fix (Confirmed [1]). GitHub, after the report, said users are responsible for reviewing what the assistant suggests, then added a warning control (Reported [4]). Cursor said the risk falls under the user's responsibility and was not a vulnerability on its side (Reported [4]). Slack deemed the evidence insufficient and said that public-channel messages being searchable by all workspace members is intended behaviour (Reported [3]). OpenAI closed the memory report with the label model-safety issue rather than a security vulnerability, and a separate exfiltration path was later addressed (Reported [6][7]). Where a source gives no detail, this study says so.
+The vendors answered these in different ways, and the study keeps each in its own words. Microsoft recorded a flaw and its record shows an official fix (Confirmed [1]). GitHub, after the report, said users are responsible for reviewing what the assistant suggests, then added a warning control (Reported [4]). Cursor said the risk falls under the user's responsibility and was not a vulnerability on its side (Reported [4]). Slack's first reply deemed the evidence insufficient and called the cross-channel retrieval intended behaviour, but Slack then published a security update stating it had deployed a patch on 20 August 2024 (Reported [3][9]). OpenAI closed the memory report with the label model-safety issue rather than a security vulnerability, and a separate exfiltration path was later addressed (Reported [6][7]). Where a source gives no detail, this study says so.
 
 ### Key facts at a glance
 
 | Fact | Value | Grade |
 |---|---|---|
 | Products named | Microsoft 365 Copilot, Slack AI, GitHub Copilot, Cursor, the vanna library, ChatGPT | Confirmed for the two in the CVE records [1][2]; Reported for the rest [3][4][5][6][7] |
-| Cases with a CVE | CVE-2025-32711 (Microsoft 365 Copilot), CVE-2024-5565 (vanna) | Confirmed [1][2] |
-| CVSS, and whose | 9.3 Critical, CVSS 3.1, assigned by Microsoft (EchoLeak); 8.1 High, CVSS 3.1, assigned by JFrog (vanna) | Confirmed [1][2] |
+| Cases with a CVE | CVE-2025-32711 (Microsoft 365 Copilot); CVE-2024-5565 and CVE-2024-5826 (the vanna flaw, two CVEs) | Confirmed [1][2][11] |
+| CVSS, and whose | 9.3 Critical, CVSS 3.1, assigned by Microsoft (EchoLeak); for the vanna flaw, 8.1 High, CVSS 3.1, from JFrog (CVE-2024-5565) and 9.8 Critical, CVSS 3.0, from @huntr_ai (CVE-2024-5826) | Confirmed [1][2][11] |
 | Cases without a CVE | Slack AI, the Rules File Backdoor, the ChatGPT memory and connector write-ups | Inferred, since the write-ups cite no CVE [3][4][6][7] |
 | Shared mechanism | A model follows instructions planted in the content it processes (prompt injection; indirect when the content is retrieved) | Reported across [3][4][5][6][7] |
-| Vendor outcome | Microsoft recorded a fix [1]; OpenAI closed the memory report as a model-safety issue and the url_safe path was later addressed [6][7]; GitHub said users are responsible, then added a warning [4]; Cursor said the user's responsibility [4]; Slack said intended behaviour and insufficient evidence [3]; for vanna neither the record nor the advisory carries a maintainer statement [2][5] | Confirmed [1]; Reported [3][4][6][7] |
+| Vendor outcome | Microsoft recorded a fix [1]; OpenAI closed the memory report as a model-safety issue and the url_safe path was later addressed [6][7]; GitHub said users are responsible, then added a warning [4][12]; Cursor said the user's responsibility [4]; Slack called the retrieval intended, then deployed a patch on 20 August 2024 [3][9]; the vanna maintainer added a hardening guide after disclosure, with no fixed release named [5][10] | Confirmed [1][12]; Reported [3][4][5][6][7][9][10] |
 | Public exploitation detail | None of the sources reviewed reports in-the-wild exploitation against a named victim | Inferred from [1][2][3][4][5][6][7] |
 
 ### Key findings
@@ -78,7 +78,7 @@ The vendors answered these in different ways, and the study keeps each in its ow
 - **One root cause, five shapes.** Information disclosure from an enterprise assistant, data exfiltration from a workspace assistant, malicious code inserted by a coding assistant, code execution inside a library, and persistent memory tampering all rest on the same fact: the model acts on instructions found in its input (Reported [3][4][5][6][7]).
 - **The tool is the risk, not the chat.** The damage in each case comes from something the assistant can do beyond answering: render a link, emit and run code, write a memory, reach a connector. An assistant with no tools and no retrieval has far less to offer an attacker (Inferred).
 - **Reachability varies sharply.** The vanna flaw needs untrusted input to reach a code path; the Rules File Backdoor needs a poisoned shared config file to be trusted; EchoLeak is scored as needing no privileges and no user interaction; the Slack AI chain needs the attacker to be in the workspace, the victim to ask Slack AI for the data, and the victim to click the rendered link (Confirmed [1]; Reported [3][4][5]).
-- **Vendors disagree on whose problem this is.** Microsoft recorded a fix; OpenAI closed the memory report and later addressed the url_safe path; GitHub said users are responsible, then added a warning; Cursor said the user's responsibility; Slack said intended behaviour; and for vanna neither the record nor the advisory carries a maintainer statement. A defender cannot assume a report leads to a patch (Confirmed [1]; Reported [2][3][4][5][6][7]).
+- **Vendors disagree on whose problem this is.** Microsoft recorded a fix; OpenAI closed the memory report and later addressed the url_safe path; GitHub said users are responsible, then added a warning; Cursor said the user's responsibility; Slack called the retrieval intended, then deployed a patch; and the vanna maintainer added a hardening guide after disclosure. A defender cannot assume a report leads to a patch, nor assume it does not (Confirmed [1]; Reported [3][4][5][6][7][9][10]).
 - **Exploitation scope is not public.** The records establish the flaws, and each of the five write-ups demonstrates its technique under stated conditions. None of the sources reviewed names a real-world victim or a campaign (Demonstrated [3][4][5][6][7]; Inferred for the absence of victims).
 
 ### Top recommendations
@@ -96,6 +96,8 @@ This study uses the two CVE records (for CVE-2025-32711 and CVE-2024-5565), Prom
 **Confirmed** means an official record (a CVE record, a vendor page) supports the claim. **Reported** means a finder's or third party's write-up stated it without an independent official record. **Demonstrated** marks a capability a finder says it proved under stated conditions. **Inferred** marks the author's interpretation. A statement that a source gives no detail is a statement about that source, not about the world.
 
 One source could not be opened. The finder write-up for EchoLeak, hosted by Aim Labs, returned HTTP 403 to every attempt for this study, so Part 1 rests on the CVE record alone and does not reproduce the finder's attack chain. A CVSS score measures severity under a stated vector; it does not measure exploitation. These distinctions carry through the sections below.
+
+For each vendor, this study also checked the vendor's own channel for a statement dated after the finder's write-up. Microsoft's CVE record carries the official fix; Slack published a security update; GitHub published a changelog entry; and JFrog's write-up records the vanna maintainer's hardening guide (each a numbered source below). No later statement was found on Cursor's security page (cursor.com/security) or OpenAI's security page (openai.com/security-and-privacy), both opened 25 November 2026; OpenAI's responses in this study are as the finder reports them (Reported for the finder's account [6][7]; Inferred for the absence of a vendor page). This study does not conclude that a vendor did nothing where it found no page.
 
 ## Part 1: EchoLeak, Microsoft 365 Copilot (CVE-2025-32711)
 
@@ -129,7 +131,9 @@ PromptArmor adds that a change on 14 August 2024 let Slack AI also ingest upload
 
 ### What Slack did
 
-Slack's security team engaged over several days, then, on 19 August 2024, deemed the evidence insufficient and stated that messages posted to public channels can be searched and viewed by all members of a workspace whether or not they have joined the channel, which is intended behaviour. Slack's reason was that in the first demonstration video the queried data had been posted to the public test channel, so the retrieval shown was expected. That Slack treated the retrieval as by design rather than a flaw to fix is this study's reading; PromptArmor disclosed publicly so that workspaces could change the settings that reduce their exposure (Reported for Slack's words [3]; Inferred for the reading).
+Slack's security team engaged over several days, then, on 19 August 2024, deemed the evidence insufficient and stated that messages posted to public channels can be searched and viewed by all members of a workspace whether or not they have joined the channel, which is intended behaviour. Slack's reason was that in the first demonstration video the queried data had been posted to the public test channel, so the retrieval shown was expected (Reported [3]).
+
+Slack's public position followed, and it is different from the first reply. In a security update dated 21 August 2024, Slack wrote that it had deployed a patch to address the reported issue on 20 August 2024 and had no evidence at that time of unauthorized access to customer data; it describes the scenario as one where, under very limited and specific circumstances, a malicious actor with an existing account in the same workspace could phish users for certain data. Slack does not say what the patch changed, so this study records that a patch was deployed without describing its effect, and keeps the cross-channel retrieval, which Slack still calls intended, separate from the exploit the patch addressed (Reported [9]).
 
 ## Part 3: The Rules File Backdoor, GitHub Copilot and Cursor (Pillar Security)
 
@@ -141,7 +145,7 @@ The technique hides malicious instructions inside such a file using non-renderin
 
 ### What the vendors did
 
-Pillar's disclosure timeline records two different answers. Cursor was contacted on 26 February 2025, replied that it was investigating, and by 6 to 8 March 2025 determined that the risk falls under the user's responsibility and that it is not a vulnerability on Cursor's side. GitHub was contacted on 12 March 2025, replied the same day that users are responsible for reviewing and accepting the suggestions Copilot generates, and, following the research, on 1 May 2025 added a feature that displays a warning when a file's contents include hidden Unicode text on github.com (Reported [4]).
+Pillar's disclosure timeline records two different answers. Cursor was contacted on 26 February 2025, replied that it was investigating, and by 6 to 8 March 2025 determined that the risk falls under the user's responsibility and that it is not a vulnerability on Cursor's side. GitHub was contacted on 12 March 2025, replied the same day that users are responsible for reviewing and accepting the suggestions Copilot generates, and, following the research, on 1 May 2025 added a feature that displays a warning when a file's contents include hidden Unicode text on github.com (Reported [4]). GitHub's own changelog confirms the control: a 1 May 2025 entry states that a warning is now displayed when a file's contents include hidden Unicode text on github.com, and references Pillar's Rules File Backdoor (Confirmed for the control [12]; it is a warning, not a fix).
 
 So one vendor shipped a detection aid for the specific evasion while holding that review is the user's job, and the other held the same position without a named control. Neither treated the assistant's trust in a poisoned config as a flaw to fix in the assistant itself (Reported [4]; Inferred for the reading).
 
@@ -149,7 +153,7 @@ So one vendor shipped a detection aid for the specific evasion while holding tha
 
 ### The flaw
 
-JFrog is the assigning authority for CVE-2024-5565, published on 31 May 2024, in the vanna library, a Python package that turns natural-language questions into SQL and visualizations. The record describes a prompt injection in the library's ask interface that leads to remote code execution, scores it 8.1 (High) under CVSS 3.1, classes the weakness as CWE-94, improper control of generation of code, marks every version affected (version 0 upward) with no fixed version named, and carries a CISA SSVC entry marking exploitation proof-of-concept (Confirmed [2]). JFrog's own advisory attributes the finding to Natan Nehorai of JFrog (Reported [5]).
+JFrog is the assigning authority for CVE-2024-5565, published on 31 May 2024, in the vanna library, a Python package that turns natural-language questions into SQL and visualizations. The record describes a prompt injection in the library's ask interface that leads to remote code execution, scores it 8.1 (High) under CVSS 3.1, classes the weakness as CWE-94, improper control of generation of code, marks every version affected (version 0 upward) with no fixed version named, and carries a CISA SSVC entry marking exploitation proof-of-concept (Confirmed [2]). JFrog's own advisory attributes the finding to Natan Nehorai of JFrog (Reported [5]). The same flaw carries a second CVE, CVE-2024-5826, assigned by @huntr_ai and published on 27 June 2024 for an independent report, which scores it 9.8 (Critical) under CVSS 3.0 with the same weakness, CWE-94, and the same proof-of-concept exploitation marking; so two assigning authorities scored one flaw 8.1 and 9.8 (Confirmed [11]; the independent discovery is Reported [10]).
 
 ### The mechanism, in words
 
@@ -157,7 +161,7 @@ The library's ask method can produce a visualization, and to do so it has the mo
 
 ### What the record says to do
 
-JFrog's advisory gives a workaround rather than a vendor fix: when the ask interface is used with external input, set the visualization option to off, which keeps the untrusted path away from the code-generation step. The advisory names no fixed release and records no maintainer statement; that no vendor fix exists is therefore this study's reading of that silence (Reported [5]; Inferred for the conclusion).
+JFrog's advisory gives a workaround rather than a vendor fix: when the ask interface is used with external input, set the visualization option to off, which keeps the untrusted path away from the code-generation step. The advisory names no fixed release. JFrog's own write-up records a vendor response: after disclosure, the vanna maintainer added a hardening guide to educate users about preventing such attacks (Reported [10]). This study could not open vanna's hardening-guide documentation, which returned a 404 when checked on 25 November 2026, so it reports the guide only as JFrog describes it; no fixed release is named in either source (Reported [5][10]).
 
 ## Part 5: ChatGPT memory and connectors (Johann Rehberger)
 
@@ -181,7 +185,7 @@ For each assistant in use, write down two things: what it can read, and what it 
 
 ### Apply the fix, the control, or the workaround
 
-Match the response to what the vendor offered. Microsoft 365 Copilot carries an official fix applied on the service side. On github.com, watch for the hidden-Unicode warning GitHub added, which is a warning and not a fix, and review generated changes against the diff rather than the assistant's summary. For vanna, follow JFrog's workaround and keep the visualization option off on any path that takes external input. For ChatGPT, where OpenAI declined to treat memory writes as a vulnerability, the finder's advice is the control that remains: watch for the "Memory updated" notice and inspect what the assistant has stored (Reported [6]); limiting what the assistant may read and scoping connectors narrowly is this study's addition (Inferred). Where the vendor has called the behaviour intended or the user's responsibility, as Slack and Cursor did, record that as the accepted state of the control, not a fix (Confirmed [1]; Reported [3][4][5][6][7]).
+Match the response to what the vendor offered. Microsoft 365 Copilot carries an official fix applied on the service side. On github.com, watch for the hidden-Unicode warning GitHub added, which is a warning and not a fix, and review generated changes against the diff rather than the assistant's summary. For vanna, follow JFrog's workaround and keep the visualization option off on any path that takes external input. For ChatGPT, where OpenAI declined to treat memory writes as a vulnerability, the finder's advice is the control that remains: watch for the "Memory updated" notice and inspect what the assistant has stored (Reported [6]); limiting what the assistant may read and scoping connectors narrowly is this study's addition (Inferred). Where the vendor has called the behaviour the user's responsibility, as Cursor did, record that as the accepted state of the control, not a fix; where a vendor patched after first declining, as Slack did, record the patch even though the vendor did not say what it changed (Confirmed [1]; Reported [3][4][5][6][7][9]).
 
 ### The treat-the-output-as-untrusted view
 
@@ -205,7 +209,7 @@ The mapping below is this study's interpretation of public definitions, checked 
 
 ### What is overstated and what is understated
 
-The easy overstatement is to read these cases as one failing assistant or one broken vendor. They are six products, five finders (PromptArmor, Pillar Security, JFrog, Johann Rehberger and Aim Labs), and vendor answers that differ, tied only by a shared mechanism (Inferred). The easy understatement is to dismiss a case because the vendor called it the user's responsibility or intended: Cursor's user-responsibility position and Slack's intended-behaviour position do not make the poisoned-config or the data-exfiltration behaviour stop working; they move the control to the user, who then has to know it is theirs to hold (Reported [3][4]).
+The easy overstatement is to read these cases as one failing assistant or one broken vendor. They are six products, five finders (PromptArmor, Pillar Security, JFrog, Johann Rehberger and Aim Labs), and vendor answers that differ, tied only by a shared mechanism (Inferred). The easy understatement is to dismiss a case because the vendor called it the user's responsibility: Cursor's user-responsibility position does not make the poisoned-config behaviour stop working, and it moves the control to the user, who then has to know it is theirs to hold. Slack shows the other side: it first called the retrieval intended and then patched the reported exploit, so a first reply is not a vendor's last word (Reported [3][4][9]).
 
 ### The assistant as a confused deputy
 
@@ -221,6 +225,10 @@ The pattern under all five cases is an old one in a new place. The assistant act
 6. Johann Rehberger (Embrace The Red), ChatGPT: Hacking Memories with Prompt Injection, 22 May 2024. https://embracethered.com/blog/posts/2024/chatgpt-hacking-memories/
 7. Johann Rehberger (Embrace The Red), Exfiltrating Your ChatGPT Chat History and Memories With Prompt Injection, 1 August 2025. https://embracethered.com/blog/posts/2025/chatgpt-chat-history-data-exfiltration/
 8. TeamStarWolf library data: `data/attack/technique_profiles.jsonl` (ATT&CK v20.0), for the technique names and tactics in the mappings. https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack
+9. Slack, Slack Security Update, 21 August 2024, for the patch deployed on 20 August 2024 and Slack's description of the scenario. https://slack.com/blog/news/slack-security-update-082124
+10. JFrog Security Research, When Prompts Go Rogue: Analyzing a Prompt Injection Code Execution in Vanna.AI, 27 June 2024, for the vendor response (the maintainer's hardening guide) and the independently assigned second CVE. https://jfrog.com/blog/prompt-injection-attack-code-execution-in-vanna-ai-cve-2024-5565/
+11. CVE Program, CVE Record CVE-2024-5826 (@huntr_ai CNA; CISA ADP container), the second CVE for the vanna flaw. https://www.cve.org/CVERecord?id=CVE-2024-5826
+12. GitHub Changelog, GitHub now provides a warning about hidden Unicode text, 1 May 2025. https://github.blog/changelog/2025-05-01-github-now-provides-a-warning-about-hidden-unicode-text/
 
 ## Related references
 

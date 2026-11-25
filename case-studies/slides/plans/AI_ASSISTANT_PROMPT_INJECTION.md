@@ -26,9 +26,9 @@ Notes: Mechanism described by each source [3][4][5][6][7]. Confused-deputy frami
 
 Stat: 6 | named products in the record
 Stat: 9.3 | Microsoft's CVSS for EchoLeak
-Stat: 8.1 | JFrog's CVSS for the vanna RCE
+Stat: 8.1 | JFrog's vanna CVSS; @huntr_ai scored 9.8
 Stat: 2 of 5 | cases that carry a CVE
-- With a CVE: Microsoft 365 Copilot (CVE-2025-32711) and the vanna library (CVE-2024-5565).
+- With a CVE: Microsoft 365 Copilot (CVE-2025-32711) and the vanna library (CVE-2024-5565 and CVE-2024-5826).
 - Without a CVE: Slack AI, the Rules File Backdoor in GitHub Copilot and Cursor, and the ChatGPT memory and connector write-ups.
 Notes: 9.3 is Microsoft's own score [1]; 8.1 is JFrog's [2]. The three without a CVE carry the finder's characterization, not an assigned score [3][4][6][7].
 
@@ -45,7 +45,7 @@ Notes: All from the CVE record [1]. Aim Labs page returned 403, so no attack cha
 - PromptArmor (published 20 August 2024): an instruction placed in an attacker-made public channel can steer Slack AI to leak data from private channels the attacker cannot see.
 - Slack AI retrieves from public channels a user has not joined; a public channel can be made with only its author, so it goes unnoticed.
 - The assistant renders a link worded as a reauthentication prompt that carries the victim's value; clicking it sends the value out.
-Caption: Slack deemed the evidence insufficient and called the cross-channel retrieval intended behaviour; no fix. No payload is reproduced here.
+Caption: Slack deemed the evidence insufficient and called the retrieval intended, then deployed a patch on 20 August 2024. No payload is shown.
 Notes: Mechanism and Slack's quoted response [3]. The 14 August change also let Slack AI ingest files, widening the surface [3].
 
 ## PART 3 | The Rules File Backdoor, GitHub Copilot and Cursor
@@ -60,8 +60,8 @@ Notes: Mechanism and the disclosure timeline, including both vendors' positions 
 
 - JFrog (CVE-2024-5565, 31 May 2024): the library's ask method generates and runs plotting code for a visualization.
 - Untrusted input with the visualization option at its default can steer the model to return attacker-chosen Python instead, which the library runs.
-- Scored 8.1 High (CVSS 3.1) by JFrog, weakness CWE-94; the finder reports proving code execution.
-Caption: JFrog's advisory gives a workaround, not a vendor fix: set visualization off on any path with external input. It names no fixed release.
+- Scored 8.1 High by JFrog and 9.8 Critical by @huntr_ai (a second CVE, CVE-2024-5826), both CWE-94; the finder proved code execution.
+Caption: JFrog records the maintainer adding a hardening guide after disclosure; no fixed release is named. Set visualization off on external input.
 Notes: Score and CWE from the CVE record [2]; mechanism, workaround and the silence on a maintainer fix from JFrog's advisory [5].
 
 ## PART 5 | ChatGPT memory and connectors
@@ -79,10 +79,10 @@ Notes: Memory write path and OpenAI's close [6]; the url_safe exfiltration path 
 | Microsoft | Recorded the flaw; record shows an official fix | Fixed on the service side |
 | GitHub | Added a hidden-Unicode warning; review is the user's job | A control, plus a user-responsibility position |
 | Cursor | Called the risk the user's responsibility | Not treated as their flaw |
-| Slack | Called it intended; evidence insufficient | Not treated as their flaw |
+| Slack | Called it intended, then patched (20 Aug) | Patched after first declining |
 | OpenAI | Closed memory write as model-safety; later fixed a leak path | A partial answer across two reports |
 Caption: A report does not always lead to a patch. A defender has to know which controls the vendor left to the user.
-Notes: Microsoft [1]; GitHub and Cursor [4]; Slack [3]; OpenAI [6][7].
+Notes: Microsoft [1]; GitHub [4][12]; Cursor [4]; Slack [3][9]; OpenAI [6][7].
 
 ## DEFENDER VIEW | Find and fix, read-only first
 
@@ -110,6 +110,6 @@ Notes: Names and tactics from library data [8]; ties from [3][4][5][7]. CWE-74 [
 ## CROSS-CUTTING THEMES | What the record teaches
 
 - **One cause, five shapes.** Disclosure, exfiltration, injected code, library RCE and memory tampering all rest on the model acting on its input.
-- **Vendors disagree on ownership.** Microsoft recorded a fix; OpenAI fixed a leak path; GitHub and Cursor made review the user's job (GitHub added a warning); Slack called it intended; vanna gave no statement.
+- **Vendors disagree on ownership.** Microsoft fixed it; OpenAI fixed a leak path; GitHub and Cursor made review the user's job (GitHub added a warning); Slack called it intended, then patched; vanna's maintainer added a hardening guide.
 - **The durable defence is the classic one.** Narrow what the deputy can read, what it can do, and how far its credentials reach.
 Notes: Shared cause [3][4][5][6][7]. Vendor split [1][3][4]. Confused-deputy defence is the study's framing (Inferred).

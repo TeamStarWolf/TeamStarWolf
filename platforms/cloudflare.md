@@ -21,7 +21,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,410 words at 230 words a minute)
+About 6 min (1,424 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -94,7 +94,7 @@ floods across the network. Because the edge is large and distributed, it can
 soak up traffic that would overwhelm a single origin. Protection applies at the
 network, transport, and application layers.
 
-Cloudflare One is the zero-trust side. Zero Trust Access controls who can reach
+Cloudflare One is the zero-trust side. Cloudflare Access controls who can reach
 an application and under what conditions. Gateway is a secure web gateway that
 filters outbound DNS, HTTP, and network traffic from the organization's users.
 Tunnels connect origins to Cloudflare without opening inbound ports.
@@ -106,7 +106,7 @@ Tunnels connect origins to Cloudflare without opening inbound ports.
 - Distributed-denial-of-service protection across network and application layers.
 - Rate limiting and bot management against automated abuse.
 - DNS hosting and management for proxied domains.
-- Zero Trust Access that gates application access by identity and device posture.
+- Cloudflare Access that gates application access by identity and device posture.
 - Gateway secure web gateway for DNS, HTTP, and network filtering.
 - Tunnels that reach origins without inbound firewall openings.
 
@@ -141,7 +141,7 @@ trust activity. Log delivery can push these to storage or to a SIEM such as
 Splunk for correlation and retention. See `/platforms/splunk.md` for the
 analytics destination.
 
-Zero Trust Access integrates with identity providers for authentication and with
+Cloudflare Access integrates with identity providers for authentication and with
 endpoint signals for device posture. Access decisions combine who the user is
 with the state of their device. Gateway integrates with the same identity layer
 so filtering follows the user.
@@ -165,7 +165,7 @@ Because Cloudflare fronts an application and governs workforce access, adversari
 - Signature and normalization gaps: encoded, fragmented, or oversized requests can defeat managed rules while still reaching the application ([CWE-693](https://cwe.mitre.org/data/definitions/693.html)).
 - Rules left in log mode: a managed or custom rule set to log records attacks without blocking them, so coverage is only apparent.
 - Logic and bot abuse: credential stuffing and application-logic flaws pass as valid traffic.
-- Token and account abuse (ATT&CK T1685, Disable or Modify Tools): a leaked API token or a compromised account can change DNS, disable the firewall, or alter Zero Trust Access policy.
+- Token and account abuse (ATT&CK T1685, Disable or Modify Tools): a leaked API token or a compromised account can change DNS, disable the firewall, or alter Cloudflare Access policy.
 
 ### Residual risk and own exposure
 
@@ -222,6 +222,7 @@ See `/INTERNET_FACING_SERVICES_REFERENCE.md` for exposure tracking.
 - Cloudflare One documentation
 - Cloudflare Zero Trust documentation
 - Cloudflare API documentation
+- Cloudflare: the access product is "Cloudflare Access"; cloudflare.com/zero-trust/ redirects to /sase/, "Cloudflare One" (read 25 November 2026)
 
 ## Related pages
 

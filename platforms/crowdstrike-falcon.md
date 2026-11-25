@@ -1,6 +1,6 @@
 # CrowdStrike Falcon
 
-CrowdStrike Falcon is a cloud-native endpoint protection platform from CrowdStrike. It runs as a single lightweight agent on each host and reports to the Falcon cloud. The platform covers prevention, detection and response, vulnerability assessment, identity protection, and managed threat hunting. Module entitlement depends on the licence tier purchased.
+CrowdStrike Falcon is a cloud-native endpoint protection platform from CrowdStrike. It runs as a single lightweight agent on each host and reports to the Falcon cloud. The platform covers prevention, detection and response, vulnerability assessment, identity protection, and managed threat hunting. Module entitlement depends on the licence tier purchased. In November 2026 CrowdStrike announced an agreement to acquire Zscaler; as of 25 November 2026 the deal has not closed, and the two operate independently until it does.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 5 min (1,240 words at 230 words a minute)
+About 6 min (1,330 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -72,8 +72,8 @@ The platform groups its functions into modules on the shared sensor:
 - Next-generation antivirus: machine-learning and behavioral prevention that replaces signature-only antivirus.
 - Endpoint detection and response (EDR): continuous recording of endpoint activity, detections mapped to adversary behavior, and investigation timelines.
 - Falcon Exposure Management: the vulnerability-assessment module (the capability formerly branded Spotlight). It produces host vulnerability findings from sensor-collected inventory, without a separate network scan, and prioritizes them by exploit and exposure context.
-- Identity Threat Detection: monitoring of identity activity and credential-based attack patterns across directory services.
-- OverWatch: CrowdStrike analysts hunting across tenant telemetry for threats that automated detection may miss.
+- CrowdStrike Falcon Next-Gen Identity Security (the capability the page earlier called Identity Threat Detection): monitoring of identity activity and credential-based attack patterns across directory services.
+- CrowdStrike Falcon Adversary OverWatch (earlier OverWatch): CrowdStrike analysts hunting across tenant telemetry for threats that automated detection may miss.
 - Falcon Firewall Management: central management of the host firewall policy through the same agent.
 - Real Time Response: an interactive remote-shell capability for responders to run containment and investigation actions on a host.
 
@@ -119,7 +119,7 @@ Restrict Real Time Response to a small responder group and enable its session lo
 
 ## Where it fits in the program
 
-A vulnerability management and security operations team uses Falcon as the endpoint control point. Exposure Management supplies continuous, agent-based vulnerability findings that complement network and authenticated scanners, while EDR and OverWatch give the SOC detection, hunting, and response on the same hosts. Because findings and detections come from one agent, the team correlates exposure and active threat on a host without stitching together separate tools.
+A vulnerability management and security operations team uses Falcon as the endpoint control point. Exposure Management supplies continuous, agent-based vulnerability findings that complement network and authenticated scanners, while EDR and Falcon Adversary OverWatch give the SOC detection, hunting, and response on the same hosts. Because findings and detections come from one agent, the team correlates exposure and active threat on a host without stitching together separate tools.
 
 ## Resources
 
@@ -127,6 +127,8 @@ A vulnerability management and security operations team uses Falcon as the endpo
 - Falcon Exposure Management documentation
 - CrowdStrike API and Event Streams API reference
 - Falcon sensor deployment guide
+- CrowdStrike newsroom: CrowdStrike to Acquire Zscaler, Bringing Network Security and Zero Trust to the Falcon Platform (announced 23 November 2026, not yet closed)
+- CrowdStrike: the identity module is now Falcon Next-Gen Identity Security and managed hunting is Falcon Adversary OverWatch (read 25 November 2026)
 
 ## Related pages
 

@@ -25,7 +25,11 @@ function wireTswBand(bar, win, doc) {
     var b = el.querySelector(':scope > .tsw-bar__toggle, :scope > .tsw-bar__caret');
     if (b) { b.setAttribute('aria-expanded', v ? 'true' : 'false'); }
   }
-  function clearPos(el) { el.classList.remove('tsw-flip', 'tsw-up', 'tsw-scroll'); }
+  function clearPos(g) {
+    g.classList.remove('tsw-flip');
+    var fly = g.querySelector(':scope > .tsw-bar__flyout');
+    if (fly && fly.style) { fly.style.top = ''; fly.style.maxHeight = ''; fly.style.overflowY = ''; }
+  }
   // Close a group and every group open inside it.
   function closeGroup(g) {
     [].forEach.call(g.querySelectorAll('.tsw-bar__group.tsw-open'), function (d) {
@@ -43,8 +47,10 @@ function wireTswBand(bar, win, doc) {
       }
     });
   }
-  // Keep a fly-out on screen: flip at the right edge, pull up at the bottom, scroll only if it
-  // still does not fit. Each level runs this for its own fly-out.
+  // Keep a fly-out on screen: flip left at the right edge; pull it up when its bottom would
+  // cross, but never past the TOP of the viewport; and scroll inside itself only when it is
+  // taller than the viewport. Each level runs this for its own fly-out. Vertical placement is
+  // set as an inline offset relative to the group (the fly-out's positioned ancestor).
   function positionFlyout(g) {
     var fly = g.querySelector(':scope > .tsw-bar__flyout');
     if (!fly || narrow.matches) { return; }
@@ -52,10 +58,20 @@ function wireTswBand(bar, win, doc) {
     var vw = win.innerWidth, vh = win.innerHeight;
     var r = fly.getBoundingClientRect();
     if (vw && r.right > vw - 8) { g.classList.add('tsw-flip'); }
-    if (vh && r.bottom > vh - 8) {
-      g.classList.add('tsw-up');
-      var r2 = fly.getBoundingClientRect();
-      if (r2.top < 8 || r2.bottom > vh - 8) { g.classList.add('tsw-scroll'); }
+    if (!vh) { return; }
+    var h = (r.height != null) ? r.height : (r.bottom - r.top);
+    var availTop = 8, availBottom = vh - 8, availH = availBottom - availTop;
+    if (r.top >= availTop && r.bottom <= availBottom) { return; }   // already fully on screen
+    var gr = g.getBoundingClientRect();
+    if (h <= availH) {
+      // pull up so the bottom sits on screen, but keep the top at or below the viewport top
+      var topVp = Math.min(Math.max(availTop, r.top), availBottom - h);
+      fly.style.top = (topVp - gr.top) + 'px';
+    } else {
+      // taller than the viewport: pin the top to the viewport and scroll inside
+      fly.style.top = (availTop - gr.top) + 'px';
+      fly.style.maxHeight = availH + 'px';
+      fly.style.overflowY = 'auto';
     }
   }
   function openGroup(g) {
@@ -124,15 +140,22 @@ function wireTswBand(bar, win, doc) {
   bar.addEventListener('keydown', function (e) {
     var g = e.target.closest ? e.target.closest('.tsw-bar__group') : null;
     if (e.key === 'Escape') {
+      // When the band handles Escape (closing one level), stop it bubbling so a document-level
+      // Escape handler elsewhere on the page does not also fire and close everything.
       var deepest = deepestOpenGroup();
       if (deepest) {
         var c = deepest.querySelector(':scope > .tsw-bar__caret');
         closeGroup(deepest);
         if (c) { c.focus(); }
+        e.stopPropagation();
         return;
       }
       var it = e.target.closest('.tsw-bar__item');
-      if (it && it.classList.contains('tsw-open')) { closeItem(it); var t = it.querySelector(':scope > .tsw-bar__toggle'); if (t) { t.focus(); } }
+      if (it && it.classList.contains('tsw-open')) {
+        closeItem(it);
+        var t = it.querySelector(':scope > .tsw-bar__toggle'); if (t) { t.focus(); }
+        e.stopPropagation();
+      }
     } else if (e.key === 'ArrowDown' && e.target.classList && e.target.classList.contains('tsw-bar__toggle') && !narrow.matches) {
       var it2 = e.target.closest('.tsw-bar__item'); openItem(it2);
       var f = it2.querySelector('.tsw-bar__panel .tsw-bar__mlink'); if (f) { f.focus(); } e.preventDefault();

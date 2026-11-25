@@ -522,13 +522,10 @@
     .tsw-bar__group.tsw-open > .tsw-bar__flyout { display: block; }
     .tsw-bar__group.tsw-flip > .tsw-bar__flyout { left: auto; right: 100%; }
     /* v6: every menu and fly-out link is a uniform 13px in the primary link colour (the 12px
-       muted sub-level is gone). Vertical clamp / scroll-inside fallbacks are added by script
-       only when a panel would cross the viewport bottom; at a viewport >=600px high nothing
-       scrolls. */
-    .tsw-bar__panel.tsw-up, .tsw-bar__flyout.tsw-up { top: auto; bottom: 0; }
-    .tsw-bar__panel.tsw-scroll, .tsw-bar__flyout.tsw-scroll {
-      max-height: calc(100vh - 2 * var(--tsw-band-h)); overflow-y: auto;
-    }
+       muted sub-level is gone). Vertical placement when a fly-out would cross the viewport
+       bottom is set by script as an inline offset (pull up, stopping at the viewport top, then
+       scroll inside only if it is taller than the viewport); at a viewport >=600px high the
+       short real lists never scroll. */
 
     :root[data-theme="light"] .tsw-bar__panel,
     :root[data-theme="light"] .tsw-bar__flyout { box-shadow: 0 10px 28px rgba(21, 19, 31, .14); }

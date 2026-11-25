@@ -561,8 +561,10 @@ def band_external_href_bad(href: str) -> str | None:
         return "longer than " + str(BAND_EXT_MAX) + " characters"
     if not href.startswith("https://"):
         return "not https"
-    if any(ord(c) <= 0x20 or ord(c) == 0x7f for c in href):
-        return "whitespace or control character"
+    # Reject any character above 0x7e (a \uXXXX escape in the ASCII file can still parse to a
+    # non-ASCII character), plus whitespace and control characters, on the parsed string.
+    if any(ord(c) <= 0x20 or ord(c) >= 0x7f for c in href):
+        return "non-ASCII, whitespace or control character"
     low = href.lower()
     if "\\" in href or "%5c" in low:
         return "backslash in address"
@@ -588,6 +590,11 @@ def band_external_href_bad(href: str) -> str | None:
         return "single-label host (needs a dot)"
     if not re.fullmatch(r"[a-z0-9.-]+", host):
         return "host outside an ASCII DNS name"
+    # A browser reads several non-dotted-quad forms as an IP address: 127.1, 1.2.3, 0x7f.0.0.1,
+    # 1.2.3.0x7f. A real DNS name never ends in an all-digit or 0x label, so reject either.
+    last = host.rsplit(".", 1)[-1]
+    if re.fullmatch(r"\d+", last) or last[:2] == "0x":
+        return "host a browser reads as an IP address (numeric or 0x last label)"
     path_low = u.path.lower()
     if "%2f" in path_low or "%5c" in path_low:
         return "encoded slash or backslash in path"
@@ -848,6 +855,11 @@ def band_self_test() -> int:
         "http://nvd.nist.gov/": "not https",                             # non-https
         "https://nvd.nist.gov/a%2fb": "encoded slash",                   # %2f in path
         "https://nvd.nist.gov/a" "\\b": "backslash",                     # backslash (literal split so no stray escape)
+        "https://1.2.3.0x7f/": "browser reads as an IP",                 # hex last label (0x7f == 127)
+        "https://127.1/": "browser reads as an IP",                      # short-form IPv4
+        "https://1.2.3/": "browser reads as an IP",                      # three-part IPv4
+        "https://0x7f.0.0.1/": "browser reads as an IP",                 # 0x first label, numeric last
+        "https://nvd.nist.gov/café": "non-ASCII",                   # non-ASCII in the parsed address
         "https://github.com/TeamStarWolf/cybersecurity-resources": "internal address wearing the external flag",  # on an internal host
     }
     for href, why in ext_reject.items():

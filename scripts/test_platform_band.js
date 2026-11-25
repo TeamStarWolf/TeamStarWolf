@@ -37,7 +37,8 @@ function selectAll(scope, selector) {
 class El {
   constructor(tag) {
     this.tagName = tag.toUpperCase(); this.children = []; this.parentElement = null;
-    this._cls = new Set(); this._attr = {}; this._ev = {}; this._rect = { left: 0, right: 0 };
+    this._cls = new Set(); this._attr = {}; this._ev = {}; this._rect = { left: 0, right: 0, top: 0, bottom: 0 };
+    this.style = {};
     this.type = ''; this.innerHTML = ''; this.focused = false;
     const self = this;
     this.classList = {
@@ -149,18 +150,22 @@ test('three levels: nested open keeps the ancestor, siblings close', () => {
     'opening a sibling category closes the first category and its open subsection');
 });
 
-// per-level flip at the right edge, and vertical clamp (pull up) at the bottom
-test('fly-out flips at the right edge and clamps at the bottom, per level', () => {
+// per-level flip at the right edge, and vertical clamp that stops at the top of the viewport
+test('fly-out flips at the right edge and clamps on screen, per level', () => {
   const { bar, cat1, sub1 } = buildBar();
   const win = fakeWin({ fine: true, narrow: false, innerWidth: 1280, innerHeight: 800 });
   wireTswBand(bar, win, fakeDoc);
-  cat1.querySelector(':scope > .tsw-bar__flyout')._rect = { left: 300, right: 520, top: 80, bottom: 300 }; // fits
+  const cfly = cat1.querySelector(':scope > .tsw-bar__flyout');
+  cfly._rect = { left: 300, right: 520, top: 80, bottom: 300 }; // fully on screen
   cat1.dispatchEvent(ev('mouseenter'));
   assert.ok(cat1.classList.contains('tsw-open') && !cat1.classList.contains('tsw-flip'), 'category opens right when it fits');
-  sub1.querySelector(':scope > .tsw-bar__flyout')._rect = { left: 1100, right: 1360, top: 80, bottom: 900 }; // off right AND bottom
+  assert.strictEqual(cfly.style.top, '', 'a fly-out that fits is not repositioned');
+  const sfly = sub1.querySelector(':scope > .tsw-bar__flyout');
+  sfly._rect = { left: 1100, right: 1360, top: 80, bottom: 900 }; // off the right edge AND taller than 800
   sub1.dispatchEvent(ev('mouseenter'));
   assert.ok(sub1.classList.contains('tsw-flip'), 'the subsection flyout flips left near the right edge');
-  assert.ok(sub1.classList.contains('tsw-up'), 'the subsection flyout is pulled up when it would cross the bottom');
+  assert.strictEqual(sfly.style.top, '8px', 'a too-tall fly-out is pinned to the top of the viewport, not above it');
+  assert.strictEqual(sfly.style.overflowY, 'auto', 'and scrolls inside itself');
   assert.ok(cat1.classList.contains('tsw-open'), 'flipping/clamping the subsection does not close the category');
 });
 

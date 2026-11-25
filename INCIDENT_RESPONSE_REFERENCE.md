@@ -1770,7 +1770,7 @@ Government Reporting Partners:
 - FBI Cyber Division: https://www.fbi.gov/contact-us/field-offices (contact local field office)
 - IC3: https://www.ic3.gov (FBI Internet Crime Complaint Center)
 - U.S. Secret Service Cyber Fraud Task Forces (CFTF): financial and cyber crime: contact a local field office (the ECTFs were reorganized into CFTFs)
-- DoD Cyber Crime Center (DC3 / DCISE): defense industrial base cyber incident reporting via the DIBNet portal (https://dibnet.dod.mil), mandatory under DFARS 252.204-7012 (NSA's DIB engagement is its separate Cybersecurity Collaboration Center)
+- DoD Cyber Crime Center (DC3 / DCISE): defense industrial base cyber incident reporting via the DIBNet portal, mandatory under DFARS 252.204-7012 (NSA's DIB engagement is its separate Cybersecurity Collaboration Center)
 
 
 ---

@@ -20,7 +20,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,423 words at 230 words a minute)
+About 6 min (1,484 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -61,6 +61,8 @@ together. Next-Generation Firewalls on PAN-OS enforce policy at network
 boundaries. Prisma Access delivers secure access for remote users and branch
 sites from the cloud. The Cortex family supports detection, investigation, and
 response in the security operations center.
+
+Palo Alto Networks completed its acquisition of CyberArk on 11 February 2026, adding identity security to the portfolio; CyberArk's capabilities are delivered within the Idira identity security platform.
 
 The firewalls sit at internet edges, data-center cores, and segmentation
 boundaries. They decide what traffic is allowed by application, by user, and by
@@ -225,6 +227,8 @@ also an internet-facing device that needs the same discipline as any other. See
 - Cortex XSIAM Documentation
 - PAN-OS and Panorama API documentation
 - Palo Alto Networks Security Advisories
+- Palo Alto Networks newsroom: Completes Acquisition of CyberArk to Secure the AI Era (11 February 2026)
+- Palo Alto Networks: cyberark.com now redirects to the Idira identity security platform page (observed 25 November 2026)
 
 ## Related pages
 

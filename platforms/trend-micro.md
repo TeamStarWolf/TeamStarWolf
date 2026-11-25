@@ -1,6 +1,6 @@
 # Trend Vision One (Trend Micro)
 
-Trend Vision One is Trend Micro's extended detection and response (XDR) platform. It brings together endpoint, server, cloud, network, and email sensors into one data lake and console, and includes the workload and cloud-security capabilities formerly branded Cloud One. The platform spans prevention, detection and response, and cloud security posture across hybrid estates. Capability availability depends on the licence and the entitlements in force.
+TrendAI Vision One, earlier Trend Vision One, is Trend Micro's extended detection and response (XDR) platform. It brings together endpoint, server, cloud, network, and email sensors into one data lake and console, and includes the workload and cloud-security capabilities formerly branded Cloud One. The platform spans prevention, detection and response, and cloud security posture across hybrid estates. Capability availability depends on the licence and the entitlements in force.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,308 words at 230 words a minute)
+About 6 min (1,351 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -53,7 +53,7 @@ No review recorded yet
 
 ## What it is and where it fits
 
-Trend Vision One is an XDR platform that collects signals from several security layers and correlates them centrally. It fits across the estate rather than at one layer: workloads and servers, containers, cloud accounts, network traffic, endpoints, and email all feed the same platform. A security operations team uses it to protect workloads, assess cloud posture, and run detection and response across those layers from one console.
+TrendAI Vision One is an XDR platform that collects signals from several security layers and correlates them centrally. It fits across the estate rather than at one layer: workloads and servers, containers, cloud accounts, network traffic, endpoints, and email all feed the same platform. A security operations team uses it to protect workloads, assess cloud posture, and run detection and response across those layers from one console.
 
 The capabilities formerly sold as Cloud One are now part of this platform. What a tenant can use depends on the licence and which capabilities are entitled, so confirm entitlement before relying on a specific function.
 
@@ -68,19 +68,19 @@ In the data lake, events from the different layers are correlated so that relate
 The platform combines protection and posture across layers:
 
 - Workload Security: host-based protection for servers and cloud workloads, including anti-malware, host intrusion prevention (IPS), and virtual patching that shields a known vulnerability at the network layer before a vendor patch is applied.
-- Conformity: cloud security posture management that checks cloud accounts against configuration and compliance rules and reports misconfigurations.
+- Cloud Risk Management (formerly Conformity): cloud security posture management that checks cloud accounts against configuration and compliance rules and reports misconfigurations.
 - Container Security: image scanning and admission control that evaluates container images and can block non-compliant deployments.
 - Network Security: inline intrusion prevention that inspects and blocks malicious traffic.
 - Endpoint and email sensors: endpoint protection and email inspection that feed detections into XDR.
 - XDR: cross-layer correlation, detections, and the investigation workbench over the shared data lake.
 
-For vulnerability and exposure work, Workload Security produces host IPS and virtual-patching coverage and events, Conformity produces cloud misconfiguration findings, and Container Security produces image findings and admission decisions. XDR produces the correlated detections and the activity used for investigation.
+For vulnerability and exposure work, Workload Security produces host IPS and virtual-patching coverage and events, Cloud Risk Management produces cloud misconfiguration findings, and Container Security produces image findings and admission decisions. XDR produces the correlated detections and the activity used for investigation.
 
 ## Deployment and operations
 
 Deployment is a mix of agents and connectors. Workload and endpoint agents install on hosts through existing software tooling or an image. Cloud connectors are configured against each cloud account to read posture and activity. Network sensors are placed in the traffic path. Container Security integrates with the container build pipeline and the cluster admission controller.
 
-Operations run in the Trend Vision One console: detections and the investigation workbench, workload policy, Conformity findings, and container results. Workload Security policy, including which IPS and virtual-patching rules apply, is managed centrally and assigned to host groups. Posture findings from Conformity are triaged and routed to the owning cloud team.
+Operations run in the TrendAI Vision One console: detections and the investigation workbench, workload policy, Cloud Risk Management findings, and container results. Workload Security policy, including which IPS and virtual-patching rules apply, is managed centrally and assigned to host groups. Posture findings from Cloud Risk Management are triaged and routed to the owning cloud team.
 
 ## Integrations and data flow
 
@@ -90,7 +90,7 @@ Cloud connectors pull configuration and activity from cloud provider accounts, a
 
 ## Adversary perspective
 
-Because Trend Vision One is a prevention and detection control across workloads, endpoints, and cloud, adversaries treat its agents as something to blind or disable, and its console and API are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
+Because TrendAI Vision One is a prevention and detection control across workloads, endpoints, and cloud, adversaries treat its agents as something to blind or disable, and its console and API are themselves an attack surface. The steps to lock the platform down are in the "Hardening and secure use" section that follows.
 
 ### Evasion and tampering
 
@@ -116,15 +116,16 @@ Review tenant configuration: confirm which cloud connectors and accounts are lin
 
 ## Where it fits in the program
 
-A vulnerability management and security operations team uses Trend Vision One to cover workloads and cloud as well as endpoints. Workload Security virtual patching buys time on a known vulnerability before the patch lands, Conformity and Container Security surface cloud and image exposure, and XDR gives the SOC correlated detection and response across all of these layers. Findings route into the vulnerability management workflow and ServiceNow, so exposure and active threat across the hybrid estate are tracked in one program.
+A vulnerability management and security operations team uses TrendAI Vision One to cover workloads and cloud as well as endpoints. Workload Security virtual patching buys time on a known vulnerability before the patch lands, Cloud Risk Management and Container Security surface cloud and image exposure, and XDR gives the SOC correlated detection and response across all of these layers. Findings route into the vulnerability management workflow and ServiceNow, so exposure and active threat across the hybrid estate are tracked in one program.
 
 ## Resources
 
-- Trend Vision One documentation
-- Trend Vision One Endpoint Security and Workload Security documentation
-- Trend Vision One Cloud Posture (Conformity) documentation
-- Trend Vision One Container Security documentation
-- Trend Vision One API reference
+- TrendAI Vision One documentation
+- TrendAI Vision One Endpoint Security and Workload Security documentation
+- TrendAI Vision One Cloud Risk Management documentation (formerly Conformity)
+- TrendAI Vision One Container Security documentation
+- TrendAI Vision One API reference
+- Trend Micro business site: the product is now TrendAI Vision One and its cloud posture is Cloud Risk Management, formerly Conformity (read 25 November 2026)
 
 ## Related pages
 

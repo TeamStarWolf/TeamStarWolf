@@ -2685,15 +2685,24 @@
               +node.tagName.charAt(1) <= level;
           }
 
-          // Wrap each heading and the content up to the next boundary in a collapsed <details>.
-          // Whatever sits before the first folded heading (the header card, the intro, and any
-          // parent h2 when folding at h3) stays open above the list.
+          // Case studies read as articles, so their sections open by default. The long
+          // reference pages stay folded (see the note at the top of this plugin): they run
+          // 9k to 46k words and the fold is what makes that scroll navigable. The case-study
+          // index (README) and timeline are aggregators, not articles, so they are excluded.
+          var csMatch = /^#\/case-studies\/([^?#]+)/.exec(location.hash || '');
+          var openByDefault = !!(csMatch && !/^(README|TIMELINE)$/i.test(decodeURIComponent(csMatch[1])));
+
+          // Wrap each heading and the content up to the next boundary in a <details> (open by
+          // default on case studies, collapsed on the long references). Whatever sits before the
+          // first folded heading (the header card, the intro, and any parent h2 when folding at
+          // h3) stays open above the list.
           heads.forEach(function (h) {
             var parent = h.parentNode;
             // tsw-fold-sec marks the section folds this plugin builds, so the Expand-all and
             // Previous/Next machinery below ignores the literal "Show the table" folds that the
             // content authors nest inside a section (those keep class tsw-fold but not -sec).
             var details = el('details', { className: 'tsw-fold tsw-fold-sec' });
+            if (openByDefault) { details.open = true; }
             var summary = el('summary', { className: 'tsw-fold-summary' });
             var body = el('div', { className: 'tsw-fold-body' });
             parent.insertBefore(details, h);
@@ -2728,6 +2737,7 @@
             sync();
           });
           folds.forEach(function (d) { d.addEventListener('toggle', sync); });
+          sync();
 
           // Previous and Next within the topic, at the foot of each section.
           function go(d) {

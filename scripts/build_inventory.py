@@ -395,6 +395,8 @@ def validate(src: dict) -> dict:
             errors.append(f"{where}: status {st} needs a holder or holder_name")
         if st in ("public", "private") and (holder is not None or holder_name is not None):
             errors.append(f"{where}: a {st} company must not name a holder")
+        if holder_domains and holder is None and holder_name is None:
+            errors.append(f"{where}: holder_domains needs a holder or holder_name (the status names none)")
         if st in STATUS_NEEDS_SINCE and r["ownership_since"] is None:
             errors.append(f"{where}: status {st} needs ownership_since")
         if st == "public" and r["ownership_since"] is not None:
@@ -1045,11 +1047,15 @@ def self_test() -> int:
            synonyms=["EDR", "telemetry"], components=["telemetry"])]))
     expect("C61 synonym repeats the name", fails_with("repeats the capability's own name",
            caps=[base_cap(synonyms=["Endpoint Detection and Response"])]))
+    expect("C62 holder_domains without a holder", fails_with("holder_domains needs a holder",
+           companies=[base_company(status="private", ticker=None, holder=None, holder_name=None,
+                      holder_domains=["blog.example.com"],
+                      sources={"status": {"url": "https://blog.example.com/x", "read_date": RD}})]))
 
     if fails:
         print("SELF-TEST FAILED: " + "; ".join(fails))
         return 1
-    print("OK: build_inventory self-test (61 planted controls: schema, ids, vocab/d3fend/csf/cis "
+    print("OK: build_inventory self-test (62 planted controls: schema, ids, vocab/d3fend/csf/cis "
           "cross-refs and item placement, non-empty+real framework items, per-fact sourcing, "
           "vendor-domain + first-domain + holder-domain rules, dates with floor, ownership model with "
           "stake, unverified-vs-documented, neutral wording incl. Markdown/backtick/HTML, duplicates)")

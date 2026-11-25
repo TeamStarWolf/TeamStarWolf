@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 28 min (6,542 words at 230 words a minute)
+About 28 min (6,546 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -207,7 +207,7 @@ All sources were opened on 25 November 2026.
 | 6 | Yunus Çadırcı, DIALStranger (2019 research paper and 2023 Black Hat MEA slides, with the project README), for what DIAL is, the vendor-misimplementation and origin-checking findings, the 2020 Netflix protocol update, the per-vendor DIAL ports, and the exposed-television claim | [github.com/yunuscadirci/DIALStranger](https://github.com/yunuscadirci/DIALStranger) | 2026-11-25 | Confirmed |
 | 7 | Oligo Security (Uri Katz, Gal Elbaz, Avi Lumelsky), "Airborne: Wormable Zero-Click Remote Code Execution (RCE) in AirPlay Protocol Puts Apple & IoT Devices at Risk", 2025, for the 23 vulnerabilities and 17 CVEs, the default-accessible commands, the demonstrated wormable zero-click code execution, the speaker and car demonstrations, the receiver-setting conditions, the device estimates, and the remediation steps | [oligo.security/blog/airborne](https://www.oligo.security/blog/airborne) | 2026-11-25 | Confirmed |
 | 8 | CVE and NVD records for the AirBorne identifiers cited, each resolving at nvd.nist.gov/vuln/detail/\<id\>: CVE-2025-24252 (CISA score 8.8, CWE-416, `AV:A`), CVE-2025-24206 (CISA score 7.7, CWE-288, `AV:L`), CVE-2025-24132 (NVD base 6.5, CWE-119, described as app termination) | [nvd.nist.gov/vuln/detail/CVE-2025-24252](https://nvd.nist.gov/vuln/detail/CVE-2025-24252) | 2026-11-25 | Confirmed |
-| 9 | Apple security advisories, "About the security content of AirPlay audio SDK 2.7.1, AirPlay video SDK 3.6.0.126, and CarPlay Communication Plug-in R18.1 Updates" and "About the security content of iOS 18.4 and iPadOS 18.4", for the 31 March 2025 operating-system and SDK release dates, the 4 April 2025 CarPlay plug-in date, and the app-termination impact wording | [support.apple.com/en-us/122403](https://support.apple.com/en-us/122403) | 2026-11-25 | Confirmed |
+| 9 | Apple security advisories, "About the security content of AirPlay audio SDK 2.7.1, AirPlay video SDK 3.6.0.126, and CarPlay Communication Plug-in R18.1 Updates" and "About the security content of iOS 18.4 and iPadOS 18.4", for the 31 March 2025 operating-system and SDK release dates, the 4 April 2025 CarPlay plug-in date, and the app-termination impact wording | [support.apple.com/en-us/122403](https://support.apple.com/en-us/122403) and [support.apple.com/en-us/122371](https://support.apple.com/en-us/122371) | 2026-11-25 | Confirmed |
 | 10 | TeamStarWolf library data: `data/attack/technique_profiles.jsonl` (ATT&CK v20.0), for the technique names and tactics in the mappings | [github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data/attack) | 2026-11-25 | Demonstrated |
 
 *© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation. License: [ATT&CK Terms of Use](https://attack.mitre.org/resources/legal-and-branding/terms-of-use/). ATT&CK® and MITRE ATT&CK® are registered trademarks of The MITRE Corporation. This project is not affiliated with or endorsed by MITRE.*

@@ -101,11 +101,14 @@ The CSF Function names, CIS Control titles and D3FEND names are checked against 
 Each CSF / CIS entry names **at least one** Subcategory / Safeguard (an empty list fails), and
 each item is checked for **existence**, not just shape:
 
-- A CSF Subcategory (e.g. `PR.AA-05`) must sit under the cited Function **and** be a real
-  Subcategory of its Category. The validator carries, from the NIST CSF 2.0 Reference Tool
-  export, the number of Subcategories in each CSF 2.0 Category (PR.DS's gap at `09` is listed
-  explicitly), so `PR.AA-99` is rejected even though it is well-shaped, and a CSF-1.1 Category
-  such as `PR.AC` is rejected outright.
+- A CSF Subcategory (e.g. `PR.AA-05`) must sit under the cited Function **and** be one of the
+  **active** CSF 2.0 Subcategories of its Category. The validator holds the exact set of active
+  ids per Category (106 in all), derived from the NIST CSF 2.0 Reference Tool export by dropping
+  every row whose text begins `[Withdrawn: Incorporated into ...]`. So a well-shaped but
+  non-existent id like `PR.AA-99` is rejected; a Subcategory CSF 2.0 withdrew from 1.1 such as
+  `DE.CM-04` is rejected while its still-active neighbour `DE.CM-09` is accepted; and a
+  CSF-1.1-only Category such as `PR.AC` is rejected outright. The numbers are not contiguous;
+  for example `PR.DS` keeps `01`, `02`, `10`, `11`.
 - A CIS Safeguard (e.g. `13.7`) must sit under the cited Control **and** fall within that
   Control's real Safeguard count, which the validator carries per Control from the CIS Controls
   Navigator v8.1. `10.18` and `13.12` are rejected because Control 10 has 7 Safeguards and

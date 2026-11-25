@@ -5,6 +5,13 @@
 # {"text": ..., "from": "#anchor", "quote": ...} on one line, as in the draft file.
 
 pages:
+  case-studies/UPNP_HOME_NETWORK.md:
+    reviewed: "2026-11-25"
+    items:
+      - {"text": "The first version of the UPnP port-mapping profile has no access control, so any host on the home network can ask the router to open an inbound port.", "from": "#executive-summary", "quote": "any host on the local network can ask the router to open a port"}
+      - {"text": "A 2012 study found more than 81 million addresses answering UPnP discovery, and an estimated 17 million answering the control service to the internet.", "from": "#executive-summary", "quote": "more than 81 million addresses answered UPnP discovery"}
+      - {"text": "UPnProxy and EternalSilence are not a single fault: injection from the internet needs both a device that answers its controls from the internet and a protocol that checks nobody.", "from": "#part-3-using-the-router-as-infrastructure-upnproxy-and-eternalsilence", "quote": "Injection from the internet needs both"}
+      - {"text": "The record sorts into three piles: bugs a patch or a replacement fixes, a design property no patch removes, and what the owner controls.", "from": "#executive-summary", "quote": "a design property that no patch removes"}
   case-studies/CHANGE_HEALTHCARE_2024.md:
     reviewed: "2026-11-16"
     items:

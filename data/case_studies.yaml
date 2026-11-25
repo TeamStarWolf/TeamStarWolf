@@ -47,6 +47,29 @@
 sectors: ["healthcare", "finance", "government", "energy", "manufacturing", "technology", "telecommunications", "education", "retail", "defense", "transport", "media", "cross-sector"]
 
 studies:
+  case-studies/UPNP_HOME_NETWORK.md:
+    kind: "reference"
+    title: "UPnP on the Home Network: The Internet Gateway Device Port-Mapping Service and Its Security Record"
+    start: "2012"
+    end: "2026"
+    core_start: "2012"
+    core_end: "2020"
+    sectors: ["technology"]
+    cves: ["CVE-2012-5958", "CVE-2012-5965", "CVE-2013-0229", "CVE-2013-0230", "CVE-2017-1000494", "CVE-2019-12107", "CVE-2020-12695"]
+    actors: []
+    tags: ["UPnP", "IGD port mapping", "home network", "SSDP", "CallStranger", "UPnProxy"]
+    pdf: "UPnP_Home_Network_Case_Study.pdf"
+    pptx: "UPnP_Home_Network_Case_Study.pptx"
+    events:
+      - {"date": "2012-06", "label": "Rapid7 scans every routable IPv4 address for UPnP from 1 June to 17 November 2012"}
+      - {"date": "2013-01", "label": "Rapid7 publishes the exposure paper; the libupnp SSDP flaws are fixed in libupnp 1.6.18"}
+      - {"date": "2013-01", "label": "MiniUPnPd SSDP denial of service (CVE-2013-0229) and SOAP code execution (CVE-2013-0230)"}
+      - {"date": "2016-04", "label": "Pinkslipbot begins using UPnP to open inbound ports and run control-server proxies"}
+      - {"date": "2017-06", "label": "McAfee reports Pinkslipbot opening ports over UPnP, as far as it knew the second executable malware to do so after Conficker"}
+      - {"date": "2018-11", "label": "Akamai reports UPnProxy and the EternalSilence injections re-exposing SMB 139 and 445"}
+      - {"date": "2020-04-17", "label": "The Open Connectivity Foundation updates the UPnP specification to forbid the CallStranger behaviour"}
+      - {"date": "2020-06-08", "label": "CallStranger (CVE-2020-12695, CVSS 7.5) is published"}
+
   case-studies/AI_THREATS_2026.md:
     kind: "era"
     title: "AI Threats in the Cybersecurity Industry: A 2026 Case Study"

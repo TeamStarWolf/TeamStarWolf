@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 23 min (5,226 words at 230 words a minute)
+About 23 min (5,274 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -105,7 +105,7 @@ For each vendor, this study checked the vendor's own channel for a statement dat
 
 Microsoft is the assigning authority for CVE-2025-32711, which it titles an M365 Copilot information disclosure vulnerability and describes as an AI command injection in Microsoft 365 Copilot that allows an unauthorized attacker to disclose information over a network. Microsoft scores it 9.3 (Critical) under CVSS 3.1, with the vector marking network reach, low attack complexity, no privileges required and no user interaction, and a scope change. It classes the weakness as CWE-74, improper neutralization of special elements in output used by a downstream component, the injection family. The record was published on 11 June 2025 (Confirmed [1]).
 
-The name EchoLeak is the finder's, not Microsoft's. The CVE Program record carries a reference to the Aim Labs write-up that reported and named the flaw, which is how this study ties the two together (Confirmed [1]).
+The name EchoLeak is the finder's, not Microsoft's. The CVE Program record carries a reference to the Aim Labs write-up that reported and named the flaw, which is how this study ties the two together (Confirmed [1]). Microsoft's advisory acknowledges two parties, Aim Labs and a researcher at Microsoft (Confirmed [13]).
 
 ### What is not public here
 
@@ -197,17 +197,21 @@ The common thread for defenders is to stop trusting an assistant's output just b
 
 ## Part 7: Weakness and technique mapping
 
-The mapping below is this study's interpretation of public definitions, checked on 25 November 2026. It is deliberately small, because the enterprise ATT&CK catalog was not built to describe a language model following instructions in its input.
+The mapping below is this study's reading of the ATT&CK definitions, checked on 25 November 2026, against each case's public record. ATT&CK v20.0, the release this study's library data tracks, added techniques for prompt injection and related behaviour, so the cases map to those directly.
 
 | Label | Case support | Boundary |
 |---|---|---|
 | CWE-74 (CVE-2025-32711) | Assigned by Microsoft for the Microsoft 365 Copilot injection flaw | The authoritative weakness label [1] |
-| CWE-94 (CVE-2024-5565) | Assigned by JFrog for the vanna code-generation flaw | The authoritative weakness label [2] |
-| [T1195 Supply Chain Compromise](https://attack.mitre.org/techniques/T1195/) | The Rules File Backdoor, planted in a shared config file that reaches many projects | Analytical mapping; Pillar frames it as a supply-chain vector [4][8] |
+| CWE-94 (CVE-2024-5565, CVE-2024-5826) | Assigned by JFrog and @huntr_ai for the vanna code-generation flaw | The authoritative weakness labels [2][11] |
+| [T1698 Indirect Prompt Injection](https://attack.mitre.org/techniques/T1698/) | EchoLeak, Slack AI, the Rules File Backdoor and ChatGPT, where the instruction arrives in content the assistant retrieves or loads | Analytical mapping [1][3][4][6][7][8] |
+| [T1699 Direct Prompt Injection](https://attack.mitre.org/techniques/T1699/) | The vanna flaw, where the attacker supplies the prompt directly to the ask interface | Analytical mapping [2][5][8] |
+| [T1700 AI-Enabled Exfiltration](https://attack.mitre.org/techniques/T1700/) | Slack AI and ChatGPT, where the assistant is made to send data out, and EchoLeak's information disclosure | Analytical mapping [1][3][7][8] |
+| [T1027.018 Invisible Unicode](https://attack.mitre.org/techniques/T1027/018/) | The hidden, non-rendering Unicode in the Rules File Backdoor | Analytical mapping [4][8] |
+| [T1195 Supply Chain Compromise](https://attack.mitre.org/techniques/T1195/) | The Rules File Backdoor, planted in a shared config file that reaches many projects | Analytical mapping; the distribution angle the injection techniques do not carry [4][8] |
 | [T1059 Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059/) | The vanna flaw runs attacker-chosen Python through the library | High-confidence analytical mapping [2][5][8] |
-| [T1567 Exfiltration Over Web Service](https://attack.mitre.org/techniques/T1567/) | The Slack AI and ChatGPT cases move data to an attacker host through a rendered link or a request | Analytical mapping [3][7][8] |
-| [T1204 User Execution](https://attack.mitre.org/techniques/T1204/) | The Slack AI chain needs the victim to click the rendered link [3] | Analytical mapping; the ChatGPT url_safe path instead renders an image that sends the data, needing no click, though the assistant must still process the attacker's content (Reported [7]; Inferred for the no-click reading) [8] |
-| Prompt injection itself | No enterprise ATT&CK technique models an LLM following instructions in its input | Not mapped here; MITRE ATLAS covers this class, but this study maps only the library's ATT&CK data [8] |
+| [T1204 User Execution](https://attack.mitre.org/techniques/T1204/) | The Slack AI chain needs the victim to click the rendered link | Analytical mapping [3][8] |
+
+MITRE ATLAS also catalogs adversarial machine-learning techniques; this study maps to the library's ATT&CK v20.0 data [8].
 
 ## Cross-cutting themes
 
@@ -238,7 +242,7 @@ The pattern under all five cases is an old one in a new place. The assistant act
 15. GitHub Advisory Database, GHSA-7735-w2jp-gvg6 (CVE-2024-5565, vanna <= 0.5.5) and GHSA-rrqq-fv6m-692m (CVE-2024-5826, vanna <= 0.6.2), for the affected ranges with no patched version. https://github.com/advisories/GHSA-7735-w2jp-gvg6 and https://github.com/advisories/GHSA-rrqq-fv6m-692m
 16. vanna-ai/vanna source at tags v0.7.9 (`src/vanna/base/base.py`) and v2.0.2 (`src/vanna/legacy/base/base.py`), for the ask default and the exec call observed in those two files. https://github.com/vanna-ai/vanna/blob/v0.7.9/src/vanna/base/base.py and https://github.com/vanna-ai/vanna/blob/v2.0.2/src/vanna/legacy/base/base.py
 17. OpenAI, Keeping your data safe when an AI agent clicks a link, 28 January 2026, for OpenAI's own description of its link-safety control. https://openai.com/index/ai-agent-link-safety/
-18. Johann Rehberger (Embrace The Red), SpAIware: persistent data exfiltration from the ChatGPT macOS app, 20 September 2024, for the fix in ChatGPT 1.2024.247 and that memory writes from untrusted content still worked. https://embracethered.com/blog/posts/2024/chatgpt-macos-app-persistent-data-exfiltration/
+18. Johann Rehberger (Embrace The Red), Spyware Injection Into Your ChatGPT's Long-Term Memory (SpAIware), 20 September 2024, for the fix in ChatGPT 1.2024.247 and that memory writes from untrusted content still worked. https://embracethered.com/blog/posts/2024/chatgpt-macos-app-persistent-data-exfiltration/
 
 ## Related references
 

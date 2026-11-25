@@ -97,15 +97,15 @@ Right: What to do
 Caption: Where a vendor called the behaviour intended or the user's responsibility, record that as the accepted state of the control, not a closed ticket.
 Notes: Per-product steps from [1][3][4][5][6]. Read-first and output-as-untrusted are the study's framing (Inferred).
 
-## MITRE MAPPINGS | A small, honest table
+## MITRE MAPPINGS | ATT&CK v20.0 covers this now
 
 | Id | Technique | Tie to the record |
 |---|---|---|
-| T1195 | Supply Chain Compromise | The Rules File Backdoor, planted in a shared config file that reaches many projects |
-| T1059 | Command and Scripting Interpreter | The vanna flaw runs attacker-chosen Python through the library |
-| T1567 | Exfiltration Over Web Service | Slack AI and ChatGPT move data to an attacker host through a rendered link or request |
-Caption: ATT&CK v20.0. The enterprise catalog does not model an LLM following instructions in its input, so prompt injection itself is left unmapped.
-Notes: Names and tactics from library data [8]; ties from [3][4][5][7]. CWE-74 [1] and CWE-94 [2] are the records' weakness labels. MITRE ATLAS covers this class; this study maps only ATT&CK.
+| T1698 | Indirect Prompt Injection | EchoLeak, Slack AI, the Rules File Backdoor and ChatGPT, where the instruction is in content the assistant retrieves |
+| T1699 | Direct Prompt Injection | The vanna flaw, where the attacker supplies the prompt directly to the ask interface |
+| T1700 | AI-Enabled Exfiltration | Slack AI and ChatGPT made to send data out, and EchoLeak's disclosure |
+Caption: ATT&CK v20.0 added prompt-injection techniques, so the cases map directly; the study also uses T1027.018, T1195, T1059 and T1204.
+Notes: Names and tactics from library data [8]; ties from [1][3][4][6][7]. T1699 for vanna [2][5]; T1027.018 Invisible Unicode for the Rules File hidden characters [4]. CWE-74 [1], CWE-94 [2][11]. MITRE ATLAS also covers adversarial ML.
 
 ## CROSS-CUTTING THEMES | What the record teaches
 

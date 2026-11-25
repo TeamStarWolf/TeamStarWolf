@@ -110,11 +110,12 @@ studies:
     pptx: "ISP_Gateway_Home_Network_Case_Study.pptx"
     events:
       - {"date": "2005", "label": "AllegroSoft issues a fixed RomPager version to licensed manufacturers"}
-      - {"date": "2014-12", "label": "Check Point discloses Misfortune Cookie (CVE-2014-9222) in at least 200 device models"}
+      - {"date": "2014-12", "label": "Check Point discloses Misfortune Cookie (CVE-2014-9222); RomPager detected exposed in at least 200 device models"}
       - {"date": "2016-11", "label": "A customized Mirai variant attacks home gateways over the TR-069 port 7547"}
       - {"date": "2016-12", "label": "Radware reports Deutsche Telekom routers crashed in the attack rather than being infected"}
       - {"date": "2017-05", "label": "CVE-2016-10372 is published for the Eir D1000 TR-064 command execution"}
       - {"date": "2017-08", "label": "Nomotion publishes SharknAT&To on AT&T's Arris NVG589 and NVG599 gateways"}
+      - {"date": "2017-09", "label": "Four CVEs are assigned for the SharknAT&To issues (CVE-2017-14115, -14116, -14117, -10793)"}
       - {"date": "2020-01", "label": "Lyrebirds publishes Cable Haunt (CVE-2019-19494, CVE-2019-19495) for Broadcom-based modems"}
 
   case-studies/AI_THREATS_2026.md:

@@ -6,7 +6,9 @@
    innerWidth / innerHeight / setTimeout / clearTimeout; doc supplies createElement /
    addEventListener. Desktop (fine pointer): a top-level menu opens on hover and stays while
    the pointer is in its panel; the toggle button (aria-expanded) opens it for keyboard and
-   click. A group (a Bookmarks category or, nested inside it, a subsection) opens a side
+   click. A top-level item with no menu is a plain link (no toggle, no panel): it opens
+   nothing, but hovering or focusing it closes any menu that is open, like moving onto a
+   sibling. A group (a Bookmarks category or, nested inside it, a subsection) opens a side
    fly-out; at each level independently the fly-out flips left when it would cross the right
    edge, is pulled up when it would cross the bottom, and scrolls inside itself only if it
    still does not fit. One path is open per level: opening a group closes its siblings, not
@@ -119,6 +121,14 @@ function wireTswBand(bar, win, doc) {
 
   var items = [].slice.call(bar.querySelectorAll('.tsw-bar__item'));
   items.forEach(function (it) {
+    // A plain top-level link has no toggle button. It opens nothing, so it is not wired to
+    // openItem; but hovering or focusing it must still close whatever menu is open.
+    if (!it.querySelector(':scope > .tsw-bar__toggle')) {
+      it.addEventListener('mouseenter', function () { if (fine.matches && !narrow.matches) { cancel(); closeAll(); } });
+      var plainLink = it.querySelector(':scope > .tsw-bar__link');
+      if (plainLink) { plainLink.addEventListener('focus', function () { cancel(); closeAll(); }); }
+      return;
+    }
     it.addEventListener('mouseenter', function () { if (fine.matches && !narrow.matches) { cancel(); openItem(it); } });
     it.addEventListener('mouseleave', function () { if (fine.matches && !narrow.matches) { cancel(); timer = win.setTimeout(function () { closeItem(it); }, CLOSE_MS); } });
   });

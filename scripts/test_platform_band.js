@@ -3,7 +3,8 @@
      node scripts/test_platform_band.js
    Covers: hover opens; one top-level menu open at a time; the 220ms close; the side
    fly-out; the edge-flip (flips when it would cross the right edge, not otherwise); one
-   fly-out at a time; and the keyboard path (Escape, ArrowRight, ArrowLeft). */
+   fly-out at a time; the keyboard path (Escape, ArrowRight, ArrowLeft); and a plain-link
+   top item (no menu) that closes open menus on hover/focus and never opens itself. */
 'use strict';
 const assert = require('assert');
 const { wireTswBand } = require('../assets/platform-band.js');
@@ -214,6 +215,36 @@ test('short viewport uses the accordion even with a fine pointer', () => {
   assert.ok(!a.classList.contains('tsw-open'), 'hover is ignored when the viewport is short, even with a fine pointer');
   a.querySelector(':scope > .tsw-bar__toggle').dispatchEvent(ev('click'));
   assert.ok(a.classList.contains('tsw-open'), 'the toggle button opens the section (accordion)');
+});
+
+// a top-level item with no menu is a plain link: no toggle, no panel; hovering or focusing it
+// closes any open menu, it never opens itself, and the keyboard handlers do not assume a panel.
+// A "menu": [] item and a no-"menu" item both reach the renderer as this same plain shape.
+test('plain-link top item: no toggle/panel, closes menus on hover and focus, never opens', () => {
+  const bar = el('div', 'tsw-bar');
+  const ul = el('ul', 'tsw-bar__list'); bar.appendChild(ul);
+  const home = el('li', 'tsw-bar__item tsw-bar__item--plain');       // Home: a plain link
+  const homeLink = el('a', 'tsw-bar__link', 'Home'); home.appendChild(homeLink); ul.appendChild(home);
+  const mi = el('li', 'tsw-bar__item');                              // a normal menu item
+  mi.appendChild(el('a', 'tsw-bar__link', 'Library'));
+  mi.appendChild(el('button', 'tsw-bar__toggle'));
+  mi.appendChild(el('div', 'tsw-bar__panel')); ul.appendChild(mi);
+  const win = fakeWin({ fine: true, narrow: false, innerWidth: 1280 });
+  wireTswBand(bar, win, fakeDoc);
+  assert.strictEqual(home.querySelector(':scope > .tsw-bar__toggle'), null, 'a plain item has no toggle');
+  assert.strictEqual(home.querySelector(':scope > .tsw-bar__panel'), null, 'a plain item has no panel');
+  mi.dispatchEvent(ev('mouseenter'));
+  assert.ok(mi.classList.contains('tsw-open'), 'the menu item opens on hover');
+  home.dispatchEvent(ev('mouseenter'));
+  assert.ok(!mi.classList.contains('tsw-open'), 'hovering the plain link closes the open menu');
+  assert.ok(!home.classList.contains('tsw-open'), 'the plain link never opens itself');
+  mi.dispatchEvent(ev('mouseenter'));
+  assert.ok(mi.classList.contains('tsw-open'), 'the menu item opens again');
+  homeLink.dispatchEvent(ev('focus'));
+  assert.ok(!mi.classList.contains('tsw-open'), 'focusing the plain link closes the open menu');
+  bar.dispatchEvent(ev('keydown', { key: 'ArrowDown', target: homeLink }));  // no panel to assume: must not throw
+  bar.dispatchEvent(ev('keydown', { key: 'Escape', target: homeLink }));     // nothing open: must not throw
+  assert.ok(!home.classList.contains('tsw-open'), 'keyboard on the plain link leaves it closed');
 });
 
 console.log('platform-band behaviour tests: ' + ran + ' of ' + ran + ' pass');

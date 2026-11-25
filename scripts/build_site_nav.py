@@ -728,6 +728,37 @@ def platform_band_problems(pnav: dict) -> list[str]:
     return out
 
 
+def _band_z_index(html: str, selector: str) -> int | None:
+    """The z-index declared on the rule whose selector is exactly `selector` (the selector
+    then optional whitespace then '{'), or None. `#tsw-theme` matches the base rule, not
+    `#tsw-theme:hover` or `#tsw-theme svg`, because those put a ':' or ' svg' before the brace."""
+    m = re.search(re.escape(selector) + r"\s*\{([^}]*)\}", html)
+    if not m:
+        return None
+    z = re.search(r"z-index:\s*(\d+)", m.group(1))
+    return int(z.group(1)) if z else None
+
+
+def band_overlay_problems(html: str) -> list[str]:
+    """On the phone layout the open band must sit above the library's own fixed header buttons
+    (the docsify sidebar-toggle, #tsw-theme and the search button, all z-index 30); otherwise
+    those buttons cover the top rows - Home included - and a tap lands on the button, not the
+    menu. Assert the open band declares a z-index that clears #tsw-theme (read from the same
+    file) and the 30 the sidebar-toggle uses."""
+    out = []
+    open_z = _band_z_index(html, ".tsw-bar.tsw-bar--open")
+    theme_z = _band_z_index(html, "#tsw-theme")
+    if open_z is None:
+        out.append(INDEX_HTML + ": .tsw-bar.tsw-bar--open has no z-index; the open band must rise "
+                   "above the fixed sidebar-toggle / #tsw-theme / search buttons (z-index 30) on phones")
+    else:
+        floor = max(30, theme_z or 0)
+        if open_z <= floor:
+            out.append(INDEX_HTML + ": open-band z-index " + str(open_z) + " does not clear the fixed "
+                       "header buttons (z-index " + str(floor) + "); the top rows would be covered at phone width")
+    return out
+
+
 def _band_entry(e: dict, out: list, indent: str) -> None:
     """Render one menu entry. A group (an entry carrying its own menu) is a link plus a
     caret plus a side fly-out holding its own entries, rendered the same way at every depth,
@@ -759,9 +790,14 @@ def _band_entry(e: dict, out: list, indent: str) -> None:
 
 
 def platform_band(pnav: dict) -> str:
-    """The band markup: a real link plus a toggle button per top-level item; each menu entry
-    is rendered by _band_entry, which recurses for the two Bookmarks levels. An entry with a
-    'pending' note (agreed but its address does not work yet) is not rendered."""
+    """The band markup: one <li> per top-level item. An item that carries a menu is a real
+    link plus a toggle button and a dropdown panel, each menu entry rendered by _band_entry,
+    which recurses for the two Bookmarks levels. An item with no menu - no 'menu' key, an
+    empty one, or one whose only entries are pending - renders as a plain link: the extra
+    'tsw-bar__item--plain' class, no toggle, no panel, no aria-expanded. The behaviour script
+    wires such an item as a plain link that opens nothing but closes any open menu on hover or
+    focus. An entry with a 'pending' note (agreed but its address does not work yet) is not
+    rendered."""
     # A div with role="navigation", not a <nav>: docsify's loadNavbar hijacks the first
     # <nav> in the body (it renders the library's category bar into it), which would wipe
     # the band. role="navigation" + aria-label is the same landmark to assistive tech.
@@ -769,7 +805,8 @@ def platform_band(pnav: dict) -> str:
            '    <ul class="tsw-bar__list">']
     for it in pnav["items"]:
         menu = [e for e in it.get("menu", []) if "pending" not in e]
-        out.append('      <li class="tsw-bar__item">')
+        li_class = "tsw-bar__item" if menu else "tsw-bar__item tsw-bar__item--plain"
+        out.append('      <li class="' + li_class + '">')
         out.append('        <a class="tsw-bar__link" href="' + html_esc(it["href"]) + '">'
                    + html_esc(it["label"]) + "</a>")
         if menu:
@@ -828,6 +865,25 @@ def band_self_test() -> int:
         {"label": "Later", "href": "https://teamstarwolf.com/b", "pending": "x"}]}]}
     m = platform_band(pend)
     assert ">Live</a>" in m and ">Later</a>" not in m, "a pending entry was rendered"
+    # The pending-filter case above is a fixture, not the real file, so it keeps testing the
+    # filter even once the shipped file has no pending entry.
+    # A top-level item with no menu, and one with an empty menu, both render as a plain link:
+    # the --plain class, a link, and no toggle/panel/aria-expanded; and both pass the nesting,
+    # list and cap checks (an item with no menu must pass them).
+    for nomenu in ({"id": "home", "label": "Home", "href": "https://teamstarwolf.com/"},
+                   {"id": "home", "label": "Home", "href": "https://teamstarwolf.com/", "menu": []}):
+        fx = {**base, "items": [nomenu]}
+        assert not any("Home" in p for p in platform_band_problems(fx)), \
+            ("a menu-less top item must pass the checks", platform_band_problems(fx))
+        mk = platform_band(fx)
+        assert "tsw-bar__item--plain" in mk, "a menu-less top item is not marked as a plain link"
+        assert ">Home</a>" in mk, "the plain link's label is missing"
+        assert "tsw-bar__toggle" not in mk and "tsw-bar__panel" not in mk, "a plain link must have no toggle or panel"
+        assert "aria-expanded" not in mk, "a plain link must have no aria-expanded"
+    # an item whose only menu entry is pending collapses to a plain link (nothing left to show)
+    allpending = {**base, "items": [{"id": "home", "label": "Home", "href": "https://teamstarwolf.com/",
+        "menu": [{"label": "Later", "href": "https://teamstarwolf.com/x", "pending": "x"}]}]}
+    assert "tsw-bar__item--plain" in platform_band(allpending), "an all-pending menu should collapse to a plain link"
     # file bytes: ASCII with LF
     assert band_bytes_bad(b"plain ascii\n") is None
     assert "ASCII" in (band_bytes_bad("café".encode("utf-8")) or ""), "non-ASCII not caught"
@@ -917,6 +973,14 @@ def band_self_test() -> int:
     assert any("external" in p and "hyphen" in p for p in platform_band_problems(badext)), "DNS-invalid external leaf not caught"
     nonascii = bm([{"label": "E2", "href": "https://nvd.nist.gov/café", "external": True}])
     assert any("external" in p and "non-ASCII" in p for p in platform_band_problems(nonascii)), "non-ASCII external leaf not caught"
+
+    # band overlay: at phone width the open band must outrank the fixed header buttons (z-index 30)
+    good_html = ".tsw-bar.tsw-bar--open { z-index: 40; }\n#tsw-theme { position: fixed; z-index: 30; }"
+    assert band_overlay_problems(good_html) == [], ("a clearing z-index should pass", band_overlay_problems(good_html))
+    low_html = ".tsw-bar.tsw-bar--open { z-index: 25; }\n#tsw-theme { position: fixed; z-index: 30; }"
+    assert any("does not clear" in p for p in band_overlay_problems(low_html)), "an open band under the buttons should fail"
+    none_html = ".tsw-bar { z-index: 25; }\n#tsw-theme { z-index: 30; }"
+    assert any("no z-index" in p for p in band_overlay_problems(none_html)), "a missing open-band z-index should fail"
 
     print("build_site_nav band self-test: all cases pass")
     return 0
@@ -1040,6 +1104,7 @@ def problems(cfg: dict, gen: dict[str, str]) -> list[str]:
             out.append(CONFIG + ": not_in_nav entry " + p + " does not exist")
     out += index_problems(files, read_text("INDEX.md") or "")
     out += platform_band_problems(load_platform_nav())
+    out += band_overlay_problems(read_text(INDEX_HTML) or "")
     return out
 
 

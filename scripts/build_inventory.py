@@ -13,35 +13,35 @@ the companies and products that document each capability:
     data/inventory/companies.jsonl       one row per company, keyed to a `vendor:<slug>`
                                          id in data/vocab/; its ownership is stated with a
                                          sourced, dated status (public, private, pe-owned,
-                                         acquired, public-controlled or defunct) and, when
-                                         there is an announced-but-unclosed deal, that too.
+                                         acquired, public-controlled or defunct), a `stake`
+                                         where a holder's interest is majority rather than
+                                         full, and an announced-but-unclosed deal.
     data/inventory/products.jsonl        one row per NAMED product, tied to the vocabulary
                                          (`vocab_product`), to its company and platform,
                                          and to the capabilities the vendor documents, each
-                                         with the vendor's own term on the cited page
-                                         (`documented_as`).
+                                         with the vendor's own words from the cited page
+                                         (`documented_as`) and an optional editor `note`.
 
 From them this script writes a generated roll-up, data/inventory/inventory.json.
 
 Principles this validator enforces (see data/INVENTORY.md):
   * One model. A company id is a `vendor:<slug>` in the shared vocabulary; a product's
     `vocab_product` is a vocabulary product of the same vendor (null only where the
-    vocabulary does not cover it yet), and a product id that is itself a vocabulary id
-    must equal its `vocab_product` (no parallel slug for an existing vocabulary product).
-  * Every fact is sourced and dated. Every company carries a status source; every
-    "documented" capability mapping carries a vendor page URL and read date; an
-    ownership change (acquired / pe-owned / public-controlled) names its holder. A
-    mapping that could not be confirmed on a vendor page is `unverified` with a note and
-    NO source. Product pages and mapping sources must be on the company's own domains;
-    a status source may be on the company's or its holder's domain.
-  * Framework items are cited, not invented. A CSF 2.0 Function / CIS v8.1 Control id and
-    name must match the framework's own text; the Subcategory / Safeguard `items` must
-    sit under that Function / Control; D3FEND ids are checked against the pinned 1.6.0
-    release and say whether they cover the whole capability or a `part`.
-  * Wording filter. This is a word list, not a check of claims: it fails ranking and
-    marketing words and the unsourced security words "vulnerable", "breached",
-    "insecure", "hacked" and "compromised" in free text, and em dashes (docs/VOICE.md).
-    It cannot tell a true claim from a false one.
+    vocabulary does not cover it yet); a product id that is itself a vocabulary id must
+    equal its `vocab_product`.
+  * Every fact is sourced and dated. Every company carries a status source (on its own,
+    its holder's, or a regulator's declared domain); every "documented" mapping carries a
+    vendor page URL, read date and the vendor's own `documented_as` words; an unconfirmed
+    mapping is `unverified` with a note and no source. The first declared domain is the
+    official site's host; a product page and a mapping source must be on a company domain.
+  * Framework items are cited and checkable. A CSF 2.0 Function / CIS v8.1 Control id and
+    name must match the framework; every CSF / CIS entry names at least one Subcategory /
+    Safeguard, each checked against the real CSF 2.0 category set and the CIS Control's
+    Safeguard range; D3FEND ids are checked against the pinned 1.6.0 release with a
+    full/part scope.
+  * Wording filter. A word list, not a claim checker: it fails ranking and marketing words
+    and the unsourced security words "vulnerable", "breached", "insecure", "hacked" and
+    "compromised" in free text, and em dashes, backticks, Markdown links and HTML.
 
 Usage:
     python scripts/build_inventory.py              # validate, then (re)write inventory.json
@@ -70,8 +70,13 @@ PRODUCTS = f"{INV_DIR}/products.jsonl"
 INVENTORY_JSON = f"{INV_DIR}/inventory.json"
 VOCAB_JSON = "data/vocab/vocabulary.json"
 D3FEND = "data/attack/d3fend_countermeasures.jsonl"
-SCHEMA_VERSION = 2
-TODAY = "2026-11-25"
+SCHEMA_VERSION = 3
+MIN_READ = "2015-01-01"   # a read_date before this is a mistake, not a real read
+
+
+def _today():
+    return _dt.datetime.now(_dt.timezone.utc).date().isoformat()
+
 
 # ---------------------------------------------------------------- locked vocabularies
 
@@ -91,16 +96,24 @@ CATEGORY_LABELS = {
     "ot-ics": "Operational technology and ICS",
     "backup-resilience": "Backup, recovery, and cyber resilience",
 }
-# Ownership that says what is true and is sourced in every case (see INVENTORY.md).
 COMPANY_STATUS = ("public", "private", "pe-owned", "acquired", "public-controlled", "defunct")
 STATUS_NEEDS_HOLDER = ("pe-owned", "acquired", "public-controlled")
 STATUS_NEEDS_SINCE = ("pe-owned", "acquired")
-STATUS_NEEDS_TICKER = ("public", "public-controlled")
 PRODUCT_STATUS = ("current", "renamed", "eol", "discontinued")
-CAP_MAP_STATUS = ("documented", "unverified")
+STAKE_VALUES = ("majority", "full")
 
 CSF_FUNCTIONS = {"GV": "Govern", "ID": "Identify", "PR": "Protect",
                  "DE": "Detect", "RS": "Respond", "RC": "Recover"}
+# NIST CSF 2.0 Categories (CSWP 29). A Subcategory id is <Category>-NN; its category must be
+# one of these and sit under the cited Function.
+CSF_CATEGORIES = frozenset((
+    "GV.OC", "GV.RM", "GV.RR", "GV.PO", "GV.OV", "GV.SC",
+    "ID.AM", "ID.RA", "ID.IM",
+    "PR.AA", "PR.AT", "PR.DS", "PR.PS", "PR.IR",
+    "DE.CM", "DE.AE",
+    "RS.MA", "RS.AN", "RS.CO", "RS.MI",
+    "RC.RP", "RC.CO",
+))
 CIS_CONTROLS = {
     "1": "Inventory and Control of Enterprise Assets",
     "2": "Inventory and Control of Software Assets",
@@ -121,12 +134,20 @@ CIS_CONTROLS = {
     "17": "Incident Response Management",
     "18": "Penetration Testing",
 }
+CIS_SAFEGUARD_MAX = 18   # no CIS v8.1 Control has more than this many Safeguards
+
+# A regulator's domain may host a company's status source (filings).
+REGULATOR_DOMAINS = ("sec.gov",)
+# Hosts that are never a vendor's own site; they may not be declared as a company domain.
+DENY_DOMAINS = ("wikipedia.org", "reddit.com", "medium.com", "facebook.com", "twitter.com",
+                "x.com", "linkedin.com", "youtube.com", "crunchbase.com", "github.io")
 
 CAP_FIELDS = frozenset(("id", "name", "category", "definition", "synonyms", "components",
-                        "frameworks", "library_refs", "reviewed_at"))
-COMPANY_FIELDS = frozenset(("id", "name", "former_names", "status", "holder", "holder_name",
-                            "ownership_since", "ticker", "announced_acquisition", "domains",
-                            "holder_domains", "official_url", "sources", "reviewed_at"))
+                        "related", "frameworks", "library_refs", "reviewed_at"))
+COMPANY_FIELDS = frozenset(("id", "name", "former_names", "status", "stake", "holder",
+                            "holder_name", "ownership_since", "ticker", "announced_acquisition",
+                            "domains", "holder_domains", "official_url", "note", "sources",
+                            "reviewed_at"))
 PRODUCT_FIELDS = frozenset(("id", "vocab_product", "company", "name", "former_names", "platform",
                             "status", "official_url", "capabilities", "sources", "reviewed_at"))
 COMPANY_SOURCE_KEYS = frozenset(("status", "former_names", "name", "ownership_since", "official_url"))
@@ -140,6 +161,7 @@ SINCE_RE = re.compile(r"^\d{4}(-\d{2}(-\d{2})?)?$")
 DOMAIN_RE = re.compile(r"^[a-z0-9.-]+\.[a-z]{2,}$")
 CSF_ITEM_RE = re.compile(r"^(GV|ID|PR|DE|RS|RC)\.[A-Z]{2}-\d{2}$")
 CIS_ITEM_RE = re.compile(r"^(1[0-8]|[1-9])\.\d{1,2}$")
+URL_BAD_RE = re.compile(r"""[\s<>\[\]()"'`\\]""")
 EM_DASH = "\u2014"
 BANNED_WORDS = (
     "best", "leading", "leader", "market-leading", "world-class", "cutting-edge",
@@ -175,44 +197,43 @@ def _valid_date(s):
 
 
 def _not_future(s):
-    return _valid_date(s) and s <= TODAY
+    return _valid_date(s) and s <= _today()
+
+
+def _valid_read(s):
+    return _valid_date(s) and MIN_READ <= s <= _today()
 
 
 def _valid_since(s):
-    """YYYY, YYYY-MM or YYYY-MM-DD, a real calendar date, not after today."""
     if not (isinstance(s, str) and SINCE_RE.match(s)):
         return False
     full = s + "-01-01" if len(s) == 4 else (s + "-01" if len(s) == 7 else s)
-    return _valid_date(full) and s <= TODAY
+    return _valid_date(full) and "1990" <= s <= _today()
 
 
 def _host(url):
-    if not isinstance(url, str):
+    if not isinstance(url, str) or URL_BAD_RE.search(url) or "javascript:" in url.lower():
         return None
     try:
         parts = urlsplit(url)
     except ValueError:
         return None
-    if parts.scheme != "https" or not parts.hostname:
-        return None
-    if "@" in (parts.netloc or ""):          # credentials in the URL
+    if parts.scheme != "https" or not parts.hostname or "@" in (parts.netloc or ""):
         return None
     host = parts.hostname
-    if not host.isascii() or not DOMAIN_RE.match(host):   # lookalike letters, bad host
+    if not host.isascii() or not DOMAIN_RE.match(host):
         return None
     return host.lower()
 
 
 def _host_in(url, domains):
     h = _host(url)
-    if h is None:
-        return False
-    return any(h == d or h.endswith("." + d) for d in domains)
+    return h is not None and any(h == d or h.endswith("." + d) for d in domains)
 
 
 def _bad_text(s):
-    """A string that must never appear raw in a name/definition/term: pipe, newline, HTML."""
-    return "|" in s or "\n" in s or "\r" in s or re.search(r"<[^>]+>", s) is not None
+    return ("|" in s or "\n" in s or "\r" in s or "`" in s or "](" in s
+            or re.search(r"<[^>]+>", s) is not None)
 
 
 def _text_problems(where, text, errors):
@@ -221,23 +242,26 @@ def _text_problems(where, text, errors):
     if EM_DASH in text:
         errors.append(f"{where}: contains an em dash (use a hyphen; docs/VOICE.md)")
     if _bad_text(text):
-        errors.append(f"{where}: contains a pipe, newline or HTML tag (would break generated pages)")
+        errors.append(f"{where}: contains a pipe, newline, backtick, Markdown link or HTML tag")
     m = BANNED_RE.search(text)
     if m:
-        errors.append(f"{where}: wording-filter word {m.group(0)!r} (keep wording neutral; this is a "
-                      f"word filter, not a verified claim)")
+        errors.append(f"{where}: wording-filter word {m.group(0)!r} (this is a word filter, not a "
+                      f"verified claim)")
 
 
 def _source_entry(where, key, val, domains, errors):
     if not isinstance(val, dict) or set(val.keys()) != {"url", "read_date"}:
         errors.append(f"{where}: source {key!r} must be an object with exactly url and read_date")
-        return
-    if _host(val["url"]) is None:
-        errors.append(f"{where}: source {key!r} url must be a clean https URL (no credentials, ASCII host)")
+        return None
+    h = _host(val["url"])
+    if h is None:
+        errors.append(f"{where}: source {key!r} url must be a clean https URL (no spaces, brackets, "
+                      f"credentials, javascript or non-ASCII host)")
     elif domains is not None and not _host_in(val["url"], domains):
         errors.append(f"{where}: source {key!r} url host is not one of the allowed domains {sorted(domains)}")
-    if not _not_future(val["read_date"]):
-        errors.append(f"{where}: source {key!r} read_date must be a real date no later than {TODAY}")
+    if not _valid_read(val["read_date"]):
+        errors.append(f"{where}: source {key!r} read_date must be a real date in [{MIN_READ}, {_today()}]")
+    return h
 
 
 # ----------------------------------------------------------------------------- the build
@@ -245,7 +269,7 @@ def _source_entry(where, key, val, domains, errors):
 def validate(src: dict) -> dict:
     errors: list[str] = []
     vocab_vendors = src["vocab_vendors"]
-    vocab_products = src["vocab_products"]   # product id -> vendor id
+    vocab_products = src["vocab_products"]
     d3fend = src["d3fend"]
     exists = src["exists"]
 
@@ -272,22 +296,37 @@ def validate(src: dict) -> dict:
             errors.append(f"{where}: definition is required")
         _text_problems(f"{where} name", r.get("name"), errors)
         _text_problems(f"{where} definition", r.get("definition"), errors)
-        for f in ("synonyms", "components"):
+        seen_terms = {}
+        for f in ("synonyms", "components", "related"):
             if not isinstance(r[f], list) or not all(isinstance(x, str) and x.strip() for x in r[f]):
                 errors.append(f"{where}: {f} must be a list of non-empty strings")
+                continue
+            for term in r[f]:
+                _text_problems(f"{where} {f}", term, errors)
+                key = term.strip().casefold()
+                if key == (r["name"] or "").strip().casefold():
+                    errors.append(f"{where}: {f} repeats the capability's own name {term!r}")
+                if key in seen_terms and seen_terms[key] != f:
+                    errors.append(f"{where}: term {term!r} is in both {seen_terms[key]} and {f}")
+                seen_terms[key] = f
         if not isinstance(r["frameworks"], list):
             errors.append(f"{where}: frameworks must be a list")
         else:
+            fw_seen = set()
             for fr in r["frameworks"]:
-                _framework_problems(where, fr, d3fend, errors)
+                key = _framework_problems(where, fr, d3fend, errors)
+                if key is not None:
+                    if key in fw_seen:
+                        errors.append(f"{where}: framework entry {key} appears twice")
+                    fw_seen.add(key)
         if not _str_list(r["library_refs"]):
             errors.append(f"{where}: library_refs must be a list of non-empty strings")
         else:
             for p in r["library_refs"]:
                 if not exists(p):
                     errors.append(f"{where}: library_ref {p!r} is not a repository file")
-        if not _not_future(r["reviewed_at"]):
-            errors.append(f"{where}: reviewed_at must be a real date no later than {TODAY}")
+        if not _valid_read(r["reviewed_at"]):
+            errors.append(f"{where}: reviewed_at must be a real date in [{MIN_READ}, {_today()}]")
 
     # ---- companies
     company_ids: dict[str, dict] = {}
@@ -309,6 +348,11 @@ def validate(src: dict) -> dict:
         if not _is_str(r["name"]):
             errors.append(f"{where}: name is required")
         _text_problems(f"{where} name", r.get("name"), errors)
+        if r["note"] is not None:
+            if not _is_str(r["note"]):
+                errors.append(f"{where}: note must be null or a non-empty string")
+            else:
+                _text_problems(f"{where} note", r["note"], errors)
         if not _str_list(r["former_names"]):
             errors.append(f"{where}: former_names must be a list of non-empty strings")
         else:
@@ -322,6 +366,18 @@ def validate(src: dict) -> dict:
         if not all(isinstance(d, str) and DOMAIN_RE.match(d) for d in holder_domains):
             errors.append(f"{where}: holder_domains must be a list of bare hostnames")
             holder_domains = []
+        for d in domains + holder_domains:
+            if any(d == bad or d.endswith("." + bad) for bad in DENY_DOMAINS):
+                errors.append(f"{where}: {d!r} is not a vendor domain and may not be declared")
+        official_host = _host(r["official_url"])
+        if official_host is None:
+            errors.append(f"{where}: official_url must be a clean https URL")
+        elif domains and not _host_in(r["official_url"], domains):
+            errors.append(f"{where}: official_url host is not one of domains {sorted(domains)}")
+        if domains and official_host is not None and not (
+                domains[0] == official_host or official_host.endswith("." + domains[0])):
+            errors.append(f"{where}: the first domain must be the official_url host ({official_host})")
+        # status + ownership
         st = r["status"]
         if st not in COMPANY_STATUS:
             errors.append(f"{where}: status {st!r} must be one of {COMPANY_STATUS}")
@@ -341,10 +397,25 @@ def validate(src: dict) -> dict:
             errors.append(f"{where}: a {st} company must not name a holder")
         if st in STATUS_NEEDS_SINCE and r["ownership_since"] is None:
             errors.append(f"{where}: status {st} needs ownership_since")
+        if st == "public" and r["ownership_since"] is not None:
+            errors.append(f"{where}: a public company must not carry ownership_since")
         if r["ownership_since"] is not None and not _valid_since(r["ownership_since"]):
             errors.append(f"{where}: ownership_since must be a real past date (YYYY, YYYY-MM or YYYY-MM-DD)")
+        # stake
+        stake = r["stake"]
+        if stake is not None and stake not in STAKE_VALUES:
+            errors.append(f"{where}: stake must be null, 'majority' or 'full'")
+        if st == "acquired" and stake not in STAKE_VALUES:
+            errors.append(f"{where}: an acquired company needs stake 'majority' or 'full'")
+        if st in ("public", "private") and stake is not None:
+            errors.append(f"{where}: a {st} company must not carry a stake")
+        # ticker
+        if st == "private" and r["ticker"] is not None:
+            errors.append(f"{where}: a private company must not carry a ticker")
         if r["ticker"] is not None:
             _text_problems(f"{where} ticker", r["ticker"], errors)
+        # announced acquisition
+        aa_host = None
         aa = r["announced_acquisition"]
         if aa is not None:
             if not isinstance(aa, dict) or set(aa.keys()) != {"acquirer", "acquirer_name",
@@ -352,20 +423,23 @@ def validate(src: dict) -> dict:
                 errors.append(f"{where}: announced_acquisition needs acquirer, acquirer_name, "
                               f"announced_date, source")
             else:
-                if aa["acquirer"] is not None and not (
-                        _is_str(aa["acquirer"]) and VENDOR_ID_RE.match(aa["acquirer"])):
-                    errors.append(f"{where}: announced_acquisition.acquirer must be null or a vendor id")
+                if aa["acquirer"] is not None:
+                    if not (_is_str(aa["acquirer"]) and VENDOR_ID_RE.match(aa["acquirer"])):
+                        errors.append(f"{where}: announced_acquisition.acquirer must be null or a vendor id")
+                    elif aa["acquirer"] == cid:
+                        errors.append(f"{where}: announced_acquisition.acquirer must not be the company itself")
                 if not _is_str(aa["acquirer_name"]):
                     errors.append(f"{where}: announced_acquisition.acquirer_name is required")
-                if not _not_future(aa["announced_date"]):
-                    errors.append(f"{where}: announced_acquisition.announced_date must be a real date "
-                                  f"no later than {TODAY}")
-                _source_entry(f"{where} announced_acquisition", "source", aa.get("source"),
-                              (domains + holder_domains) or None, errors)
-        if _host(r["official_url"]) is None:
-            errors.append(f"{where}: official_url must be a clean https URL")
-        elif domains and not _host_in(r["official_url"], domains):
-            errors.append(f"{where}: official_url host is not one of domains {sorted(domains)}")
+                if not _valid_read(aa["announced_date"]):
+                    errors.append(f"{where}: announced_acquisition.announced_date must be a real recent date")
+                aa_host = _source_entry(f"{where} announced_acquisition", "source", aa.get("source"),
+                                        (domains + holder_domains) or None, errors)
+        # sources
+        used_hosts = set()
+        if official_host:
+            used_hosts.add(official_host)
+        if aa_host:
+            used_hosts.add(aa_host)
         if not isinstance(r["sources"], dict):
             errors.append(f"{where}: sources must be an object")
         else:
@@ -373,15 +447,26 @@ def validate(src: dict) -> dict:
                 if k not in COMPANY_SOURCE_KEYS:
                     errors.append(f"{where}: source key {k!r} is not one of {sorted(COMPANY_SOURCE_KEYS)}")
                     continue
-                allowed = (domains + holder_domains) if k in ("status", "ownership_since") else domains
-                _source_entry(where, k, v, allowed or None, errors)
+                if k in ("status", "ownership_since"):
+                    allowed = (domains + holder_domains + list(REGULATOR_DOMAINS)) or None
+                else:
+                    allowed = domains or None
+                h = _source_entry(where, k, v, allowed, errors)
+                if h:
+                    used_hosts.add(h)
             if "status" not in r["sources"]:
-                errors.append(f"{where}: every company needs a status source (the company or acquirer "
-                              f"page the ownership came from)")
+                errors.append(f"{where}: every company needs a status source")
             if r["former_names"] and "former_names" not in r["sources"]:
                 errors.append(f"{where}: former_names present but not sourced")
-        if not _not_future(r["reviewed_at"]):
-            errors.append(f"{where}: reviewed_at must be a real date no later than {TODAY}")
+        # each further declared domain must be justified by something in the record
+        for d in domains[1:]:
+            if not any(h == d or h.endswith("." + d) for h in used_hosts):
+                errors.append(f"{where}: declared domain {d!r} is used by no URL in the record")
+        for d in holder_domains:
+            if not any(h == d or h.endswith("." + d) for h in used_hosts):
+                errors.append(f"{where}: holder_domain {d!r} is used by no source in the record")
+        if not _valid_read(r["reviewed_at"]):
+            errors.append(f"{where}: reviewed_at must be a real date in [{MIN_READ}, {_today()}]")
 
     # ---- products
     product_ids: dict[str, dict] = {}
@@ -416,8 +501,7 @@ def validate(src: dict) -> dict:
             elif comp in company_ids and vocab_products[vp] != comp:
                 errors.append(f"{where}: vocab_product {vp!r} belongs to {vocab_products[vp]}, not {comp}")
         if pid in vocab_products and pid != vp:
-            errors.append(f"{where}: id is a vocabulary product, so vocab_product must equal it "
-                          f"(do not mint a parallel slug)")
+            errors.append(f"{where}: id is a vocabulary product, so vocab_product must equal it")
         if not _is_str(r["name"]):
             errors.append(f"{where}: name is required")
         else:
@@ -433,7 +517,7 @@ def validate(src: dict) -> dict:
             for n in r["former_names"]:
                 _text_problems(f"{where} former_name", n, errors)
         if not _is_str(r["platform"]):
-            errors.append(f"{where}: platform is required (the suite the product belongs to)")
+            errors.append(f"{where}: platform is required")
         else:
             _text_problems(f"{where} platform", r["platform"], errors)
         if r["status"] not in PRODUCT_STATUS:
@@ -458,8 +542,8 @@ def validate(src: dict) -> dict:
                 _source_entry(where, k, v, comp_domains or None, errors)
             if r["former_names"] and "former_names" not in r["sources"]:
                 errors.append(f"{where}: former_names present but not sourced")
-        if not _not_future(r["reviewed_at"]):
-            errors.append(f"{where}: reviewed_at must be a real date no later than {TODAY}")
+        if not _valid_read(r["reviewed_at"]):
+            errors.append(f"{where}: reviewed_at must be a real date in [{MIN_READ}, {_today()}]")
 
     for cid in sorted(company_ids):
         if cid not in companies_with_product:
@@ -473,36 +557,51 @@ def validate(src: dict) -> dict:
 def _framework_problems(where, fr, d3fend, errors):
     if not isinstance(fr, dict) or "framework" not in fr:
         errors.append(f"{where}: each framework entry must be an object with a framework key")
-        return
+        return None
     fw = fr["framework"]
     if fw in ("nist-csf-2.0", "cis-controls-v8.1"):
         if set(fr.keys()) != {"framework", "ref", "name", "items", "source_url", "read_date"}:
             errors.append(f"{where}: {fw} entry needs framework, ref, name, items, source_url, read_date")
-            return
+            return None
         table = CSF_FUNCTIONS if fw == "nist-csf-2.0" else CIS_CONTROLS
-        item_re = CSF_ITEM_RE if fw == "nist-csf-2.0" else CIS_ITEM_RE
         if fr["ref"] not in table:
             errors.append(f"{where}: {fw} ref {fr['ref']!r} is not a valid id")
         elif fr["name"] != table[fr["ref"]]:
             errors.append(f"{where}: {fw} {fr['ref']} name must be {table[fr['ref']]!r}")
-        if not isinstance(fr["items"], list) or not all(isinstance(x, str) for x in fr["items"]):
-            errors.append(f"{where}: {fw} items must be a list of strings")
+        if not isinstance(fr["items"], list) or not fr["items"] \
+                or not all(isinstance(x, str) for x in fr["items"]):
+            errors.append(f"{where}: {fw} items must be a non-empty list of strings "
+                          f"(name the Subcategory/Safeguard, or drop the mapping)")
         else:
             for it in fr["items"]:
-                if not item_re.match(it):
-                    errors.append(f"{where}: {fw} item {it!r} is not a valid id")
-                elif fw == "nist-csf-2.0" and not it.startswith(fr["ref"] + "."):
-                    errors.append(f"{where}: CSF item {it!r} is not under Function {fr['ref']}")
-                elif fw == "cis-controls-v8.1" and it.split(".")[0] != fr["ref"]:
-                    errors.append(f"{where}: CIS item {it!r} is not under Control {fr['ref']}")
+                if fw == "nist-csf-2.0":
+                    if not CSF_ITEM_RE.match(it):
+                        errors.append(f"{where}: CSF item {it!r} is not shaped like PR.AA-05")
+                        continue
+                    cat = it.rpartition("-")[0]
+                    if cat not in CSF_CATEGORIES:
+                        errors.append(f"{where}: CSF item {it!r} names no real CSF 2.0 Category")
+                    elif cat.split(".")[0] != fr["ref"]:
+                        errors.append(f"{where}: CSF item {it!r} is not under Function {fr['ref']}")
+                else:
+                    if not CIS_ITEM_RE.match(it):
+                        errors.append(f"{where}: CIS item {it!r} is not shaped like 13.7")
+                        continue
+                    control, _, num = it.partition(".")
+                    if control != fr["ref"]:
+                        errors.append(f"{where}: CIS item {it!r} is not under Control {fr['ref']}")
+                    elif not (1 <= int(num) <= CIS_SAFEGUARD_MAX):
+                        errors.append(f"{where}: CIS item {it!r} is outside the Safeguard range "
+                                      f"(1-{CIS_SAFEGUARD_MAX})")
         if _host(fr["source_url"]) is None:
             errors.append(f"{where}: {fw} source_url must be a clean https URL")
-        if not _not_future(fr["read_date"]):
-            errors.append(f"{where}: {fw} read_date must be a real date no later than {TODAY}")
+        if not _valid_read(fr["read_date"]):
+            errors.append(f"{where}: {fw} read_date must be a real date in [{MIN_READ}, {_today()}]")
+        return (fw, fr.get("ref"))
     elif fw == "d3fend-1.6.0":
         if set(fr.keys()) != {"framework", "ref", "name", "scope", "dataset"}:
             errors.append(f"{where}: d3fend-1.6.0 entry needs framework, ref, name, scope, dataset")
-            return
+            return None
         if fr["dataset"] != D3FEND:
             errors.append(f"{where}: d3fend dataset must be {D3FEND!r}")
         if fr["ref"] not in d3fend:
@@ -511,8 +610,10 @@ def _framework_problems(where, fr, d3fend, errors):
             errors.append(f"{where}: D3FEND {fr['ref']} name must be {d3fend[fr['ref']]!r}")
         if fr["scope"] not in ("full", "part"):
             errors.append(f"{where}: d3fend scope must be 'full' or 'part'")
+        return (fw, fr.get("ref"))
     else:
         errors.append(f"{where}: framework {fw!r} must be nist-csf-2.0, cis-controls-v8.1 or d3fend-1.6.0")
+        return None
 
 
 def _mapping_problems(where, m, cap_ids, seen, comp_domains, errors):
@@ -527,21 +628,27 @@ def _mapping_problems(where, m, cap_ids, seen, comp_domains, errors):
     seen.add(cap)
     st = m["status"]
     if st == "documented":
-        if set(m.keys()) != {"capability_id", "status", "documented_as", "source_url", "read_date"}:
+        allowed = {"capability_id", "status", "documented_as", "source_url", "read_date", "note"}
+        required = {"capability_id", "status", "documented_as", "source_url", "read_date"}
+        if not (set(m.keys()) <= allowed and required <= set(m.keys())):
             errors.append(f"{where} {cap}: a documented mapping needs capability_id, status, "
-                          f"documented_as, source_url, read_date")
+                          f"documented_as, source_url, read_date (and an optional note)")
             return
         if not _is_str(m["documented_as"]):
-            errors.append(f"{where} {cap}: documented_as (the vendor's own term on the page) is required")
+            errors.append(f"{where} {cap}: documented_as (the vendor's own words on the page) is required")
         else:
             _text_problems(f"{where} {cap} documented_as", m["documented_as"], errors)
+        if "note" in m:
+            if not _is_str(m["note"]):
+                errors.append(f"{where} {cap}: note must be a non-empty string")
+            else:
+                _text_problems(f"{where} {cap} note", m["note"], errors)
         if _host(m["source_url"]) is None:
             errors.append(f"{where} {cap}: source_url must be a clean https URL")
         elif comp_domains and not _host_in(m["source_url"], comp_domains):
-            errors.append(f"{where} {cap}: source_url host is not the company's domain "
-                          f"(a mapping must cite the vendor's own page)")
-        if not _not_future(m["read_date"]):
-            errors.append(f"{where} {cap}: read_date must be a real date no later than {TODAY}")
+            errors.append(f"{where} {cap}: source_url host is not the company's domain")
+        if not _valid_read(m["read_date"]):
+            errors.append(f"{where} {cap}: read_date must be a real date in [{MIN_READ}, {_today()}]")
     elif st == "unverified":
         if set(m.keys()) != {"capability_id", "status", "note"}:
             errors.append(f"{where} {cap}: an unverified mapping carries capability_id, status and note only")
@@ -602,8 +709,8 @@ def roll_up(src: dict, resolved: dict) -> dict:
         prod_by_company.setdefault(p["company"], []).append(pid)
         for m in p["capabilities"]:
             prod_by_cap.setdefault(m["capability_id"], []).append(pid)
-            bucket = doc_by_cap if m["status"] == "documented" else unv_by_cap
-            bucket.setdefault(m["capability_id"], []).append(pid)
+            (doc_by_cap if m["status"] == "documented" else unv_by_cap).setdefault(
+                m["capability_id"], []).append(pid)
 
     cap_rows = [{
         "id": cid, "name": caps[cid]["name"], "category": caps[cid]["category"],
@@ -619,9 +726,9 @@ def roll_up(src: dict, resolved: dict) -> dict:
                   for c in CATEGORIES]
     company_rows = [{
         "id": cid, "label": labels.get(cid, companies[cid]["name"]), "name": companies[cid]["name"],
-        "status": companies[cid]["status"], "holder": companies[cid]["holder"],
-        "holder_name": companies[cid]["holder_name"], "ownership_since": companies[cid]["ownership_since"],
-        "ticker": companies[cid]["ticker"],
+        "status": companies[cid]["status"], "stake": companies[cid]["stake"],
+        "holder": companies[cid]["holder"], "holder_name": companies[cid]["holder_name"],
+        "ownership_since": companies[cid]["ownership_since"], "ticker": companies[cid]["ticker"],
         "announced_acquisition": (companies[cid]["announced_acquisition"] or {}).get("acquirer_name"),
         "products": sorted(prod_by_company.get(cid, [])),
     } for cid in sorted(companies)]
@@ -716,16 +823,18 @@ def self_test() -> int:
             fails.append(name)
 
     RD = "2026-11-25"
+    FUT = "2099-01-01"
     d3fend = {"D3-MFA": "Multi-factor Authentication", "D3-EF": "Email Filtering"}
 
     def base_cap(**over):
         r = {"id": "capability:edr", "name": "Endpoint Detection and Response",
              "category": "endpoint-xdr", "definition": "Recording endpoint activity for detection.",
-             "synonyms": ["EDR"], "components": [],
-             "frameworks": [{"framework": "nist-csf-2.0", "ref": "DE", "name": "Detect", "items": [],
-                             "source_url": "https://doi.org/10.6028/NIST.CSWP.29", "read_date": RD},
+             "synonyms": ["EDR"], "components": [], "related": [],
+             "frameworks": [{"framework": "nist-csf-2.0", "ref": "DE", "name": "Detect",
+                             "items": ["DE.CM-09"], "source_url": "https://doi.org/10.6028/NIST.CSWP.29",
+                             "read_date": RD},
                             {"framework": "cis-controls-v8.1", "ref": "13",
-                             "name": "Network Monitoring and Defense", "items": ["13.7"],
+                             "name": "Network Monitoring and Defense", "items": ["13.7", "13.2"],
                              "source_url": "https://www.cisecurity.org/controls/cis-controls-list",
                              "read_date": RD}],
              "library_refs": ["platforms/README.md"], "reviewed_at": RD}
@@ -734,9 +843,9 @@ def self_test() -> int:
 
     def base_company(**over):
         r = {"id": "vendor:crowdstrike", "name": "CrowdStrike", "former_names": [],
-             "status": "public", "holder": None, "holder_name": None, "ownership_since": None,
-             "ticker": "NASDAQ: CRWD", "announced_acquisition": None,
-             "domains": ["crowdstrike.com"], "holder_domains": [],
+             "status": "public", "stake": None, "holder": None, "holder_name": None,
+             "ownership_since": None, "ticker": "NASDAQ: CRWD", "announced_acquisition": None,
+             "domains": ["crowdstrike.com"], "holder_domains": [], "note": None,
              "official_url": "https://www.crowdstrike.com/",
              "sources": {"status": {"url": "https://ir.crowdstrike.com/", "read_date": RD}},
              "reviewed_at": RD}
@@ -765,8 +874,7 @@ def self_test() -> int:
             "vocab_products": {"product:crowdstrike-falcon": "vendor:crowdstrike",
                                "product:other": "vendor:cisco"},
             "vocab_labels": {"vendor:crowdstrike": "CrowdStrike"},
-            "d3fend": d3fend,
-            "exists": lambda rel: rel == "platforms/README.md",
+            "d3fend": d3fend, "exists": lambda rel: rel == "platforms/README.md",
         }
 
     try:
@@ -774,6 +882,12 @@ def self_test() -> int:
     except InventoryError as e:
         ok = False; print("baseline error:\n" + str(e))
     expect("clean baseline validates", ok)
+
+    def fw(frs):
+        return base_cap(frameworks=frs)
+
+    CSF = "https://doi.org/10.6028/NIST.CSWP.29"
+    CIS = "https://www.cisecurity.org/controls/cis-controls-list"
 
     def fails_with(fragment, **kw):
         try:
@@ -794,7 +908,7 @@ def self_test() -> int:
            caps=[base_cap(library_refs=["platforms/ghost.md"])]))
     expect("C07 documented mapping without source", fails_with("documented mapping needs",
            products=[base_product(capabilities=[{"capability_id": "capability:edr", "status": "documented"}])]))
-    expect("C08 unverified mapping carrying extra keys", fails_with("carries capability_id, status and note",
+    expect("C08 unverified mapping with extra keys", fails_with("carries capability_id, status and note",
            products=[base_product(capabilities=[{"capability_id": "capability:edr", "status": "unverified",
                                                   "note": "n", "source_url": "https://x.crowdstrike.com/"}])]))
     expect("C09 mapping to unknown capability", fails_with("has no row in",
@@ -815,56 +929,51 @@ def self_test() -> int:
                                                   "source_url": "https://en.wikipedia.org/wiki/CrowdStrike",
                                                   "read_date": RD}])]))
     expect("C13 unverified note with a URL", fails_with("must not contain a URL", products=[base_product(
-           capabilities=[{"capability_id": "capability:edr", "status": "unverified",
-                          "note": "see https://x.com/y"}])]))
+           capabilities=[{"capability_id": "capability:edr", "status": "unverified", "note": "see https://x.com/y"}])]))
     expect("C14 unverified note claims confirmed", fails_with("must not claim it was confirmed",
            products=[base_product(capabilities=[{"capability_id": "capability:edr", "status": "unverified",
                                                   "note": "confirmed on a blog"}])]))
-    expect("C15 CSF name mismatch", fails_with("name must be 'Detect'", caps=[base_cap(
-           frameworks=[{"framework": "nist-csf-2.0", "ref": "DE", "name": "Protect", "items": [],
-                        "source_url": "https://doi.org/10.6028/NIST.CSWP.29", "read_date": RD}])]))
-    expect("C16 CIS title mismatch", fails_with("name must be", caps=[base_cap(
-           frameworks=[{"framework": "cis-controls-v8.1", "ref": "10", "name": "Data Recovery", "items": [],
-                        "source_url": "https://www.cisecurity.org/controls/cis-controls-list", "read_date": RD}])]))
-    expect("C17 CIS item not under control", fails_with("is not under Control", caps=[base_cap(
-           frameworks=[{"framework": "cis-controls-v8.1", "ref": "13", "name": "Network Monitoring and Defense",
-                        "items": ["9.3"], "source_url": "https://www.cisecurity.org/controls/cis-controls-list",
-                        "read_date": RD}])]))
-    expect("C18 CSF subcategory not under function", fails_with("is not under Function", caps=[base_cap(
-           frameworks=[{"framework": "nist-csf-2.0", "ref": "DE", "name": "Detect", "items": ["PR.AA-05"],
-                        "source_url": "https://doi.org/10.6028/NIST.CSWP.29", "read_date": RD}])]))
-    expect("C19 D3FEND ref not pinned", fails_with("not in the pinned 1.6.0 release", caps=[base_cap(
-           frameworks=[{"framework": "d3fend-1.6.0", "ref": "D3-NOPE", "name": "X", "scope": "part",
-                        "dataset": D3FEND}])]))
-    expect("C20 D3FEND scope bad", fails_with("scope must be", caps=[base_cap(
-           frameworks=[{"framework": "d3fend-1.6.0", "ref": "D3-MFA", "name": "Multi-factor Authentication",
-                        "scope": "most", "dataset": D3FEND}])]))
-    expect("C21 ranking word", fails_with("wording-filter word", caps=[base_cap(
-           definition="The leading endpoint tool.")]))
-    expect("C22 unsourced insecure claim", fails_with("wording-filter word", caps=[base_cap(
-           definition="Finds insecure hosts.")]))
+    expect("C15 CSF name mismatch", fails_with("name must be 'Detect'",
+           caps=[fw([{"framework": "nist-csf-2.0", "ref": "DE", "name": "Protect", "items": ["DE.CM-09"],
+                      "source_url": CSF, "read_date": RD}])]))
+    expect("C16 CIS title mismatch", fails_with("name must be",
+           caps=[fw([{"framework": "cis-controls-v8.1", "ref": "10", "name": "Data Recovery", "items": ["10.1"],
+                      "source_url": CIS, "read_date": RD}])]))
+    expect("C17 CIS item not under control", fails_with("is not under Control",
+           caps=[fw([{"framework": "cis-controls-v8.1", "ref": "13", "name": "Network Monitoring and Defense",
+                      "items": ["9.3"], "source_url": CIS, "read_date": RD}])]))
+    expect("C18 CSF subcategory not under function", fails_with("is not under Function",
+           caps=[fw([{"framework": "nist-csf-2.0", "ref": "DE", "name": "Detect", "items": ["PR.AA-05"],
+                      "source_url": CSF, "read_date": RD}])]))
+    expect("C19 D3FEND ref not pinned", fails_with("not in the pinned 1.6.0 release",
+           caps=[fw([{"framework": "d3fend-1.6.0", "ref": "D3-NOPE", "name": "X", "scope": "part",
+                      "dataset": D3FEND}])]))
+    expect("C20 D3FEND scope bad", fails_with("scope must be",
+           caps=[fw([{"framework": "d3fend-1.6.0", "ref": "D3-MFA", "name": "Multi-factor Authentication",
+                      "scope": "most", "dataset": D3FEND}])]))
+    expect("C21 ranking word", fails_with("wording-filter word", caps=[base_cap(definition="The leading tool.")]))
+    expect("C22 unsourced insecure claim", fails_with("wording-filter word",
+           caps=[base_cap(definition="Finds insecure hosts.")]))
     expect("C23 em dash", fails_with("em dash", caps=[base_cap(definition="Endpoint detection \u2014 response.")]))
-    expect("C24 pipe/newline/HTML in name", fails_with("pipe, newline or HTML",
-           products=[base_product(name="Falcon <b>Cloud</b>")]))
+    expect("C24 HTML in name", fails_with("pipe, newline", products=[base_product(name="Falcon <b>Cloud</b>")]))
     expect("C25 public company names a holder", fails_with("must not name a holder",
            companies=[base_company(holder_name="Someone")]))
     expect("C26 acquired without holder", fails_with("needs a holder", companies=[base_company(
-           status="acquired", ownership_since="2024-03-18", ticker=None, holder_domains=["cisco.com"],
+           status="acquired", stake="full", ownership_since="2024-03-18", ticker=None, holder_domains=["cisco.com"],
            sources={"status": {"url": "https://newsroom.cisco.com/x", "read_date": RD}})]))
     expect("C27 acquired without ownership_since", fails_with("needs ownership_since", companies=[base_company(
-           status="acquired", holder_name="Cisco", ticker=None, holder_domains=["cisco.com"],
+           status="acquired", stake="full", holder_name="Cisco", ticker=None, holder_domains=["cisco.com"],
            sources={"status": {"url": "https://newsroom.cisco.com/x", "read_date": RD}})]))
     expect("C28 future ownership_since", fails_with("real past date", companies=[base_company(
-           status="acquired", holder_name="Acquirer", holder_domains=["acquirer.com"], ticker=None,
-           ownership_since="2099-01-01",
-           sources={"status": {"url": "https://ir.crowdstrike.com/", "read_date": RD}})]))
+           status="acquired", stake="full", holder_name="Acquirer", holder_domains=["acquirer.com"], ticker=None,
+           ownership_since=FUT, sources={"status": {"url": "https://ir.crowdstrike.com/", "read_date": RD}})]))
     expect("C29 status not sourced", fails_with("needs a status source", companies=[base_company(sources={})]))
     expect("C30 status source off-domain", fails_with("host is not", companies=[base_company(
-           sources={"status": {"url": "https://reseller.example.com/crowdstrike", "read_date": RD}})]))
+           sources={"status": {"url": "https://reseller.example.com/x", "read_date": RD}})]))
     expect("C31 impossible date", fails_with("real date", companies=[base_company(
            sources={"status": {"url": "https://ir.crowdstrike.com/", "read_date": "2026-13-45"}})]))
-    expect("C32 future read_date", fails_with("no later than", companies=[base_company(
-           sources={"status": {"url": "https://ir.crowdstrike.com/", "read_date": "2027-01-01"}})]))
+    expect("C32 future read_date", fails_with("real date", companies=[base_company(
+           sources={"status": {"url": "https://ir.crowdstrike.com/", "read_date": FUT}})]))
     expect("C33 bad reviewed_at", fails_with("real date", caps=[base_cap(reviewed_at="Nov 2026")]))
     expect("C34 official_url off-domain", fails_with("official_url host is not",
            companies=[base_company(official_url="https://example.net/")]))
@@ -886,13 +995,64 @@ def self_test() -> int:
     expect("C42 company with no product", fails_with("has no product", products=[]))
     expect("C43 non-https product url", fails_with("official_url must be a clean https URL",
            products=[base_product(official_url="http://www.crowdstrike.com/x")]))
+    # round-2 additions
+    expect("C44 empty CSF items", fails_with("non-empty list", caps=[fw([
+           {"framework": "nist-csf-2.0", "ref": "DE", "name": "Detect", "items": [],
+            "source_url": CSF, "read_date": RD}])]))
+    expect("C45 made-up CSF category", fails_with("no real CSF 2.0 Category", caps=[fw([
+           {"framework": "nist-csf-2.0", "ref": "PR", "name": "Protect", "items": ["PR.ZZ-99"],
+            "source_url": CSF, "read_date": RD}])]))
+    expect("C46 CIS safeguard out of range", fails_with("Safeguard range", caps=[fw([
+           {"framework": "cis-controls-v8.1", "ref": "13", "name": "Network Monitoring and Defense",
+            "items": ["13.99"], "source_url": CIS, "read_date": RD}])]))
+    expect("C47 duplicate framework entry", fails_with("appears twice", caps=[base_cap(frameworks=[
+           {"framework": "cis-controls-v8.1", "ref": "13", "name": "Network Monitoring and Defense",
+            "items": ["13.7"], "source_url": CIS, "read_date": RD},
+           {"framework": "cis-controls-v8.1", "ref": "13", "name": "Network Monitoring and Defense",
+            "items": ["13.2"], "source_url": CIS, "read_date": RD}])]))
+    expect("C48 markdown link in documented_as", fails_with("Markdown link", products=[base_product(
+           capabilities=[{"capability_id": "capability:edr", "status": "documented",
+                          "documented_as": "[click](https://x.crowdstrike.com/)",
+                          "source_url": "https://www.crowdstrike.com/a", "read_date": RD}])]))
+    expect("C49 backtick in platform", fails_with("backtick", products=[base_product(platform="Falcon `x`")]))
+    expect("C50 javascript in url", fails_with("clean https URL", products=[base_product(
+           official_url="https://www.crowdstrike.com/)](javascript:alert(1)")]))
+    expect("C51 denylisted domain declared", fails_with("not a vendor domain", companies=[base_company(
+           domains=["crowdstrike.com", "wikipedia.org"])]))
+    expect("C52 first domain not official host", fails_with("first domain must be the official",
+           companies=[base_company(domains=["example.com", "crowdstrike.com"])]))
+    expect("C53 unjustified holder_domain", fails_with("used by no source", companies=[base_company(
+           status="acquired", stake="full", holder_name="Cisco", ownership_since="2024-03-18", ticker=None,
+           holder_domains=["cisco.com"],
+           sources={"status": {"url": "https://ir.crowdstrike.com/", "read_date": RD}})]))
+    expect("C54 announced acquirer is self", fails_with("must not be the company itself",
+           companies=[base_company(announced_acquisition={"acquirer": "vendor:crowdstrike",
+                      "acquirer_name": "CrowdStrike", "announced_date": RD,
+                      "source": {"url": "https://www.crowdstrike.com/press", "read_date": RD}})]))
+    expect("C55 private with a ticker", fails_with("must not carry a ticker", companies=[base_company(
+           status="private", ticker="NASDAQ: X", holder=None, holder_name=None,
+           sources={"status": {"url": "https://www.crowdstrike.com/about", "read_date": RD}})]))
+    expect("C56 public with ownership_since", fails_with("must not carry ownership_since",
+           companies=[base_company(ownership_since="2020-01-01")]))
+    expect("C57 acquired without stake", fails_with("needs stake", companies=[base_company(
+           status="acquired", holder_name="Cisco", ownership_since="2024-03-18", ticker=None,
+           holder_domains=["cisco.com"],
+           sources={"status": {"url": "https://newsroom.cisco.com/x", "read_date": RD}})]))
+    expect("C58 public with a stake", fails_with("must not carry a stake", companies=[base_company(stake="full")]))
+    expect("C59 read_date before floor", fails_with("real date", companies=[base_company(
+           sources={"status": {"url": "https://ir.crowdstrike.com/", "read_date": "1999-01-01"}})]))
+    expect("C60 term in two lists", fails_with("is in both", caps=[base_cap(
+           synonyms=["EDR", "telemetry"], components=["telemetry"])]))
+    expect("C61 synonym repeats the name", fails_with("repeats the capability's own name",
+           caps=[base_cap(synonyms=["Endpoint Detection and Response"])]))
 
     if fails:
         print("SELF-TEST FAILED: " + "; ".join(fails))
         return 1
-    print("OK: build_inventory self-test (43 planted controls: schema, ids, vocab/d3fend/cis/csf "
-          "cross-refs and item placement, per-fact sourcing, vendor-domain enforcement, dates, "
-          "ownership model, unverified-vs-documented, neutral wording, duplicates)")
+    print("OK: build_inventory self-test (61 planted controls: schema, ids, vocab/d3fend/csf/cis "
+          "cross-refs and item placement, non-empty+real framework items, per-fact sourcing, "
+          "vendor-domain + first-domain + holder-domain rules, dates with floor, ownership model with "
+          "stake, unverified-vs-documented, neutral wording incl. Markdown/backtick/HTML, duplicates)")
     return 0
 
 

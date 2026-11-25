@@ -39,8 +39,9 @@ counts are published as they stand; it is never described as complete.
 | `name` | Display name of the capability. |
 | `category` | One of the ten locked categories (see below). |
 | `definition` | A short, own-words, neutral definition. |
-| `synonyms` | Other names for the same thing. |
-| `components` | Narrower parts or wider terms (e.g. SSE lists SWG, CASB, ZTNA and the wider SASE). |
+| `synonyms` | Other names for the same thing (not the capability's own name). |
+| `components` | Narrower parts (e.g. SSE lists SWG, CASB, ZTNA). |
+| `related` | Wider or adjacent terms (e.g. SSE lists the wider SASE; EASM lists ASM). A term appears in only one of `synonyms`/`components`/`related`. |
 | `frameworks` | Framework items this capability maps to, each cited (see *Framework items*). May be empty. |
 | `library_refs` | Library pages that cover the capability; each must be a repository file. |
 | `reviewed_at` | The date a person last reviewed the row (`YYYY-MM-DD`, not in the future). |
@@ -56,15 +57,17 @@ Locked categories: `endpoint-xdr`, `vuln-exposure`, `siem-soar`, `email-network`
 | `id` | A `vendor:<slug>` id that already exists in `data/vocab/`. Unique. |
 | `name` | The company's name as its own site uses it today. |
 | `former_names` | Earlier names; sourced if present. |
-| `status` | `public`, `private`, `pe-owned` (owned by a private-equity firm), `acquired` (part of or majority-held by another company), `public-controlled` (listed but controlled by a named holder), or `defunct`. |
+| `status` | `public`, `private`, `pe-owned` (owned by a private-equity firm), `acquired` (part of another company), `public-controlled` (listed but controlled by a named holder), or `defunct`. |
+| `stake` | `majority` or `full` for an `acquired` company (a majority investment versus a full acquisition); null otherwise. |
 | `holder` / `holder_name` | The parent or controlling holder: a `vendor:<slug>` when it is a vocabulary vendor, else a name. Required for `pe-owned`, `acquired`, `public-controlled`; absent for `public`/`private`. |
-| `ownership_since` | `YYYY`, `YYYY-MM` or `YYYY-MM-DD` of the acquisition; required for `acquired`/`pe-owned`. |
-| `ticker` | Exchange and ticker, where known, for a listed company. |
+| `ownership_since` | `YYYY`, `YYYY-MM` or `YYYY-MM-DD` of the acquisition; required for `acquired`/`pe-owned`; absent for `public`. |
+| `ticker` | Exchange and ticker, where known, for a listed company; absent for `private`. |
 | `announced_acquisition` | An announced-but-unclosed deal: `{ acquirer, acquirer_name, announced_date, source }`. The company's status is still what it is **today**. |
-| `domains` | The company's own hostnames (used to check that product pages and mapping sources are vendor pages). |
-| `holder_domains` | The holder's or acquirer's hostnames, where a status source lives there. |
+| `domains` | The company's own hostnames; the first is the `official_url` host. Product pages and mapping sources must be on a company domain. A non-vendor host (e.g. wikipedia.org) may not be declared. |
+| `holder_domains` | The holder's or acquirer's hostnames; each must be the host of a source in the record. |
 | `official_url` | The company's own site (`https`, on `domains`). |
-| `sources` | Per-fact provenance. A `status` source is required for every company. |
+| `note` | An optional neutral sentence on what the status source shows (for a private company, that it names no parent and no listing). |
+| `sources` | Per-fact provenance. A `status` source is required for every company; it may be on a company or holder domain, or a regulator's (`sec.gov`) for a filing. |
 | `reviewed_at` | Review date (`YYYY-MM-DD`, not in the future). |
 
 ### `data/inventory/products.jsonl` - one row per named product
@@ -94,9 +97,12 @@ framework where it spans several Controls or Functions.
 | `cis-controls-v8.1` | A Control number `1`-`18` | the Control title | Safeguard ids under that Control (e.g. `13.7`) | `source_url` + `read_date` (CIS Controls v8.1) |
 | `d3fend-1.6.0` | a countermeasure id (e.g. `D3-MFA`) | its name | - (`scope` is `full` or `part`) | the pinned release `data/attack/d3fend_countermeasures.jsonl` |
 
-The CSF Function names, CIS Control titles and D3FEND names are checked against the framework;
-`items` are checked for shape and that they sit under the cited Function / Control. A D3FEND
-entry says whether it covers the whole capability (`full`) or one `part` of it.
+The CSF Function names, CIS Control titles and D3FEND names are checked against the framework.
+Each CSF / CIS entry names **at least one** Subcategory / Safeguard (an empty list fails): a CSF
+Subcategory's Category is checked against the real CSF 2.0 Category set and must sit under the
+cited Function; a CIS Safeguard must sit under the cited Control and within its Safeguard range.
+The per-item exact text is not embedded, so `items` are validated for existence and placement,
+not wording. A D3FEND entry says whether it covers the whole capability (`full`) or one `part`.
 
 ## Sourcing
 
@@ -111,9 +117,10 @@ host); dates must be real and not in the future.
 
 Each entry in a product's `capabilities` is one of:
 
-- **documented**: `{ "capability_id", "status": "documented", "documented_as", "source_url", "read_date" }`.
-  The vendor documents the function on that page, read on that date; `documented_as` is the
-  vendor's own term there, so a reader can find it.
+- **documented**: `{ "capability_id", "status": "documented", "documented_as", "source_url", "read_date" }`,
+  with an optional `note`. The vendor documents the function on that page, read on that date;
+  `documented_as` is a phrase **verbatim from the page**, so a reader can find it, and any gloss
+  of the editor's goes in `note`.
 - **unverified**: `{ "capability_id", "status": "unverified", "note" }`. The function was not
   confirmed on a vendor page. The note carries no URL and does not claim it was confirmed.
 

@@ -1696,8 +1696,8 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - January 2019: CastHack drives internet-exposed Google Cast and smart-TV control endpoints from the public internet
   - June 2019: The local Google Cast API begins requiring an authorization token on most endpoints
   - 2020: Netflix updates the DIAL protocol to close some of its gaps
-  - April 2021: Matt Kunze is rewarded 107,500 US dollars for the Google Home account-linking report
-  - December 2022: Kunze publishes the account-linking wiretap, fixed by the time of publication
+  - April 2021: Google rewards Matt Kunze for the Google Home account-linking report
+  - December 2022: Kunze publishes the account-linking wiretap, fixed by then; Google's rewards total 107,500 US dollars after a 2022 bonus
   - 2023: Yunus Çadırcı publishes DIALStranger at Black Hat MEA, a 2019 study of DIAL protocol and implementation flaws
   - March 2025: Apple releases the AirBorne operating-system and SDK fixes on 31 March 2025
   - April 2025: Oligo publishes AirBorne: 23 AirPlay vulnerabilities and 17 CVEs, on 29 April 2025

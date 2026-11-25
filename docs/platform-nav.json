@@ -1,0 +1,138 @@
+{
+  "about": "The one menu every TeamStarWolf site shows in its top bar. Each site keeps an identical copy of the published version of this file and renders it in its own stack. Each application's dropdown mirrors that application's own top-level navigation as it stood on 2026-11-20 (the library's top-bar categories, the Hub's views, ATT&CK-Navi's workspaces, the top-level categories of the bookmarks page); change the menu here first, then in every copy. The bar starts with Home, then the four destinations, then GitHub. An entry with a \"pending\" note is agreed but its address does not work yet; a site must not ship it until the note is removed. A menu entry may carry its own \"menu\" of sub-entries, one level deep and no deeper; a site whose bar does not nest shows that entry as a single link and ignores the sub-entries. The file is plain ASCII on purpose: non-ASCII characters in an address are percent-encoded.",
+  "version": 5,
+  "home": { "label": "TeamStarWolf", "href": "https://teamstarwolf.com/", "note": "Target for a site's own brand mark where it shows one. The bar itself always carries the Home item below, so a site without a brand mark still has a way back." },
+  "items": [
+    {
+      "id": "home",
+      "label": "Home",
+      "href": "https://teamstarwolf.com/",
+      "menu": [
+        { "label": "Front page", "href": "https://teamstarwolf.com/" },
+        { "label": "Search", "href": "https://teamstarwolf.com/#search" },
+        { "label": "Design system", "href": "https://teamstarwolf.com/system" },
+        { "label": "Security policy", "href": "https://teamstarwolf.com/security-policy", "pending": "Returns 404 until the security policy page is deployed on the front site." }
+      ]
+    },
+    {
+      "id": "library",
+      "label": "Library",
+      "href": "https://library.teamstarwolf.com/",
+      "menu_source": "The library's own top-bar categories (the navbar array in docs/site_nav.json), each opening the page that category opens there, plus four of the pages the library's own bar lists one level down. The library's Sites category is not repeated: the bar itself does that job.",
+      "menu": [
+        { "label": "Start here", "href": "https://library.teamstarwolf.com/#/guides/HOW_TO_USE_THIS_LIBRARY" },
+        { "label": "Guides", "href": "https://library.teamstarwolf.com/#/guides/README" },
+        { "label": "Learning paths", "href": "https://library.teamstarwolf.com/#/disciplines/README" },
+        { "label": "Domains", "href": "https://library.teamstarwolf.com/#/hubs/README" },
+        { "label": "Case studies", "href": "https://library.teamstarwolf.com/#/case-studies/README" },
+        { "label": "Chronicles", "href": "https://library.teamstarwolf.com/#/case-studies/TIMELINE?kind=era" },
+        { "label": "References A to Z", "href": "https://library.teamstarwolf.com/#/INDEX" },
+        { "label": "Frameworks", "href": "https://library.teamstarwolf.com/#/explore" },
+        { "label": "Detections", "href": "https://library.teamstarwolf.com/#/detections/README" },
+        { "label": "Navigator layers", "href": "https://library.teamstarwolf.com/#/navigator/" },
+        { "label": "Vendor tools", "href": "https://library.teamstarwolf.com/#/tools/README" },
+        { "label": "About the data", "href": "https://library.teamstarwolf.com/#/ABOUT_THE_DATA" }
+      ]
+    },
+    {
+      "id": "hub",
+      "label": "Intelligence Hub",
+      "href": "https://teamstarwolf.github.io/intelligence-hub/",
+      "menu": [
+        { "label": "Explore", "href": "https://teamstarwolf.github.io/intelligence-hub/#/explore" },
+        { "label": "Today", "href": "https://teamstarwolf.github.io/intelligence-hub/#/today" },
+        { "label": "Known exploited", "href": "https://teamstarwolf.github.io/intelligence-hub/#/kev" },
+        { "label": "CVEs", "href": "https://teamstarwolf.github.io/intelligence-hub/#/cves" },
+        { "label": "Advisories", "href": "https://teamstarwolf.github.io/intelligence-hub/#/advisories" },
+        { "label": "Patch Tuesday", "href": "https://teamstarwolf.github.io/intelligence-hub/#/patch-tuesday" },
+        { "label": "Service health", "href": "https://teamstarwolf.github.io/intelligence-hub/#/status" },
+        { "label": "Podcasts", "href": "https://teamstarwolf.github.io/intelligence-hub/#/podcasts" },
+        { "label": "Reports", "href": "https://teamstarwolf.github.io/intelligence-hub/#/reports" },
+        { "label": "Feeds and exports", "href": "https://teamstarwolf.github.io/intelligence-hub/#/subscribe" }
+      ]
+    },
+    {
+      "id": "navi",
+      "label": "ATT&CK-Navi",
+      "href": "https://teamstarwolf.github.io/ATTACK-Navi/",
+      "menu": [
+        { "label": "Matrix", "href": "https://teamstarwolf.github.io/ATTACK-Navi/#/matrix" },
+        { "label": "Exposure", "href": "https://teamstarwolf.github.io/ATTACK-Navi/#/exposure" },
+        { "label": "Intel", "href": "https://teamstarwolf.github.io/ATTACK-Navi/#/intel" },
+        { "label": "Detect", "href": "https://teamstarwolf.github.io/ATTACK-Navi/#/detect" },
+        { "label": "Coverage", "href": "https://teamstarwolf.github.io/ATTACK-Navi/#/coverage" },
+        { "label": "Dashboard", "href": "https://teamstarwolf.github.io/ATTACK-Navi/#/dashboard" },
+        { "label": "Reports", "href": "https://teamstarwolf.github.io/ATTACK-Navi/#/reports" },
+        { "label": "Library", "href": "https://teamstarwolf.github.io/ATTACK-Navi/#/library" },
+        { "label": "Status", "href": "https://teamstarwolf.github.io/ATTACK-Navi/#/status" }
+      ]
+    },
+    {
+      "id": "bookmarks",
+      "label": "Bookmarks",
+      "href": "https://github.com/TeamStarWolf/cybersecurity-resources",
+      "menu_source": "The twelve top-level categories of LINKS.md in TeamStarWolf/cybersecurity-resources, in file order. Each address ends in that heading's anchor as GitHub renders it, read from the rendered page on 2026-11-20. Two headings begin with an emoji that carries a variation selector (U+FE0F); it is written percent-encoded (%EF%B8%8F), which a browser treats as the same address.",
+      "menu": [
+        { "label": "Daily driver", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-daily-driver" },
+        { "label": "Vulnerability management", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-vulnerability-management", "menu": [
+          { "label": "CVE and vuln databases", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cve--vuln-databases" },
+          { "label": "Prioritization (KEV, EPSS, CVSS, SSVC)", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#prioritization-kev--epss--cvss--ssvc" },
+          { "label": "Exploits and proof-of-concept", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#exploits--proof-of-concept" },
+          { "label": "Scanners", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#scanners" },
+          { "label": "Lifecycle and end-of-life", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#lifecycle--end-of-life" },
+          { "label": "Weakness taxonomies", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#weakness-taxonomies" }
+        ] },
+        { "label": "Vendor advisories and PSIRTs", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-vendor-advisories--psirts", "menu": [
+          { "label": "Microsoft and cloud", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#microsoft--cloud" },
+          { "label": "OS and Linux distros", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#os--linux-distros" },
+          { "label": "Network and security vendors", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#network--security-vendors" },
+          { "label": "Enterprise applications", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#enterprise-applications" },
+          { "label": "ICS and OT", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#ics--ot" },
+          { "label": "Aggregators and CERT", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#aggregators--cert" }
+        ] },
+        { "label": "Threat intelligence", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-threat-intelligence", "menu": [
+          { "label": "Feeds and IOC lookup", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#feeds--ioc-lookup" },
+          { "label": "APT and adversary tracking", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#apt--adversary-tracking" },
+          { "label": "CTI vendor research blogs", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cti-vendor-research-blogs" },
+          { "label": "Threat reports and landscape", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#threat-reports--landscape" },
+          { "label": "CTI platforms", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cti-platforms" }
+        ] },
+        { "label": "Gov, CERT and alerts", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-gov--cert--alerts" },
+        { "label": "Frameworks and standards", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-frameworks--standards", "menu": [
+          { "label": "MITRE", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#mitre" },
+          { "label": "NIST", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#nist" },
+          { "label": "CIS", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cis" },
+          { "label": "OWASP and AppSec", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#owasp--appsec" }
+        ] },
+        { "label": "Offensive and tooling", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#%EF%B8%8F-offensive--tooling", "menu": [
+          { "label": "Recon and OSINT", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#recon--osint" },
+          { "label": "Web app", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#web-app" },
+          { "label": "Active Directory and Windows", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#active-directory--windows" },
+          { "label": "C2 frameworks", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#c2-frameworks" },
+          { "label": "Cheatsheets and payloads", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cheatsheets--payloads" },
+          { "label": "Scanning and network", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#scanning--network" }
+        ] },
+        { "label": "DFIR and malware analysis", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-dfir--malware-analysis", "menu": [
+          { "label": "Sandboxes and lookup", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#sandboxes--lookup" },
+          { "label": "DFIR tools", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#dfir-tools" },
+          { "label": "Reverse engineering", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#reverse-engineering" }
+        ] },
+        { "label": "Cloud and container", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#%EF%B8%8F-cloud--container" },
+        { "label": "Detection engineering and blue team", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-detection-engineering--blue-team" },
+        { "label": "Labs and training", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-labs--training" },
+        { "label": "News and research", "href": "https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-news--research" }
+      ]
+    },
+    {
+      "id": "github",
+      "label": "GitHub",
+      "href": "https://github.com/TeamStarWolf",
+      "menu": [
+        { "label": "Library repository", "href": "https://github.com/TeamStarWolf/TeamStarWolf" },
+        { "label": "Intelligence Hub repository", "href": "https://github.com/TeamStarWolf/intelligence-hub" },
+        { "label": "ATT&CK-Navi repository", "href": "https://github.com/TeamStarWolf/ATTACK-Navi" },
+        { "label": "Bookmarks repository", "href": "https://github.com/TeamStarWolf/cybersecurity-resources" }
+      ]
+    }
+  ]
+}

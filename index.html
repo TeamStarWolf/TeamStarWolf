@@ -112,6 +112,7 @@
 
       --theme-color:       var(--tsw-link);
       --sidebar-width:     305px;
+      --tsw-band-h:        44px;   /* the platform band above the category bar */
       --tsw-mono: "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, ui-monospace, monospace;
       --tsw-sans: "Inter", "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
     }
@@ -450,13 +451,122 @@
     .app-nav li ul li { margin: 6px 16px; white-space: normal; }
     .app-nav li ul a.active { color: var(--tsw-link); }
     .app-nav li:has(> ul a.active) > a { color: var(--tsw-heading); border-bottom: 2px solid var(--tsw-link); }
+
+    /* ======================= Platform band ======================= */
+    /* The shared top bar every TeamStarWolf site carries, above the library's own category
+       bar. Its markup is generated into index.html from docs/platform-nav.json by
+       build_site_nav.py. 44px in both themes; on desktop a top-level menu opens on hover
+       (the button with aria-expanded opens it for keyboard and click) and a Bookmarks
+       category with its own menu opens a side fly-out that flips left near the right edge;
+       on phones a menu button reveals an inline accordion. Panels do not scroll (the
+       generator caps any menu at 14 entries). */
+    .tsw-bar {
+      position: fixed; top: 0; left: 0; right: 0; height: var(--tsw-band-h); z-index: 25;
+      display: flex; align-items: stretch; box-sizing: border-box; padding: 0 12px;
+      background: var(--tsw-surface); border-bottom: 1px solid var(--tsw-border-soft);
+      font-family: var(--tsw-sans); font-size: 13px;
+    }
+    .tsw-bar__list { display: flex; align-items: stretch; margin: 0; padding: 0; list-style: none; }
+    .tsw-bar__item { position: relative; display: flex; align-items: center; }
+    .tsw-bar__link {
+      display: inline-flex; align-items: center; height: 100%; padding: 0 2px 0 12px;
+      font-size: 13px; font-weight: 500; line-height: 1; white-space: nowrap;
+      color: var(--tsw-text-muted); text-decoration: none;
+    }
+    .tsw-bar__toggle, .tsw-bar__caret, .tsw-bar__menubtn {
+      background: none; border: 0; cursor: pointer; color: inherit;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .tsw-bar__toggle { height: 100%; padding: 0 10px 0 4px; }
+    .tsw-bar__chev {
+      width: 6px; height: 6px; display: inline-block;
+      border-right: 1.5px solid var(--tsw-text-dim); border-bottom: 1.5px solid var(--tsw-text-dim);
+      transform: rotate(45deg); transition: transform .15s ease;
+    }
+    .tsw-bar__chev--right { transform: rotate(-45deg); }
+    .tsw-bar__link:hover, .tsw-bar__item:hover > .tsw-bar__link { color: var(--tsw-text); }
+    .tsw-bar__item:hover > .tsw-bar__toggle .tsw-bar__chev,
+    .tsw-bar__toggle[aria-expanded="true"] .tsw-bar__chev { border-color: var(--tsw-text); }
+
+    .tsw-bar__panel {
+      position: absolute; top: 100%; left: 0; margin-top: -1px; z-index: 30;
+      display: none; min-width: 210px; padding: 6px; box-sizing: border-box;
+      background: var(--tsw-surface); border: 1px solid var(--tsw-border);
+      border-radius: 10px; box-shadow: 0 10px 28px var(--tsw-shadow);
+    }
+    .tsw-bar__item.tsw-open > .tsw-bar__panel { display: block; }
+    .tsw-bar__mlink {
+      display: block; padding: 6px 10px; border-radius: 6px; font-size: 13px; line-height: 1.3;
+      color: var(--tsw-text-muted); text-decoration: none; white-space: nowrap;
+    }
+    .tsw-bar__mlink:hover { color: var(--tsw-link); }
+
+    .tsw-bar__group { position: relative; display: flex; align-items: center; }
+    .tsw-bar__group > .tsw-bar__mlink--parent { flex: 1 1 auto; }
+    .tsw-bar__caret { padding: 6px 8px; border-radius: 6px; }
+    .tsw-bar__flyout {
+      position: absolute; top: -7px; left: 100%; z-index: 31;
+      display: none; min-width: 230px; padding: 6px; box-sizing: border-box;
+      background: var(--tsw-surface); border: 1px solid var(--tsw-border);
+      border-radius: 10px; box-shadow: 0 10px 28px var(--tsw-shadow);
+    }
+    .tsw-bar__group.tsw-open > .tsw-bar__flyout { display: block; }
+    .tsw-bar__group.tsw-flip > .tsw-bar__flyout { left: auto; right: 100%; }
+    /* Sub-entries are 12px in the muted colour at every width (the contract); the phone
+       accordion also indents them and tints the hovered row. */
+    .tsw-bar__flyout .tsw-bar__mlink { font-size: 12px; color: var(--tsw-text-dim); }
+    .tsw-bar__flyout .tsw-bar__mlink:hover { color: var(--tsw-link); }
+
+    :root[data-theme="light"] .tsw-bar__panel,
+    :root[data-theme="light"] .tsw-bar__flyout { box-shadow: 0 10px 28px rgba(21, 19, 31, .14); }
+
+    .tsw-bar a:focus-visible, .tsw-bar button:focus-visible {
+      outline: 2px solid var(--tsw-focus); outline-offset: 2px; border-radius: 4px;
+    }
+    .tsw-bar__menubtn { display: none; }
+
+    /* The band pushes the category bar and the sidebar down (both were at top: 0). */
+    .app-nav { top: var(--tsw-band-h); }
+    .sidebar { top: var(--tsw-band-h); }
+
+    /* Phone and narrow: a single menu button reveals the items as an inline accordion;
+       the panels and fly-outs become static, indented rows (coarse pointers use the buttons). */
+    @media screen and (max-width: 760px) {
+      .tsw-bar { padding: 0 6px; }
+      .tsw-bar__menubtn { display: inline-flex; gap: 8px; height: 100%; padding: 0 10px;
+        font-size: 13px; font-weight: 600; color: var(--tsw-text-muted); }
+      .tsw-bar__burger { width: 16px; height: 1.5px; background: currentColor; position: relative; }
+      .tsw-bar__burger::before, .tsw-bar__burger::after {
+        content: ""; position: absolute; left: 0; width: 16px; height: 1.5px; background: currentColor; }
+      .tsw-bar__burger::before { top: -5px; } .tsw-bar__burger::after { top: 5px; }
+      .tsw-bar__list {
+        display: none; position: absolute; top: 100%; left: 0; right: 0; z-index: 30;
+        flex-direction: column; align-items: stretch; padding: 6px;
+        background: var(--tsw-surface); border-bottom: 1px solid var(--tsw-border);
+        box-shadow: 0 10px 28px var(--tsw-shadow);
+        max-height: calc(100vh - var(--tsw-band-h)); overflow-y: auto;
+      }
+      .tsw-bar.tsw-bar--open .tsw-bar__list { display: flex; }
+      .tsw-bar__item { flex-wrap: wrap; align-items: stretch; }
+      .tsw-bar__link { flex: 1 1 auto; height: auto; padding: 10px 12px; }
+      .tsw-bar__toggle { height: auto; padding: 10px 16px; }
+      .tsw-bar__panel, .tsw-bar__flyout {
+        position: static; display: none; width: 100%; min-width: 0;
+        border: 0; border-radius: 0; box-shadow: none; padding: 0 0 4px 14px; margin: 0;
+      }
+      .tsw-bar__item.tsw-open > .tsw-bar__panel { display: block; }
+      .tsw-bar__group { flex-wrap: wrap; }
+      .tsw-bar__group.tsw-open > .tsw-bar__flyout { display: block; left: auto; right: auto; }
+      .tsw-bar__flyout .tsw-bar__mlink { padding-left: 14px; }
+      .tsw-bar__flyout .tsw-bar__mlink:hover { background: var(--tsw-surface-2); }
+    }
     /* The repository is linked from the navbar ("GitHub") and from every page's
        "Edit this page on GitHub" line; the corner badge sat under the theme button. */
     .github-corner { display: none; }
 
     /* ===================== Theme toggle ===================== */
     #tsw-theme {
-      position: fixed; top: 8px; right: 14px; z-index: 30;
+      position: fixed; top: calc(var(--tsw-band-h) + 8px); right: 14px; z-index: 30;
       width: 36px; height: 36px; padding: 0; border-radius: 8px;
       display: inline-flex; align-items: center; justify-content: center;
       background: var(--tsw-surface); color: var(--tsw-text);
@@ -473,7 +583,7 @@
        top-right of wide screens too (the min-width 769px rule below), so search is always
        one click away whatever is scrolled into view. */
     #tsw-search-btn {
-      display: none; position: fixed; top: 6px; right: 48px; z-index: 30;
+      display: none; position: fixed; top: calc(var(--tsw-band-h) + 6px); right: 48px; z-index: 30;
       width: 36px; height: 36px; padding: 0; border-radius: 8px;
       align-items: center; justify-content: center;
       background: var(--tsw-surface); color: var(--tsw-text);
@@ -508,7 +618,7 @@
     }
 
     /* ===================== Content ===================== */
-    .content { background: transparent; padding-top: 52px; }
+    .content { background: transparent; padding-top: calc(var(--tsw-band-h) + 52px); }
     .markdown-section {
       max-width: 1080px;
       padding: 34px 40px 80px;
@@ -740,15 +850,15 @@
       section.cover h1 { font-size: 1.9rem; }
       /* The cover sizes to its content on a phone (vue.css makes it a full screen, which left
          an empty band between the buttons and the page below). */
-      section.cover { min-height: 0; padding: calc(var(--tsw-nav-h, 48px) + 16px) 0 24px; z-index: 2; }
-      .content { padding-top: var(--tsw-nav-h, 48px); }
+      section.cover { min-height: 0; padding: calc(var(--tsw-band-h) + var(--tsw-nav-h, 48px) + 16px) 0 24px; z-index: 2; }
+      .content { padding-top: calc(var(--tsw-band-h) + var(--tsw-nav-h, 48px)); }
       /* Mobile top bar: the menu button sits at its left and the theme button at its right,
          so neither floats over page content. vue.css put the menu button at the bottom-left
          corner, where it covered the cover's ATT&CK-Navi button. It shows in phone mode,
          and in tablet mode only while the sidebar is open (body.close), when vue.css hides
          the navbar; it never covers the tablet navbar. */
       body:not(:has(> nav.app-nav)) > #tsw-mbar, body.close > #tsw-mbar {
-        display: block; position: fixed; top: 0; left: 0; right: 0; height: 48px; z-index: 11;
+        display: block; position: fixed; top: var(--tsw-band-h); left: 0; right: 0; height: 48px; z-index: 11;
         background: var(--tsw-nav-bg); border-bottom: 1px solid var(--tsw-border-soft);
         backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
       }
@@ -762,14 +872,14 @@
       }
       #tsw-mbar .tsw-mark { width: 45px; height: 24px; }
       .sidebar-toggle, body.close .sidebar-toggle {
-        position: fixed; top: 0; bottom: auto; left: 0; z-index: 30;
+        position: fixed; top: var(--tsw-band-h); bottom: auto; left: 0; z-index: 30;
         width: 48px; height: 48px; padding: 0;
         display: flex; align-items: center; justify-content: center;
         background: transparent; border: 0;
       }
       .sidebar-toggle .sidebar-toggle-button { padding: 14px 13px; }
       .sidebar { padding-top: 48px; }
-      #tsw-theme { top: 6px; right: 8px; }
+      #tsw-theme { top: calc(var(--tsw-band-h) + 6px); right: 8px; }
       #tsw-search-btn { display: inline-flex; }
     }
     /* Tablet mode: tighter items, so every navbar item stays on one row beside the two buttons at 768px */
@@ -797,7 +907,7 @@
     }
     @media screen and (min-width: 769px) and (max-width: 1099px) {
       .app-nav { height: auto; min-height: 52px; line-height: 30px; padding-top: 6px; padding-bottom: 6px; }
-      .content { padding-top: var(--tsw-nav-h, 52px); }
+      .content { padding-top: calc(var(--tsw-band-h) + var(--tsw-nav-h, 52px)); }
     }
     @media (prefers-reduced-motion: reduce) {
       * { transition: none !important; animation: none !important; }
@@ -1355,6 +1465,158 @@
   <button id="tsw-search-btn" type="button" aria-label="Search the library" title="Search (Ctrl K)" aria-haspopup="dialog">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5l5 5"/></svg>
   </button>
+  <!-- platform-band:start (written by scripts/build_site_nav.py from docs/platform-nav.json; do not edit) -->
+  <div class="tsw-bar" role="navigation" aria-label="TeamStarWolf platform">
+    <ul class="tsw-bar__list">
+      <li class="tsw-bar__item">
+        <a class="tsw-bar__link" href="https://teamstarwolf.com/">Home</a>
+        <button class="tsw-bar__toggle" type="button" aria-expanded="false" aria-label="Home menu"><span class="tsw-bar__chev" aria-hidden="true"></span></button>
+        <div class="tsw-bar__panel">
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.com/">Front page</a>
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.com/#search">Search</a>
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.com/system">Design system</a>
+        </div>
+      </li>
+      <li class="tsw-bar__item">
+        <a class="tsw-bar__link" href="https://library.teamstarwolf.com/">Library</a>
+        <button class="tsw-bar__toggle" type="button" aria-expanded="false" aria-label="Library menu"><span class="tsw-bar__chev" aria-hidden="true"></span></button>
+        <div class="tsw-bar__panel">
+          <a class="tsw-bar__mlink" href="https://library.teamstarwolf.com/#/guides/HOW_TO_USE_THIS_LIBRARY">Start here</a>
+          <a class="tsw-bar__mlink" href="https://library.teamstarwolf.com/#/guides/README">Guides</a>
+          <a class="tsw-bar__mlink" href="https://library.teamstarwolf.com/#/disciplines/README">Learning paths</a>
+          <a class="tsw-bar__mlink" href="https://library.teamstarwolf.com/#/hubs/README">Domains</a>
+          <a class="tsw-bar__mlink" href="https://library.teamstarwolf.com/#/case-studies/README">Case studies</a>
+          <a class="tsw-bar__mlink" href="https://library.teamstarwolf.com/#/case-studies/TIMELINE?kind=era">Chronicles</a>
+          <a class="tsw-bar__mlink" href="https://library.teamstarwolf.com/#/INDEX">References A to Z</a>
+          <a class="tsw-bar__mlink" href="https://library.teamstarwolf.com/#/explore">Frameworks</a>
+          <a class="tsw-bar__mlink" href="https://library.teamstarwolf.com/#/detections/README">Detections</a>
+          <a class="tsw-bar__mlink" href="https://library.teamstarwolf.com/#/navigator/">Navigator layers</a>
+          <a class="tsw-bar__mlink" href="https://library.teamstarwolf.com/#/tools/README">Vendor tools</a>
+          <a class="tsw-bar__mlink" href="https://library.teamstarwolf.com/#/ABOUT_THE_DATA">About the data</a>
+        </div>
+      </li>
+      <li class="tsw-bar__item">
+        <a class="tsw-bar__link" href="https://teamstarwolf.github.io/intelligence-hub/">Intelligence Hub</a>
+        <button class="tsw-bar__toggle" type="button" aria-expanded="false" aria-label="Intelligence Hub menu"><span class="tsw-bar__chev" aria-hidden="true"></span></button>
+        <div class="tsw-bar__panel">
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.github.io/intelligence-hub/#/explore">Explore</a>
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.github.io/intelligence-hub/#/today">Today</a>
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.github.io/intelligence-hub/#/kev">Known exploited</a>
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.github.io/intelligence-hub/#/cves">CVEs</a>
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.github.io/intelligence-hub/#/advisories">Advisories</a>
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.github.io/intelligence-hub/#/patch-tuesday">Patch Tuesday</a>
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.github.io/intelligence-hub/#/status">Service health</a>
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.github.io/intelligence-hub/#/podcasts">Podcasts</a>
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.github.io/intelligence-hub/#/reports">Reports</a>
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.github.io/intelligence-hub/#/subscribe">Feeds and exports</a>
+        </div>
+      </li>
+      <li class="tsw-bar__item">
+        <a class="tsw-bar__link" href="https://teamstarwolf.github.io/ATTACK-Navi/">ATT&amp;CK-Navi</a>
+        <button class="tsw-bar__toggle" type="button" aria-expanded="false" aria-label="ATT&amp;CK-Navi menu"><span class="tsw-bar__chev" aria-hidden="true"></span></button>
+        <div class="tsw-bar__panel">
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.github.io/ATTACK-Navi/#/matrix">Matrix</a>
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.github.io/ATTACK-Navi/#/exposure">Exposure</a>
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.github.io/ATTACK-Navi/#/intel">Intel</a>
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.github.io/ATTACK-Navi/#/detect">Detect</a>
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.github.io/ATTACK-Navi/#/coverage">Coverage</a>
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.github.io/ATTACK-Navi/#/dashboard">Dashboard</a>
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.github.io/ATTACK-Navi/#/reports">Reports</a>
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.github.io/ATTACK-Navi/#/library">Library</a>
+          <a class="tsw-bar__mlink" href="https://teamstarwolf.github.io/ATTACK-Navi/#/status">Status</a>
+        </div>
+      </li>
+      <li class="tsw-bar__item">
+        <a class="tsw-bar__link" href="https://github.com/TeamStarWolf/cybersecurity-resources">Bookmarks</a>
+        <button class="tsw-bar__toggle" type="button" aria-expanded="false" aria-label="Bookmarks menu"><span class="tsw-bar__chev" aria-hidden="true"></span></button>
+        <div class="tsw-bar__panel">
+          <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-daily-driver">Daily driver</a>
+          <div class="tsw-bar__group">
+            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-vulnerability-management">Vulnerability management</a>
+            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Vulnerability management submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+            <div class="tsw-bar__flyout">
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cve--vuln-databases">CVE and vuln databases</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#prioritization-kev--epss--cvss--ssvc">Prioritization (KEV, EPSS, CVSS, SSVC)</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#exploits--proof-of-concept">Exploits and proof-of-concept</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#scanners">Scanners</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#lifecycle--end-of-life">Lifecycle and end-of-life</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#weakness-taxonomies">Weakness taxonomies</a>
+            </div>
+          </div>
+          <div class="tsw-bar__group">
+            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-vendor-advisories--psirts">Vendor advisories and PSIRTs</a>
+            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Vendor advisories and PSIRTs submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+            <div class="tsw-bar__flyout">
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#microsoft--cloud">Microsoft and cloud</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#os--linux-distros">OS and Linux distros</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#network--security-vendors">Network and security vendors</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#enterprise-applications">Enterprise applications</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#ics--ot">ICS and OT</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#aggregators--cert">Aggregators and CERT</a>
+            </div>
+          </div>
+          <div class="tsw-bar__group">
+            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-threat-intelligence">Threat intelligence</a>
+            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Threat intelligence submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+            <div class="tsw-bar__flyout">
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#feeds--ioc-lookup">Feeds and IOC lookup</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#apt--adversary-tracking">APT and adversary tracking</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cti-vendor-research-blogs">CTI vendor research blogs</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#threat-reports--landscape">Threat reports and landscape</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cti-platforms">CTI platforms</a>
+            </div>
+          </div>
+          <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-gov--cert--alerts">Gov, CERT and alerts</a>
+          <div class="tsw-bar__group">
+            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-frameworks--standards">Frameworks and standards</a>
+            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Frameworks and standards submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+            <div class="tsw-bar__flyout">
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#mitre">MITRE</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#nist">NIST</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cis">CIS</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#owasp--appsec">OWASP and AppSec</a>
+            </div>
+          </div>
+          <div class="tsw-bar__group">
+            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#%EF%B8%8F-offensive--tooling">Offensive and tooling</a>
+            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="Offensive and tooling submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+            <div class="tsw-bar__flyout">
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#recon--osint">Recon and OSINT</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#web-app">Web app</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#active-directory--windows">Active Directory and Windows</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#c2-frameworks">C2 frameworks</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#cheatsheets--payloads">Cheatsheets and payloads</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#scanning--network">Scanning and network</a>
+            </div>
+          </div>
+          <div class="tsw-bar__group">
+            <a class="tsw-bar__mlink tsw-bar__mlink--parent" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-dfir--malware-analysis">DFIR and malware analysis</a>
+            <button class="tsw-bar__caret" type="button" aria-expanded="false" aria-label="DFIR and malware analysis submenu"><span class="tsw-bar__chev tsw-bar__chev--right" aria-hidden="true"></span></button>
+            <div class="tsw-bar__flyout">
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#sandboxes--lookup">Sandboxes and lookup</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#dfir-tools">DFIR tools</a>
+              <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#reverse-engineering">Reverse engineering</a>
+            </div>
+          </div>
+          <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#%EF%B8%8F-cloud--container">Cloud and container</a>
+          <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-detection-engineering--blue-team">Detection engineering and blue team</a>
+          <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-labs--training">Labs and training</a>
+          <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources/blob/main/LINKS.md#-news--research">News and research</a>
+        </div>
+      </li>
+      <li class="tsw-bar__item">
+        <a class="tsw-bar__link" href="https://github.com/TeamStarWolf">GitHub</a>
+        <button class="tsw-bar__toggle" type="button" aria-expanded="false" aria-label="GitHub menu"><span class="tsw-bar__chev" aria-hidden="true"></span></button>
+        <div class="tsw-bar__panel">
+          <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/TeamStarWolf">Library repository</a>
+          <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/intelligence-hub">Intelligence Hub repository</a>
+          <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/ATTACK-Navi">ATT&amp;CK-Navi repository</a>
+          <a class="tsw-bar__mlink" href="https://github.com/TeamStarWolf/cybersecurity-resources">Bookmarks repository</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- platform-band:end -->
   <div id="app">Loading</div>
   <button id="tsw-top" title="Back to top" aria-label="Back to top">↑</button>
   <div id="tsw-mbar" aria-hidden="true"><span class="tsw-mbar-brand"><svg class="tsw-mark" viewBox="0 0 1181 633" width="45" height="24" role="img" aria-label="TeamStarWolf wolf insignia"><title>TeamStarWolf wolf insignia</title><use href="#tsw-wolf"/></svg>TeamStarWolf</span></div>
@@ -1561,7 +1823,8 @@
             var h = nav ? nav.offsetHeight : 48;
             if (nav && nav !== watched && window.ResizeObserver) { watched = nav; new ResizeObserver(measure).observe(nav); }
             document.documentElement.style.setProperty('--tsw-nav-h', h + 'px');
-            var margin = Math.max(60, h + 8);
+            var band = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--tsw-band-h'), 10) || 0;
+            var margin = Math.max(60, h + 8) + band;   // clear the platform band (top:0) as well as the navbar
             vm.config.topMargin = margin;
             window.$docsify.topMargin = margin;
           }
@@ -2857,6 +3120,12 @@
       });
     })();
   </script>
+
+  <!-- Platform band behaviour: assets/platform-band.js wires the generated band
+       (nav.tsw-bar is a div with role=navigation; see the generator). The handler logic
+       is one exported function so it can be driven against the markup in a DOM stand-in
+       (scripts/test_platform_band.js). Loaded before docsify; the band exists by now. -->
+  <script src="assets/platform-band.js"></script>
 
   <!-- Docsify core. Stays on 4.13.1: 5.0.0 was tried in P2 and not adopted, because it builds
        heading ids from the raw Markdown without collapsing hyphens ("A & B" gives a--b, not

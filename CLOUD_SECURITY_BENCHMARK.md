@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 9 min (2,016 words at 230 words a minute)
+About 10 min (2,214 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -42,7 +42,7 @@ You inherit or stand up a cloud account and need to harden it fast, an audit ask
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-11-24, CIS AWS/Azure/GCP benchmark versions refreshed to v7.1.0/v7.0.0/v5.0.1, AWS IAM control IDs renumbered to v3.0.0, and CloudTrail, Defender, KMS and audit-log commands corrected ([#417](https://github.com/TeamStarWolf/TeamStarWolf/pull/417))
+2026-11-24, CIS AWS/Azure/GCP benchmark versions refreshed to v7.1.0/v7.0.0/v5.0.1; control IDs across the AWS, Azure and GCP tables renumbered to the stated CIS versions; CloudTrail, Defender, Key Vault, KMS, Graph PowerShell and audit-log commands corrected ([#417](https://github.com/TeamStarWolf/TeamStarWolf/pull/417))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>
@@ -80,15 +80,15 @@ CIS Benchmarks and hardening controls for AWS, Azure, and GCP, with specific che
 
 | CIS Control | Check | Severity | Remediation |
 |---|---|---|---|
-| 1.4 | No `root` user access keys | Critical | `aws iam get-account-summary` -> `AccountAccessKeysPresent` must be 0 |
-| 1.5 | MFA enabled for the `root` user | Critical | `aws iam get-account-summary` -> `AccountMFAEnabled` must be 1 |
+| 1.4 | No `root` user access keys | Critical | `aws iam get-account-summary` -> `AccountAccessKeysPresent` must be 0; delete any root access keys in the console (Security Credentials) |
+| 1.5 | MFA enabled for the `root` user | Critical | `aws iam get-account-summary` -> `AccountMFAEnabled` must be 1; enable a virtual or hardware MFA device for the root user |
 | 1.6 | Hardware MFA enabled for the `root` user | Critical | Enable a hardware MFA device for the root user in the IAM console |
 | 1.8 | IAM password policy: minimum length 14 | Medium | `aws iam update-account-password-policy --minimum-password-length 14` |
 | 1.9 | IAM password policy: prevent reuse (24) | Medium | `aws iam update-account-password-policy --password-reuse-prevention 24` |
-| 1.10 | MFA for all IAM users with a console password | High | `aws iam list-users` + `aws iam list-mfa-devices --user-name USERNAME` |
-| 1.12 | Credentials unused for 45 days disabled | Medium | `aws iam generate-credential-report` -> disable stale keys with `aws iam update-access-key --access-key-id KEY --status Inactive` |
+| 1.10 | MFA for all IAM users with a console password | High | `aws iam list-users` + `aws iam list-mfa-devices --user-name USERNAME`; enforce with an IAM policy that requires MFA for API calls |
+| 1.12 | Credentials unused for 45 days disabled | Medium | `aws iam generate-credential-report` -> review LastUsed, then disable stale keys with `aws iam update-access-key --access-key-id KEY --status Inactive` |
 | 1.14 | IAM access keys rotated every 90 days or less | Medium | `aws iam generate-credential-report` -> review each key's age |
-| 1.15 | IAM users receive permissions only through groups | Low | `aws iam list-user-policies`: move inline or directly attached user policies to groups |
+| 1.15 | IAM users receive permissions only through groups | Low | `aws iam list-user-policies` and `aws iam list-attached-user-policies`: move inline or directly attached user policies to groups |
 | 1.20 | IAM Access Analyzer enabled in all regions | Medium | `aws accessanalyzer create-analyzer --analyzer-name AccessAnalyzer --type ACCOUNT` |
 
 Automated IAM Check Script:
@@ -109,14 +109,14 @@ done
 
 | CIS Control | Check | Severity | Remediation |
 |---|---|---|---|
-| 2.1.1 | S3 server access logging enabled | Medium | `aws s3api put-bucket-logging` |
-| 2.1.2 | S3 Block Public Access (account level) | High | `aws s3control put-public-access-block --account-id ACCOUNT_ID --public-access-block-configuration BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true` |
-| 2.2 | CloudTrail enabled in all regions | Critical | `aws cloudtrail create-trail --name multi-region-trail --s3-bucket-name BUCKET --is-multi-region-trail`, then `aws cloudtrail start-logging --name multi-region-trail` (create-trail does not begin delivery); confirm with `aws cloudtrail get-trail-status --name multi-region-trail` -> `IsLogging` true |
-| 2.3 | CloudTrail log file validation | High | `aws cloudtrail update-trail --name TRAIL --enable-log-file-validation` |
-| 2.4 | CloudTrail logs encrypted with KMS | Medium | `aws cloudtrail update-trail --name TRAIL --kms-key-id KMS_KEY_ARN` |
-| 2.5 | AWS Config enabled in all regions | High | `aws configservice put-configuration-recorder` |
-| 2.6 | CloudTrail S3 bucket not publicly accessible | Critical | Check bucket ACL and policy |
-| 2.7 | CloudWatch alarms for root account usage | High | Create metric filter + alarm on CloudTrail log group |
+| 3.4 | S3 access logging on the CloudTrail S3 bucket | Medium | `aws s3api put-bucket-logging` |
+| 2.1.4 | S3 Block Public Access (account and bucket level) | High | `aws s3control put-public-access-block --account-id ACCOUNT_ID --public-access-block-configuration BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true` |
+| 3.1 | CloudTrail enabled in all regions | Critical | `aws cloudtrail create-trail --name multi-region-trail --s3-bucket-name BUCKET --is-multi-region-trail`, then `aws cloudtrail start-logging --name multi-region-trail` (create-trail does not begin delivery); confirm with `aws cloudtrail get-trail-status --name multi-region-trail` -> `IsLogging` true |
+| 3.2 | CloudTrail log file validation | High | `aws cloudtrail update-trail --name TRAIL --enable-log-file-validation` |
+| 3.5 | CloudTrail logs encrypted with KMS | Medium | `aws cloudtrail update-trail --name TRAIL --kms-key-id KMS_KEY_ARN` |
+| 3.3 | AWS Config enabled in all regions | High | `aws configservice put-configuration-recorder` |
+| - | CloudTrail S3 bucket not publicly accessible (a v1.x control; v3.0.0 covers this through S3 Block Public Access, 2.1.4) | Critical | Check bucket ACL and policy |
+| 4.3 | CloudWatch alarm for root account usage | High | Create metric filter + alarm on CloudTrail log group |
 
 CloudWatch Alarm for Root Usage:
 ```bash
@@ -142,12 +142,12 @@ aws cloudwatch put-metric-alarm \
 
 | CIS Control | Check | Severity | Remediation |
 |---|---|---|---|
-| 3.1 | No security group allows 0.0.0.0/0 to port 22 | Critical | Remove inbound rule or restrict to management IP |
-| 3.2 | No security group allows 0.0.0.0/0 to port 3389 | Critical | Remove RDP from internet-facing SGs |
-| 3.3 | Default security group restricts all traffic | Medium | Remove all inbound/outbound from default SG |
-| 3.4 | VPC flow logs enabled | High | `aws ec2 create-flow-logs --resource-type VPC --resource-ids VPC_ID --traffic-type ALL --log-destination-type cloud-watch-logs --log-group-name VPCFlowLogs --deliver-logs-permission-arn ROLE_ARN` |
-| 3.5 | No routing from VPC to internet without NAT | Medium | Review route tables; 0.0.0.0/0 to IGW = direct internet access |
-| 3.6 | Restrict access to SSH/RDP to bastion only | High | Network ACL + Security Group layering |
+| 5.2 | No security group allows 0.0.0.0/0 to port 22 (SSH) | Critical | Remove inbound rule or restrict to management IP |
+| 5.2 | No security group allows 0.0.0.0/0 to port 3389 (RDP) | Critical | Remove RDP from internet-facing SGs |
+| 5.4 | Default security group restricts all traffic | Medium | Remove all inbound/outbound from default SG |
+| 3.7 | VPC flow logs enabled | High | `aws ec2 create-flow-logs --resource-type VPC --resource-ids VPC_ID --traffic-type ALL --log-destination-type cloud-watch-logs --log-group-name VPCFlowLogs --deliver-logs-permission-arn ROLE_ARN` |
+| - | No routing from VPC to internet without NAT (hardening; not a v3.0.0 control) | Medium | Review route tables; 0.0.0.0/0 to IGW = direct internet access |
+| - | Restrict access to SSH/RDP to bastion only (hardening; not a v3.0.0 control) | High | Network ACL + Security Group layering |
 
 ```bash
 # Find all SGs with port 22 open to the internet
@@ -167,38 +167,47 @@ aws ec2 describe-security-groups \
 
 ## Azure CIS Benchmark (v2.0)
 
-> Currency note (2026-11): the control IDs in this section follow CIS Microsoft Azure Foundations Benchmark v2.0. As of November 2026, the current release is v7.0.0; recent versions moved most Compute and Database controls to separate CIS Azure service benchmarks and renumbered sections, so re-map these IDs before using them as audit evidence.
+> Currency note (2026-11): the control IDs in this section follow CIS Microsoft Azure Foundations Benchmark v2.0. As of November 2026, the current release is v7.0.0; v5.0.0/v6.0.0 moved most Compute and Database controls to separate CIS Azure service benchmarks and renumbered sections, so re-map these IDs before using them as audit evidence.
 
 ### Identity and Access (Entra ID / Azure AD)
 
 | CIS Control | Check | Severity | Remediation |
 |---|---|---|---|
-| 1.1.1 | MFA required for all users | Critical | Conditional Access Policy requiring MFA for all users |
+| 1.2.4 | MFA required for all users | Critical | Conditional Access Policy requiring MFA for all users |
 | 1.1.2 | MFA required for privileged users | Critical | Enforce via PIM + Conditional Access |
-| 1.1.3 | No guest users with privileged roles | High | `az ad user list --filter "userType eq 'Guest'"` -> check role assignments |
-| 1.1.4 | Legacy authentication blocked | High | Conditional Access: block legacy auth protocols |
-| 1.2.1 | Global Admin limited to < 5 users | High | Global Administrator is an Entra directory role; count its members with Microsoft Graph (see the privileged-role check below), not `az role assignment list` (that lists Azure RBAC resource roles) |
-| 1.2.2 | PIM used for privileged roles | High | Azure PIM: just-in-time activation for GA, Owner, Contributor |
-| 1.2.3 | Security defaults or Conditional Access enabled | Critical | Security defaults provide baseline; CA provides more control |
-| 1.3.1 | Password hash sync or PTA (not ADFS only) | Medium | Enables leaked credential detection |
-| 1.3.2 | SSPR registration required | Medium | Self-Service Password Reset reduces help desk load |
+| - | No guest users with privileged roles (hardening; cf. guest review, 1.5) | High | `az ad user list --filter "userType eq 'Guest'"` -> check role assignments |
+| - | Legacy authentication blocked (hardening; Conditional Access recommendation) | High | Conditional Access: block legacy auth protocols |
+| - | Global Admin limited to < 5 users (hardening; CIS does not cap the count) | High | Global Administrator is an Entra directory role; count its members with Microsoft Graph (see the privileged-role check below), not `az role assignment list` (that lists Azure RBAC resource roles) |
+| - | PIM used for privileged roles (hardening) | High | Azure PIM: just-in-time activation for GA, Owner, Contributor |
+| 1.1.1 | Security defaults or Conditional Access enabled | Critical | Security defaults provide baseline; CA provides more control |
+| - | Password hash sync or PTA, not ADFS only (hardening) | Medium | Enables leaked credential detection |
+| 1.6 | SSPR registration required | Medium | Self-Service Password Reset reduces help desk load |
 
 Azure Privileged Role Check (Microsoft Graph PowerShell; the AzureAD and MSOnline modules are deprecated):
 ```powershell
 # Connect read-only to directory roles
 Connect-MgGraph -Scopes "RoleManagement.Read.Directory","Directory.Read.All"
 
-# Members of the Global Administrator directory role
+# Members of the Global Administrator directory role.
+# userType is only returned when requested with -Property; non-user members
+# (service principals, role-assignable groups) are surfaced, not dropped.
 $ga = Get-MgDirectoryRole -Filter "displayName eq 'Global Administrator'"
-Get-MgDirectoryRoleMember -DirectoryRoleId $ga.Id |
-  ForEach-Object { Get-MgUser -UserId $_.Id -ErrorAction SilentlyContinue } |
-  Select-Object DisplayName, UserPrincipalName, UserType
+Get-MgDirectoryRoleMember -DirectoryRoleId $ga.Id -All | ForEach-Object {
+    if ($_.AdditionalProperties['@odata.type'] -eq '#microsoft.graph.user') {
+        Get-MgUser -UserId $_.Id -Property DisplayName,UserPrincipalName,UserType |
+          Select-Object @{N='MemberType';E={'user'}}, DisplayName, UserPrincipalName, UserType
+    } else {
+        [pscustomobject]@{ MemberType = $_.AdditionalProperties['@odata.type'];
+          DisplayName = $_.AdditionalProperties['displayName']; UserPrincipalName = $null; UserType = $null }
+    }
+}
 
 # Guests holding any active directory role
 Get-MgDirectoryRole | ForEach-Object {
     $role = $_
-    Get-MgDirectoryRoleMember -DirectoryRoleId $_.Id |
-      ForEach-Object { Get-MgUser -UserId $_.Id -ErrorAction SilentlyContinue } |
+    Get-MgDirectoryRoleMember -DirectoryRoleId $_.Id -All |
+      Where-Object { $_.AdditionalProperties['@odata.type'] -eq '#microsoft.graph.user' } |
+      ForEach-Object { Get-MgUser -UserId $_.Id -Property DisplayName,UserPrincipalName,UserType } |
       Where-Object { $_.UserType -eq 'Guest' } |
       Select-Object @{N='Role';E={$role.DisplayName}}, DisplayName, UserPrincipalName
 }
@@ -209,26 +218,26 @@ These are Entra directory roles. Also review eligible PIM assignments and role-a
 
 | CIS Control | Check | Severity | Remediation |
 |---|---|---|---|
-| 2.1 | Microsoft Defender for Cloud Standard tier | High | Enable per-subscription in Defender for Cloud |
+| - | Microsoft Defender for Cloud plans enabled (enable the individual plans below) | High | Enable the per-resource Defender plans in Microsoft Defender for Cloud |
 | 2.1.1 | Defender for Servers Plan 2 | High | `az security pricing create --name VirtualMachines --tier Standard --subplan P2`; confirm with `az security pricing show --name VirtualMachines` |
-| 2.1.2 | Defender for Storage | High | Enable to detect malicious blob access and malware upload |
-| 2.1.3 | Defender for SQL | High | Enable for Azure SQL and SQL on VMs |
-| 2.1.4 | Defender for Containers | High | Enable for AKS and ACR scanning |
-| 2.1.5 | Agent and agentless coverage | Medium | The Log Analytics agent (MMA) retired Nov 2024; for Defender for Servers enable Defender for Endpoint integration and agentless scanning, and use the Azure Monitor Agent only where a plan still needs log collection |
-| 2.1.6 | Email notifications for high severity alerts | Medium | Security Center Settings -> Email notifications |
-| 2.1.7 | Microsoft Defender for Cloud Apps connected | Medium | MCAS integration for anomaly detection |
+| 2.1.7 | Defender for Storage | High | Enable to detect malicious blob access and malware upload |
+| 2.1.4, 2.1.5 | Defender for SQL (Azure SQL databases 2.1.4; SQL servers on machines 2.1.5) | High | Enable for Azure SQL and SQL on VMs |
+| 2.1.8 | Defender for Containers | High | Enable for AKS and ACR scanning |
+| 2.1.15 | Agent and agentless coverage | Medium | The Log Analytics agent (MMA) retired (Azure Monitor: 31 August 2024; the Defender for Cloud plan: November 2024); for Defender for Servers enable Defender for Endpoint integration and agentless scanning, and use the Azure Monitor Agent only where a plan still needs log collection |
+| 2.1.19, 2.1.20 | Email notifications for high severity alerts | Medium | Microsoft Defender for Cloud -> Environment settings -> Email notifications |
+| 2.1.21 | Microsoft Defender for Cloud Apps integration | Medium | Integrate Microsoft Defender for Cloud Apps (formerly MCAS) for anomaly detection |
 
 ### Storage Accounts
 
 | CIS Control | Check | Severity | Remediation |
 |---|---|---|---|
 | 3.1 | Secure transfer required (HTTPS only) | High | `az storage account update --https-only true` |
-| 3.2 | Public blob access disabled | Critical | `az storage account update --allow-blob-public-access false` |
-| 3.3 | Storage account keys rotated annually | Medium | `az storage account keys renew --account-name NAME --key primary` |
-| 3.4 | Storage logging enabled | Medium | Enable diagnostic logs for blob/table/queue |
-| 3.5 | Shared Access Signature expiry < 1 hour | Medium | Policy in SAS token generation |
-| 3.6 | Blob soft delete enabled | Medium | `az storage blob service-properties delete-policy update --enable true --days-retained 30` |
-| 3.7 | Private endpoints for storage | High | Remove public network access; use Private Endpoints |
+| 3.7 | Public blob access disabled | Critical | `az storage account update --allow-blob-public-access false` |
+| 3.4 | Storage account access keys regularly regenerated | Medium | `az storage account keys renew --account-name NAME --key primary` |
+| 3.5, 3.13, 3.14 | Storage logging enabled (queue 3.5, blob 3.13, table 3.14) | Medium | Enable diagnostic logs for blob/table/queue |
+| 3.6 | Shared Access Signature expiry < 1 hour | Medium | Policy in SAS token generation |
+| 3.11 | Blob soft delete enabled | Medium | `az storage blob service-properties delete-policy update --enable true --days-retained 30` |
+| 3.10 | Private endpoints for storage | High | Remove public network access; use Private Endpoints |
 
 ```bash
 # Find storage accounts with public blob access
@@ -242,12 +251,12 @@ az storage account list --query "[?enableHttpsTrafficOnly==false].[name,resource
 
 | CIS Control | Check | Severity | Remediation |
 |---|---|---|---|
-| 8.1 | Key Vault recoverable (soft delete + purge protection) | High | `az keyvault update --name VAULT --enable-soft-delete true --enable-purge-protection true` |
+| 8.5 | Key Vault recoverable (soft delete + purge protection) | High | Soft delete is on by default and cannot be disabled; set `az keyvault update --name VAULT --enable-purge-protection true` |
 | 8.2 | Key expiry date set | Medium | Set expiry on all keys |
 | 8.3 | Secret expiry date set | Medium | Set expiry on all secrets |
-| 8.4 | Certificate auto-rotation | High | Configure certificate contacts and auto-renewal |
-| 8.5 | Key Vault firewall and virtual network | High | Restrict access to specific VNets/IPs |
-| 8.6 | Key Vault logging enabled | High | Enable Diagnostic Settings -> send to Log Analytics |
+| 8.4 | Certificate expiry and auto-renewal configured | High | Configure certificate contacts and auto-renewal |
+| 8.7 | Private endpoints / restricted network access for Key Vault | High | Restrict access to specific VNets/IPs; prefer Private Endpoints |
+| 5.1.5 | Resource logs in Key Vault enabled | High | Enable Diagnostic Settings -> send to Log Analytics (CIS numbers Key Vault logging under 5.1, not section 8) |
 
 ---
 
@@ -259,14 +268,14 @@ az storage account list --query "[?enableHttpsTrafficOnly==false].[name,resource
 
 | CIS Control | Check | Severity | Remediation |
 |---|---|---|---|
-| 1.1 | No legacy basic roles (Owner/Editor/Viewer) | High | Replace with fine-grained IAM roles |
-| 1.2 | No service accounts with admin privileges | Critical | `gcloud iam service-accounts list` -> review roles |
-| 1.3 | No user-managed service account keys | High | Use Workload Identity Federation instead |
-| 1.4 | Organization policy: restrict domain login | High | `constraints/iam.allowedPolicyMemberDomains` |
-| 1.5 | Separation of duties: no user owns and manages SAs | Medium | Review SA key creators vs users |
-| 1.6 | Cloud KMS keys rotated within 90 days | High | Check (read-only): `gcloud kms keys describe KEY --keyring=KEYRING --location=LOCATION` shows `rotationPeriod`. Set: `gcloud kms keys update KEY --keyring=KEYRING --location=LOCATION --rotation-period=90d --next-rotation-time=TIMESTAMP` |
-| 1.7 | Pub/Sub subscriptions use push endpoints with HTTPS | Low | Use authenticated push endpoints |
-| 1.8 | Secret Manager used for secrets (not env vars) | High | Audit Cloud Run/Functions for hardcoded secrets in env |
+| - | No legacy basic roles (Owner/Editor/Viewer) for users (hardening; re-map to the current CIS GCP IAM controls) | High | Replace with fine-grained IAM roles |
+| 1.5 | No service accounts with admin or primitive privileges | Critical | `gcloud iam service-accounts list` -> review roles |
+| 1.4 | No user-managed service account keys | High | Use Workload Identity Federation instead |
+| - | Restrict domain-restricted sharing (allowed policy member domains) (org policy; verify the CIS GCP v3.0 number) | High | `constraints/iam.allowedPolicyMemberDomains` |
+| 1.8 | Separation of duties for service accounts | Medium | Review SA key creators vs users |
+| 1.10 | Cloud KMS keys rotated within 90 days | High | Check (read-only): `gcloud kms keys describe KEY --keyring=KEYRING --location=LOCATION` shows `rotationPeriod`. Set: `gcloud kms keys update KEY --keyring=KEYRING --location=LOCATION --rotation-period=90d --next-rotation-time=TIMESTAMP` |
+| - | Pub/Sub subscriptions use authenticated HTTPS push endpoints (hardening; not a v3.0 control) | Low | Use authenticated push endpoints |
+| - | Secret Manager used for secrets, not env vars (hardening; not a v3.0 control) | High | Audit Cloud Run/Functions for hardcoded secrets in env |
 
 GCP IAM Policy Review:
 ```bash
@@ -288,8 +297,8 @@ gcloud projects get-iam-policy PROJECT_ID \
 | CIS Control | Check | Severity | Remediation |
 |---|---|---|---|
 | 2.1 | Cloud Audit Logs: admin activity enabled | Critical | Cannot be disabled: verify data access logs enabled |
-| 2.2 | Cloud Audit Logs: data access for all services | High | Data Access logs are off by default; enable them in the IAM audit config (Console: IAM & Admin -> Audit Logs, or `auditConfigs` in the project IAM policy). Listing sinks only shows routing, not whether these logs are produced |
-| 2.3 | Log sinks configured for all log entries | Medium | Create org-level sink to Cloud Storage/BigQuery |
+| 2.1 | Cloud Audit Logs: data access for all services | High | Except for BigQuery, Data Access audit logs are off by default; enable them in the IAM audit config (Console: IAM & Admin -> Audit Logs, or `auditConfigs` in the project IAM policy). Listing sinks only shows routing, not whether these logs are produced |
+| 2.2 | Log sinks configured for all log entries | Medium | Create org-level sink to Cloud Storage/BigQuery |
 | 2.4 | Log metric + alert for project ownership changes | High | Create log-based metric + alerting policy |
 | 2.5 | Log metric + alert for audit config changes | High | Monitor `SetIamPolicy` changes to audit log config |
 | 2.6 | Log metric + alert for custom role changes | Medium | Alert on `CreateRole`, `UpdateRole`, `DeleteRole` |
@@ -309,18 +318,18 @@ gcloud alpha monitoring policies create --policy-from-file=alerting_policy.json
 
 | CIS Control | Check | Severity | Remediation |
 |---|---|---|---|
-| 4.1 | Project-wide SSH keys not used | High | Use instance-level keys or OS Login instead |
-| 4.2 | Instances not open to internet on port 22/3389 | Critical | Firewall rule audit; use IAP for SSH/RDP instead |
-| 4.3 | OS Login enabled | Medium | `gcloud compute project-info add-metadata --metadata enable-oslogin=TRUE` |
-| 4.4 | Block project-wide SSH keys on instances | Medium | `--metadata block-project-ssh-keys=TRUE` |
-| 4.5 | Shielded VM enabled (Secure Boot, vTPM, Integrity Monitoring) | Medium | `--shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring` |
-| 4.6 | Compute default service account not used | High | Create custom SA with minimum permissions per workload |
-| 4.7 | VM serial port access disabled | Low | `gcloud compute instances add-metadata INSTANCE --metadata serial-port-enable=false` |
-| 4.8 | Disk encryption with CMEK | Medium | Use customer-managed encryption keys |
+| 4.3 | Project-wide SSH keys not used | High | Use instance-level keys or OS Login instead |
+| 3.6, 3.7 | Instances not open to internet on port 22/3389 | Critical | Firewall rule audit; use IAP for SSH/RDP instead |
+| 4.4 | OS Login enabled | Medium | `gcloud compute project-info add-metadata --metadata enable-oslogin=TRUE` |
+| 4.3 | Block project-wide SSH keys on instances | Medium | `--metadata block-project-ssh-keys=TRUE` |
+| 4.8 | Shielded VM enabled (Secure Boot, vTPM, Integrity Monitoring) | Medium | `--shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring` |
+| 4.1 | Compute default service account not used | High | Create custom SA with minimum permissions per workload |
+| 4.5 | VM serial port access disabled | Low | `gcloud compute instances add-metadata INSTANCE --metadata serial-port-enable=false` |
+| 4.7 | Disk encryption with CSEK/CMEK | Medium | Use customer-supplied or customer-managed encryption keys |
 
 ```bash
 # Find instances using the default compute service account
-# (its email is PROJECT_NUMBER-compute@developer.gserviceaccount.com; the ":" filter matches that suffix)
+# (its email is PROJECT_NUMBER-compute@developer.gserviceaccount.com; the ":" filter matches any email containing that text -- see `gcloud topic filters`)
 gcloud compute instances list --format="table(name,serviceAccounts[].email)" \
   --filter="serviceAccounts.email:compute@developer.gserviceaccount.com"
 
@@ -343,7 +352,7 @@ Cloud Security Posture Management tools continuously check cloud environments ag
 | Prisma Cloud | AWS, Azure, GCP, OCI | Commercial | Comprehensive: CSPM + CWPP + CIEM + CNAPP |
 | Lacework FortiCNAPP | AWS, Azure, GCP | Commercial | Behavioral anomaly detection, polygraph visualization (acquired by Fortinet 2024; now FortiCNAPP) |
 | Aqua Security | AWS, Azure, GCP | Commercial | CNAPP focused on containers and Kubernetes |
-| Prowler | AWS | Open-source | CIS Benchmark checks; 900+ controls; CLI and web |
+| Prowler | AWS, Azure, GCP, K8s, M365, GitHub, OCI | Open-source | CIS Benchmark and other compliance checks (hundreds per provider); CLI and web |
 | ScoutSuite | AWS, Azure, GCP | Open-source | Multi-cloud security audit; Python-based |
 | CloudSploit | AWS, Azure, GCP | Open-source (Aqua OSS) | Automated vulnerability scanning |
 | Steampipe | AWS, Azure, GCP | Open-source | SQL queries over cloud APIs; CIS Benchmark mods |
@@ -354,7 +363,7 @@ Prowler Example:
 pip install prowler
 
 # Run CIS Benchmark for AWS
-prowler aws --compliance cis_2.0_aws
+prowler aws --compliance cis_3.0_aws
 
 # Run specific check
 prowler aws --check iam_root_mfa_enabled

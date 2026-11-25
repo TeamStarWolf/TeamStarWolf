@@ -42,7 +42,7 @@ You inherit or stand up a cloud account and need to harden it fast, an audit ask
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last corrected</th><td>
 
-2026-09-29, notes added on the current CIS AWS, Azure and GCP benchmark releases; Lacework renamed FortiCNAPP ([#62](https://github.com/TeamStarWolf/TeamStarWolf/pull/62))
+2026-11-24, CIS AWS/Azure/GCP benchmark versions refreshed to v7.1.0/v7.0.0/v5.0.1, AWS IAM control IDs renumbered to v3.0.0, and CloudTrail, Defender, KMS and audit-log commands corrected ([#417](https://github.com/TeamStarWolf/TeamStarWolf/pull/417))
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Last reviewed</th><td>

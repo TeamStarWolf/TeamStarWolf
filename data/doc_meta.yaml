@@ -117,6 +117,10 @@ corrections:
     date: "2026-11-04"
     pr: 175
     what: "version, date and count claims checked against their primary sources and corrected"
+  pr417-cloud-benchmark-accuracy:
+    date: "2026-11-24"
+    pr: 417
+    what: "CIS benchmark versions, cloud CLI commands and control IDs checked against their primary sources and corrected"
 reviews: {}
 pages:
   ACTIVE_DIRECTORY_ATTACKS.md:
@@ -398,8 +402,8 @@ pages:
     start_at: "[Cloud Security Quickstart Checklist](#cloud-security-quickstart-checklist), [AWS CIS Benchmark (v3.0; current release v7.1.0)](#aws-cis-benchmark-v30), [CSPM Tool Reference](#cspm-tool-reference)"
     pairs_with: "[Cloud Attack Reference](CLOUD_ATTACK_REFERENCE.md), [Cloud Security Discipline](disciplines/cloud-security.md), [Frameworks Reference](FRAMEWORKS.md), [Controls Mapping](CONTROLS_MAPPING.md)"
     learning_path: []
-    corrected: "pr62-names-and-versions"
-    corrected_what: "notes added on the current CIS AWS, Azure and GCP benchmark releases; Lacework renamed FortiCNAPP"
+    corrected: "pr417-cloud-benchmark-accuracy"
+    corrected_what: "CIS AWS/Azure/GCP benchmark versions refreshed to v7.1.0/v7.0.0/v5.0.1, AWS IAM control IDs renumbered to v3.0.0, and CloudTrail, Defender, KMS and audit-log commands corrected"
     reviewed: null
   CLOUD_SECURITY_REFERENCE.md:
     audience: "Cloud security engineers and cloud penetration testers"

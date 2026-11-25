@@ -124,18 +124,18 @@
       {
         "platform": "microsoft",
         "title": "M365 Defender: Rare logon location for account",
-        "description": "Identifies sign-ins from countries the account has not used in 30 days.",
-        "dataSource": "AADSignInEventsBeta",
+        "description": "A successful sign-in from a country the account did not use in the prior 30 days; the baseline and evaluation windows are disjoint so today's country cannot seed its own history, and new accounts are not flagged. Triage signal.",
+        "dataSource": "EntraIdSignInEvents",
         "confidence": "medium",
-        "query": "let known = AADSignInEventsBeta\n  | where Timestamp > ago(30d) and ErrorCode == 0\n  | summarize KnownCountries = make_set(Country) by AccountUpn;\nAADSignInEventsBeta\n| where Timestamp > ago(1d) and ErrorCode == 0\n| join kind=inner known on AccountUpn\n| where Country !in (KnownCountries)\n| project Timestamp, AccountUpn, Country, IPAddress, Application"
+        "query": "let eval_start = ago(1d);\nlet known =\n    EntraIdSignInEvents\n    | where Timestamp between (ago(30d) .. eval_start) and ErrorCode == 0 and isnotempty(Country)\n    | summarize KnownCountries = make_set(Country) by AccountUpn;\nEntraIdSignInEvents\n| where Timestamp > eval_start and ErrorCode == 0 and isnotempty(Country)\n| join kind=inner known on AccountUpn\n| where not(set_has_element(KnownCountries, Country))\n| project Timestamp, AccountUpn, Country, IPAddress, Application"
       },
       {
         "platform": "chronicle",
-        "title": "Chronicle: Impossible travel (UDM)",
-        "description": "YARA-L impossible-travel detection between two successful auth events.",
+        "title": "Chronicle: Different-country successful sign-ins",
+        "description": "Two successful sign-ins for one account from different countries within an hour; a triage signal, not a travel-feasibility calculation.",
         "dataSource": "UDM USER_LOGIN",
         "confidence": "medium",
-        "query": "rule t1078_impossible_travel {\n  meta:\n    mitre_attack = \"T1078\"\n    severity = \"MEDIUM\"\n  events:\n    $a.metadata.event_type = \"USER_LOGIN\"\n    $b.metadata.event_type = \"USER_LOGIN\"\n    $a.principal.user.userid = $b.principal.user.userid\n    $a.principal.location.country_or_region != $b.principal.location.country_or_region\n  match:\n    $a.principal.user.userid over 1h\n  condition:\n    #a >= 1 and #b >= 1\n}"
+        "query": "rule t1078_different_country_logins {\n  meta:\n    mitre_attack = \"T1078\"\n    severity = \"MEDIUM\"\n  events:\n    $a.metadata.event_type = \"USER_LOGIN\"\n    $a.security_result.action = \"ALLOW\"\n    $b.metadata.event_type = \"USER_LOGIN\"\n    $b.security_result.action = \"ALLOW\"\n    $a.principal.user.userid = $b.principal.user.userid\n    $a.principal.location.country_or_region != $b.principal.location.country_or_region\n  match:\n    $a.principal.user.userid over 1h\n  condition:\n    #a >= 1 and #b >= 1\n}"
       },
       {
         "platform": "crowdstrike",
@@ -169,7 +169,7 @@
         "description": "Hunt for high write volume with rename activity on a single device.",
         "dataSource": "DeviceFileEvents",
         "confidence": "high",
-        "query": "DeviceFileEvents\n| where ActionType in (\"FileCreated\", \"FileRenamed\")\n| where Timestamp > ago(1h)\n| extend Ext = tostring(split(FileName, \".\")[-1])\n| where Ext in~ (\"crypt\",\"locked\",\"enc\",\"encrypted\",\"locky\",\"wcry\",\"wncry\",\"ryk\",\"conti\")\n| summarize Files = dcount(FolderPath), Extensions = make_set(Ext) by DeviceName, bin(Timestamp, 5m)\n| where Files > 100"
+        "query": "DeviceFileEvents\n| where ActionType in (\"FileCreated\", \"FileRenamed\")\n| where Timestamp > ago(1h)\n| extend Ext = tostring(split(FileName, \".\")[-1])\n| where Ext in~ (\"crypt\",\"locked\",\"enc\",\"encrypted\",\"locky\",\"wcry\",\"wncry\",\"ryk\",\"conti\")\n| summarize Files = dcount(tostring(pack_array(FolderPath, FileName))), Extensions = make_set(Ext) by DeviceName, bin(Timestamp, 5m)\n| where Files > 100"
       },
       {
         "platform": "chronicle",
@@ -250,10 +250,10 @@
       {
         "platform": "microsoft",
         "title": "M365: Failed sign-ins followed by success (cloud or AD)",
-        "description": "Identifies password-spray followed by valid logon.",
-        "dataSource": "AADSignInEventsBeta or IdentityLogonEvents",
+        "description": "A burst of failed sign-ins for one account and source IP followed by a success after the last failure within 10 minutes (credential stuffing / brute force on a single account and source, not a distributed spray); the join requires the success to follow the failures.",
+        "dataSource": "EntraIdSignInEvents (IdentityLogonEvents for on-prem AD, different schema)",
         "confidence": "high",
-        "query": "let fails = AADSignInEventsBeta\n  | where Timestamp > ago(1h) and ErrorCode != 0\n  | summarize Failures = count() by AccountUpn, IPAddress, bin(Timestamp, 10m)\n  | where Failures >= 10;\nAADSignInEventsBeta\n| where Timestamp > ago(1h) and ErrorCode == 0\n| join kind=inner fails on AccountUpn, IPAddress\n| project Timestamp, AccountUpn, IPAddress, Country, Failures"
+        "query": "let fails =\n    EntraIdSignInEvents\n    | where Timestamp > ago(1h) and ErrorCode != 0\n    | summarize Failures = count(), LastFailure = max(Timestamp) by AccountUpn, IPAddress, bin(Timestamp, 10m)\n    | where Failures >= 10;\nEntraIdSignInEvents\n| where Timestamp > ago(1h) and ErrorCode == 0\n| join kind=inner fails on AccountUpn, IPAddress\n| where Timestamp > LastFailure and Timestamp <= LastFailure + 10m\n| project SuccessTime = Timestamp, AccountUpn, IPAddress, Country, Failures, LastFailure"
       },
       {
         "platform": "chronicle",

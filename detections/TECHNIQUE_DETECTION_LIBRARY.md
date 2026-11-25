@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 11 min (2,598 words at 230 words a minute)
+About 13 min (2,911 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -59,12 +59,12 @@ Machine-readable source: [`detections/technique-queries.json`](https://github.co
 
 1. Pick the technique you are hunting or building coverage for (see the index below).
 2. Copy the query for your platform and adapt field names/indexes to your environment: these are starting points seeded from community detection projects, not drop-in production rules. Validate against your own data model and tune out benign activity before deploying.
-3. Exercise the detection safely with the matching [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team) test for the technique, then confirm the alert fires.
-4. Close the loop: check the NIST 800-53 controls listed for the technique against your control stack using the [control-depth coverage layer](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/teamstarwolf_vendor_coverage.json) and [edge tables](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data).
+3. Validate the rule before deploying: use documented synthetic event fixtures, or, where one exists, the matching [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team) test run in an approved, isolated exercise (not every technique has a matching test). Confirm both that the expected event reaches the right data source and that it produces the intended alert.
+4. Close the loop: the NIST 800-53 Rev 5 controls listed per technique are the *candidate* controls mapped to it - a reference relationship from the library's ATT&CK-to-800-53 control-rollup data, not evidence that a control mitigates the technique in your deployment. Check them against your control stack using the [control-depth coverage layer](https://github.com/TeamStarWolf/TeamStarWolf/blob/main/navigator/teamstarwolf_vendor_coverage.json) and [edge tables](https://github.com/TeamStarWolf/TeamStarWolf/tree/main/data).
 
 ### Provenance & attribution
 
-These analytics are seeded and adapted from open community detection sources. Consult the upstream projects for canonical, maintained rules and their licenses:
+These analytics are original example rules written for this library, informed by the detection approaches of the open community projects below rather than ported from specific upstream rules; treat them as hypotheses to validate, not maintained signatures. Where you adapt one from a specific upstream rule, record that rule's ID, a link to its source at a fixed revision, its license and your local changes. For canonical, maintained, individually licensed rules, consult the upstream projects directly:
 
 - [SigmaHQ/sigma](https://github.com/SigmaHQ/sigma)
 - [splunk/security_content](https://github.com/splunk/security_content)
@@ -99,7 +99,7 @@ These analytics are seeded and adapted from open community detection sources. Co
 
 Tactic(s): Credential Access  
 ATT&CK: [T1003.001](https://attack.mitre.org/techniques/T1003/001/)  
-Mitigating NIST 800-53 R5 controls (19): `AC-2`, `AC-3`, `AC-4`, `AC-5`, `AC-6`, `CA-7`, `CM-2`, `CM-5`, `CM-6`, `CM-7`, `IA-2`, `IA-5`, `SC-28`, `SC-3`, `SC-39`, `SI-16` (+3 more)  
+Candidate NIST 800-53 R5 controls mapped to this technique (19): `AC-2`, `AC-3`, `AC-4`, `AC-5`, `AC-6`, `CA-7`, `CM-2`, `CM-5`, `CM-6`, `CM-7`, `IA-2`, `IA-5`, `SC-28`, `SC-3`, `SC-39`, `SI-16` (+3 more)  
 Validate with: [Atomic Red Team, T1003.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1003.001)
 
 ### Splunk (SPL): LSASS process access from non-system parent
@@ -278,7 +278,7 @@ rule t1018_remote_system_discovery {
 
 Tactic(s): Lateral Movement  
 ATT&CK: [T1021.001](https://attack.mitre.org/techniques/T1021/001/)  
-Mitigating NIST 800-53 R5 controls (23): `AC-11`, `AC-12`, `AC-17`, `AC-2`, `AC-20`, `AC-3`, `AC-4`, `AC-5`, `AC-6`, `AC-7`, `CM-2`, `CM-5`, `CM-6`, `CM-7`, `CM-8`, `IA-2` (+7 more)  
+Candidate NIST 800-53 R5 controls mapped to this technique (23): `AC-11`, `AC-12`, `AC-17`, `AC-2`, `AC-20`, `AC-3`, `AC-4`, `AC-5`, `AC-6`, `AC-7`, `CM-2`, `CM-5`, `CM-6`, `CM-7`, `CM-8`, `IA-2` (+7 more)  
 Validate with: [Atomic Red Team, T1021.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1021.001)
 
 ### Splunk (SPL): RDP successful logon from unusual source
@@ -354,7 +354,7 @@ rule t1021_001_rdp_logon {
 
 Tactic(s): Defense Evasion  
 ATT&CK: [T1027](https://attack.mitre.org/techniques/T1027/)  
-Mitigating NIST 800-53 R5 controls (8): `AC-3`, `CM-2`, `CM-6`, `CM-7`, `SI-2`, `SI-3`, `SI-4`, `SI-7`  
+Candidate NIST 800-53 R5 controls mapped to this technique (8): `AC-3`, `CM-2`, `CM-6`, `CM-7`, `SI-2`, `SI-3`, `SI-4`, `SI-7`  
 Validate with: [Atomic Red Team, T1027](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1027)
 
 ### Splunk (SPL): Suspicious base64 / obfuscated cmdline
@@ -431,7 +431,7 @@ rule t1027_encoded_payload {
 
 Tactic(s): Execution, Persistence, Privilege Escalation  
 ATT&CK: [T1053.005](https://attack.mitre.org/techniques/T1053/005/)  
-Mitigating NIST 800-53 R5 controls (13): `AC-2`, `AC-3`, `AC-5`, `AC-6`, `CM-2`, `CM-5`, `CM-6`, `CM-7`, `CM-8`, `IA-2`, `IA-4`, `RA-5`, `SI-4`  
+Candidate NIST 800-53 R5 controls mapped to this technique (13): `AC-2`, `AC-3`, `AC-5`, `AC-6`, `CM-2`, `CM-5`, `CM-6`, `CM-7`, `CM-8`, `IA-2`, `IA-4`, `RA-5`, `SI-4`  
 Validate with: [Atomic Red Team, T1053.005](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1053.005)
 
 ### Splunk (SPL): Scheduled task created with suspicious payload
@@ -511,7 +511,7 @@ rule t1053_005_schtasks_create {
 
 Tactic(s): Defense Evasion, Privilege Escalation  
 ATT&CK: [T1055](https://attack.mitre.org/techniques/T1055/)  
-Mitigating NIST 800-53 R5 controls (12): `AC-2`, `AC-3`, `AC-5`, `AC-6`, `CM-5`, `CM-6`, `IA-2`, `SC-18`, `SC-7`, `SI-2`, `SI-3`, `SI-4`  
+Candidate NIST 800-53 R5 controls mapped to this technique (12): `AC-2`, `AC-3`, `AC-5`, `AC-6`, `CM-5`, `CM-6`, `IA-2`, `SC-18`, `SC-7`, `SI-2`, `SI-3`, `SI-4`  
 Validate with: [Atomic Red Team, T1055](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1055)
 
 ### Splunk (SPL): CreateRemoteThread / WriteProcessMemory pattern
@@ -588,7 +588,7 @@ rule t1055_process_injection {
 
 Tactic(s): Execution  
 ATT&CK: [T1059.001](https://attack.mitre.org/techniques/T1059/001/)  
-Mitigating NIST 800-53 R5 controls (19): `AC-17`, `AC-2`, `AC-3`, `AC-5`, `AC-6`, `CM-2`, `CM-5`, `CM-6`, `CM-8`, `IA-2`, `IA-8`, `IA-9`, `RA-5`, `SI-10`, `SI-16`, `SI-2` (+3 more)  
+Candidate NIST 800-53 R5 controls mapped to this technique (19): `AC-17`, `AC-2`, `AC-3`, `AC-5`, `AC-6`, `CM-2`, `CM-5`, `CM-6`, `CM-8`, `IA-2`, `IA-8`, `IA-9`, `RA-5`, `SI-10`, `SI-16`, `SI-2` (+3 more)  
 Validate with: [Atomic Red Team, T1059.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1059.001)
 
 ### Splunk (SPL): PowerShell encoded command execution
@@ -673,7 +673,7 @@ rule t1059_001_powershell_encoded {
 
 Tactic(s): Defense Evasion, Persistence, Privilege Escalation, Initial Access  
 ATT&CK: [T1078](https://attack.mitre.org/techniques/T1078/)  
-Mitigating NIST 800-53 R5 controls (25): `AC-2`, `AC-3`, `AC-5`, `AC-6`, `CA-3`, `CA-7`, `CM-5`, `CM-6`, `CM-7`, `IA-12`, `IA-13`, `IA-2`, `IA-5`, `RA-5`, `SA-10`, `SA-11` (+9 more)  
+Candidate NIST 800-53 R5 controls mapped to this technique (25): `AC-2`, `AC-3`, `AC-5`, `AC-6`, `CA-3`, `CA-7`, `CM-5`, `CM-6`, `CM-7`, `IA-12`, `IA-13`, `IA-2`, `IA-5`, `RA-5`, `SA-10`, `SA-11` (+9 more)  
 Validate with: Atomic Red Team, T1078 sub-techniques (no parent-level test directory): [T1078.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1078.001), [T1078.003](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1078.003), [T1078.004](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1078.004)
 
 ### Splunk (SPL): Suspicious successful logon (first time on host)
@@ -704,35 +704,39 @@ authentication where event.action == "logged-in" and
 
 ### Microsoft Defender / Sentinel (KQL): Rare logon location for account
 
-- Data source: AADSignInEventsBeta
+- Data source: EntraIdSignInEvents (Microsoft Defender XDR; AADSignInEventsBeta is deprecated and auto-migrates to EntraIdSignInEvents, per Microsoft, on 19 October 2026). On a Sentinel workspace with the Microsoft Entra connector, use SigninLogs and map the fields (TimeGenerated, ResultType, UserPrincipalName, Location, IPAddress, AppDisplayName).
 - Confidence: `medium`
-- Logic: Identifies sign-ins from countries the account has not used in 30 days.
+- Logic: A successful sign-in from a country the account did not use in the prior 30 days. The baseline and evaluation windows are disjoint, so today's country cannot seed its own history, and new or no-history accounts are not flagged. Triage signal, not a confirmed compromise.
 
 ```kql
-let known = AADSignInEventsBeta
-  | where Timestamp > ago(30d) and ErrorCode == 0
-  | summarize KnownCountries = make_set(Country) by AccountUpn;
-AADSignInEventsBeta
-| where Timestamp > ago(1d) and ErrorCode == 0
+let eval_start = ago(1d);
+let known =
+    EntraIdSignInEvents
+    | where Timestamp between (ago(30d) .. eval_start) and ErrorCode == 0 and isnotempty(Country)
+    | summarize KnownCountries = make_set(Country) by AccountUpn;
+EntraIdSignInEvents
+| where Timestamp > eval_start and ErrorCode == 0 and isnotempty(Country)
 | join kind=inner known on AccountUpn
-| where Country !in (KnownCountries)
+| where not(set_has_element(KnownCountries, Country))
 | project Timestamp, AccountUpn, Country, IPAddress, Application
 ```
 
-### Google SecOps / Chronicle (YARA-L / UDM): Impossible travel (UDM)
+### Google SecOps / Chronicle (YARA-L / UDM): Different-country successful sign-ins
 
 - Data source: UDM USER_LOGIN
 - Confidence: `medium`
-- Logic: YARA-L impossible-travel detection between two successful auth events.
+- Logic: Two *successful* sign-ins for one account from different countries within an hour. A triage signal, not a travel-feasibility (speed/distance) calculation.
 
 ```yara
-rule t1078_impossible_travel {
+rule t1078_different_country_logins {
   meta:
     mitre_attack = "T1078"
     severity = "MEDIUM"
   events:
     $a.metadata.event_type = "USER_LOGIN"
+    $a.security_result.action = "ALLOW"
     $b.metadata.event_type = "USER_LOGIN"
+    $b.security_result.action = "ALLOW"
     $a.principal.user.userid = $b.principal.user.userid
     $a.principal.location.country_or_region != $b.principal.location.country_or_region
   match:
@@ -761,7 +765,7 @@ rule t1078_impossible_travel {
 
 Tactic(s): Credential Access  
 ATT&CK: [T1110](https://attack.mitre.org/techniques/T1110/)  
-Mitigating NIST 800-53 R5 controls (14): `AC-2`, `AC-20`, `AC-3`, `AC-5`, `AC-6`, `AC-7`, `CA-7`, `CM-2`, `CM-6`, `IA-11`, `IA-2`, `IA-4`, `IA-5`, `SI-4`  
+Candidate NIST 800-53 R5 controls mapped to this technique (14): `AC-2`, `AC-20`, `AC-3`, `AC-5`, `AC-6`, `AC-7`, `CA-7`, `CM-2`, `CM-6`, `IA-11`, `IA-2`, `IA-4`, `IA-5`, `SI-4`  
 Validate with: Atomic Red Team, T1110 sub-techniques (no parent-level test directory): [T1110.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1110.001), [T1110.002](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1110.002), [T1110.003](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1110.003), [T1110.004](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1110.004)
 
 ### Splunk (SPL): Brute force (high-volume failed logons followed by success)
@@ -793,19 +797,21 @@ sequence by source.ip with maxspan=5m
 
 ### Microsoft Defender / Sentinel (KQL): Failed sign-ins followed by success (cloud or AD)
 
-- Data source: AADSignInEventsBeta or IdentityLogonEvents
+- Data source: EntraIdSignInEvents (Microsoft Defender XDR; AADSignInEventsBeta is deprecated and auto-migrates to EntraIdSignInEvents). For on-prem AD, IdentityLogonEvents has a different schema - map its ActionType, AccountName and DeviceName fields before reusing this logic.
 - Confidence: `high`
-- Logic: Identifies password-spray followed by valid logon.
+- Logic: A burst of failed sign-ins for one account and source IP, followed by a success that occurs after the last failure within 10 minutes (credential stuffing / brute force against a single account and source, not a distributed spray). The join requires the success to be chronologically after the failures.
 
 ```kql
-let fails = AADSignInEventsBeta
-  | where Timestamp > ago(1h) and ErrorCode != 0
-  | summarize Failures = count() by AccountUpn, IPAddress, bin(Timestamp, 10m)
-  | where Failures >= 10;
-AADSignInEventsBeta
+let fails =
+    EntraIdSignInEvents
+    | where Timestamp > ago(1h) and ErrorCode != 0
+    | summarize Failures = count(), LastFailure = max(Timestamp) by AccountUpn, IPAddress, bin(Timestamp, 10m)
+    | where Failures >= 10;
+EntraIdSignInEvents
 | where Timestamp > ago(1h) and ErrorCode == 0
 | join kind=inner fails on AccountUpn, IPAddress
-| project Timestamp, AccountUpn, IPAddress, Country, Failures
+| where Timestamp > LastFailure and Timestamp <= LastFailure + 10m
+| project SuccessTime = Timestamp, AccountUpn, IPAddress, Country, Failures, LastFailure
 ```
 
 ### Google SecOps / Chronicle (YARA-L / UDM): Brute force success
@@ -855,7 +861,7 @@ rule t1110_brute_force {
 
 Tactic(s): Initial Access  
 ATT&CK: [T1190](https://attack.mitre.org/techniques/T1190/)  
-Mitigating NIST 800-53 R5 controls (29): `AC-2`, `AC-3`, `AC-4`, `AC-5`, `AC-6`, `CA-2`, `CA-7`, `CM-5`, `CM-6`, `CM-7`, `CM-8`, `IA-2`, `IA-8`, `RA-10`, `RA-5`, `SA-8` (+13 more)  
+Candidate NIST 800-53 R5 controls mapped to this technique (29): `AC-2`, `AC-3`, `AC-4`, `AC-5`, `AC-6`, `CA-2`, `CA-7`, `CM-5`, `CM-6`, `CM-7`, `CM-8`, `IA-2`, `IA-8`, `RA-10`, `RA-5`, `SA-8` (+13 more)  
 Validate with: Atomic Red Team has no T1190 test (listed as "contribute a test" in its [technique index](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/Indexes/Indexes-Markdown/index.md), checked 2026-10-13)
 
 ### Splunk (SPL): Public-facing app exploit attempts in web logs
@@ -939,7 +945,7 @@ rule t1190_web_exploit {
 
 Tactic(s): Impact  
 ATT&CK: [T1486](https://attack.mitre.org/techniques/T1486/)  
-Mitigating NIST 800-53 R5 controls (11): `AC-3`, `AC-6`, `CM-2`, `CP-10`, `CP-2`, `CP-6`, `CP-7`, `CP-9`, `SI-3`, `SI-4`, `SI-7`  
+Candidate NIST 800-53 R5 controls mapped to this technique (11): `AC-3`, `AC-6`, `CM-2`, `CP-10`, `CP-2`, `CP-6`, `CP-7`, `CP-9`, `SI-3`, `SI-4`, `SI-7`  
 Validate with: [Atomic Red Team, T1486](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1486)
 
 ### Splunk (SPL): Mass file modification + extension change (ransomware indicator)
@@ -981,7 +987,7 @@ DeviceFileEvents
 | where Timestamp > ago(1h)
 | extend Ext = tostring(split(FileName, ".")[-1])
 | where Ext in~ ("crypt","locked","enc","encrypted","locky","wcry","wncry","ryk","conti")
-| summarize Files = dcount(FolderPath), Extensions = make_set(Ext) by DeviceName, bin(Timestamp, 5m)
+| summarize Files = dcount(tostring(pack_array(FolderPath, FileName))), Extensions = make_set(Ext) by DeviceName, bin(Timestamp, 5m)
 | where Files > 100
 ```
 
@@ -1105,7 +1111,7 @@ rule t1547_001_run_key {
 
 Tactic(s): Initial Access  
 ATT&CK: [T1566.001](https://attack.mitre.org/techniques/T1566/001/)  
-Mitigating NIST 800-53 R5 controls (12): `AC-4`, `CA-7`, `CM-2`, `CM-6`, `IA-9`, `SC-20`, `SC-44`, `SC-7`, `SI-2`, `SI-3`, `SI-4`, `SI-8`  
+Candidate NIST 800-53 R5 controls mapped to this technique (12): `AC-4`, `CA-7`, `CM-2`, `CM-6`, `IA-9`, `SC-20`, `SC-44`, `SC-7`, `SI-2`, `SI-3`, `SI-4`, `SI-8`  
 Validate with: [Atomic Red Team, T1566.001](https://github.com/redcanaryco/atomic-red-team/tree/master/atomics/T1566.001)
 
 ### Splunk (SPL): Spearphishing attachment (email gateway → endpoint execution)

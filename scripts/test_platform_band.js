@@ -67,38 +67,44 @@ function matchSimpleClosestFix() {}  // closest uses matchSimple via '.' prefix 
 
 function ev(type, extra) { return Object.assign({ type, preventDefault() {}, stopPropagation() {} }, extra || {}); }
 
-// ----- build the generated markup: two top-level items, the 2nd (Bookmarks) nested -----
+// ----- build the generated markup: a plain item A, and Bookmarks nested THREE levels
+// (item > panel > category > fly-out > subsection > fly-out > external leaves) -----
 function el(tag, cls, text) { const e = new El(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
 function buildBar() {
   const bar = el('div', 'tsw-bar');
   const ul = el('ul', 'tsw-bar__list'); bar.appendChild(ul);
-  function item(label, withGroup) {
+  function topItem(label) {
     const li = el('li', 'tsw-bar__item');
     li.appendChild(el('a', 'tsw-bar__link', label));
     li.appendChild(el('button', 'tsw-bar__toggle'));
     const panel = el('div', 'tsw-bar__panel'); li.appendChild(panel);
-    if (withGroup) {
-      const g = el('div', 'tsw-bar__group'); panel.appendChild(g);
-      g.appendChild(el('a', 'tsw-bar__mlink tsw-bar__mlink--parent', 'Vuln mgmt'));
-      g.appendChild(el('button', 'tsw-bar__caret'));
-      const fly = el('div', 'tsw-bar__flyout'); g.appendChild(fly);
-      fly.appendChild(el('a', 'tsw-bar__mlink', 'CVE databases'));
-      const g2 = el('div', 'tsw-bar__group'); panel.appendChild(g2);
-      g2.appendChild(el('a', 'tsw-bar__mlink tsw-bar__mlink--parent', 'Advisories'));
-      g2.appendChild(el('button', 'tsw-bar__caret'));
-      g2.appendChild(el('div', 'tsw-bar__flyout'));
-    } else {
-      panel.appendChild(el('a', 'tsw-bar__mlink', 'Front page'));
-    }
-    ul.appendChild(li); return li;
+    ul.appendChild(li); return { li, panel };
   }
-  return { bar, a: item('A', false), b: item('Bookmarks', true) };
+  function group(label) {
+    const g = el('div', 'tsw-bar__group');
+    g.appendChild(el('a', 'tsw-bar__mlink tsw-bar__mlink--parent', label));
+    g.appendChild(el('button', 'tsw-bar__caret'));
+    const fly = el('div', 'tsw-bar__flyout'); g.appendChild(fly);
+    return { g, fly };
+  }
+  function leaf(label, ext) { return el('a', ext ? 'tsw-bar__mlink tsw-bar__mlink--ext' : 'tsw-bar__mlink', label); }
+
+  const A = topItem('A'); A.panel.appendChild(leaf('Front page', false));
+  const B = topItem('Bookmarks');
+  const cat1 = group('Cat1'); B.panel.appendChild(cat1.g);
+  const sub1 = group('Sub1'); cat1.fly.appendChild(sub1.g);          // third level
+  sub1.fly.appendChild(leaf('NVD', true)); sub1.fly.appendChild(leaf('OWASP', true));
+  cat1.fly.appendChild(leaf('Direct leaf', false));
+  const cat2 = group('Cat2'); B.panel.appendChild(cat2.g);
+  cat2.fly.appendChild(leaf('Other', true));
+  return { bar, a: A.li, b: B.li, cat1: cat1.g, sub1: sub1.g, cat2: cat2.g };
 }
 
 function fakeWin(opts) {
   const timers = [];
   return {
     innerWidth: opts.innerWidth,
+    innerHeight: opts.innerHeight || 1000,
     matchMedia: (q) => ({ matches: q.indexOf('max-width') >= 0 ? !!opts.narrow : !!opts.fine }),
     setTimeout: (fn) => { timers.push(fn); return timers.length; },
     clearTimeout: () => {},
@@ -106,6 +112,7 @@ function fakeWin(opts) {
   };
 }
 const fakeDoc = { createElement: (t) => new El(t), addEventListener() {} };
+function fits(g) { g.querySelector(':scope > .tsw-bar__flyout')._rect = { left: 200, right: 420, top: 100, bottom: 300 }; }
 
 let ran = 0;
 function test(name, fn) { fn(); ran++; }
@@ -126,47 +133,70 @@ test('hover opens, single-open, 220ms close', () => {
   assert.ok(!b.classList.contains('tsw-open'), 'closed after the timer');
 });
 
-// side fly-out, edge-flip, one fly-out at a time
-test('fly-out opens, flips at the right edge, one at a time', () => {
-  const { bar, b } = buildBar();
+// three levels: a subsection opens WITHOUT closing its category; a second category closes the first
+test('three levels: nested open keeps the ancestor, siblings close', () => {
+  const { bar, cat1, sub1, cat2 } = buildBar();
   const win = fakeWin({ fine: true, narrow: false, innerWidth: 1280 });
   wireTswBand(bar, win, fakeDoc);
-  const groups = b.querySelectorAll('.tsw-bar__group');
-  const g1 = groups[0], g2 = groups[1];
-  g1.querySelector(':scope > .tsw-bar__flyout')._rect = { left: 600, right: 850 };  // fits in 1280
-  g1.dispatchEvent(ev('mouseenter'));
-  assert.ok(g1.classList.contains('tsw-open') && !g1.classList.contains('tsw-flip'), 'opens right when it fits');
-  g2.querySelector(':scope > .tsw-bar__flyout')._rect = { left: 1100, right: 1340 };  // overflows 1280
-  g2.dispatchEvent(ev('mouseenter'));
-  assert.ok(g2.classList.contains('tsw-flip'), 'flips left near the right edge');
-  assert.ok(!g1.classList.contains('tsw-open'), 'opening a second fly-out closes the first');
+  [cat1, sub1, cat2].forEach(fits);
+  cat1.dispatchEvent(ev('mouseenter'));
+  sub1.dispatchEvent(ev('mouseenter'));
+  assert.ok(cat1.classList.contains('tsw-open'), 'the category stays open while its subsection opens');
+  assert.ok(sub1.classList.contains('tsw-open'), 'the subsection (third level) opens');
+  cat2.dispatchEvent(ev('mouseenter'));
+  assert.ok(cat2.classList.contains('tsw-open'), 'the sibling category opens');
+  assert.ok(!cat1.classList.contains('tsw-open') && !sub1.classList.contains('tsw-open'),
+    'opening a sibling category closes the first category and its open subsection');
 });
 
-// keyboard: ArrowRight opens the fly-out, ArrowLeft closes it, Escape closes the panel
-test('keyboard: ArrowRight / ArrowLeft / Escape', () => {
-  const { bar, b } = buildBar();
+// per-level flip at the right edge, and vertical clamp (pull up) at the bottom
+test('fly-out flips at the right edge and clamps at the bottom, per level', () => {
+  const { bar, cat1, sub1 } = buildBar();
+  const win = fakeWin({ fine: true, narrow: false, innerWidth: 1280, innerHeight: 800 });
+  wireTswBand(bar, win, fakeDoc);
+  cat1.querySelector(':scope > .tsw-bar__flyout')._rect = { left: 300, right: 520, top: 80, bottom: 300 }; // fits
+  cat1.dispatchEvent(ev('mouseenter'));
+  assert.ok(cat1.classList.contains('tsw-open') && !cat1.classList.contains('tsw-flip'), 'category opens right when it fits');
+  sub1.querySelector(':scope > .tsw-bar__flyout')._rect = { left: 1100, right: 1360, top: 80, bottom: 900 }; // off right AND bottom
+  sub1.dispatchEvent(ev('mouseenter'));
+  assert.ok(sub1.classList.contains('tsw-flip'), 'the subsection flyout flips left near the right edge');
+  assert.ok(sub1.classList.contains('tsw-up'), 'the subsection flyout is pulled up when it would cross the bottom');
+  assert.ok(cat1.classList.contains('tsw-open'), 'flipping/clamping the subsection does not close the category');
+});
+
+// keyboard: ArrowRight opens, ArrowLeft closes, Escape walks back out deepest-first
+test('keyboard: ArrowRight / ArrowLeft / Escape deepest-first', () => {
+  const { bar, b, cat1, sub1 } = buildBar();
   const win = fakeWin({ fine: true, narrow: false, innerWidth: 1280 });
   wireTswBand(bar, win, fakeDoc);
-  const g1 = b.querySelector('.tsw-bar__group');
-  const parent = g1.querySelector('.tsw-bar__mlink--parent');
-  bar.dispatchEvent(ev('keydown', { key: 'ArrowRight', target: parent }));
-  assert.ok(g1.classList.contains('tsw-open'), 'ArrowRight opens the fly-out');
-  bar.dispatchEvent(ev('keydown', { key: 'ArrowLeft', target: g1.querySelector('.tsw-bar__caret') }));
-  assert.ok(!g1.classList.contains('tsw-open'), 'ArrowLeft closes the fly-out');
+  [cat1, sub1].forEach(fits);
   b.classList.add('tsw-open');
+  bar.dispatchEvent(ev('keydown', { key: 'ArrowRight', target: cat1.querySelector('.tsw-bar__mlink--parent') }));
+  assert.ok(cat1.classList.contains('tsw-open'), 'ArrowRight opens the category fly-out');
+  bar.dispatchEvent(ev('keydown', { key: 'ArrowRight', target: sub1.querySelector('.tsw-bar__mlink--parent') }));
+  assert.ok(sub1.classList.contains('tsw-open'), 'ArrowRight opens the subsection fly-out');
+  bar.dispatchEvent(ev('keydown', { key: 'Escape', target: sub1.querySelector(':scope > .tsw-bar__caret') }));
+  assert.ok(!sub1.classList.contains('tsw-open') && cat1.classList.contains('tsw-open'), 'Escape closes the subsection first');
+  bar.dispatchEvent(ev('keydown', { key: 'Escape', target: cat1.querySelector(':scope > .tsw-bar__caret') }));
+  assert.ok(!cat1.classList.contains('tsw-open'), 'Escape then closes the category');
   bar.dispatchEvent(ev('keydown', { key: 'Escape', target: b.querySelector(':scope > .tsw-bar__toggle') }));
-  assert.ok(!b.classList.contains('tsw-open'), 'Escape closes the open panel');
+  assert.ok(!b.classList.contains('tsw-open'), 'Escape then closes the panel');
+  bar.dispatchEvent(ev('keydown', { key: 'ArrowLeft', target: cat1.querySelector('.tsw-bar__mlink--parent') }));  // no throw when nothing open
 });
 
-// coarse pointer / phone: hover does nothing; the toggle button opens the accordion
-test('coarse pointer: buttons drive it, hover ignored', () => {
-  const { bar, a } = buildBar();
+// coarse pointer / phone: hover does nothing; buttons drive the accordion, nested caret keeps the category open
+test('coarse pointer: buttons drive the accordion', () => {
+  const { bar, a, cat1, sub1 } = buildBar();
   const win = fakeWin({ fine: false, narrow: true, innerWidth: 390 });
   wireTswBand(bar, win, fakeDoc);
   a.dispatchEvent(ev('mouseenter'));
   assert.ok(!a.classList.contains('tsw-open'), 'hover ignored on a coarse pointer');
   a.querySelector(':scope > .tsw-bar__toggle').dispatchEvent(ev('click'));
   assert.ok(a.classList.contains('tsw-open'), 'the toggle button opens the section');
+  cat1.querySelector(':scope > .tsw-bar__caret').dispatchEvent(ev('click'));
+  sub1.querySelector(':scope > .tsw-bar__caret').dispatchEvent(ev('click'));
+  assert.ok(cat1.classList.contains('tsw-open') && sub1.classList.contains('tsw-open'),
+    'the nested caret opens the subsection inline without closing the category');
 });
 
 console.log('platform-band behaviour tests: ' + ran + ' of ' + ran + ' pass');

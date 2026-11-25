@@ -512,6 +512,10 @@
     }
     .tsw-bar__group.tsw-open > .tsw-bar__flyout { display: block; }
     .tsw-bar__group.tsw-flip > .tsw-bar__flyout { left: auto; right: 100%; }
+    /* Sub-entries are 12px in the muted colour at every width (the contract); the phone
+       accordion also indents them and tints the hovered row. */
+    .tsw-bar__flyout .tsw-bar__mlink { font-size: 12px; color: var(--tsw-text-dim); }
+    .tsw-bar__flyout .tsw-bar__mlink:hover { color: var(--tsw-link); }
 
     :root[data-theme="light"] .tsw-bar__panel,
     :root[data-theme="light"] .tsw-bar__flyout { box-shadow: 0 10px 28px rgba(21, 19, 31, .14); }
@@ -553,8 +557,8 @@
       .tsw-bar__item.tsw-open > .tsw-bar__panel { display: block; }
       .tsw-bar__group { flex-wrap: wrap; }
       .tsw-bar__group.tsw-open > .tsw-bar__flyout { display: block; left: auto; right: auto; }
-      .tsw-bar__flyout .tsw-bar__mlink { font-size: 12px; color: var(--tsw-text-dim); padding-left: 14px; }
-      .tsw-bar__flyout .tsw-bar__mlink:hover { background: var(--tsw-surface-2); color: var(--tsw-link); }
+      .tsw-bar__flyout .tsw-bar__mlink { padding-left: 14px; }
+      .tsw-bar__flyout .tsw-bar__mlink:hover { background: var(--tsw-surface-2); }
     }
     /* The repository is linked from the navbar ("GitHub") and from every page's
        "Edit this page on GitHub" line; the corner badge sat under the theme button. */
@@ -3116,97 +3120,11 @@
     })();
   </script>
 
-  <!-- Platform band behaviour. The markup (nav.tsw-bar) is generated into this file; this wires
-       it. Desktop (fine pointer): a top-level menu opens on hover and stays while the pointer is
-       in its panel (the panel is a DOM child, so moving into it does not leave the item); the
-       toggle button (aria-expanded) opens it for keyboard and click; a Bookmarks category opens a
-       side fly-out that flips left near the right edge. Close waits 220ms; one fly-out at a time.
-       Phones and coarse pointers use the buttons: a menu button reveals the inline accordion. -->
-  <script>
-    (function () {
-      var bar = document.querySelector('.tsw-bar');
-      if (!bar) { return; }
-      var fine = window.matchMedia('(hover: hover) and (pointer: fine)');
-      var narrow = window.matchMedia('(max-width: 760px)');
-      var CLOSE_MS = 220;
-
-      var menuBtn = document.createElement('button');
-      menuBtn.type = 'button';
-      menuBtn.className = 'tsw-bar__menubtn';
-      menuBtn.setAttribute('aria-expanded', 'false');
-      menuBtn.setAttribute('aria-label', 'Platform menu');
-      menuBtn.innerHTML = '<span class="tsw-bar__burger" aria-hidden="true"></span>';
-      bar.insertBefore(menuBtn, bar.firstChild);
-      menuBtn.addEventListener('click', function () {
-        var open = bar.classList.toggle('tsw-bar--open');
-        menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-
-      var items = [].slice.call(bar.querySelectorAll('.tsw-bar__item'));
-      var timer = null;
-      function cancel() { if (timer) { clearTimeout(timer); timer = null; } }
-      function setExp(el, v) { var b = el.querySelector(':scope > .tsw-bar__toggle, :scope > .tsw-bar__caret'); if (b) { b.setAttribute('aria-expanded', v ? 'true' : 'false'); } }
-      function closeGroups(root, except) {
-        [].forEach.call(root.querySelectorAll('.tsw-bar__group.tsw-open'), function (g) {
-          if (g !== except) { g.classList.remove('tsw-open', 'tsw-flip'); setExp(g, false); }
-        });
-      }
-      function closeItem(it) { it.classList.remove('tsw-open'); setExp(it, false); closeGroups(it, null); }
-      function closeAll() { items.forEach(closeItem); }
-      function openItem(it) {
-        items.forEach(function (o) { if (o !== it) { closeItem(o); } });
-        it.classList.add('tsw-open'); setExp(it, true);
-      }
-      function openGroup(g) {
-        closeGroups(bar, g);
-        g.classList.add('tsw-open'); g.classList.remove('tsw-flip'); setExp(g, true);
-        var fly = g.querySelector(':scope > .tsw-bar__flyout');
-        if (fly && !narrow.matches) {
-          var r = fly.getBoundingClientRect();
-          if (r.right > window.innerWidth - 8) { g.classList.add('tsw-flip'); }
-        }
-      }
-
-      items.forEach(function (it) {
-        it.addEventListener('mouseenter', function () { if (fine.matches && !narrow.matches) { cancel(); openItem(it); } });
-        it.addEventListener('mouseleave', function () { if (fine.matches && !narrow.matches) { cancel(); timer = setTimeout(function () { closeItem(it); }, CLOSE_MS); } });
-      });
-      [].forEach.call(bar.querySelectorAll('.tsw-bar__group'), function (g) {
-        g.addEventListener('mouseenter', function () { if (fine.matches && !narrow.matches) { openGroup(g); } });
-      });
-      [].forEach.call(bar.querySelectorAll('.tsw-bar__toggle'), function (t) {
-        t.addEventListener('click', function (e) {
-          e.preventDefault();
-          var it = t.closest('.tsw-bar__item');
-          if (it.classList.contains('tsw-open')) { closeItem(it); } else { openItem(it); }
-        });
-      });
-      [].forEach.call(bar.querySelectorAll('.tsw-bar__caret'), function (c) {
-        c.addEventListener('click', function (e) {
-          e.preventDefault();
-          var g = c.closest('.tsw-bar__group');
-          if (g.classList.contains('tsw-open')) { g.classList.remove('tsw-open', 'tsw-flip'); setExp(g, false); } else { openGroup(g); }
-        });
-      });
-
-      bar.addEventListener('keydown', function (e) {
-        var g = e.target.closest ? e.target.closest('.tsw-bar__group') : null;
-        if (e.key === 'Escape') {
-          var openG = bar.querySelector('.tsw-bar__group.tsw-open');
-          if (openG) { var c = openG.querySelector(':scope > .tsw-bar__caret'); openG.classList.remove('tsw-open', 'tsw-flip'); if (c) { c.setAttribute('aria-expanded', 'false'); c.focus(); } return; }
-          var it = e.target.closest('.tsw-bar__item');
-          if (it && it.classList.contains('tsw-open')) { closeItem(it); var t = it.querySelector(':scope > .tsw-bar__toggle'); if (t) { t.focus(); } }
-        } else if (e.key === 'ArrowRight' && g && !narrow.matches) {
-          openGroup(g); var first = g.querySelector(':scope > .tsw-bar__flyout .tsw-bar__mlink'); if (first) { first.focus(); e.preventDefault(); }
-        } else if (e.key === 'ArrowLeft' && g) {
-          var c2 = g.querySelector(':scope > .tsw-bar__caret'); g.classList.remove('tsw-open', 'tsw-flip'); if (c2) { c2.setAttribute('aria-expanded', 'false'); c2.focus(); } e.preventDefault();
-        }
-      });
-      document.addEventListener('click', function (e) {
-        if (!bar.contains(e.target)) { closeAll(); bar.classList.remove('tsw-bar--open'); menuBtn.setAttribute('aria-expanded', 'false'); }
-      });
-    })();
-  </script>
+  <!-- Platform band behaviour: assets/platform-band.js wires the generated band
+       (nav.tsw-bar is a div with role=navigation; see the generator). The handler logic
+       is one exported function so it can be driven against the markup in a DOM stand-in
+       (scripts/test_platform_band.js). Loaded before docsify; the band exists by now. -->
+  <script src="assets/platform-band.js"></script>
 
   <!-- Docsify core. Stays on 4.13.1: 5.0.0 was tried in P2 and not adopted, because it builds
        heading ids from the raw Markdown without collapsing hyphens ("A & B" gives a--b, not

@@ -1690,6 +1690,17 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 14 October 2014: Google discloses POODLE in SSL 3.0; MS14-060 fixes the OLE flaw CVE-2014-4114 used in targeted attacks
   - 24 November 2014: Symantec and Kaspersky publish Regin, with samples timestamped back to 2003
   - 19 December 2014: FBI attributes the destructive attack on Sony Pictures to North Korea; US-CERT TA14-353A
+- [Casting on the Home Network: The Local Control APIs Behind Chromecast, DIAL and AirPlay, and Their Security Record](/case-studies/CASTING_HOME_NETWORK.md). Attack surface, 2014 to 2026 (core: 2014 to 2025). Sectors: technology. CVEs: CVE-2025-24252, CVE-2025-24206, CVE-2025-24132. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Casting_Home_Network_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Casting_Home_Network_Case_Study.pptx).
+  - July 2014: Bishop Fox's Rickmote hijacks a nearby Chromecast, which reconfigures and takes commands from anyone in proximity
+  - June 2018: Craig Young of Tripwire publishes the DNS-rebinding location leak against Google cast devices
+  - January 2019: CastHack drives internet-exposed Google Cast and smart-TV control endpoints from the public internet
+  - June 2019: The local Google Cast API begins requiring an authorization token on most endpoints
+  - 2020: Netflix updates the DIAL protocol to close some of its gaps
+  - April 2021: Google rewards Matt Kunze for the Google Home account-linking report
+  - December 2022: Kunze publishes the account-linking wiretap, fixed by then; Google's rewards total 107,500 US dollars after a 2022 bonus
+  - 2023: Yunus Çadırcı publishes DIALStranger at Black Hat MEA, a 2019 study of DIAL protocol and implementation flaws
+  - March 2025: Apple releases the AirBorne operating-system and SDK fixes on 31 March 2025
+  - April 2025: Oligo publishes AirBorne: 23 AirPlay vulnerabilities and 17 CVEs, on 29 April 2025
 
 ### 2013 <!-- {docsify-ignore} -->
 

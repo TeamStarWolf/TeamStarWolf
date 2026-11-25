@@ -1,6 +1,6 @@
 # CyberArk
 
-CyberArk is a privileged access management platform. It vaults and rotates privileged credentials, isolates and records privileged sessions, removes local administrator rights from endpoints, and supplies secrets to applications. Its goal is to reduce standing privilege.
+CyberArk is a privileged access management platform. It vaults and rotates privileged credentials, isolates and records privileged sessions, removes local administrator rights from endpoints, and supplies secrets to applications. Its goal is to reduce standing privilege. CyberArk is now part of Palo Alto Networks, which delivers its privileged access management within the Idira identity security platform; the cyberark.com site now resolves to the Idira platform page (read November 2026).
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (1,012 words at 230 words a minute)
+About 5 min (1,056 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -133,6 +133,7 @@ Its session recordings and checkout logs are primary evidence during incident re
 - CyberArk Privileged Access Manager documentation
 - CyberArk Endpoint Privilege Manager documentation
 - CyberArk Conjur documentation
+- Palo Alto Networks: Idira identity security platform (read 25 November 2026)
 
 ## Related pages
 

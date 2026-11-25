@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 6 min (1,336 words at 230 words a minute)
+About 6 min (1,354 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -57,7 +57,7 @@ Tenable sits in the vulnerability management and exposure management part of a s
 
 Tenable One is the platform layer. It pulls asset and finding data from the operational products into a shared asset inventory and exposure view. Teams use it to prioritize across many asset classes rather than one scan at a time.
 
-The operational products include Tenable Vulnerability Management (formerly tenable.io), the Nessus scanner, Tenable Web App Scanning, Tenable Cloud Security, and Tenable Identity Exposure. Each covers a different surface, and each feeds the shared model.
+The operational products include Tenable Vulnerability Management (formerly tenable.io), the Nessus scanner, Tenable Web App Scanning, Tenable Cloud Exposure (formerly Tenable Cloud Security), and Tenable Identity Exposure. Each covers a different surface, and each feeds the shared model.
 
 ## Architecture and how it works
 
@@ -138,8 +138,9 @@ In a mature program, Tenable findings open tickets in ServiceNow Vulnerability R
 - Nessus User Guide
 - Tenable One documentation
 - Tenable Web App Scanning documentation
-- Tenable Cloud Security documentation
+- Tenable Cloud Exposure documentation
 - Tenable Identity Exposure documentation
+- Tenable products page: Tenable One modules, including Tenable Cloud Exposure (read 25 November 2026)
 
 ## Related pages
 

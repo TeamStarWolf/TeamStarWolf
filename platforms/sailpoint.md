@@ -1,6 +1,6 @@
 # SailPoint
 
-SailPoint is an identity security and governance platform. It provisions and removes access, runs access certifications, enforces separation-of-duties policy, and models roles. It is delivered as IdentityIQ for on-premises deployment and as Identity Security Cloud as a service.
+SailPoint is an identity security and governance platform. It provisions and removes access, runs access certifications, enforces separation-of-duties policy, and models roles. It is delivered as IdentityIQ for on-premises deployment and as Identity Security Cloud, which the vendor is evolving into SailPoint Human Fabric, as a service.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (1,022 words at 230 words a minute)
+About 5 min (1,044 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -132,6 +132,7 @@ Its certification records and policy evidence support audit and compliance attes
 - SailPoint documentation
 - SailPoint IdentityIQ documentation
 - SailPoint Identity Security Cloud documentation
+- SailPoint: Human Fabric, the evolution of Identity Security Cloud (read 25 November 2026)
 - SailPoint connectivity documentation
 
 ## Related pages

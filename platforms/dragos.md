@@ -1,6 +1,6 @@
 # Dragos
 
-Dragos is an operational-technology and industrial-control-system security platform. The Dragos Platform gives asset visibility, threat detection, and vulnerability management for control environments. This page describes the generally available product in 2026. Licence tier decides which capabilities are in force.
+Dragos is an operational-technology and industrial-control-system security platform. The Dragos Platform gives asset visibility, threat detection, and vulnerability management for control environments. This page describes the generally available product in 2026. Licence tier decides which capabilities are in force. Accenture holds a majority stake in Dragos, which closed on 16 September 2026; the company continues to operate as a standalone business.
 
 <!-- meta:start (written by scripts/build_doc_meta.py from data/doc_meta.yaml; do not edit) -->
 
@@ -17,7 +17,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 4 min (1,017 words at 230 words a minute)
+About 5 min (1,053 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -133,6 +133,7 @@ For incident response, Dragos scopes an operational-technology intrusion and sho
 - Dragos deployment and sensor placement guide
 - Dragos threat intelligence documentation
 - Dragos vulnerability management documentation
+- Accenture newsroom: majority investment in Dragos (announced 18 June 2026, closed 16 September 2026)
 
 ## Related pages
 

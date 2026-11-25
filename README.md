@@ -8,7 +8,7 @@
 
 **[Website](https://teamstarwolf.github.io/TeamStarWolf/)** · [Intelligence Hub](https://teamstarwolf.github.io/intelligence-hub/) · [ATT&CK-Navi](https://teamstarwolf.github.io/ATTACK-Navi/) · [Browse all references](INDEX.md) · [Contribute](CONTRIBUTING.md)
 
-Explore the library: [Languages](languages/README.md) · [Paradigms](paradigms/README.md) · [Frameworks](frameworks/README.md) · [Commands](commands/README.md) · [Formats](formats/README.md) · [Domains](hubs/README.md) · [Guides](guides/README.md) · [Learning paths](disciplines/README.md) · [ATT&CK](mitre/README.md) · [Detections](detections/TECHNIQUE_DETECTION_LIBRARY.md) · [Data](data/README.md)
+Explore the library: [Languages](languages/README.md) · [Paradigms](paradigms/README.md) · [Frameworks](frameworks/README.md) · [Commands](commands/README.md) · [Formats](formats/README.md) · [Domains](hubs/README.md) · [Guides](guides/README.md) · [Learning paths](disciplines/README.md) · [ATT&CK](mitre/README.md) · [Detections](detections/TECHNIQUE_DETECTION_LIBRARY.md) · [Data](data/README.md) · [Inventory](data/INVENTORY.md)
 
 <br>
 

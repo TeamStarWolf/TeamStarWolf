@@ -70,6 +70,31 @@ studies:
       - {"date": "2020-04-17", "label": "The Open Connectivity Foundation updates the UPnP specification to forbid the CallStranger behaviour"}
       - {"date": "2020-06-08", "label": "CallStranger (CVE-2020-12695, CVSS 7.5) is published"}
 
+  case-studies/CASTING_HOME_NETWORK.md:
+    kind: "reference"
+    title: "Casting on the Home Network: The Local Control APIs Behind Chromecast, DIAL and AirPlay, and Their Security Record"
+    start: "2014"
+    end: "2026"
+    core_start: "2014"
+    core_end: "2025"
+    sectors: ["technology"]
+    cves: ["CVE-2025-24252", "CVE-2025-24206", "CVE-2025-24132"]
+    actors: []
+    tags: ["casting", "Chromecast", "Google Cast", "DIAL", "AirPlay", "mDNS", "home network", "DNS rebinding"]
+    pdf: "Casting_Home_Network_Case_Study.pdf"
+    pptx: "Casting_Home_Network_Case_Study.pptx"
+    events:
+      - {"date": "2014-07", "label": "Bishop Fox's Rickmote hijacks a nearby Chromecast, which reconfigures and takes commands from anyone in proximity"}
+      - {"date": "2018-06", "label": "Craig Young of Tripwire publishes the DNS-rebinding location leak against Google cast devices"}
+      - {"date": "2019-01", "label": "CastHack drives internet-exposed Google Cast and smart-TV control endpoints from the public internet"}
+      - {"date": "2019-06", "label": "The local Google Cast API begins requiring an authorization token on most endpoints"}
+      - {"date": "2020", "label": "Netflix updates the DIAL protocol to close some of its gaps"}
+      - {"date": "2021-04", "label": "Google rewards Matt Kunze for the Google Home account-linking report"}
+      - {"date": "2022-12", "label": "Kunze publishes the account-linking wiretap, fixed by then; Google's rewards total 107,500 US dollars after a 2022 bonus"}
+      - {"date": "2023", "label": "Yunus Çadırcı publishes DIALStranger at Black Hat MEA, a 2019 study of DIAL protocol and implementation flaws"}
+      - {"date": "2025-03", "label": "Apple releases the AirBorne operating-system and SDK fixes on 31 March 2025"}
+      - {"date": "2025-04", "label": "Oligo publishes AirBorne: 23 AirPlay vulnerabilities and 17 CVEs, on 29 April 2025"}
+
   case-studies/AI_THREATS_2026.md:
     kind: "era"
     title: "AI Threats in the Cybersecurity Industry: A 2026 Case Study"

@@ -799,8 +799,8 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 23 January 2026: OMB M-26-05 rescinds M-22-18 and M-23-16
 - [When You Cannot Patch the Cloud: Cross-Tenant and Token Flaws in Azure Cosmos DB, Azure PostgreSQL, AWS AppSync and Google Cloud Platform](/case-studies/CLOUD_MANAGED_SERVICE_FLAWS.md). Vulnerability, August 2021 to April 2023. Sectors: technology, cross-sector. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Cloud_Managed_Service_Flaws_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Cloud_Managed_Service_Flaws_Case_Study.pptx).
   - 12 August 2021: Wiz reports the ChaosDB flaw in Azure Cosmos DB to Microsoft
-  - 26 August 2021: Wiz publishes ChaosDB; Microsoft turns off the Cosmos DB Jupyter Notebook feature and notifies customers to rotate primary keys
-  - 27 August 2021: Microsoft publishes its Cosmos DB update, stating no customer data was accessed by third parties
+  - 14 August 2021: Microsoft disables the Cosmos DB Jupyter Notebook feature (Wiz observed, within 48 hours of the report)
+  - 26 August 2021: Wiz publishes ChaosDB; Microsoft notifies over 30% of Cosmos DB customers to rotate primary keys
   - 11 January 2022: Wiz reports the ExtraReplica cross-tenant flaw in Azure Database for PostgreSQL Flexible Server to Microsoft
   - 13 January 2022: Microsoft mitigates the ExtraReplica certificate flaw within 48 hours; the fleet update is completed by 25 February 2022
   - 28 April 2022: Wiz and Microsoft publish ExtraReplica; Microsoft states no customer data was accessed, and no CVE is assigned
@@ -809,7 +809,7 @@ On GitHub, or without JavaScript, the timeline does not load; this list holds th
   - 6 September 2022: Amazon Web Services fixes the AppSync flaw
   - 21 November 2022: Datadog and AWS publish the AppSync flaw; AWS states no customers were affected
   - 7 April 2023: Google deploys a global patch for GhostToken, making hidden applications visible again
-  - 21 April 2023: GhostToken is published; Astrix's own write-up later redirects to its acquirer
+  - 20 April 2023: Astrix publishes GhostToken; its write-up later redirects to its acquirer, Cisco
 - [Colonial Pipeline and DarkSide in 2021: An IT Incident with Operational Consequences](/case-studies/COLONIAL_DARKSIDE_2021.md). Incident, April 2021 to January 2025 (core: April to June 2021). Sectors: energy. Download: [PDF](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/pdf/Colonial_Darkside_2021_Case_Study.pdf), [Slides (PowerPoint)](https://github.com/TeamStarWolf/TeamStarWolf/raw/main/case-studies/slides/Colonial_Darkside_2021_Case_Study.pptx).
   - 29 April 2021: Earliest identified VPN login with employee credentials on a legacy profile without MFA (investigator testimony)
   - 7 May 2021: Ransom note found in IT; employees shut down the pipeline; FBI notified

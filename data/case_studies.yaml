@@ -2718,8 +2718,8 @@ studies:
     pptx: "Cloud_Managed_Service_Flaws_Case_Study.pptx"
     events:
       - {"date": "2021-08-12", "label": "Wiz reports the ChaosDB flaw in Azure Cosmos DB to Microsoft"}
-      - {"date": "2021-08-26", "label": "Wiz publishes ChaosDB; Microsoft turns off the Cosmos DB Jupyter Notebook feature and notifies customers to rotate primary keys"}
-      - {"date": "2021-08-27", "label": "Microsoft publishes its Cosmos DB update, stating no customer data was accessed by third parties"}
+      - {"date": "2021-08-14", "label": "Microsoft disables the Cosmos DB Jupyter Notebook feature (Wiz observed, within 48 hours of the report)"}
+      - {"date": "2021-08-26", "label": "Wiz publishes ChaosDB; Microsoft notifies over 30% of Cosmos DB customers to rotate primary keys"}
       - {"date": "2022-01-11", "label": "Wiz reports the ExtraReplica cross-tenant flaw in Azure Database for PostgreSQL Flexible Server to Microsoft"}
       - {"date": "2022-01-13", "label": "Microsoft mitigates the ExtraReplica certificate flaw within 48 hours; the fleet update is completed by 25 February 2022"}
       - {"date": "2022-04-28", "label": "Wiz and Microsoft publish ExtraReplica; Microsoft states no customer data was accessed, and no CVE is assigned"}
@@ -2728,7 +2728,7 @@ studies:
       - {"date": "2022-09-06", "label": "Amazon Web Services fixes the AppSync flaw"}
       - {"date": "2022-11-21", "label": "Datadog and AWS publish the AppSync flaw; AWS states no customers were affected"}
       - {"date": "2023-04-07", "label": "Google deploys a global patch for GhostToken, making hidden applications visible again"}
-      - {"date": "2023-04-21", "label": "GhostToken is published; Astrix's own write-up later redirects to its acquirer"}
+      - {"date": "2023-04-20", "label": "Astrix publishes GhostToken; its write-up later redirects to its acquirer, Cisco"}
   case-studies/NGINX2ROOT_2026.md:
     kind: "vulnerability"
     title: "nginx2root 2026: The nginx HTTP/2 Remote Code Execution Flaws, CVE-2026-123007 and CVE-2026-123633"

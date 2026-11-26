@@ -2642,7 +2642,8 @@
         function openForHash() {
           var m = /[?&]id=([^&]+)/.exec(location.hash || '');
           if (!m) { return; }
-          var t = document.getElementById(decodeURIComponent(m[1]));
+          var id; try { id = decodeURIComponent(m[1]); } catch (e) { return; }
+          var t = document.getElementById(id);
           if (!t) { return; }
           // Open every fold the target sits inside (its section, and a nested "Show the table"
           // fold if the anchor is within one), not just the nearest.
@@ -2695,7 +2696,9 @@
           // shows. README and the timeline are aggregators, not articles, so they are excluded.
           var LONG_STUDY_WORDS = 9000;
           var csMatch = /^#\/case-studies\/([^?#]+)/.exec(location.hash || '');
-          var isCaseStudy = !!(csMatch && !/^(README|TIMELINE)$/i.test(decodeURIComponent(csMatch[1])));
+          var csSlug = '';
+          if (csMatch) { try { csSlug = decodeURIComponent(csMatch[1]); } catch (e) { csSlug = ''; } }
+          var isCaseStudy = !!(csSlug && !/^(README|TIMELINE)$/i.test(csSlug));
           var studyWords = null;
           if (isCaseStudy) {
             var wm = (main.textContent || '').match(/\(([\d,]+)\s+words\b/);
@@ -3312,7 +3315,12 @@
           function passes(r, skip) {
             var a = st.from ? +st.from : -Infinity, b = st.to ? +st.to : Infinity;
             if (a > b) { var t = a; a = b; b = t; }
-            if (r._y0 > b || r._y1 < a) { return false; }
+            // A study belongs to the range by the single year it is placed under (r.y, the
+            // year its core starts, or its start year), not by the wider span it only touches.
+            // That keeps every shown study under an in-range year heading, instead of a long
+            // study surfacing under a heading outside the filter (e.g. a 2009-placed study in
+            // a 1990-1999 view because its 1996-2026 span overlapped).
+            if (+r.y < a || +r.y > b) { return false; }
             if (skip !== 'kind' && st.kinds.length && st.kinds.indexOf(r.k) === -1) { return false; }
             if (skip !== 'sector' && st.sectors.length && !r.sec.some(function (s) { return st.sectors.indexOf(s) !== -1; })) { return false; }
             var terms = st.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
@@ -3550,7 +3558,8 @@
       }
       function routeId() {
         var m = /[?&]id=([^&]*)/.exec(location.hash);
-        return m ? decodeURIComponent(m[1]) : '';
+        if (!m) { return ''; }
+        try { return decodeURIComponent(m[1]); } catch (e) { return ''; }
       }
       function openFor(id, topMargin) {
         var root = main(), t = id && document.getElementById(id);

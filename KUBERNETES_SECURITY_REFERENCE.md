@@ -476,27 +476,29 @@ kubectl get namespace production --show-labels
 ### Restricted Profile Requirements
 
 ```yaml
-# All of the following must be set correctly
+# Pod Security Standards "Restricted" requires the controls marked "Restricted" below.
+# Three of these are required only when .spec.os.name is not windows: Privilege Escalation,
+# Seccomp and Capabilities (v1.25 made Restricted use spec.os.name to exempt Windows pods).
 spec:
-  hostNetwork: false         # Not allowed
-  hostPID: false             # Not allowed
-  hostIPC: false             # Not allowed
+  hostNetwork: false         # Restricted: not allowed
+  hostPID: false             # Restricted: not allowed
+  hostIPC: false             # Restricted: not allowed
   securityContext:
-    runAsNonRoot: true
-    runAsUser: 1000          # Must be non-zero
-    runAsGroup: 3000
-    fsGroup: 2000
+    runAsNonRoot: true       # Restricted: required
+    runAsUser: 1000          # Restricted: if set, must not be 0 (any non-zero value, or leave undefined)
+    runAsGroup: 3000         # hardening only; not a Restricted control
+    fsGroup: 2000            # hardening only; not a Restricted control
     seccompProfile:
-      type: RuntimeDefault   # Or Localhost with custom profile
+      type: RuntimeDefault   # Restricted: RuntimeDefault or Localhost (Linux only)
   containers:
     - securityContext:
-        allowPrivilegeEscalation: false
-        readOnlyRootFilesystem: true
+        allowPrivilegeEscalation: false   # Restricted: required (Linux only)
+        readOnlyRootFilesystem: true      # hardening only; not a Restricted control
         capabilities:
-          drop: ["ALL"]
-          add: []            # No added capabilities in Restricted
-      # volumes: only emptyDir, configMap, projected, secret, downwardAPI, csi, ephemeral
-      # No hostPath volumes
+          drop: ["ALL"]                   # Restricted: must drop ALL (Linux only)
+          add: []                         # Restricted permits adding back only NET_BIND_SERVICE
+      # Restricted volume types: configMap, csi, downwardAPI, emptyDir, ephemeral,
+      #   persistentVolumeClaim, projected, secret. No hostPath.
 ```
 
 ### Dry-Run Mode (Test Before Enforcing)

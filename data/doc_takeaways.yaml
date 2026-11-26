@@ -151,7 +151,7 @@ pages:
     items:
       - {"text": "Cl0p encrypted nothing: it stole the data, listed victims on its leak site, and demanded payment to keep the files unpublished.", "from": "#executive-summary", "quote": "It copied the data, listed victims on its leak site, and demanded payment to keep the files unpublished"}
       - {"text": "The MOVEit zero-day reached roughly 2,773 organizations and about 95.8 million individuals, best read as a floor.", "from": "#executive-summary", "quote": "the running tally reached roughly 2,773 organizations and about 95.8 million individuals"}
-      - {"text": "MOVEit was the fourth run of the same play, after Accellion and Fortra GoAnywhere, with Cleo to follow.", "from": "#executive-summary", "quote": "Cl0p had already run the same exploit-exfiltrate-extort play against Accellion FTA in 2020 and 2021, Fortra GoAnywhere in early 2023"}
+      - {"text": "MOVEit was the third of four runs of the same play, after Accellion and Fortra GoAnywhere, with Cleo to follow.", "from": "#executive-summary", "quote": "Cl0p had already run the same exploit-exfiltrate-extort play against Accellion FTA in 2020 and 2021 and Fortra GoAnywhere in early 2023"}
       - {"text": "The lesson: an internet-facing app that aggregates third-party data is a crown-jewel asset whose unauthenticated flaws are ransomware-grade.", "from": "#executive-summary", "quote": "an internet-facing application that aggregates third-party data is a crown-jewel asset whose unauthenticated critical flaws are ransomware-grade events"}
   case-studies/HUGGING_FACE_SUPPLY_CHAIN.md:
     reviewed: "2026-11-16"

@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 14 min (3,307 words at 230 words a minute)
+About 14 min (3,322 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -55,16 +55,16 @@ Key takeaways (reviewed 2026-11-16):
 
 - Cl0p encrypted nothing: it stole the data, listed victims on its leak site, and demanded payment to keep the files unpublished. ([Executive summary](#executive-summary))
 - The MOVEit zero-day reached roughly 2,773 organizations and about 95.8 million individuals, best read as a floor. ([Executive summary](#executive-summary))
-- MOVEit was the fourth run of the same play, after Accellion and Fortra GoAnywhere, with Cleo to follow. ([Executive summary](#executive-summary))
+- MOVEit was the third of four runs of the same play, after Accellion and Fortra GoAnywhere, with Cleo to follow. ([Executive summary](#executive-summary))
 - The lesson: an internet-facing app that aggregates third-party data is a crown-jewel asset whose unauthenticated flaws are ransomware-grade. ([Executive summary](#executive-summary))
 
 <!-- meta:end -->
 
 ## Executive summary
 
-Over the US Memorial Day weekend of 2023, the Cl0p extortion group exploited a zero-day flaw in Progress MOVEit Transfer, a managed file transfer product used by thousands of organizations to move sensitive data between parties. The flaw, CVE-2023-34362, was a SQL injection weakness that let an unauthenticated attacker reach the application database and drop a web shell that stole files wholesale. Cl0p did not encrypt anything. It copied the data, listed victims on its leak site, and demanded payment to keep the files unpublished. By August 2024 the running tally reached roughly 2,773 organizations and about 95.8 million individuals, and it is best read as a floor, because many of the organizations hit were service providers whose own customers became downstream victims.
+Over the US Memorial Day weekend of 2023, the Cl0p extortion group exploited a zero-day flaw in Progress MOVEit Transfer, a managed file transfer product used by thousands of organizations to move sensitive data between parties. The flaw, [CVE-2023-34362](https://nvd.nist.gov/vuln/detail/CVE-2023-34362) (read 26 November 2026), was a SQL injection weakness that let an unauthenticated attacker reach the application database and drop a web shell that stole files wholesale. Cl0p did not encrypt anything. It copied the data, listed victims on its leak site, and demanded payment to keep the files unpublished. By August 2024 the running tally reached roughly 2,773 organizations and about 95.8 million individuals, and it is best read as a floor, because many of the organizations hit were service providers whose own customers became downstream victims.
 
-MOVEit was not a one-off. It was the fourth and largest in a pattern: Cl0p had already run the same exploit-exfiltrate-extort play against Accellion FTA in 2020 and 2021, Fortra GoAnywhere in early 2023, and would run it again against Cleo file-transfer software in late 2024. The through-line is the target class. Managed file transfer software sits on the internet edge, concentrates other organizations' most sensitive data, and is bought by teams who treat it as plumbing rather than as a high-value attack surface. For a vulnerability management program, the lesson is that an internet-facing application that aggregates third-party data is a crown-jewel asset whose unauthenticated critical flaws are ransomware-grade events, whether or not a single file is ever encrypted.
+MOVEit was not a one-off. It was the third, and the largest, of four runs of a pattern: Cl0p had already run the same exploit-exfiltrate-extort play against Accellion FTA in 2020 and 2021 and Fortra GoAnywhere in early 2023, and would run it again against Cleo file-transfer software in late 2024. The through-line is the target class. Managed file transfer software sits on the internet edge, concentrates other organizations' most sensitive data, and is bought by teams who treat it as plumbing rather than as a high-value attack surface. For a vulnerability management program, the lesson is that an internet-facing application that aggregates third-party data is a crown-jewel asset whose unauthenticated critical flaws are ransomware-grade events, whether or not a single file is ever encrypted.
 
 Evidence grade: **Confirmed** overall (Progress, CISA, FBI and Microsoft for the vulnerabilities and attribution; victim-count totals are **Reported** tallies marked below).
 
@@ -79,7 +79,7 @@ Evidence grade: **Confirmed** overall (Progress, CISA, FBI and Microsoft for the
 | Actor | Cl0p, also tracked as TA505, FIN11, LACE Tempest and Graceful Spider |
 | First exploitation | Observed from around 27 May 2023, before the 31 May advisory |
 | Scale | About 2,773 organizations and about 95.8 million individuals (Emsisoft tally, August 2024, a floor) |
-| The pattern | Fourth MFT campaign: Accellion FTA (2020 to 2021), GoAnywhere (2023), MOVEit (2023), Cleo (2024) |
+| The pattern | Third of four MFT campaigns: Accellion FTA (2020 to 2021), GoAnywhere (2023), MOVEit (2023), Cleo (2024) |
 
 ### Key findings
 
@@ -238,7 +238,7 @@ Put together, those four properties make managed file transfer a category that d
 ## Sources
 
 - Progress Software advisories for CVE-2023-34362, CVE-2023-35036 and CVE-2023-35708, and the MOVEit Transfer security notifications.
-- The joint CISA and FBI advisory AA23-158A on Cl0p ransomware exploitation of MOVEit Transfer, and the CISA Known Exploited Vulnerabilities catalog entries for the MOVEit, GoAnywhere and Cleo flaws.
+- The joint CISA and FBI advisory [AA23-158A](https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-158a) on Cl0p ransomware exploitation of MOVEit Transfer (read 26 November 2026), and the CISA Known Exploited Vulnerabilities catalog entries for the MOVEit, GoAnywhere and Cleo flaws.
 - Fortra advisory for CVE-2023-0669 (GoAnywhere MFT), Cleo advisories for CVE-2024-50623 and CVE-2024-55956 with Rapid7's analysis distinguishing the two, and reporting on the Accellion FTA chain (CVE-2021-27101 and related) and the DEWMODE web shell.
 - Microsoft Threat Intelligence attribution of the MOVEit exploitation to Lace Tempest (Cl0p), and reporting from Mandiant and Huntress on the LEMURLOOT web shell.
 - Emsisoft's running MOVEit impact tally (about 2,773 organizations and about 95.8 million individuals as of August 2024) and corroborating reporting from BleepingComputer, The Record and security trackers; figures are reported totals and best treated as a floor.

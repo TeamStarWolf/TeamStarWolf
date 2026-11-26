@@ -17,7 +17,7 @@ Intermediate to advanced
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 38 min (8,625 words at 230 words a minute)
+About 38 min (8,688 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -357,16 +357,16 @@ DK = PRF(Password, Salt || INT(i))  [repeated c iterations]
 
 Parameters:
 - Salt: 16+ bytes, random, stored alongside hash
-- Iterations: NIST SP 800-132 recommends ≥600,000 for HMAC-SHA256 (2023)
+- Iterations: the OWASP Password Storage Cheat Sheet recommends ≥600,000 for PBKDF2-HMAC-SHA256 (read 2026-11-25); NIST SP 800-132 (December 2010) itself recommends a minimum of 1,000 iterations, and up to 10,000,000 for especially critical keys
 - Output length: configurable
 
-Weakness: Memory-hard (not). PBKDF2 can be efficiently parallelized on GPUs. An attacker with a GPU cluster can test billions of passwords/second.
+Weakness: not memory-hard. PBKDF2 can be efficiently parallelized on GPUs. An attacker with a GPU cluster can test billions of passwords/second.
 
 Still required for: FIPS-compliant systems (FIPS 140-3 approved)
 
 #### bcrypt
 
-Based on the Blowfish cipher. Designed to be memory-hard and CPU-intensive.
+Based on the Blowfish cipher. CPU-intensive, but uses only a small, fixed amount of memory, so it is not memory-hard (memory-hardness is the property of scrypt and Argon2).
 
 ```python
 import bcrypt
@@ -377,7 +377,7 @@ hashed = bcrypt.hashpw(password.encode(), salt)
 Parameters:
 - Cost factor: 10-12 recommended for interactive logins (adjustable over time)
 - Output: 60-character string including salt and cost factor
-- Maximum password length: 72 bytes (silently truncates)
+- Maximum password length: 72 bytes; behavior on longer input depends on the library and version (pyca/bcrypt now raises a ValueError, where it previously truncated silently)
 
 Weakness: 72-byte password limit; limited parallelism resistance on GPU vs. Argon2.
 

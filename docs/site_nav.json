@@ -435,7 +435,9 @@
           "NETWORKING_FUNDAMENTALS.md", "NETWORK_PROTOCOLS_REFERENCE.md", "NETWORK_PROTOCOLS_SECURITY.md",
           "NETWORK_SECURITY_ARCHITECTURE.md", "NETWORKING_ARCHITECTURE_REFERENCE.md", "EDGE_DEVICE_SECURITY_REFERENCE.md", "INTERNET_FACING_SERVICES_REFERENCE.md",
           "PACKET_ANALYSIS_REFERENCE.md", "WIRELESS_SECURITY_REFERENCE.md", "SDR_RF_SECURITY_REFERENCE.md",
-          "TELECOM_5G_SECURITY_REFERENCE.md"]}
+          "TELECOM_5G_SECURITY_REFERENCE.md"]},
+        {"heading": "Physical and data-center infrastructure", "docs": [
+          "DATA_CENTER_INFRASTRUCTURE_REFERENCE.md"]}
       ],
       "paths": ["network-security", "radio-frequency-security", "zero-trust-architecture"],
       "guides": [],

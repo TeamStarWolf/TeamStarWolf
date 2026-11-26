@@ -155,6 +155,7 @@ EXPORT_NAMES = {
     "GHOSTCAT_CVE_2020_1938": "Ghostcat_CVE_2020_1938",
     "NGINX2ROOT_2026": "nginx2root_2026",
     "AI_ASSISTANT_PROMPT_INJECTION": "AI_Assistant_Prompt_Injection",
+    "CLOUD_MANAGED_SERVICE_FLAWS": "Cloud_Managed_Service_Flaws",
     "KEV_ADDITIONS_2026_11_18": "KEV_Additions_2026_11_18",
     "KEV_ADDITIONS_2026_11_20": "KEV_Additions_2026_11_20",
     "JAVA4SHELL_CVE_2026_114938": "Java4Shell_CVE_2026_114938",

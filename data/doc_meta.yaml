@@ -2908,6 +2908,13 @@ pages:
     start_at: "[Executive summary](#executive-summary), [Part 6: Find and fix](#part-6-find-and-fix), [Part 7: Weakness and technique mapping](#part-7-weakness-and-technique-mapping)"
     pairs_with: "[AI Offensive Security Reference](/AI_OFFENSIVE_SECURITY_REFERENCE.md), [CVE Reference](/CVE_REFERENCE.md), [CWE Reference](/CWE_REFERENCE.md), [Internet-Facing Services Reference](/INTERNET_FACING_SERVICES_REFERENCE.md)"
     reviewed: null
+  case-studies/CLOUD_MANAGED_SERVICE_FLAWS.md:
+    audience: "Cloud platform and security engineers, identity and IAM owners, incident responders, and anyone running managed cloud databases, APIs or OAuth-connected apps"
+    level: "Intermediate"
+    read_when: "You run managed cloud services (a cloud database, a GraphQL or API service, OAuth-connected applications) on Azure, AWS or Google Cloud, or you need the facts behind four provider-side cross-tenant and token flaws"
+    start_at: "[Executive summary](#executive-summary), [Part 5: Find and fix](#part-5-find-and-fix), [Part 6: Weakness and technique mapping](#part-6-weakness-and-technique-mapping)"
+    pairs_with: "[Cloud Attack Reference](/CLOUD_ATTACK_REFERENCE.md), [Cloud Security Reference](/CLOUD_SECURITY_REFERENCE.md), [Identity and Access Management Reference](/IDENTITY_ACCESS_MANAGEMENT_REFERENCE.md), [Internet-Facing Services Reference](/INTERNET_FACING_SERVICES_REFERENCE.md)"
+    reviewed: null
   case-studies/NGINX2ROOT_2026.md:
     audience: "Vulnerability management leads, nginx and platform operators, incident responders, and security engineers"
     level: "Intermediate"

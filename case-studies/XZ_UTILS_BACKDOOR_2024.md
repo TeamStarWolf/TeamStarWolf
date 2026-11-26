@@ -180,7 +180,7 @@ A version check alone is not the whole answer: confirm that nothing in the estat
 ## Sources
 
 - The original disclosure by Andres Freund to the oss-security (Openwall) mailing list, 29 March 2024: [openwall.com/lists/oss-security/2024/03/29/4](https://www.openwall.com/lists/oss-security/2024/03/29/4) (read 26 November 2026).
-- CVE-2024-3094 ([NVD](https://nvd.nist.gov/vuln/detail/CVE-2024-3094)) and the [CISA alert](https://www.cisa.gov/news-events/alerts/2024/03/29/reported-supply-chain-compromise-affecting-xz-utils-data-library-cve-2024-3094) of 29 March 2024 (read 26 November 2026).
+- CVE-2024-3094 ([NVD](https://nvd.nist.gov/vuln/detail/CVE-2024-3094)) and the [CISA alert](https://www.cisa.gov/news-events/alerts/2024/03/29/reported-supply-chain-compromise-affecting-xz-utils-data-compression-library-cve-2024-3094) of 29 March 2024 (read 26 November 2026).
 - Red Hat, Debian, Arch, Fedora, and openSUSE security advisories.
 - The OpenSSF advisory and independent technical analyses of the payload and build chain.
 

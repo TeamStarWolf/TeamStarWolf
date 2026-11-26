@@ -131,7 +131,7 @@ endobj
 18 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.cisa.gov/news-events/alerts/2024/03/29/reported-supply-chain-compromise-affecting-xz-utils-data-library-cve-2024-3094)
+/S /URI /Type /Action /URI (https://www.cisa.gov/news-events/alerts/2024/03/29/reported-supply-chain-compromise-affecting-xz-utils-data-compression-library-cve-2024-3094)
 >> /Border [ 0 0 0 ] /Rect [ 223.7632 404.74 267.5104 416.26 ] /Subtype /Link /Type /Annot
 >>
 endobj
@@ -252,20 +252,20 @@ xref
 0000029339 00000 n 
 0000029541 00000 n 
 0000029736 00000 n 
-0000030014 00000 n 
-0000030237 00000 n 
-0000030446 00000 n 
-0000030664 00000 n 
-0000030881 00000 n 
-0000031152 00000 n 
-0000031222 00000 n 
-0000031563 00000 n 
-0000031657 00000 n 
-0000033439 00000 n 
-0000036746 00000 n 
-0000040168 00000 n 
-0000043082 00000 n 
-0000046559 00000 n 
+0000030026 00000 n 
+0000030249 00000 n 
+0000030458 00000 n 
+0000030676 00000 n 
+0000030893 00000 n 
+0000031164 00000 n 
+0000031234 00000 n 
+0000031575 00000 n 
+0000031669 00000 n 
+0000033451 00000 n 
+0000036758 00000 n 
+0000040180 00000 n 
+0000043094 00000 n 
+0000046571 00000 n 
 trailer
 <<
 /ID 
@@ -277,5 +277,5 @@ trailer
 /Size 33
 >>
 startxref
-48762
+48774
 %%EOF

@@ -4,7 +4,7 @@
 
 > Network fundamentals, protocols, architecture, edge devices, packet analysis, and wireless, RF, and telecom security.
 
-Part of the [domain hubs](/hubs/README.md). 11 reference documents in this domain; reading time is the page's words at 230 words a minute.
+Part of the [domain hubs](/hubs/README.md). 12 reference documents in this domain; reading time is the page's words at 230 words a minute.
 
 ## References
 
@@ -21,6 +21,12 @@ Part of the [domain hubs](/hubs/README.md). 11 reference documents in this domai
 | [Wireless Security Reference](/WIRELESS_SECURITY_REFERENCE.md) | WiFi attacks (WPA2/WPA3, evil twin, PMKID), Bluetooth, SDR, RFID/NFC, and enterprise wireless hardening | 30 min |
 | [SDR & RF Security Reference](/SDR_RF_SECURITY_REFERENCE.md) | Software-Defined Radio and RF security: HackRF/RTL-SDR, GNU Radio, GSM/LTE/Bluetooth/Zigbee/P25 analysis, TEMPEST | 19 min |
 | [Telecom & 5G Security Reference](/TELECOM_5G_SECURITY_REFERENCE.md) | MITRE FiGHT framework, SS7/Diameter signaling defense, GSMA FS.11/FS.19, 5G SBA/SUCI/SEPP, network slicing, O-RAN WG11, Salt Typhoon advisories and CISA hardening guidance | 20 min |
+
+## Physical and data-center infrastructure
+
+| Reference | What it covers | Reading time |
+|---|---|---|
+| [Data Center Infrastructure Reference](/DATA_CENTER_INFRASTRUCTURE_REFERENCE.md) | The physical layer under every server: the racks, power, cooling, and facility systems of an enterprise data center, and the security that layer needs. | 12 min |
 
 ## Learning paths
 

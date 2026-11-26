@@ -26,7 +26,7 @@ Part of the [domain hubs](/hubs/README.md). 12 reference documents in this domai
 
 | Reference | What it covers | Reading time |
 |---|---|---|
-| [Data Center Infrastructure Reference](/DATA_CENTER_INFRASTRUCTURE_REFERENCE.md) | The physical layer under every server: the racks, power, cooling, and facility systems of an enterprise data center, and the security that layer needs. | 11 min |
+| [Data Center Infrastructure Reference](/DATA_CENTER_INFRASTRUCTURE_REFERENCE.md) | The physical layer under every server: the racks, power, cooling, and facility systems of an enterprise data center, and the security that layer needs. | 13 min |
 
 ## Learning paths
 

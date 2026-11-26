@@ -437,7 +437,7 @@
           "PACKET_ANALYSIS_REFERENCE.md", "WIRELESS_SECURITY_REFERENCE.md", "SDR_RF_SECURITY_REFERENCE.md",
           "TELECOM_5G_SECURITY_REFERENCE.md"]},
         {"heading": "Physical and data-center infrastructure", "docs": [
-          "DATA_CENTER_INFRASTRUCTURE_REFERENCE.md"]}
+          "DATA_CENTER_INFRASTRUCTURE_REFERENCE.md", "STRUCTURED_CABLING_AND_PHYSICAL_LAYER_REFERENCE.md"]}
       ],
       "paths": ["network-security", "radio-frequency-security", "zero-trust-architecture"],
       "guides": [],

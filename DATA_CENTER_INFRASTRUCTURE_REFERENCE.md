@@ -21,7 +21,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 12 min (2,832 words at 230 words a minute)
+About 12 min (2,854 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -118,7 +118,7 @@ A facility this interdependent is run from instrumentation, not by walking the f
 - **Environmental and power monitoring**: sensors for temperature, humidity, airflow, leak, and smoke feed alerts, and branch-circuit and PDU metering feed power dashboards. **PUE (Power Usage Effectiveness)**, which The Green Grid defines as "the total energy used by a data center divided by the energy used by ICT equipment in that data center," is the common efficiency yardstick and is now also standardized as ISO/IEC 30134-2.
 - **Grounding and bonding**: a bonding and grounding system for telecommunications spaces is specified by **ANSI/TIA-607**; poor bonding shows up as noise, damage, and intermittent faults.
 - **Fire detection and suppression**: IT-room fire protection is covered by **NFPA 75** (and NFPA 76 for telecommunications facilities), and gaseous clean-agent systems by **NFPA 2001**; clean agents suppress fire without the water damage of a wet system. Sprinkler types are defined in NFPA 13: a **pre-action** sprinkler keeps the pipe dry until a trigger fires, and the interlock type sets the trigger. Per NFPA's own explainer, a **single-interlock** pre-action system fills the pipe on operation of the detection system alone (and NFPA names computer rooms as a use), while a **double-interlock** system fills only when both the detection system and a sprinkler operate; a non-interlock system fills on either.
-- **Cable pathways**: structured cabling runs in overhead ladder racks or under a raised floor, kept separate from power pathways to limit interference.
+- **Cable pathways**: structured cabling runs in overhead ladder racks or under a raised floor, kept separate from power pathways to limit interference. The cabling plant itself (media, connectors, pathways, and the physical-layer attack surface) is covered in the [Structured Cabling and Physical Layer Reference](STRUCTURED_CABLING_AND_PHYSICAL_LAYER_REFERENCE.md).
 
 ## Decommissioning and the hardware lifecycle
 
@@ -158,6 +158,7 @@ Standards and publisher pages, read 2026-11-25. Full texts of the paid standards
 - [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md)
 - [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md)
 - [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md)
+- [Structured Cabling and Physical Layer Reference](/STRUCTURED_CABLING_AND_PHYSICAL_LAYER_REFERENCE.md)
 
 <!-- related:end -->
 

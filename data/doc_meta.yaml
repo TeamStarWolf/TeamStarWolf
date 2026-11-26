@@ -1434,6 +1434,14 @@ pages:
     corrected: "pr62-names-and-versions"
     corrected_what: "AlienVault heading now also names LevelBlue"
     reviewed: null
+  STRUCTURED_CABLING_AND_PHYSICAL_LAYER_REFERENCE.md:
+    audience: "Network, cabling, and data-center engineers, and the physical-security readers who assess Layer 1"
+    level: "Intermediate"
+    read_when: "You are specifying or terminating copper and fiber in a data center or building, you are choosing a cable category, fiber class, or connector for a link, or you are assessing the physical-layer attack surface and how to detect a tap"
+    start_at: "[Copper](#copper), [Fiber](#fiber), [The security view](#the-security-view)"
+    pairs_with: "[Data Center Infrastructure Reference](DATA_CENTER_INFRASTRUCTURE_REFERENCE.md), [Networking Fundamentals](NETWORKING_FUNDAMENTALS.md), [Network Security Architecture](NETWORK_SECURITY_ARCHITECTURE.md), [Physical Security Reference](PHYSICAL_SECURITY_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
   SUPPLY_CHAIN_SECURITY_REFERENCE.md:
     audience: "Application security, DevSecOps, and platform engineers who own build and release pipelines"
     level: "Intermediate"

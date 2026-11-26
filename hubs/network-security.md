@@ -4,7 +4,7 @@
 
 > Network fundamentals, protocols, architecture, edge devices, packet analysis, and wireless, RF, and telecom security.
 
-Part of the [domain hubs](/hubs/README.md). 12 reference documents in this domain; reading time is the page's words at 230 words a minute.
+Part of the [domain hubs](/hubs/README.md). 13 reference documents in this domain; reading time is the page's words at 230 words a minute.
 
 ## References
 
@@ -27,6 +27,7 @@ Part of the [domain hubs](/hubs/README.md). 12 reference documents in this domai
 | Reference | What it covers | Reading time |
 |---|---|---|
 | [Data Center Infrastructure Reference](/DATA_CENTER_INFRASTRUCTURE_REFERENCE.md) | The physical layer under every server: the racks, power, cooling, and facility systems of an enterprise data center, and the security that layer needs. | 12 min |
+| [Structured Cabling and Physical Layer Reference](/STRUCTURED_CABLING_AND_PHYSICAL_LAYER_REFERENCE.md) | OSI Layer 1 in the data center and the building: the copper and fiber that carry every link, the plant that organizes it, and the physical-layer attack surface it creates. | 7 min |
 
 ## Learning paths
 

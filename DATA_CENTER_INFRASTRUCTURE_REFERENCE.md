@@ -21,7 +21,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 12 min (2,830 words at 230 words a minute)
+About 12 min (2,854 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -94,7 +94,7 @@ A few physical details, which are general data-center practice rather than a sin
 A data center takes utility power and delivers conditioned, redundant power to every device, with no interruption through faults or maintenance. The chain runs roughly: utility feed, transfer, backup generation, uninterruptible supply, distribution, and the device's own supplies.
 
 - **Utility and transfer**: larger sites take feeds that can be backed by on-site generators (generator installation is governed by NFPA 110). In common practice an automatic transfer switch (ATS) moves the load from utility to generator on a mains failure, and a static transfer switch (STS) switches between two sources fast enough for sensitive loads. Generators cover a long outage; they need time to start and stabilize, which the battery layer bridges.
-- **Uninterruptible power supply (UPS)**: the UPS maintains "continuity of load power in case of input power failure," carrying the load across the seconds between a utility loss and the generator coming up, and conditions the power. UPS topologies are classified in **IEC 62040-3:2021** (full text not read). An online double-conversion unit keeps the load on inverter power with no transfer gap and is used for critical loads; a line-interactive unit is simpler and suits smaller or less critical loads. Battery health and runtime are a monitored, finite resource.
+- **Uninterruptible power supply (UPS)**: the UPS maintains "continuity of load power in case of input power failure," carrying the load across the seconds between a utility loss and the generator coming up, and conditions the power. UPS topologies are classified in **IEC 62040-3:2021**, which defines a performance classification coding for UPS. An online double-conversion unit keeps the load on inverter power with no transfer gap and is used for critical loads; a line-interactive unit is simpler and suits smaller or less critical loads. Battery health and runtime are a monitored, finite resource.
 - **Power distribution units (PDUs)**: distribution happens at several levels. Floor or row PDUs and remote power panels break the feed into branch circuits; rack PDUs deliver outlets inside the cabinet. Vendors commonly sell rack PDUs as basic (outlets only), metered (whole-unit or per-outlet current metering), and switched (per-outlet on and off control plus metering); the metered and switched units are networked, which is where the security note below applies.
 - **A/B dual-corded feeds**: resilient racks are fed by two independent power paths, the "A" and "B" sides, from separate PDUs and ideally separate upstream distribution. Uptime's Tier IV requires fault-tolerant IT power, which in practice means dual power supplies, one cord to each side, so the loss of an entire path does not drop the load. Single-corded devices need a transfer switch to get the same protection.
 - **Three-phase distribution**: at the density of a modern row, power is commonly distributed as three-phase and balanced across the phases to use the capacity efficiently.
@@ -118,7 +118,7 @@ A facility this interdependent is run from instrumentation, not by walking the f
 - **Environmental and power monitoring**: sensors for temperature, humidity, airflow, leak, and smoke feed alerts, and branch-circuit and PDU metering feed power dashboards. **PUE (Power Usage Effectiveness)**, which The Green Grid defines as "the total energy used by a data center divided by the energy used by ICT equipment in that data center," is the common efficiency yardstick and is now also standardized as ISO/IEC 30134-2.
 - **Grounding and bonding**: a bonding and grounding system for telecommunications spaces is specified by **ANSI/TIA-607**; poor bonding shows up as noise, damage, and intermittent faults.
 - **Fire detection and suppression**: IT-room fire protection is covered by **NFPA 75** (and NFPA 76 for telecommunications facilities), and gaseous clean-agent systems by **NFPA 2001**; clean agents suppress fire without the water damage of a wet system. Sprinkler types are defined in NFPA 13: a **pre-action** sprinkler keeps the pipe dry until a trigger fires, and the interlock type sets the trigger. Per NFPA's own explainer, a **single-interlock** pre-action system fills the pipe on operation of the detection system alone (and NFPA names computer rooms as a use), while a **double-interlock** system fills only when both the detection system and a sprinkler operate; a non-interlock system fills on either.
-- **Cable pathways**: structured cabling runs in overhead ladder racks or under a raised floor, kept separate from power pathways to limit interference.
+- **Cable pathways**: structured cabling runs in overhead ladder racks or under a raised floor, kept separate from power pathways to limit interference. The cabling plant itself (media, connectors, pathways, and the physical-layer attack surface) is covered in the [Structured Cabling and Physical Layer Reference](STRUCTURED_CABLING_AND_PHYSICAL_LAYER_REFERENCE.md).
 
 ## Decommissioning and the hardware lifecycle
 
@@ -132,11 +132,11 @@ The physical plant is in scope for security for three distinct reasons, on top o
 - **The facility control layer is an attack surface.** PDUs with web and SNMP interfaces, smart UPS network cards, environmental controllers, and the building management system are networked computers. CISA and the Department of Energy warned in 2022 of threat actors reaching internet-connected UPS devices "often through unchanged default usernames and passwords," and advised removing their management interfaces from the internet; the same exposure applies in practice to other facility controllers. Placing these interfaces on an isolated management network rather than the production or corporate LAN follows that advice and the boundary-protection control (NIST SP 800-53 SC-7); the building-management side overlaps the operational-technology guidance in the [ICS and OT Security Reference](ICS_OT_SECURITY_REFERENCE.md).
 - **Hardware supply chain and receiving.** Tampered firmware, implanted components, and counterfeit parts are introduced before a device is ever racked. NIST SP 800-53 Rev. 5 covers the countermeasures under the supply-chain-risk family: provenance (SR-4), tamper resistance and detection (SR-9), inspection of systems or components (SR-10), and component authenticity (SR-11); the firmware-integrity angle is developed in the [Hardware Security Reference](HARDWARE_SECURITY_REFERENCE.md).
 
-Treating the data center floor as part of the attack surface, monitoring the facility control layer as any other management plane, and validating that power and cooling redundancy actually works rather than assuming the nameplate is the author's recommendation drawn from the controls above.
+The author's recommendation, drawn from the controls above: treat the data center floor as part of the attack surface, monitor the facility control layer as any other management plane, and validate that power and cooling redundancy actually works rather than assume the nameplate.
 
 ## Sources
 
-Standards and publisher pages, read 2026-11-25. Full texts of the paid standards (TIA-942-C, EIA/ECA-310-E, IEC 60297-3-100, IEC 62040-3, the ASHRAE Thermal Guidelines, the NFPA codes, IEEE 2883, ISO/IEC 27001 and 22237) were not read; they are named for where a requirement is defined, not quoted from.
+Standards and publisher pages, read 2026-11-25. Full texts of the paid standards (TIA-942-C, EIA/ECA-310-E, IEC 60297-3-100, IEC 62040-3, the ASHRAE Thermal Guidelines, the NFPA codes, IEEE 2883 and ISO/IEC 22237) were not read; they are named for where a requirement is defined, not quoted from.
 
 - Uptime Institute, Tier Classification System: <https://uptimeinstitute.com/tiers>; "Explaining Uptime Institute's Tier Classification System" (Uptime Institute Journal): <https://journal.uptimeinstitute.com/explaining-uptime-institutes-tier-classification-system/>
 - Telecommunications Industry Association, ANSI/TIA-942-C (2024): data-center brochure <https://tiaonline.org/wp-content/uploads/2024/05/Data-Centers-Brochure_040124.pdf>; TIA-942 certification and scope <https://tiaonline.org/our-work/certifications/tia-942-certification/>; certifications and ratings (TIA-licensed Certification Bodies) <https://tiaonline.org/our-work/certifications/tia-942-certification/certifications-and-ratings/>
@@ -158,6 +158,7 @@ Standards and publisher pages, read 2026-11-25. Full texts of the paid standards
 - [Enterprise Infrastructure Reference](/ENTERPRISE_INFRASTRUCTURE.md)
 - [Hardware Security Reference](/HARDWARE_SECURITY_REFERENCE.md)
 - [Cyber Resilience & BCDR Reference](/CYBER_RESILIENCE_BCDR_REFERENCE.md)
+- [Structured Cabling and Physical Layer Reference](/STRUCTURED_CABLING_AND_PHYSICAL_LAYER_REFERENCE.md)
 
 <!-- related:end -->
 

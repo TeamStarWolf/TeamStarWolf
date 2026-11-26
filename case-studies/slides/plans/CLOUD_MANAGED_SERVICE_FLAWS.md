@@ -30,7 +30,7 @@ Stat: 4 | fixed by the provider, no customer patch
 Stat: 3 of 4 | crossed a tenant or account boundary
 - Named: Azure Cosmos DB, Azure Database for PostgreSQL Flexible Server, AWS AppSync, Google Cloud Platform.
 - No CVE means no CVSS from an assigning authority; severity is the finder's and the provider's words, not a score.
-Notes: Wiz states the PostgreSQL flaw got no CVE identifier [3]. The providers' CVE policy changed in 2024, not applied back to these four [13][14].
+Notes: Wiz states the PostgreSQL flaw got no CVE identifier [3]. The providers' CVE policy changed in 2024 [13][14]; none of the four has a CVE as of 25 November 2026 [17][18].
 
 ## PART 1 | ChaosDB, Azure Cosmos DB
 
@@ -80,7 +80,7 @@ Notes: The no-CVE statement is Wiz's [3]; the policy change is Microsoft's and G
 | Microsoft (PostgreSQL) | Mitigated within 48 hours; private access not exposed | No customer data accessed |
 | Amazon Web Services | Fixed in about five days; reviewed logs to launch | No customers affected; only the researcher's accounts |
 | Google (GhostToken) | Global patch made hidden apps visible again | No statement on Google's own channel; on record via the finder |
-Caption: Three providers published their own account; for GhostToken the record is the finder's archived write-up, since Google published nothing itself.
+Caption: Three providers published their own account; for GhostToken the record is the finder's archived write-up, since no Google statement was found.
 Notes: Microsoft [2][4]; AWS [6]; Google's fix and handling from the finder's archived write-up [10].
 
 ## DEFENDER VIEW | Find and fix, read-only first
@@ -110,6 +110,6 @@ Notes: Names, tactics and platforms from the library's ATT&CK v20.0 reference [9
 ## CROSS-CUTTING THEMES | The customer's half of a shared model
 
 - **One place, not one bug.** Four services, three firms, about two years; what ties them is the part of the service the customer cannot patch.
-- **Outside firms found all four; each provider fixed its own.** Two providers stated no data was accessed, one that no customers were affected; Google published nothing on its own channel.
+- **Outside firms found all four; each provider fixed its own.** Two providers stated no data was accessed, one that no customers were affected; no Google statement was found on its own channel.
 - **The customer's half is hygiene.** Inventory, credential rotation, private networking and grant review decide how much is lost before the provider's fix lands.
 Notes: Shared-place reading and the hygiene conclusion are the study's (Inferred). Provider statements [2][4][6]; GhostToken from the finder's archived write-up [10].

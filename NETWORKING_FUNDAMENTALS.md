@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 36 min (8,252 words at 230 words a minute)
+About 36 min (8,279 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -311,7 +311,7 @@ TCP is a connection-oriented, reliable, ordered protocol. Understanding its inte
 | Urgent Pointer | 16 bits | Offset to urgent data when URG flag is set | URG rarely used legitimately; covert channel |
 | Options | Variable | MSS, SACK, timestamps, window scaling, NOP | OS fingerprinting (p0f, nmap -O) |
 
-Bit 7 of the flags field is AE (Accurate ECN), assigned by RFC 9768 (IANA). It was previously NS (Nonce Sum) from RFC 3540, which RFC 8311 reclassified as Historic.
+The first of the nine flag bits is AE (Accurate ECN), assigned by RFC 9768; it sits at bit offset 7 in IANA's TCP Header Flags registry, counting from the start of the 16-bit word that begins with the Data Offset field. It was previously NS (Nonce Sum) from RFC 3540, which RFC 8311 reclassified as Historic.
 
 #### TCP Flags: Security Reference
 

@@ -477,7 +477,8 @@ kubectl get namespace production --show-labels
 
 ```yaml
 # Pod Security Standards "Restricted" requires the controls marked "Restricted" below.
-# The capabilities and allowPrivilegeEscalation controls are Linux-only, enforced from v1.25.
+# Three of these are required only when .spec.os.name is not windows: Privilege Escalation,
+# Seccomp and Capabilities (v1.25 made Restricted use spec.os.name to exempt Windows pods).
 spec:
   hostNetwork: false         # Restricted: not allowed
   hostPID: false             # Restricted: not allowed
@@ -488,13 +489,13 @@ spec:
     runAsGroup: 3000         # hardening only; not a Restricted control
     fsGroup: 2000            # hardening only; not a Restricted control
     seccompProfile:
-      type: RuntimeDefault   # Restricted: RuntimeDefault or Localhost
+      type: RuntimeDefault   # Restricted: RuntimeDefault or Localhost (Linux only)
   containers:
     - securityContext:
-        allowPrivilegeEscalation: false   # Restricted: required (Linux)
+        allowPrivilegeEscalation: false   # Restricted: required (Linux only)
         readOnlyRootFilesystem: true      # hardening only; not a Restricted control
         capabilities:
-          drop: ["ALL"]                   # Restricted: must drop ALL
+          drop: ["ALL"]                   # Restricted: must drop ALL (Linux only)
           add: []                         # Restricted permits adding back only NET_BIND_SERVICE
       # Restricted volume types: configMap, csi, downwardAPI, emptyDir, ephemeral,
       #   persistentVolumeClaim, projected, secret. No hostPath.

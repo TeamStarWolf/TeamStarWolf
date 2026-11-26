@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 8 min (1,940 words at 230 words a minute)
+About 9 min (2,064 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -62,7 +62,7 @@ Key takeaways (reviewed 2026-11-16):
 
 ## Executive summary
 
-In March 2024 a backdoor was found in XZ Utils, the compression project whose `liblzma` library ships on almost every Linux system. An attacker operating as a trusted maintainer spent more than two years earning commit and release authority, then hid a backdoor in the release tarballs of versions 5.6.0 and 5.6.1. On the distributions that link `liblzma` into OpenSSH through systemd, the backdoor hooked the SSH authentication path so that anyone holding the attacker's private key could run commands as root before authenticating. It was caught by one engineer who noticed that SSH logins had become about half a second slower, not by any systematic control. The lesson is that source-level review is not enough when the malicious code is injected at build time, and that critical infrastructure maintained by a single volunteer is a supply-chain single point of failure.
+In March 2024 a backdoor was found in XZ Utils, the compression project whose `liblzma` library ships on almost every Linux system. An attacker operating as a trusted maintainer spent more than two years earning commit and release authority, then hid a backdoor in the release tarballs of versions 5.6.0 and 5.6.1. On the distributions that link `liblzma` into OpenSSH through systemd, the backdoor hooked the SSH authentication path so that anyone holding the attacker's private key could run commands as root before authenticating. It was caught by one engineer who noticed that SSH logins had become about half a second slower, not by any systematic control. The lesson is that source-level review is not enough when the payload is committed in disguise, as obfuscated test data, and the step that activates it is hidden in the release tarball's build machinery, and that critical infrastructure maintained by a single volunteer is a supply-chain single point of failure.
 
 Evidence grade: **Confirmed** (a tracked CVE, extensive independent analysis, and a reconstructed multi-year campaign).
 
@@ -83,7 +83,7 @@ Evidence grade: **Confirmed** (a tracked CVE, extensive independent analysis, an
 ### Key findings
 
 - **The compromise was the maintainer, not a vulnerability.** An identity operating as "Jia Tan" (JiaT75) built credibility over about two to two and a half years, became a co-maintainer and release manager, and used the trust to ship the backdoor. Sockpuppet accounts pressured the original, overworked sole maintainer to cede control.
-- **The backdoor lived in the tarball, not the git source.** The malicious payload was a prebuilt object concealed in files disguised as compression test data, assembled into `liblzma` by obfuscated build scripts. A reviewer reading the GitHub source would not have seen it; it appeared only in the released tarball.
+- **The payload was in the git source; the step that activated it was tarball-only.** The files carrying what the disclosure calls "the bulk of the exploit" were committed upstream to the repository, in obfuscated form, disguised as compression test data (`tests/files/bad-3-corrupt_lzma2.xz` and `tests/files/good-large_compressed.lzma`). What was present only in the released tarballs was one portion: a modified `build-to-host.m4` build step, absent from that file's upstream source, which extracted and linked the payload into `liblzma` at compile time. A reviewer reading the repository would have seen the test files but not the obfuscated build step that wired them in.
 - **It targeted sshd through a distro-specific link.** OpenSSH does not use `liblzma`. Several distributions patch sshd to depend on `libsystemd`, which pulls in `liblzma`. The backdoor used a glibc IFUNC resolver to hook the signature-verification path used during SSH login on x86-64 glibc systems, giving pre-authentication remote code execution to a client that presents a payload signed with the attacker's key.
 - **Only bleeding-edge systems shipped it.** The backdoored 5.6.0 and 5.6.1 reached rolling and pre-release distributions (Debian unstable and testing, Fedora Rawhide and 41 beta, Arch, openSUSE Tumbleweed, Kali) and Homebrew. Stable long-term releases, including Debian stable, Ubuntu LTS, and RHEL, had not adopted them.
 - **Discovery was luck, not control.** Andres Freund, a Microsoft engineer, investigated a performance regression in Debian unstable, saw SSH logins taking about 500 ms longer than expected and Valgrind errors pointing at `liblzma`, and traced it to the backdoor. He reported it on 29 March 2024.
@@ -109,7 +109,7 @@ This study covers the XZ Utils backdoor tracked as CVE-2024-3094, from primary d
 
 XZ Utils provides the `xz` command and `liblzma`, a compression library linked by a large number of programs. Between 24 February and 9 March 2024, the project's release manager shipped tarballs for versions 5.6.0 and 5.6.1 that contained a backdoor (**Confirmed**: CVE-2024-3094, CVSS 10.0).
 
-The payload was not in the project's git source. It was a prebuilt object file hidden inside files that looked like corrupt compression test inputs, and the project's build scripts (an obfuscated step in the release tarball's `configure` machinery) extracted and linked it during compilation (**Confirmed**: independent analysis). Because the malicious code entered only at build time and only in the tarball, the usual defence of reading the source on GitHub would not have revealed it.
+The disclosure separates where the parts of the backdoor lived. The files carrying the bulk of the exploit were committed to the project's git repository, in obfuscated form, disguised as corrupt compression test inputs (`tests/files/bad-3-corrupt_lzma2.xz` and `tests/files/good-large_compressed.lzma`) (**Confirmed**: Andres Freund's disclosure, [oss-security](https://www.openwall.com/lists/oss-security/2024/03/29/4), read 26 November 2026). One portion was solely in the distributed tarballs: a modified `build-to-host.m4` step in the release tarball's build machinery, absent from the upstream source of that file, which extracted and linked the payload during compilation (**Confirmed**: same disclosure). So reading the source on GitHub would have shown the disguised test files but not the obfuscated build step that activated them, which is why source review did not catch it.
 
 On x86-64 Linux systems using glibc, the compromised `liblzma` used an IFUNC resolver (a glibc feature that lets a library pick a function implementation at load time) to hook into the code path that verifies signatures during an SSH login (**Confirmed**: independent analysis). OpenSSH itself does not depend on `liblzma`; the link exists only because several distributions patch sshd to depend on `libsystemd`, which depends on `liblzma`. A remote client that presented a command payload signed with the attacker's private key would have the backdoored sshd run it as root, before authentication. No separate credential was needed.
 
@@ -179,8 +179,8 @@ A version check alone is not the whole answer: confirm that nothing in the estat
 
 ## Sources
 
-- The original disclosure by Andres Freund to the oss-security (Openwall) mailing list, 29 March 2024.
-- CVE-2024-3094 (NVD) and the CISA alert of 29 March 2024.
+- The original disclosure by Andres Freund to the oss-security (Openwall) mailing list, 29 March 2024: [openwall.com/lists/oss-security/2024/03/29/4](https://www.openwall.com/lists/oss-security/2024/03/29/4) (read 26 November 2026).
+- CVE-2024-3094 ([NVD](https://nvd.nist.gov/vuln/detail/CVE-2024-3094)) and the [CISA alert](https://www.cisa.gov/news-events/alerts/2024/03/29/reported-supply-chain-compromise-affecting-xz-utils-data-library-cve-2024-3094) of 29 March 2024 (read 26 November 2026).
 - Red Hat, Debian, Arch, Fedora, and openSUSE security advisories.
 - The OpenSSF advisory and independent technical analyses of the payload and build chain.
 

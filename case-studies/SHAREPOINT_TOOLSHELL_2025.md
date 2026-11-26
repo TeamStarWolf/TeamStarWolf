@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 11 min (2,554 words at 230 words a minute)
+About 12 min (2,652 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -62,7 +62,7 @@ Key takeaways (reviewed 2026-11-16):
 
 ## Executive summary
 
-In July 2025 a chain of flaws in on-premises Microsoft SharePoint Server, known collectively as ToolShell, went from a conference demonstration to worldwide mass exploitation in a matter of days. The decisive move was not the remote code execution itself but what the attackers did next: they stole the SharePoint server's ASP.NET machine keys. With those keys an attacker can forge signed `__VIEWSTATE` payloads and regain code execution at will, which means a server that is merely patched is still compromised. More than 400 servers across roughly 148 organizations were hit, including the US National Nuclear Security Administration, and three China-linked actors (Linen Typhoon, Violet Typhoon, and Storm-2603) used the access for espionage and, in Storm-2603's case, to deploy Warlock and LockBit ransomware. The case is the clearest recent lesson that for a secret-stealing vulnerability, remediation is patch plus key rotation, not patch alone.
+In July 2025 a chain of flaws in on-premises Microsoft SharePoint Server, known collectively as ToolShell, went from a conference demonstration to worldwide mass exploitation in a matter of days. The decisive move was not the remote code execution itself but what the attackers did next: they stole the SharePoint server's ASP.NET machine keys. With those keys an attacker can forge signed `__VIEWSTATE` payloads and regain code execution at will, which means a server that is merely patched is still compromised. More than 400 servers across roughly 148 organizations were hit, including the US National Nuclear Security Administration, and three China-linked actors (Linen Typhoon, Violet Typhoon, and Storm-2603) used the access for espionage and, in Storm-2603's case, to deploy Warlock ransomware (Microsoft names Warlock in this activity and notes it had observed the actor deploy Warlock and LockBit in the past). The case is the clearest recent lesson that for a secret-stealing vulnerability, remediation is patch plus key rotation, not patch alone.
 
 Evidence grade: **Confirmed** overall (Microsoft, CISA, and multiple vendor and victim sources; single-source figures are marked below).
 
@@ -75,7 +75,7 @@ Evidence grade: **Confirmed** overall (Microsoft, CISA, and multiple vendor and 
 | Affected | SharePoint Subscription Edition, Server 2019, Server 2016 (on-premises only); SharePoint Online not affected |
 | Decisive technique | Theft of the ASP.NET `ValidationKey` and `DecryptionKey` via `spinstall0.aspx`, enabling forged `__VIEWSTATE` RCE |
 | Remediation | Patch, then rotate machine keys, then `iisreset` on every farm server; patch alone is not enough |
-| Actors | Linen Typhoon, Violet Typhoon (espionage), Storm-2603 (Warlock and LockBit ransomware) |
+| Actors | Linen Typhoon, Violet Typhoon (espionage), Storm-2603 (Warlock ransomware in this activity; Warlock and LockBit in the actor's past, per Microsoft) |
 | First exploitation | Observed from around 18 July 2025, days after the July patch |
 | Scale | More than 400 servers across about 148 organizations; the US NNSA confirmed breached |
 
@@ -84,7 +84,7 @@ Evidence grade: **Confirmed** overall (Microsoft, CISA, and multiple vendor and 
 - **It was a patch bypass, exploited within days of the patch.** Microsoft's July 2025 update fixed the original ToolShell pair (CVE-2025-49706 spoofing and CVE-2025-49704 code injection). Attackers bypassed those fixes with CVE-2025-53770 (deserialization of untrusted data, CVSS 9.8) and CVE-2025-53771 (path traversal, CVSS 6.3), unauthenticated and chained for remote code execution, and exploitation was observed from about 18 July 2025.
 - **On-premises only; SharePoint Online was not affected.** The flaws hit SharePoint Subscription Edition, SharePoint Server 2019 and SharePoint Server 2016. The Microsoft 365 cloud service was not vulnerable, which concentrated the damage on self-managed servers that are harder to patch quickly.
 - **Machine-key theft turned a patch into a non-fix.** Post-exploitation deployed a file named `spinstall0.aspx` whose purpose was to read and exfiltrate the server's ASP.NET `ValidationKey` and `DecryptionKey`. Those keys let the attacker sign malicious `__VIEWSTATE` objects that SharePoint deserializes and executes, so persistence survives patching until the keys are rotated.
-- **Three China-linked actors, espionage and ransomware.** Microsoft attributed activity to Linen Typhoon and Violet Typhoon (state-linked espionage) and to Storm-2603, which stole machine keys and deployed Warlock and LockBit ransomware. The same unauthenticated entry point served both long-term collection and smash-and-grab extortion.
+- **Three China-linked actors, espionage and ransomware.** Microsoft attributed activity to Linen Typhoon and Violet Typhoon (state-linked espionage) and to Storm-2603, which stole machine keys and, in this campaign, was observed deploying Warlock ransomware. Microsoft names Warlock in this activity and separately notes it has observed the actor deploy Warlock and LockBit ransomware in the past. The same unauthenticated entry point served both long-term collection and smash-and-grab extortion.
 - **The scale was large and the victims were sensitive.** Reporting put the campaign at more than 400 compromised servers across about 148 organizations on four continents, including government agencies, universities, telecommunications and finance, and the US National Nuclear Security Administration confirmed it was among those breached (no classified data reported affected).
 
 ### Top recommendations
@@ -185,7 +185,7 @@ Microsoft attributed the exploitation to three China-linked actors, with differe
 
 - **Linen Typhoon**: a state-linked group using the access for espionage and long-term collection, associated with intellectual-property-focused intrusions.
 - **Violet Typhoon**: a state-linked espionage group focused on reconnaissance and data collection against government, academic and NGO targets.
-- **Storm-2603**: a China-linked actor that stole machine keys and, from 18 July 2025, deployed ransomware (Warlock and LockBit) on compromised SharePoint servers. Microsoft noted Storm-2603 had no clear ties to the other two groups.
+- **Storm-2603**: a China-linked actor that stole machine keys and, from 18 July 2025, was observed deploying ransomware using these vulnerabilities. Microsoft names Warlock in this activity (its 23 July update describes exploitation by Storm-2603 leading to the deployment of Warlock ransomware) and notes it has observed the actor deploy Warlock and LockBit ransomware in the past. Microsoft noted Storm-2603 had no clear ties to the other two groups ([Microsoft Threat Intelligence](https://www.microsoft.com/en-us/security/blog/2025/07/22/disrupting-active-exploitation-of-on-premises-sharepoint-vulnerabilities/), read 26 November 2026).
 
 The same unauthenticated foothold thus fed both quiet espionage and loud extortion, a reminder that an exposure does not get to choose who finds it. The gap between espionage and ransomware operators collapses when they enter through the same unauthenticated door.
 
@@ -216,7 +216,7 @@ See [the Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_R
 
 ## Sources
 
-- Microsoft Security Response Center advisories for CVE-2025-53770, CVE-2025-53771, CVE-2025-49704 and CVE-2025-49706, and the Microsoft Threat Intelligence blog on ToolShell and Storm-2603.
+- Microsoft Security Response Center advisories for CVE-2025-53770, CVE-2025-53771, CVE-2025-49704 and CVE-2025-49706, and the [Microsoft Threat Intelligence blog on ToolShell and Storm-2603](https://www.microsoft.com/en-us/security/blog/2025/07/22/disrupting-active-exploitation-of-on-premises-sharepoint-vulnerabilities/) (read 26 November 2026).
 - CISA alert and Known Exploited Vulnerabilities entry for CVE-2025-53770 (added 20 July 2025) and the CISA malware analysis of the SharePoint activity.
 - Cisco Talos, Greenbone, Eye Security, Check Point and other vendor analyses of the exploit chain and the `spinstall0.aspx` key-theft payload.
 - The US National Nuclear Security Administration's confirmation, and reporting from Krebs on Security, BleepingComputer, The Record and Dark Reading on the actors and the scale.

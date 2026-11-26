@@ -579,6 +579,14 @@ pages:
     learning_path: []
     corrected: "pr68-page-added"
     reviewed: null
+  DATA_CENTER_INFRASTRUCTURE_REFERENCE.md:
+    audience: "Infrastructure, data-center, and security engineers who run or assess the physical layer under enterprise systems"
+    level: "Intermediate"
+    read_when: "You are racking or powering equipment in an enterprise data center, you are assessing a facility's resilience or its power and cooling redundancy, or you need to find the security exposure in the facility control layer"
+    start_at: "[Facility tiers and ratings](#facility-tiers-and-ratings), [Power](#power), [The security view](#the-security-view)"
+    pairs_with: "[Physical Security Reference](PHYSICAL_SECURITY_REFERENCE.md), [Enterprise Infrastructure Reference](ENTERPRISE_INFRASTRUCTURE.md), [Hardware Security Reference](HARDWARE_SECURITY_REFERENCE.md), [Cyber Resilience and BCDR Reference](CYBER_RESILIENCE_BCDR_REFERENCE.md)"
+    learning_path: []
+    reviewed: null
   DATA_SECURITY_REFERENCE.md:
     audience: "Data protection, privacy, and security program leads"
     level: "Intermediate"

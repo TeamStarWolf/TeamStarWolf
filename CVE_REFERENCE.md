@@ -200,7 +200,7 @@ NVD (nvd.nist.gov) independently adds to each published CVE record:
 | | High | 0.44 |
 | Privileges Required | None | 0.85 |
 | | Low (S:U) | 0.62 |
-| | Low (S:C) | 0.50 |
+| | Low (S:C) | 0.68 |
 | | High (S:U) | 0.27 |
 | | High (S:C) | 0.50 |
 | User Interaction | None | 0.85 |

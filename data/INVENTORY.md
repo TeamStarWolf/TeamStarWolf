@@ -134,8 +134,10 @@ Each entry in a product's `capabilities` is one of:
 
 - **documented**: `{ "capability_id", "status": "documented", "documented_as", "source_url", "read_date" }`,
   with an optional `note`. The vendor documents the function on that page, read on that date;
-  `documented_as` is a phrase **verbatim from the page**, so a reader can find it, and any gloss
-  of the editor's goes in `note`.
+  `documented_as` is a phrase **verbatim from the page's visible text** (body, headings, tables),
+  never from the title tag, the meta description, or other markup a reader does not see, so a
+  reader who opens the page can find it. Record the product `name` and `platform` the same way, as
+  the page shows them in visible text. Any gloss of the editor's goes in `note`.
 - **unverified**: `{ "capability_id", "status": "unverified", "note" }`. The function was not
   confirmed on a vendor page. The note carries no URL and must not make an **affirmative**
   confirmation claim; an honest negated statement is fine (e.g. "Not confirmed on the vendor

@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 12 min (2,823 words at 230 words a minute)
+About 14 min (3,156 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -81,7 +81,7 @@ Evidence grade: **Confirmed** overall (vendor, government and primary-research s
 
 ### Key findings
 
-- **PHP2Shell put every PHP web server in scope.** Two memory-corruption bugs in PHP core (a use-after-free in the upload-progress feature and a partial-initialization fault under memory pressure) allow unauthenticated RCE. They affect PHP 5.4 through 8.5 and were fixed in 8.5.12, 8.4.27, 8.3.36 and 8.2.35.
+- **PHP2Shell put PHP web servers in scope, with the reach stated per flaw.** Two memory-corruption bugs in PHP core (a use-after-free from stale global state, and memory corruption when an out-of-memory condition interrupts partly-initialized request data) give unauthenticated RCE as the web-server worker account. Both were validated against the Apache mod_php interface; the stale-global-state flaw (CVE-2026-109619) was also validated against PHP-FPM, the common way PHP runs behind nginx, while for the out-of-memory flaw (CVE-2026-109618) FPM is supported only by source analysis with no complete exploit demonstrated. FrankenPHP and LSAPI are assessed from source to varying degrees. They affect PHP 5.4 through 8.5 and were fixed in 8.5.12, 8.4.27, 8.3.36 and 8.2.35.
 - **Exploitation beat disclosure.** Amazon's MadPot sensors saw attempts on 17 October, four days before the public advisory. Cloudflare measured tens of thousands of attempts within 45 minutes of disclosure, rising to millions. Payloads included a Mirai fork and web-shell drops; as of CISA's advisory, no successful compromise had been confirmed.
 - **Supply chain and SaaS identity were the dominant vector.** Microsoft attributed the ConnectWise Cloud Backup compromise to China-aligned Storm-0940, which abused a stolen OAuth application credential to reach Microsoft 365 tenants at about 2,900 sign-ins a minute using the agentic-AI pentest framework ARTEX. A trojanized LiteLLM 1.107.0 reached PyPI and container registries after a master key leaked months earlier and was never rotated.
 - **The record Binance heist was North Korean.** The FBI attributed the theft of more than $6 billion in virtual assets on 29 October to the actor it tracks as TraderTraitor; Binance put the figure at about $6.3 billion, most of it moved in roughly 20 minutes, with around $3 billion in stablecoins later frozen.
@@ -106,10 +106,10 @@ This study covers PHP2Shell and the broader October 2026 incident wave, from ven
 
 ## Part 1: PHP2Shell (CVE-2026-109618, CVE-2026-109619)
 
-PHP2Shell is the name researchers gave to two critical flaws in PHP core, each rated CVSS v4.0 9.2 (**Confirmed**: PHP project advisory). Both can give unauthenticated remote code execution to any PHP installation serving web requests.
+PHP2Shell is the name researchers gave to two critical flaws in PHP core, each rated CVSS v4.0 9.2 (**Confirmed**: PHP project advisories, [GHSA-w8hw-w9fx-j79w](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w) and [GHSA-6wmf-4rv5-p3rp](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp), read 26 November 2026). Both are unauthenticated remote code execution as the web-server worker account, and the advisories state the reach per flaw rather than together: complete RCE was validated against Apache mod_php for both, and CVE-2026-109619's session-lifecycle path was also validated against PHP-FPM, which is how most PHP runs behind nginx. The other interfaces (FrankenPHP and LSAPI for both flaws, and FPM for CVE-2026-109618) are assessed from source to varying degrees, as the per-flaw bullets below set out. The first advisory was updated on 3 November 2026, after this study's October date; this section reads both as they stand.
 
-- **CVE-2026-109619**: a use-after-free in PHP core's upload-progress feature.
-- **CVE-2026-109618**: memory corruption when an out-of-memory condition interrupts PHP while internal request data is only partially initialized.
+- **CVE-2026-109619** (RCE via stale global state): request-owned global state that is not reset before the request memory is freed, which a later request on the same worker can act on as a use-after-free. The fatal-error backtrace path has confirmed RCE against mod_php, and session-lifecycle RCE was validated against both mod_php and PHP-FPM; the advisory's FPM path publishes the state during application execution after a successful startup, hits a fatal error, and then uses session upload progress as the early consumer, and it says this works with a normal dynamic FPM pool, though it depends on a suitable application operation. LSAPI is a conditional candidate; for FrankenPHP the advisory says no equivalent early consumer was established in its default configuration, which does not make it immune. Session upload progress is one consumer of the stale state, not the flaw itself.
+- **CVE-2026-109618** (RCE via OOM corruption): memory corruption when an out-of-memory condition interrupts PHP while internal request data is only partially initialized. Complete RCE was validated over HTTP against mod_php; the advisory supports FPM as susceptible from source analysis with no complete FPM exploit demonstrated, calls FrankenPHP likely susceptible, and calls LSAPI likely but unvalidated.
 
 The flaws affect PHP 5.4 through 8.5, which is effectively the entire supported and legacy range, and were fixed in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35, released 20–21 October 2026. CISA, NSA and NCSC-UK told organizations to patch or take PHP servers offline (**Confirmed**).
 
@@ -200,7 +200,7 @@ See [the Vulnerability Prioritization Reference](/VULNERABILITY_PRIORITIZATION_R
 
 ## Sources
 
-- PHP project security advisory and release notes for 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35; Amazon Threat Intelligence (MadPot), Cloudflare, watchTowr, Akamai, Qualys and Arctic Wolf analyses of PHP2Shell.
+- PHP project security advisories [GHSA-w8hw-w9fx-j79w](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w) (CVE-2026-109618) and [GHSA-6wmf-4rv5-p3rp](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp) (CVE-2026-109619), read 26 November 2026, and the release notes for 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35; Amazon Threat Intelligence (MadPot), Cloudflare, watchTowr, Akamai, Qualys and Arctic Wolf analyses of PHP2Shell.
 - Microsoft and ConnectWise advisories on the Cloud Backup compromise and Storm-0940; the LiteLLM project and PyPI advisories.
 - The FBI alert on the Binance theft, with Binance, Chainalysis and TRM analysis, and reporting from Al Jazeera, NPR and BleepingComputer.
 - Sophos, Microsoft and Cursor on the trojanized Claude Code extension; company disclosures for the Sony So-net, Burger King Japan, IDC Frontier, Japan Airlines and ASOS breaches.

@@ -476,27 +476,28 @@ kubectl get namespace production --show-labels
 ### Restricted Profile Requirements
 
 ```yaml
-# All of the following must be set correctly
+# Pod Security Standards "Restricted" requires the controls marked "Restricted" below.
+# The capabilities and allowPrivilegeEscalation controls are Linux-only, enforced from v1.25.
 spec:
-  hostNetwork: false         # Not allowed
-  hostPID: false             # Not allowed
-  hostIPC: false             # Not allowed
+  hostNetwork: false         # Restricted: not allowed
+  hostPID: false             # Restricted: not allowed
+  hostIPC: false             # Restricted: not allowed
   securityContext:
-    runAsNonRoot: true
-    runAsUser: 1000          # Must be non-zero
-    runAsGroup: 3000
-    fsGroup: 2000
+    runAsNonRoot: true       # Restricted: required
+    runAsUser: 1000          # Restricted: if set, must not be 0 (any non-zero value, or leave undefined)
+    runAsGroup: 3000         # hardening only; not a Restricted control
+    fsGroup: 2000            # hardening only; not a Restricted control
     seccompProfile:
-      type: RuntimeDefault   # Or Localhost with custom profile
+      type: RuntimeDefault   # Restricted: RuntimeDefault or Localhost
   containers:
     - securityContext:
-        allowPrivilegeEscalation: false
-        readOnlyRootFilesystem: true
+        allowPrivilegeEscalation: false   # Restricted: required (Linux)
+        readOnlyRootFilesystem: true      # hardening only; not a Restricted control
         capabilities:
-          drop: ["ALL"]
-          add: []            # No added capabilities in Restricted
-      # volumes: only emptyDir, configMap, projected, secret, downwardAPI, csi, ephemeral
-      # No hostPath volumes
+          drop: ["ALL"]                   # Restricted: must drop ALL
+          add: []                         # Restricted permits adding back only NET_BIND_SERVICE
+      # Restricted volume types: configMap, csi, downwardAPI, emptyDir, ephemeral,
+      #   persistentVolumeClaim, projected, secret. No hostPath.
 ```
 
 ### Dry-Run Mode (Test Before Enforcing)

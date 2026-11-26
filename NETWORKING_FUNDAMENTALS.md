@@ -17,7 +17,7 @@ Beginner to intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 36 min (8,222 words at 230 words a minute)
+About 36 min (8,252 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -305,11 +305,13 @@ TCP is a connection-oriented, reliable, ordered protocol. Understanding its inte
 | Acknowledgment Number | 32 bits | Next byte expected from the other side | State tracking |
 | Data Offset | 4 bits | Header length in 32-bit words (5 = 20 bytes minimum) | TCP options parsing; malformed offset = crash |
 | Reserved | 3 bits | Must be zero per RFC | Covert channel if set |
-| Flags | 9 bits | URG, ACK, PSH, RST, SYN, FIN + ECE, CWR, NS | Scan detection; firewall rules; evasion techniques |
+| Flags | 9 bits | URG, ACK, PSH, RST, SYN, FIN + ECE, CWR, AE | Scan detection; firewall rules; evasion techniques |
 | Window Size | 16 bits | Receive buffer space available (controls flow) | Fingerprinting (Win=65535 on Windows); window scale |
 | Checksum | 16 bits | Covers pseudo-header + header + data | Data integrity; can be recomputed for forged packets |
 | Urgent Pointer | 16 bits | Offset to urgent data when URG flag is set | URG rarely used legitimately; covert channel |
 | Options | Variable | MSS, SACK, timestamps, window scaling, NOP | OS fingerprinting (p0f, nmap -O) |
+
+Bit 7 of the flags field is AE (Accurate ECN), assigned by RFC 9768 (IANA). It was previously NS (Nonce Sum) from RFC 3540, which RFC 8311 reclassified as Historic.
 
 #### TCP Flags: Security Reference
 

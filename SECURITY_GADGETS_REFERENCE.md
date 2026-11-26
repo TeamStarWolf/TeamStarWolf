@@ -19,7 +19,7 @@ Intermediate
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Reading time</th><td>
 
-About 29 min (6,572 words at 230 words a minute)
+About 30 min (6,974 words at 230 words a minute)
 
 </td></tr>
 <tr><th scope="row" align="left" valign="top">Read this when</th><td>
@@ -72,7 +72,7 @@ No review recorded yet
 
 ## 1. Hak5 Ecosystem
 
-Hak5 produces a professional-grade line of penetration testing hardware used by security researchers, red team operators, and authorized network assessors. All devices are designed and sold for authorized security testing only.
+Hak5 produces a professional-grade line of penetration testing hardware used by security researchers, red team operators, and authorized network assessors. All devices are designed and sold for authorized security testing only. The subsections below are source-checked against Hak5's current documentation and official repositories (see the section sources): product names and models, maker documentation and repository links are verified, and specific commands, specifications and script examples this review did not confirm against a current page are noted as unverified.
 
 ### 1.1 WiFi Pineapple Mark VII
 
@@ -87,7 +87,9 @@ Core Modules:
 - REST API: Full device management via JSON REST API. Enables scripted automation of campaigns, module control, and log retrieval.
 - Cloud C2 Integration: Remote management via Hak5's Cloud C2 platform. Supports device tunneling, payload deployment, and loot retrieval over internet-routed connections.
 
-WiFi Coconut: A companion device featuring 14 simultaneous 2.4 GHz radios, enabling full-band 802.11 capture across all channels simultaneously. Used with Kismet for comprehensive wireless spectrum monitoring during authorized assessments.
+Of these, PineAP is the Mark VII's core rogue-access-point engine per Hak5's documentation; Evil Portal, SSLsplit and DNSspoof are add-on modules whose availability on current firmware is not confirmed in this review.
+
+WiFi Coconut: A companion device featuring 14 simultaneous 2.4 GHz radios (per Hak5's product materials; not reconfirmed against current documentation in this review), enabling 802.11 capture across all 2.4 GHz channels at once. Used with Kismet for comprehensive wireless spectrum monitoring during authorized assessments.
 
 Operational workflow:
 ```
@@ -102,7 +104,7 @@ Operational workflow:
 
 The USB Rubber Ducky is a keystroke injection tool that presents as a USB HID keyboard, executing scripted payloads at machine speed the moment it is plugged in.
 
-DuckyScript Language:
+DuckyScript Language: the current USB Rubber Ducky runs **DuckyScript 3.0**, which keeps the classic commands below and adds variables, conditionals, functions and other constructs, per Hak5's documentation.
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -137,7 +139,7 @@ Community Payloads: `github.com/hak5/usbrubberducky-payloads`, curated repositor
 
 ### 1.3 Bash Bunny
 
-The Bash Bunny is a multi-function USB attack platform running a full Debian Linux environment, capable of appearing as various USB device types simultaneously.
+The Bash Bunny is a multi-function USB attack platform running a full Debian Linux environment, capable of appearing as various USB device types simultaneously. Hak5's current model is the Bash Bunny Mark II, per Hak5's documentation.
 
 ATTACKMODE Configuration:
 
@@ -226,7 +228,7 @@ The LAN Turtle is a covert USB Ethernet adapter that provides persistent remote 
 
 ### 1.6 Packet Squirrel
 
-The Packet Squirrel is a transparent Layer 2 network tap and MITM device designed for authorized inline network monitoring.
+The Packet Squirrel is a transparent Layer 2 network tap and MITM device designed for authorized inline network monitoring. Hak5's current model is the Packet Squirrel Mark II, per Hak5's documentation; the original Packet Squirrel is the earlier model.
 
 - Layer 2 transparent tap: passes traffic without disrupting network communication
 - Inline deployment: sits between two network devices, invisible to both
@@ -261,7 +263,7 @@ WHEN [any] CONTAINS "cmd" EXECUTE payload.txt
 
 ### 1.8 O.MG Cable
 
-The O.MG Cable is a USB cable with an embedded WiFi-enabled microcontroller, visually indistinguishable from standard charging cables.
+The O.MG Cable is made by the O.MG project (MG, o.mg.lol), not by Hak5, though Hak5 retails it and hosts its payload repository; it is a USB cable with an embedded WiFi-enabled microcontroller, visually similar to standard charging cables.
 
 Available variants:
 - Lightning to USB-A
@@ -288,14 +290,32 @@ The Screen Crab is an inline HDMI capture device for authorized video signal mon
 
 ### 1.10 Cloud C2
 
-Hak5's Cloud C2 is a self-hosted remote management platform for centrally managing all Hak5 devices in authorized deployments.
+Hak5's Cloud C2 is a self-hosted remote management platform for centrally managing Hak5 devices in authorized deployments.
 
 - Unified dashboard for WiFi Pineapple, Bash Bunny, LAN Turtle, Shark Jack, Key Croc, Packet Squirrel
 - Device tunneling: establishes outbound connections through NAT/firewall for remote access
 - Payload delivery: push and execute payloads on deployed devices
 - Loot retrieval: centralized collection of captured data from all devices
-- Self-hosted on VPS or local server: `./c2-3.0.0_amd64_linux -hostname yourdomain.com -https`
+- Self-hosted on a VPS or local server: the downloaded binary is run with a hostname and an HTTPS flag, per Hak5's Cloud C2 documentation (the binary name includes the current release version)
 - REST API for automation and SIEM integration
+
+### Sources for the Hak5 section
+
+Hak5 product documentation and official repositories, read 2026-11-26. Every Hak5 device named above is a current product on Hak5's documentation site under the model given; the O.MG Cable is made by the O.MG project (o.mg.lol), not Hak5, and is retailed by Hak5. Specifications, commands and script examples reproduce the devices' documentation and community payload repositories; where this review did not open a current page confirming a specific detail, it is marked unverified below and the linked documentation is the authority.
+
+- WiFi Pineapple Mark VII: docs <https://documentation.hak5.org/wifi-pineapple/>; modules <https://github.com/hak5/pineapple-modules>; documentation source <https://github.com/hak5/mk7-docs>
+- WiFi Coconut: docs <https://documentation.hak5.org/wifi-coconut/>; repo <https://github.com/hak5/hak5-wifi-coconut>
+- USB Rubber Ducky (DuckyScript 3.0): docs <https://documentation.hak5.org/hak5-usb-rubber-ducky/>; payloads <https://github.com/hak5/usbrubberducky-payloads>; Payload Studio <https://payloadstudio.hak5.org>
+- Bash Bunny (Mark II): docs <https://documentation.hak5.org/bash-bunny/>; payloads <https://github.com/hak5/bashbunny-payloads>
+- Shark Jack: docs <https://documentation.hak5.org/shark-jack/>; payloads <https://github.com/hak5/sharkjack-payloads>
+- LAN Turtle: docs <https://documentation.hak5.org/lan-turtle/>; modules <https://github.com/hak5/lanturtle-modules>
+- Packet Squirrel (Mark II): docs <https://documentation.hak5.org/packet-squirrel-mark-ii/>; payloads <https://github.com/hak5/packetsquirrel-payloads>
+- Key Croc: docs <https://documentation.hak5.org/key-croc/>; payloads <https://github.com/hak5/keycroc-payloads>
+- O.MG Cable (made by the O.MG project): <https://o.mg.lol/>; payloads hosted by Hak5 <https://github.com/hak5/omg-payloads>
+- Screen Crab: docs <https://documentation.hak5.org/screen-crab/>
+- Cloud C2: docs <https://documentation.hak5.org/cloud-c2/>
+
+Marked unverified in this review (confirm against the documentation above): the WiFi Coconut radio count; the current-firmware availability of the WiFi Pineapple's Evil Portal, SSLsplit and DNSspoof modules; the Bash Bunny LED status codes and ATTACKMODE list; the Key Croc keyword-trigger syntax; the LAN Turtle and Packet Squirrel module and tool lists; the Screen Crab capture specifications; and the Cloud C2 release version.
 
 ---
 ## 2. Great Scott Gadgets

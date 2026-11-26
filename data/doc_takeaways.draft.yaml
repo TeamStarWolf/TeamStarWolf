@@ -1033,7 +1033,7 @@ pages:
     items:
       - {"text": "Always obtain explicit written authorization before testing any system you do not own.", "from": "#security-gadgets-reference", "quote": "Always obtain explicit written authorization before testing on any systems you do not own."}
       - {"text": "The USB Rubber Ducky presents as a USB keyboard and types scripted payloads at machine speed the moment it is plugged in.", "from": "#_1-hak5-ecosystem", "quote": "is a keystroke injection tool that presents as a USB HID keyboard, executing scripted payloads at machine speed the moment it is plugged in."}
-      - {"text": "The O.MG Cable hides a WiFi-enabled microcontroller in a cable that looks like a standard charging cable.", "from": "#_1-hak5-ecosystem", "quote": "is a USB cable with an embedded WiFi-enabled microcontroller, visually indistinguishable from standard charging cables."}
+      - {"text": "The O.MG Cable hides a WiFi-enabled microcontroller in a cable that looks like a standard charging cable.", "from": "#_1-hak5-ecosystem", "quote": "is a USB cable with an embedded WiFi-enabled microcontroller, visually similar to standard charging cables."}
       - {"text": "Flipper Zero's Sub-GHz radio can receive, decode, save, and replay fixed-code signals from 300 to 928 MHz.", "from": "#_3-flipper-zero", "quote": "to receive, decode, save, and replay fixed-code radio signals in the 300-928 MHz range."}
   SECURITY_PROGRAM_MANAGEMENT_REFERENCE.md:
     batch: 8
